@@ -1,0 +1,418 @@
+<template>
+    <div class="main">
+        <div class="title">
+            武器列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
+            </a-button>
+        </div>
+        <div class="selectDiv">
+            <div>
+                <span>稀有度:</span>
+                <a-select ref="select" v-model:value="star" style="width: 140px;" @change="groupChange"
+                    placeholder="请选择稀有度">
+                    <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
+                            item.label
+                    }}</a-select-option>
+                </a-select>
+            </div>
+            <div>
+                <span>武器类型:</span>
+                <a-select ref="select" v-model:value="weaponType" style="width: 160px;" @change="groupChange"
+                    placeholder="请选择武器类型">
+                    <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
+                            item.label
+                    }}</a-select-option>
+                </a-select>
+            </div>
+            <div>
+                <span>是否专属:</span>
+                <a-select ref="select" v-model:value="isExclusive" style="width: 120px;" @change="groupChange"
+                    placeholder="请选择">
+                    <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
+                            item.label
+                    }}</a-select-option>
+                </a-select>
+            </div>
+            <div>
+                <a-button size="small" @click="getList">查询</a-button>
+                <a-button size="small" @click="reset">重置</a-button>
+            </div>
+        </div>
+
+        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
+            <template #bodyCell="{ column, record }">
+                <template v-if="column.key === 'name'">
+                    <a>{{ record.name }}</a>
+                </template>
+                <template v-else-if="column.key === 'star'">
+                    <span>{{ starList.find(item => item.value == record.star)?.label }}</span>
+                </template>
+                <template v-else-if="column.key === 'weaponType'">
+                    <span>{{ weaponTypeList.find(item => item.value == record.weaponType)?.label }}</span>
+                </template>
+                <template v-else-if="column.key === 'isExclusive'">
+                    <span>{{ isExclusiveList.find(item => item.value == record.isExclusive)?.label }}</span>
+                </template>
+                <template v-else-if="column.key === 'action' && levelId === 1">
+                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                        <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
+                        <span v-if="levelId === 1">
+                            <a-divider type="vertical" />
+                            <a-button size="small" @click="showModal('edit', record)">修改</a-button>
+                            <a-divider type="vertical" />
+                            <a-popconfirm title="确定删除该兵种吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                                @cancel="cancel">
+                                <a-button size="small">删除</a-button>
+                            </a-popconfirm>
+                        </span>
+                    </span>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
+            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+        <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+            <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
+            <template #footer>
+                <a-button key="back" @click="visible = false">{{ type === 'detail' ? "关闭" : "取消" }}</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="handleOk" v-if="type !== 'detail'">确定
+                </a-button>
+            </template>
+        </a-modal>
+    </div>
+
+</template>
+
+<script lang="ts" setup>
+import { onMounted, reactive, ref, watch } from 'vue'
+import {
+    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Modal as aModal, Pagination as aPagination
+} from 'ant-design-vue'
+import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/mhmnz'
+import type { SelectValue } from 'ant-design-vue/lib/select'
+import AddPage, { type AddType, type API as AddPageAPI } from "./modal/weaponAddPage.vue"
+import type { AxiosPromise } from 'axios'
+
+export interface AddParamsType extends AddWeaponParams {
+    _id?: string
+    id?: number
+}
+
+export interface Type {
+    label: string
+    value: number | undefined
+}
+
+interface ColumnType {
+    title: string
+    dataIndex?: string
+    key: string
+    width?: number
+    sorter?: any
+}
+interface scrollType {
+    x: number
+    y: number | undefined
+}
+interface DataType {
+    _id: string
+    id: number
+    name: string
+    qq: string
+    group: string
+    position: string
+    remark: string
+}
+let addParams = reactive<AddParamsType>({
+    _id: '',
+    id: 0,
+    name: '',
+    star: undefined,
+    weaponType: undefined,
+    isExclusive: undefined,
+    shuxing: '',
+    introduce: '',
+    remark: ''
+})
+
+const current = ref<number>(1)
+const pageSize = ref<number>(10)
+const total = ref<number>(0)
+const title = ref<string>("添加兵种")
+const addPage = ref<AddPageAPI>()
+const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const levelId = ref<number | null>(null)
+if (userInfo.value && JSON.parse(userInfo.value).level) {
+    levelId.value = JSON.parse(userInfo.value).level
+} else {
+    levelId.value = null
+}
+const visible = ref<boolean>(false)
+const star = ref<number | undefined>(undefined)
+const starList = ref<Type[]>([{
+    label: "全部",
+    value: 0
+}, {
+    label: "SSR",
+    value: 4
+}, {
+    label: "SR",
+    value: 3
+}, {
+    label: "R",
+    value: 2
+}, {
+    label: "N",
+    value: 1
+}])
+const weaponType = ref<number | undefined>(undefined)
+const weaponTypeList = ref<Type[]>([{
+    label: "全部",
+    value: 0,
+}, {
+    label: "武器",
+    value: 1,
+}, {
+    label: "防具",
+    value: 2,
+}, {
+    label: "头饰",
+    value: 3,
+}, {
+    label: "饰品",
+    value: 4,
+}])
+const isExclusive = ref<number | undefined>(undefined)
+const isExclusiveList = ref<Type[]>([{
+    label: "全部",
+    value: 0,
+}, {
+    label: "是",
+    value: 1,
+}, {
+    label: "否",
+    value: 2,
+}])
+const columns = ref<ColumnType[]>([
+    {
+        title: '序号',
+        dataIndex: 'id',
+        key: 'id',
+        width: 80
+    },
+    {
+        title: '名称',
+        dataIndex: 'name',
+        key: 'name',
+        width: 120
+    },
+    {
+        title: '稀有度',
+        dataIndex: 'star',
+        key: 'star',
+        width: 100,
+    },
+    {
+        title: '部位',
+        dataIndex: 'weaponType',
+        key: 'weaponType',
+        width: 100,
+    },
+    {
+        title: '是否专属',
+        dataIndex: 'isExclusive',
+        key: 'isExclusive',
+        width: 120
+    },
+    {
+        title: '属性',
+        dataIndex: 'shuxing',
+        key: 'shuxing',
+        width: 200
+    },
+    {
+        title: '技能',
+        dataIndex: 'introduce',
+        key: 'introduce',
+        width: 200
+    },
+    {
+        title: '备注',
+        dataIndex: 'remark',
+        key: 'remark',
+        width: 160
+    },
+    {
+        title: '操作',
+        key: 'action',
+        width: 160
+    },
+])
+const loading = ref<boolean>(false)
+const data = ref<DataType[]>([])
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
+const mql = window.matchMedia('(max-width: 768px)')
+const type = ref<AddType>("add")
+
+function mediaMatchs() {
+    if (mql.matches) {
+        scrollObj.y = 550
+    } else {
+        scrollObj.y = undefined
+    }
+}
+mediaMatchs()
+mql.addEventListener("change", mediaMatchs)
+
+async function getList() {
+    const params: GetWeaponListParams = {
+        pageSize: pageSize.value,
+        pageNo: current.value,
+        star: star.value,
+        weaponType: weaponType.value,
+        isExclusive: isExclusive.value
+    }
+    const res = await getWeaponList(params)
+    if (res.data.code === 200) {
+        data.value = res.data.rows
+        total.value = res.data.total
+    }
+}
+
+async function deleteOk(e: DataType) {
+    const params: DeleteParams = {
+        _id: e._id
+    }
+    const res = await deleteWeapon(params)
+    if (res.data.code === 200) {
+        message.success(res.data.msg)
+    } else {
+        message.error('删除失败')
+    }
+    if (data.value.length == 1) {
+        current.value--
+    }
+    getList()
+}
+
+function cancel() {
+    message.error('取消删除');
+}
+
+function groupChange(e: SelectValue) {
+    current.value = 1
+    getList()
+}
+
+function reset() {
+    star.value = weaponType.value = isExclusive.value = undefined
+    current.value = 1
+    getList()
+}
+
+function changeList() {
+    getList()
+}
+
+function showModal(showType: AddType, item?: AddParamsType) {
+    type.value = showType
+    if (showType === 'edit') {
+        title.value = "修改武器"
+        if (item) {
+            addParams._id = item._id
+            addParams.name = item.name
+            addParams.star = item.star
+            addParams.weaponType = item.weaponType
+            addParams.isExclusive = item.isExclusive
+            addParams.shuxing = item.shuxing
+            addParams.introduce = item.introduce
+            addParams.remark = item.remark
+            addParams.id = item.id
+        }
+    } else if (showType === 'add') {
+        title.value = "添加武器"
+        addParams.star = addParams.weaponType = addParams.isExclusive = undefined
+        addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = ''
+        addParams.id = 0
+    } else if (showType === 'detail') {
+        title.value = "查看详情"
+        if (item) {
+            addParams.name = item.name
+            addParams.star = item.star
+            addParams.weaponType = item.weaponType
+            addParams.isExclusive = item.isExclusive
+            addParams.shuxing = item.shuxing
+            addParams.introduce = item.introduce
+            addParams.remark = item.remark
+        }
+    }
+    visible.value = true
+}
+
+async function handleOk(e: MouseEvent) {
+    loading.value = true
+    interface AType {
+        axios: ((data: AddWeaponParams) => AxiosPromise<any>) | ((data: UpdateWeaponParams) => AxiosPromise<any>)
+        msg: string
+    }
+    let a: AType = {
+        msg: '新增失败',
+        axios: addWeapon
+    }
+    if (type.value === "edit") {
+        a.axios = updateWeapon
+        a.msg = '修改失败'
+    }
+    const result = await addPage.value?.getAddData()
+    if (result && a.axios) {
+        const res = await a.axios(result)
+        if (res.data.code === 200) {
+            getList()
+            message.success(res.data.msg)
+            visible.value = false
+        } else {
+            message.error(a.msg)
+        }
+    }
+    loading.value = false
+}
+
+onMounted(() => {
+    getList()
+})
+
+</script>
+
+<style lang="less" scoped>
+.main {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 15px;
+    }
+
+    .selectDiv {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 10px;
+        margin: 15px;
+
+        div {
+            margin: 8px 8px 8px 0;
+
+            button {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .pagination {
+        margin: 20px 0 20px 20px;
+    }
+}
+</style>

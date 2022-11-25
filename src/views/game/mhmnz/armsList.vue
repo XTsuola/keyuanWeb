@@ -1,0 +1,403 @@
+<template>
+    <div class="main">
+        <div class="title">
+            兵种列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增兵种
+            </a-button>
+        </div>
+        <div class="selectDiv">
+            <div>
+                <span>兵种:</span>
+                <a-select ref="select" v-model:value="armsType" style="width: 120px;" @change="groupChange"
+                    placeholder="请选择兵种">
+                    <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
+                            item.label
+                    }}</a-select-option>
+                </a-select>
+            </div>
+            <div>
+                <a-button size="small" @click="getList">查询</a-button>
+                <a-button size="small" @click="reset">重置</a-button>
+            </div>
+        </div>
+
+        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
+            <template #bodyCell="{ column, record }">
+                <template v-if="column.key === 'name'">
+                    <a>{{ record.name }}</a>
+                </template>
+                <template v-else-if="column.key === 'type'">
+                    <span>{{ typeList.find(item => item.value == record.type)?.label }}</span>
+                </template>
+                <template v-else-if="column.key === 'action' && levelId === 1">
+                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                        <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
+                        <span v-if="levelId === 1">
+                            <a-divider type="vertical" />
+                            <a-button size="small" @click="showModal('edit', record)">修改</a-button>
+                            <a-divider type="vertical" />
+                            <a-popconfirm title="确定删除该兵种吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                                @cancel="cancel">
+                                <a-button size="small">删除</a-button>
+                            </a-popconfirm>
+                        </span>
+                    </span>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
+            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+        <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+            <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
+            <template #footer>
+                <a-button key="back" @click="visible = false">{{ type === 'detail' ? "关闭" : "取消" }}</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="handleOk" v-if="type !== 'detail'">确定
+                </a-button>
+            </template>
+        </a-modal>
+    </div>
+
+</template>
+
+<script lang="ts" setup>
+import { onMounted, reactive, ref, watch } from 'vue'
+import {
+    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Modal as aModal, Pagination as aPagination
+} from 'ant-design-vue'
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from '@/api/mhmnz'
+import type { SelectValue } from 'ant-design-vue/lib/select'
+import AddPage, { type AddType, type API as AddPageAPI } from "./modal/armsAddPage.vue"
+import type { AxiosPromise } from 'axios'
+
+export interface AddParamsType extends AddArmsParams {
+    _id?: string
+    id?: number
+}
+
+export interface Type {
+    label: string
+    value: number | undefined
+}
+
+interface ColumnType {
+    title: string
+    dataIndex?: string
+    key: string
+    width?: number
+    sorter?: any
+}
+interface scrollType {
+    x: number
+    y: number | undefined
+}
+interface DataType {
+    _id: string
+    id: number
+    name: string
+    qq: string
+    group: string
+    position: string
+    remark: string
+}
+let addParams = reactive<AddParamsType>({
+    _id: '',
+    id: 0,
+    name: '',
+    type: undefined,
+    life: "",
+    att: "",
+    def: "",
+    mof: "",
+    talent: "",
+    remark: ''
+})
+
+const current = ref<number>(1)
+const pageSize = ref<number>(10)
+const total = ref<number>(0)
+const title = ref<string>("添加兵种")
+const addPage = ref<AddPageAPI>()
+const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const levelId = ref<number | null>(null)
+if (userInfo.value && JSON.parse(userInfo.value).level) {
+    levelId.value = JSON.parse(userInfo.value).level
+} else {
+    levelId.value = null
+}
+const visible = ref<boolean>(false)
+const armsType = ref<number | undefined>(undefined)
+const typeList = ref<Type[]>([{
+    label: "全部",
+    value: 0
+}, {
+    label: "步兵",
+    value: 1
+}, {
+    label: "枪兵",
+    value: 2
+}, {
+    label: "骑兵",
+    value: 3
+}, {
+    label: "飞兵",
+    value: 4
+}, {
+    label: "水兵",
+    value: 5
+}, {
+    label: "弓兵",
+    value: 6
+}, {
+    label: "刺客",
+    value: 7
+}, {
+    label: "法师",
+    value: 8
+}, {
+    label: "僧侣",
+    value: 9
+}, {
+    label: "魔物",
+    value: 10
+}])
+const columns = ref<ColumnType[]>([
+    {
+        title: '序号',
+        dataIndex: 'id',
+        key: 'id',
+        width: 80
+    },
+    {
+        title: '名称',
+        dataIndex: 'name',
+        key: 'name',
+        width: 100
+    },
+    {
+        title: '类型',
+        dataIndex: 'type',
+        key: 'type',
+        width: 80
+    },
+    {
+        title: '生命',
+        dataIndex: 'life',
+        key: 'life',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.life) - parseInt(b.life)
+        }
+    },
+    {
+        title: '攻击',
+        dataIndex: 'att',
+        key: 'att',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.att) - parseInt(b.att)
+        }
+    },
+    {
+        title: '防御',
+        dataIndex: 'def',
+        key: 'def',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.def) - parseInt(b.def)
+        }
+    },
+    {
+        title: '魔防',
+        dataIndex: 'mof',
+        key: 'mof',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.mof) - parseInt(b.mof)
+        }
+    },
+    {
+        title: '技能',
+        dataIndex: 'talent',
+        key: 'talent',
+        width: 300
+    },
+    {
+        title: '备注',
+        key: 'remark',
+        dataIndex: 'remark',
+        width: 300
+    },
+    {
+        title: '操作',
+        key: 'action',
+        width: 160
+    },
+])
+const loading = ref<boolean>(false)
+const data = ref<DataType[]>([])
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
+const mql = window.matchMedia('(max-width: 768px)')
+const type = ref<AddType>("add")
+
+function mediaMatchs() {
+    if (mql.matches) {
+        scrollObj.y = 550
+    } else {
+        scrollObj.y = undefined
+    }
+}
+mediaMatchs()
+mql.addEventListener("change", mediaMatchs)
+
+async function getList() {
+    const params: GetArmsListParams = {
+        pageSize: pageSize.value,
+        pageNo: current.value,
+        type: armsType.value
+    }
+    const res = await getArmsList(params)
+    if (res.data.code === 200) {
+        data.value = res.data.rows
+        total.value = res.data.total
+    }
+}
+
+async function deleteOk(e: DataType) {
+    const params: DeleteParams = {
+        _id: e._id
+    }
+    const res = await deleteArms(params)
+    if (res.data.code === 200) {
+        message.success(res.data.msg)
+    } else {
+        message.error('删除失败')
+    }
+    if (data.value.length == 1) {
+        current.value--
+    }
+    getList()
+}
+
+function cancel() {
+    message.error('取消删除');
+}
+
+function groupChange(e: SelectValue) {
+    current.value = 1
+    getList()
+}
+
+function reset() {
+    armsType.value = undefined
+    current.value = 1
+    getList()
+}
+
+function changeList() {
+    getList()
+}
+
+function showModal(showType: AddType, item?: AddParamsType) {
+    type.value = showType
+    if (showType === 'edit') {
+        title.value = "修改兵种"
+        if (item) {
+            addParams._id = item._id
+            addParams.name = item.name
+            addParams.type = item.type
+            addParams.life = item.life
+            addParams.att = item.att
+            addParams.def = item.def
+            addParams.mof = item.mof
+            addParams.talent = item.talent
+            addParams.remark = item.remark
+            addParams.id = item.id
+        }
+    } else if (showType === 'add') {
+        title.value = "添加兵种"
+        addParams.type = undefined
+        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.remark = ''
+        addParams.id = 0
+    } else if (showType == 'detail') {
+        title.value = "查看详情"
+        if (item) {
+            addParams.name = item.name
+            addParams.type = item.type
+            addParams.life = item.life
+            addParams.att = item.att
+            addParams.def = item.def
+            addParams.mof = item.mof
+            addParams.talent = item.talent
+            addParams.remark = item.remark
+        }
+    }
+    visible.value = true
+}
+
+async function handleOk(e: MouseEvent) {
+    loading.value = true
+    interface AType {
+        axios: ((data: AddArmsParams) => AxiosPromise<any>) | ((data: UpdateArmsParams) => AxiosPromise<any>)
+        msg: string
+    }
+    let a: AType = {
+        msg: '新增失败',
+        axios: addArms
+    }
+    if (type.value === "edit") {
+        a.axios = updateArms
+        a.msg = '修改失败'
+    }
+    const result = await addPage.value?.getAddData()
+    if (result && a.axios) {
+        const res = await a.axios(result)
+        if (res.data.code === 200) {
+            getList()
+            message.success(res.data.msg)
+            visible.value = false
+        } else {
+            message.error(a.msg)
+        }
+    }
+    loading.value = false
+}
+
+onMounted(() => {
+    getList()
+})
+
+</script>
+
+<style lang="less" scoped>
+.main {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 15px;
+    }
+
+    .selectDiv {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 10px;
+        margin: 15px;
+
+        div {
+            margin: 8px 8px 8px 0;
+
+            button {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .pagination {
+        margin: 20px 0 20px 20px;
+    }
+}
+</style>
