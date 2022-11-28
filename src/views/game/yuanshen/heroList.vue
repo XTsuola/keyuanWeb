@@ -74,7 +74,7 @@
                     <span>{{ armsList.find(item => item.value == record.arms)?.label }}</span>
                 </template>
                 <template v-else-if="column.key === 'shuxing'">
-                    <span>{{ shuxingList.find(item => item.value == record.gender)?.label }}</span>
+                    <span>{{ shuxingList.find(item => item.value == record.shuxing)?.label }}</span>
                 </template>
                 <template v-else-if="column.key === 'star'">
                     <span>{{ starList.find(item => item.value == record.star)?.label }}</span>
