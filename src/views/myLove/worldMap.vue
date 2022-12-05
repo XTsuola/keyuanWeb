@@ -102,7 +102,6 @@ function reduce() {
 
 onMounted(() => {
     nextTick(() => {
-        console.log(111)
         initMap();
         setPoint()
     });
@@ -122,8 +121,8 @@ onMounted(() => {
 
     .tools {
         position: absolute;
-        right: 40px;
-        bottom: 40px;
+        right: 20px;
+        bottom: 20px;
     }
 }
 </style>
