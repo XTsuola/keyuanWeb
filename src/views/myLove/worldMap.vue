@@ -75,7 +75,7 @@ function setPoint() {
         time: "2020年11月27日"
     }]
     map.value.addEventListener('click', function (e: any) {
-        console.log(e, "eee")
+        console.log(e)
     })
     for (let i = 0; i < list.length; i++) {
         var point = new Bmap.Point(list[i].lng, list[i].lat);
