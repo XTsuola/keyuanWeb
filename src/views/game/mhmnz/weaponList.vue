@@ -34,7 +34,7 @@
                 </a-select>
             </div>
             <div>
-                <a-button size="small" @click="getList">查询</a-button>
+                <a-button size="small" @click="selectList">查询</a-button>
                 <a-button size="small" @click="reset">重置</a-button>
             </div>
         </div>
@@ -301,6 +301,11 @@ function cancel() {
 }
 
 function groupChange(e: SelectValue) {
+    current.value = 1
+    getList()
+}
+
+function selectList() {
     current.value = 1
     getList()
 }

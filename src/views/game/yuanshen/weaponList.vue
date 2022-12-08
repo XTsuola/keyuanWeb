@@ -33,7 +33,7 @@
                 <a-input v-model:value="attribute" type="text" style="width:120px" placeholder="请输入词条" />
             </div>
             <div class="btn">
-                <a-button size="small" @click="getList">查询</a-button>
+                <a-button size="small" @click="selectList">查询</a-button>
                 <a-button size="small" @click="reset">重置</a-button>
             </div>
 
@@ -302,6 +302,11 @@ function cancel() {
 }
 
 function groupChange(e: SelectValue) {
+    current.value = 1
+    getList()
+}
+
+function selectList() {
     current.value = 1
     getList()
 }
