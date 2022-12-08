@@ -313,6 +313,17 @@ const newRouterDate: Array<RouteRecordRaw> = [
             },
             component: () => import("@/views/myLove/worldMap.vue")
           },
+          {
+            path: "cookList",
+            meta: {
+              menuType: "menu",
+              key: "cookList",
+              label: "菜谱列表",
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
+            },
+            component: () => import("@/views/myLove/cookList.vue")
+          },
         ]
       }
     ]
