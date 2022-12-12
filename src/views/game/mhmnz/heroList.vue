@@ -5,40 +5,39 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增英雄
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>稀有度:</span>
-                <a-select ref="select" v-model:value="star" style="width: 140px;" @change="groupChange"
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
+            autocomplete="off">
+            <a-form-item label="稀有度" style="width: 220px">
+                <a-select ref="select" v-model:value="formState.star" @change="selectList"
                     placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>性别:</span>
-                <a-select ref="select" v-model:value="gender" style="width: 120px;" @change="groupChange"
+            </a-form-item>
+            <a-form-item label="性别" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.gender" @change="selectList"
                     placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>阵营:</span>
-                <a-select ref="select" v-model:value="camp" style="width: 120px;" @change="groupChange"
+            </a-form-item>
+            <a-form-item label="阵营" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.camp" @change="selectList"
                     placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-        </div>
-
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -70,7 +69,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -84,13 +83,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/mhmnz'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -150,7 +148,16 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const star = ref<number | undefined>(undefined)
+interface FormStateType {
+    star: number | undefined
+    gender: number | undefined
+    camp: number | undefined
+}
+const formState = reactive<FormStateType>({
+    star: undefined,
+    gender: undefined,
+    camp: undefined
+})
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -167,7 +174,6 @@ const starList = ref<Type[]>([{
     label: "R",
     value: 1
 }])
-const gender = ref<number | undefined>(undefined)
 const genderList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -178,7 +184,6 @@ const genderList = ref<Type[]>([{
     label: "女",
     value: 2,
 }])
-const camp = ref<number | undefined>(undefined)
 const campList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -283,9 +288,8 @@ const columns = ref<ColumnType[]>([
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
 const type = ref<AddType>("add")
-
+const mql = window.matchMedia('(max-width: 768px)')
 function mediaMatchs() {
     if (mql.matches) {
         scrollObj.y = 550
@@ -312,9 +316,9 @@ async function getList() {
     const params: GetHeroListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        star: star.value,
-        gender: gender.value,
-        camp: camp.value
+        star: formState.star,
+        gender: formState.gender,
+        camp: formState.camp
     }
     const res = await getHeroList(params)
     if (res.data.code === 200) {
@@ -343,24 +347,14 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    star.value = gender.value = camp.value = undefined
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.star = formState.gender = formState.camp = undefined
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -437,29 +431,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
+        flex-wrap: wrap;
     }
 
     .pagination {

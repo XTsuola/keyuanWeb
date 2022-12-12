@@ -5,22 +5,23 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增成员
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>分组:</span>
-                <a-select ref="select" v-model:value="groupValue" style="width: 120px;" @change="groupChange"
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+            <a-form-item label="分组" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.groupValue" style="width: 120px;" @change="groupChange"
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
                             item.groupName
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-        </div>
-
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
+        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
@@ -40,6 +41,8 @@
                 </template>
             </template>
         </a-table>
+        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -55,7 +58,7 @@
 import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team"
 import type { SelectValue } from 'ant-design-vue/lib/select'
@@ -101,7 +104,9 @@ let addParams = reactive<AddParamsType>({
     position: '',
     remark: ''
 })
-
+const current = ref<number>(1)
+const pageSize = ref<number>(10)
+const total = ref<number>(0)
 const title = ref<string>("添加成员")
 const addPage = ref<AddPageAPI>()
 const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
@@ -112,7 +117,12 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const groupValue = ref<string | undefined>(undefined)
+interface FormStateType {
+    groupValue: number | undefined
+}
+const formState = reactive<FormStateType>({
+    groupValue: undefined
+})
 const groupList = ref<GroupListType[]>([])
 const columns = ref<ColumnType[]>([
     {
@@ -176,12 +186,15 @@ async function getGroup() {
 
 async function getList() {
     const params: GetMemberListParams = {
-        group: groupValue.value
+        pageSize: pageSize.value,
+        pageNo: current.value,
+        group: formState.groupValue
     }
     const res = await getMemberList(params)
     console.log(res, "ppp")
     if (res.data.code === 200) {
         data.value = res.data.rows
+        total.value = res.data.total
     }
 }
 
@@ -206,8 +219,13 @@ function groupChange(e: SelectValue) {
     getList()
 }
 
+function selectList() {
+    current.value = 1
+    getList()
+}
+
 function reset() {
-    groupValue.value = undefined
+    formState.groupValue = undefined
     getList()
 }
 
@@ -269,29 +287,24 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
+        flex-wrap: wrap;
+    }
 
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
+    .pagination {
+        margin: 20px 0 20px 20px;
     }
 }
 </style>

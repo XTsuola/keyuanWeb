@@ -5,60 +5,49 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增角色
             </a-button>
         </div>
-
-        <div class="selectDiv">
-            <div>
-                <span>性别:</span>
-                <a-select ref="select" v-model:value="gender" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择国家">
+        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
+            <a-form-item label="性别" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.gender" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>国家:</span>
-                <a-select ref="select" v-model:value="country" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择国家">
+            </a-form-item>
+            <a-form-item label="国家" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>武器:</span>
-                <a-select ref="select" v-model:value="arms" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择武器">
+            </a-form-item>
+            <a-form-item label="武器" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>属性:</span>
-                <a-select ref="select" v-model:value="shuxing" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择属性">
+            </a-form-item>
+            <a-form-item label="属性" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>星级:</span>
-                <a-select ref="select" v-model:value="star" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择星级">
+            </a-form-item>
+            <a-form-item label="星级" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-
-        </div>
-
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -96,7 +85,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -113,10 +102,9 @@
 import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yuanshen'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -179,7 +167,20 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const gender = ref<number | undefined>(undefined)
+interface FormStateType {
+    gender: number | undefined
+    country: number | undefined
+    arms: number | undefined
+    shuxing: number | undefined
+    star: number | undefined
+}
+const formState = reactive<FormStateType>({
+    gender: undefined,
+    country: undefined,
+    arms: undefined,
+    shuxing: undefined,
+    star: undefined,
+})
 const genderList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -190,7 +191,6 @@ const genderList = ref<Type[]>([{
     label: "女",
     value: 2
 }])
-const country = ref<number | undefined>(undefined)
 const countryList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -219,7 +219,6 @@ const countryList = ref<Type[]>([{
     label: "异世界",
     value: 8
 }])
-const arms = ref<number | undefined>(undefined)
 const armsList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -239,7 +238,6 @@ const armsList = ref<Type[]>([{
     label: "法器",
     value: 5
 }])
-const shuxing = ref<number | undefined>(undefined)
 const shuxingList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -265,7 +263,6 @@ const shuxingList = ref<Type[]>([{
     label: "冰",
     value: 7
 }])
-const star = ref<number | undefined>(undefined)
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -357,11 +354,11 @@ async function getList() {
     const params: GetHeroListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        gender: gender.value,
-        country: country.value,
-        arms: arms.value,
-        shuxing: shuxing.value,
-        star: star.value
+        gender: formState.gender,
+        country: formState.country,
+        arms: formState.arms,
+        shuxing: formState.shuxing,
+        star: formState.star
     }
     const res = await getHeroList(params)
     if (res.data.code === 200) {
@@ -390,24 +387,14 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    gender.value = country.value = arms.value = shuxing.value = star.value = undefined
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.gender = formState.country = formState.arms = formState.shuxing = formState.star = undefined
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -483,32 +470,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
-        overflow: hidden;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
-        overflow: hidden;
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
         flex-wrap: wrap;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
     }
 
     .pagination {

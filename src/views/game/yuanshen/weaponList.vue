@@ -5,40 +5,37 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>武器类型:</span>
-                <a-select ref="select" v-model:value="weaponType" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择类型">
+        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }"
+            autocomplete="off">
+            <a-form-item label="武器类型" style="width: 240px">
+                <a-select ref="select" v-model:value="formState.weaponType" @change="selectList"
+                    placeholder="请选择武器类型">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>星级:</span>
-                <a-select ref="select" v-model:value="star" style="width: 120px;" @change="groupChange"
+            </a-form-item>
+            <a-form-item label="星级" style="width:200px">
+                <a-select ref="select" v-model:value="formState.star" @change="selectList"
                     placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>基础攻击:</span>
-                <a-input v-model:value="baseAttack" type="text" style="width:120px" placeholder="请输入攻击" />
-            </div>
-            <div>
-                <span>副词条:</span>
-                <a-input v-model:value="attribute" type="text" style="width:120px" placeholder="请输入词条" />
-            </div>
-            <div class="btn">
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-
-        </div>
-
+            </a-form-item>
+            <a-form-item label="基础攻击" style="width: 240px">
+                <a-input v-model:value="formState.baseAttack" type="text" placeholder="请输入攻击" />
+            </a-form-item>
+            <a-form-item label="副词条" style="width: 220px">
+                <a-input v-model:value="formState.attribute" type="text" placeholder="请输入词条" />
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -67,7 +64,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -84,10 +81,9 @@
 import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Input as aInput, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/yuanshen'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/weaponAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -149,7 +145,18 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const weaponType = ref<number | undefined>(undefined)
+interface FormStateType {
+    weaponType: number | undefined
+    star: number | undefined
+    baseAttack: string
+    attribute: string
+}
+const formState = reactive<FormStateType>({
+    weaponType: undefined,
+    star: undefined,
+    baseAttack: "",
+    attribute: ""
+})
 const weaponTypeList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -169,7 +176,6 @@ const weaponTypeList = ref<Type[]>([{
     label: "法器",
     value: 5
 }])
-const star = ref<number | undefined>(undefined)
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -189,8 +195,6 @@ const starList = ref<Type[]>([{
     label: "一星",
     value: 1
 }])
-const baseAttack = ref<string>("")
-const attribute = ref<string>("")
 const columns = ref<ColumnType[]>([
     {
         title: '序号',
@@ -269,10 +273,10 @@ async function getList() {
     const params: GetWeaponListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        type: weaponType.value,
-        star: star.value,
-        baseAttack: baseAttack.value,
-        attribute: attribute.value
+        type: formState.weaponType,
+        star: formState.star,
+        baseAttack: formState.baseAttack,
+        attribute: formState.attribute
     }
     const res = await getWeaponList(params)
     if (res.data.code === 200) {
@@ -301,25 +305,15 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    weaponType.value = star.value = undefined
-    baseAttack.value = attribute.value = ""
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.weaponType = formState.star = undefined
+    formState.baseAttack = formState.attribute = ""
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -337,12 +331,12 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if(showType === 'add') {
+    } else if (showType === 'add') {
         title.value = "添加武器"
         addParams.type = addParams.star = undefined
         addParams._id = addParams.name = addParams.baseAttack = addParams.attribute = addParams.remark = ''
         addParams.id = 0
-    } else if(showType === 'detail') {
+    } else if (showType === 'detail') {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -393,32 +387,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
-        overflow: hidden;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
-        overflow: hidden;
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
         flex-wrap: wrap;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
     }
 
     .pagination {

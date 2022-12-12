@@ -5,27 +5,25 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增圣遗物
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>星级:</span>
-                <a-select ref="select" v-model:value="star" style="width: 120px;" @change="groupChange"
+        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
+            <a-form-item label="星级" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.star" @change="selectList"
                     placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>关键词:</span>
-                <a-input v-model:value="tag" type="text" style="width:120px" placeholder="请输入关键词" />
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-
-        </div>
-
+            </a-form-item>
+            <a-form-item label="关键词" style="width: 220px">
+                <a-input v-model:value="formState.tag" type="text" placeholder="请输入关键词" />
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -51,7 +49,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -65,13 +63,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from '@/api/yuanshen'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/relicsAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -133,8 +130,14 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-
-const star = ref<number | undefined>(undefined)
+interface FormStateType {
+    star: number | undefined
+    tag: string
+}
+const formState = reactive<FormStateType>({
+    star: undefined,
+    tag: ""
+})
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -148,7 +151,6 @@ const starList = ref<Type[]>([{
     label: "三星",
     value: 3
 }])
-const tag = ref<string>("")
 const columns = ref<ColumnType[]>([
     {
         title: '序号',
@@ -218,8 +220,8 @@ async function getList() {
     const params: GetRelicsListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        star: star.value,
-        tag: tag.value
+        star: formState.star,
+        tag: formState.tag
     }
     const res = await getRelicsList(params)
     if (res.data.code === 200) {
@@ -248,25 +250,15 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    star.value = undefined
-    tag.value = ""
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.star = undefined
+    formState.tag = ""
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -336,32 +328,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
-        overflow: hidden;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
-        overflow: hidden;
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
         flex-wrap: wrap;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
     }
 
     .pagination {

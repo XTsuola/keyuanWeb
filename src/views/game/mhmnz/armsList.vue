@@ -5,22 +5,21 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增兵种
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>兵种:</span>
-                <a-select ref="select" v-model:value="armsType" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择兵种">
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+            <a-form-item label="兵种" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-        </div>
-
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -46,7 +45,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -60,13 +59,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from '@/api/mhmnz'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/armsAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -126,7 +124,12 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const armsType = ref<number | undefined>(undefined)
+interface FormStateType {
+    armsType: number | undefined
+}
+const formState = reactive<FormStateType>({
+    armsType: undefined
+})
 const typeList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -254,7 +257,7 @@ async function getList() {
     const params: GetArmsListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        type: armsType.value
+        type: formState.armsType
     }
     const res = await getArmsList(params)
     if (res.data.code === 200) {
@@ -283,24 +286,14 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    armsType.value = undefined
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.armsType = undefined
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -376,29 +369,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
+        flex-wrap: wrap;
     }
 
     .pagination {

@@ -10,7 +10,9 @@ export interface UpdateImgParams {
 }
 
 export interface GetMemberListParams {
-    group: string | undefined
+    pageSize: number
+    pageNo: number
+    group: number | undefined
 }
 
 export interface AddMemberParams {

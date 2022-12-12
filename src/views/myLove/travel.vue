@@ -10,6 +10,9 @@
         <h1></h1>
         <div @click="nextPage">下一页</div>
     </div>
+    <div style="padding: 10px;" v-else>
+        暂无数据
+    </div>
 </template>
 
 <script lang="ts" setup>

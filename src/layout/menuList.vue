@@ -7,10 +7,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { provide, reactive, ref } from 'vue';
 import MenuItem from './menuItem.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { Menu as aMenu } from 'ant-design-vue'
+
+export interface CloseMenu {
+    closeNow: (obj: any) => void;
+}
 
 const router = useRouter()
 const route = useRoute()
@@ -18,9 +22,8 @@ const BaseRoute = router.getRoutes().find(e => e.path === "/")
 const openKeys = ref<string[]>([])
 const selectedKeys = ref<string[]>([])
 const routerKey = router.getRoutes().find(e => e.path === route.path)
-if (routerKey && routerKey.meta && routerKey.meta.key) {
-    selectedKeys.value.push(routerKey.meta.key)
-    const arr = route.path.split('/')
+
+function updateMenu(arr: string[]) {
     if (!arr[0]) {
         arr.shift()
         arr.pop()
@@ -30,5 +33,21 @@ if (routerKey && routerKey.meta && routerKey.meta.key) {
         openKeys.value = arr
     }
 }
+
+if (routerKey && routerKey.meta && routerKey.meta.key) {
+    selectedKeys.value.push(routerKey.meta.key)
+    const arr = route.path.split('/')
+    updateMenu(arr)
+}
+
+const closeMenu = reactive<CloseMenu>({
+    closeNow(obj) {
+        const arr = obj.path.split('/')
+        updateMenu(arr)
+    }
+})
+
+provide<CloseMenu>("closeMenu", closeMenu)
+
 
 </script>

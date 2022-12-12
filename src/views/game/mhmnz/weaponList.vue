@@ -5,40 +5,36 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>稀有度:</span>
-                <a-select ref="select" v-model:value="star" style="width: 140px;" @change="groupChange"
-                    placeholder="请选择稀有度">
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
+            autocomplete="off">
+            <a-form-item label="稀有度" style="width: 220px">
+                <a-select ref="select" v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>武器类型:</span>
-                <a-select ref="select" v-model:value="weaponType" style="width: 160px;" @change="groupChange"
-                    placeholder="请选择武器类型">
+            </a-form-item>
+            <a-form-item label="武器类型" style="width: 240px">
+                <a-select ref="select" v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>是否专属:</span>
-                <a-select ref="select" v-model:value="isExclusive" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择">
+            </a-form-item>
+            <a-form-item label="是否专属" style="width: 240px">
+                <a-select ref="select" v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-        </div>
-
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -70,7 +66,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -87,10 +83,9 @@
 import { onMounted, reactive, ref, watch } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/mhmnz'
-import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/weaponAddPage.vue"
 import type { AxiosPromise } from 'axios'
 
@@ -149,7 +144,16 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const star = ref<number | undefined>(undefined)
+interface FormStateType {
+    star: number | undefined
+    weaponType: number | undefined
+    isExclusive: number | undefined
+}
+const formState = reactive<FormStateType>({
+    star: undefined,
+    weaponType: undefined,
+    isExclusive: undefined
+})
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -166,7 +170,6 @@ const starList = ref<Type[]>([{
     label: "N",
     value: 1
 }])
-const weaponType = ref<number | undefined>(undefined)
 const weaponTypeList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -183,7 +186,6 @@ const weaponTypeList = ref<Type[]>([{
     label: "饰品",
     value: 4,
 }])
-const isExclusive = ref<number | undefined>(undefined)
 const isExclusiveList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -252,9 +254,8 @@ const columns = ref<ColumnType[]>([
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
 const type = ref<AddType>("add")
-
+const mql = window.matchMedia('(max-width: 768px)')
 function mediaMatchs() {
     if (mql.matches) {
         scrollObj.y = 550
@@ -269,9 +270,9 @@ async function getList() {
     const params: GetWeaponListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        star: star.value,
-        weaponType: weaponType.value,
-        isExclusive: isExclusive.value
+        star: formState.star,
+        weaponType: formState.weaponType,
+        isExclusive: formState.isExclusive
     }
     const res = await getWeaponList(params)
     if (res.data.code === 200) {
@@ -300,24 +301,14 @@ function cancel() {
     message.error('取消删除');
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1
-    getList()
-}
-
 function selectList() {
     current.value = 1
     getList()
 }
 
 function reset() {
-    star.value = weaponType.value = isExclusive.value = undefined
-    current.value = 1
-    getList()
-}
-
-function changeList() {
-    getList()
+    formState.star = formState.weaponType = formState.isExclusive = undefined
+    selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -391,29 +382,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
+        flex-wrap: wrap;
     }
 
     .pagination {
