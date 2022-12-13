@@ -8,7 +8,7 @@
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
             autocomplete="off">
             <a-form-item label="稀有度" style="width: 220px">
-                <a-select ref="select" v-model:value="formState.star" @change="selectList"
+                <a-select v-model:value="formState.star" @change="selectList"
                     placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
@@ -16,7 +16,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.gender" @change="selectList"
+                <a-select v-model:value="formState.gender" @change="selectList"
                     placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                             item.label
@@ -24,7 +24,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.camp" @change="selectList"
+                <a-select v-model:value="formState.camp" @change="selectList"
                     placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                             item.label

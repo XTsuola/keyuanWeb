@@ -6,7 +6,7 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="武器类型" name="type" :rules="[{ required: true, message: '请选择类型!' }]">
-                <a-select ref="select" style="width: 100%;" v-model:value="addData.type"
+                <a-select style="width: 100%;" v-model:value="addData.type"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
@@ -14,7 +14,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
-                <a-select ref="select" style="width: 100%;" v-model:value="addData.star"
+                <a-select style="width: 100%;" v-model:value="addData.star"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import type { AddWeaponParams, UpdateWeaponParams } from '@/api/yuanshen';
-import { Input as aInput, message, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
+import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../weaponList.vue';
 export interface API {

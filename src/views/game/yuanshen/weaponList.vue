@@ -8,7 +8,7 @@
         <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }"
             autocomplete="off">
             <a-form-item label="武器类型" style="width: 240px">
-                <a-select ref="select" v-model:value="formState.weaponType" @change="selectList"
+                <a-select v-model:value="formState.weaponType" @change="selectList"
                     placeholder="请选择武器类型">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
@@ -16,7 +16,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width:200px">
-                <a-select ref="select" v-model:value="formState.star" @change="selectList"
+                <a-select v-model:value="formState.star" @change="selectList"
                     placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label

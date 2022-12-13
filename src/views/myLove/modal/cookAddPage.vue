@@ -47,7 +47,7 @@
 
 <script lang="ts" setup>
 import type { AddCookParams, UpdateCookParams } from '@/api/myLove';
-import { Input as aInput, message, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
+import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../cookList.vue';
 export interface API {

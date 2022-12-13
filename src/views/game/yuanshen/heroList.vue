@@ -7,35 +7,35 @@
         </div>
         <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
             <a-form-item label="性别" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.gender" @change="selectList" placeholder="请选择国家">
+                <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="国家" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
+                <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
+                <a-select v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
+                <a-select v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
+                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
@@ -102,7 +102,7 @@
 import { onMounted, reactive, ref } from 'vue'
 import {
     Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
+    Modal as aModal, Pagination as aPagination
 } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yuanshen'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"

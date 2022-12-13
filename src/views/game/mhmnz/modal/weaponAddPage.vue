@@ -6,7 +6,7 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="稀有度" name="star" :rules="[{ required: true, message: '请选择稀有度!' }]">
-                <a-select ref="select" style="width: 100%;" v-model:value="addData.star"
+                <a-select style="width: 100%;" v-model:value="addData.star"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
@@ -14,7 +14,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类别" name="weaponType" :rules="[{ required: true, message: '请选择武器类别!' }]">
-                <a-select ref="select" style="width: 100%;" v-model:value="addData.weaponType"
+                <a-select style="width: 100%;" v-model:value="addData.weaponType"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
@@ -22,7 +22,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" name="isExclusive" :rules="[{ required: true, message: '请选阵营!' }]">
-                <a-select ref="select" style="width: 100%;" v-model:value="addData.isExclusive"
+                <a-select style="width: 100%;" v-model:value="addData.isExclusive"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
                             item.label

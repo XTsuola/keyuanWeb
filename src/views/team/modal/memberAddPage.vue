@@ -9,7 +9,7 @@
                 <a-input v-model:value="addData.qq" />
             </a-form-item>
             <a-form-item label="所属分组">
-                <a-select ref="select" v-model:value="addData.group" placeholder="请选择分组">
+                <a-select v-model:value="addData.group" placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
                             item.groupName
                     }}</a-select-option>

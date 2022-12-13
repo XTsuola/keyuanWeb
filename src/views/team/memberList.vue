@@ -7,7 +7,7 @@
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="分组" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.groupValue" style="width: 120px;" @change="groupChange"
+                <a-select v-model:value="formState.groupValue" style="width: 120px;" @change="groupChange"
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
                             item.groupName
@@ -191,7 +191,6 @@ async function getList() {
         group: formState.groupValue
     }
     const res = await getMemberList(params)
-    console.log(res, "ppp")
     if (res.data.code === 200) {
         data.value = res.data.rows
         total.value = res.data.total

@@ -5,45 +5,41 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增菜谱
             </a-button>
         </div>
-        <div class="selectDiv">
-            <div>
-                <span>名称:</span>
-                <a-input v-model:value="name" type="text" style="width:140px" placeholder="请输入名称" />
-            </div>
-            <div>
-                <span>类型:</span>
-                <a-select ref="select" v-model:value="cookType" style="width: 140px;" @change="groupChange"
+        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" type="text" style="width:140px" placeholder="请输入名称" />
+            </a-form-item>
+            <a-form-item label="类型" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.cookType" style="width: 140px;" @change="groupChange"
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>荤素:</span>
-                <a-select ref="select" v-model:value="hunsu" style="width: 140px;" @change="groupChange"
+            </a-form-item>
+            <a-form-item label="荤素" style="width: 200px">
+                <a-select ref="select" v-model:value="formState.hunsu" style="width: 140px;" @change="groupChange"
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <span>熟练度:</span>
-                <a-select ref="select" v-model:value="mastery" style="width: 140px;" @change="groupChange"
+            </a-form-item>
+            <a-form-item label="熟练度" style="width: 220px">
+                <a-select ref="select" v-model:value="formState.mastery" style="width: 140px;" @change="groupChange"
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
-            </div>
-            <div>
-                <a-button size="small" @click="selectList">查询</a-button>
-                <a-button size="small" @click="reset">重置</a-button>
-            </div>
-
-        </div>
-
+            </a-form-item>
+            <a-form-item>
+                <div style="display: flex;justify-content: flex-start;">
+                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
+                    <a-button size="small" @click="reset">重置</a-button>
+                </div>
+            </a-form-item>
+        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -89,10 +85,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Input as aIput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove"
 import type { SelectValue } from 'ant-design-vue/lib/select'
@@ -159,8 +155,20 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const name = ref<string>("")
-const cookType = ref<number | undefined>(undefined)
+interface FormStateType {
+    name: string
+    cookType: number | undefined
+    hunsu: number | undefined
+    mastery: number | undefined
+    star: number | undefined
+}
+const formState = reactive<FormStateType>({
+    name: "",
+    cookType: undefined,
+    hunsu: undefined,
+    mastery: undefined,
+    star: undefined,
+})
 const cookTypeList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -177,8 +185,6 @@ const cookTypeList = ref<Type[]>([{
     label: "煲汤",
     value: 4
 }])
-
-const hunsu = ref<number | undefined>(undefined)
 const hunsuList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -192,8 +198,6 @@ const hunsuList = ref<Type[]>([{
     label: "其他",
     value: 3
 }])
-
-const mastery = ref<number | undefined>(undefined)
 const masteryList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -210,7 +214,6 @@ const masteryList = ref<Type[]>([{
     label: "精通",
     value: 4
 }])
-
 const columns = ref<ColumnType[]>([
     {
         title: '序号',
@@ -292,10 +295,10 @@ async function getList() {
     const params: GetCookListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        name: name.value,
-        cookType: cookType.value,
-        hunsu: hunsu.value,
-        mastery: mastery.value
+        name: formState.name,
+        cookType: formState.cookType,
+        hunsu: formState.hunsu,
+        mastery: formState.mastery
     }
     const res = await getCookList(params)
     if (res.data.code === 200) {
@@ -335,8 +338,8 @@ function selectList() {
 }
 
 function reset() {
-    name.value = ""
-    cookType.value = hunsu.value = mastery.value = undefined
+    formState.name = ""
+    formState.cookType = formState.hunsu = formState.mastery = undefined
     current.value = 1
     getList()
 }
@@ -418,32 +421,20 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
     .title {
         font-size: 18px;
         font-weight: 600;
-        margin: 15px;
-        overflow: hidden;
+        margin: 0 15px 15px 0;
     }
 
-    .selectDiv {
-        overflow: hidden;
+    .searchHead {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        column-gap: 10px;
-        margin: 15px;
         flex-wrap: wrap;
-
-        div {
-            margin: 8px 8px 8px 0;
-
-            button {
-                margin-right: 8px;
-            }
-        }
     }
 
     .pagination {

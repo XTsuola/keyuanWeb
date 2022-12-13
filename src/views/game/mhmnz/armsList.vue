@@ -7,7 +7,7 @@
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="兵种" style="width: 200px">
-                <a-select ref="select" v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
+                <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>

@@ -8,21 +8,21 @@
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
             autocomplete="off">
             <a-form-item label="稀有度" style="width: 220px">
-                <a-select ref="select" v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
+                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类型" style="width: 240px">
-                <a-select ref="select" v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器">
+                <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" style="width: 240px">
-                <a-select ref="select" v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
+                <a-select v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>

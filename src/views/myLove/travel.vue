@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, render, watch } from 'vue';
+import { nextTick, ref } from 'vue';
 
 interface BgType {
     name: string

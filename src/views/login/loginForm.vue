@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { Form as aForm, FormItem as aFormItem, Input as aInput, InputPassword as aInputPassword, Checkbox as aCheckbox, Button as aButton, message } from 'ant-design-vue'
+import { Form as aForm, FormItem as aFormItem, Input as aInput, InputPassword as aInputPassword, Button as aButton, message } from 'ant-design-vue'
 import { useRouter } from 'vue-router';
 import { login, type LoginParams } from "@/api/login"
 import md5 from 'js-md5'
