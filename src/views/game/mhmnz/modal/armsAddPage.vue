@@ -1,7 +1,7 @@
 <template>
     <div class="childMain">
         <a-form ref="armsAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
-            autocomplete="off">
+            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
