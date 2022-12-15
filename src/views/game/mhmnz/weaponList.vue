@@ -1,8 +1,8 @@
 <template>
     <div class="main">
         <div class="title">
-            武器列表
-            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
+            装备列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增装备
             </a-button>
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
@@ -14,8 +14,8 @@
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
-            <a-form-item label="武器类型" style="width: 240px">
-                <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器">
+            <a-form-item label="装备类型" style="width: 240px">
+                <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择装备">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                             item.label
                     }}</a-select-option>
@@ -56,7 +56,7 @@
                             <a-divider type="vertical" />
                             <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                             <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该兵种吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                            <a-popconfirm title="确定删除该装备吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
                                 @cancel="cancel">
                                 <a-button size="small">删除</a-button>
                             </a-popconfirm>
@@ -314,7 +314,7 @@ function reset() {
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
     if (showType === 'edit') {
-        title.value = "修改武器"
+        title.value = "修改装备"
         if (item) {
             addParams._id = item._id
             addParams.name = item.name
@@ -327,7 +327,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.id = item.id
         }
     } else if (showType === 'add') {
-        title.value = "添加武器"
+        title.value = "添加装备"
         addParams.star = addParams.weaponType = addParams.isExclusive = undefined
         addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = ''
         addParams.id = 0

@@ -163,7 +163,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 meta: {
                   menuType: "menu",
                   key: "mhmnzWeaponList",
-                  label: "武器列表",
+                  label: "装备列表",
                   icon: "UnorderedListOutlined"
                 },
                 component: () => import("@/views/game/mhmnz/weaponList.vue")
