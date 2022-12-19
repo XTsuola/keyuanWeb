@@ -11,7 +11,6 @@ declare module 'vue' {
     AInput: typeof import('ant-design-vue/es')['Input']
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    APagination: typeof import('ant-design-vue/es')['Pagination']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
   }
 }

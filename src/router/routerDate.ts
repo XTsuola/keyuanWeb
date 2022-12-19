@@ -93,7 +93,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
         meta: {
           menuType: "folder",
           key: "game",
-          icon: "RedditOutlined",
+          icon: "RocketOutlined",
           label: "游戏管理"
         },
         component: BlankLayout,
@@ -179,7 +179,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               label: "原神"
             },
             component: BlankLayout,
-            children:[
+            children: [
               {
                 path: "yuanshenHeroList",
                 meta: {
@@ -190,7 +190,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/yuanshen/heroList.vue")
               },
-              { 
+              {
                 path: "yuanshenWeaponList",
                 meta: {
                   menuType: "menu",
@@ -200,7 +200,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/yuanshen/weaponList.vue")
               },
-              { 
+              {
                 path: "yuanshenRelicsList",
                 meta: {
                   menuType: "menu",
@@ -211,6 +211,28 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/yuanshen/relicsList.vue")
               }
             ]
+          }
+        ]
+      },
+      {
+        path: "/xingta",
+        meta: {
+          menuType: "folder",
+          key: "xingta",
+          icon: "DeploymentUnitOutlined",
+          label: "星塔联盟"
+        },
+        component: BlankLayout,
+        children: [
+          {
+            path: "heroList",
+            meta: {
+              menuType: "menu",
+              key: "heroList",
+              label: "人物列表",
+              icon: "UnorderedListOutlined"
+            },
+            component: () => import("@/views/xingta/heroList.vue")
           }
         ]
       },

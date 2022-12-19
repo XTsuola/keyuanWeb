@@ -54,7 +54,7 @@ function setPoint() {
         lng: 118.615913,
         lat: 32.495992,
         info: "竹镇巴布洛看花海",
-        time: "2020年7月17日"
+        time: "2022年7月17日"
     }, {
         // 金正农庄
         lng: 118.867358,
@@ -66,13 +66,13 @@ function setPoint() {
         lng: 118.799818,
         lat: 32.046897,
         info: "TanGo探Go沉浸式剧本杀",
-        time: "2020年11月26日"
+        time: "2022年11月26日"
     }, {
         // 成南九肆
         lng: 118.788146,
         lat: 32.045605,
         info: "城南九肆品茶",
-        time: "2020年11月27日"
+        time: "2022年11月27日"
     }]
     map.value.addEventListener('click', function (e: any) {
         console.log(e)

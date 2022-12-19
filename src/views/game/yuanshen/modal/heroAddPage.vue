@@ -46,7 +46,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="介绍">
-                <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 200px;" v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
