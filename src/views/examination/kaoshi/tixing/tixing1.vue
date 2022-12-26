@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Radio as aRadio, RadioGroup as aRadioGroup } from 'ant-design-vue'
 import type { test1 } from './tixing'
 import { networkConfig } from '@/utils/networkConfig'

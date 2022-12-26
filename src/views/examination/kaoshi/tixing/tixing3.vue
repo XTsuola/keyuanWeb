@@ -16,11 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
 import { Input as aInput } from 'ant-design-vue';
 import type { test3 } from './tixing'
 
-const emit = defineEmits(["update:obj"])
 const prop = defineProps<{
     obj: test3
 }>()
@@ -31,20 +29,25 @@ const prop = defineProps<{
 .type {
     color: darkgreen;
 }
+
 .main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
     div {
         width: 100%;
     }
+
     .title {
         display: flex;
         justify-content: flex-start;
+
         .stem {
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
+
             .input {
                 width: 100px;
             }

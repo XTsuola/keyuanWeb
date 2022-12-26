@@ -4,7 +4,6 @@
         <a-form-item label name="username">
             <a-input :disabled="flag" v-model:value="formState.username" placeholder="账号" />
         </a-form-item>
-
         <a-form-item label name="password">
             <a-input-password :disabled="flag" v-model:value="formState.password" placeholder="密码" />
         </a-form-item>

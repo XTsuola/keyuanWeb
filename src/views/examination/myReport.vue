@@ -44,7 +44,6 @@ if (userInfo.value && JSON.parse(userInfo.value).userId) {
 } else {
     userId.value = null
 }
-
 const columns = ref<ColumnsType>([
     {
         title: '序号',
@@ -85,7 +84,6 @@ const columns = ref<ColumnsType>([
         key: 'action'
     }
 ])
-
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
 

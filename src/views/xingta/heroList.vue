@@ -5,14 +5,6 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增角色
             </a-button>
         </div>
-        <a-form class="searchHead" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
-            <a-form-item>
-                <div style="display: flex;justify-content: flex-start;">
-                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
-                    <a-button size="small" @click="reset">重置</a-button>
-                </div>
-            </a-form-item>
-        </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
@@ -51,8 +43,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination
+    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Modal as aModal, Pagination as aPagination
 } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/xingta"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
@@ -226,15 +217,6 @@ function cancel() {
     message.error('取消删除');
 }
 
-function selectList() {
-    current.value = 1
-    getList()
-}
-
-function reset() {
-    selectList()
-}
-
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
     if (showType === 'edit') {
@@ -315,12 +297,6 @@ onMounted(() => {
         font-size: 18px;
         font-weight: 600;
         margin: 0 15px 15px 0;
-    }
-
-    .searchHead {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
     }
 
     .pagination {

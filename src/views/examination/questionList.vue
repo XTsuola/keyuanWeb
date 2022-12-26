@@ -13,9 +13,7 @@
             <template v-if="column.key === 'selectArr'">
                 <span v-if="record.type == '1'">A.{{ record.selectArr[0] }}. B.{{ record.selectArr[1] }}. C.{{
                         record.selectArr[2]
-                }}. D.{{
-        record.selectArr[3]
-}}</span>
+                }}. D.{{ record.selectArr[3] }}</span>
                 <span v-else>/</span>
             </template>
             <template v-if="column.key === 'anwser'">
@@ -59,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams ,hhh } from '@/api/examination';
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams, hhh } from '@/api/examination';
 import questionAddPage, { type API as AddPageAPI } from './modal/questionAddPage.vue';
 import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Divider as aDivider, RadioGroup as aRadioGroup, RadioButton as aRadioButton } from 'ant-design-vue';
 import { nextTick, onMounted, reactive, ref } from 'vue'
@@ -126,9 +124,7 @@ const columns = ref<ColumnsType>([
         width: 280
     },
 ])
-
 const typeArr = ['选择题', '判断题', '填空题', '问答题']
-let type = ref(1)
 const loading = ref(false)
 const data = ref<EditQuestionType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
@@ -152,6 +148,7 @@ const addData = reactive<EditQuestionType>({
     remark: ''
 })
 const addPage = ref<AddPageAPI>()
+let type = ref(1)
 
 async function getList() {
     const res = await getQuestionList()

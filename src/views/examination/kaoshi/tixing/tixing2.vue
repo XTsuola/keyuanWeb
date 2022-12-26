@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Radio as aRadio, RadioGroup as aRadioGroup } from 'ant-design-vue'
 import type { test2 } from './tixing'
 import { networkConfig } from '@/utils/networkConfig'
@@ -42,7 +42,7 @@ onMounted(() => {
             imgFlag.value = true
             videoFlag.value = false
             url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
-        } else if(videoSuffixList.value.includes(suffix)) {
+        } else if (videoSuffixList.value.includes(suffix)) {
             imgFlag.value = false
             videoFlag.value = true
             url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
@@ -60,23 +60,28 @@ onMounted(() => {
 .type {
     color: darkgreen;
 }
+
 .main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    div{
-        width: 100% ;
+
+    div {
+        width: 100%;
     }
-    .title{
+
+    .title {
         display: flex;
         justify-content: flex-start;
     }
+
     .radioDiv {
         display: flex;
         justify-content: flex-start;
         padding: 10px 5px;
     }
 }
+
 .video {
     width: 60vw;
     height: 45vw;

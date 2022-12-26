@@ -87,7 +87,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Input as aIput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove"

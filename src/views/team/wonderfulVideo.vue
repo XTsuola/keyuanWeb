@@ -63,7 +63,7 @@
 import COS from 'cos-js-sdk-v5'
 import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from '@/api/team';
 import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Form as aForm, FormItem as aFormItem, Textarea as aTextarea, Input as aInput, type FormInstance } from 'ant-design-vue';
-import { inject, onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { getNowTime } from '@/utils/some';
 
 interface ColumnType {
@@ -254,7 +254,7 @@ async function getWrc(e: any) {
     }
     cos.putObject(params, async (error, data) => {
         if (error) {
-            
+
         } else {
             addData.url = data.Location
             addData.time = getNowTime()

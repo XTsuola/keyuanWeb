@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import type { AddHeroParams, UpdateHeroParams } from '@/api/xingta';
-import { Input as aInput, Textarea as aTextarea, type FormInstance, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption } from 'ant-design-vue'
+import { Input as aInput, Textarea as aTextarea, type FormInstance, Form as aForm, FormItem as aFormItem } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType } from '../heroList.vue';
 export interface API {

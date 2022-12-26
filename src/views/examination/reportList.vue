@@ -13,7 +13,8 @@
             </template>
         </template>
     </a-table>
-    <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName" :maskClosable="false">
+    <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName"
+        :maskClosable="false">
         <distributePageVue :obj="distributeData" @upDateList="getList" ref="distributePage"></distributePageVue>
         <template #footer>
             <a-button key="back" @click="visible = false">关闭</a-button>
@@ -28,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type UsersPaperType, getStudentsPaper, type DistributeType, type PaperDataType } from '@/api/examination';
+import { type UsersPaperType, getStudentsPaper, type PaperDataType } from '@/api/examination';
 import { Button as aButton, Table as aTable, Modal as aModal } from 'ant-design-vue';
 import distributePageVue from "./modal/distributePage.vue"
 import { onMounted, reactive, ref } from 'vue'

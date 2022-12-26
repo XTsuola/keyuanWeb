@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref } from 'vue'
 import type { test5 } from './tixing'
 
 defineEmits(["update:obj"])

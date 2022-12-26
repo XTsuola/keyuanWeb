@@ -44,7 +44,6 @@ interface scrollType {
 }
 
 const flag = ref<TypeFlag>('add')
-
 const columns = ref<ColumnsType>([
     {
         title: '序号',
@@ -91,7 +90,6 @@ const columns = ref<ColumnsType>([
         width: 280
     },
 ])
-
 const loading = ref(false)
 const data = ref<EditUserType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })

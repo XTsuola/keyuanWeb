@@ -89,7 +89,6 @@ const columns = ref<ColumnsType>([
         width: 280
     },
 ])
-
 const loading = ref(false)
 const data = ref<EditPaperType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })

@@ -117,10 +117,6 @@ function nextPage() {
     pageIndex.value = 1
     flagIndex.value = 0
     okFlag.value = false
-    /* setTimeout(() => {
-        okFlag.value = true
-        renderImg()
-    }, 0) */
     nextTick(() => {
         okFlag.value = true
         renderImg()

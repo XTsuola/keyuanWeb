@@ -12,12 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Input as aInput } from 'ant-design-vue';
 import type { test4 } from './tixing'
 import { networkConfig } from '@/utils/networkConfig'
 
-const emit = defineEmits(["update:obj"])
 const prop = defineProps<{
     obj: test4
 }>()
@@ -36,7 +35,7 @@ onMounted(() => {
             imgFlag.value = true
             videoFlag.value = false
             url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
-        } else if(videoSuffixList.value.includes(suffix)) {
+        } else if (videoSuffixList.value.includes(suffix)) {
             imgFlag.value = false
             videoFlag.value = true
             url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
@@ -54,18 +53,22 @@ onMounted(() => {
 .type {
     color: darkgreen;
 }
+
 .main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
     div {
         width: 100%;
     }
+
     .title {
         display: flex;
         justify-content: flex-start;
     }
 }
+
 .video {
     width: 60vw;
     height: 45vw;

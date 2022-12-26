@@ -112,7 +112,6 @@ const columns = ref<ColumnsType>([
         customRender: opt => opt.value ? opt.value : "/"
     },
 ])
-
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<DataType[]>()
 
