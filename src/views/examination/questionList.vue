@@ -46,6 +46,7 @@
                 <a-radio-button value="2">判断题</a-radio-button>
                 <a-radio-button value="3">填空题</a-radio-button>
                 <a-radio-button value="4">问答题</a-radio-button>
+                <a-radio-button value="5">操作题</a-radio-button>
             </a-radio-group>
         </div>
         <questionAddPage v-if="pageFlag" :obj="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
@@ -124,7 +125,7 @@ const columns = ref<ColumnsType>([
         width: 280
     },
 ])
-const typeArr = ['选择题', '判断题', '填空题', '问答题']
+const typeArr = ['选择题', '判断题', '填空题', '问答题', '操作题']
 const loading = ref(false)
 const data = ref<EditQuestionType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })

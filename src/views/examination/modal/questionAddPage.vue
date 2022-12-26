@@ -72,11 +72,29 @@
             </a-form-item>
         </a-form>
     </div>
+    <div v-if="prop.type === 5" class="questionAddBox">
+        <a-form ref="qustionAdd" :model="addData" name="basic" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }"
+            autocomplete="off">
+            <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请选择题目名称!' }]">
+                <a-select style="width: 100%;" v-model:value="addData.stem">
+                    <a-select-option v-for="item in opt" :key="item.value" :value="item.label">{{
+                            item.label
+                    }}</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
+                <a-input v-model:value="addData.anwser" />
+            </a-form-item>
+            <a-form-item label="解释说明" name="remark">
+                <a-textarea v-model:value="addData.remark" />
+            </a-form-item>
+        </a-form>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import type { AddQuestionType, EditQuestionType } from '@/api/examination';
-import { Input as aInput, Form as aForm, FormItem as aFormItem, Textarea as aTextarea } from 'ant-design-vue';
+import { Input as aInput, Select as aSelect, SelectOption as aSelectOption, Form as aForm, FormItem as aFormItem, Textarea as aTextarea } from 'ant-design-vue';
 import { ref } from 'vue';
 import type { TypeFlag } from '../questionList.vue'
 import type { FormInstance } from 'ant-design-vue'
@@ -115,6 +133,11 @@ const addData = ref<Test>({
     url: '',
     remark: ''
 })
+
+const opt = ref([{
+    value: 5,
+    label: "消灭星星"
+}])
 
 if (prop.flag === 'edit') {
     const data = JSON.parse(JSON.stringify(prop.obj))

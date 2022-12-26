@@ -13,6 +13,7 @@
                 <span v-if="record.type == 2">判断题</span>
                 <span v-if="record.type == 3">填空题</span>
                 <span v-if="record.type == 4">问答题</span>
+                <span v-if="record.type == 5">操作题</span>
             </template>
             <template v-if="column.key === 'selectArr'">
                 <span>{{ getSelectResult(record.selectArr) }}</span>

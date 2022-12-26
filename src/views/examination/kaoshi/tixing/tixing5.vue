@@ -26,19 +26,20 @@ let count = 0
 let timer: number | null = null
 
 function mie(item: number) {
-    arr.value[item - 1] = 0
-    if (arr.value.length === 10) {
+    if (arr.value.filter(e => e === 0).length === 0) {
         flag = true
     }
+    arr.value[item - 1] = 0
     if (flag) {
         timer = setInterval(() => {
             count++
-        }, 1)
+        }, 10)
         flag = false
     }
     if (arr.value.filter(e => e === 0).length === 10 && timer) {
         clearInterval(timer)
-        let time = (count / 1000).toFixed(2)
+        let time = (count / 100).toFixed(2)
+        console.log(time, "timeeee")
         prop.obj.anwser = time
     }
 }
