@@ -261,7 +261,7 @@ const columns = ref<ColumnType[]>([
         title: '次数',
         dataIndex: 'count',
         key: 'count',
-        width: 80
+        width: 160
     },
     {
         title: '备注',

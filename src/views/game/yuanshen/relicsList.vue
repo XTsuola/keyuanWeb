@@ -189,12 +189,6 @@ const columns = ref<ColumnType[]>([
         width: 200
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
-        width: 300
-    },
-    {
         title: '操作',
         key: 'action',
         width: 160
@@ -272,6 +266,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.twoEffect = item.twoEffect
             addParams.fourEffect = item.fourEffect
             addParams.tag = item.tag
+            addParams.remark = item.remark
             addParams.id = item.id
         }
     } else if (showType === 'add') {
@@ -287,6 +282,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.twoEffect = item.twoEffect
             addParams.fourEffect = item.fourEffect
             addParams.tag = item.tag
+            addParams.remark = item.remark
         }
     }
     visible.value = true
