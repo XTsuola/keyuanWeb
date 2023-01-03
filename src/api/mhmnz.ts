@@ -15,6 +15,7 @@ export interface AddHeroParams {
     camp: number[]
     exclusive: string
     superSkill: string
+    talent: string
     introduce: string
     remark: string
 }

@@ -35,6 +35,9 @@
             <a-form-item label="觉醒技">
                 <a-input v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
+            <a-form-item label="天赋">
+                <a-textarea style="min-height: 140px;" v-model:value="addData.talent" :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
             <a-form-item label="介绍">
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
@@ -69,6 +72,7 @@ const addData = ref<AddParamsType>({
     camp: [],
     exclusive: "",
     superSkill: "",
+    talent: "",
     introduce: "",
     remark: ""
 
@@ -149,6 +153,7 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             camp: addData.value.camp,
             exclusive: addData.value.exclusive,
             superSkill: addData.value.superSkill,
+            talent: addData.value.talent,
             introduce: addData.value.introduce,
             remark: addData.value.remark
         }

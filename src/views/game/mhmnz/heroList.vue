@@ -131,6 +131,7 @@ let addParams = reactive<AddParamsType>({
     camp: [],
     exclusive: '',
     superSkill: '',
+    talent: '',
     introduce: '',
     remark: ''
 })
@@ -369,6 +370,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
             addParams.superSkill = item.superSkill
+            addParams.talent = item.talent
             addParams.camp = item.camp
             addParams.remark = item.remark
             addParams.id = item.id
@@ -388,6 +390,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
             addParams.superSkill = item.superSkill
+            addParams.talent = item.talent
             addParams.camp = item.camp
             addParams.remark = item.remark
         }
