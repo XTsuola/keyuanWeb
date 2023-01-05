@@ -119,14 +119,36 @@ const newRouterDate: Array<RouteRecordRaw> = [
             component: () => import("@/views/game/sokoban/index.vue")
           },
           {
-            path: "wzryguanang",
+            path: "wzry",
             meta: {
-              menuType: "menu",
-              key: "wzryguanang",
-              label: "王者官网",
+              menuType: "folder",
+              key: "wzry",
+              label: "王者荣耀",
               icon: "UnorderedListOutlined"
             },
-            component: () => import("@/views/game/wzryguanwang.vue")
+            component: BlankLayout,
+            children: [
+              {
+                path: "wzryHeroList",
+                meta: {
+                  menuType: "menu",
+                  key: "wzryHeroList",
+                  label: "英雄列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/wzry/heroList.vue")
+              },
+              {
+                path: "wzryguanwang",
+                meta: {
+                  menuType: "menu",
+                  key: "wzryguanwang",
+                  label: "王者官网",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/wzry/guanwang.vue")
+              }
+            ]
           },
           {
             path: "mhmnz",
