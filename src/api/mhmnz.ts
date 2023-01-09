@@ -6,6 +6,7 @@ export interface GetHeroListParams {
     star: number | undefined
     gender: number | undefined
     camp: number | undefined
+    superSkill: string
 }
 
 export interface AddHeroParams {

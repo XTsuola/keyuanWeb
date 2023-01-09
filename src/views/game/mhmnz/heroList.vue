@@ -5,31 +5,30 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增英雄
             </a-button>
         </div>
-        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
-            autocomplete="off">
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="稀有度" style="width: 220px">
-                <a-select v-model:value="formState.star" @change="selectList"
-                    placeholder="请选择稀有度">
+                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
-                <a-select v-model:value="formState.gender" @change="selectList"
-                    placeholder="请选择性别">
+                <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
-                <a-select v-model:value="formState.camp" @change="selectList"
-                    placeholder="请选择阵营">
+                <a-select v-model:value="formState.camp" @change="selectList" placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
+            </a-form-item>
+            <a-form-item label="技能组" style="width: 220px">
+                <a-input v-model:value="formState.superSkill" placeholder="请输入技能组" />
             </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
@@ -153,11 +152,13 @@ interface FormStateType {
     star: number | undefined
     gender: number | undefined
     camp: number | undefined
+    superSkill: string
 }
 const formState = reactive<FormStateType>({
     star: undefined,
     gender: undefined,
-    camp: undefined
+    camp: undefined,
+    superSkill: ""
 })
 const starList = ref<Type[]>([{
     label: "全部",
@@ -260,13 +261,13 @@ const columns = ref<ColumnType[]>([
         title: '专属',
         dataIndex: 'exclusive',
         key: 'exclusive',
-        width: 200
+        width: 160
     },
     {
-        title: '觉醒技',
+        title: '技能组',
         dataIndex: 'superSkill',
         key: 'superSkill',
-        width: 200
+        width: 280
     },
     {
         title: '介绍',
@@ -319,7 +320,8 @@ async function getList() {
         pageNo: current.value,
         star: formState.star,
         gender: formState.gender,
-        camp: formState.camp
+        camp: formState.camp,
+        superSkill: formState.superSkill
     }
     const res = await getHeroList(params)
     if (res.data.code === 200) {
@@ -355,6 +357,7 @@ function selectList() {
 
 function reset() {
     formState.star = formState.gender = formState.camp = undefined
+    formState.superSkill = ""
     selectList()
 }
 

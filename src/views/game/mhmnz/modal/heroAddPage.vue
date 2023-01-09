@@ -32,8 +32,8 @@
             <a-form-item label="专属">
                 <a-input v-model:value="addData.exclusive" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
-            <a-form-item label="觉醒技">
-                <a-input v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-input>
+            <a-form-item label="技能组">
+                <a-textarea v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="天赋">
                 <a-textarea style="min-height: 140px;" v-model:value="addData.talent" :disabled="prop.type === 'detail'"></a-textarea>
