@@ -6,18 +6,16 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="稀有度" name="star" :rules="[{ required: true, message: '请选择稀有度!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.star"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" name="gender" :rules="[{ required: true, message: '请选择性别!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.gender"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -25,7 +23,7 @@
                 <a-select style="width: 100%;" mode="multiple" v-model:value="addData.camp"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -35,14 +33,15 @@
             <a-form-item label="技能组">
                 <a-textarea v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
+            <a-form-item label="铸纹技能">
+                <a-textarea v-model:value="addData.castGrainSkill" :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
             <a-form-item label="天赋">
-                <a-textarea style="min-height: 140px;" v-model:value="addData.talent" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 140px;" v-model:value="addData.talent"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="介绍">
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
-            </a-form-item>
-            <a-form-item label="备注">
-                <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
         </a-form>
     </div>
@@ -72,9 +71,9 @@ const addData = ref<AddParamsType>({
     camp: [],
     exclusive: "",
     superSkill: "",
+    castGrainSkill: "",
     talent: "",
-    introduce: "",
-    remark: ""
+    introduce: ""
 
 })
 if (prop.type === 'edit' || prop.type === 'detail') {
@@ -153,9 +152,9 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             camp: addData.value.camp,
             exclusive: addData.value.exclusive,
             superSkill: addData.value.superSkill,
+            castGrainSkill: addData.value.castGrainSkill,
             talent: addData.value.talent,
-            introduce: addData.value.introduce,
-            remark: addData.value.remark
+            introduce: addData.value.introduce
         }
         return returnData
     } catch (_) {

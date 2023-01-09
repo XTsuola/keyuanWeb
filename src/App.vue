@@ -1,6 +1,6 @@
 <template>
   <a-config-provider :locale="zhCN">
-    <RouterView />
+    <RouterView class="routerView" />
   </a-config-provider>
 </template>
 
@@ -13,4 +13,8 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN';
 
 <style>
 @import "@/assets/base.css";
+
+.routerView {
+  font-family: 'hwhm';
+}
 </style>

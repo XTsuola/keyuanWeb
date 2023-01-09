@@ -119,7 +119,7 @@ interface DataType {
     qq: string
     group: string
     position: string
-    remark: string
+    castGrainSkill: string
 }
 let addParams = reactive<AddParamsType>({
     _id: '',
@@ -130,9 +130,9 @@ let addParams = reactive<AddParamsType>({
     camp: [],
     exclusive: '',
     superSkill: '',
+    castGrainSkill: '',
     talent: '',
-    introduce: '',
-    remark: ''
+    introduce: ''
 })
 
 const current = ref<number>(1)
@@ -261,7 +261,7 @@ const columns = ref<ColumnType[]>([
         title: '专属',
         dataIndex: 'exclusive',
         key: 'exclusive',
-        width: 160
+        width: 140
     },
     {
         title: '技能组',
@@ -270,16 +270,16 @@ const columns = ref<ColumnType[]>([
         width: 280
     },
     {
+        title: '铸纹技能',
+        dataIndex: 'castGrainSkill',
+        key: 'castGrainSkill',
+        width: 200
+    },
+    {
         title: '介绍',
         dataIndex: 'introduce',
         key: 'introduce',
         width: 200
-    },
-    {
-        title: '备注',
-        dataIndex: 'remark',
-        key: 'remark',
-        width: 160
     },
     {
         title: '操作',
@@ -373,16 +373,16 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
             addParams.superSkill = item.superSkill
+            addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
             addParams.camp = item.camp
-            addParams.remark = item.remark
             addParams.id = item.id
         }
     } else if (showType === 'add') {
         title.value = "添加英雄"
         addParams.gender = addParams.star = undefined
         addParams.camp = []
-        addParams._id = addParams.name = addParams.introduce = addParams.remark = ''
+        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.introduce = ''
         addParams.id = 0
     } else if (showType === 'detail') {
         title.value = "查看详情"
@@ -393,9 +393,9 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
             addParams.superSkill = item.superSkill
+            addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
             addParams.camp = item.camp
-            addParams.remark = item.remark
         }
     }
     visible.value = true

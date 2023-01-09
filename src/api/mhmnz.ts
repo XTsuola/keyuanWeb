@@ -16,9 +16,9 @@ export interface AddHeroParams {
     camp: number[]
     exclusive: string
     superSkill: string
+    castGrainSkill: string
     talent: string
     introduce: string
-    remark: string
 }
 
 export interface UpdateHeroParams extends AddHeroParams {
