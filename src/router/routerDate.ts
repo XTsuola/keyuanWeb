@@ -340,11 +340,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
             meta: {
               menuType: "menu",
               key: "travel",
-              label: "一起旅行",
+              label: "时光回忆",
               icon: "UnorderedListOutlined",
               isLevel: [1]
             },
-            component: () => import("@/views/myLove/travel.vue")
+            component: () => import("@/views/myLove/photo.vue")
           },
           {
             path: "worldMap",

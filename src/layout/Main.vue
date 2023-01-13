@@ -12,7 +12,7 @@
                 </div>
                 <div class="breadCrumbItem" v-for="(item, index) in extraBreadCrumbs">
                     <span @click="tabBreadCrumb(item)" :class="{ breadCrumbItemLink: item.type === 'menu' }">{{
-                            item.label
+                        item.label
                     }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
@@ -43,11 +43,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-    Layout as aLayout, LayoutSider as aLayoutSider, LayoutContent as aLayoutContent, Breadcrumb as aBreadcrumb,
-    BreadcrumbItem as aBreadcrumbItem, Button as aButton, Dropdown as aDropdown, Menu as aMenu, MenuItem as aMenuItem,
-    MenuDivider as aMenuDivider
-} from 'ant-design-vue'
+import { Layout as aLayout, LayoutContent as aLayoutContent, Dropdown as aDropdown, Menu as aMenu, MenuItem as aMenuItem, } from 'ant-design-vue'
 import { SettingFilled } from '@ant-design/icons-vue';
 import { onMounted, ref } from 'vue';
 import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from 'vue-router';
