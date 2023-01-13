@@ -104,7 +104,8 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "newGame",
               label: "坦克大战",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
             },
             component: () => import("@/views/game/tanke/index.vue")
           },
@@ -114,7 +115,8 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "sokoban",
               label: "推箱子",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
             },
             component: () => import("@/views/game/sokoban/index.vue")
           },
@@ -242,7 +244,8 @@ const newRouterDate: Array<RouteRecordRaw> = [
           menuType: "folder",
           key: "xingta",
           icon: "DeploymentUnitOutlined",
-          label: "星塔联盟"
+          label: "星塔联盟",
+          isLevel: [1]
         },
         component: BlankLayout,
         children: [
@@ -252,7 +255,8 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "heroList",
               label: "人物列表",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
             },
             component: () => import("@/views/xingta/heroList.vue")
           }
@@ -331,7 +335,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           key: "myLove",
           icon: "VideoCameraAddOutlined",
           label: "爱的见证",
-          isLevel: [1]
+          isLevel: [1, 3]
         },
         component: BlankLayout,
         children: [
@@ -342,7 +346,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "travel",
               label: "时光回忆",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1, 3]
             },
             component: () => import("@/views/myLove/photo.vue")
           },
@@ -353,7 +357,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "worldMap",
               label: "世界地图",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1, 3]
             },
             component: () => import("@/views/myLove/worldMap.vue")
           },
@@ -364,7 +368,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "cookList",
               label: "菜谱列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1, 3]
             },
             component: () => import("@/views/myLove/cookList.vue")
           },

@@ -4,7 +4,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AButton: typeof import('ant-design-vue/es')['Button']
     ADivider: typeof import('ant-design-vue/es')['Divider']
     ADrawer: typeof import('ant-design-vue/es')['Drawer']
     AForm: typeof import('ant-design-vue/es')['Form']
@@ -12,10 +11,7 @@ declare module 'vue' {
     AInput: typeof import('ant-design-vue/es')['Input']
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    AModal: typeof import('ant-design-vue/es')['Modal']
-    APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
-    ATextarea: typeof import('ant-design-vue/es')['Textarea']
   }
 }
 
