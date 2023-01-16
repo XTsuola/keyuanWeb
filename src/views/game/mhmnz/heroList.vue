@@ -6,6 +6,9 @@
             </a-button>
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
             <a-form-item label="稀有度" style="width: 220px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
@@ -149,12 +152,14 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const visible = ref<boolean>(false)
 interface FormStateType {
+    name: string
     star: number | undefined
     gender: number | undefined
     camp: number | undefined
     superSkill: string
 }
 const formState = reactive<FormStateType>({
+    name: "",
     star: undefined,
     gender: undefined,
     camp: undefined,
@@ -318,6 +323,7 @@ async function getList() {
     const params: GetHeroListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
+        name: formState.name,
         star: formState.star,
         gender: formState.gender,
         camp: formState.camp,
@@ -357,7 +363,7 @@ function selectList() {
 
 function reset() {
     formState.star = formState.gender = formState.camp = undefined
-    formState.superSkill = ""
+    formState.name = formState.superSkill = ""
     selectList()
 }
 

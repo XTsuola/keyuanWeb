@@ -3,6 +3,7 @@ import request from "../utils/request"
 export interface GetHeroListParams {
     pageSize: number
     pageNo: number
+    name: string
     star: number | undefined
     gender: number | undefined
     camp: number | undefined
@@ -29,6 +30,7 @@ export interface UpdateHeroParams extends AddHeroParams {
 export interface GetArmsListParams {
     pageSize: number
     pageNo: number
+    name: string
     type: number | undefined
 }
 
@@ -51,6 +53,7 @@ export interface UpdateArmsParams extends AddArmsParams {
 export interface GetWeaponListParams {
     pageSize: number
     pageNo: number
+    name: string
     star: number | undefined
     weaponType: number | undefined
     isExclusive: number | undefined

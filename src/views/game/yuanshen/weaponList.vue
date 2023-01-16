@@ -5,21 +5,21 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
             </a-button>
         </div>
-        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }"
-            autocomplete="off">
+        <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
             <a-form-item label="武器类型" style="width: 240px">
-                <a-select v-model:value="formState.weaponType" @change="selectList"
-                    placeholder="请选择武器类型">
+                <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器类型">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width:200px">
-                <a-select v-model:value="formState.star" @change="selectList"
-                    placeholder="请选择星级">
+                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -120,6 +120,13 @@ interface DataType {
     introduce: string
     remark: string
 }
+interface FormStateType {
+    name: string
+    weaponType: number | undefined
+    star: number | undefined
+    baseAttack: string
+    attribute: string
+}
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -131,7 +138,6 @@ let addParams = reactive<AddParamsType>({
     introduce: "",
     remark: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -145,13 +151,8 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    weaponType: number | undefined
-    star: number | undefined
-    baseAttack: string
-    attribute: string
-}
 const formState = reactive<FormStateType>({
+    name: "",
     weaponType: undefined,
     star: undefined,
     baseAttack: "",
@@ -273,6 +274,7 @@ async function getList() {
     const params: GetWeaponListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
+        name: formState.name,
         type: formState.weaponType,
         star: formState.star,
         baseAttack: formState.baseAttack,
@@ -312,7 +314,7 @@ function selectList() {
 
 function reset() {
     formState.weaponType = formState.star = undefined
-    formState.baseAttack = formState.attribute = ""
+    formState.name = formState.baseAttack = formState.attribute = ""
     selectList()
 }
 

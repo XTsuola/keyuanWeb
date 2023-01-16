@@ -6,11 +6,13 @@
             </a-button>
         </div>
         <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
             <a-form-item label="星级" style="width: 200px">
-                <a-select v-model:value="formState.star" @change="selectList"
-                    placeholder="请选择星级">
+                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -65,7 +67,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Table as aTable, Divider as aDivider, Button as aButton, Input as aInput, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from '@/api/yuanshen'
@@ -106,6 +108,11 @@ interface DataType {
     introduce: string
     remark: string
 }
+interface FormStateType {
+    name: string
+    star: number | undefined
+    tag: string
+}
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -116,7 +123,6 @@ let addParams = reactive<AddParamsType>({
     tag: "",
     remark: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -130,11 +136,8 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    star: number | undefined
-    tag: string
-}
 const formState = reactive<FormStateType>({
+    name: "",
     star: undefined,
     tag: ""
 })
@@ -214,6 +217,7 @@ async function getList() {
     const params: GetRelicsListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
+        name: formState.name,
         star: formState.star,
         tag: formState.tag
     }
@@ -251,7 +255,7 @@ function selectList() {
 
 function reset() {
     formState.star = undefined
-    formState.tag = ""
+    formState.name = formState.tag = ""
     selectList()
 }
 

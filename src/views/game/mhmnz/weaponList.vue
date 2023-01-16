@@ -7,6 +7,9 @@
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
             autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
             <a-form-item label="稀有度" style="width: 220px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
@@ -119,6 +122,12 @@ interface DataType {
     position: string
     remark: string
 }
+interface FormStateType {
+    name: string
+    star: number | undefined
+    weaponType: number | undefined
+    isExclusive: number | undefined
+}
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -130,7 +139,6 @@ let addParams = reactive<AddParamsType>({
     introduce: '',
     remark: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -144,12 +152,8 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    star: number | undefined
-    weaponType: number | undefined
-    isExclusive: number | undefined
-}
 const formState = reactive<FormStateType>({
+    name: "",
     star: undefined,
     weaponType: undefined,
     isExclusive: undefined
@@ -270,6 +274,7 @@ async function getList() {
     const params: GetWeaponListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
+        name: formState.name,
         star: formState.star,
         weaponType: formState.weaponType,
         isExclusive: formState.isExclusive
@@ -307,6 +312,7 @@ function selectList() {
 }
 
 function reset() {
+    formState.name = ""
     formState.star = formState.weaponType = formState.isExclusive = undefined
     selectList()
 }

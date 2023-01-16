@@ -6,6 +6,9 @@
             </a-button>
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
             <a-form-item label="兵种" style="width: 200px">
                 <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
@@ -98,6 +101,10 @@ interface DataType {
     position: string
     remark: string
 }
+interface FormStateType {
+    name: string
+    armsType: number | undefined
+}
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -124,10 +131,8 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    armsType: number | undefined
-}
 const formState = reactive<FormStateType>({
+    name: "",
     armsType: undefined
 })
 const typeList = ref<Type[]>([{
@@ -257,6 +262,7 @@ async function getList() {
     const params: GetArmsListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
+        name: formState.name,
         type: formState.armsType
     }
     const res = await getArmsList(params)
@@ -292,6 +298,7 @@ function selectList() {
 }
 
 function reset() {
+    formState.name = ""
     formState.armsType = undefined
     selectList()
 }
