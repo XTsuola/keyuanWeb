@@ -23,12 +23,20 @@ service.interceptors.request.use(config => {
 }, error => {
     return Promise.reject(error)
 })
+
 // 响应拦截器
+let isShowMsg = true
 service.interceptors.response.use(res => {
     if (res.data.code == 401) {
-        message.error(res.data.msg)
-        sessionStorage.clear()
-        router.push({ path: "/login" })
+        if (isShowMsg) {
+            message.error(res.data.msg)
+            sessionStorage.clear()
+            router.push({ path: "/login" })
+        }
+        isShowMsg = false
+        setTimeout(() => {
+            isShowMsg = true
+        }, 1500)
         return false
     } else {
         return res

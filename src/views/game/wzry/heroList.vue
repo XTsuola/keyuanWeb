@@ -44,6 +44,9 @@
                 <template v-else-if="column.key === 'position'">
                     <span>{{ getPosition(record.position) }}</span>
                 </template>
+                <template v-else-if="column.key === 'skinCount'">
+                    <span>{{ getCount(record.skin) }}</span>
+                </template>
                 <template v-else-if="column.key === 'action'">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                         <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
@@ -204,13 +207,19 @@ const columns = ref<ColumnType[]>([
         title: '定位',
         dataIndex: 'position',
         key: 'position',
-        width: 200
+        width: 160
     },
     {
         title: '皮肤',
         dataIndex: 'skin',
         key: 'skin',
         width: 240
+    },
+    {
+        title: '皮肤数量',
+        dataIndex: 'skinCount',
+        key: 'skinCount',
+        width: 120
     },
     {
         title: '备注',
@@ -249,6 +258,32 @@ function getPosition(arr: number[]) {
     }
     let result = brr.join("、")
     return result
+}
+
+function getCount(str: string) {
+    let count = 0
+    if (str.split("、")[0]) {
+        count = str.split("、").length
+    }
+    let level = ""
+    if (count >= 10) {
+        level = "超神"
+    } else if (count == 9) {
+        level = "完美"
+    } else if (count == 8) {
+        level = "优秀"
+    } else if (count == 7) {
+        level = "良好"
+    } else if (count == 6) {
+        level = "中等"
+    } else if (count == 5) {
+        level = "及格"
+    } else if (count == 4 || count == 3) {
+        level = "不及格"
+    } else {
+        level = "垃圾"
+    }
+    return count + "（" + level + "）"
 }
 
 async function getList() {

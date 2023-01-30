@@ -17,6 +17,7 @@ export interface AddHeroParams {
     country: number | undefined
     arms: number | undefined
     shuxing: number | undefined
+    lifeSeat: string
     star: number | undefined
     introduce: string
     remark: string

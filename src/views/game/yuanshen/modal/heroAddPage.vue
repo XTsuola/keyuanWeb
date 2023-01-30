@@ -6,47 +6,46 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="性别" name="gender" :rules="[{ required: true, message: '请选择性别!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.gender"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="所属国家" name="country" :rules="[{ required: true, message: '请选择国家!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.country"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.country" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类型" name="arms" :rules="[{ required: true, message: '请选择武器类型!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.arms"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.arms" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" name="shuxing" :rules="[{ required: true, message: '请选择属性!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.shuxing"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.shuxing" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.star"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="命之座">
+                <a-input v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
             <a-form-item label="介绍">
-                <a-textarea style="min-height: 200px;" v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 180px;" v-model:value="addData.introduce"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
@@ -77,10 +76,10 @@ const addData = ref<AddParamsType>({
     country: undefined,
     arms: undefined,
     shuxing: undefined,
+    lifeSeat: "",
     star: undefined,
     introduce: "",
     remark: ""
-
 })
 if (prop.type === 'edit' || prop.type === 'detail') {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
@@ -174,6 +173,7 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             country: addData.value.country,
             arms: addData.value.arms,
             shuxing: addData.value.shuxing,
+            lifeSeat: addData.value.lifeSeat,
             star: addData.value.star,
             introduce: addData.value.introduce,
             remark: addData.value.remark,

@@ -153,16 +153,17 @@ interface FormStateType {
     star: number | undefined
 }
 let addParams = reactive<AddParamsType>({
-    _id: '',
+    _id: "",
     id: 0,
-    name: '',
+    name: "",
     gender: undefined,
     country: undefined,
     arms: undefined,
     shuxing: undefined,
+    lifeSeat: "",
     star: undefined,
     introduce: "",
-    remark: ''
+    remark: ""
 })
 
 const current = ref<number>(1)
@@ -320,6 +321,12 @@ const columns = ref<ColumnType[]>([
         dataIndex: 'star',
         key: 'star',
         width: 80,
+    },
+    {
+        title: '命之座',
+        dataIndex: 'lifeSeat',
+        key: 'lifeSeat',
+        width: 100,
     },
     {
         title: '备注',
