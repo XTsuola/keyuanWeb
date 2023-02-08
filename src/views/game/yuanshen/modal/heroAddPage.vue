@@ -40,11 +40,23 @@
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="生命">
+                <a-input v-model:value="addData.life" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
+            <a-form-item label="攻击">
+                <a-input v-model:value="addData.att" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
+            <a-form-item label="防御">
+                <a-input v-model:value="addData.def" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
+            <a-form-item label="突破加成">
+                <a-input v-model:value="addData.breach" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
             <a-form-item label="命之座">
                 <a-input v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="介绍">
-                <a-textarea style="min-height: 180px;" v-model:value="addData.introduce"
+                <a-textarea v-model:value="addData.introduce"
                     :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
@@ -76,6 +88,10 @@ const addData = ref<AddParamsType>({
     country: undefined,
     arms: undefined,
     shuxing: undefined,
+    life: "",
+    att: "",
+    def: "",
+    breach: "",
     lifeSeat: "",
     star: undefined,
     introduce: "",
@@ -173,6 +189,10 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             country: addData.value.country,
             arms: addData.value.arms,
             shuxing: addData.value.shuxing,
+            life: addData.value.life,
+            att: addData.value.att,
+            def: addData.value.def,
+            breach: addData.value.breach,
             lifeSeat: addData.value.lifeSeat,
             star: addData.value.star,
             introduce: addData.value.introduce,

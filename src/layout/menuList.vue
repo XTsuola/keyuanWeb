@@ -7,14 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import { provide, reactive, ref } from 'vue';
+import { ref, watch } from 'vue';
 import MenuItem from './menuItem.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { Menu as aMenu } from 'ant-design-vue'
-
-export interface CloseMenu {
-    closeNow: (obj: any) => void;
-}
 
 const router = useRouter()
 const route = useRoute()
@@ -34,20 +30,19 @@ function updateMenu(arr: string[]) {
     }
 }
 
-if (routerKey && routerKey.meta && routerKey.meta.key) {
-    selectedKeys.value.push(routerKey.meta.key)
-    const arr = route.path.split('/')
-    updateMenu(arr)
-}
-
-const closeMenu = reactive<CloseMenu>({
-    closeNow(obj) {
-        const arr = obj.path.split('/')
+function updatePath(routerObj: any) {
+    selectedKeys.value = []
+    if (routerObj && routerObj.meta && routerObj.meta.key) {
+        selectedKeys.value.push(routerObj.meta.key)
+        const arr = route.path.split('/')
         updateMenu(arr)
     }
-})
+}
+updatePath(routerKey)
 
-provide<CloseMenu>("closeMenu", closeMenu)
+watch(route, (val) => {
+    updatePath(val)
+})
 
 
 </script>

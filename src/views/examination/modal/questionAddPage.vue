@@ -77,8 +77,8 @@
             autocomplete="off">
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请选择题目名称!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.stem">
-                    <a-select-option v-for="item in opt" :key="item.value" :value="item.label">{{
-                            item.label
+                    <a-select-option v-for="item in opt" :key="item" :value="item">{{
+                        item
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -134,10 +134,7 @@ const addData = ref<Test>({
     remark: ''
 })
 
-const opt = ref([{
-    value: 5,
-    label: "消灭星星"
-}])
+const opt = ref(["消灭星星"])
 
 if (prop.flag === 'edit') {
     const data = JSON.parse(JSON.stringify(prop.obj))

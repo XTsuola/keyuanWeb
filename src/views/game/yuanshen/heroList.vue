@@ -160,8 +160,12 @@ let addParams = reactive<AddParamsType>({
     country: undefined,
     arms: undefined,
     shuxing: undefined,
-    lifeSeat: "",
     star: undefined,
+    lifeSeat: "",
+    life: "",
+    att: "",
+    def: "",
+    breach: "",
     introduce: "",
     remark: ""
 })
@@ -323,6 +327,39 @@ const columns = ref<ColumnType[]>([
         width: 80,
     },
     {
+        title: '生命',
+        dataIndex: 'life',
+        key: 'life',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.life) - parseInt(b.life)
+        }
+    },
+    {
+        title: '攻击',
+        dataIndex: 'att',
+        key: 'att',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.att) - parseInt(b.att)
+        }
+    },
+    {
+        title: '防御',
+        dataIndex: 'def',
+        key: 'def',
+        width: 80,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.def) - parseInt(b.def)
+        }
+    },
+    {
+        title: '突破加成',
+        dataIndex: 'breach',
+        key: 'breach',
+        width: 160,
+    },
+    {
         title: '命之座',
         dataIndex: 'lifeSeat',
         key: 'lifeSeat',
@@ -332,7 +369,7 @@ const columns = ref<ColumnType[]>([
         title: '备注',
         key: 'remark',
         dataIndex: 'remark',
-        width: 300
+        width: 240
     },
     {
         title: '操作',
@@ -417,6 +454,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.arms = item.arms
             addParams.shuxing = item.shuxing
             addParams.star = item.star
+            addParams.lifeSeat = item.lifeSeat
+            addParams.life = item.life
+            addParams.att = item.att
+            addParams.def = item.def
+            addParams.breach = item.breach
             addParams.introduce = item.introduce
             addParams.remark = item.remark
             addParams.id = item.id
@@ -435,6 +477,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.arms = item.arms
             addParams.shuxing = item.shuxing
             addParams.star = item.star
+            addParams.lifeSeat = item.lifeSeat
+            addParams.life = item.life
+            addParams.att = item.att
+            addParams.def = item.def
+            addParams.breach = item.breach
             addParams.introduce = item.introduce
             addParams.remark = item.remark
         }

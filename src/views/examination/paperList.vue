@@ -143,7 +143,6 @@ function showModal(typeFlag: TypeFlag, record?: EditPaperType) {
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
     interface AType {
         axios: (data: EditPaperType) => AxiosPromise<any>
         msg: string
@@ -158,6 +157,7 @@ async function handleOk(e: MouseEvent) {
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
+        loading.value = true
         const res = await a.axios(result)
         if (res.data.code === 200) {
             getList()
@@ -166,8 +166,8 @@ async function handleOk(e: MouseEvent) {
         } else {
             message.error(a.msg)
         }
+        loading.value = false
     }
-    loading.value = false
 }
 
 async function deleteOk(e: EditPaperType) {

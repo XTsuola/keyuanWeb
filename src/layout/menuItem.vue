@@ -19,7 +19,6 @@
 import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router";
 import * as icon from "@ant-design/icons-vue"
 import { inject, ref } from "vue";
-import type { CloseMenu } from "./menuList.vue";
 const userId = ref<number>()
 const userInfo = window.sessionStorage.getItem('userInfo')
 if (userInfo && JSON.parse(userInfo).userId) {
@@ -32,7 +31,6 @@ interface Prop {
 
 const router = useRouter()
 const prop = defineProps<Prop>()
-const control = inject<CloseMenu>("closeMenu");
 
 function getShow(meta: RouteMeta) {
     return meta.isLevel && userId.value ? meta.isLevel.includes(userId.value) : true
@@ -46,7 +44,6 @@ function goView() {
         router.push({
             path: path.path
         })
-        control?.closeNow(path)
     }
 }
 
