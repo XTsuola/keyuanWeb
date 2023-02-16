@@ -87,7 +87,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/mhmnz'
@@ -111,10 +111,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -124,6 +126,15 @@ interface DataType {
     position: string
     castGrainSkill: string
 }
+
+interface FormStateType {
+    name: string
+    star: number | undefined
+    gender: number | undefined
+    camp: number | undefined
+    superSkill: string
+}
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -137,7 +148,6 @@ let addParams = reactive<AddParamsType>({
     talent: '',
     introduce: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -151,13 +161,6 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    name: string
-    star: number | undefined
-    gender: number | undefined
-    camp: number | undefined
-    superSkill: string
-}
 const formState = reactive<FormStateType>({
     name: "",
     star: undefined,
@@ -297,6 +300,7 @@ const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const type = ref<AddType>("add")
 const mql = window.matchMedia('(max-width: 768px)')
+
 function mediaMatchs() {
     if (mql.matches) {
         scrollObj.y = 550

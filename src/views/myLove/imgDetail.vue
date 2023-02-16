@@ -9,6 +9,7 @@ let resultObj = ref<any>(null)
 if (localStorage.getItem("imgObj")) {
     resultObj.value = JSON.parse(localStorage.getItem("imgObj") as string)
 }
+
 </script>
 
 <style lang="less" scoped>

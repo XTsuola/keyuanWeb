@@ -83,9 +83,9 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/mhmnz'
@@ -109,10 +109,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -122,12 +124,14 @@ interface DataType {
     position: string
     remark: string
 }
+
 interface FormStateType {
     name: string
     star: number | undefined
     weaponType: number | undefined
     isExclusive: number | undefined
 }
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -260,6 +264,7 @@ const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const type = ref<AddType>("add")
 const mql = window.matchMedia('(max-width: 768px)')
+
 function mediaMatchs() {
     if (mql.matches) {
         scrollObj.y = 550

@@ -62,7 +62,6 @@ const columns = ref<ColumnsType>([
 ])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
-
 const prop = defineProps<{
     obj: PaperDataType
 }>()

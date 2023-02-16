@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { Table as aTable, Select as aSelect, SelectOption as aSelectOption, Button as aButton, message, Popconfirm as aPopconfirm } from 'ant-design-vue';
-import { getUserPaperList, getOthersPaperSelectList, addReport, type DeleteParams, deleteReport, type DeleteReportType, type PaperDataType } from '@/api/examination'
+import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from '@/api/examination'
 import { reactive, ref } from 'vue';
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';
 
@@ -110,11 +110,9 @@ const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
 const parperIdList = ref<number[]>([])
 parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : []
-
 const emit = defineEmits<{
     (event: 'upDateList'): void
 }>()
-
 const paperSelect = ref<PaperSelectType[]>()
 const paperId = ref<number | undefined>(undefined)
 

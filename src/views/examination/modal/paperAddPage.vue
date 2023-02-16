@@ -10,14 +10,14 @@
                     width: '300px',
                     height: '400px',
                 }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
-                    :render="(item:any) => item.title" :disabled="disabled" :showSelectAll="false" @change="handleChange"
-                    @selectChange="handleSelectChange" @scroll="handleScroll" />
+                    :render="(item: any) => item.title" :disabled="disabled" :showSelectAll="false"
+                    @change="handleChange" />
             </a-form-item>
             <a-form-item label="每题分值" name="scoreList" v-if="addData.scoreList.length > 0">
                 <ul>
                     <li v-for="item in addData.scoreList">
                         <div style="margin-right: 2px;">
-                            {{item.key}}.
+                            {{ item.key }}.
                         </div>
                         <a-input v-model:value="item.score" />
                     </li>
@@ -62,24 +62,13 @@ const prop = defineProps<{
     flag: TypeFlag
     obj: AddPaperType | EditPaperType
 }>()
-
 const disabled = ref<boolean>(false);
-
 const targetKeys = ref<string[]>([]);
-
 const selectedKeys = ref<string[]>([]);
-
 const handleChange = (nextTargetKeys: string[], direction: string, moveKeys: string[]) => {
     addData.value.scoreList = nextTargetKeys.map(item => { return { key: item, score: "" } })
     addData.value.list = nextTargetKeys.map(item => item.toString())
 }
-const handleSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
-
-}
-const handleScroll = (direction: string, e: Event) => {
-
-}
-
 const addData = ref<addDataType>({
     paperName: '',
     list: [],
@@ -87,7 +76,6 @@ const addData = ref<addDataType>({
     time: "",
     remark: ''
 })
-
 if (prop.flag === 'edit') {
     const data: EditPaperType = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
@@ -108,9 +96,7 @@ if (prop.flag === 'edit') {
     addData.value.time = data.time
     addData.value.remark = data.remark
 }
-
 const paperAdd = ref<FormInstance>()
-
 const allList = ref<listType[]>()
 
 function scoreAdd(list: StemArrType[]) {

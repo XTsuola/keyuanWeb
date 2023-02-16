@@ -10,7 +10,7 @@
                 <a-select v-model:value="formState.groupValue" style="width: 120px;" @change="groupChange"
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
-                            item.groupName
+                        item.groupName
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -82,10 +82,12 @@ interface ColumnType {
     key: string
     width: number
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -95,6 +97,7 @@ interface DataType {
     position: string
     remark: string
 }
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -104,6 +107,11 @@ let addParams = reactive<AddParamsType>({
     position: '',
     remark: ''
 })
+
+interface FormStateType {
+    groupValue: number | undefined
+}
+
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -117,9 +125,6 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    groupValue: number | undefined
-}
 const formState = reactive<FormStateType>({
     groupValue: undefined
 })

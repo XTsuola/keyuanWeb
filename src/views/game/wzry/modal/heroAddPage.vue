@@ -35,6 +35,7 @@ import type { AddHeroParams, UpdateHeroParams } from '@/api/wzry';
 import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../heroList.vue';
+
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
@@ -46,7 +47,6 @@ const prop = defineProps<{
     addParams: AddParamsType
 }>()
 const heroAdd = ref<FormInstance>()
-
 const addData = ref<AddParamsType>({
     name: "",
     gender: undefined,
@@ -58,7 +58,6 @@ const addData = ref<AddParamsType>({
 if (prop.type === 'edit' || prop.type === 'detail') {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
-
 const genderList = ref<Type[]>([{
     label: "男",
     value: 1,
@@ -66,7 +65,6 @@ const genderList = ref<Type[]>([{
     label: "女",
     value: 2,
 }])
-
 const positionList = ref<Type[]>([{
     label: "战士",
     value: 1,

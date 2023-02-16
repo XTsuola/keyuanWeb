@@ -51,18 +51,16 @@ import jsonData from './data.json';
 import { Button as aButton, message } from 'ant-design-vue'
 import Tanke from './tanke.vue'
 
-const flag = ref<boolean>(true)
-const level = ref<number>(0)
-const mapList = ref<number[][]>([])
-mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
-
-const tankeDeg = ref<string>("-90deg")
-
 interface PositionType {
     x: number
     y: number
 }
 
+const flag = ref<boolean>(true)
+const level = ref<number>(0)
+const mapList = ref<number[][]>([])
+mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
+const tankeDeg = ref<string>("-90deg")
 const people = reactive<PositionType>({
     x: jsonData[level.value].peopleX,
     y: jsonData[level.value].peopleY

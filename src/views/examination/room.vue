@@ -11,7 +11,6 @@ let infoObj: any = null
 if (localStorage.getItem("infoObj")) {
     infoObj = JSON.parse(localStorage.getItem("infoObj") as string)
 }
-
 let paperId: number = 0
 if (infoObj.paperId) {
     paperId = parseInt(infoObj.paperId as string)

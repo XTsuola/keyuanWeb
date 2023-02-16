@@ -33,6 +33,7 @@
 
 <script lang="ts" setup>
 import { Carousel as aCarousel } from 'ant-design-vue'
+
 </script>
 
 <style lang="less" scoped>

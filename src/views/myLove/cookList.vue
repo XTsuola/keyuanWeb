@@ -87,7 +87,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove"
@@ -117,6 +117,7 @@ interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -129,6 +130,15 @@ interface DataType {
     introduce: string
     remark: string
 }
+
+interface FormStateType {
+    name: string
+    cookType: number | undefined
+    hunsu: number | undefined
+    mastery: number | undefined
+    star: number | undefined
+}
+
 let addParams = reactive<AddParamsType>({
     _id: "",
     id: 0,
@@ -141,7 +151,6 @@ let addParams = reactive<AddParamsType>({
     count: "",
     remark: ""
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -155,13 +164,6 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    name: string
-    cookType: number | undefined
-    hunsu: number | undefined
-    mastery: number | undefined
-    star: number | undefined
-}
 const formState = reactive<FormStateType>({
     name: "",
     cookType: undefined,

@@ -1,5 +1,5 @@
 <template>
-    <div class="ss" v-show="flag">
+    <div class="donghua" v-show="flag">
         <div>欢迎登录本系统</div>
     </div>
     <div class="BasicLayout" v-show="!flag">
@@ -35,7 +35,7 @@ function showMenu() {
     height: 100%;
 }
 
-.ss {
+.donghua {
     flex: 1;
     display: flex;
     height: 100%;

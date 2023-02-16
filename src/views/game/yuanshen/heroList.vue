@@ -128,10 +128,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -144,6 +146,7 @@ interface DataType {
     introduce: string
     remark: string
 }
+
 interface FormStateType {
     name: string
     gender: number | undefined
@@ -152,6 +155,7 @@ interface FormStateType {
     shuxing: number | undefined
     star: number | undefined
 }
+
 let addParams = reactive<AddParamsType>({
     _id: "",
     id: 0,
@@ -169,7 +173,6 @@ let addParams = reactive<AddParamsType>({
     introduce: "",
     remark: ""
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)

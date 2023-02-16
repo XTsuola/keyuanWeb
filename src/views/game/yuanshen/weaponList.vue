@@ -104,10 +104,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -120,6 +122,7 @@ interface DataType {
     introduce: string
     remark: string
 }
+
 interface FormStateType {
     name: string
     weaponType: number | undefined
@@ -127,6 +130,7 @@ interface FormStateType {
     baseAttack: string
     attribute: string
 }
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,

@@ -47,6 +47,7 @@ import type { AddWeaponParams, UpdateWeaponParams } from '@/api/mhmnz';
 import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../weaponList.vue';
+
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
 }
@@ -58,7 +59,6 @@ const prop = defineProps<{
     addParams: AddParamsType
 }>()
 const heroAdd = ref<FormInstance>()
-
 const addData = ref<AddParamsType>({
     name: "",
     star: undefined,
@@ -72,7 +72,6 @@ const addData = ref<AddParamsType>({
 if (prop.type === 'edit' || prop.type === 'detail') {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
-
 const starList = ref<Type[]>([{
     label: "SSR",
     value: 4
@@ -86,7 +85,6 @@ const starList = ref<Type[]>([{
     label: "N",
     value: 1
 }])
-
 const weaponTypeList = ref<Type[]>([{
     label: "武器",
     value: 1,
@@ -100,7 +98,6 @@ const weaponTypeList = ref<Type[]>([{
     label: "饰品",
     value: 4,
 }])
-
 const isExclusiveList = ref<Type[]>([{
     label: "是",
     value: 1,

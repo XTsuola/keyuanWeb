@@ -12,7 +12,7 @@
             <a-form-item label="兵种" style="width: 200px">
                 <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -64,7 +64,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
+    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
     Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
 } from 'ant-design-vue'
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from '@/api/mhmnz'
@@ -88,10 +88,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -101,10 +103,12 @@ interface DataType {
     position: string
     remark: string
 }
+
 interface FormStateType {
     name: string
     armsType: number | undefined
 }
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -117,7 +121,6 @@ let addParams = reactive<AddParamsType>({
     talent: "",
     remark: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)

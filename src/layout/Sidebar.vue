@@ -2,14 +2,16 @@
     <a-layout-sider width="200" class="sider" v-if="flag">
         <menuList></menuList>
     </a-layout-sider>
-    <a-drawer class="siderDrawer" placement="left" width="200" :closable="false" :visible="visible" @close="visible = false">
+    <a-drawer class="siderDrawer" placement="left" width="200" :closable="false" :visible="visible"
+        @close="visible = false">
         <menuList></menuList>
     </a-drawer>
 </template>
 
 <script lang="ts" setup>
-import menuList from "../layout/menuList.vue"
 import { ref } from 'vue'
+import { LayoutSider as aLayoutSider, Drawer as aDrawer } from 'ant-design-vue';
+import menuList from "../layout/menuList.vue"
 
 const visible = ref<boolean>(false)
 const flag = ref<boolean>(true)
@@ -56,6 +58,4 @@ defineExpose({
     cursor: pointer;
     display: none;
 }
-
-
 </style>

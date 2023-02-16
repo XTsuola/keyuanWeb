@@ -149,7 +149,7 @@ const addData = reactive<EditQuestionType>({
     remark: ''
 })
 const addPage = ref<AddPageAPI>()
-let type = ref(1)
+const type = ref(1)
 
 async function getList() {
     const res = await getQuestionList()

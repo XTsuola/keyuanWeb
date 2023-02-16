@@ -96,6 +96,7 @@ interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -108,11 +109,13 @@ interface DataType {
     introduce: string
     remark: string
 }
+
 interface FormStateType {
     name: string
     star: number | undefined
     tag: string
 }
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,

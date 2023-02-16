@@ -72,7 +72,6 @@ let resultObj: any = null
 if (localStorage.getItem("resultObj")) {
     resultObj = JSON.parse(localStorage.getItem("resultObj") as string)
 }
-
 const columns = ref<ColumnsType>([
     {
         title: '序号',

@@ -104,10 +104,12 @@ interface ColumnType {
     width?: number
     sorter?: any
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     _id: string
     id: number
@@ -117,6 +119,14 @@ interface DataType {
     position: string
     remark: string
 }
+
+interface FormStateType {
+    name: string
+    gender: number | undefined
+    position: number | undefined
+    skin: string
+}
+
 let addParams = reactive<AddParamsType>({
     _id: '',
     id: 0,
@@ -126,7 +136,6 @@ let addParams = reactive<AddParamsType>({
     skin: '',
     remark: ''
 })
-
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
@@ -140,12 +149,6 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-interface FormStateType {
-    name: string
-    gender: number | undefined
-    position: number | undefined
-    skin: string
-}
 const formState = reactive<FormStateType>({
     name: "",
     gender: undefined,
@@ -238,6 +241,7 @@ const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const type = ref<AddType>("add")
 const mql = window.matchMedia('(max-width: 768px)')
+
 function mediaMatchs() {
     if (mql.matches) {
         scrollObj.y = 550

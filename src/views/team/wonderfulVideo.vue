@@ -72,10 +72,12 @@ interface ColumnType {
     key: string
     width: number
 }
+
 interface scrollType {
     x: number
     y: number | undefined
 }
+
 interface DataType {
     key: number
     name: string
@@ -84,6 +86,7 @@ interface DataType {
     time: string
     remark: string
 }
+
 interface WrcDeleteType extends DataType {
     _id: string
 }

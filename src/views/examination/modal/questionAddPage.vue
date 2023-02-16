@@ -103,12 +103,6 @@ export interface API {
     getAddData: () => Promise<false | EditQuestionType>
 }
 
-const prop = defineProps<{
-    flag: TypeFlag
-    type: number
-    obj: AddQuestionType | EditQuestionType
-}>()
-
 interface Test {
     id?: number
     stem: string
@@ -122,6 +116,11 @@ interface Test {
     remark: string
 }
 
+const prop = defineProps<{
+    flag: TypeFlag
+    type: number
+    obj: AddQuestionType | EditQuestionType
+}>()
 const addData = ref<Test>({
     stem: '',
     type: prop.type,
@@ -133,9 +132,7 @@ const addData = ref<Test>({
     url: '',
     remark: ''
 })
-
 const opt = ref(["消灭星星"])
-
 if (prop.flag === 'edit') {
     const data = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
@@ -151,7 +148,6 @@ if (prop.flag === 'edit') {
     addData.value.url = data.url
     addData.value.remark = data.remark
 }
-
 const qustionAdd = ref<FormInstance>()
 
 async function getAddData(): Promise<false | AddQuestionType | EditQuestionType> {

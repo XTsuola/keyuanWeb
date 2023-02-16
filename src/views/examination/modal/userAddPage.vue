@@ -62,7 +62,6 @@ const addData = ref<addDataType>({
     level: undefined,
     remark: ""
 })
-
 if (prop.flag === 'edit') {
     const data: EditUserType = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
@@ -73,9 +72,7 @@ if (prop.flag === 'edit') {
     addData.value.level = data.level
     addData.value.remark = data.remark
 }
-
 const paperAdd = ref<FormInstance>()
-
 
 async function getAddData(): Promise<false | AddUserType | EditUserType> {
     try {

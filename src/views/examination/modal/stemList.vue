@@ -68,7 +68,6 @@ const columns = ref<ColumnsType>([
 const typeArr = ['选择题', '判断题', '填空题', '问答题', '操作题']
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
-
 const prop = defineProps<{
     obj: number[]
 }>()

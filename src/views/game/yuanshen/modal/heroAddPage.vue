@@ -71,6 +71,7 @@ import type { AddHeroParams, UpdateHeroParams } from '@/api/yuanshen';
 import { Input as aInput, Select as aSelect, Textarea as aTextarea, type FormInstance, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../heroList.vue';
+
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }

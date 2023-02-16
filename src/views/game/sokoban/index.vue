@@ -44,23 +44,20 @@ import { reactive, ref, watch } from 'vue';
 import jsonData from './data.json';
 import { Button as aButton, message } from 'ant-design-vue'
 
-const renwuDir = ref("translate(-50%,-50%) rotateY(0)")
-const flag = ref<boolean>(true)
-const level = ref<number>(0)
-const mapList = ref<number[][]>([])
-mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
-
-
 interface PositionType {
     x: number
     y: number
 }
 
+const renwuDir = ref("translate(-50%,-50%) rotateY(0)")
+const flag = ref<boolean>(true)
+const level = ref<number>(0)
+const mapList = ref<number[][]>([])
+mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
 const people = reactive<PositionType>({
     x: jsonData[level.value].peopleX,
     y: jsonData[level.value].peopleY
 })
-
 let heartList: PositionType[] = []
 const count = ref<number>(0)
 

@@ -40,6 +40,7 @@ import type { AddArmsParams, UpdateArmsParams } from '@/api/mhmnz';
 import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../armsList.vue';
+
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
 }

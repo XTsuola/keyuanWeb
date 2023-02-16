@@ -44,5 +44,4 @@ watch(route, (val) => {
     updatePath(val)
 })
 
-
 </script>

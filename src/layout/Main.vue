@@ -164,10 +164,10 @@ function tabBreadCrumb(e?: (RouteRecordNormalized | any)) {
     }
 }
 
-
 onMounted(() => {
     getUserList()
 })
+
 </script>
 
 <style lang="less" scoped>

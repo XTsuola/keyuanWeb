@@ -16,21 +16,21 @@
 </template>
 
 <script lang="ts" setup>
+import { SubMenu as aSubMenu, MenuItem as aMenuItem } from 'ant-design-vue';
 import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router";
 import * as icon from "@ant-design/icons-vue"
-import { inject, ref } from "vue";
+import { ref } from "vue";
+
+interface Prop {
+    menu: RouteRecordRaw
+}
+const router = useRouter()
+const prop = defineProps<Prop>()
 const userId = ref<number>()
 const userInfo = window.sessionStorage.getItem('userInfo')
 if (userInfo && JSON.parse(userInfo).userId) {
     userId.value = JSON.parse(userInfo).userId
 }
-
-interface Prop {
-    menu: RouteRecordRaw
-}
-
-const router = useRouter()
-const prop = defineProps<Prop>()
 
 function getShow(meta: RouteMeta) {
     return meta.isLevel && userId.value ? meta.isLevel.includes(userId.value) : true
@@ -51,7 +51,5 @@ function getMenuIcon(menuIcon: string) {
     type MenuIconType = keyof typeof icon;
     return icon[menuIcon as MenuIconType]
 }
-
-
 
 </script>

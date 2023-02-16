@@ -20,9 +20,9 @@ interface ListType {
     time: string
 }
 
+const infoWindow = ref<any>(null)
 const map = ref<any>(null)
 let Bmap = window.BMap
-const infoWindow = ref<any>(null)
 
 function initMap() {
     map.value = new Bmap.Map("allmap");
