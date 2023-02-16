@@ -276,9 +276,9 @@ function getCount(str: string) {
         level = "良好"
     } else if (count == 6) {
         level = "中等"
-    } else if (count == 5) {
+    } else if (count == 5 || count == 4) {
         level = "及格"
-    } else if (count == 4 || count == 3) {
+    } else if (count == 3) {
         level = "不及格"
     } else {
         level = "垃圾"

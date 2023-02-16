@@ -1,5 +1,8 @@
 <template>
-    <div class="BasicLayout">
+    <div class="ss" v-show="flag">
+        <div>欢迎登录本系统</div>
+    </div>
+    <div class="BasicLayout" v-show="!flag">
         <sidebarVue ref="sider" />
         <mainVue style="width: 100%;" @showMenu="showMenu" />
     </div>
@@ -8,8 +11,17 @@
 import sidebarVue from './Sidebar.vue'
 import mainVue from './Main.vue'
 import { ref } from 'vue';
+import { useCounterStore } from '@/stores/counter'
 
 const sider = ref()
+const counterStore = useCounterStore()
+const flag = ref(false)
+if(counterStore.guochangFlag) {
+    flag.value = counterStore.guochangFlag
+}
+setTimeout(() => {
+    flag.value = false
+}, 2000)
 
 function showMenu() {
     sider.value.showMenu()
@@ -21,5 +33,25 @@ function showMenu() {
     flex: 1;
     display: flex;
     height: 100%;
+}
+
+.ss {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    animation: fall 2s;
+}
+@keyframes fall {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 </style>

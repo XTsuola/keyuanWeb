@@ -19,12 +19,14 @@ import { Form as aForm, FormItem as aFormItem, Input as aInput, InputPassword as
 import { useRouter } from 'vue-router';
 import { login, type LoginParams } from "@/api/login"
 import md5 from 'js-md5'
+import { useCounterStore } from '@/stores/counter'
 
 interface FormState {
     username: string;
     password: string;
 }
 
+const counterStore = useCounterStore()
 const flag = ref(false)
 const formState = reactive<FormState>({
     username: '1',
@@ -55,6 +57,7 @@ async function onFinish(values: FormState) {
             window.sessionStorage.setItem('token', res.data.data.token)
             router.push({ path: "/" })
             message.success(res.data.msg)
+            counterStore.updateFlag(true)
         } else {
             flag.value = false
             message.error(res.data.msg)

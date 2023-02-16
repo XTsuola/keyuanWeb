@@ -11,3 +11,8 @@ export const levelName = {
     2: "管理员",
     3: "普通成员"
 }
+
+export async function getImg(str: string, callback: (e: any) => void) {
+    const url = (await import(str)).default
+    // const url = new URL(str, import.meta.url)
+}

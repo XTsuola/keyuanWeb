@@ -34,7 +34,7 @@
         <a-form ref="qustionAdd" :model="addData" name="basic" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }"
             autocomplete="off">
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
-                <a-input v-model:value="addData.stem" />
+                <a-textarea v-model:value="addData.stem" />
             </a-form-item>
             <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
                 <a-input v-model:value="addData.anwser" />
@@ -48,7 +48,7 @@
         <a-form ref="qustionAdd" :model="addData" name="basic" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }"
             autocomplete="off">
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
-                <a-input v-model:value="addData.stem" />
+                <a-textarea v-model:value="addData.stem" />
             </a-form-item>
             <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
                 <a-input v-model:value="addData.anwser" />
@@ -62,7 +62,7 @@
         <a-form ref="qustionAdd" :model="addData" name="basic" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }"
             autocomplete="off">
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
-                <a-input v-model:value="addData.stem" />
+                <a-textarea v-model:value="addData.stem" />
             </a-form-item>
             <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
                 <a-input v-model:value="addData.anwser" />
