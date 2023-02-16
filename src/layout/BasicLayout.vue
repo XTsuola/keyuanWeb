@@ -21,7 +21,7 @@ if(counterStore.guochangFlag) {
 }
 setTimeout(() => {
     flag.value = false
-}, 2000)
+}, 1000)
 
 function showMenu() {
     sider.value.showMenu()
@@ -44,7 +44,7 @@ function showMenu() {
     font-size: 50px;
     justify-content: center;
     align-items: center;
-    animation: fall 2s;
+    animation: fall 1s;
 }
 @keyframes fall {
     0% {
