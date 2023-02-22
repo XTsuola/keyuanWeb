@@ -5,7 +5,7 @@
     <div class="BasicLayout" v-show="!flag">
         <sidebarVue ref="sider" />
         <mainVue style="width: 100%;" @showMenu="showMenu" />
-    </div>
+</div>
 </template>
 <script setup lang="ts">
 import sidebarVue from './Sidebar.vue'
@@ -16,7 +16,7 @@ import { useCounterStore } from '@/stores/counter'
 const sider = ref()
 const counterStore = useCounterStore()
 const flag = ref(false)
-if(counterStore.guochangFlag) {
+if (counterStore.guochangFlag) {
     flag.value = counterStore.guochangFlag
 }
 setTimeout(() => {
@@ -46,10 +46,12 @@ function showMenu() {
     align-items: center;
     animation: fall 1s;
 }
+
 @keyframes fall {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
