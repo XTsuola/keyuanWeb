@@ -341,7 +341,7 @@ watch(count, (newValue, oldValue) => {
                 background: orange;
                 width: 50px;
                 height: 50px;
-                background: url("@/assets/gif/role-mega-man.gif");
+                background: url("@/assets/images/game/box/caiwenji.jpg");
                 background-size: 110%;
                 background-position: 50% 50%;
             }

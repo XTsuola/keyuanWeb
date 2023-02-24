@@ -5,13 +5,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
     ADivider: typeof import('ant-design-vue/es')['Divider']
-    ADrawer: typeof import('ant-design-vue/es')['Drawer']
-    AForm: typeof import('ant-design-vue/es')['Form']
-    AFormItem: typeof import('ant-design-vue/es')['FormItem']
-    AInput: typeof import('ant-design-vue/es')['Input']
-    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
-    AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
   }
 }
 
