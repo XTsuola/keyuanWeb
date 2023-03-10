@@ -73,6 +73,12 @@ function setPoint() {
         lat: 32.045605,
         info: "城南九肆品茶",
         time: "2022年11月27日"
+    }, {
+        // 秦淮河坐船
+        lng: 118.795931,
+        lat: 32.026238,
+        info: "秦淮河坐船",
+        time: "2023年2月26日"
     }]
     map.value.addEventListener('click', function (e: any) {
         console.log(e)

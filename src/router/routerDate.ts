@@ -105,7 +105,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "newGame",
               label: "坦克大战",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: []
             },
             component: () => import("@/views/game/tanke/index.vue")
           },
@@ -116,7 +116,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "sokoban",
               label: "推箱子",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: []
             },
             component: () => import("@/views/game/sokoban/index.vue")
           },
@@ -233,6 +233,28 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   icon: "UnorderedListOutlined"
                 },
                 component: () => import("@/views/game/yuanshen/relicsList.vue")
+              }
+            ]
+          },
+          {
+            path: "yinyangshi",
+            meta: {
+              menuType: "folder",
+              key: "yinyangshi",
+              icon: "UnorderedListOutlined",
+              label: "阴阳师"
+            },
+            component: BlankLayout,
+            children: [
+              {
+                path: "yinyangshiHeroList",
+                meta: {
+                  menuType: "menu",
+                  key: "yinyangshiHeroList",
+                  label: "式神列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/yinyangshi/heroList.vue")
               }
             ]
           }

@@ -51,7 +51,6 @@
             </template>
         </a-modal>
     </div>
-    <div @click="sendMsg">发送消息</div>
 </template>
 
 <script lang="ts" setup>
@@ -74,31 +73,6 @@ export interface GroupListType {
 export interface AddParamsType extends AddMemberParams {
     _id?: string
     id?: number
-}
-
-// Websoket连接成功事件
-const websocketonopen = (res: any) => {
-    console.log("WebSocket连接成功", res);
-};
-// Websoket接收消息事件
-const websocketonmessage = (res: any) => {
-    console.log("数据", res);
-};
-// Websoket连接错误事件
-const websocketonerror = (res: any) => {
-    console.log("连接错误", res);
-};
-// Websoket断开事件
-const websocketclose = (res: any) => {
-    console.log("断开连接", res);
-};
-
-let socket:any = null
-
-function sendMsg() {
-    if(socket) {
-        socket.send("6666")
-    }
 }
 
 interface ColumnType {
@@ -308,25 +282,9 @@ async function handleOk(e: MouseEvent) {
 }
 
 onMounted(() => {
-    // 创建 websocket 的实例
-    const wsurl = "ws://127.0.0.1:7003";
-    socket = new WebSocket(wsurl);
-    socket.onopen = websocketonopen;
-    socket.onmessage = websocketonmessage;
-    socket.onerror = websocketonerror;
-    socket.onclose = websocketclose;
-    console.log(socket, "999")
     getList()
     getGroup()
 })
-
-onBeforeUnmount(() => {
-    // 关闭连接
-    websocketclose;
-
-    // 销毁 websocket 实例对象
-    socket = null;
-});
 
 </script>
 
