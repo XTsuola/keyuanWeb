@@ -21,12 +21,11 @@
             <a-form-item label="D" name="d" :rules="[{ required: true, message: '请输入D选项!' }]">
                 <a-input v-model:value="addData.d" />
             </a-form-item>
-
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
+            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, validator: validAnwser }]">
                 <a-input v-model:value="addData.anwser" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
-                <a-textarea v-model:value="addData.remark" />
+                <a-textarea style="height:120px" v-model:value="addData.remark" />
             </a-form-item>
         </a-form>
     </div>
@@ -40,7 +39,7 @@
                 <a-input v-model:value="addData.anwser" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
-                <a-textarea v-model:value="addData.remark" />
+                <a-textarea style="height:120px" v-model:value="addData.remark" />
             </a-form-item>
         </a-form>
     </div>
@@ -54,7 +53,7 @@
                 <a-input v-model:value="addData.anwser" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
-                <a-textarea v-model:value="addData.remark" />
+                <a-textarea style="height:120px" v-model:value="addData.remark" />
             </a-form-item>
         </a-form>
     </div>
@@ -68,7 +67,7 @@
                 <a-input v-model:value="addData.anwser" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
-                <a-textarea v-model:value="addData.remark" />
+                <a-textarea style="height:120px" v-model:value="addData.remark" />
             </a-form-item>
         </a-form>
     </div>
@@ -86,7 +85,7 @@
                 <a-input v-model:value="addData.anwser" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
-                <a-textarea v-model:value="addData.remark" />
+                <a-textarea style="height:120px" v-model:value="addData.remark" />
             </a-form-item>
         </a-form>
     </div>
@@ -166,6 +165,21 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
     } catch (_) {
         return false
     }
+}
+
+function validAnwser(_: any, value: any): any {
+    return new Promise((resolve, reject) => {
+        if (!value) {
+            reject(new Error('请输入答案!'));
+        } else {
+            const list = ["a","b","c","d","A","B","C","D",1,2,3,4]
+            if (list.findIndex((item:any) => item == value) == -1) {
+                reject(new Error('请输入合法的答案!'));
+            } else {
+                resolve("");
+            }
+        }
+    })
 }
 
 defineExpose({

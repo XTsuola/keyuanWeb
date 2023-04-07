@@ -10,7 +10,7 @@
         <div>
             <a-radio-group v-model:value="prop.obj.anwser">
                 <div class="radioDiv" v-for="(select, index) in prop.obj.selectArr">
-                    <a-radio :key="index" :value="index">{{ abcdArr[index] }}: {{ select }}</a-radio>
+                    <a-radio :key="index + 1" :value="index + 1">{{ abcdArr[index] }}: {{ select }}</a-radio>
                 </div>
             </a-radio-group>
         </div>

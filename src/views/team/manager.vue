@@ -74,6 +74,7 @@ preLoad()
         background-color: aliceblue;
         width: 300px;
         height: 200px;
+        border: 2px solid red;
     }
 
     .cardBox::before {
@@ -82,7 +83,7 @@ preLoad()
         left: 0;
         position: absolute;
         content: "";
-        width: 101%;
+        width: 100%;
         height: 100%;
         border: 4px solid aliceblue;
         animation: bgc 1s forwards infinite linear;

@@ -141,6 +141,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/wzry/heroList.vue")
               },
               {
+                path: "zhanli",
+                meta: {
+                  menuType: "menu",
+                  key: "zhanli",
+                  label: "战力计算",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/wzry/zhanli.vue")
+              },
+              {
                 path: "wzryguanwang",
                 meta: {
                   menuType: "menu",

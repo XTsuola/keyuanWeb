@@ -20,10 +20,10 @@
             </template>
             <template v-if="column.key === 'rightAnwser'">
                 <span v-if="record.type == 1">
-                    <span v-if="record.rightAnwser === 0 || record.rightAnwser === '0'">A</span>
-                    <span v-if="record.rightAnwser === 1 || record.rightAnwser === '1'">B</span>
-                    <span v-if="record.rightAnwser === 2 || record.rightAnwser === '2'">C</span>
-                    <span v-if="record.rightAnwser === 3 || record.rightAnwser === '3'">D</span>
+                    <span v-if="record.rightAnwser === 1 || record.rightAnwser === '1'">A</span>
+                    <span v-if="record.rightAnwser === 2 || record.rightAnwser === '2'">B</span>
+                    <span v-if="record.rightAnwser === 3 || record.rightAnwser === '3'">C</span>
+                    <span v-if="record.rightAnwser === 4 || record.rightAnwser === '4'">D</span>
                 </span>
                 <span v-if="record.type == 2">
                     <span v-if="record.rightAnwser === 0 || record.rightAnwser === '0'">正确</span>
@@ -32,10 +32,10 @@
             </template>
             <template v-if="column.key === 'myAnwser'">
                 <span v-if="record.type == 1">
-                    <span v-if="record.myAnwser === 0 || record.myAnwser === '0'">A</span>
-                    <span v-if="record.myAnwser === 1 || record.myAnwser === '1'">B</span>
-                    <span v-if="record.myAnwser === 2 || record.myAnwser === '2'">C</span>
-                    <span v-if="record.myAnwser === 3 || record.myAnwser === '3'">D</span>
+                    <span v-if="record.myAnwser === 1 || record.myAnwser === '1'">A</span>
+                    <span v-if="record.myAnwser === 2 || record.myAnwser === '2'">B</span>
+                    <span v-if="record.myAnwser === 3 || record.myAnwser === '3'">C</span>
+                    <span v-if="record.myAnwser === 4 || record.myAnwser === '4'">D</span>
                 </span>
                 <span v-if="record.type == 2">
                     <span v-if="record.myAnwser === 0 || record.myAnwser === '0'">正确</span>

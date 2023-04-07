@@ -253,15 +253,6 @@ const columns = ref<ColumnType[]>([
         }
     },
     {
-        title: '速度',
-        dataIndex: 'sd',
-        key: 'sd',
-        width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
-            return parseInt(a.sd) - parseInt(b.sd)
-        }
-    },
-    {
         title: '暴击',
         dataIndex: 'bj',
         key: 'bj',

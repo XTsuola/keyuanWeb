@@ -12,12 +12,12 @@
             <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
             <template v-if="column.key === 'selectArr'">
                 <span v-if="record.type == '1'">A.{{ record.selectArr[0] }}. B.{{ record.selectArr[1] }}. C.{{
-                        record.selectArr[2]
+                    record.selectArr[2]
                 }}. D.{{ record.selectArr[3] }}</span>
                 <span v-else>/</span>
             </template>
             <template v-if="column.key === 'anwser'">
-                <div v-if="record.type === 1">{{ abcd[record.anwser] }}.{{ record.selectArr[record.anwser] }}</div>
+                <div v-if="record.type === 1">{{ abcd[record.anwser - 1] }}.{{ record.selectArr[record.anwser - 1] }}</div>
                 <div v-else-if="record.type === 2">{{ record.anwser === '1' ? '错误' : '正确' }}</div>
                 <div v-else>{{ record.anwser }}</div>
             </template>
@@ -186,7 +186,12 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             addData.stem = record.stem
             addData.type = record.type
             addData.selectArr = record.selectArr
-            addData.anwser = record.anwser
+            if (addData.type == 1) {
+                const arrList = ["A", "B", "C", "D"]
+                addData.anwser = arrList[parseInt(record.anwser as string) - 1]
+            } else {
+                addData.anwser = record.anwser
+            }
             addData.url = record.url
             addData.remark = record.remark
         }
@@ -210,14 +215,14 @@ async function handleOk(e: MouseEvent) {
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
         if (result.type === 1) {
-            if (result.anwser === 'a' || result.anwser === 'A' || result.anwser === '0') {
-                result.anwser = '0'
-            } else if (result.anwser === 'b' || result.anwser === 'B' || result.anwser === '1') {
+            if (result.anwser === 'a' || result.anwser === 'A' || result.anwser === '1') {
                 result.anwser = '1'
-            } else if (result.anwser === 'c' || result.anwser === 'C' || result.anwser === '2') {
+            } else if (result.anwser === 'b' || result.anwser === 'B' || result.anwser === '2') {
                 result.anwser = '2'
-            } else {
+            } else if (result.anwser === 'c' || result.anwser === 'C' || result.anwser === '3') {
                 result.anwser = '3'
+            } else {
+                result.anwser = '4'
             }
         } else if (result.type === 2) {
             if (result.anwser === '对' || result.anwser === '正确' || result.anwser === '0') {
