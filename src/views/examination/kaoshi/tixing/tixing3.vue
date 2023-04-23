@@ -16,7 +16,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Input as aInput } from 'ant-design-vue';
 import type { test3 } from './tixing'
 
 const prop = defineProps<{

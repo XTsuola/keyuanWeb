@@ -49,7 +49,6 @@
 
 <script lang="ts" setup>
 import type { AddHeroParams, UpdateHeroParams } from '@/api/mhmnz';
-import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../heroList.vue';
 
@@ -63,7 +62,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
 }>()
-const heroAdd = ref<FormInstance>()
+const heroAdd = ref()
 const addData = ref<AddParamsType>({
     name: "",
     star: undefined,

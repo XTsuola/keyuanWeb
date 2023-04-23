@@ -7,9 +7,9 @@
             </a-form-item>
             <a-form-item label="试卷内容" name="list" :rules="[{ required: true, message: '请选择试卷内容!' }]">
                 <a-transfer :list-style="{
-                    width: '300px',
-                    height: '400px',
-                }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
+                        width: '300px',
+                        height: '400px',
+                    }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
                     :render="(item: any) => item.title" :disabled="disabled" :showSelectAll="false"
                     @change="handleChange" />
             </a-form-item>
@@ -35,8 +35,7 @@
 
 <script lang="ts" setup>
 import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from '@/api/examination';
-import { Input as aInput, Form as aForm, FormItem as aFormItem, Textarea as aTextarea, Transfer as aTransfer, message } from 'ant-design-vue';
-import type { FormInstance } from 'ant-design-vue'
+import { message } from 'ant-design-vue';
 import { ref } from 'vue';
 import type { TypeFlag } from '../paperList.vue'
 
@@ -96,7 +95,7 @@ if (prop.flag === 'edit') {
     addData.value.time = data.time
     addData.value.remark = data.remark
 }
-const paperAdd = ref<FormInstance>()
+const paperAdd = ref()
 const allList = ref<listType[]>()
 
 function scoreAdd(list: StemArrType[]) {

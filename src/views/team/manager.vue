@@ -19,7 +19,6 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { Card as aCard } from 'ant-design-vue'
 import { ref } from 'vue';
 
 interface PeopleType {
@@ -47,12 +46,12 @@ async function preLoad() {
         qq: '1782424540',
         motto: '你要努力，你想要的要自己给自己',
         icon: (await import('../../assets/images/manage//smile.png')).default
-    }/* , {
+    }, {
         name: '南灵星-鹿鸣',
         qq: '2467118140',
         motto: '无论你在这个世界上的什么地方，我都一定会再去见你',
         icon: (await import('../../assets/images/lu.png')).default
-    } */]
+    }]
     peopleList.value = arrList
 }
 preLoad()

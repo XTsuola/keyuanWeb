@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Card as aCard, Button as aButton, Form as aForm, FormItem as aFormItem, Textarea as aTextarea, message, Popconfirm as aPopconfirm, Modal as aModal, type FormInstance } from 'ant-design-vue'
+import { message } from 'ant-design-vue'
 import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from '@/api/team'
 import { onMounted, reactive, ref } from 'vue';
 import type { AxiosPromise } from 'axios';
@@ -65,7 +65,7 @@ const welfareParams = reactive<WelfareType>({
     id: 0,
     remark: ""
 })
-const welfareAdd = ref<FormInstance>()
+const welfareAdd = ref()
 
 async function getList() {
     const res = await getWelfareList()

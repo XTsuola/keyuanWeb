@@ -32,7 +32,6 @@
 
 <script lang="ts" setup>
 import type { AddHeroParams, UpdateHeroParams } from '@/api/xingta';
-import { Input as aInput, Textarea as aTextarea, type FormInstance, Form as aForm, FormItem as aFormItem } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType } from '../heroList.vue';
 
@@ -46,7 +45,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
 }>()
-const heroAdd = ref<FormInstance>()
+const heroAdd = ref()
 const addData = ref<AddParamsType>({
     name: "",
     title: "",

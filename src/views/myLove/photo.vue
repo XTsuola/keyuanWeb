@@ -42,12 +42,11 @@
             <a-button @click="closeDetail()">关闭</a-button>
         </template>
     </a-modal>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue';
-import { Button as aButton, Form as aForm, FormItem as aFormItem, Input as aInput, Textarea as aTextarea, Modal as aModal, Popconfirm as aPopconfirm, message } from 'ant-design-vue'
+import { message } from 'ant-design-vue'
 import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from '@/api/myLove';
 import { networkConfig } from '@/utils/networkConfig';
 import { getNowTime } from '@/utils/some';

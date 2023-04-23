@@ -34,7 +34,6 @@
 
 <script lang="ts" setup>
 import { ref, nextTick, reactive, onMounted, onUnmounted } from 'vue'
-import { Button as aButton, Popconfirm as aPopconfirm } from 'ant-design-vue';
 import Tixing1 from './tixing/tixing1.vue'
 import Tixing2 from './tixing/tixing2.vue'
 import Tixing3 from './tixing/tixing3.vue'

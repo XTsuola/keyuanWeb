@@ -13,7 +13,7 @@
                 <a-select ref="select" v-model:value="formState.cookType" style="width: 140px;" @change="groupChange"
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -21,7 +21,7 @@
                 <a-select ref="select" v-model:value="formState.hunsu" style="width: 140px;" @change="groupChange"
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -29,7 +29,7 @@
                 <a-select ref="select" v-model:value="formState.mastery" style="width: 140px;" @change="groupChange"
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -81,15 +81,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {
-    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
-} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove"
 import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/cookAddPage.vue"

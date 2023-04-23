@@ -13,7 +13,6 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import { Input as aInput } from 'ant-design-vue';
 import type { test4 } from './tixing'
 import { networkConfig } from '@/utils/networkConfig'
 

@@ -93,7 +93,6 @@
 
 <script lang="ts" setup>
 import type { AddQuestionType, EditQuestionType } from '@/api/examination';
-import { Input as aInput, Select as aSelect, SelectOption as aSelectOption, Form as aForm, FormItem as aFormItem, Textarea as aTextarea } from 'ant-design-vue';
 import { ref } from 'vue';
 import type { TypeFlag } from '../questionList.vue'
 import type { FormInstance } from 'ant-design-vue'

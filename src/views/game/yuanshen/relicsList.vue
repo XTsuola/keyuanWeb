@@ -61,15 +61,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {
-    Table as aTable, Divider as aDivider, Button as aButton, Input as aInput, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
-} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from '@/api/yuanshen'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/relicsAddPage.vue"
 import type { AxiosPromise } from 'axios'

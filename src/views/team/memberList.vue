@@ -54,11 +54,8 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
-import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
-} from 'ant-design-vue'
+import { onMounted, reactive, ref } from 'vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team"
 import type { SelectValue } from 'ant-design-vue/lib/select'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/memberAddPage.vue"

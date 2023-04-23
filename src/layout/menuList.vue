@@ -10,7 +10,6 @@
 import { ref, watch } from 'vue';
 import MenuItem from './menuItem.vue';
 import { useRoute, useRouter } from 'vue-router';
-import { Menu as aMenu } from 'ant-design-vue'
 
 const router = useRouter()
 const route = useRoute()

@@ -10,7 +10,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { LayoutSider as aLayoutSider, Drawer as aDrawer } from 'ant-design-vue';
 import menuList from "../layout/menuList.vue"
 
 const visible = ref<boolean>(false)

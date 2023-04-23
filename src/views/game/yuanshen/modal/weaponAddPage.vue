@@ -39,7 +39,6 @@
 
 <script lang="ts" setup>
 import type { AddWeaponParams, UpdateWeaponParams } from '@/api/yuanshen';
-import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../weaponList.vue';
 
@@ -53,7 +52,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
 }>()
-const weaponAdd = ref<FormInstance>()
+const weaponAdd = ref()
 const addData = ref<AddParamsType>({
     name: "",
     type: undefined,

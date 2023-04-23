@@ -37,14 +37,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {
-    Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Modal as aModal, Pagination as aPagination
-} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/xingta"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'

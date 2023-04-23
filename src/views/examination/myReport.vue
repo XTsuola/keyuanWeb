@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable, Button as aButton } from 'ant-design-vue';
+import { Table as aTable } from 'ant-design-vue';
 import { reactive, ref } from 'vue'
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';
 import { getMyPaperlist } from '@/api/examination';

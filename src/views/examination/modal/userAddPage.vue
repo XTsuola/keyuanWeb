@@ -30,7 +30,6 @@
 
 <script lang="ts" setup>
 import type { AddUserType, EditUserType } from '@/api/examination';
-import { Input as aInput, Form as aForm, FormItem as aFormItem, Textarea as aTextarea, Transfer as aTransfer, Select as aSelect, SelectOption as aSelectOption } from 'ant-design-vue';
 import type { FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { TypeFlag } from '../paperList.vue'

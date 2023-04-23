@@ -38,7 +38,7 @@
 import { addPaper, updatePaper, getPaperList, type EditPaperType, type DeleteParams, deletePaper, type StemArrType } from '@/api/examination';
 import paperAdd, { type API as AddPageAPI } from './modal/paperAddPage.vue';
 import stemList from './modal/stemList.vue'
-import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Divider as aDivider } from 'ant-design-vue';
+import { message, Table as aTable } from 'ant-design-vue';
 import { onMounted, reactive, ref } from 'vue'
 import type { AxiosPromise } from 'axios';
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';

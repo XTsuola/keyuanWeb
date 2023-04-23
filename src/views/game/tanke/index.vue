@@ -46,9 +46,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref, watch } from 'vue';
+import { reactive, ref } from 'vue';
 import jsonData from './data.json';
-import { Button as aButton, message } from 'ant-design-vue'
 import Tanke from './tanke.vue'
 
 interface PositionType {

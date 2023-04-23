@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams, hhh } from '@/api/examination';
 import questionAddPage, { type API as AddPageAPI } from './modal/questionAddPage.vue';
-import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Divider as aDivider, RadioGroup as aRadioGroup, RadioButton as aRadioButton } from 'ant-design-vue';
+import { message, Table as aTable } from 'ant-design-vue';
 import { nextTick, onMounted, reactive, ref } from 'vue'
 import type { AxiosPromise } from 'axios';
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';

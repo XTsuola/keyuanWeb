@@ -11,8 +11,7 @@
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action' && levelId === 1">
-                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                    @cancel="cancel">
+                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)" @cancel="cancel">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </template>
@@ -21,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable, Select as aSelect, SelectOption as aSelectOption, Button as aButton, message, Popconfirm as aPopconfirm } from 'ant-design-vue';
+import { Table as aTable, message } from 'ant-design-vue';
 import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from '@/api/examination'
 import { reactive, ref } from 'vue';
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';
@@ -169,7 +168,7 @@ getSelect()
 
 async function getList() {
     if (prop.obj) {
-        const params:PaperDataType = {
+        const params: PaperDataType = {
             userId: prop.obj.id,
             paperList: parperIdList.value
         }
@@ -182,5 +181,4 @@ getList()
 
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

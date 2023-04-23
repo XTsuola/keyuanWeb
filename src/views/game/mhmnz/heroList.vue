@@ -81,15 +81,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {
-    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
-} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/mhmnz'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'

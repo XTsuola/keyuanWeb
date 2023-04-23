@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import { type UsersPaperType, getStudentsPaper, type PaperDataType } from '@/api/examination';
-import { Button as aButton, Table as aTable, Modal as aModal } from 'ant-design-vue';
+import { Table as aTable } from 'ant-design-vue';
 import distributePageVue from "./modal/distributePage.vue"
 import { onMounted, reactive, ref } from 'vue'
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';

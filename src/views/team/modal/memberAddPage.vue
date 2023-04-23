@@ -27,7 +27,6 @@
 
 <script lang="ts" setup>
 import { getGroupInfo, type AddMemberParams, type UpdateMemberParams } from '@/api/team';
-import { Form as aForm, FormItem as aFormItem, Input as aInput, Select as aSelect, SelectOption as aSelectOption, Textarea as aTextarea, type FormInstance } from 'ant-design-vue'
 import { onMounted, ref } from 'vue';
 import type { AddParamsType, GroupListType } from '../memberList.vue';
 export interface API {
@@ -52,7 +51,7 @@ if (prop.type === 'edit') {
 }
 const groupList = ref<GroupListType[]>([])
 
-const memberAdd = ref<FormInstance>()
+const memberAdd = ref()
 
 async function getGroup() {
     const res = await getGroupInfo()

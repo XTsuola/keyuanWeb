@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     ADivider: typeof import('ant-design-vue/es')['Divider']
+    ATable: typeof import('ant-design-vue/es')['Table']
   }
 }
 

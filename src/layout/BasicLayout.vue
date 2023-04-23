@@ -16,11 +16,13 @@ import { useCounterStore } from '@/stores/counter'
 const sider = ref()
 const counterStore = useCounterStore()
 const flag = ref(false)
+
 if (counterStore.guochangFlag) {
     flag.value = counterStore.guochangFlag
 }
 setTimeout(() => {
     flag.value = false
+    counterStore.updateFlag(false)
 }, 1000)
 
 function showMenu() {

@@ -51,8 +51,7 @@
             </template>
         </a-modal>
         <a-modal v-model:visible="visible2" destroyOnClose title="查看锦集" :maskClosable="false">
-            <video style="width: 100%;height: 100%;" v-if="videoFlag" class="video" :src="wrcUrl" controls
-                autoplay></video>
+            <video style="width: 100%;height: 100%;" v-if="videoFlag" class="video" :src="wrcUrl" controls autoplay></video>
             <img v-if="imgFlag" :src="wrcUrl" style="width: 100%;height:100%;" />
             <template #footer></template>
         </a-modal>
@@ -62,7 +61,7 @@
 <script lang="ts" setup>
 import COS from 'cos-js-sdk-v5'
 import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from '@/api/team';
-import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Form as aForm, FormItem as aFormItem, Textarea as aTextarea, Input as aInput, type FormInstance } from 'ant-design-vue';
+import { Table as aTable, message } from 'ant-design-vue';
 import { onMounted, reactive, ref } from 'vue'
 import { getNowTime } from '@/utils/some';
 
@@ -161,7 +160,7 @@ const addData = reactive<addDataType>({
     time: "",
     remark: ""
 })
-const wonderfulAdd = ref<FormInstance>()
+const wonderfulAdd = ref()
 
 function mediaMatchs() {
     if (mql.matches) {

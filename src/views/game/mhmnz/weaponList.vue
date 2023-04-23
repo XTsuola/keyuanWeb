@@ -5,29 +5,28 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增装备
             </a-button>
         </div>
-        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic"
-            autocomplete="off">
+        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="名称" style="width: 200px">
                 <a-input v-model:value="formState.name" placeholder="请输入名称" />
             </a-form-item>
             <a-form-item label="稀有度" style="width: 220px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="装备类型" style="width: 240px">
                 <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择装备">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" style="width: 240px">
                 <a-select v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -79,15 +78,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {
-    Input as aInput, Table as aTable, Divider as aDivider, Button as aButton, Popconfirm as aPopconfirm, message, Select as aSelect, SelectOption as aSelectOption,
-    Modal as aModal, Pagination as aPagination, Form as aForm, FormItem as aFormItem
-} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/mhmnz'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/weaponAddPage.vue"
 import type { AxiosPromise } from 'axios'

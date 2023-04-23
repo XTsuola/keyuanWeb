@@ -1,15 +1,14 @@
 <template>
     <div class="childMain">
-        <a-form ref="armsAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
-            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="armsAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
+            :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="类型" name="type" :rules="[{ required: true, message: '请选择类型!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.type"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.type" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -37,7 +36,6 @@
 
 <script lang="ts" setup>
 import type { AddArmsParams, UpdateArmsParams } from '@/api/mhmnz';
-import { Input as aInput, Select as aSelect, Textarea as aTextarea, Form as aForm, FormItem as aFormItem, SelectOption as aSelectOption, type FormInstance } from 'ant-design-vue'
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../armsList.vue';
 
@@ -51,7 +49,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
 }>()
-const armsAdd = ref<FormInstance>()
+const armsAdd = ref()
 const addData = ref<AddParamsType>({
     name: "",
     type: undefined,

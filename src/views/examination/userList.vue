@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { addUser, updateUser, getUserList, type EditUserType, type DeleteParams, deleteUser } from '@/api/examination';
 import userAdd, { type API as UserPageAPI } from './modal/userAddPage.vue';
-import { message, Button as aButton, Table as aTable, Popconfirm as aPopconfirm, Modal as aModal, Divider as aDivider } from 'ant-design-vue';
+import { message, Table as aTable } from 'ant-design-vue';
 import { onMounted, reactive, ref } from 'vue'
 import type { AxiosPromise } from 'axios';
 import type { ColumnsType } from 'ant-design-vue/es/table/interface';

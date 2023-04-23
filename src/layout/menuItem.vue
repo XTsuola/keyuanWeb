@@ -16,7 +16,6 @@
 </template>
 
 <script lang="ts" setup>
-import { SubMenu as aSubMenu, MenuItem as aMenuItem } from 'ant-design-vue';
 import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router";
 import * as icon from "@ant-design/icons-vue"
 import { ref } from "vue";

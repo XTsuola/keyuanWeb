@@ -42,7 +42,7 @@
 <script lang="tsx" setup>
 import { reactive, ref, watch } from 'vue';
 import jsonData from './data.json';
-import { Button as aButton, message } from 'ant-design-vue'
+import { message } from 'ant-design-vue'
 
 interface PositionType {
     x: number

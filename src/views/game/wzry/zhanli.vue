@@ -12,8 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from "vue"
-import { Input as aInput, Button as aButton, message } from "ant-design-vue"
+import { reactive } from "vue"
+import { message } from "ant-design-vue"
 
 interface ObjType {
     jc: string
