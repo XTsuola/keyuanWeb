@@ -2,7 +2,7 @@
     <div class="photo">
         <div style="padding: 10px;"><a-button @click="showAdd">添加回忆</a-button></div>
         <ul>
-            <li v-for="item in photoList">
+            <li v-for="item in photoList" style="width: 9%;">
                 <img @click="showDetail(item)" style="width: 100%;"
                     :src="networkConfig.serverUrl + 'photoImg/' + item.url" />
             </li>
