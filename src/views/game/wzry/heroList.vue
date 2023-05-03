@@ -74,12 +74,11 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import {Table as aTable, message} from 'ant-design-vue'
+import { Table as aTable, message } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/wzry'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'
@@ -225,7 +224,10 @@ const columns = ref<ColumnType[]>([
         title: '备注',
         dataIndex: 'remark',
         key: 'remark',
-        width: 160
+        width: 160,
+        sorter: (a: AddParamsType, b: AddParamsType) => {
+            return parseInt(a.remark.slice(0, a.remark.length - 1)) - parseInt(b.remark.slice(0, b.remark.length - 1))
+        }
     },
     {
         title: '操作',
