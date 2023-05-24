@@ -1,7 +1,7 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
-            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
+            :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
@@ -56,11 +56,20 @@
                 <a-input v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="介绍">
-                <a-textarea v-model:value="addData.introduce"
-                    :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"
+                    style="height: 160px;"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
+            <a-form-item label="图片">
+                <div v-if="prop.type === 'detail'">
+                    <a :href="imgSrc" target="_blank">{{ addData.img }}</a>
+                </div>
+                <a-upload v-else v-model:file-list="fileList" action="" :customRequest="uploadImg" @remove="handleRemove"
+                    :maxCount="1" accept="image/png, image/jpeg, image/jpg">
+                    <a-button v-if="fileList.length == 0">上传</a-button>
+                </a-upload>
             </a-form-item>
         </a-form>
     </div>
@@ -70,6 +79,7 @@
 import type { AddHeroParams, UpdateHeroParams } from '@/api/yuanshen';
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../heroList.vue';
+import { networkConfig } from '@/utils/networkConfig';
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
@@ -81,6 +91,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
 }>()
+const fileList = ref<any[]>([])
 const heroAdd = ref()
 const addData = ref<AddParamsType>({
     name: "",
@@ -95,11 +106,21 @@ const addData = ref<AddParamsType>({
     lifeSeat: "",
     star: undefined,
     introduce: "",
-    remark: ""
+    remark: "",
+    img: ""
 })
+const imgSrc = ref<any>("")
 if (prop.type === 'edit' || prop.type === 'detail') {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    const str = networkConfig.serverUrl + "yuanshen/hero/" + addData.value.img
+    imgSrc.value = new URL(str, import.meta.url)
+    if (addData.value.img) {
+        fileList.value = []
+        console.log(1111)
+        fileList.value.push({ url: imgSrc.value.href, name: addData.value.img })
+    }
 }
+
 const genderList = ref<Type[]>([{
     label: "男",
     value: 1
@@ -123,7 +144,7 @@ const countryList = ref<Type[]>([{
     label: "枫丹",
     value: 5
 }, {
-    label: "穆娜塔",
+    label: "纳塔",
     value: 6
 }, {
     label: "至冬",
@@ -178,6 +199,29 @@ const starList = ref<Type[]>([{
     value: 2
 }])
 
+function uploadImg(file: any) {
+    fileList.value = []
+    console.log(file, 344343)
+    addData.value.img = ""
+    const target = file.file
+    if (target) {
+        console.log(target)
+        const reader = new FileReader()
+        reader.readAsDataURL(target)
+        reader.addEventListener("load", async (e) => {
+            if (e.target && typeof e.target.result === "string") {
+                addData.value.img = e.target.result as any
+                fileList.value.push({ url: addData.value.img, name: file.file.name })
+            }
+        })
+    }
+}
+
+function handleRemove() {
+    fileList.value = []
+    addData.value.img = undefined
+}
+
 async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
         await heroAdd.value?.validate()
@@ -197,6 +241,7 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             star: addData.value.star,
             introduce: addData.value.introduce,
             remark: addData.value.remark,
+            img: addData.value.img
         }
         return returnData
     } catch (_) {

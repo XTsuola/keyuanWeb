@@ -54,7 +54,7 @@
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'name'">
-                    <a>{{ record.name }}</a>
+                    <a :href="getUrl(record.img)" target="_blank">{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'gender'">
                     <span>{{ genderList.find(item => item.value == record.gender)?.label }}</span>
@@ -106,6 +106,7 @@ import { Table as aTable, message } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yuanshen'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'
+import { networkConfig } from '@/utils/networkConfig'
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -141,6 +142,7 @@ interface DataType {
     star: number | undefined
     introduce: string
     remark: string
+    img: string | undefined
 }
 
 interface FormStateType {
@@ -219,7 +221,7 @@ const countryList = ref<Type[]>([{
     label: "枫丹",
     value: 5
 }, {
-    label: "穆娜塔",
+    label: "纳塔",
     value: 6
 }, {
     label: "至冬",
@@ -412,7 +414,8 @@ async function getList() {
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
-        _id: e._id
+        _id: e._id,
+        img: e.img
     }
     const res = await deleteHero(params)
     if (res.data.code === 200) {
@@ -460,6 +463,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.breach = item.breach
             addParams.introduce = item.introduce
             addParams.remark = item.remark
+            addParams.img = item.img
             addParams.id = item.id
         }
     } else if (showType === 'add') {
@@ -483,6 +487,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.breach = item.breach
             addParams.introduce = item.introduce
             addParams.remark = item.remark
+            addParams.img = item.img
         }
     }
     visible.value = true
@@ -514,6 +519,11 @@ async function handleOk(e: MouseEvent) {
         }
     }
     loading.value = false
+}
+
+function getUrl(img: string): string {
+    const str: string = networkConfig.serverUrl + "yuanshen/hero/" + img
+    return new URL(str, import.meta.url) as any
 }
 
 onMounted(() => {

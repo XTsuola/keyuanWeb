@@ -31,6 +31,7 @@ declare module 'vue' {
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATransfer: typeof import('ant-design-vue/es')['Transfer']
+    AUpload: typeof import('ant-design-vue/es')['Upload']
   }
 }
 

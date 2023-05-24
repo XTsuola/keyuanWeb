@@ -7,6 +7,7 @@
                     :src="networkConfig.serverUrl + 'photoImg/' + item.url" />
             </li>
         </ul>
+        <render-vnode :vNode="text"></render-vnode>
     </div>
     <a-modal v-model:visible="visible" destroyOnClose title="添加回忆" :maskClosable="false">
         <input type="file" @input="getPhoto" />
@@ -45,11 +46,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue';
+import { h, onMounted, reactive, ref } from 'vue';
 import { message } from 'ant-design-vue'
 import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from '@/api/myLove';
 import { networkConfig } from '@/utils/networkConfig';
 import { getNowTime } from '@/utils/some';
+import RenderVnode from "./ceshi"
 
 interface PhotoType {
     _id: string
@@ -60,6 +62,11 @@ interface PhotoType {
     remark: string
 }
 
+const str = "../../assets/images/game/box/caiwenji.jpg"
+const text = h("img", {
+    src: new URL(str, import.meta.url),
+    style: "width:120px;height:120px;margin-left:16px",
+})
 const photoAdd = ref()
 const photoList = ref<PhotoType[]>([])
 const visible = ref(false)

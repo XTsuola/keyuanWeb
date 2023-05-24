@@ -25,6 +25,7 @@ export interface AddHeroParams {
     breach: string
     introduce: string
     remark: string
+    img?: ""
 }
 
 export interface UpdateHeroParams extends AddHeroParams {
@@ -81,6 +82,7 @@ export interface UpdateRelicsParams extends AddRelicsParams {
 
 export interface DeleteParams {
     _id: string
+    img?: undefined | string
 }
 
 // 获取角色列表
