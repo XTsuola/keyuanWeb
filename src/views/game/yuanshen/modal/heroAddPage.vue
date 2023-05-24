@@ -116,7 +116,6 @@ if (prop.type === 'edit' || prop.type === 'detail') {
     imgSrc.value = new URL(str, import.meta.url)
     if (addData.value.img) {
         fileList.value = []
-        console.log(1111)
         fileList.value.push({ url: imgSrc.value.href, name: addData.value.img })
     }
 }
@@ -201,11 +200,9 @@ const starList = ref<Type[]>([{
 
 function uploadImg(file: any) {
     fileList.value = []
-    console.log(file, 344343)
     addData.value.img = ""
     const target = file.file
     if (target) {
-        console.log(target)
         const reader = new FileReader()
         reader.readAsDataURL(target)
         reader.addEventListener("load", async (e) => {

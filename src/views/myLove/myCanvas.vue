@@ -176,7 +176,6 @@ onMounted(() => {
         const y = event.clientY - rect.top
         const clickedObject = getObjectAtPosition(x, y)
         if (clickedObject) {
-            console.log('Clicked object:', objects, clickedObject)
             clearhb()
             const ind = objects.findIndex((item: any) => item.id == clickedObject.id)
             nowObj = objects[ind]

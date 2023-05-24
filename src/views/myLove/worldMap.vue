@@ -77,80 +77,83 @@ function setPoint() {
         lat: 32.026238,
         info: "秦淮河坐船",
         time: "2023年2月26日"
-    }, {
-        // 那香海
-        lng: 122.417896,
-        lat: 37.411194,
-        info: "",
-        time: ""
-    }, {
-        // 火炬八街
-        lng: 122.041955,
-        lat: 37.52707,
-        info: "",
-        time: ""
-    }, {
-        // 韩乐坊
-        lng: 122.159782,
-        lat: 37.434341,
-        info: "",
-        time: ""
-    }, {
-        // 半月湾
-        lng: 122.162785,
-        lat: 37.535524,
-        info: "",
-        time: ""
-    }, {
-        // 猫头山
-        lng: 122.154538,
-        lat: 37.56182,
-        info: "",
-        time: ""
-    }, {
-        // 威海公园
-        lng: 122.151748,
-        lat: 37.470538,
-        info: "",
-        time: ""
-    }, {
-        // 国际浴场
-        lng: 122.057558,
-        lat: 37.537571,
-        info: "",
-        time: ""
     }]
-    map.value.addEventListener('click', function (e: any) {
-        console.log(e)
-    })
-    for (let i = 0; i < list.length; i++) {
-        var point = new Bmap.Point(list[i].lng, list[i].lat);
-        var marker = new Bmap.Marker(point);
-        marker.addEventListener('click', function () {
-            infoWindow.value = new Bmap.InfoWindow(list[i].info, {
-                width: 200,
-                height: 50,
-                title: list[i].time
-            })
-            map.value.openInfoWindow(infoWindow.value, new Bmap.Point(list[i].lng, list[i].lat))
+    /*
+, {
+    // 那香海
+    lng: 122.417896,
+    lat: 37.411194,
+    info: "",
+    time: ""
+}, {
+    // 火炬八街
+    lng: 122.041955,
+    lat: 37.52707,
+    info: "",
+    time: ""
+}, {
+    // 韩乐坊
+    lng: 122.159782,
+    lat: 37.434341,
+    info: "",
+    time: ""
+}, {
+    // 半月湾
+    lng: 122.162785,
+    lat: 37.535524,
+    info: "",
+    time: ""
+}, {
+    // 猫头山
+    lng: 122.154538,
+    lat: 37.56182,
+    info: "",
+    time: ""
+}, {
+    // 威海公园
+    lng: 122.151748,
+    lat: 37.470538,
+    info: "",
+    time: ""
+}, {
+    // 国际浴场
+    lng: 122.057558,
+    lat: 37.537571,
+    info: "",
+    time: ""
+}
+*/
+/* map.value.addEventListener('click', function (e: any) {
+    console.log(e)
+}) */
+for (let i = 0; i < list.length; i++) {
+    var point = new Bmap.Point(list[i].lng, list[i].lat);
+    var marker = new Bmap.Marker(point);
+    marker.addEventListener('click', function () {
+        infoWindow.value = new Bmap.InfoWindow(list[i].info, {
+            width: 200,
+            height: 50,
+            title: list[i].time
         })
-        map.value.addOverlay(marker);
-    }
+        map.value.openInfoWindow(infoWindow.value, new Bmap.Point(list[i].lng, list[i].lat))
+    })
+    map.value.addOverlay(marker);
+}
 }
 
 function add() {
-    map.value.zoomTo(map.value.getZoom() + 1)
+map.value.zoomTo(map.value.getZoom() + 1)
 }
 
 function reduce() {
-    map.value.zoomTo(map.value.getZoom() - 1)
+map.value.zoomTo(map.value.getZoom() - 1)
 }
 
 onMounted(() => {
-    nextTick(() => {
-        initMap();
-        setPoint()
-    });
+nextTick(() => {
+    initMap();
+    setPoint()
+});
 });
 </script>
 
