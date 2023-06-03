@@ -89,6 +89,12 @@ const cookTypeList = ref<Type[]>([{
 }, {
     label: "蒸菜",
     value: 5
+}, {
+    label: "主食",
+    value: 6
+}, {
+    label: "其他",
+    value: 7
 }])
 const hunsuList = ref<Type[]>([{
     label: "荤菜",

@@ -44,6 +44,13 @@
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="星座" style="width: 200px">
+                <a-select v-model:value="formState.starSign" @change="selectList" placeholder="请选择星星座">
+                    <a-select-option v-for="item in starSignList" :key="item.value" :value="item.value">{{
+                        item.label
+                    }}</a-select-option>
+                </a-select>
+            </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
                     <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
@@ -115,7 +122,7 @@ export interface AddParamsType extends AddHeroParams {
 
 export interface Type {
     label: string
-    value: number | undefined
+    value: number | string | undefined
 }
 
 interface ColumnType {
@@ -152,6 +159,7 @@ interface FormStateType {
     arms: number | undefined
     shuxing: number | undefined
     star: number | undefined
+    starSign: string | undefined
 }
 
 let addParams = reactive<AddParamsType>({
@@ -191,6 +199,7 @@ const formState = reactive<FormStateType>({
     arms: undefined,
     shuxing: undefined,
     star: undefined,
+    starSign: undefined
 })
 const genderList = ref<Type[]>([{
     label: "全部",
@@ -283,6 +292,46 @@ const starList = ref<Type[]>([{
 }, {
     label: "四星",
     value: 2
+}])
+const starSignList = ref<Type[]>([{
+    label: "全部",
+    value: ""
+}, {
+    label: "水瓶座",
+    value: "水瓶座"
+}, {
+    label: "双鱼座",
+    value: "双鱼座"
+}, {
+    label: "白羊座",
+    value: "白羊座"
+}, {
+    label: "双子座",
+    value: "双子座"
+}, {
+    label: "金牛座",
+    value: "金牛座"
+}, {
+    label: "巨蟹座",
+    value: "巨蟹座"
+}, {
+    label: "狮子座",
+    value: "狮子座"
+}, {
+    label: "处女座",
+    value: "处女座"
+}, {
+    label: "天秤座",
+    value: "天秤座"
+}, {
+    label: "天蝎座",
+    value: "天蝎座"
+}, {
+    label: "射手座",
+    value: "射手座"
+}, {
+    label: "摩羯座",
+    value: "摩羯座"
 }])
 const columns = ref<ColumnType[]>([
     {
@@ -403,7 +452,8 @@ async function getList() {
         country: formState.country,
         arms: formState.arms,
         shuxing: formState.shuxing,
-        star: formState.star
+        star: formState.star,
+        starSign: formState.starSign
     }
     const res = await getHeroList(params)
     if (res.data.code === 200) {
@@ -440,7 +490,7 @@ function selectList() {
 
 function reset() {
     formState.name = ""
-    formState.gender = formState.country = formState.arms = formState.shuxing = formState.star = undefined
+    formState.gender = formState.country = formState.arms = formState.shuxing = formState.star = formState.starSign = undefined
     selectList()
 }
 

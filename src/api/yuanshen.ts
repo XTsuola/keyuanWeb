@@ -9,6 +9,7 @@ export interface GetHeroListParams {
     arms: number | undefined
     shuxing: number | undefined
     star: number | undefined
+    starSign: string | undefined
 }
 
 export interface AddHeroParams {
