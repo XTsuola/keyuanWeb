@@ -267,6 +267,28 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/yinyangshi/heroList.vue")
               }
             ]
+          },
+          {
+            path: "yingjiezhuan",
+            meta: {
+              menuType: "folder",
+              key: "yingjiezhuan",
+              icon: "UnorderedListOutlined",
+              label: "英杰传"
+            },
+            component: BlankLayout,
+            children: [
+              {
+                path: "yingjiezhuanHeroList",
+                meta: {
+                  menuType: "menu",
+                  key: "yingjiezhuanHeroList",
+                  label: "英雄列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/yingjiezhuan/heroList.vue")
+              }
+            ]
           }
         ]
       },
