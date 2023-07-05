@@ -42,7 +42,7 @@ async function preLoad() {
         motto: '热爱是一种永恒的可能',
         icon: (await import('../../assets/images/manage/sakura.png')).default
     }, {
-        name: '北冥星-微笑',
+        name: '北冥星-黄果树',
         qq: '1782424540',
         motto: '你要努力，你想要的要自己给自己',
         icon: (await import('../../assets/images/manage/smile.png')).default

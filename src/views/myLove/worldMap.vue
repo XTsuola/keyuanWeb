@@ -14,8 +14,9 @@ import { onMounted, ref, nextTick } from "vue"
 interface ListType {
     lng: number
     lat: number
-    info: string
-    time: string
+    info: string[]
+    time: string[]
+    friend: string[]
 }
 
 const infoWindow = ref<any>(null)
@@ -33,127 +34,175 @@ function setPoint() {
         // 星悦城
         lng: 118.701396,
         lat: 32.165192,
-        info: "我们住的地方——星悦城",
-        time: ""
+        info: ["我们住的地方——星悦城"],
+        time: [""],
+        friend: ["（月色、江南）"]
     }, {
         // 玄武湖公园
         lng: 118.805415,
         lat: 32.07912,
-        info: "南京玄武湖划船",
-        time: "2022年6月3日"
+        info: ["南京玄武湖划船", "南京玄武湖划船2"],
+        time: ["2022年6月3日", "2022年11月27日"],
+        friend: ["（月色、江南）", "（月色、江南、鹿鸣、黄果树）"]
     }, {
         // 紫金山
         lng: 118.859446,
         lat: 32.067579,
-        info: "南京紫金山看日出",
-        time: "2022年9月10日"
+        info: ["南京紫金山看日出"],
+        time: ["2022年9月10日"],
+        friend: ["（月色、江南、鹿鸣）"]
     }, {
-        // 巴布罗
+        // 巴布洛
         lng: 118.615913,
         lat: 32.495992,
-        info: "竹镇巴布洛看花海",
-        time: "2022年7月17日"
+        info: ["竹镇巴布洛看花海"],
+        time: ["2022年7月17日"],
+        friend: ["（月色、江南、鹿鸣、恒恒）"]
     }, {
         // 金正农庄
         lng: 118.867358,
         lat: 32.378198,
-        info: "六合区金正农庄钓鱼",
-        time: "2022年11月19日"
+        info: ["六合区金正农庄钓鱼"],
+        time: ["2022年11月19日"],
+        friend: ["（月色、江南、爸爸）"]
     }, {
         // TanGo探Go
         lng: 118.799818,
         lat: 32.046897,
-        info: "TanGo探Go沉浸式剧本杀",
-        time: "2022年11月26日"
+        info: ["TanGo探Go剧本杀-布达佩斯大饭店2", "TanGo探Go剧本杀-月隐于时针之隙"],
+        time: ["2022年11月26日", "2023年6月23日"],
+        friend: ["（月色、江南、鹿鸣、黄果树、嘉忻、海棠）", "（月色、江南、嘉忻、宁飞）"]
     }, {
         // 成南九肆
         lng: 118.788146,
         lat: 32.045605,
-        info: "城南九肆品茶",
-        time: "2022年11月27日"
+        info: ["城南九肆品茶"],
+        time: ["2022年11月27日"],
+        friend: ["（月色、江南、鹿鸣、黄果树、嘉忻、海棠）"]
     }, {
         // 秦淮河坐船
         lng: 118.795931,
         lat: 32.026238,
-        info: "秦淮河坐船",
-        time: "2023年2月26日"
+        info: ["秦淮河坐船"],
+        time: ["2023年2月26日"],
+        friend: ["（月色、江南、陆月、表妹夫）"]
+    }, {
+        // 酒吧狂欢
+        lng: 118.791973,
+        lat: 32.028703,
+        info: ["炬猩NEW_LIVE酒吧狂欢"],
+        time: ["2023年6月23日"],
+        friend: ["（月色、江南、嘉忻、宁飞）"]
+    }, {
+        // 韩乐坊
+        lng: 122.159782,
+        lat: 37.434341,
+        info: ["韩乐坊打卡"],
+        time: ["2023年6月29日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 九龙湾
+        lng: 122.180142,
+        lat: 37.436425,
+        info: ["九龙湾打卡"],
+        time: ["2023年6月29日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 海上公园
+        lng: 122.168338,
+        lat: 37.443259,
+        info: ["海上公园戏水"],
+        time: ["2023年6月29日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 威海猫头山
+        lng: 122.154538,
+        lat: 37.56182,
+        info: ["远眺猫头山"],
+        time: ["2023年6月30日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 威海国际浴场
+        lng: 122.050447,
+        lat: 37.53505,
+        info: ["威海国际浴场"],
+        time: ["2023年6月30日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 火炬八街
+        lng: 122.037565,
+        lat: 37.532049,
+        info: ["火炬八街打卡"],
+        time: ["2023年6月30日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 那香海
+        lng: 122.419395,
+        lat: 37.415369,
+        info: ["那香海玩沙戏水看日落"],
+        time: ["2023年6月30日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 伦敦蓝桥
+        lng: 122.420603,
+        lat: 37.404984,
+        info: ["那伦敦蓝桥打卡"],
+        time: ["2023年6月30日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 海源公园
+        lng: 122.158085,
+        lat: 37.526496,
+        info: ["海源公园打卡"],
+        time: ["2023年7月1日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
+    }, {
+        // 淄博钟书阁
+        lng: 117.995638,
+        lat: 36.844852,
+        info: ["钟书阁打卡"],
+        time: ["2023年7月1日"],
+        friend: ["（月色、江南、鹿鸣、湛雨）"]
     }]
-    /*
-, {
-    // 那香海
-    lng: 122.417896,
-    lat: 37.411194,
-    info: "",
-    time: ""
-}, {
-    // 火炬八街
-    lng: 122.041955,
-    lat: 37.52707,
-    info: "",
-    time: ""
-}, {
-    // 韩乐坊
-    lng: 122.159782,
-    lat: 37.434341,
-    info: "",
-    time: ""
-}, {
-    // 半月湾
-    lng: 122.162785,
-    lat: 37.535524,
-    info: "",
-    time: ""
-}, {
-    // 猫头山
-    lng: 122.154538,
-    lat: 37.56182,
-    info: "",
-    time: ""
-}, {
-    // 威海公园
-    lng: 122.151748,
-    lat: 37.470538,
-    info: "",
-    time: ""
-}, {
-    // 国际浴场
-    lng: 122.057558,
-    lat: 37.537571,
-    info: "",
-    time: ""
-}
-*/
-/* map.value.addEventListener('click', function (e: any) {
-    console.log(e)
-}) */
-for (let i = 0; i < list.length; i++) {
-    var point = new Bmap.Point(list[i].lng, list[i].lat);
-    var marker = new Bmap.Marker(point);
-    marker.addEventListener('click', function () {
-        infoWindow.value = new Bmap.InfoWindow(list[i].info, {
-            width: 200,
-            height: 50,
-            title: list[i].time
+    /* map.value.addEventListener('click', function (e: any) {
+        console.log(e)
+    }) */
+    for (let i = 0; i < list.length; i++) {
+        var point = new Bmap.Point(list[i].lng, list[i].lat);
+        var marker = new Bmap.Marker(point);
+        marker.addEventListener('click', function () {
+            let aList: any = []
+            for (let k = 0; k < list[i].time.length; k++) {
+                console.log(list[i].time[k], list[i].info[k], 111)
+                aList.push(list[i].time[k])
+                aList.push(list[i].info[k])
+                aList.push(list[i].friend[k])
+            }
+            const str = aList.splice(1, aList.length).join("<br>")
+            console.log(str, "strrr")
+            infoWindow.value = new Bmap.InfoWindow(str, {
+                width: 240,
+                title: list[i].time[0]
+            })
+            map.value.openInfoWindow(infoWindow.value, new Bmap.Point(list[i].lng, list[i].lat))
         })
-        map.value.openInfoWindow(infoWindow.value, new Bmap.Point(list[i].lng, list[i].lat))
-    })
-    map.value.addOverlay(marker);
-}
+        map.value.addOverlay(marker);
+    }
 }
 
 function add() {
-map.value.zoomTo(map.value.getZoom() + 1)
+    map.value.zoomTo(map.value.getZoom() + 1)
 }
 
 function reduce() {
-map.value.zoomTo(map.value.getZoom() - 1)
+    map.value.zoomTo(map.value.getZoom() - 1)
 }
 
 onMounted(() => {
-nextTick(() => {
-    initMap();
-    setPoint()
-});
+    nextTick(() => {
+        initMap();
+        setPoint()
+    });
 });
 </script>
 
