@@ -81,6 +81,28 @@ export interface UpdateRelicsParams extends AddRelicsParams {
     id?: number
 }
 
+export interface GetAbyss12ListParams {
+    pageSize: number
+    pageNo: number
+    name: string
+}
+
+export interface AddAbyss12Params {
+    version: string
+    firstUpper: string
+    firstLower: string
+    secondUpper: string
+    secondLower: string
+    thirdUpper: string
+    thirdLower: string
+    remark: string
+}
+
+export interface UpdateAbyss12Params extends AddAbyss12Params {
+    _id?: string
+    id?: number
+}
+
 export interface DeleteParams {
     _id: string
     img?: undefined | string
@@ -189,6 +211,42 @@ export function updateRelics(data: UpdateRelicsParams) {
 export function deleteRelics(data: DeleteParams) {
     return request({
         url: '/yuanshen/deleteRelics',
+        method: 'get',
+        params: data
+    })
+}
+
+// 获取深渊12层怪物列表
+export function getAbyss12List(data: GetAbyss12ListParams) {
+    return request({
+        url: '/yuanshen/getAbyss12List',
+        method: 'get',
+        params: data
+    })
+}
+
+// 新增深渊12层怪物
+export function addAbyss12(data: AddAbyss12Params) {
+    return request({
+        url: '/yuanshen/addAbyss12',
+        method: 'post',
+        data: data
+    })
+}
+
+// 修改深渊12层怪物
+export function updateAbyss12(data: UpdateAbyss12Params) {
+    return request({
+        url: '/yuanshen/updateAbyss12',
+        method: 'post',
+        data: data
+    })
+}
+
+// 删除深渊12层怪物
+export function deleteAbyss12(data: DeleteParams) {
+    return request({
+        url: '/yuanshen/deleteAbyss12',
         method: 'get',
         params: data
     })

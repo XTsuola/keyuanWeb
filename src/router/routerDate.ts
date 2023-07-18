@@ -243,6 +243,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   icon: "UnorderedListOutlined"
                 },
                 component: () => import("@/views/game/yuanshen/relicsList.vue")
+              },
+              {
+                path: "yuanshenAbyss12",
+                meta: {
+                  menuType: "menu",
+                  key: "yuanshenAbyss12",
+                  label: "深渊十二层",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/yuanshen/abyss12.vue")
               }
             ]
           },
@@ -265,28 +275,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   icon: "UnorderedListOutlined"
                 },
                 component: () => import("@/views/game/yinyangshi/heroList.vue")
-              }
-            ]
-          },
-          {
-            path: "yingjiezhuan",
-            meta: {
-              menuType: "folder",
-              key: "yingjiezhuan",
-              icon: "UnorderedListOutlined",
-              label: "英杰传"
-            },
-            component: BlankLayout,
-            children: [
-              {
-                path: "yingjiezhuanHeroList",
-                meta: {
-                  menuType: "menu",
-                  key: "yingjiezhuanHeroList",
-                  label: "英雄列表",
-                  icon: "UnorderedListOutlined"
-                },
-                component: () => import("@/views/game/yingjiezhuan/heroList.vue")
               }
             ]
           }

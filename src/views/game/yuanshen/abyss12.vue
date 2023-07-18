@@ -1,34 +1,13 @@
 <template>
     <div class="main">
         <div class="title">
-            英雄列表
-            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增英雄
+            深渊12层怪物列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增数据
             </a-button>
         </div>
         <a-form class="searchHead" :model="formState" name="basic" :wrapperCol="{ span: 16 }" autocomplete="off">
-            <a-form-item label="名称" style="width: 200px">
+            <a-form-item label="怪物名称" style="width: 200px">
                 <a-input v-model:value="formState.name" placeholder="请输入名称" />
-            </a-form-item>
-            <a-form-item label="性别" style="width: 200px">
-                <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
-                    <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
-                        item.label
-                    }}</a-select-option>
-                </a-select>
-            </a-form-item>
-            <a-form-item label="类别" style="width: 200px">
-                <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择类别">
-                    <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                        item.label
-                    }}</a-select-option>
-                </a-select>
-            </a-form-item>
-            <a-form-item label="阵营" style="width: 200px">
-                <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择阵营">
-                    <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
-                        item.label
-                    }}</a-select-option>
-                </a-select>
             </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
@@ -42,15 +21,6 @@
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
-                <template v-else-if="column.key === 'gender'">
-                    <span>{{ genderList.find(item => item.value == record.gender)?.label }}</span>
-                </template>
-                <template v-else-if="column.key === 'star'">
-                    <span>{{ starList.find(item => item.value == record.star)?.label }}</span>
-                </template>
-                <template v-else-if="column.key === 'country'">
-                    <span>{{ countryList.find(item => item.value == record.country)?.label }}</span>
-                </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                         <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
@@ -58,7 +28,7 @@
                             <a-divider type="vertical" />
                             <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                             <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该英雄吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                            <a-popconfirm title="确定删除该条数据吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
                                 @cancel="cancel">
                                 <a-button size="small">删除</a-button>
                             </a-popconfirm>
@@ -83,11 +53,11 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import { Table as aTable, message } from 'ant-design-vue'
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yjz'
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
+import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type DeleteParams, type AddAbyss12Params, type UpdateAbyss12Params } from '@/api/yuanshen'
+import AddPage, { type AddType, type API as AddPageAPI } from "./modal/abyss12AddPage.vue"
 import type { AxiosPromise } from 'axios'
 
-export interface AddParamsType extends AddHeroParams {
+export interface AddParamsType extends AddAbyss12Params {
     _id?: string
     id?: number
 }
@@ -125,27 +95,22 @@ interface DataType {
 
 interface FormStateType {
     name: string
-    gender: number | undefined
-    star: number | undefined
-    country: number | undefined
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
-    name: "",
-    gender: undefined,
-    star: undefined,
-    country: undefined,
-    link: "",
-    skill: "",
-    weapon: "",
-    remark: ""
+    version: "",
+    firstUpper: "",
+    firstLower: "",
+    secondUpper: "",
+    secondLower: "",
+    thirdUpper: "",
+    thirdLower: "",
+    remark: ''
 })
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
-const title = ref<string>("添加英雄")
+const title = ref<string>("添加圣遗物")
 const addPage = ref<AddPageAPI>()
 const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
 const levelId = ref<number | null>(null)
@@ -157,52 +122,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref<boolean>(false)
 const formState = reactive<FormStateType>({
     name: "",
-    gender: undefined,
-    star: undefined,
-    country: undefined
 })
-const genderList = ref<Type[]>([{
-    label: "全部",
-    value: 0
-}, {
-    label: "男",
-    value: 1
-}, {
-    label: "女",
-    value: 2
-}])
-const starList = ref<Type[]>([{
-    label: "全部",
-    value: 0
-}, {
-    label: "红卡",
-    value: 1
-}, {
-    label: "橙卡",
-    value: 2
-}, {
-    label: "紫卡",
-    value: 3
-}, {
-    label: "蓝卡",
-    value: 4
-}])
-const countryList = ref<Type[]>([{
-    label: "全部",
-    value: 0
-}, {
-    label: "蜀国",
-    value: 1
-}, {
-    label: "魏国",
-    value: 2
-}, {
-    label: "吴国",
-    value: 3
-}, {
-    label: "群雄",
-    value: 4
-}])
 const columns = ref<ColumnType[]>([
     {
         title: '序号',
@@ -211,45 +131,52 @@ const columns = ref<ColumnType[]>([
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: '深渊版本',
+        dataIndex: 'version',
+        key: 'version',
         width: 100
     },
     {
-        title: '性别',
-        dataIndex: 'gender',
-        key: 'gender',
-        width: 80
+        title: '第一间上半',
+        dataIndex: 'firstUpper',
+        key: 'firstUpper',
+        width: 160
     },
     {
-        title: '类别',
-        dataIndex: 'star',
-        key: 'star',
-        width: 80,
+        title: '第一间下半',
+        dataIndex: 'firstLower',
+        key: 'firstLower',
+        width: 160
     },
     {
-        title: '阵营',
-        dataIndex: 'country',
-        key: 'country',
-        width: 80,
+        title: '第二间上半',
+        dataIndex: 'secondUpper',
+        key: 'secondUpper',
+        width: 160
     },
     {
-        title: '连携',
-        key: 'link',
-        dataIndex: 'link',
+        title: '第二间下半',
+        dataIndex: 'secondLower',
+        key: 'secondLower',
+        width: 160
     },
     {
-        title: '专武',
-        key: 'weapon',
-        dataIndex: 'weapon',
-        width: 120,
+        title: '第三间上半',
+        dataIndex: 'thirdUpper',
+        key: 'thirdUpper',
+        width: 160
+    },
+    {
+        title: '第三间下半',
+        dataIndex: 'thirdLower',
+        key: 'thirdLower',
+        width: 160
     },
     {
         title: '备注',
-        key: 'remark',
         dataIndex: 'remark',
-        width: 240
+        key: 'remark',
+        width: 100
     },
     {
         title: '操作',
@@ -274,15 +201,12 @@ mediaMatchs()
 mql.addEventListener("change", mediaMatchs)
 
 async function getList() {
-    const params: GetHeroListParams = {
+    const params: GetAbyss12ListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        name: formState.name,
-        gender: formState.gender,
-        star: formState.star,
-        country: formState.country
+        name: formState.name
     }
-    const res = await getHeroList(params)
+    const res = await getAbyss12List(params)
     if (res.data.code === 200) {
         data.value = res.data.rows
         total.value = res.data.total
@@ -293,7 +217,7 @@ async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
     }
-    const res = await deleteHero(params)
+    const res = await deleteAbyss12(params)
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
@@ -316,42 +240,39 @@ function selectList() {
 
 function reset() {
     formState.name = ""
-    formState.gender = formState.star = formState.country = undefined
     selectList()
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
     if (showType === 'edit') {
-        title.value = "修改英雄"
+        title.value = "修改圣遗物"
         if (item) {
             addParams._id = item._id
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.star = item.star
-            addParams.country = item.country
-            addParams.link = item.link
-            addParams.skill = item.skill
-            addParams.weapon = item.weapon
+            addParams.version = item.version
+            addParams.firstUpper = item.firstUpper
+            addParams.firstLower = item.firstLower
+            addParams.secondUpper = item.secondUpper
+            addParams.secondLower = item.secondLower
+            addParams.thirdUpper = item.thirdUpper
+            addParams.thirdLower = item.thirdLower
             addParams.remark = item.remark
             addParams.id = item.id
         }
     } else if (showType === 'add') {
-        title.value = "添加英雄"
-        addParams.gender = addParams.star = addParams.country = undefined
-        addParams._id = addParams.name = addParams.link = addParams.skill = addParams.weapon = addParams.remark = ''
+        title.value = "添加圣遗物"
+        addParams._id = addParams.version = addParams.firstUpper = addParams.firstLower = addParams.secondUpper = addParams.secondLower = addParams.thirdUpper = addParams.thirdLower = addParams.remark = ''
         addParams.id = 0
     } else if (showType === 'detail') {
         title.value = "查看详情"
         if (item) {
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.star = item.star
-            addParams.country = item.country
-            addParams.link = item.link
-            addParams.skill = item.skill
-            addParams.weapon = item.weapon
-            addParams.remark = item.remark
+            addParams.version = item.version
+            addParams.firstUpper = item.firstUpper
+            addParams.firstLower = item.firstLower
+            addParams.secondUpper = item.secondUpper
+            addParams.secondLower = item.secondLower
+            addParams.thirdUpper = item.thirdUpper
+            addParams.thirdLower = item.thirdLower
             addParams.remark = item.remark
         }
     }
@@ -361,15 +282,15 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true
     interface AType {
-        axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
+        axios: ((data: AddAbyss12Params) => AxiosPromise<any>) | ((data: UpdateAbyss12Params) => AxiosPromise<any>)
         msg: string
     }
     let a: AType = {
         msg: '新增失败',
-        axios: addHero
+        axios: addAbyss12
     }
     if (type.value === "edit") {
-        a.axios = updateHero
+        a.axios = updateAbyss12
         a.msg = '修改失败'
     }
     const result = await addPage.value?.getAddData()
