@@ -4,7 +4,7 @@
         <ul>
             <li v-for="item in photoList" style="width: 9%;">
                 <img @click="showDetail(item)" style="width: 100%;"
-                    :src="networkConfig.serverUrl + 'photoImg/' + item.url" />
+                    :src="import.meta.env.VITE_APP_BASE_URL + 'photoImg/' + item.url" />
             </li>
         </ul>
         <render-vnode :vNode="text"></render-vnode>
@@ -49,7 +49,6 @@
 import { h, onMounted, reactive, ref } from 'vue';
 import { message } from 'ant-design-vue'
 import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from '@/api/myLove';
-import { networkConfig } from '@/utils/networkConfig';
 import { getNowTime } from '@/utils/some';
 import RenderVnode from "./ceshi"
 
@@ -135,7 +134,7 @@ function showDetail(item: PhotoType) {
     nowImgId.value = item._id
     detailTitle.value = item.name
     nowUrl.value = item.url
-    detailUrl.value = networkConfig.serverUrl + 'photoImg/' + item.url
+    detailUrl.value = import.meta.env.VITE_APP_BASE_URL + 'photoImg/' + item.url
 }
 
 function closeDetail() {

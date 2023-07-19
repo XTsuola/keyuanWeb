@@ -49,7 +49,6 @@ import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type Route
 import router from '@/router';
 import imgBase from '@/assets/images/lanlingwang.jpg'
 import { getUserInfo, updateImg } from '@/api/team';
-import { networkConfig } from '@/utils/networkConfig';
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 
 interface UserInfo {
@@ -101,7 +100,7 @@ async function getUserList() {
             remark: row.remark
         }
         if (row.img) {
-            imgValue.value = networkConfig.serverUrl + "headImg/" + row.img
+            imgValue.value = import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img
         } else {
             imgValue.value = imgBase
         }

@@ -79,7 +79,6 @@
 import type { AddHeroParams, UpdateHeroParams } from '@/api/yuanshen';
 import { ref } from 'vue';
 import type { AddParamsType, Type } from '../heroList.vue';
-import { networkConfig } from '@/utils/networkConfig';
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
@@ -112,7 +111,7 @@ const addData = ref<AddParamsType>({
 const imgSrc = ref<any>("")
 if (prop.type === 'edit' || prop.type === 'detail') {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
-    const str = networkConfig.serverUrl + "yuanshen/hero/" + addData.value.img
+    const str = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + addData.value.img
     imgSrc.value = new URL(str, import.meta.url)
     if (addData.value.img) {
         fileList.value = []

@@ -20,7 +20,6 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import type { test1 } from './tixing'
-import { networkConfig } from '@/utils/networkConfig'
 
 defineEmits(["update:obj"])
 
@@ -42,11 +41,11 @@ onMounted(() => {
         if (imgSuffixList.value.includes(suffix)) {
             imgFlag.value = true
             videoFlag.value = false
-            url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
+            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url
         } else if(videoSuffixList.value.includes(suffix)) {
             imgFlag.value = false
             videoFlag.value = true
-            url.value = networkConfig.serverUrl + 'video/' + prop.obj.url
+            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url
         }
     } else {
         imgFlag.value = false

@@ -113,7 +113,6 @@ import { Table as aTable, message } from 'ant-design-vue'
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yuanshen'
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
 import type { AxiosPromise } from 'axios'
-import { networkConfig } from '@/utils/networkConfig'
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -572,7 +571,7 @@ async function handleOk(e: MouseEvent) {
 }
 
 function getUrl(img: string): string {
-    const str: string = networkConfig.serverUrl + "yuanshen/hero/" + img
+    const str: string = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + img
     return new URL(str, import.meta.url) as any
 }
 
