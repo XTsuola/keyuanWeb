@@ -7,9 +7,9 @@
             </a-form-item>
             <a-form-item label="试卷内容" name="list" :rules="[{ required: true, message: '请选择试卷内容!' }]">
                 <a-transfer :list-style="{
-                        width: '300px',
-                        height: '400px',
-                    }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
+                    width: '300px',
+                    height: '400px',
+                }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
                     :render="(item: any) => item.title" :disabled="disabled" :showSelectAll="false"
                     @change="handleChange" />
             </a-form-item>
@@ -34,10 +34,10 @@
 </template>
 
 <script lang="ts" setup>
-import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from '@/api/examination';
-import { message } from 'ant-design-vue';
-import { ref } from 'vue';
-import type { TypeFlag } from '../paperList.vue'
+import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination"
+import { message } from "ant-design-vue"
+import { ref } from "vue"
+import type { TypeFlag } from "../paperList.vue"
 
 export interface API {
     getAddData: () => Promise<false | EditPaperType>
@@ -61,21 +61,21 @@ const prop = defineProps<{
     flag: TypeFlag
     obj: AddPaperType | EditPaperType
 }>()
-const disabled = ref<boolean>(false);
-const targetKeys = ref<string[]>([]);
-const selectedKeys = ref<string[]>([]);
-const handleChange = (nextTargetKeys: string[], direction: string, moveKeys: string[]) => {
+const disabled = ref<boolean>(false)
+const targetKeys = ref<string[]>([])
+const selectedKeys = ref<string[]>([])
+const handleChange = (nextTargetKeys: string[]) => {
     addData.value.scoreList = nextTargetKeys.map(item => { return { key: item, score: "" } })
     addData.value.list = nextTargetKeys.map(item => item.toString())
 }
 const addData = ref<addDataType>({
-    paperName: '',
+    paperName: "",
     list: [],
     scoreList: [],
     time: "",
-    remark: ''
+    remark: ""
 })
-if (prop.flag === 'edit') {
+if (prop.flag === "edit") {
     const data: EditPaperType = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
     addData.value.paperName = data.paperName

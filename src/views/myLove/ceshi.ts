@@ -1,6 +1,5 @@
-//renderVnode.ts
-import { defineComponent, h, isVNode } from 'vue'
- 
+import { defineComponent, h, isVNode } from "vue"
+
 const RenderVnode = defineComponent({
     props: {
         vNode: {
@@ -8,13 +7,13 @@ const RenderVnode = defineComponent({
             required: true
         }
     },
-    render () {
+    render() {
         if (isVNode(this.vNode)) {
             return this.vNode
         } else {
-            return h('div', this.vNode as any)
+            return h("div", this.vNode as any)
         }
     }
 })
- 
+
 export default RenderVnode

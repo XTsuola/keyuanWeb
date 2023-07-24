@@ -29,10 +29,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddUserType, EditUserType } from '@/api/examination';
-import type { FormInstance } from 'ant-design-vue'
-import { ref } from 'vue';
-import type { TypeFlag } from '../paperList.vue'
+import type { AddUserType, EditUserType } from "@/api/examination"
+import type { FormInstance } from "ant-design-vue"
+import { ref } from "vue"
+import type { TypeFlag } from "../paperList.vue"
 
 export interface API {
     getAddData: () => Promise<false | EditUserType>
@@ -61,7 +61,7 @@ const addData = ref<addDataType>({
     level: undefined,
     remark: ""
 })
-if (prop.flag === 'edit') {
+if (prop.flag === "edit") {
     const data: EditUserType = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
     addData.value.userName = data.userName

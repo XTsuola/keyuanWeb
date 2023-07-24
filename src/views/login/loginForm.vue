@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
-import { message } from 'ant-design-vue'
-import { useRouter } from 'vue-router';
+import { reactive, ref } from "vue"
+import { message } from "ant-design-vue"
+import { useRouter } from "vue-router"
 import { login, type LoginParams } from "@/api/login"
-import md5 from 'js-md5'
-import { useCounterStore } from '@/stores/counter'
+import md5 from "js-md5"
+import { useCounterStore } from "@/stores/counter"
 
 interface FormState {
     username: string;
@@ -29,8 +29,8 @@ interface FormState {
 const counterStore = useCounterStore()
 const flag = ref(false)
 const formState = reactive<FormState>({
-    username: '1',
-    password: '1',
+    username: "1",
+    password: "1",
 })
 const rules = {
     username: [{ required: true, message: "请输入账号！" }],
@@ -53,8 +53,8 @@ async function onFinish(values: FormState) {
                 userId: res.data.data.id,
                 level: res.data.data.level
             }
-            window.sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-            window.sessionStorage.setItem('token', res.data.data.token)
+            window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
+            window.sessionStorage.setItem("token", res.data.data.token)
             router.push({ path: "/" })
             message.success(res.data.msg)
             counterStore.updateFlag(true)

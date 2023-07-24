@@ -58,78 +58,78 @@
 </template>
 
 <script lang="ts" setup>
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams, hhh } from '@/api/examination';
-import questionAddPage, { type API as AddPageAPI } from './modal/questionAddPage.vue';
-import { message, Table as aTable } from 'ant-design-vue';
-import { nextTick, onMounted, reactive, ref } from 'vue'
-import type { AxiosPromise } from 'axios';
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams } from '@/api/examination'
+import questionAddPage, { type API as AddPageAPI } from "./modal/questionAddPage.vue"
+import { message, Table as aTable } from "ant-design-vue"
+import { nextTick, onMounted, reactive, ref } from "vue"
+import type { AxiosPromise } from "axios"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
 
-export type TypeFlag = 'add' | 'edit'
+export type TypeFlag = "add" | "edit"
 
 interface scrollType {
     x: number
     y: number | undefined
 }
 
-const value = ref('')
-const abcd = ['A', 'B', 'C', 'D']
+const value = ref("")
+const abcd = ["A", "B", "C", "D"]
 const pageFlag = ref(true)
-const flag = ref<TypeFlag>('add')
+const flag = ref<TypeFlag>("add")
 const columns = ref<ColumnsType>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '题目',
-        dataIndex: 'stem',
-        key: 'stem',
+        title: "题目",
+        dataIndex: "stem",
+        key: "stem",
         width: 200
     },
     {
-        title: '题目类型',
-        dataIndex: 'type',
-        key: 'type',
+        title: "题目类型",
+        dataIndex: "type",
+        key: "type",
         width: 100
     },
     {
-        title: '选项',
-        dataIndex: 'selectArr',
-        key: 'selectArr',
+        title: "选项",
+        dataIndex: "selectArr",
+        key: "selectArr",
         width: 160
     },
     {
-        title: '答案',
-        dataIndex: 'anwser',
-        key: 'anwser',
+        title: "答案",
+        dataIndex: "anwser",
+        key: "anwser",
         width: 160
     },
     {
-        title: '媒体',
-        key: 'url',
-        dataIndex: 'url',
+        title: "媒体",
+        key: "url",
+        dataIndex: "url",
         width: 160
     },
     {
-        title: '注解',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "注解",
+        key: "remark",
+        dataIndex: "remark",
         width: 160
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 280
     },
 ])
-const typeArr = ['选择题', '判断题', '填空题', '问答题', '操作题']
+const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"]
 const loading = ref(false)
 const data = ref<EditQuestionType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -137,16 +137,16 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref(false)
-const title = ref('')
+const title = ref("")
 const addData = reactive<EditQuestionType>({
-    _id: '',
+    _id: "",
     id: 0,
-    stem: '',
+    stem: "",
     type: 1,
     selectArr: [],
-    anwser: '',
-    url: '',
-    remark: ''
+    anwser: "",
+    url: "",
+    remark: ""
 })
 const addPage = ref<AddPageAPI>()
 const type = ref(1)
@@ -169,18 +169,18 @@ function updatePage(value: string) {
 function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
     visible.value = true
     flag.value = typeFlag
-    if (typeFlag === 'add') {
-        title.value = '添加试题-'
-        value.value = '1'
+    if (typeFlag === "add") {
+        title.value = "添加试题-"
+        value.value = "1"
         type.value = 1
         addData.id = 0
         addData.type = 1
         addData.selectArr = []
-        addData.stem = addData.anwser = addData.url = addData.remark = ''
+        addData.stem = addData.anwser = addData.url = addData.remark = ""
     } else {
         if (record) {
-            title.value = '修改试题-'
-            value.value = record.type + ''
+            title.value = "修改试题-"
+            value.value = record.type + ""
             type.value = record.type
             addData.id = record.id
             addData.stem = record.stem
@@ -205,30 +205,30 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addQuestion
     }
     if (flag.value === "edit") {
         a.axios = updateQuestion
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
         if (result.type === 1) {
-            if (result.anwser === 'a' || result.anwser === 'A' || result.anwser === '1') {
-                result.anwser = '1'
-            } else if (result.anwser === 'b' || result.anwser === 'B' || result.anwser === '2') {
-                result.anwser = '2'
-            } else if (result.anwser === 'c' || result.anwser === 'C' || result.anwser === '3') {
-                result.anwser = '3'
+            if (result.anwser === "a" || result.anwser === "A" || result.anwser === "1") {
+                result.anwser = "1"
+            } else if (result.anwser === "b" || result.anwser === "B" || result.anwser === "2") {
+                result.anwser = "2"
+            } else if (result.anwser === "c" || result.anwser === "C" || result.anwser === "3") {
+                result.anwser = "3"
             } else {
-                result.anwser = '4'
+                result.anwser = "4"
             }
         } else if (result.type === 2) {
-            if (result.anwser === '对' || result.anwser === '正确' || result.anwser === '0') {
-                result.anwser = '0'
+            if (result.anwser === "对" || result.anwser === "正确" || result.anwser === "0") {
+                result.anwser = "0"
             } else {
-                result.anwser = '1'
+                result.anwser = "1"
             }
         }
         const res = await a.axios(result)
@@ -258,7 +258,7 @@ async function deleteOk(e: EditQuestionType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除");
 }
 
 onMounted(() => {

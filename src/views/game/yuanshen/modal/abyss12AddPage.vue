@@ -31,9 +31,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddAbyss12Params, UpdateAbyss12Params } from '@/api/yuanshen';
-import { ref } from 'vue';
-import type { AddParamsType } from '../abyss12.vue';
+import type { AddAbyss12Params, UpdateAbyss12Params } from "@/api/yuanshen"
+import { ref } from "vue"
+import type { AddParamsType } from "../abyss12.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddAbyss12Params | UpdateAbyss12Params>
@@ -56,7 +56,7 @@ const addData = ref<AddParamsType>({
     thirdLower: "",
     remark: ""
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 

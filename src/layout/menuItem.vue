@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router";
+import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router"
 import * as icon from "@ant-design/icons-vue"
-import { ref } from "vue";
+import { ref } from "vue"
 
 interface Prop {
     menu: RouteRecordRaw
@@ -26,7 +26,7 @@ interface Prop {
 const router = useRouter()
 const prop = defineProps<Prop>()
 const userId = ref<number>()
-const userInfo = window.sessionStorage.getItem('userInfo')
+const userInfo = window.sessionStorage.getItem("userInfo")
 if (userInfo && JSON.parse(userInfo).userId) {
     userId.value = JSON.parse(userInfo).userId
 }

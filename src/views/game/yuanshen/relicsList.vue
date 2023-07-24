@@ -64,11 +64,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
-import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from '@/api/yuanshen'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
+import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from "@/api/yuanshen"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/relicsAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddRelicsParams {
     _id?: string
@@ -113,21 +113,21 @@ interface FormStateType {
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: '',
+    _id: "",
     id: 0,
-    name: '',
+    name: "",
     star: undefined,
     twoEffect: "",
     fourEffect: "",
     tag: "",
-    remark: ''
+    remark: ""
 })
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加圣遗物")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -155,51 +155,51 @@ const starList = ref<Type[]>([{
 }])
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 140
     },
     {
-        title: '星级',
-        dataIndex: 'star',
-        key: 'star',
+        title: "星级",
+        dataIndex: "star",
+        key: "star",
         width: 80,
     },
     {
-        title: '两件套效果',
-        dataIndex: 'twoEffect',
-        key: 'twoEffect',
+        title: "两件套效果",
+        dataIndex: "twoEffect",
+        key: "twoEffect",
         width: 300,
     },
     {
-        title: '四件套效果',
-        dataIndex: 'fourEffect',
-        key: 'fourEffect',
+        title: "四件套效果",
+        dataIndex: "fourEffect",
+        key: "fourEffect",
         width: 300,
     },
     {
-        title: '关键词',
-        dataIndex: 'tag',
-        key: 'tag',
+        title: "关键词",
+        dataIndex: "tag",
+        key: "tag",
         width: 200
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 const type = ref<AddType>("add")
 
 function mediaMatchs() {
@@ -235,7 +235,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -244,7 +244,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function selectList() {
@@ -260,7 +260,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改圣遗物"
         if (item) {
             addParams._id = item._id

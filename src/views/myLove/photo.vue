@@ -46,10 +46,10 @@
 </template>
 
 <script lang="ts" setup>
-import { h, onMounted, reactive, ref } from 'vue';
-import { message } from 'ant-design-vue'
-import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from '@/api/myLove';
-import { getNowTime } from '@/utils/some';
+import { h, onMounted, reactive, ref } from "vue"
+import { message } from "ant-design-vue"
+import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove"
+import { getNowTime } from "@/utils/some"
 import RenderVnode from "./ceshi"
 
 interface PhotoType {
@@ -134,7 +134,7 @@ function showDetail(item: PhotoType) {
     nowImgId.value = item._id
     detailTitle.value = item.name
     nowUrl.value = item.url
-    detailUrl.value = import.meta.env.VITE_APP_BASE_URL + 'photoImg/' + item.url
+    detailUrl.value = import.meta.env.VITE_APP_BASE_URL + "photoImg/" + item.url
 }
 
 function closeDetail() {
@@ -157,7 +157,7 @@ async function deleteImg() {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 async function getList() {

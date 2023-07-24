@@ -51,9 +51,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from '@/api/yys';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../heroList.vue';
+import type { AddHeroParams, UpdateHeroParams } from "@/api/yys"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../heroList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
@@ -80,7 +80,7 @@ const addData = ref<AddParamsType>({
     dk: "",
     remark: ""
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const genderList = ref<Type[]>([{

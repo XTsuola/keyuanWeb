@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable } from 'ant-design-vue';
-import { reactive, ref } from 'vue'
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
-import { getMyPaperlist } from '@/api/examination';
-import router from '@/router';
+import { Table as aTable } from "ant-design-vue"
+import { reactive, ref } from "vue"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { getMyPaperlist } from "@/api/examination"
+import router from "@/router"
 
 
 interface scrollType {
@@ -37,7 +37,7 @@ interface dataType {
     _id: string
 }
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const userId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).userId) {
     userId.value = JSON.parse(userInfo.value).userId
@@ -46,42 +46,42 @@ if (userInfo.value && JSON.parse(userInfo.value).userId) {
 }
 const columns = ref<ColumnsType>([
     {
-        title: '序号',
-        dataIndex: 'paperId',
-        key: 'paperId',
+        title: "序号",
+        dataIndex: "paperId",
+        key: "paperId",
         width: 100
     },
     {
-        title: '试卷名称',
-        dataIndex: 'paperName',
-        key: 'paperName'
+        title: "试卷名称",
+        dataIndex: "paperName",
+        key: "paperName"
     },
     {
-        title: '试卷总分',
-        dataIndex: 'allScore',
-        key: 'allScore'
+        title: "试卷总分",
+        dataIndex: "allScore",
+        key: "allScore"
     },
     {
-        title: '考试时长',
-        dataIndex: 'time',
-        key: 'time',
+        title: "考试时长",
+        dataIndex: "time",
+        key: "time",
         customRender: (opt) => opt.value + "分钟"
     },
     {
-        title: '我的分数',
-        dataIndex: 'score',
-        key: 'paperName',
+        title: "我的分数",
+        dataIndex: "score",
+        key: "paperName",
         customRender: (opt) => {
             if (opt.record.flag) {
-                return '/'
+                return "/"
             } else {
                 return opt.value
             }
         },
     },
     {
-        title: '操作',
-        key: 'action'
+        title: "操作",
+        key: "action"
     }
 ])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })

@@ -27,73 +27,73 @@
 </template>
 
 <script lang="ts" setup>
-import { addUser, updateUser, getUserList, type EditUserType, type DeleteParams, deleteUser } from '@/api/examination';
-import userAdd, { type API as UserPageAPI } from './modal/userAddPage.vue';
-import { message, Table as aTable } from 'ant-design-vue';
-import { onMounted, reactive, ref } from 'vue'
-import type { AxiosPromise } from 'axios';
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
-import { levelName } from '@/utils/global';
-import md5 from 'js-md5';
+import { addUser, updateUser, getUserList, type EditUserType, deleteUser } from "@/api/examination"
+import userAdd, { type API as UserPageAPI } from "./modal/userAddPage.vue"
+import { message, Table as aTable } from "ant-design-vue"
+import { onMounted, reactive, ref } from "vue"
+import type { AxiosPromise } from "axios"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { levelName } from "@/utils/global"
+import md5 from "js-md5"
 
-export type TypeFlag = 'add' | 'edit'
+export type TypeFlag = "add" | "edit"
 
 interface scrollType {
     x: number
     y: number | undefined
 }
 
-const flag = ref<TypeFlag>('add')
+const flag = ref<TypeFlag>("add")
 const columns = ref<ColumnsType>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '姓名',
-        dataIndex: 'userName',
-        key: 'userName',
+        title: "姓名",
+        dataIndex: "userName",
+        key: "userName",
         width: 140
     },
     {
-        title: '账号',
-        dataIndex: 'account',
-        key: 'account'
+        title: "账号",
+        dataIndex: "account",
+        key: "account"
     },
     {
-        title: '密码',
-        dataIndex: 'password',
-        key: 'password'
+        title: "密码",
+        dataIndex: "password",
+        key: "password"
     },
     {
-        title: '年龄',
-        dataIndex: 'age',
-        key: 'age'
+        title: "年龄",
+        dataIndex: "age",
+        key: "age"
     },
     {
-        title: '身份',
-        dataIndex: 'level',
-        key: 'level',
+        title: "身份",
+        dataIndex: "level",
+        key: "level",
         customRender: (opt) => levelName[opt.value as keyof typeof levelName]
     },
     {
-        title: '备注',
-        dataIndex: 'remark',
-        key: 'remark',
+        title: "备注",
+        dataIndex: "remark",
+        key: "remark",
         width: 200
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 280
     },
 ])
 const loading = ref(false)
 const data = ref<EditUserType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -101,7 +101,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref(false)
-const title = ref('')
+const title = ref("")
 const addData = reactive<EditUserType>({
     _id: "",
     id: 0,
@@ -124,14 +124,14 @@ async function getList() {
 function showModal(typeFlag: TypeFlag, record?: EditUserType) {
     visible.value = true
     flag.value = typeFlag
-    if (typeFlag === 'add') {
-        title.value = '添加用户'
+    if (typeFlag === "add") {
+        title.value = "添加用户"
         addData.id = 0
         addData.userName = addData.account = addData.password = addData.age = addData.remark = ""
         addData.level = undefined
     } else {
         if (record) {
-            title.value = '修改用户'
+            title.value = "修改用户"
             addData.id = record.id
             addData.userName = record.userName
             addData.account = record.account
@@ -150,12 +150,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addUser
     }
     if (flag.value === "edit") {
         a.axios = updateUser
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
@@ -183,7 +183,7 @@ async function deleteOk(e: EditUserType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 onMounted(() => {

@@ -6,10 +6,9 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.star"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -23,16 +22,17 @@
                 <a-textarea v-model:value="addData.tag" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
-                <a-textarea style="min-height: 200px;" v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 200px;" v-model:value="addData.remark"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
         </a-form>
     </div>
 </template>
 
 <script lang="ts" setup>
-import type { AddRelicsParams, UpdateRelicsParams } from '@/api/yuanshen';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../relicsList.vue';
+import type { AddRelicsParams, UpdateRelicsParams } from "@/api/yuanshen"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../relicsList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddRelicsParams | UpdateRelicsParams>
@@ -53,7 +53,7 @@ const addData = ref<AddParamsType>({
     tag: "",
     remark: ""
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const starList = ref<Type[]>([{

@@ -8,10 +8,10 @@
 </div>
 </template>
 <script setup lang="ts">
-import sidebarVue from './Sidebar.vue'
-import mainVue from './Main.vue'
-import { ref } from 'vue';
-import { useCounterStore } from '@/stores/counter'
+import sidebarVue from "./Sidebar.vue"
+import mainVue from "./Main.vue"
+import { ref } from "vue"
+import { useCounterStore } from "@/stores/counter"
 
 const sider = ref()
 const counterStore = useCounterStore()

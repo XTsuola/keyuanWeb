@@ -11,7 +11,7 @@
             <a-form-item label="所属分组">
                 <a-select v-model:value="addData.group" placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
-                            item.groupName
+                        item.groupName
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -26,9 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import { getGroupInfo, type AddMemberParams, type UpdateMemberParams } from '@/api/team';
-import { onMounted, ref } from 'vue';
-import type { AddParamsType, GroupListType } from '../memberList.vue';
+import { getGroupInfo, type AddMemberParams, type UpdateMemberParams } from "@/api/team"
+import { onMounted, ref } from "vue"
+import type { AddParamsType, GroupListType } from "../memberList.vue"
 export interface API {
     getAddData: () => Promise<false | AddMemberParams | UpdateMemberParams>
 }
@@ -46,7 +46,7 @@ const addData = ref<AddParamsType>({
     position: "",
     remark: ""
 })
-if (prop.type === 'edit') {
+if (prop.type === "edit") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const groupList = ref<GroupListType[]>([])

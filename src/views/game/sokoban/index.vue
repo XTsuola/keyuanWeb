@@ -40,9 +40,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref, watch } from 'vue';
-import jsonData from './data.json';
-import { message } from 'ant-design-vue'
+import { reactive, ref, watch } from "vue"
+import jsonData from "./data.json"
+import { message } from "ant-design-vue"
 
 interface PositionType {
     x: number
@@ -62,7 +62,7 @@ let heartList: PositionType[] = []
 const count = ref<number>(0)
 
 function xuanran(x: number, y: number, direction: string) {
-    if (direction === 'ArrowUp') {
+    if (direction === "ArrowUp") {
         for (var i = 0; i < heartList.length; i++) {
             if (heartList[i].x === x && heartList[i].y === y) {
                 if (mapList.value[y - 1][x] === 1) {
@@ -95,7 +95,7 @@ function xuanran(x: number, y: number, direction: string) {
         } else {
             people.y--
         }
-    } else if (direction === 'ArrowLeft') {
+    } else if (direction === "ArrowLeft") {
         for (var i = 0; i < heartList.length; i++) {
             if (heartList[i].x === x && heartList[i].y === y) {
                 if (mapList.value[y][x] === 1) {
@@ -128,7 +128,7 @@ function xuanran(x: number, y: number, direction: string) {
         } else {
             people.x--
         }
-    } else if (direction === 'ArrowDown') {
+    } else if (direction === "ArrowDown") {
         for (var i = 0; i < heartList.length; i++) {
             if (heartList[i].x === x && heartList[i].y === y) {
                 if (mapList.value[y + 1][x] === 1) {
@@ -161,7 +161,7 @@ function xuanran(x: number, y: number, direction: string) {
         } else {
             people.y++
         }
-    } else if (direction === 'ArrowRight') {
+    } else if (direction === "ArrowRight") {
         for (var i = 0; i < heartList.length; i++) {
             if (heartList[i].x === x && heartList[i].y === y) {
                 if (mapList.value[y][x] === 1) {
@@ -250,7 +250,7 @@ function reset() {
     people.y = jsonData[level.value].peopleY
 }
 
-watch(count, (newValue, oldValue) => {
+watch(count, (newValue) => {
     if (newValue === jsonData[level.value].score) {
         heartList = []
         count.value = 0

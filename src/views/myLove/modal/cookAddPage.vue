@@ -46,9 +46,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddCookParams, UpdateCookParams } from '@/api/myLove';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../cookList.vue';
+import type { AddCookParams, UpdateCookParams } from "@/api/myLove"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../cookList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddCookParams | UpdateCookParams>
@@ -71,7 +71,7 @@ const addData = ref<AddParamsType>({
     count: "",
     remark: ""
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const cookTypeList = ref<Type[]>([{

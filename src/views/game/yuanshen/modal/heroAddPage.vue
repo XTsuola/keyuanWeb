@@ -76,9 +76,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from '@/api/yuanshen';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../heroList.vue';
+import type { AddHeroParams, UpdateHeroParams } from "@/api/yuanshen"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../heroList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
@@ -109,7 +109,7 @@ const addData = ref<AddParamsType>({
     img: ""
 })
 const imgSrc = ref<any>("")
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
     const str = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + addData.value.img
     imgSrc.value = new URL(str, import.meta.url)

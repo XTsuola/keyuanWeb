@@ -24,8 +24,8 @@ const map = ref<any>(null)
 let Bmap = window.BMap
 
 function initMap() {
-    map.value = new Bmap.Map("allmap");
-    map.value.centerAndZoom(new Bmap.Point(118.701396, 32.165192), 13);
+    map.value = new Bmap.Map("allmap")
+    map.value.centerAndZoom(new Bmap.Point(118.701396, 32.165192), 13)
     map.value.enableScrollWheelZoom()
 };
 
@@ -41,9 +41,9 @@ function setPoint() {
         // 玄武湖公园
         lng: 118.805415,
         lat: 32.07912,
-        info: ["南京玄武湖划船", "南京玄武湖划船2"],
-        time: ["2022年6月3日", "2022年11月27日"],
-        friend: ["（月色、江南）", "（月色、江南、鹿鸣、黄果树）"]
+        info: ["南京玄武湖划船", "南京玄武湖划船2", "南京玄武湖划船3"],
+        time: ["2022年6月3日", "2022年11月27日", "2022年7月22日"],
+        friend: ["（月色、江南）", "（月色、江南、鹿鸣、黄果树）", "（月色、江南、江南妈妈、江南弟弟）"]
     }, {
         // 紫金山
         lng: 118.859446,
@@ -170,23 +170,21 @@ function setPoint() {
     for (let i = 0; i < list.length; i++) {
         var point = new Bmap.Point(list[i].lng, list[i].lat);
         var marker = new Bmap.Marker(point);
-        marker.addEventListener('click', function () {
+        marker.addEventListener("click", function () {
             let aList: any = []
             for (let k = 0; k < list[i].time.length; k++) {
-                console.log(list[i].time[k], list[i].info[k], 111)
                 aList.push(list[i].time[k])
                 aList.push(list[i].info[k])
                 aList.push(list[i].friend[k])
             }
             const str = aList.splice(1, aList.length).join("<br>")
-            console.log(str, "strrr")
             infoWindow.value = new Bmap.InfoWindow(str, {
                 width: 240,
                 title: list[i].time[0]
             })
             map.value.openInfoWindow(infoWindow.value, new Bmap.Point(list[i].lng, list[i].lat))
         })
-        map.value.addOverlay(marker);
+        map.value.addOverlay(marker)
     }
 }
 
@@ -200,10 +198,10 @@ function reduce() {
 
 onMounted(() => {
     nextTick(() => {
-        initMap();
+        initMap()
         setPoint()
-    });
-});
+    })
+})
 </script>
 
 <style lang="less" scoped>

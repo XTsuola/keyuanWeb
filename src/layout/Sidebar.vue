@@ -9,12 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref } from "vue"
 import menuList from "../layout/menuList.vue"
 
 const visible = ref<boolean>(false)
 const flag = ref<boolean>(true)
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 
 function mediaMatchs() {
     if (mql.matches) {

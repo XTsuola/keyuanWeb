@@ -20,10 +20,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable, message } from 'ant-design-vue';
-import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from '@/api/examination'
-import { reactive, ref } from 'vue';
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
+import { Table as aTable, message } from "ant-design-vue"
+import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination"
+import { reactive, ref } from "vue"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
 
 interface scrollType {
     x: number
@@ -56,7 +56,7 @@ interface RecordType {
     userName: string
 }
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -65,41 +65,41 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const columns = ref<ColumnsType>([
     {
-        title: '试卷ID',
-        dataIndex: 'paperId',
-        key: 'paperId'
+        title: "试卷ID",
+        dataIndex: "paperId",
+        key: "paperId"
     },
     {
-        title: '试卷名称',
-        dataIndex: 'paperName',
-        key: 'paperName'
+        title: "试卷名称",
+        dataIndex: "paperName",
+        key: "paperName"
     },
     {
-        title: '试卷总分',
-        dataIndex: 'allScore',
-        key: 'allScore'
+        title: "试卷总分",
+        dataIndex: "allScore",
+        key: "allScore"
     },
     {
-        title: '考试时长',
-        dataIndex: 'time',
-        key: 'time',
+        title: "考试时长",
+        dataIndex: "time",
+        key: "time",
         customRender: (opt) => opt.value + "分钟"
     },
     {
-        title: '我的分数',
-        dataIndex: 'score',
-        key: 'paperName',
+        title: "我的分数",
+        dataIndex: "score",
+        key: "paperName",
         customRender: (opt) => {
             if (opt.record.flag) {
-                return '/'
+                return "/"
             } else {
                 return opt.value
             }
         },
     },
     {
-        title: '操作',
-        key: 'action'
+        title: "操作",
+        key: "action"
     },
 ])
 const prop = defineProps<{
@@ -110,7 +110,7 @@ const data = ref<dataType[]>()
 const parperIdList = ref<number[]>([])
 parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : []
 const emit = defineEmits<{
-    (event: 'upDateList'): void
+    (event: "upDateList"): void
 }>()
 const paperSelect = ref<PaperSelectType[]>()
 const paperId = ref<number | undefined>(undefined)
@@ -147,7 +147,7 @@ async function deleteOk(e: dataType) {
             return item !== e.paperId as number
         })
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     getSelect()
     getList()
@@ -155,7 +155,7 @@ async function deleteOk(e: dataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 async function getSelect() {

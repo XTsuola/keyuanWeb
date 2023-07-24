@@ -54,12 +54,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
 import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team"
-import type { SelectValue } from 'ant-design-vue/lib/select'
+import type { SelectValue } from "ant-design-vue/lib/select"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/memberAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface GroupListType {
     groupId: number
@@ -95,13 +95,13 @@ interface DataType {
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: '',
+    _id: "",
     id: 0,
-    name: '',
-    qq: '',
-    group: '',
-    position: '',
-    remark: ''
+    name: "",
+    qq: "",
+    group: "",
+    position: "",
+    remark: ""
 })
 
 interface FormStateType {
@@ -113,7 +113,7 @@ const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加成员")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -127,45 +127,45 @@ const formState = reactive<FormStateType>({
 const groupList = ref<GroupListType[]>([])
 const columns = ref<ColumnType[]>([
     {
-        title: '成员名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "成员名称",
+        dataIndex: "name",
+        key: "name",
         width: 120
     },
     {
-        title: 'QQ号',
-        dataIndex: 'qq',
-        key: 'qq',
+        title: "QQ号",
+        dataIndex: "qq",
+        key: "qq",
         width: 150
     },
     {
-        title: '所属分队',
-        dataIndex: 'group',
-        key: 'group',
+        title: "所属分队",
+        dataIndex: "group",
+        key: "group",
         width: 160
     },
     {
-        title: '擅长位置',
-        dataIndex: 'position',
-        key: 'position',
+        title: "擅长位置",
+        dataIndex: "position",
+        key: "position",
         width: 160
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "备注",
+        key: "remark",
+        dataIndex: "remark",
         width: 160
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 280
     },
 ])
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 const type = ref<AddType>("add")
 
 function mediaMatchs() {
@@ -206,13 +206,13 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     getList()
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function groupChange(e: SelectValue) {
@@ -231,7 +231,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改成员"
         if (item) {
             addParams._id = item._id
@@ -257,12 +257,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addMember
     }
     if (type.value === "edit") {
         a.axios = updateMember
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

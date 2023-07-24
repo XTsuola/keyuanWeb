@@ -1,7 +1,7 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
-            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
+            :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
@@ -48,9 +48,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from '@/api/mhmnz';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../heroList.vue';
+import type { AddHeroParams, UpdateHeroParams } from "@/api/mhmnz"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../heroList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
@@ -75,7 +75,7 @@ const addData = ref<AddParamsType>({
     introduce: ""
 
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const starList = ref<Type[]>([{

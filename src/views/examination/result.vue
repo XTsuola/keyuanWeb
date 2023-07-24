@@ -48,10 +48,10 @@
 
 <script lang="ts" setup>
 
-import { Table as aTable } from 'ant-design-vue';
-import { reactive, ref } from 'vue'
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
-import { getResult, type GetResult } from '@/api/examination';
+import { Table as aTable } from "ant-design-vue"
+import { reactive, ref } from "vue"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { getResult, type GetResult } from "@/api/examination"
 
 interface scrollType {
     x: number
@@ -74,41 +74,41 @@ if (localStorage.getItem("resultObj")) {
 }
 const columns = ref<ColumnsType>([
     {
-        title: '序号',
-        dataIndex: 'index',
-        key: 'index',
+        title: "序号",
+        dataIndex: "index",
+        key: "index",
         width: 100,
         customRender: (opt) => opt.record.index + 1
     },
     {
-        title: '题目名称',
-        dataIndex: 'stemName',
-        key: 'stemName'
+        title: "题目名称",
+        dataIndex: "stemName",
+        key: "stemName"
     },
     {
-        title: '题目类型',
-        dataIndex: 'type',
-        key: 'type'
+        title: "题目类型",
+        dataIndex: "type",
+        key: "type"
     },
     {
-        title: '选项',
-        dataIndex: 'selectArr',
-        key: 'selectArr'
+        title: "选项",
+        dataIndex: "selectArr",
+        key: "selectArr"
     },
     {
-        title: '正确答案',
-        dataIndex: 'rightAnwser',
-        key: 'rightAnwser'
+        title: "正确答案",
+        dataIndex: "rightAnwser",
+        key: "rightAnwser"
     },
     {
-        title: '你的答案',
-        dataIndex: 'myAnwser',
-        key: 'myAnwser'
+        title: "你的答案",
+        dataIndex: "myAnwser",
+        key: "myAnwser"
     },
     {
-        title: '解释说明',
-        dataIndex: 'remark',
-        key: 'remark',
+        title: "解释说明",
+        dataIndex: "remark",
+        key: "remark",
         customRender: opt => opt.value ? opt.value : "/"
     },
 ])

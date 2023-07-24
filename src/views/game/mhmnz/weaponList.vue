@@ -81,11 +81,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
-import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from '@/api/mhmnz'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
+import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from "@/api/mhmnz"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/weaponAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddWeaponParams {
     _id?: string
@@ -128,22 +128,22 @@ interface FormStateType {
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: '',
+    _id: "",
     id: 0,
-    name: '',
+    name: "",
     star: undefined,
     weaponType: undefined,
     isExclusive: undefined,
-    shuxing: '',
-    introduce: '',
-    remark: ''
+    shuxing: "",
+    introduce: "",
+    remark: ""
 })
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加兵种")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -201,56 +201,56 @@ const isExclusiveList = ref<Type[]>([{
 }])
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 120
     },
     {
-        title: '稀有度',
-        dataIndex: 'star',
-        key: 'star',
+        title: "稀有度",
+        dataIndex: "star",
+        key: "star",
         width: 100,
     },
     {
-        title: '部位',
-        dataIndex: 'weaponType',
-        key: 'weaponType',
+        title: "部位",
+        dataIndex: "weaponType",
+        key: "weaponType",
         width: 100,
     },
     {
-        title: '是否专属',
-        dataIndex: 'isExclusive',
-        key: 'isExclusive',
+        title: "是否专属",
+        dataIndex: "isExclusive",
+        key: "isExclusive",
         width: 120
     },
     {
-        title: '属性',
-        dataIndex: 'shuxing',
-        key: 'shuxing',
+        title: "属性",
+        dataIndex: "shuxing",
+        key: "shuxing",
         width: 200
     },
     {
-        title: '技能',
-        dataIndex: 'introduce',
-        key: 'introduce',
+        title: "技能",
+        dataIndex: "introduce",
+        key: "introduce",
         width: 200
     },
     {
-        title: '备注',
-        dataIndex: 'remark',
-        key: 'remark',
+        title: "备注",
+        dataIndex: "remark",
+        key: "remark",
         width: 160
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
@@ -258,7 +258,7 @@ const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const type = ref<AddType>("add")
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 
 function mediaMatchs() {
     if (mql.matches) {
@@ -294,7 +294,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -303,7 +303,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function selectList() {
@@ -319,7 +319,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改装备"
         if (item) {
             addParams._id = item._id
@@ -332,12 +332,12 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加装备"
         addParams.star = addParams.weaponType = addParams.isExclusive = undefined
-        addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = ''
+        addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -359,12 +359,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addWeapon
     }
     if (type.value === "edit") {
         a.axios = updateWeapon
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

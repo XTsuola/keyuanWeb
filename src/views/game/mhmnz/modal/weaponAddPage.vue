@@ -1,31 +1,28 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
-            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
+            :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="稀有度" name="star" :rules="[{ required: true, message: '请选择稀有度!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.star"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类别" name="weaponType" :rules="[{ required: true, message: '请选择武器类别!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.weaponType"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.weaponType" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" name="isExclusive" :rules="[{ required: true, message: '请选阵营!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.isExclusive"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.isExclusive" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -43,9 +40,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddWeaponParams, UpdateWeaponParams } from '@/api/mhmnz';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../weaponList.vue';
+import type { AddWeaponParams, UpdateWeaponParams } from "@/api/mhmnz"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../weaponList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
@@ -68,7 +65,7 @@ const addData = ref<AddParamsType>({
     remark: ""
 
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const starList = ref<Type[]>([{

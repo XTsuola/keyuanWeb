@@ -1,15 +1,5 @@
-import type { RouteRecordRaw } from 'vue-router'
-
+import type { RouteRecordRaw } from "vue-router"
 import BlankLayout from "@/layout/BlankLayout.vue"
-
-/* let hiddenFlag = false
-
-const userInfo = window.sessionStorage.getItem('userInfo')
-if(userInfo && JSON.parse(userInfo) && JSON.parse(userInfo).userId != 1){
-  hiddenFlag = true
-} else {
-  hiddenFlag = false
-} */
 
 const newRouterDate: Array<RouteRecordRaw> = [
   {

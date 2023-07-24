@@ -108,11 +108,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/yuanshen'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/yuanshen"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -183,7 +183,7 @@ const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加角色")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -334,102 +334,102 @@ const starSignList = ref<Type[]>([{
 }])
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 120
     },
     {
-        title: '性别',
-        dataIndex: 'gender',
-        key: 'gender',
+        title: "性别",
+        dataIndex: "gender",
+        key: "gender",
         width: 80
     },
     {
-        title: '国家',
-        dataIndex: 'country',
-        key: 'country',
+        title: "国家",
+        dataIndex: "country",
+        key: "country",
         width: 80,
     },
     {
-        title: '武器',
-        dataIndex: 'arms',
-        key: 'arms',
+        title: "武器",
+        dataIndex: "arms",
+        key: "arms",
         width: 100,
     },
     {
-        title: '属性',
-        dataIndex: 'shuxing',
-        key: 'shuxing',
+        title: "属性",
+        dataIndex: "shuxing",
+        key: "shuxing",
         width: 60,
     },
     {
-        title: '星级',
-        dataIndex: 'star',
-        key: 'star',
+        title: "星级",
+        dataIndex: "star",
+        key: "star",
         width: 80,
     },
     {
-        title: '生命',
-        dataIndex: 'life',
-        key: 'life',
+        title: "生命",
+        dataIndex: "life",
+        key: "life",
         width: 80,
         sorter: (a: AddParamsType, b: AddParamsType) => {
             return parseInt(a.life) - parseInt(b.life)
         }
     },
     {
-        title: '攻击',
-        dataIndex: 'att',
-        key: 'att',
+        title: "攻击",
+        dataIndex: "att",
+        key: "att",
         width: 80,
         sorter: (a: AddParamsType, b: AddParamsType) => {
             return parseInt(a.att) - parseInt(b.att)
         }
     },
     {
-        title: '防御',
-        dataIndex: 'def',
-        key: 'def',
+        title: "防御",
+        dataIndex: "def",
+        key: "def",
         width: 80,
         sorter: (a: AddParamsType, b: AddParamsType) => {
             return parseInt(a.def) - parseInt(b.def)
         }
     },
     {
-        title: '突破加成',
-        dataIndex: 'breach',
-        key: 'breach',
+        title: "突破加成",
+        dataIndex: "breach",
+        key: "breach",
         width: 160,
     },
     {
-        title: '命之座',
-        dataIndex: 'lifeSeat',
-        key: 'lifeSeat',
+        title: "命之座",
+        dataIndex: "lifeSeat",
+        key: "lifeSeat",
         width: 100,
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "备注",
+        key: "remark",
+        dataIndex: "remark",
         width: 240
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 const type = ref<AddType>("add")
 
 function mediaMatchs() {
@@ -470,7 +470,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -479,7 +479,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function selectList() {
@@ -495,7 +495,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改角色"
         if (item) {
             addParams._id = item._id
@@ -515,12 +515,12 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.img = item.img
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加角色"
         addParams.gender = addParams.country = addParams.arms = addParams.shuxing = addParams.star = undefined
-        addParams._id = addParams.name = addParams.introduce = addParams.remark = ''
+        addParams._id = addParams.name = addParams.introduce = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -549,12 +549,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addHero
     }
     if (type.value === "edit") {
         a.axios = updateHero
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

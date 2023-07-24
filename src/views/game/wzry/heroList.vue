@@ -77,11 +77,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from '@/api/wzry'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/wzry"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -124,20 +124,20 @@ interface FormStateType {
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: '',
+    _id: "",
     id: 0,
-    name: '',
+    name: "",
     gender: undefined,
     position: [],
-    skin: '',
-    remark: ''
+    skin: "",
+    remark: ""
 })
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加兵种")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -185,53 +185,53 @@ const positionList = ref<Type[]>([{
 }])
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 100
     },
     {
-        title: '性别',
-        dataIndex: 'gender',
-        key: 'gender',
+        title: "性别",
+        dataIndex: "gender",
+        key: "gender",
         width: 100,
     },
     {
-        title: '定位',
-        dataIndex: 'position',
-        key: 'position',
+        title: "定位",
+        dataIndex: "position",
+        key: "position",
         width: 160
     },
     {
-        title: '皮肤',
-        dataIndex: 'skin',
-        key: 'skin',
+        title: "皮肤",
+        dataIndex: "skin",
+        key: "skin",
         width: 240
     },
     {
-        title: '皮肤数量',
-        dataIndex: 'skinCount',
-        key: 'skinCount',
+        title: "皮肤数量",
+        dataIndex: "skinCount",
+        key: "skinCount",
         width: 120
     },
     {
-        title: '备注',
-        dataIndex: 'remark',
-        key: 'remark',
+        title: "备注",
+        dataIndex: "remark",
+        key: "remark",
         width: 160,
         sorter: (a: AddParamsType, b: AddParamsType) => {
             return parseInt(a.remark.slice(0, a.remark.length - 1)) - parseInt(b.remark.slice(0, b.remark.length - 1))
         }
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
@@ -239,7 +239,7 @@ const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const type = ref<AddType>("add")
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 
 function mediaMatchs() {
     if (mql.matches) {
@@ -313,7 +313,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -322,7 +322,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function selectList() {
@@ -338,7 +338,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改英雄"
         if (item) {
             addParams._id = item._id
@@ -349,13 +349,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加英雄"
         addParams.gender = undefined
         addParams.position = []
-        addParams._id = addParams.name = addParams.skin = addParams.remark = ''
+        addParams._id = addParams.name = addParams.skin = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -375,12 +375,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addHero
     }
     if (type.value === "edit") {
         a.axios = updateHero
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

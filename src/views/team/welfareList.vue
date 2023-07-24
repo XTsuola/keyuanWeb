@@ -32,14 +32,13 @@
             </template>
         </a-modal>
     </div>
-
 </template>
 
 <script lang="ts" setup>
-import { message } from 'ant-design-vue'
-import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from '@/api/team'
-import { onMounted, reactive, ref } from 'vue';
-import type { AxiosPromise } from 'axios';
+import { message } from "ant-design-vue"
+import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from "@/api/team"
+import { onMounted, reactive, ref } from "vue"
+import type { AxiosPromise } from "axios"
 
 interface WelfareType {
     _id: string
@@ -49,7 +48,7 @@ interface WelfareType {
 
 type AddType = "add" | "edit"
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -59,7 +58,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const data = ref<WelfareType[]>([])
 const visible = ref<boolean>(false)
 const loading = ref<boolean>(false)
-const type = ref<AddType>('add')
+const type = ref<AddType>("add")
 const welfareParams = reactive<WelfareType>({
     _id: "",
     id: 0,
@@ -76,7 +75,7 @@ async function getList() {
 
 function showModal(showType: AddType, item?: UpdateWelfareParams) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         if (item) {
             welfareParams._id = item._id
             welfareParams.id = item.id
@@ -97,12 +96,12 @@ async function handleOk(e: MouseEvent) {
             msg: string
         }
         let a: AType = {
-            msg: '新增失败',
+            msg: "新增失败",
             axios: addWelfare
         }
         if (type.value === "edit") {
             a.axios = updateWelfare
-            a.msg = '修改失败'
+            a.msg = "修改失败"
         }
         if (welfareParams.remark && a.axios) {
             const res = await a.axios(welfareParams)
@@ -130,12 +129,12 @@ async function deleteOk(e: WelfareType) {
         message.success(res.data.msg)
     } else {
         getList()
-        message.error('删除失败')
+        message.error("删除失败")
     }
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 onMounted(() => {

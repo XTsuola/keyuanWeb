@@ -1,6 +1,6 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import routerDate from "./routerDate";
-import Login from '../views/login/login.vue'
+import { createRouter, createWebHashHistory } from "vue-router"
+import routerDate from "./routerDate"
+import Login from "../views/login/login.vue"
 
 const routeList  = [{
   path: "/login",
@@ -30,21 +30,21 @@ const router = createRouter({
 
 // 路由拦截
 router.beforeEach((to, from, next) => {
-  const token = window.sessionStorage.getItem('token')
+  const token = window.sessionStorage.getItem("token")
   if (to.fullPath === "/") {
     if (token) {
       next({
-        path: '/team/memberList'
+        path: "/team/memberList"
       })
     } else {
       next({
-        path: '/login'
+        path: "/login"
       })
     }
   } else if (to.fullPath === "/login") {
     if (token) {
       next({
-        path: '/'
+        path: "/"
       })
     } else {
       next()
@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        path: '/login'
+        path: "/login"
       })
     }
   }

@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref } from "vue"
 
 const isDragging = ref(false)
 let prevMouseX = 0
@@ -76,12 +76,12 @@ function drawLine(context: any, object: any) { // 绘制连线
 }
 
 onMounted(() => {
-    const canvas: any = document.getElementById('canvas')
-    context = canvas.getContext('2d')
+    const canvas: any = document.getElementById("canvas")
+    context = canvas.getContext("2d")
     // 添加一些示例物体
-    addObject(1, 50, 50, 100, 100, 'red')
-    addObject(2, 200, 200, 150, 80, 'blue')
-    addObject(3, 300, 300, 80, 150, 'green')
+    addObject(1, 50, 50, 100, 100, "red")
+    addObject(2, 200, 200, 150, 80, "blue")
+    addObject(3, 300, 300, 80, 150, "green")
     drawAll()
 
     function getObjectAtPosition(x: any, y: any) { // 获取鼠标点击的物体
@@ -126,7 +126,7 @@ onMounted(() => {
     }
 
     function handleMouseUp() { // 鼠标松开
-        isDragging.value = false;
+        isDragging.value = false
         if (nowObj) {
             drawAll()
             drawSelect()
@@ -154,11 +154,10 @@ onMounted(() => {
     canvas.addEventListener("mousedown", handleMouseDown)
     canvas.addEventListener("mousemove", handleMouseMove)
     canvas.addEventListener("mouseup", handleMouseUp)
-    canvas.addEventListener('contextmenu', function (event: any) { // 右击事件
+    canvas.addEventListener("contextmenu", function (event: any) { // 右击事件
         const rect = canvas.getBoundingClientRect()
         const x = event.clientX - rect.left
         const y = event.clientY - rect.top
-
         const clickedObject = getObjectAtPosition(x, y)
         if (clickedObject) {
             const ind = objects.findIndex((item: any) => item.id == clickedObject.id)
@@ -170,7 +169,7 @@ onMounted(() => {
             }
         }
     })
-    canvas.addEventListener('dblclick', function (event: any) { // 双击事件
+    canvas.addEventListener("dblclick", function (event: any) { // 双击事件
         const rect = canvas.getBoundingClientRect()
         const x = event.clientX - rect.left
         const y = event.clientY - rect.top

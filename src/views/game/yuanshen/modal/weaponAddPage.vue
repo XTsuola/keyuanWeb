@@ -38,9 +38,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddWeaponParams, UpdateWeaponParams } from '@/api/yuanshen';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../weaponList.vue';
+import type { AddWeaponParams, UpdateWeaponParams } from "@/api/yuanshen"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../weaponList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
@@ -62,7 +62,7 @@ const addData = ref<AddParamsType>({
     introduce: "",
     remark: ""
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const weaponTypeList = ref<Type[]>([{

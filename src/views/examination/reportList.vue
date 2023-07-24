@@ -29,12 +29,12 @@
 </template>
 
 <script lang="ts" setup>
-import { type UsersPaperType, getStudentsPaper, type PaperDataType } from '@/api/examination';
-import { Table as aTable } from 'ant-design-vue';
+import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination"
+import { Table as aTable } from "ant-design-vue"
 import distributePageVue from "./modal/distributePage.vue"
-import { onMounted, reactive, ref } from 'vue'
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
-import paperList from './modal/paperList.vue'
+import { onMounted, reactive, ref } from "vue"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import paperList from "./modal/paperList.vue"
 
 interface scrollType {
     x: number
@@ -62,34 +62,34 @@ interface RecordType {
 
 const columns = ref<ColumnsType>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '姓名',
-        dataIndex: 'userName',
-        key: 'userName',
+        title: "姓名",
+        dataIndex: "userName",
+        key: "userName",
         width: 200
     },
     {
-        title: '试卷数',
-        dataIndex: 'paperList',
+        title: "试卷数",
+        dataIndex: "paperList",
         customRender: (opt) => opt.value.length,
-        key: 'paperList',
+        key: "paperList",
         width: 100
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 280
     },
 ])
 
 const data = ref<UsersPaperType[]>()
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level

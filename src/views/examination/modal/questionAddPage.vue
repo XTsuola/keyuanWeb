@@ -92,10 +92,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddQuestionType, EditQuestionType } from '@/api/examination';
-import { ref } from 'vue';
-import type { TypeFlag } from '../questionList.vue'
-import type { FormInstance } from 'ant-design-vue'
+import type { AddQuestionType, EditQuestionType } from "@/api/examination"
+import { ref } from "vue"
+import type { TypeFlag } from "../questionList.vue"
+import type { FormInstance } from "ant-design-vue"
 
 export interface API {
     getAddData: () => Promise<false | EditQuestionType>
@@ -120,23 +120,23 @@ const prop = defineProps<{
     obj: AddQuestionType | EditQuestionType
 }>()
 const addData = ref<Test>({
-    stem: '',
+    stem: "",
     type: prop.type,
-    a: '',
-    b: '',
-    c: '',
-    d: '',
-    anwser: '',
-    url: '',
-    remark: ''
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    anwser: "",
+    url: "",
+    remark: ""
 })
 const opt = ref(["消灭星星"])
-if (prop.flag === 'edit') {
+if (prop.flag === "edit") {
     const data = JSON.parse(JSON.stringify(prop.obj))
     addData.value.id = data.id
     addData.value.stem = data.stem
     addData.value.type = data.type
-    if (data.selectArr && data.selectArr[0] !== '') {
+    if (data.selectArr && data.selectArr[0] !== "") {
         addData.value.a = data.selectArr[0]
         addData.value.b = data.selectArr[1]
         addData.value.c = data.selectArr[2]
@@ -169,13 +169,13 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
 function validAnwser(_: any, value: any): any {
     return new Promise((resolve, reject) => {
         if (!value) {
-            reject(new Error('请输入答案!'));
+            reject(new Error("请输入答案!"))
         } else {
-            const list = ["a","b","c","d","A","B","C","D",1,2,3,4]
-            if (list.findIndex((item:any) => item == value) == -1) {
-                reject(new Error('请输入合法的答案!'));
+            const list = ["a", "b", "c", "d", "A", "B", "C", "D", 1, 2, 3, 4]
+            if (list.findIndex((item: any) => item == value) == -1) {
+                reject(new Error("请输入合法的答案!"))
             } else {
-                resolve("");
+                resolve("")
             }
         }
     })

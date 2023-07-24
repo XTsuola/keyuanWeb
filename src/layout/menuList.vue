@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
-import MenuItem from './menuItem.vue';
-import { useRoute, useRouter } from 'vue-router';
+import { ref, watch } from "vue"
+import MenuItem from "./menuItem.vue"
+import { useRoute, useRouter } from "vue-router"
 
 const router = useRouter()
 const route = useRoute()
@@ -33,7 +33,7 @@ function updatePath(routerObj: any) {
     selectedKeys.value = []
     if (routerObj && routerObj.meta && routerObj.meta.key) {
         selectedKeys.value.push(routerObj.meta.key)
-        const arr = route.path.split('/')
+        const arr = route.path.split("/")
         updateMenu(arr)
     }
 }

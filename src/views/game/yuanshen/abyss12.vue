@@ -51,11 +51,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
-import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type DeleteParams, type AddAbyss12Params, type UpdateAbyss12Params } from '@/api/yuanshen'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
+import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type DeleteParams, type AddAbyss12Params, type UpdateAbyss12Params } from "@/api/yuanshen"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/abyss12AddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddAbyss12Params {
     _id?: string
@@ -105,14 +105,14 @@ let addParams = reactive<AddParamsType>({
     secondLower: "",
     thirdUpper: "",
     thirdLower: "",
-    remark: ''
+    remark: ""
 })
 const current = ref<number>(1)
 const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加圣遗物")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -125,69 +125,69 @@ const formState = reactive<FormStateType>({
 })
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '深渊版本',
-        dataIndex: 'version',
-        key: 'version',
+        title: "深渊版本",
+        dataIndex: "version",
+        key: "version",
         width: 100
     },
     {
-        title: '第一间上半',
-        dataIndex: 'firstUpper',
-        key: 'firstUpper',
+        title: "第一间上半",
+        dataIndex: "firstUpper",
+        key: "firstUpper",
         width: 160
     },
     {
-        title: '第一间下半',
-        dataIndex: 'firstLower',
-        key: 'firstLower',
+        title: "第一间下半",
+        dataIndex: "firstLower",
+        key: "firstLower",
         width: 160
     },
     {
-        title: '第二间上半',
-        dataIndex: 'secondUpper',
-        key: 'secondUpper',
+        title: "第二间上半",
+        dataIndex: "secondUpper",
+        key: "secondUpper",
         width: 160
     },
     {
-        title: '第二间下半',
-        dataIndex: 'secondLower',
-        key: 'secondLower',
+        title: "第二间下半",
+        dataIndex: "secondLower",
+        key: "secondLower",
         width: 160
     },
     {
-        title: '第三间上半',
-        dataIndex: 'thirdUpper',
-        key: 'thirdUpper',
+        title: "第三间上半",
+        dataIndex: "thirdUpper",
+        key: "thirdUpper",
         width: 160
     },
     {
-        title: '第三间下半',
-        dataIndex: 'thirdLower',
-        key: 'thirdLower',
+        title: "第三间下半",
+        dataIndex: "thirdLower",
+        key: "thirdLower",
         width: 160
     },
     {
-        title: '备注',
-        dataIndex: 'remark',
-        key: 'remark',
+        title: "备注",
+        dataIndex: "remark",
+        key: "remark",
         width: 100
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 const type = ref<AddType>("add")
 
 function mediaMatchs() {
@@ -221,7 +221,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -230,7 +230,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function selectList() {
@@ -245,7 +245,7 @@ function reset() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改圣遗物"
         if (item) {
             addParams._id = item._id
@@ -259,11 +259,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加圣遗物"
-        addParams._id = addParams.version = addParams.firstUpper = addParams.firstLower = addParams.secondUpper = addParams.secondLower = addParams.thirdUpper = addParams.thirdLower = addParams.remark = ''
+        addParams._id = addParams.version = addParams.firstUpper = addParams.firstLower = addParams.secondUpper = addParams.secondLower = addParams.thirdUpper = addParams.thirdLower = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.version = item.version
@@ -286,12 +286,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addAbyss12
     }
     if (type.value === "edit") {
         a.axios = updateAbyss12
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

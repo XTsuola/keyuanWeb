@@ -43,13 +43,13 @@
 </template>
 
 <script lang="ts" setup>
-import { SettingFilled } from '@ant-design/icons-vue';
-import { onMounted, ref } from 'vue';
-import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from 'vue-router';
-import router from '@/router';
-import imgBase from '@/assets/images/lanlingwang.jpg'
-import { getUserInfo, updateImg } from '@/api/team';
-import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
+import { SettingFilled } from "@ant-design/icons-vue"
+import { onMounted, ref } from "vue"
+import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router"
+import router from "@/router"
+import imgBase from "@/assets/images/lanlingwang.jpg"
+import { getUserInfo, updateImg } from "@/api/team"
+import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global"
 
 interface UserInfo {
     id: number
@@ -65,7 +65,7 @@ const userInfo = ref<UserInfo>({
     img: "",
     remark: ""
 })
-const localrInfo = JSON.parse(window.sessionStorage.getItem('userInfo') as string)
+const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string)
 const route = useRoute()
 const imgValue = ref<string>("")
 const breadCrumbs = ref<(RouteRecordNormalized | undefined)[]>([]);
@@ -76,13 +76,13 @@ router.push({
 })
 
 function showMenu() {
-    emits('showMenu')
+    emits("showMenu")
 }
 
 function logout() {
     sessionStorage.clear()
     router.replace({
-        path: '/login'
+        path: "/login"
     })
 }
 

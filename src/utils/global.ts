@@ -1,4 +1,4 @@
-export type AsldeMenuType = "group" | "folder" | "menu";
+export type AsldeMenuType = "group" | "folder" | "menu"
 
 export interface Breadcrumb {
     url: string,

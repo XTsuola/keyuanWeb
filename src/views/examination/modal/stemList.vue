@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable } from 'ant-design-vue';
-import { getStemArrList } from '@/api/examination'
-import { reactive, ref } from 'vue';
-import type { ColumnsType } from 'ant-design-vue/es/table/interface';
+import { Table as aTable } from "ant-design-vue"
+import { getStemArrList } from "@/api/examination"
+import { reactive, ref } from "vue"
+import type { ColumnsType } from "ant-design-vue/es/table/interface"
 
 export interface stemType {
     _id: string
@@ -41,31 +41,31 @@ interface dataType {
 
 const columns = ref<ColumnsType>([
     {
-        title: 'ID',
-        dataIndex: 'id',
-        key: 'id',
+        title: "ID",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '题目',
-        dataIndex: 'stem',
-        key: 'stem',
+        title: "题目",
+        dataIndex: "stem",
+        key: "stem",
         width: 200
     },
     {
-        title: '题目类型',
-        dataIndex: 'type',
-        key: 'type',
+        title: "题目类型",
+        dataIndex: "type",
+        key: "type",
         width: 100
     },
     {
-        title: '媒体',
-        key: 'url',
-        dataIndex: 'url',
+        title: "媒体",
+        key: "url",
+        dataIndex: "url",
         width: 160
     }
 ])
-const typeArr = ['选择题', '判断题', '填空题', '问答题', '操作题']
+const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"]
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
 const prop = defineProps<{
@@ -80,5 +80,4 @@ getList()
 
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

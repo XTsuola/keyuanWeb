@@ -84,12 +84,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
 import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove"
-import type { SelectValue } from 'ant-design-vue/lib/select'
+import type { SelectValue } from "ant-design-vue/lib/select"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/cookAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddCookParams {
     _id?: string
@@ -152,7 +152,7 @@ const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加圣遗物")
 const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -190,7 +190,7 @@ const cookTypeList = ref<Type[]>([{
     value: 6
 }, {
     label: "其他",
-    value:7
+    value: 7
 }])
 const hunsuList = ref<Type[]>([{
     label: "全部",
@@ -223,69 +223,69 @@ const masteryList = ref<Type[]>([{
 }])
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 140
     },
     {
-        title: '类型',
-        dataIndex: 'cookType',
-        key: 'cookType',
+        title: "类型",
+        dataIndex: "cookType",
+        key: "cookType",
         width: 80,
     },
     {
-        title: '荤素',
-        dataIndex: 'hunsu',
-        key: 'hunsu',
+        title: "荤素",
+        dataIndex: "hunsu",
+        key: "hunsu",
         width: 80,
     },
     {
-        title: '熟练度',
-        dataIndex: 'mastery',
-        key: 'mastery',
+        title: "熟练度",
+        dataIndex: "mastery",
+        key: "mastery",
         width: 100,
     },
     {
-        title: '食材',
-        dataIndex: 'foodMaterials',
-        key: 'foodMaterials',
+        title: "食材",
+        dataIndex: "foodMaterials",
+        key: "foodMaterials",
         width: 240
     },
     {
-        title: '做法',
-        dataIndex: 'practice',
-        key: 'practice',
+        title: "做法",
+        dataIndex: "practice",
+        key: "practice",
         width: 240
     },
     {
-        title: '次数',
-        dataIndex: 'count',
-        key: 'count',
+        title: "次数",
+        dataIndex: "count",
+        key: "count",
         width: 160
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "备注",
+        key: "remark",
+        dataIndex: "remark",
         width: 180
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
 const loading = ref<boolean>(false)
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
+const mql = window.matchMedia("(max-width: 768px)")
 const type = ref<AddType>("add")
 
 function mediaMatchs() {
@@ -322,7 +322,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -331,7 +331,7 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 function groupChange(e: SelectValue) {
@@ -357,7 +357,7 @@ function changeList() {
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改菜谱"
         if (item) {
             addParams._id = item._id
@@ -371,12 +371,12 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加菜谱"
         addParams.cookType = addParams.hunsu = addParams.mastery = undefined
-        addParams._id = addParams.name = addParams.foodMaterials = addParams.practice = addParams.count = addParams.remark = ''
+        addParams._id = addParams.name = addParams.foodMaterials = addParams.practice = addParams.count = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -399,12 +399,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addCook
     }
     if (type.value === "edit") {
         a.axios = updateCook
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {

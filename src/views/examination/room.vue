@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import Kaoshi from './kaoshi/kaoshi.vue';
+import Kaoshi from "./kaoshi/kaoshi.vue"
 
 let infoObj: any = null
 if (localStorage.getItem("infoObj")) {

@@ -46,9 +46,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref } from 'vue';
-import jsonData from './data.json';
-import Tanke from './tanke.vue'
+import { reactive, ref } from "vue"
+import jsonData from "./data.json"
+import Tanke from "./tanke.vue"
 
 interface PositionType {
     x: number
@@ -68,16 +68,16 @@ const people = reactive<PositionType>({
 const trueList = [1, 2]
 
 function xuanran(x: number, y: number, direction: string) {
-    if (direction === 'ArrowUp') {
+    if (direction === "ArrowUp") {
         people.y--
         mapList.value[y][x] = 0
-    } else if (direction === 'ArrowLeft') {
+    } else if (direction === "ArrowLeft") {
         people.x--
         mapList.value[y][x] = 0
-    } else if (direction === 'ArrowDown') {
+    } else if (direction === "ArrowDown") {
         people.y++
         mapList.value[y][x] = 0
-    } else if (direction === 'ArrowRight') {
+    } else if (direction === "ArrowRight") {
         mapList.value[y][x] = 0
         people.x++
     }
@@ -149,7 +149,7 @@ function sendZidan(x: number, y: number, deg: string) {
         let timer: number | null = null
         if (x < 8) {
             x++
-            if(mapList.value[y][x] == 2) {
+            if (mapList.value[y][x] == 2) {
                 return false
             }
             mapList.value[y][x] = 9
@@ -175,7 +175,7 @@ function sendZidan(x: number, y: number, deg: string) {
         let timer: number | null = null
         if (y < 8) {
             y++
-            if(mapList.value[y][x] == 2) {
+            if (mapList.value[y][x] == 2) {
                 return false
             }
             mapList.value[y][x] = 9
@@ -201,7 +201,7 @@ function sendZidan(x: number, y: number, deg: string) {
         let timer: number | null = null
         if (y > 0) {
             y--
-            if(mapList.value[y][x] == 2) {
+            if (mapList.value[y][x] == 2) {
                 return false
             }
             mapList.value[y][x] = 9
@@ -227,7 +227,7 @@ function sendZidan(x: number, y: number, deg: string) {
         let timer: number | null = null
         if (x > 0) {
             x--
-            if(mapList.value[y][x] == 2) {
+            if (mapList.value[y][x] == 2) {
                 return false
             }
             mapList.value[y][x] = 9

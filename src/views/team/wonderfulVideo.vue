@@ -59,11 +59,11 @@
 </template>
 
 <script lang="ts" setup>
-import COS from 'cos-js-sdk-v5'
-import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from '@/api/team';
-import { Table as aTable, message } from 'ant-design-vue';
-import { onMounted, reactive, ref } from 'vue'
-import { getNowTime } from '@/utils/some';
+import COS from "cos-js-sdk-v5"
+import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from "@/api/team"
+import { Table as aTable, message } from "ant-design-vue"
+import { onMounted, reactive, ref } from "vue"
+import { getNowTime } from "@/utils/some"
 
 interface ColumnType {
     title: string
@@ -100,46 +100,46 @@ interface addDataType {
 
 const columns = ref<ColumnType[]>([
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 120
     },
     {
-        title: '链接',
-        dataIndex: 'url',
-        key: 'url',
+        title: "链接",
+        dataIndex: "url",
+        key: "url",
         width: 160
     },
     {
-        title: '上传者',
-        dataIndex: 'author',
-        key: 'author',
+        title: "上传者",
+        dataIndex: "author",
+        key: "author",
         width: 160
     },
     {
-        title: '上传时间',
-        dataIndex: 'time',
-        key: 'time',
+        title: "上传时间",
+        dataIndex: "time",
+        key: "time",
         width: 160
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "备注",
+        key: "remark",
+        dataIndex: "remark",
         width: 160
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 280
     },
 ])
 
 const data = ref<DataType[]>([])
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
-const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'))
+const mql = window.matchMedia("(max-width: 768px)")
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
 const levelId = ref<number | null>(null)
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level
@@ -188,11 +188,11 @@ function showModal() {
 function showVideo(url: string) {
     visible2.value = true
     const suffix = url.slice(url.lastIndexOf(".") + 1)
-    const imgType = ['jpg', 'png', 'gif', 'jpeg', 'bmp', "JPG"]
-    const videoType = ['mp4', 'mp3', 'm4a']
+    const imgType = ["jpg", "png", "gif", "jpeg", "bmp", "JPG"]
+    const videoType = ["mp4", "mp3", "m4a"]
     imgFlag.value = imgType.includes(suffix)
     videoFlag.value = videoType.includes(suffix)
-    wrcUrl.value = 'https://' + url
+    wrcUrl.value = "https://" + url
 }
 
 async function handleOk(e: MouseEvent) {
@@ -229,12 +229,12 @@ async function deleteOk(e: WrcDeleteType) {
         message.success(res.data.msg)
     } else {
         getList()
-        message.error('删除失败')
+        message.error("删除失败")
     }
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除")
 }
 
 async function getWrc(e: any) {
@@ -244,8 +244,8 @@ async function getWrc(e: any) {
         SecretKey: "auxjESQ6WfY9TWItDG2YnlRr0sTr0tVq"
     })
     const tengxunCos = {
-        Bucket: 'suola-1300285550',
-        Region: 'ap-nanjing'
+        Bucket: "suola-1300285550",
+        Region: "ap-nanjing"
     }
     const fileName = new Date() + target.files[0].name
     const params = {
@@ -255,9 +255,7 @@ async function getWrc(e: any) {
         Body: target.files[0]
     }
     cos.putObject(params, async (error, data) => {
-        if (error) {
-
-        } else {
+        if (!error) {
             addData.url = data.Location
             addData.time = getNowTime()
         }

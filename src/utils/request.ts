@@ -1,6 +1,6 @@
 import { message } from "ant-design-vue"
 import axios, { type AxiosRequestConfig } from "axios"
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router"
 
 const router = useRouter()
 

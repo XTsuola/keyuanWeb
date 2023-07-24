@@ -5,7 +5,7 @@ export interface DeleteParams {
     id?: number
 }
 
-export interface StemArrType{
+export interface StemArrType {
     key: string | number
     score: string
 }
@@ -77,6 +77,7 @@ export interface UpdateDataList {
     index: number
     type: number
     id: number
+    url?: string
     stem: string
     selectArr?: string[]
     anwser?: string

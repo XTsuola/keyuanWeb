@@ -35,9 +35,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddArmsParams, UpdateArmsParams } from '@/api/mhmnz';
-import { ref } from 'vue';
-import type { AddParamsType, Type } from '../armsList.vue';
+import type { AddArmsParams, UpdateArmsParams } from "@/api/mhmnz"
+import { ref } from "vue"
+import type { AddParamsType, Type } from "../armsList.vue"
 
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
@@ -61,7 +61,7 @@ const addData = ref<AddParamsType>({
     remark: ""
 
 })
-if (prop.type === 'edit' || prop.type === 'detail') {
+if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
 }
 const typeList = ref<Type[]>([{

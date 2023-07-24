@@ -40,11 +40,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
-import { Table as aTable, message } from 'ant-design-vue'
+import { onMounted, reactive, ref } from "vue"
+import { Table as aTable, message } from "ant-design-vue"
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/xingta"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
-import type { AxiosPromise } from 'axios'
+import type { AxiosPromise } from "axios"
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -109,62 +109,62 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref<boolean>(false)
 const columns = ref<ColumnType[]>([
     {
-        title: '序号',
-        dataIndex: 'id',
-        key: 'id',
+        title: "序号",
+        dataIndex: "id",
+        key: "id",
         width: 80
     },
     {
-        title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        title: "名称",
+        dataIndex: "name",
+        key: "name",
         width: 120
     },
     {
-        title: '称号',
-        dataIndex: 'title',
-        key: 'title',
+        title: "称号",
+        dataIndex: "title",
+        key: "title",
         width: 100
     },
     {
-        title: '主属性',
-        dataIndex: 'mainShuxing',
-        key: 'mainShuxing',
+        title: "主属性",
+        dataIndex: "mainShuxing",
+        key: "mainShuxing",
         width: 100,
     },
     {
-        title: '副属性',
-        dataIndex: 'otherShuxing',
-        key: 'otherShuxing',
+        title: "副属性",
+        dataIndex: "otherShuxing",
+        key: "otherShuxing",
         width: 160,
     },
     {
-        title: '神器',
-        dataIndex: 'weapon',
-        key: 'weapon',
+        title: "神器",
+        dataIndex: "weapon",
+        key: "weapon",
         width: 100,
     },
     {
-        title: '功法',
-        dataIndex: 'gongfa',
-        key: 'gongfa',
+        title: "功法",
+        dataIndex: "gongfa",
+        key: "gongfa",
         width: 200,
     },
     {
-        title: '介绍',
-        dataIndex: 'introduce',
-        key: 'introduce',
+        title: "介绍",
+        dataIndex: "introduce",
+        key: "introduce",
         width: 160
     },
     {
-        title: '备注',
-        key: 'remark',
-        dataIndex: 'remark',
+        title: "备注",
+        key: "remark",
+        dataIndex: "remark",
         width: 160
     },
     {
-        title: '操作',
-        key: 'action',
+        title: "操作",
+        key: "action",
         width: 160
     },
 ])
@@ -204,7 +204,7 @@ async function deleteOk(e: DataType) {
     if (res.data.code === 200) {
         message.success(res.data.msg)
     } else {
-        message.error('删除失败')
+        message.error("删除失败")
     }
     if (data.value.length == 1) {
         current.value--
@@ -213,12 +213,12 @@ async function deleteOk(e: DataType) {
 }
 
 function cancel() {
-    message.error('取消删除');
+    message.error("取消删除");
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
     type.value = showType
-    if (showType === 'edit') {
+    if (showType === "edit") {
         title.value = "修改角色"
         if (item) {
             addParams._id = item._id
@@ -232,11 +232,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.remark = item.remark
             addParams.id = item.id
         }
-    } else if (showType === 'add') {
+    } else if (showType === "add") {
         title.value = "添加角色"
-        addParams._id = addParams.name = addParams.title = addParams.mainShuxing = addParams.otherShuxing = addParams.weapon = addParams.gongfa = addParams.introduce = addParams.remark = ''
+        addParams._id = addParams.name = addParams.title = addParams.mainShuxing = addParams.otherShuxing = addParams.weapon = addParams.gongfa = addParams.introduce = addParams.remark = ""
         addParams.id = 0
-    } else if (showType === 'detail') {
+    } else if (showType === "detail") {
         title.value = "查看详情"
         if (item) {
             addParams.name = item.name
@@ -259,12 +259,12 @@ async function handleOk(e: MouseEvent) {
         msg: string
     }
     let a: AType = {
-        msg: '新增失败',
+        msg: "新增失败",
         axios: addHero
     }
     if (type.value === "edit") {
         a.axios = updateHero
-        a.msg = '修改失败'
+        a.msg = "修改失败"
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
