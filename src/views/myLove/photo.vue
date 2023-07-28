@@ -4,7 +4,7 @@
         <ul>
             <li v-for="item in photoList" style="width: 9%;">
                 <img @click="showDetail(item)" style="width: 100%;"
-                    :src="import.meta.env.VITE_APP_BASE_URL + 'photoImg/' + item.url" />
+                    :src="baseUrl + 'photoImg/' + item.url" />
             </li>
         </ul>
         <render-vnode :vNode="text"></render-vnode>
@@ -60,6 +60,8 @@ interface PhotoType {
     createTime: string
     remark: string
 }
+
+const baseUrl = import.meta.env.VITE_APP_BASE_URL
 
 const str = "../../assets/images/game/box/caiwenji.jpg"
 const text = h("img", {

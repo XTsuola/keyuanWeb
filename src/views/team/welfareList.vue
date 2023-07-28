@@ -32,13 +32,25 @@
             </template>
         </a-modal>
     </div>
+    <div v-color-bg>我是初见8</div>
 </template>
 
 <script lang="ts" setup>
 import { message } from "ant-design-vue"
 import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from "@/api/team"
-import { onMounted, reactive, ref } from "vue"
+import { onMounted, reactive, ref, type Directive, } from "vue"
 import type { AxiosPromise } from "axios"
+
+const color = ref("red")
+
+const vColorBg: Directive = (el, bind?) => {
+    el.style.background = color.value
+    if (localStorage.getItem("userFlag") == 1) {
+        el.style.background = "pink"
+    } else {
+        el.style.background = "red"
+    }
+}
 
 interface WelfareType {
     _id: string
