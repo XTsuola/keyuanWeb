@@ -409,12 +409,6 @@ const columns = ref<ColumnType[]>([
         width: 160,
     },
     {
-        title: "命之座",
-        dataIndex: "lifeSeat",
-        key: "lifeSeat",
-        width: 100,
-    },
-    {
         title: "备注",
         key: "remark",
         dataIndex: "remark",

@@ -53,7 +53,8 @@
                 <a-input v-model:value="addData.breach" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="命之座">
-                <a-input v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"></a-input>
+                <a-textarea v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"
+                    style="height: 240px;"></a-textarea>
             </a-form-item>
             <a-form-item label="介绍">
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"
