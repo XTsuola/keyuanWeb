@@ -30,6 +30,9 @@
             <a-form-item label="专属">
                 <a-input v-model:value="addData.exclusive" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
+            <a-form-item label="兵种">
+                <a-textarea style="min-height: 80px;" v-model:value="addData.arms" :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
             <a-form-item label="技能组">
                 <a-textarea v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
@@ -69,6 +72,7 @@ const addData = ref<AddParamsType>({
     gender: undefined,
     camp: [],
     exclusive: "",
+    arms: "",
     superSkill: "",
     castGrainSkill: "",
     talent: "",
@@ -147,6 +151,7 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             gender: addData.value.gender,
             camp: addData.value.camp,
             exclusive: addData.value.exclusive,
+            arms: addData.value.arms,
             superSkill: addData.value.superSkill,
             castGrainSkill: addData.value.castGrainSkill,
             talent: addData.value.talent,

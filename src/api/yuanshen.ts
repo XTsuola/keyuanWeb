@@ -81,6 +81,26 @@ export interface UpdateRelicsParams extends AddRelicsParams {
     id?: number
 }
 
+export interface GetEnemyListParams {
+    pageSize: number
+    pageNo: number
+    name: string
+    enemyType: number | undefined
+}
+
+export interface AddEnemyParams {
+    name: string
+    enemyType: number | undefined
+    info: string
+    remark: string
+}
+
+export interface UpdateEnemyParams extends AddEnemyParams {
+    _id?: string
+    id?: number
+}
+
+
 export interface GetAbyss12ListParams {
     pageSize: number
     pageNo: number
@@ -211,6 +231,42 @@ export function updateRelics(data: UpdateRelicsParams) {
 export function deleteRelics(data: DeleteParams) {
     return request({
         url: '/yuanshen/deleteRelics',
+        method: 'get',
+        params: data
+    })
+}
+
+// 获取怪物列表
+export function getEnemyList(data: GetEnemyListParams) {
+    return request({
+        url: '/yuanshen/getEnemyList',
+        method: 'get',
+        params: data
+    })
+}
+
+// 新增怪物
+export function addEnemy(data: AddEnemyParams) {
+    return request({
+        url: '/yuanshen/addEnemy',
+        method: 'post',
+        data: data
+    })
+}
+
+// 修改怪物
+export function updateEnemy(data: UpdateEnemyParams) {
+    return request({
+        url: '/yuanshen/updateEnemy',
+        method: 'post',
+        data: data
+    })
+}
+
+// 删除怪物
+export function deleteEnemy(data: DeleteParams) {
+    return request({
+        url: '/yuanshen/deleteEnemy',
         method: 'get',
         params: data
     })

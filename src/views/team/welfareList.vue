@@ -32,7 +32,7 @@
             </template>
         </a-modal>
     </div>
-    <div v-color-bg>我是初见8</div>
+    <!-- <div v-color-bg>我是初见8</div> -->
 </template>
 
 <script lang="ts" setup>
@@ -45,7 +45,7 @@ const color = ref("red")
 
 const vColorBg: Directive = (el, bind?) => {
     el.style.background = color.value
-    if (localStorage.getItem("userFlag") == 1) {
+    if (localStorage.getItem("userFlag") as any == 1) {
         el.style.background = "pink"
     } else {
         el.style.background = "red"

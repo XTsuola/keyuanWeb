@@ -235,6 +235,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/yuanshen/relicsList.vue")
               },
               {
+                path: "yuanshenEnemyList",
+                meta: {
+                  menuType: "menu",
+                  key: "yuanshenEnemyList",
+                  label: "怪物列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/yuanshen/enemyList.vue")
+              },
+              {
                 path: "yuanshenAbyss12",
                 meta: {
                   menuType: "menu",

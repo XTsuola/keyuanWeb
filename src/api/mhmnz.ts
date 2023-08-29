@@ -3,11 +3,12 @@ import request from "../utils/request"
 export interface GetHeroListParams {
     pageSize: number
     pageNo: number
-    name: string
+    name: string | undefined
     star: number | undefined
     gender: number | undefined
     camp: number | undefined
-    superSkill: string
+    arms: string | undefined
+    superSkill: string | undefined
 }
 
 export interface AddHeroParams {
@@ -15,6 +16,7 @@ export interface AddHeroParams {
     gender: number | undefined
     star: number | undefined
     camp: number[]
+    arms: string
     exclusive: string
     superSkill: string
     castGrainSkill: string

@@ -30,6 +30,9 @@
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="兵种" style="width: 220px">
+                <a-input v-model:value="formState.arms" placeholder="请输入兵种名称" />
+            </a-form-item>
             <a-form-item label="技能组" style="width: 220px">
                 <a-input v-model:value="formState.superSkill" placeholder="请输入技能组" />
             </a-form-item>
@@ -54,6 +57,9 @@
                 <template v-else-if="column.key === 'camp'">
                     <span>{{ getCamp(record.camp) }}</span>
                 </template>
+                <template v-else-if="column.key === 'castGrainSkill'">
+                    <span>{{ getCamp(record.camp) }}</span>
+                </template>
                 <template v-else-if="column.key === 'action'">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                         <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
@@ -70,8 +76,8 @@
                 </template>
             </template>
         </a-table>
-        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+        <a-pagination class="pagination" v-model:current="formState.pageNo" v-model:page-size="formState.pageSize"
+            :total="total" :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -123,14 +129,6 @@ interface DataType {
     castGrainSkill: string
 }
 
-interface FormStateType {
-    name: string
-    star: number | undefined
-    gender: number | undefined
-    camp: number | undefined
-    superSkill: string
-}
-
 let addParams = reactive<AddParamsType>({
     _id: "",
     id: 0,
@@ -139,13 +137,12 @@ let addParams = reactive<AddParamsType>({
     star: undefined,
     camp: [],
     exclusive: "",
+    arms: "",
     superSkill: "",
     castGrainSkill: "",
     talent: "",
     introduce: ""
 })
-const current = ref<number>(1)
-const pageSize = ref<number>(10)
 const total = ref<number>(0)
 const title = ref<string>("添加兵种")
 const addPage = ref<AddPageAPI>()
@@ -157,12 +154,15 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null
 }
 const visible = ref<boolean>(false)
-const formState = reactive<FormStateType>({
-    name: "",
+const formState = reactive<GetHeroListParams>({
+    pageSize: 10,
+    pageNo: 1,
+    name: undefined,
     star: undefined,
     gender: undefined,
     camp: undefined,
-    superSkill: ""
+    arms: undefined,
+    superSkill: undefined
 })
 const starList = ref<Type[]>([{
     label: "全部",
@@ -268,6 +268,12 @@ const columns = ref<ColumnType[]>([
         width: 140
     },
     {
+        title: "兵种",
+        dataIndex: "arms",
+        key: "arms",
+        width: 280
+    },
+    {
         title: "技能组",
         dataIndex: "superSkill",
         key: "superSkill",
@@ -320,16 +326,7 @@ function getCamp(arr: number[]) {
 }
 
 async function getList() {
-    const params: GetHeroListParams = {
-        pageSize: pageSize.value,
-        pageNo: current.value,
-        name: formState.name,
-        star: formState.star,
-        gender: formState.gender,
-        camp: formState.camp,
-        superSkill: formState.superSkill
-    }
-    const res = await getHeroList(params)
+    const res = await getHeroList(formState)
     if (res.data.code === 200) {
         data.value = res.data.rows
         total.value = res.data.total
@@ -347,7 +344,7 @@ async function deleteOk(e: DataType) {
         message.error("删除失败")
     }
     if (data.value.length == 1) {
-        current.value--
+        formState.pageNo--
     }
     getList()
 }
@@ -357,13 +354,12 @@ function cancel() {
 }
 
 function selectList() {
-    current.value = 1
+    formState.pageNo = 1
     getList()
 }
 
 function reset() {
-    formState.star = formState.gender = formState.camp = undefined
-    formState.name = formState.superSkill = ""
+    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.superSkill = undefined
     selectList()
 }
 
@@ -378,6 +374,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.star = item.star
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
+            addParams.arms = item.arms
             addParams.superSkill = item.superSkill
             addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
@@ -398,6 +395,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.star = item.star
             addParams.introduce = item.introduce
             addParams.exclusive = item.exclusive
+            addParams.arms = item.arms
             addParams.superSkill = item.superSkill
             addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
