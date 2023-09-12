@@ -34,7 +34,7 @@
                 <a-input v-model:value="formState.arms" placeholder="请输入兵种名称" />
             </a-form-item>
             <a-form-item label="技能组" style="width: 220px">
-                <a-input v-model:value="formState.superSkill" placeholder="请输入技能组" />
+                <a-input v-model:value="formState.skillGroup" placeholder="请输入技能组" />
             </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
@@ -139,6 +139,7 @@ let addParams = reactive<AddParamsType>({
     exclusive: "",
     arms: "",
     superSkill: "",
+    skillGroup: "",
     castGrainSkill: "",
     talent: "",
     introduce: ""
@@ -162,7 +163,7 @@ const formState = reactive<GetHeroListParams>({
     gender: undefined,
     camp: undefined,
     arms: undefined,
-    superSkill: undefined
+    skillGroup: undefined
 })
 const starList = ref<Type[]>([{
     label: "全部",
@@ -275,8 +276,8 @@ const columns = ref<ColumnType[]>([
     },
     {
         title: "技能组",
-        dataIndex: "superSkill",
-        key: "superSkill",
+        dataIndex: "skillGroup",
+        key: "skillGroup",
         width: 280
     },
     {
@@ -359,7 +360,7 @@ function selectList() {
 }
 
 function reset() {
-    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.superSkill = undefined
+    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.skillGroup = undefined
     selectList()
 }
 
@@ -376,6 +377,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.exclusive = item.exclusive
             addParams.arms = item.arms
             addParams.superSkill = item.superSkill
+            addParams.skillGroup = item.skillGroup
             addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
             addParams.camp = item.camp
@@ -385,7 +387,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
         title.value = "添加英雄"
         addParams.gender = addParams.star = undefined
         addParams.camp = []
-        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.introduce = ""
+        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.castGrainSkill = addParams.introduce = ""
         addParams.id = 0
     } else if (showType === "detail") {
         title.value = "查看详情"
@@ -397,6 +399,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.exclusive = item.exclusive
             addParams.arms = item.arms
             addParams.superSkill = item.superSkill
+            addParams.skillGroup = item.skillGroup
             addParams.castGrainSkill = item.castGrainSkill
             addParams.talent = item.talent
             addParams.camp = item.camp

@@ -130,19 +130,19 @@ const columns = ref<ColumnType[]>([
         title: "主属性",
         dataIndex: "mainShuxing",
         key: "mainShuxing",
-        width: 100,
+        width: 100
     },
     {
         title: "副属性",
         dataIndex: "otherShuxing",
         key: "otherShuxing",
-        width: 160,
+        width: 160
     },
     {
         title: "神器",
         dataIndex: "weapon",
         key: "weapon",
-        width: 100,
+        width: 100
     },
     {
         title: "功法",

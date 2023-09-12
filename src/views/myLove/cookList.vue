@@ -250,25 +250,19 @@ const columns = ref<ColumnType[]>([
         title: "熟练度",
         dataIndex: "mastery",
         key: "mastery",
-        width: 100,
+        width: 90,
     },
     {
         title: "食材",
         dataIndex: "foodMaterials",
         key: "foodMaterials",
-        width: 240
-    },
-    {
-        title: "做法",
-        dataIndex: "practice",
-        key: "practice",
-        width: 240
+        width: 200
     },
     {
         title: "次数",
         dataIndex: "count",
         key: "count",
-        width: 160
+        width: 180
     },
     {
         title: "备注",

@@ -1,5 +1,5 @@
 <template>
-    <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline"
+    <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" theme="light"
         :style="{ height: '100%', borderRight: 0 }">
         <MenuItem v-for="item in BaseRoute?.children" :menu="item">
         </MenuItem>
@@ -44,3 +44,12 @@ watch(route, (val) => {
 })
 
 </script>
+
+<style lang="less" scoped>
+:deep(.ant-menu-submenu-title) {
+    background: #fff;
+}
+:deep(.ant-menu-inline) {
+    background-color: #fff;
+}
+</style>

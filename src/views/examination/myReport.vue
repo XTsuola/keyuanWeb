@@ -6,7 +6,10 @@
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action'">
                 <a-button v-if="record.flag" size="small" @click="goRoom(record)">开始考试</a-button>
-                <a-button v-else size="small" @click="lookResult(record)">查看答卷</a-button>
+                <div v-else>
+                    <a-button size="small" @click="lookResult(record)">查看答卷</a-button>
+                    <a-button size="small" @click="resetPaper(record)">重新考试</a-button>
+                </div>
             </template>
         </template>
     </a-table>
@@ -16,7 +19,7 @@
 import { Table as aTable } from "ant-design-vue"
 import { reactive, ref } from "vue"
 import type { ColumnsType } from "ant-design-vue/es/table/interface"
-import { getMyPaperlist } from "@/api/examination"
+import { getMyPaperlist, resetNowPaper, type ResetPaperType } from "@/api/examination"
 import router from "@/router"
 
 
@@ -105,6 +108,18 @@ function lookResult(record: any) {
     }
     localStorage.setItem("resultObj", JSON.stringify(resultObj))
     router.push({ path: "/result" })
+}
+
+async function resetPaper(record: any) {
+    console.log(record, "nnn")
+    const params:ResetPaperType = {
+        paperId: record.paperId,
+        reportId: record._id
+    }
+    const res = await resetNowPaper(params)
+    if(res.data.code == 200) {
+        getList()
+    }
 }
 
 async function getList() {

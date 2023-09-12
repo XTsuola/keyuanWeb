@@ -1,5 +1,5 @@
 <template>
-    <a-layout-sider width="200" class="sider" v-if="flag">
+    <a-layout-sider width="200" v-if="flag">
         <menuList></menuList>
     </a-layout-sider>
     <a-drawer class="siderDrawer" placement="left" width="200" :closable="false" :visible="visible"
@@ -39,15 +39,10 @@ defineExpose({
 </script>
 
 <style lang="less" scoped>
-@media screen and (max-width: 768px) {
-    .sider {
-        background: #ffffff;
-        box-shadow: 0px 2px 8px 0px rgba(125, 188, 162, 0.2);
-        height: 100%;
-        position: absolute;
-        background: #000;
-        z-index: 888;
-    }
+aside {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fff;
 }
 
 .closeMenu {
@@ -56,5 +51,25 @@ defineExpose({
     right: 0;
     cursor: pointer;
     display: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #aaa;
 }
 </style>

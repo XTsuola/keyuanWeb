@@ -55,7 +55,6 @@ const addData = ref<AddParamsType>({
     gongfa: "",
     introduce: "",
     remark: ""
-
 })
 if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))

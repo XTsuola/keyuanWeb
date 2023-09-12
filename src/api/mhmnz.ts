@@ -8,7 +8,7 @@ export interface GetHeroListParams {
     gender: number | undefined
     camp: number | undefined
     arms: string | undefined
-    superSkill: string | undefined
+    skillGroup: string | undefined
 }
 
 export interface AddHeroParams {
@@ -19,6 +19,7 @@ export interface AddHeroParams {
     arms: string
     exclusive: string
     superSkill: string
+    skillGroup: string
     castGrainSkill: string
     talent: string
     introduce: string

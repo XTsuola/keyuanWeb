@@ -367,7 +367,7 @@ const columns = ref<ColumnType[]>([
         title: "属性",
         dataIndex: "shuxing",
         key: "shuxing",
-        width: 60,
+        width: 80,
     },
     {
         title: "星级",

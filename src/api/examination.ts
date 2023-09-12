@@ -99,6 +99,11 @@ export interface GetResult {
     userId: number
 }
 
+export interface ResetPaperType {
+    paperId: number
+    reportId: number
+}
+
 // 获取题库列表
 export function getQuestionList() {
     return request({
@@ -277,6 +282,15 @@ export function getNowPaper(id: number) {
 export function autoUpdatePaper(data: AutoUpdatePaperParams) {
     return request({
         url: '/autoUpdatePaper',
+        method: 'post',
+        data: data
+    })
+}
+
+// 重置当前试卷
+export function resetNowPaper(data: ResetPaperType) {
+    return request({
+        url: '/resetReport',
         method: 'post',
         data: data
     })
