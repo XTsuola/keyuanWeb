@@ -37,7 +37,7 @@
                 <a-textarea v-model:value="addData.skillGroup" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="3C技能">
-                <a-textarea style="min-height: 80px;" v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 120px;" v-model:value="addData.superSkill" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="铸纹技能">
                 <a-textarea v-model:value="addData.castGrainSkill" :disabled="prop.type === 'detail'"></a-textarea>
@@ -81,7 +81,6 @@ const addData = ref<AddParamsType>({
     castGrainSkill: "",
     talent: "",
     introduce: ""
-
 })
 if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams))
