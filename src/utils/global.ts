@@ -16,3 +16,19 @@ export async function getImg(str: string, callback: (e: any) => void) {
     const url = (await import(str)).default
     // const url = new URL(str, import.meta.url)
 }
+
+/* async function getImg(str: string[], callback: (e: any) => void) {
+    let crr = []
+    for(let i = 0;i<str.length;i++) {
+        crr.push((await import(str[i])).default)
+    }
+    callback(crr)
+}
+
+const xxx = ref<any>("")
+
+let kk = ["../../assets/img/eda1.png", "../../assets/img/eda2.png", "../../assets/img/eda3.png"]
+
+getImg(kk, (res) => {
+    xxx.value = res
+}) */
