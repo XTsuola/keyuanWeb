@@ -5,10 +5,17 @@
     <div v-color-bg>我是初见</div>
     <div v-show="false" v-color-bg="color"></div>
     <div v-color-bg>我是初见2</div>
+    <div @click="change2()">{{ name2 }}</div>
+    <xiangcePage>
+        <span>轰轰火花</span>
+        <template v-slot:slotHeader>头部</template>
+        <template v-slot:slotBottom>尾部</template>
+    </xiangcePage>
 </template>
 
 <script lang="ts" setup>
-import { ref, type Directive, onMounted, onBeforeMount } from 'vue';
+import { ref, type Directive, onMounted, onBeforeMount, provide } from 'vue';
+import xiangcePage from './modal/xiangcePage.vue';
 
 const color = ref("red")
 localStorage.setItem("userFlag", "1")
@@ -18,6 +25,16 @@ const vColorBg: Directive = (el?, bind?) => {
     if (localStorage.getItem("userFlag") as any == 1) {
         el.style.background = "pink"
     }
+}
+
+const name = ref<string>("杰尼龟")
+const name2 = ref("我是小智")
+
+provide("name", name)
+
+function change2() {
+    console.log(222)
+    name2.value = "111"
 }
 
 </script>

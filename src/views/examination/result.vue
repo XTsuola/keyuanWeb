@@ -137,7 +137,7 @@ function getSelectResult(arr: string[] | number[]) {
 }
 
 function goBack() {
-    history.go(-1)
+    history.back()
 }
 
 async function getList() {

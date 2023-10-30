@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router"
 import routerDate from "./routerDate"
 import Login from "../views/login/login.vue"
 
-const routeList  = [{
+const routeList = [{
   path: "/login",
   name: "login",
   component: Login
@@ -21,6 +21,26 @@ const routeList  = [{
   path: "/imgDetail",
   name: "imgDetail",
   component: () => import("@/views/myLove/imgDetail.vue")
+}, {
+  path: "/photos/filmSpace",
+  name: "filmSpace",
+  component: () => import("@/views/myLove/wedding/photos/filmSpace.vue")
+}, {
+  path: "/photos/parkExterior",
+  name: "parkExterior",
+  component: () => import("@/views/myLove/wedding/photos/parkExterior.vue")
+}, {
+  path: "/photos/chineseStyle",
+  name: "chineseStyle",
+  component: () => import("@/views/myLove/wedding/photos/chineseStyle.vue")
+}, {
+  path: "/photos/hanayome",
+  name: "hanayome",
+  component: () => import("@/views/myLove/wedding/photos/hanayome.vue")
+}, {
+  path: "/shiyan",
+  name: "shiyan",
+  component: () => import("@/views/myLove/wedding/shiyanPage.vue")
 }]
 
 const router = createRouter({

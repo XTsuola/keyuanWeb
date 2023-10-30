@@ -119,7 +119,7 @@ function add() {
 }
 
 function goBack() {
-    history.go(-1)
+    history.back()
 }
 
 onMounted(() => {
