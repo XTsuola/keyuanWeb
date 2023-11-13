@@ -23,7 +23,7 @@ const prop = defineProps<{
 const arr = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 let flag = false
 let count = 0
-let timer: number | null = null
+let timer: any = null
 
 function mie(item: number) {
     if (arr.value.filter(e => e === 0).length === 0) {
