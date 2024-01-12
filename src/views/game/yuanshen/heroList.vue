@@ -176,6 +176,8 @@ let addParams = reactive<AddParamsType>({
     def: "",
     breach: "",
     introduce: "",
+    firstLook: "",
+    birthday: "",
     remark: ""
 })
 const current = ref<number>(1)
@@ -505,6 +507,8 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.def = item.def
             addParams.breach = item.breach
             addParams.introduce = item.introduce
+            addParams.firstLook = item.firstLook
+            addParams.birthday = item.birthday
             addParams.remark = item.remark
             addParams.img = item.img
             addParams.id = item.id
@@ -512,7 +516,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
     } else if (showType === "add") {
         title.value = "添加角色"
         addParams.gender = addParams.country = addParams.arms = addParams.shuxing = addParams.star = undefined
-        addParams._id = addParams.name = addParams.introduce = addParams.remark = ""
+        addParams._id = addParams.name = addParams.introduce = addParams.firstLook = addParams.birthday = addParams.remark = ""
         addParams.id = 0
     } else if (showType === "detail") {
         title.value = "查看详情"
@@ -529,6 +533,8 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.def = item.def
             addParams.breach = item.breach
             addParams.introduce = item.introduce
+            addParams.firstLook = item.firstLook
+            addParams.birthday = item.birthday
             addParams.remark = item.remark
             addParams.img = item.img
         }

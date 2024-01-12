@@ -26,6 +26,8 @@ export interface AddHeroParams {
     breach: string
     introduce: string
     remark: string
+    firstLook: string
+    birthday: string
     img?: ""
 }
 

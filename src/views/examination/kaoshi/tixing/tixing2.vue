@@ -3,7 +3,7 @@
     <div class="type">判断题</div>
     <div class="main">
         <div class="title">{{ prop.obj.index }}、{{ prop.obj.stem }}</div>
-        <img class="img" v-if="imgFlag" :src="url" />
+        <img class="img" v-if="imgFlag" :src="url" />·
         <video v-if="videoFlag" class="video" controls>
             <source :src="url" type="video/mp4" />
         </video>

@@ -33,5 +33,7 @@ declare module 'js-md5' {
 declare global {
   interface Window {
     BMap: T
+    init: any
+    BMapGL: T
   }
 }

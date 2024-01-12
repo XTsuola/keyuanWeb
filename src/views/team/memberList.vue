@@ -1,4 +1,6 @@
+
 <template>
+    {{ $t('hello.hello') }}
     <div class="main">
         <div class="title">
             成员列表
@@ -50,6 +52,9 @@
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
             </template>
         </a-modal>
+        <!-- <a-card style="width: 300px;height: 200px;border:1px solid red;padding: 0;">
+            <a-image :width="200" :height="200" :src="img" />
+        </a-card> -->
     </div>
 </template>
 
@@ -60,6 +65,8 @@ import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, typ
 import type { SelectValue } from "ant-design-vue/lib/select"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/memberAddPage.vue"
 import type { AxiosPromise } from "axios"
+import { useI18n } from "vue-i18n"
+import img from "@/assets/images/game/box/caiwenji.jpg";
 
 export interface GroupListType {
     groupId: number
@@ -93,6 +100,9 @@ interface DataType {
     position: string
     remark: string
 }
+
+const { locale, messages } = useI18n();
+locale.value = "en"
 
 let addParams = reactive<AddParamsType>({
     _id: "",
@@ -306,5 +316,9 @@ onMounted(() => {
     .pagination {
         margin: 20px 0 20px 20px;
     }
+}
+
+:deep(.ant-card-body) {
+    padding: 2px;
 }
 </style>

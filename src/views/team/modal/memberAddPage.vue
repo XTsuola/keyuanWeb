@@ -1,8 +1,12 @@
 <template>
     <div class="childMain">
+        <a-select ref="select" v-model:value="lang" style="width: 120px" @change="handleChange">
+            <a-select-option value="en">English</a-select-option>
+            <a-select-option value="zh">中文</a-select-option>
+        </a-select>
         <a-form ref="memberAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
             autocomplete="off">
-            <a-form-item label="成员名称" name="name" :rules="[{ required: true, message: '请输入成员名称!' }]">
+            <a-form-item label="成员名称" name="name" :rules="[{ required: true, message: $t('email'), trigger: 'blur' }]">
                 <a-input v-model:value="addData.name" />
             </a-form-item>
             <a-form-item label="QQ账号">
@@ -27,13 +31,16 @@
 
 <script lang="ts" setup>
 import { getGroupInfo, type AddMemberParams, type UpdateMemberParams } from "@/api/team"
-import { onMounted, ref } from "vue"
+import { onMounted, ref, nextTick } from "vue"
 import type { AddParamsType, GroupListType } from "../memberList.vue"
+import { useI18n } from "vue-i18n"
 export interface API {
     getAddData: () => Promise<false | AddMemberParams | UpdateMemberParams>
 }
 
 export type AddType = "add" | "edit"
+
+const { locale, messages } = useI18n();
 
 const prop = defineProps<{
     type: AddType
@@ -52,6 +59,16 @@ if (prop.type === "edit") {
 const groupList = ref<GroupListType[]>([])
 
 const memberAdd = ref()
+
+
+const lang = ref("en")
+
+async function handleChange(e: any) {
+    locale.value = e
+    nextTick(() => {
+        memberAdd.value?.validate()
+    })
+}
 
 async function getGroup() {
     const res = await getGroupInfo()

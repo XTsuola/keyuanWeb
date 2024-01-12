@@ -60,6 +60,14 @@
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"
                     style="height: 160px;"></a-textarea>
             </a-form-item>
+            <a-form-item label="初次见面">
+                <a-textarea v-model:value="addData.firstLook" :disabled="prop.type === 'detail'"
+                    style="height: 100px;"></a-textarea>
+            </a-form-item>
+            <a-form-item label="生日祝福">
+                <a-textarea v-model:value="addData.birthday" :disabled="prop.type === 'detail'"
+                    style="height: 100px;"></a-textarea>
+            </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
@@ -106,6 +114,8 @@ const addData = ref<AddParamsType>({
     lifeSeat: "",
     star: undefined,
     introduce: "",
+    firstLook: "",
+    birthday: "",
     remark: "",
     img: ""
 })
@@ -237,6 +247,8 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             lifeSeat: addData.value.lifeSeat,
             star: addData.value.star,
             introduce: addData.value.introduce,
+            firstLook: addData.value.firstLook,
+            birthday: addData.value.birthday,
             remark: addData.value.remark,
             img: addData.value.img
         }
