@@ -285,12 +285,12 @@ const columns = ref<ColumnType[]>([
             return parseInt(a.dk) - parseInt(b.dk)
         }
     },
-    {
+    /* {
         title: "备注",
         key: "remark",
         dataIndex: "remark",
         width: 240
-    },
+    }, */
     {
         title: "操作",
         key: "action",

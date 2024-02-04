@@ -44,7 +44,7 @@
                 <a-input v-model:value="addData.dk" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="备注">
-                <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="height: 100px;" v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
         </a-form>
     </div>

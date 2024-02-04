@@ -27,7 +27,7 @@ function initMap() {
         fillColor: '#5e8bff',
         strokeColor: '#0000ff',
         fillOpacity: 0.1,
-        kind: 0
+        kind: 1
     });
     map.value.addDistrictLayer(dist);
 };
