@@ -11,6 +11,12 @@
         <template v-slot:slotHeader>头部</template>
         <template v-slot:slotBottom>尾部</template>
     </xiangcePage>
+    <div>————————————————————————————————分割线———————————————————————————————————</div>
+    <div class="box">
+        <div class="horse">
+
+        </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -46,5 +52,32 @@ function change2() {
 
 .color {
     background-color: v-bind(color);
+}
+
+.box {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    overflow: hidden;
+    transform: scale(3) translate(50px, 50px);
+
+    .horse {
+        position: absolute;
+        transform: translate(-10px, -10px);
+        width: 2400px;
+        height: 100px;
+        background-image: url("@/assets/images/horse.png");
+        animation: run 1s steps(12, end) infinite;
+    }
+}
+
+@keyframes run {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -2400px;
+    }
 }
 </style>

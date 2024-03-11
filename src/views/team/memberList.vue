@@ -66,7 +66,8 @@ import type { SelectValue } from "ant-design-vue/lib/select"
 import AddPage, { type AddType, type API as AddPageAPI } from "./modal/memberAddPage.vue"
 import type { AxiosPromise } from "axios"
 import { useI18n } from "vue-i18n"
-import img from "@/assets/images/game/box/caiwenji.jpg";
+import { render } from "vue"
+import { effect } from "vue"
 
 export interface GroupListType {
     groupId: number
@@ -102,7 +103,7 @@ interface DataType {
 }
 
 const { locale, messages } = useI18n();
-locale.value = "en"
+locale.value = "cn"
 
 let addParams = reactive<AddParamsType>({
     _id: "",
