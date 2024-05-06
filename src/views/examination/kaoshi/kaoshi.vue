@@ -53,7 +53,7 @@ interface InfoType {
 
 const index = ref<number>(0)
 const paperId = prop.paperId
-const dataArr = ref<UpdateDataList[]>([])
+const dataArr = ref<any>([])
 const paperInfo = reactive<InfoType>({
     paperName: "",
     score: "",

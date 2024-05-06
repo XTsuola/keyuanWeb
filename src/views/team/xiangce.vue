@@ -39,7 +39,6 @@ const name2 = ref("我是小智")
 provide("name", name)
 
 function change2() {
-    console.log(222)
     name2.value = "111"
 }
 

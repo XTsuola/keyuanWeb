@@ -111,7 +111,6 @@ function lookResult(record: any) {
 }
 
 async function resetPaper(record: any) {
-    console.log(record, "nnn")
     const params:ResetPaperType = {
         paperId: record.paperId,
         reportId: record._id

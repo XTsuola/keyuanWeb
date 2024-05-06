@@ -277,6 +277,28 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/yinyangshi/heroList.vue")
               }
             ]
+          },
+          {
+            path: "zhenlizhiquan",
+            meta: {
+              menuType: "folder",
+              key: "zhenlizhiquan",
+              icon: "UnorderedListOutlined",
+              label: "真理之拳"
+            },
+            component: BlankLayout,
+            children: [
+              {
+                path: "zhenizhiquanCardList",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanCardList",
+                  label: "卡牌列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/zlzq/cardList.vue")
+              }
+            ]
           }
         ]
       },

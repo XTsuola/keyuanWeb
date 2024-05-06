@@ -16,7 +16,6 @@ import type { ListType } from "./travel"
 const infoWindow = ref<any>(null)
 const map = ref<any>(null)
 let Bmap = window.BMapGL
-console.log(Bmap, "mapppp")
 
 function initMap() {
     map.value = new Bmap.Map("allmap")

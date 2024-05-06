@@ -12,7 +12,6 @@
 import { inject, ref } from 'vue';
 
 let name: any = inject("name")
-console.log(name.value)
 const name2 = ref<string>()
 name2.value = name.value
 

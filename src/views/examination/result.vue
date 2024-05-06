@@ -143,7 +143,7 @@ function goBack() {
 async function getList() {
     let params: GetResult = {
         paperId: parseInt(resultObj.paperId),
-        userId: parseInt(resultObj.userId)
+        userId: parseInt(resultObj.userId),
     }
     const res = await getResult(params)
     if (res && res.data.code == 200) {
