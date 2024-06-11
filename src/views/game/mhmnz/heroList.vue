@@ -169,6 +169,9 @@ const starList = ref<Type[]>([{
     label: "全部",
     value: 0
 }, {
+    label: "LLR",
+    value: 5
+}, {
     label: "SP",
     value: 4
 }, {

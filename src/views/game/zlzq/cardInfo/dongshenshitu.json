@@ -78,6 +78,17 @@
     },
     {
         "quality": "蓝",
+        "name": "转化仪式",
+        "cost": 1,
+        "level": 12,
+        "type": 2,
+        "attack": 0,
+        "life": 0,
+        "effect": "牺牲目标友军，抽一张牌、召唤12/12尸嵌lv12。",
+        "remark": ""
+    },
+    {
+        "quality": "蓝",
         "name": "复生尸骸",
         "cost": 2,
         "level": 12,
@@ -177,6 +188,28 @@
     },
     {
         "quality": "蓝",
+        "name": "寒风草人",
+        "cost": 2,
+        "level": 12,
+        "type": 1,
+        "attack": 0,
+        "life": 10,
+        "effect": "【传承4】、【洞察1】、登场：冰封相邻随机位置，横排敌军-4/-4。",
+        "remark": ""
+    },
+    {
+        "quality": "蓝",
+        "name": "召唤阵·骷髅犬",
+        "cost": 2,
+        "level": 12,
+        "type": 2,
+        "attack": 0,
+        "life": 0,
+        "effect": "目标位置召唤10/1骷髅犬lv12，并获得一只到手上。",
+        "remark": ""
+    },
+    {
+        "quality": "蓝",
         "name": "严冬苦行僧",
         "cost": 3,
         "level": 12,
@@ -243,6 +276,17 @@
     },
     {
         "quality": "蓝",
+        "name": "神庙魔像",
+        "cost": 3,
+        "level": 12,
+        "type": 1,
+        "attack": 20,
+        "life": 36,
+        "effect": "【守军】、登场：冰封脚下位置、受到传承：失去【守军】。",
+        "remark": ""
+    },
+    {
+        "quality": "蓝",
         "name": "死寒猎手",
         "cost": 4,
         "level": 12,
@@ -261,6 +305,17 @@
         "attack": 0,
         "life": 0,
         "effect": "召唤两个10/1骸骨战士-lv10，获得《真理碎片》。",
+        "remark": ""
+    },
+    {
+        "quality": "蓝",
+        "name": "蛮骨法师",
+        "cost": 4,
+        "level": 10,
+        "type": 1,
+        "attack": 10,
+        "life": 13,
+        "effect": "登场、英雄获得生命时：随机敌军-3/-2。",
         "remark": ""
     },
     {
@@ -305,6 +360,17 @@
         "attack": 13,
         "life": 14,
         "effect": "【洞察2】、双方英雄法力上限-1。",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
+        "name": "墓园缝合师",
+        "cost": 2,
+        "level": 12,
+        "type": 1,
+        "attack": 4,
+        "life": 10,
+        "effect": "回合开始：随机敌军-2/-1、回合结束：若本回合有2个单位死亡，召唤12/12尸嵌lv12。",
         "remark": ""
     },
     {
@@ -375,6 +441,17 @@
     },
     {
         "quality": "紫",
+        "name": "寒冰骨墙",
+        "cost": 3,
+        "level": 12,
+        "type": 2,
+        "attack": 0,
+        "life": 0,
+        "effect": "目标区域召唤3/25骨墙lv12，它额外+4/+4冰封脚下，获得【磐龙】。",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
         "name": "冬幕骑士",
         "cost": 4,
         "level": 12,
@@ -437,6 +514,39 @@
         "attack": 0,
         "life": 0,
         "effect": "随机敌军-15/-15，冰封其位置，召唤9/9尸嵌-lv9。",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
+        "name": "雪隐长老灵",
+        "cost": 4,
+        "level": 12,
+        "type": 1,
+        "attack": 12,
+        "life": 19,
+        "effect": "登场：冰封相邻随机位置、受到传承：随机敌军-11/-11（无视神佑、魔免）",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
+        "name": "冰峰甲虫",
+        "cost": 4,
+        "level": 12,
+        "type": 1,
+        "attack": 11,
+        "life": 16,
+        "effect": "【护甲3】、【魔防5】、受到传承：额外+4/+4，获得【磐龙】、攻击前：脚下有冰封，向前方喷吐冰毒。",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
+        "name": "邪恶化身",
+        "cost": 4,
+        "level": 12,
+        "type": 1,
+        "attack": 11,
+        "life": 11,
+        "effect": "每当一个炼狱或冬神友军死亡时：长刀投掷英雄（11点伤害）。",
         "remark": ""
     },
     {
@@ -591,6 +701,17 @@
         "attack": 20,
         "life": 15,
         "effect": "【先攻】、【践踏】、【护甲7】。",
+        "remark": ""
+    },
+    {
+        "quality": "橙",
+        "name": "永夜女王",
+        "cost": 5,
+        "level": 12,
+        "type": 1,
+        "attack": 12,
+        "life": 8,
+        "effect": "【魔免】、【传承4】、敌方法力-1、登场、受到传承时：女王隐形2回合、回合开始：随机敌军-x/-x，冰封脚下，眩晕1回合（x为自身的传承）。",
         "remark": ""
     },
     {

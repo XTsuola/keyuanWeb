@@ -167,11 +167,11 @@ const columns = ref<any>([
         dataIndex: "effect",
         width: 240
     },
-    {
+    /* {
         title: "操作",
         key: "action",
         width: 160
-    },
+    }, */
 ])
 
 const data = ref<any>([])
