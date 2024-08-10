@@ -21,7 +21,7 @@
                 </a-select>
             </a-form-item>
             <a-form-item label="皮肤">
-                <a-textarea v-model:value="addData.skin" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="height: 200px;" v-model:value="addData.skin" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>

@@ -67,13 +67,13 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue"
 import { Table as aTable, message } from "ant-design-vue"
-import simangdiguo from "./cardInfo/simangdiguo.json"
-import chanyigu from "./cardInfo/chanyigu.json"
-import tiantanggang from "./cardInfo/tiantanggang.json"
-import manshikuangye from "./cardInfo/manshikuangye.json"
-import dongshenshitu from "./cardInfo/dongshenshitu.json"
-import lianyushenyuan from "./cardInfo/lianyushenyuan.json"
-import yinmizhe from "./cardInfo/yinmizhe.json"
+import simangdiguo from "./cardInfo_15/simangdiguo.json"
+import chanyigu from "./cardInfo_15/chanyigu.json"
+import tiantanggang from "./cardInfo_15/tiantanggang.json"
+import manshikuangye from "./cardInfo_15/manshikuangye.json"
+import dongshenshitu from "./cardInfo_15/dongshenshitu.json"
+import lianyushenyuan from "./cardInfo_15/lianyushenyuan.json"
+import yinmizhe from "./cardInfo_15/yinmizhe.json"
 
 export interface Type {
     label: string
@@ -273,6 +273,9 @@ const levelList = [{
 }, {
     label: "12级",
     value: 12
+}, {
+    label: "15级",
+    value: 15
 }]
 
 const formState = reactive({
