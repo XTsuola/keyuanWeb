@@ -154,6 +154,12 @@ const enemyTypeList = ref<Type[]>([{
     label: "武士",
     value: 8
 }, {
+    label: "龙武士",
+    value: 9
+}, {
+    label: "部族勇士",
+    value: 10
+}, {
     label: "boos",
     value: 80
 }, {

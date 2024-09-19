@@ -58,7 +58,7 @@
                     <span>{{ getCamp(record.camp) }}</span>
                 </template>
                 <template v-else-if="column.key === 'castGrainSkill'">
-                    <span>{{ getCamp(record.camp) }}</span>
+                    <span>{{record.castGrainSkill }}</span>
                 </template>
                 <template v-else-if="column.key === 'action'">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">

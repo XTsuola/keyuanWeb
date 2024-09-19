@@ -9,7 +9,7 @@
                 <a-select style="width: 100%;" v-model:value="addData.enemyType" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in enemyTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="介绍">
@@ -77,6 +77,12 @@ const enemyTypeList = ref<Type[]>([{
 }, {
     label: "武士",
     value: 8
+}, {
+    label: "龙武士",
+    value: 9
+}, {
+    label: "部族勇士",
+    value: 10
 }, {
     label: "boos",
     value: 80
