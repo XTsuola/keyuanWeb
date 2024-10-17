@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="touxiang">
+            <div class="touxiang" v-if="userInfo.userName">
                 <a-dropdown>
                     <div style="cursor: pointer;">{{ userInfo.userName }}</div>
                     <template #overlay>
@@ -34,6 +34,9 @@
                     <input style="opacity: 0;position: absolute;width: 36px;height: 36px;right: 0;top: 0;" type="file"
                         @input="getImg" />
                 </div>
+            </div>
+            <div class="touxiang" v-else @click="logout">
+                <a-button type="primary" danger ghost>重新登录</a-button>
             </div>
         </div>
         <a-layout-content :style="{ background: '#fff', margin: 0, minHeight: '280px', height: '100%' }">
