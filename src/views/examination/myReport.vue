@@ -7,7 +7,7 @@
             <template v-if="column.key === 'action'">
                 <a-button v-if="record.flag" size="small" @click="goRoom(record)">开始考试</a-button>
                 <div v-else>
-                    <a-button size="small" @click="lookResult(record)">查看答卷</a-button>
+                    <a-button style="margin-right: 15px;" size="small" @click="lookResult(record)">查看答卷</a-button>
                     <a-button size="small" @click="resetPaper(record)">重新考试</a-button>
                 </div>
             </template>

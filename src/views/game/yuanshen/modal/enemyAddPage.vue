@@ -37,7 +37,6 @@ export interface Type {
     label: string
     value: number | undefined
 }
-
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType

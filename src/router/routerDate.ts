@@ -299,6 +299,28 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/cardList.vue")
               }
             ]
+          },
+          {
+            path: "huoyanwenzhang",
+            meta: {
+              menuType: "folder",
+              key: "huoyanwenzhang",
+              icon: "UnorderedListOutlined",
+              label: "火焰纹章"
+            },
+            component: BlankLayout,
+            children: [
+              {
+                path: "huoyanwenzhangArmsList",
+                meta: {
+                  menuType: "menu",
+                  key: "huoyanwenzhangArmsList",
+                  label: "兵种列表",
+                  icon: "UnorderedListOutlined"
+                },
+                component: () => import("@/views/game/hywz/armsList.vue")
+              }
+            ]
           }
         ]
       },

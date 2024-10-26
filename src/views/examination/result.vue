@@ -67,7 +67,6 @@ interface DataType {
     rightAnwser: string
     type: number
 }
-
 let resultObj: any = null
 if (localStorage.getItem("resultObj")) {
     resultObj = JSON.parse(localStorage.getItem("resultObj") as string)
@@ -119,21 +118,12 @@ function getSelectResult(arr: string[] | number[]) {
     if (arr[0] == "" && arr[1] == "" && arr[2] == 0 && arr[3] == "") {
         return "/"
     }
-    let prefix = ""
     let brr = []
+    let prefixList = ["A.", "B.", "C.", "D."]
     for (let i = 0; i < arr.length; i++) {
-        if (i === 0) {
-            prefix = "A."
-        } else if (i === 1) {
-            prefix = "B."
-        } else if (i === 2) {
-            prefix = "C."
-        } else if (i === 3) {
-            prefix = "D."
-        }
-        brr.push(prefix + arr[i])
+        brr.push(prefixList[i] + arr[i])
     }
-    return brr.join(",")
+    return brr.join("，")
 }
 
 function goBack() {

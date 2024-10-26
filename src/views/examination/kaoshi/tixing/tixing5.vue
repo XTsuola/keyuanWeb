@@ -1,6 +1,6 @@
 <!-- 消灭星星 -->
 <template>
-    <div class="type">消灭星星</div>
+    <!-- <div class="type">消灭星星</div> -->
     <div class="main">
         <div class="title">{{ prop.obj.index }}、{{ prop.obj.stem }}</div>
         <div v-for="item in arr">
