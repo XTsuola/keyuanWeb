@@ -27,11 +27,8 @@
                         }}</a-select-option>
                 </a-select>
             </a-form-item>
-            <a-form-item label="专属">
-                <a-input v-model:value="addData.exclusive" :disabled="prop.type === 'detail'"></a-input>
-            </a-form-item>
-            <a-form-item label="兵种">
-                <a-textarea style="min-height: 80px;" v-model:value="addData.arms"
+            <a-form-item label="天赋">
+                <a-textarea style="min-height: 140px;" v-model:value="addData.talent"
                     :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="技能组">
@@ -41,12 +38,15 @@
                 <a-textarea style="min-height: 120px;" v-model:value="addData.superSkill"
                     :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
+            <a-form-item label="兵种">
+                <a-textarea style="min-height: 80px;" v-model:value="addData.arms"
+                    :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
+            <a-form-item label="专属装备">
+                <a-input v-model:value="addData.exclusive" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
             <a-form-item label="铸纹技能">
                 <a-textarea v-model:value="addData.castGrainSkill" :disabled="prop.type === 'detail'"></a-textarea>
-            </a-form-item>
-            <a-form-item label="天赋">
-                <a-textarea style="min-height: 140px;" v-model:value="addData.talent"
-                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="介绍">
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
