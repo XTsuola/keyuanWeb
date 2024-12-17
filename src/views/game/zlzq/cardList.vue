@@ -239,6 +239,9 @@ const typeList = [{
 }, {
     label: "法术",
     value: 2
+}, {
+    label: "传记",
+    value: 3
 }]
 
 const zhenyinList = [{
