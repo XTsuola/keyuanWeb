@@ -206,25 +206,25 @@ const columns = ref<ColumnType[]>([
         title: "定位",
         dataIndex: "position",
         key: "position",
-        width: 160
+        width: 100
     },
     {
         title: "皮肤",
         dataIndex: "skin",
         key: "skin",
-        width: 240
+        width: 400
     },
     {
         title: "皮肤数量",
         dataIndex: "skinCount",
         key: "skinCount",
-        width: 120
+        width: 100
     },
     {
         title: "备注",
         dataIndex: "remark",
         key: "remark",
-        width: 160,
+        width: 100,
         sorter: (a: AddParamsType, b: AddParamsType) => {
             return parseInt(a.remark.slice(0, a.remark.length - 1)) - parseInt(b.remark.slice(0, b.remark.length - 1))
         }

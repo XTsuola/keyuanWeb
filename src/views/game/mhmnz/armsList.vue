@@ -229,12 +229,12 @@ const columns = ref<ColumnType[]>([
         key: "talent",
         width: 300
     },
-    {
+    /* {
         title: "备注",
         key: "remark",
         dataIndex: "remark",
         width: 300
-    },
+    }, */
     {
         title: "操作",
         key: "action",

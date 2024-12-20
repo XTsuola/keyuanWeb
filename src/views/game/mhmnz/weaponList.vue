@@ -228,13 +228,13 @@ const columns = ref<ColumnType[]>([
         title: "是否专属",
         dataIndex: "isExclusive",
         key: "isExclusive",
-        width: 120
+        width: 100
     },
     {
         title: "属性",
         dataIndex: "shuxing",
         key: "shuxing",
-        width: 200
+        width: 140
     },
     {
         title: "技能",
@@ -242,16 +242,16 @@ const columns = ref<ColumnType[]>([
         key: "introduce",
         width: 200
     },
-    {
+    /* {
         title: "备注",
         dataIndex: "remark",
         key: "remark",
         width: 160
-    },
+    }, */
     {
         title: "操作",
         key: "action",
-        width: 160
+        width: 200
     },
 ])
 const loading = ref<boolean>(false)

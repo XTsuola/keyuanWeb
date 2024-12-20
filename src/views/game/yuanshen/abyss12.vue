@@ -134,7 +134,7 @@ const columns = ref<ColumnType[]>([
         title: "深渊版本",
         dataIndex: "version",
         key: "version",
-        width: 100
+        width: 80
     },
     {
         title: "第一间上半",
@@ -172,12 +172,12 @@ const columns = ref<ColumnType[]>([
         key: "thirdLower",
         width: 160
     },
-    {
+    /* {
         title: "备注",
         dataIndex: "remark",
         key: "remark",
         width: 100
-    },
+    }, */
     {
         title: "操作",
         key: "action",

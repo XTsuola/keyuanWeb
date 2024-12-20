@@ -98,19 +98,19 @@ const columns = ref<any>([
         title: "名称",
         dataIndex: "name",
         key: "name",
-        width: 160
+        width: 120
     },
     {
         title: "阵营",
         dataIndex: "zhenyin",
         key: "zhenyin",
-        width: 120
+        width: 100
     },
     {
         title: "品质",
         dataIndex: "quality",
         key: "quality",
-        width: 100
+        width: 80
     },
     {
         title: "等级",
@@ -153,7 +153,7 @@ const columns = ref<any>([
         title: "总计",
         key: "remark",
         dataIndex: "remark",
-        width: 120,
+        width: 100,
         customRender: (opt: any) => {
             return parseInt(opt.record.attack) + parseInt(opt.record.life)
         },
@@ -165,7 +165,7 @@ const columns = ref<any>([
         title: "效果",
         key: "effect",
         dataIndex: "effect",
-        width: 240
+        width: 300
     },
     /* {
         title: "操作",

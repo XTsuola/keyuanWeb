@@ -228,16 +228,16 @@ const columns = ref<ColumnType[]>([
         key: "talent",
         width: 240
     },
-    {
+    /* {
         title: "备注",
         key: "remark",
         dataIndex: "remark",
         width: 180
-    },
+    }, */
     {
         title: "操作",
         key: "action",
-        width: 160
+        width: 200
     },
 ])
 const loading = ref<boolean>(false)

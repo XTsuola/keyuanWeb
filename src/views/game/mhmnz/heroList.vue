@@ -251,7 +251,7 @@ const columns = ref<ColumnType[]>([
         title: "稀有度",
         dataIndex: "star",
         key: "star",
-        width: 100,
+        width: 80,
     },
     {
         title: "性别",
@@ -263,13 +263,13 @@ const columns = ref<ColumnType[]>([
         title: "阵营",
         dataIndex: "camp",
         key: "camp",
-        width: 200
+        width: 220
     },
     {
         title: "专属",
         dataIndex: "exclusive",
         key: "exclusive",
-        width: 140
+        width: 120
     },
     {
         title: "兵种",
@@ -281,20 +281,20 @@ const columns = ref<ColumnType[]>([
         title: "技能组",
         dataIndex: "skillGroup",
         key: "skillGroup",
-        width: 280
+        width: 220
     },
     {
         title: "铸纹技能",
         dataIndex: "castGrainSkill",
         key: "castGrainSkill",
-        width: 200
+        width: 240
     },
-    {
+    /* {
         title: "介绍",
         dataIndex: "introduce",
         key: "introduce",
         width: 200
-    },
+    }, */
     {
         title: "操作",
         key: "action",
