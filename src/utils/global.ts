@@ -29,6 +29,6 @@ const xxx = ref<any>("")
 
 let kk = ["../../assets/img/eda1.png", "../../assets/img/eda2.png", "../../assets/img/eda3.png"]
 
-getImg(kk, (res) => {
+getImg(kk, (res) => { 
     xxx.value = res
 }) */
