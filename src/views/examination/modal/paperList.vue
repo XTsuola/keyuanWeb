@@ -14,7 +14,7 @@ interface scrollType {
 }
 
 interface dataType {
-    anwserArr: string[] | number[]
+    answerArr: string[] | number[]
     flag: boolean
     paperId: number
     paperName: string

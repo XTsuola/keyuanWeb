@@ -40,6 +40,7 @@ import Tixing3 from './tixing/tixing3.vue'
 import Tixing4 from './tixing/tixing4.vue'
 import Tixing5 from './tixing/tixing5.vue'
 import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams, type UpdateDataList } from '@/api/examination';
+import { message } from 'ant-design-vue'
 
 const prop = defineProps<{
     paperId: number
@@ -68,7 +69,7 @@ async function getData(id: number) {
     paperInfo.score = data.data.rows.score
     paperInfo.time = parseInt(data.data.rows.time)
     dataArr.value = data.data.rows.list.map((item: UpdateDataList, index: number) => {
-        item.anwser = ""
+        item.answer = ""
         item.index = index + 1
         return item
     })
@@ -87,10 +88,8 @@ async function getData(id: number) {
 async function submitMe() {
     const userId = JSON.parse(sessionStorage.getItem("userInfo") as string).userId
     const data: AutoUpdatePaperParams = { dataArr: JSON.stringify(dataArr.value), paperId: paperId, userId: userId }
-    let res = await autoUpdatePaper(data)
-    if (res.data.code == 200) {
-        goBack()
-    }
+    autoUpdatePaper(data);
+    goBack();
 }
 
 function getComponent(type: number) {
@@ -115,6 +114,8 @@ function add() {
         nextTick(() => {
             flag.value = true
         })
+    } else {
+        message.info("已是最后一题！")
     }
 }
 

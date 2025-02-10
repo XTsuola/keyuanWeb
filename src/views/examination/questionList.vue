@@ -16,10 +16,10 @@
                 }}. D.{{ record.selectArr[3] }}</span>
                 <span v-else>/</span>
             </template>
-            <template v-if="column.key === 'anwser'">
-                <div v-if="record.type === 1">{{ abcd[record.anwser - 1] }}.{{ record.selectArr[record.anwser - 1] }}</div>
-                <div v-else-if="record.type === 2">{{ record.anwser === '1' ? '错误' : '正确' }}</div>
-                <div v-else>{{ record.anwser }}</div>
+            <template v-if="column.key === 'answer'">
+                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ record.selectArr[record.answer - 1] }}</div>
+                <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
+                <div v-else>{{ record.answer }}</div>
             </template>
             <template v-if="column.key === 'url'">
                 <span>{{ record.url ? record.url : "/" }}</span>
@@ -103,8 +103,8 @@ const columns = ref<ColumnsType>([
     },
     {
         title: "答案",
-        dataIndex: "anwser",
-        key: "anwser",
+        dataIndex: "answer",
+        key: "answer",
         width: 160
     },
     {
@@ -144,7 +144,7 @@ const addData = reactive<EditQuestionType>({
     stem: "",
     type: 1,
     selectArr: [],
-    anwser: "",
+    answer: "",
     url: "",
     remark: ""
 })
@@ -176,7 +176,7 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
         addData.id = 0
         addData.type = 1
         addData.selectArr = []
-        addData.stem = addData.anwser = addData.url = addData.remark = ""
+        addData.stem = addData.answer = addData.url = addData.remark = ""
     } else {
         if (record) {
             title.value = "修改试题-"
@@ -188,9 +188,9 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             addData.selectArr = record.selectArr
             if (addData.type == 1) {
                 const arrList = ["A", "B", "C", "D"]
-                addData.anwser = arrList[parseInt(record.anwser as string) - 1]
+                addData.answer = arrList[parseInt(record.answer as string) - 1]
             } else {
-                addData.anwser = record.anwser
+                addData.answer = record.answer
             }
             addData.url = record.url
             addData.remark = record.remark
@@ -215,20 +215,20 @@ async function handleOk(e: MouseEvent) {
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
         if (result.type === 1) {
-            if (result.anwser === "a" || result.anwser === "A" || result.anwser === "1") {
-                result.anwser = "1"
-            } else if (result.anwser === "b" || result.anwser === "B" || result.anwser === "2") {
-                result.anwser = "2"
-            } else if (result.anwser === "c" || result.anwser === "C" || result.anwser === "3") {
-                result.anwser = "3"
+            if (result.answer === "a" || result.answer === "A" || result.answer === "1") {
+                result.answer = "1"
+            } else if (result.answer === "b" || result.answer === "B" || result.answer === "2") {
+                result.answer = "2"
+            } else if (result.answer === "c" || result.answer === "C" || result.answer === "3") {
+                result.answer = "3"
             } else {
-                result.anwser = "4"
+                result.answer = "4"
             }
         } else if (result.type === 2) {
-            if (result.anwser === "对" || result.anwser === "正确" || result.anwser === "0") {
-                result.anwser = "0"
+            if (result.answer === "对" || result.answer === "正确" || result.answer === "0") {
+                result.answer = "0"
             } else {
-                result.anwser = "1"
+                result.answer = "1"
             }
         }
         const res = await a.axios(result)

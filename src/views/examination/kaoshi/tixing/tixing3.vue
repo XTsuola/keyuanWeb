@@ -7,7 +7,7 @@
             <div class="stem">
                 <div>{{ prop.obj.stem.split('_')[0] }}</div>
                 <div>
-                    <a-input class="input" v-model:value="prop.obj.anwser" type="text" placeholder="" />
+                    <a-input class="input" v-model:value="prop.obj.answer" type="text" placeholder="" />
                 </div>
                 <div>{{ prop.obj.stem.split('_')[1] }}</div>
             </div>

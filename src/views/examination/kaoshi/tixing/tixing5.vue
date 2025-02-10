@@ -39,7 +39,7 @@ function mie(item: number) {
     if (arr.value.filter(e => e === 0).length === 10 && timer) {
         clearInterval(timer)
         let time = (count / 100).toFixed(2)
-        prop.obj.anwser = time
+        prop.obj.answer = time
     }
 }
 

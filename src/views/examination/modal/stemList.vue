@@ -19,7 +19,7 @@ export interface stemType {
     type: number
     url: string
     selectArr: string[]
-    anwser: string
+    answer: string
     remark: string
 }
 
@@ -29,7 +29,7 @@ interface scrollType {
 }
 
 interface dataType {
-    anwser: string
+    answer: string
     id: number
     remark: string
     selectArr: string[]

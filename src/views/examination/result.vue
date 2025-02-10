@@ -16,30 +16,30 @@
                 <span v-if="record.type == 5">操作题</span>
             </template>
             <template v-if="column.key === 'selectArr'">
-                <span>{{ getSelectResult(record.selectArr) }}</span>
+                <span>{{ record.selectArr ? getSelectResult(record.selectArr) : "/" }}</span>
             </template>
-            <template v-if="column.key === 'rightAnwser'">
+            <template v-if="column.key === 'rightAnswer'">
                 <span v-if="record.type == 1">
-                    <span v-if="record.rightAnwser === 1 || record.rightAnwser === '1'">A</span>
-                    <span v-if="record.rightAnwser === 2 || record.rightAnwser === '2'">B</span>
-                    <span v-if="record.rightAnwser === 3 || record.rightAnwser === '3'">C</span>
-                    <span v-if="record.rightAnwser === 4 || record.rightAnwser === '4'">D</span>
+                    <span v-if="record.rightAnswer === 1 || record.rightAnswer === '1'">A</span>
+                    <span v-if="record.rightAnswer === 2 || record.rightAnswer === '2'">B</span>
+                    <span v-if="record.rightAnswer === 3 || record.rightAnswer === '3'">C</span>
+                    <span v-if="record.rightAnswer === 4 || record.rightAnswer === '4'">D</span>
                 </span>
                 <span v-if="record.type == 2">
-                    <span v-if="record.rightAnwser === 0 || record.rightAnwser === '0'">正确</span>
-                    <span v-if="record.rightAnwser === 1 || record.rightAnwser === '1'">错误</span>
+                    <span v-if="record.rightAnswer === 0 || record.rightAnswer === '0'">正确</span>
+                    <span v-if="record.rightAnswer === 1 || record.rightAnswer === '1'">错误</span>
                 </span>
             </template>
-            <template v-if="column.key === 'myAnwser'">
+            <template v-if="column.key === 'myAnswer'">
                 <span v-if="record.type == 1">
-                    <span v-if="record.myAnwser === 1 || record.myAnwser === '1'">A</span>
-                    <span v-if="record.myAnwser === 2 || record.myAnwser === '2'">B</span>
-                    <span v-if="record.myAnwser === 3 || record.myAnwser === '3'">C</span>
-                    <span v-if="record.myAnwser === 4 || record.myAnwser === '4'">D</span>
+                    <span v-if="record.myAnswer === 1 || record.myAnswer === '1'">A</span>
+                    <span v-if="record.myAnswer === 2 || record.myAnswer === '2'">B</span>
+                    <span v-if="record.myAnswer === 3 || record.myAnswer === '3'">C</span>
+                    <span v-if="record.myAnswer === 4 || record.myAnswer === '4'">D</span>
                 </span>
                 <span v-if="record.type == 2">
-                    <span v-if="record.myAnwser === 0 || record.myAnwser === '0'">正确</span>
-                    <span v-if="record.myAnwser === 1 || record.myAnwser === '1'">错误</span>
+                    <span v-if="record.myAnswer === 0 || record.myAnswer === '0'">正确</span>
+                    <span v-if="record.myAnswer === 1 || record.myAnswer === '1'">错误</span>
                 </span>
             </template>
         </template>
@@ -60,11 +60,11 @@ interface scrollType {
 
 interface DataType {
     index: number
-    myAnwser: string
+    myAnswer: string
     remark: string
     selectArr: string[] | number[]
     stemName: string
-    rightAnwser: string
+    rightAnswer: string
     type: number
 }
 let resultObj: any = null
@@ -96,13 +96,23 @@ const columns = ref<ColumnsType>([
     },
     {
         title: "正确答案",
-        dataIndex: "rightAnwser",
-        key: "rightAnwser"
+        dataIndex: "rightAnswer",
+        key: "rightAnswer"
     },
     {
         title: "你的答案",
-        dataIndex: "myAnwser",
-        key: "myAnwser"
+        dataIndex: "myAnswer",
+        key: "myAnswer"
+    },
+    {
+        title: "分值",
+        dataIndex: "score",
+        key: "score"
+    },
+    {
+        title: "得分",
+        dataIndex: "myScore",
+        key: "myScore"
     },
     {
         title: "解释说明",

@@ -7,7 +7,7 @@
         <video v-if="videoFlag" class="video" controls>
             <source :src="url" type="video/mp4" />
         </video>
-        <a-input v-model:value="prop.obj.anwser" type="text" placeholder="" />
+        <a-input v-model:value="prop.obj.answer" type="text" placeholder="" />
     </div>
 </template>
 

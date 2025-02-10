@@ -14,7 +14,7 @@ export interface AddQuestionType {
     stem: string
     type: number
     selectArr: number[] | string[]
-    anwser: string
+    answer: string
     url: string
     remark: string
 }
@@ -80,7 +80,7 @@ export interface UpdateDataList {
     url?: string
     stem: string
     selectArr?: string[]
-    anwser?: string
+    answer?: string
 }
 
 export interface AutoUpdatePaperParams {

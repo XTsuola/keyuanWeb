@@ -8,7 +8,7 @@
             <source :src="url" type="video/mp4" />
         </video>
         <div>
-            <a-radio-group v-model:value="prop.obj.anwser">
+            <a-radio-group v-model:value="prop.obj.answer">
                 <div class="radioDiv" v-for="(select, index) in prop.obj.selectArr">
                     <a-radio :key="index + 1" :value="index + 1">{{ abcdArr[index] }}: {{ select }}</a-radio>
                 </div>

@@ -8,7 +8,7 @@
             <source :src="url" type="video/mp4" />
         </video>
         <div>
-            <a-radio-group v-model:value="prop.obj.anwser">
+            <a-radio-group v-model:value="prop.obj.answer">
                 <div class="radioDiv" v-for="index in 2">
                     <a-radio :key="index - 1" :value="index - 1">{{ TFlist[index - 1] }}</a-radio>
                 </div>

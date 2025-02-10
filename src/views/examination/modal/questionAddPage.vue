@@ -21,8 +21,8 @@
             <a-form-item label="D" name="d" :rules="[{ required: true, message: '请输入D选项!' }]">
                 <a-input v-model:value="addData.d" />
             </a-form-item>
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, validator: validAnwser }]">
-                <a-input v-model:value="addData.anwser" />
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswer }]">
+                <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
                 <a-textarea style="height:120px" v-model:value="addData.remark" />
@@ -35,8 +35,8 @@
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
                 <a-textarea v-model:value="addData.stem" />
             </a-form-item>
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
-                <a-input v-model:value="addData.anwser" />
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+                <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
                 <a-textarea style="height:120px" v-model:value="addData.remark" />
@@ -49,8 +49,8 @@
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
                 <a-textarea v-model:value="addData.stem" />
             </a-form-item>
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
-                <a-input v-model:value="addData.anwser" />
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+                <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
                 <a-textarea style="height:120px" v-model:value="addData.remark" />
@@ -63,8 +63,8 @@
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
                 <a-textarea v-model:value="addData.stem" />
             </a-form-item>
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
-                <a-input v-model:value="addData.anwser" />
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+                <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
                 <a-textarea style="height:120px" v-model:value="addData.remark" />
@@ -81,8 +81,8 @@
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
-            <a-form-item label="正确答案" name="anwser" :rules="[{ required: true, message: '请输入答案!' }]">
-                <a-input v-model:value="addData.anwser" />
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+                <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
                 <a-textarea style="height:120px" v-model:value="addData.remark" />
@@ -109,7 +109,7 @@ interface Test {
     b?: string | undefined
     c?: string | undefined
     d?: string | undefined
-    anwser: string
+    answer: string
     url: string
     remark: string
 }
@@ -126,7 +126,7 @@ const addData = ref<Test>({
     b: "",
     c: "",
     d: "",
-    anwser: "",
+    answer: "",
     url: "",
     remark: ""
 })
@@ -142,7 +142,7 @@ if (prop.flag === "edit") {
         addData.value.c = data.selectArr[2]
         addData.value.d = data.selectArr[3]
     }
-    addData.value.anwser = data.anwser
+    addData.value.answer = data.answer
     addData.value.url = data.url
     addData.value.remark = data.remark
 }
@@ -156,7 +156,7 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
             stem: addData.value.stem,
             type: addData.value.type,
             selectArr: [addData.value.a as string, addData.value.b as string, addData.value.c as string, addData.value.d as string],
-            anwser: addData.value.anwser,
+            answer: addData.value.answer,
             url: addData.value.url,
             remark: addData.value.remark
         }
@@ -166,7 +166,7 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
     }
 }
 
-function validAnwser(_: any, value: any): any {
+function validAnswer(_: any, value: any): any {
     return new Promise((resolve, reject) => {
         if (!value) {
             reject(new Error("请输入答案!"))
