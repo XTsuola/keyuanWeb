@@ -22,7 +22,7 @@ function initMap() {
     map.value.centerAndZoom(new Bmap.Point(118.701396, 32.165192), 13)
     map.value.enableScrollWheelZoom()
     var dist = new Bmap.DistrictLayer({
-        name: '(南京)',
+        name: '(南京),(威海)',
         fillColor: '#5e8bff',
         strokeColor: '#0000ff',
         fillOpacity: 0.1,
