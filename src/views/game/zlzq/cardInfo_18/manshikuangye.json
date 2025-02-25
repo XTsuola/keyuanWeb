@@ -463,17 +463,6 @@
     },
     {
         "quality": "紫",
-        "name": "牛角图腾",
-        "cost": 2,
-        "level": 18,
-        "type": 2,
-        "attack": 0,
-        "life": 36,
-        "effect": "登场:召唤雪域牦牛-lv18、回合开始:其他友军攻击+4。",
-        "remark": ""
-    },
-    {
-        "quality": "紫",
         "name": "雪原狼女",
         "cost": 2,
         "level": 18,
@@ -613,6 +602,17 @@
         "attack": 25,
         "life": 50,
         "effect": "回合结束:若本回合受到过伤害，攻击+25、攻击高于30:获得【磐龙】。",
+        "remark": ""
+    },
+    {
+        "quality": "紫",
+        "name": "牛角图腾",
+        "cost": 4,
+        "level": 18,
+        "type": 2,
+        "attack": 0,
+        "life": 36,
+        "effect": "登场:召唤雪域牦牛-lv18、回合开始:其他友军攻击+4。",
         "remark": ""
     },
     {
