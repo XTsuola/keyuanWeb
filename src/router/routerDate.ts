@@ -89,28 +89,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
         component: BlankLayout,
         children: [
           {
-            path: "newGame",
-            meta: {
-              menuType: "menu",
-              key: "newGame",
-              label: "坦克大战",
-              icon: "UnorderedListOutlined",
-              isLevel: []
-            },
-            component: () => import("@/views/game/tanke/index.vue")
-          },
-          {
-            path: "sokoban",
-            meta: {
-              menuType: "menu",
-              key: "sokoban",
-              label: "推箱子",
-              icon: "UnorderedListOutlined",
-              isLevel: []
-            },
-            component: () => import("@/views/game/sokoban/index.vue")
-          },
-          {
             path: "wzry",
             meta: {
               menuType: "folder",
@@ -321,6 +299,51 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/hywz/armsList.vue")
               }
             ]
+          }
+        ]
+      },
+      {
+        path: "/play",
+        meta: {
+          menuType: "folder",
+          key: "play",
+          icon: "RocketOutlined",
+          label: "游戏试玩"
+        },
+        component: BlankLayout,
+        children: [
+          {
+            path: "newGame",
+            meta: {
+              menuType: "menu",
+              key: "newGame",
+              label: "坦克大战",
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
+            },
+            component: () => import("@/views/play/tanke/index.vue")
+          },
+          {
+            path: "sokoban",
+            meta: {
+              menuType: "menu",
+              key: "sokoban",
+              label: "推箱子",
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
+            },
+            component: () => import("@/views/play/sokoban/index.vue")
+          },
+          {
+            path: "chess",
+            meta: {
+              menuType: "menu",
+              key: "chess",
+              label: "象棋",
+              icon: "UnorderedListOutlined",
+              isLevel: [1]
+            },
+            component: () => import("@/views/play/chess/index.vue")
           }
         ]
       },

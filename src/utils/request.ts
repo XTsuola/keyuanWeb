@@ -2,8 +2,6 @@ import { message } from "ant-design-vue"
 import axios, { type AxiosRequestConfig } from "axios"
 import { useRouter } from "vue-router"
 
-const router = useRouter()
-
 // 创建axios实例
 const service = axios.create({
     // axios中请求配置有baseURL选项，表示请求URL公共部分
@@ -30,7 +28,7 @@ service.interceptors.response.use(res => {
         if (isShowMsg) {
             message.error(res.data.msg)
             sessionStorage.clear()
-            router.push({ path: "/login" })
+            useRouter().push({ path: "/login" })
         }
         isShowMsg = false
         setTimeout(() => {
