@@ -21,6 +21,11 @@
             </div>
             <div class="chuhe">楚河</div>
             <div class="hanjie">汉界</div>
+            <div class="player">
+                当前：
+                <span v-if="status == 1" :class="nowPlay == 1 ? 'red' : 'black'">{{ nowPlay == 1 ? "红旗" : "黑旗" }}</span>
+                <span v-else>对局结束</span>
+            </div>
         </div>
     </div>
 </template>
@@ -29,14 +34,16 @@ import { ref } from "vue";
 import jsonData from "./data.json";
 import { initArray2, luoji } from "./fun";
 
-const mapData = ref<any>([])
+const mapData = ref<any>([]);
 mapData.value = jsonData.map;
+const status = ref(0);
+status.value = jsonData.status;
 const translate: any = jsonData.translate;
-
 const nowIndex = ref<number | null>(null);
 const nowQizi = ref<number | null>(null);
-
-console.log(mapData.value, "111")
+const canMap = ref<any>([]);
+canMap.value = initArray2();
+const nowPlay = ref(1);
 
 function getNowClass(index: number) {
     if (index == 0 || index == 5) {
@@ -50,28 +57,53 @@ function getNowClass(index: number) {
     }
 }
 
-
-
-const canMap = ref<any>([])
-canMap.value = initArray2();
-
-
-
 function getQizi(index1: number, index2: number, isBlank?: boolean) {
-    if (isBlank && nowIndex.value != null) {
-        let indexOne: number = Math.floor(nowIndex.value / 10);
-        let indexTwo: number = nowIndex.value % 10;
-        mapData.value[index1][index2] = nowQizi.value;
-        mapData.value[indexOne][indexTwo] = 0;
-        nowIndex.value = null;
-    } else {
-        canMap.value = luoji(index1, index2, mapData.value)
-        console.log(canMap.value, "9999")
-        if (nowIndex.value == index1 * 10 + index2) {
-            nowIndex.value = nowQizi.value = null;
-        } else {
+    let qizi = mapData.value[index1][index2];
+    if (nowPlay.value == 1) {
+        if (qizi < 10 && !isBlank) {
+            canMap.value = luoji(index1, index2, mapData.value);
             nowIndex.value = index1 * 10 + index2;
             nowQizi.value = mapData.value[index1][index2];
+        } else {
+            if (canMap.value[index1][index2] == 1) {
+                if (nowIndex.value != null) {
+                    if (mapData.value[index1][index2] == 17) {
+                        status.value = 2;
+                        alert("红方获胜！");
+                        return false;
+                    } else {
+                        let indexOne: number = Math.floor(nowIndex.value / 10);
+                        let indexTwo: number = nowIndex.value % 10;
+                        mapData.value[index1][index2] = nowQizi.value;
+                        mapData.value[indexOne][indexTwo] = 0;
+                        nowIndex.value = null;
+                        nowPlay.value = 2;
+                    }
+                }
+            }
+        }
+    } else {
+        if (qizi > 10 && !isBlank) {
+            canMap.value = luoji(index1, index2, mapData.value);
+            nowIndex.value = index1 * 10 + index2;
+            nowQizi.value = mapData.value[index1][index2];
+        } else {
+            if (canMap.value[index1][index2] == 1) {
+                if (nowIndex.value != null) {
+                    if (mapData.value[index1][index2] == 7) {
+                        status.value = 2;
+                        alert("黑方获胜！");
+                        return false;
+                    } else {
+                        let indexOne: number = Math.floor(nowIndex.value / 10);
+                        let indexTwo: number = nowIndex.value % 10;
+                        mapData.value[index1][index2] = nowQizi.value;
+                        mapData.value[indexOne][indexTwo] = 0;
+                        nowIndex.value = null;
+                        nowPlay.value = 1;
+                    }
+                }
+            }
         }
     }
 }
@@ -259,6 +291,20 @@ function panduan2(index1: number, index2: number) {
             font-size: 18px;
             right: 100px;
             transform: translateY(5px);
+        }
+
+        .player {
+            position: absolute;
+            right: -150px;
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .black {
+            color: black;
         }
     }
 

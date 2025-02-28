@@ -353,6 +353,16 @@ export function luoji(index1: number, index2: number, mapData: any) {
                 canMap[index1][index2 + 1] = 1;
             }
         }
+        // 飞帅
+        for (let i = index1 - 1; i >= 0; i--) {
+            if (mapData[i][index2] == 0) {
+                continue
+            } else if (mapData[i][index2] == 17) {
+                canMap[i][index2] = 1;
+            } else {
+                break
+            }
+        }
     }
     if (now == 11) { // 卒
         // 前
@@ -370,6 +380,40 @@ export function luoji(index1: number, index2: number, mapData: any) {
             // 右
             if (index2 + 1 < len2 || mapData[index1][index2 + 1] < 10) {
                 canMap[index1][index2 + 1] = 1;
+            }
+        }
+    }
+    if (now == 15) { // 象
+        // 右上
+        if (index1 - 2 >= 0 && index2 + 2 < len2) {
+            if (mapData[index1 - 2][index2 + 2] < 10) {
+                if (mapData[index1 - 1][index2 + 1] == 0) {
+                    canMap[index1 - 2][index2 + 2] = 1;
+                }
+            }
+        }
+        // 左上
+        if (index1 - 2 >= 0 && index2 - 2 >= 0) {
+            if (mapData[index1 - 2][index2 - 2] < 10) {
+                if (mapData[index1 - 1][index2 - 1] == 0) {
+                    canMap[index1 - 2][index2 - 2] = 1;
+                }
+            }
+        }
+        // 左下
+        if (index1 + 2 < (len1 / 2) && index2 - 2 >= 0) {
+            if (mapData[index1 + 2][index2 - 2] < 10) {
+                if (mapData[index1 + 1][index2 - 1] == 0) {
+                    canMap[index1 + 2][index2 - 2] = 1;
+                }
+            }
+        }
+        // 右下
+        if (index1 + 2 < (len1 / 2) && index2 + 2 < len2) {
+            if (mapData[index1 + 2][index2 + 2] < 10) {
+                if (mapData[index1 + 1][index2 + 1] == 0) {
+                    canMap[index1 + 2][index2 + 2] = 1;
+                }
             }
         }
     }
@@ -423,6 +467,16 @@ export function luoji(index1: number, index2: number, mapData: any) {
         if (gong2.findIndex(e => e == index1 * 10 + index2 + 1) != -1) {
             if (mapData[index1][index2 + 1] < 10) {
                 canMap[index1][index2 + 1] = 1;
+            }
+        }
+        // 飞帅
+        for (let i = index1 + 1; i < len1; i++) {
+            if (mapData[i][index2] == 0) {
+                continue
+            } else if (mapData[i][index2] == 7) {
+                canMap[i][index2] = 1;
+            } else {
+                break
             }
         }
     }
