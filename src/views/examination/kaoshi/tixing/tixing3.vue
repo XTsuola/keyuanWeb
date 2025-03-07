@@ -18,9 +18,6 @@
 <script lang="ts" setup>
 import type { test3 } from "./tixing";
 
-export default {
-    name: "Tixing3",
-}
 const prop = defineProps<{
     obj: test3
 }>();

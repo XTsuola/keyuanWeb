@@ -34,10 +34,6 @@ export interface API {
 
 export type AddType = "add" | "edit" | "detail";
 
-export default {
-    name: 'AddPage'
-}
-
 export interface Type {
     label: string
     value: number | undefined

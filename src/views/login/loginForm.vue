@@ -21,10 +21,6 @@ import { login, type LoginParams } from "@/api/login";
 import md5 from "js-md5";
 import { useCounterStore } from "@/stores/counter";
 
-export default {
-    name: 'LoginForm'
-}
-
 interface FormState {
     username: string;
     password: string;

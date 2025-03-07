@@ -38,10 +38,6 @@ export interface API {
     getAddData: () => Promise<false | EditUserType>
 }
 
-export default {
-    name: 'UserAdd'
-}
-
 const prop = defineProps<{
     flag: TypeFlag
     obj: AddUserType | EditUserType

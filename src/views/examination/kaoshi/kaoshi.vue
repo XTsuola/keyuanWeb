@@ -41,10 +41,6 @@ import Tixing5 from "./tixing/tixing5.vue";
 import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams, type UpdateDataList } from "@/api/examination";
 import { message } from "ant-design-vue";
 
-export default {
-    name: 'Kaoshi',
-}
-
 const prop = defineProps<{
     paperId: number
 }>();

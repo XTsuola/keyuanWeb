@@ -21,9 +21,6 @@
 import { ref, onMounted } from 'vue';
 import type { test1 } from './tixing';
 
-export default {
-    name: 'Tixing1',
-}
 defineEmits(["update:obj"]);
 
 const prop = defineProps<{

@@ -21,9 +21,6 @@
 import { ref, onMounted } from "vue";
 import type { test2 } from "./tixing";
 
-export default {
-    name: "Tixing2",
-}
 const TFlist = ref<Array<string>>(["正确", "错误"]);
 const prop = defineProps<{
     obj: test2

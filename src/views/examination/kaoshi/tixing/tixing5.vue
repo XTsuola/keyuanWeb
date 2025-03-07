@@ -15,10 +15,6 @@
 import { ref } from "vue";
 import type { test5 } from "./tixing";
 
-export default {
-    name: "Tixing5",
-}
-
 defineEmits(["update:obj"]);
 
 const prop = defineProps<{

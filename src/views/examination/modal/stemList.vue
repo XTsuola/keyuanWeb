@@ -23,10 +23,6 @@ export interface stemType {
     remark: string
 }
 
-export default {
-    name: 'StemList'
-}
-
 interface scrollType {
     x: number
     y: number | undefined

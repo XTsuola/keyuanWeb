@@ -11,10 +11,6 @@
 <script lang="ts" setup>
 import { inject, ref } from "vue";
 
-export default {
-    name: 'XiangcePage'
-}
-
 let name: any = inject("name");
 const name2 = ref<string>();
 name2.value = name.value;

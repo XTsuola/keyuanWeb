@@ -40,10 +40,6 @@ export interface API {
 
 export type AddType = "add" | "edit";
 
-export default {
-    name: 'AddPage'
-}
-
 const { locale, messages } = useI18n();
 const prop = defineProps<{
     type: AddType

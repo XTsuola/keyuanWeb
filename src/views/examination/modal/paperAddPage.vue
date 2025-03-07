@@ -43,10 +43,6 @@ export interface API {
     getAddData: () => Promise<false | EditPaperType>
 }
 
-export default {
-    name: 'PaperAdd',
-}
-
 interface addDataType {
     id?: number
     paperName: string

@@ -26,10 +26,6 @@ import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, ty
 import { reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 
-export default {
-    name: 'DistributePageVue',
-}
-
 interface scrollType {
     x: number
     y: number | undefined

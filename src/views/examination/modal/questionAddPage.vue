@@ -101,10 +101,6 @@ export interface API {
     getAddData: () => Promise<false | EditQuestionType>
 }
 
-export default {
-    name: 'QuestionAddPage',
-}
-
 interface Test {
     id?: number
     stem: string

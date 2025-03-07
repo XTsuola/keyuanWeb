@@ -15,10 +15,6 @@
 import { ref, onMounted } from "vue";
 import type { test4 } from "./tixing";
 
-export default {
-    name: "Tixing4",
-}
-
 const prop = defineProps<{
     obj: test4
 }>();
