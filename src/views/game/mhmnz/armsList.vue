@@ -29,7 +29,7 @@
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'type'">
-                    <span>{{ typeList.find(item => item.value == record.type)?.label }}</span>
+                    <span>{{typeList.find(item => item.value == record.type)?.label}}</span>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -48,7 +48,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+            :show-total="total => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -61,11 +61,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from "@/api/mhmnz"
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/armsAddPage.vue"
-import type { AxiosPromise } from "axios"
+import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from "@/api/mhmnz";
+import AddPage from "./modal/armsAddPage.vue";
+import type { AddType, API as AddPageAPI } from "./modal/armsAddPage.vue";
+import type { AxiosPromise } from "axios";
 
 export interface AddParamsType extends AddArmsParams {
     _id?: string
@@ -116,24 +117,24 @@ let addParams = reactive<AddParamsType>({
     mof: "",
     talent: "",
     remark: ""
-})
-const current = ref<number>(1)
-const pageSize = ref<number>(10)
-const total = ref<number>(0)
-const title = ref<string>("添加兵种")
-const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+});
+const current = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
+const title = ref<string>("添加兵种");
+const addPage = ref<AddPageAPI>();
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     name: "",
     armsType: undefined
-})
+});
 const typeList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -167,7 +168,7 @@ const typeList = ref<Type[]>([{
 }, {
     label: "魔物",
     value: 10
-}])
+}]);
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
@@ -229,33 +230,27 @@ const columns = ref<ColumnType[]>([
         key: "talent",
         width: 300
     },
-    /* {
-        title: "备注",
-        key: "remark",
-        dataIndex: "remark",
-        width: 300
-    }, */
     {
         title: "操作",
         key: "action",
         width: 160
     },
-])
-const loading = ref<boolean>(false)
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia("(max-width: 768px)")
-const type = ref<AddType>("add")
+]);
+const loading = ref<boolean>(false);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const mql = window.matchMedia("(max-width: 768px)");
+const type = ref<AddType>("add");
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     const params: GetArmsListParams = {
@@ -263,84 +258,84 @@ async function getList() {
         pageNo: current.value,
         name: formState.name,
         type: formState.armsType
-    }
-    const res = await getArmsList(params)
+    };
+    const res = await getArmsList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
+        data.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteArms(params)
+    };
+    const res = await deleteArms(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
     if (data.value.length == 1) {
-        current.value--
+        current.value--;
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function selectList() {
-    current.value = 1
-    getList()
+    current.value = 1;
+    getList();
 }
 
 function reset() {
-    formState.name = ""
-    formState.armsType = undefined
-    selectList()
+    formState.name = "";
+    formState.armsType = undefined;
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
-        title.value = "修改兵种"
+        title.value = "修改兵种";
         if (item) {
-            addParams._id = item._id
-            addParams.name = item.name
-            addParams.type = item.type
-            addParams.life = item.life
-            addParams.att = item.att
-            addParams.def = item.def
-            addParams.mof = item.mof
-            addParams.talent = item.talent
-            addParams.remark = item.remark
-            addParams.id = item.id
+            addParams._id = item._id;
+            addParams.name = item.name;
+            addParams.type = item.type;
+            addParams.life = item.life;
+            addParams.att = item.att;
+            addParams.def = item.def;
+            addParams.mof = item.mof;
+            addParams.talent = item.talent;
+            addParams.remark = item.remark;
+            addParams.id = item.id;
         }
     } else if (showType === "add") {
-        title.value = "添加兵种"
-        addParams.type = undefined
-        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.remark = ""
-        addParams.id = 0
+        title.value = "添加兵种";
+        addParams.type = undefined;
+        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.remark = "";
+        addParams.id = 0;
     } else if (showType == "detail") {
-        title.value = "查看详情"
+        title.value = "查看详情";
         if (item) {
-            addParams.name = item.name
-            addParams.type = item.type
-            addParams.life = item.life
-            addParams.att = item.att
-            addParams.def = item.def
-            addParams.mof = item.mof
-            addParams.talent = item.talent
-            addParams.remark = item.remark
+            addParams.name = item.name;
+            addParams.type = item.type;
+            addParams.life = item.life;
+            addParams.att = item.att;
+            addParams.def = item.def;
+            addParams.mof = item.mof;
+            addParams.talent = item.talent;
+            addParams.remark = item.remark;
         }
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: ((data: AddArmsParams) => AxiosPromise<any>) | ((data: UpdateArmsParams) => AxiosPromise<any>)
         msg: string
@@ -348,27 +343,27 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addArms
-    }
+    };
     if (type.value === "edit") {
-        a.axios = updateArms
-        a.msg = "修改失败"
+        a.axios = updateArms;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            message.success(res.data.msg)
-            visible.value = false
+            getList();
+            message.success(res.data.msg);
+            visible.value = false;
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

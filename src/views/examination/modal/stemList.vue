@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable } from "ant-design-vue"
-import { getStemArrList } from "@/api/examination"
-import { reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { reactive, ref } from "vue";
+import { Table as aTable } from "ant-design-vue";
+import { getStemArrList } from "@/api/examination";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
 
 export interface stemType {
     _id: string
@@ -21,6 +21,10 @@ export interface stemType {
     selectArr: string[]
     answer: string
     remark: string
+}
+
+export default {
+    name: 'StemList'
 }
 
 interface scrollType {
@@ -64,19 +68,19 @@ const columns = ref<ColumnsType>([
         dataIndex: "url",
         width: 160
     }
-])
-const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"]
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const data = ref<dataType[]>()
+]);
+const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const data = ref<dataType[]>();
 const prop = defineProps<{
     obj: number[]
-}>()
+}>();
 
 async function getList() {
-    const res = await getStemArrList(prop.obj)
-    data.value = res.data.rows
+    const res = await getStemArrList(prop.obj);
+    data.value = res.data.rows;
 }
-getList()
+getList();
 
 </script>
 

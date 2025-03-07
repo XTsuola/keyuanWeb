@@ -46,13 +46,13 @@
 </template>
 
 <script lang="ts" setup>
-import { SettingFilled } from "@ant-design/icons-vue"
-import { onMounted, ref } from "vue"
-import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router"
-import router from "@/router"
-import imgBase from "@/assets/images/lanlingwang.jpg"
-import { getUserInfo, updateImg } from "@/api/team"
-import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global"
+import { onMounted, ref } from "vue";
+import { SettingFilled } from "@ant-design/icons-vue";
+import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router";
+import router from "@/router";
+import imgBase from "@/assets/images/lanlingwang.jpg";
+import { getUserInfo, updateImg } from "@/api/team";
+import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 
 interface UserInfo {
     id: number
@@ -61,68 +61,68 @@ interface UserInfo {
     remark: string
 }
 
-const emits = defineEmits(["showMenu"])
+const emits = defineEmits(["showMenu"]);
 const userInfo = ref<UserInfo>({
     id: 0,
     userName: "",
     img: "",
     remark: ""
-})
-const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string)
-const route = useRoute()
-const imgValue = ref<string>("")
+});
+const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
+const route = useRoute();
+const imgValue = ref<string>("");
 const breadCrumbs = ref<(RouteRecordNormalized | undefined)[]>([]);
-const extraBreadCrumbs = ref<GlobeBreadcrumbType[]>([])
+const extraBreadCrumbs = ref<GlobeBreadcrumbType[]>([]);
 
 router.push({
     path: route.fullPath
-})
+});
 
 function showMenu() {
-    emits("showMenu")
+    emits("showMenu");
 }
 
 function logout() {
-    sessionStorage.clear()
+    sessionStorage.clear();
     router.replace({
         path: "/login"
-    })
+    });
 }
 
 async function getUserList() {
     const data = {
         _id: localrInfo?._id
-    }
-    const res = await getUserInfo(data)
+    };
+    const res = await getUserInfo(data);
     if (res.data.code == 200) {
-        const row = res.data.rows
+        const row = res.data.rows;
         userInfo.value = {
             id: row.id,
             userName: row.userName,
             img: row.img,
             remark: row.remark
-        }
+        };
         if (row.img) {
-            imgValue.value = import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img
+            imgValue.value = import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img;
         } else {
-            imgValue.value = imgBase
+            imgValue.value = imgBase;
         }
     }
 }
 
 function getImg(e: Event) {
-    const target = e.target as any
+    const target = e.target;
     if (target) {
-        const reader = new FileReader()
-        reader.readAsDataURL(target.files[0])
+        const reader = new FileReader();
+        reader.readAsDataURL(target.files[0]);
         reader.addEventListener("load", async (e) => {
             if (e.target && typeof e.target.result === "string") {
-                imgValue.value = e.target.result
+                imgValue.value = e.target.result;
                 let data = {
                     id: localrInfo?.userId,
                     img: imgValue.value
-                }
-                await updateImg(data)
+                };
+                await updateImg(data);
             }
         })
     }
@@ -131,42 +131,40 @@ function getImg(e: Event) {
 function setBreadcrumb(to?: RouteLocationNormalized, from?: RouteLocationNormalized) {
     const getBreadcrumbCore = (to: RouteLocationNormalized | string) => {
         const routes = router.getRoutes();
-        let routesData: string[] = []
+        let routesData: string[] = [];
         if (typeof to === "string") {
             const seachroutesData = routes.find(e => e.meta.key === to)?.path.split("/").filter(e => e);
-            if (seachroutesData) routesData = seachroutesData
+            if (seachroutesData) routesData = seachroutesData;
         } else {
             routesData = to.path.split("/").filter(e => e);
         }
         breadCrumbs.value = routesData.map((_, index) => {
-            return routes.find(item => item.path === `/${routesData.filter((_, i) => i <= index).join("/")}`)
-        }).filter(e => e)
+            return routes.find(item => item.path === `/${routesData.filter((_, i) => i <= index).join("/")}`);
+        }).filter(e => e);
     }
     if (to && !to.meta.hidden) {
-        getBreadcrumbCore(to)
-        extraBreadCrumbs.value = []
+        getBreadcrumbCore(to);
+        extraBreadCrumbs.value = [];
     } else if (to && to.meta.hidden && to.meta.extendsRoute) {
-        getBreadcrumbCore(to.meta.extendsRoute)
+        getBreadcrumbCore(to.meta.extendsRoute);
         if (Array.isArray(to.meta.breadcrumbs)) {
-            extraBreadCrumbs.value = to.meta.breadcrumbs
+            extraBreadCrumbs.value = to.meta.breadcrumbs;
         }
     }
-
-
 }
 onBeforeRouteUpdate(setBreadcrumb);
-setBreadcrumb(route)
+setBreadcrumb(route);
 
 function tabBreadCrumb(e?: (RouteRecordNormalized | any)) {
     if (e.path !== route.path && e.meta.menuType === "menu") {
         router.push({
             path: e.path
-        })
+        });
     }
 }
 
 onMounted(() => {
-    getUserList()
+    getUserList();
 })
 
 </script>

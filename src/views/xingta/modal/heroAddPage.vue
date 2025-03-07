@@ -1,7 +1,7 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
-            :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
+            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
@@ -31,21 +31,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta"
-import { ref } from "vue"
-import type { AddParamsType } from "../heroList.vue"
+import { ref } from "vue";
+import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta";
+import type { AddParamsType } from "../heroList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: "AddPage"
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const heroAdd = ref()
+}>();
+const heroAdd = ref();;
 const addData = ref<AddParamsType>({
     name: "",
     title: "",
@@ -55,14 +59,14 @@ const addData = ref<AddParamsType>({
     gongfa: "",
     introduce: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
 async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
-        await heroAdd.value?.validate()
+        await heroAdd.value?.validate();
         const returnData: AddHeroParams | UpdateHeroParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -74,10 +78,10 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             gongfa: addData.value.gongfa,
             introduce: addData.value.introduce,
             remark: addData.value.remark,
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

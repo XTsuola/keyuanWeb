@@ -78,7 +78,7 @@
                 <a-select style="width: 100%;" v-model:value="addData.stem">
                     <a-select-option v-for="item in opt" :key="item" :value="item">{{
                         item
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
@@ -99,6 +99,10 @@ import type { FormInstance } from "ant-design-vue"
 
 export interface API {
     getAddData: () => Promise<false | EditQuestionType>
+}
+
+export default {
+    name: 'QuestionAddPage',
 }
 
 interface Test {

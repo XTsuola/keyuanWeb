@@ -48,10 +48,10 @@
 
 <script lang="ts" setup>
 
-import { Table as aTable } from "ant-design-vue"
-import { reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
-import { getResult, type GetResult } from "@/api/examination"
+import { Table as aTable } from "ant-design-vue";
+import { reactive, ref } from "vue";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getResult, type GetResult } from "@/api/examination";
 
 interface scrollType {
     x: number
@@ -67,9 +67,10 @@ interface DataType {
     rightAnswer: string
     type: number
 }
-let resultObj: any = null
+
+let resultObj: any = null;
 if (localStorage.getItem("resultObj")) {
-    resultObj = JSON.parse(localStorage.getItem("resultObj") as string)
+    resultObj = JSON.parse(localStorage.getItem("resultObj") as string);
 }
 const columns = ref<ColumnsType>([
     {
@@ -120,38 +121,37 @@ const columns = ref<ColumnsType>([
         key: "remark",
         customRender: opt => opt.value ? opt.value : "/"
     },
-])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const data = ref<DataType[]>()
+]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const data = ref<DataType[]>();
 
 function getSelectResult(arr: string[] | number[]) {
     if (arr[0] == "" && arr[1] == "" && arr[2] == 0 && arr[3] == "") {
-        return "/"
+        return "/";
     }
-    let brr = []
-    let prefixList = ["A.", "B.", "C.", "D."]
+    let brr = [];
+    let prefixList = ["A.", "B.", "C.", "D."];
     for (let i = 0; i < arr.length; i++) {
-        brr.push(prefixList[i] + arr[i])
+        brr.push(prefixList[i] + arr[i]);
     }
-    return brr.join("，")
+    return brr.join("，");
 }
 
 function goBack() {
-    history.back()
+    history.back();
 }
 
 async function getList() {
     let params: GetResult = {
         paperId: parseInt(resultObj.paperId),
         userId: parseInt(resultObj.userId),
-    }
-    const res = await getResult(params)
+    };
+    const res = await getResult(params);
     if (res && res.data.code == 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
-
-getList()
+getList();
 
 </script>
 

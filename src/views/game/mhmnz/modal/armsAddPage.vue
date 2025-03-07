@@ -35,9 +35,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddArmsParams, UpdateArmsParams } from "@/api/mhmnz"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../armsList.vue"
+import { ref } from "vue";
+import type { AddArmsParams, UpdateArmsParams } from "@/api/mhmnz";
+import type { AddParamsType, Type } from "../armsList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
@@ -45,11 +45,15 @@ export interface API {
 
 export type AddType = "add" | "edit" | "detail"
 
+export default {
+    name: 'AddPage'
+}
+
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const armsAdd = ref()
+}>();
+const armsAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     type: undefined,
@@ -59,10 +63,9 @@ const addData = ref<AddParamsType>({
     mof: "",
     talent: "",
     remark: ""
-
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const typeList = ref<Type[]>([{
     label: "步兵",
@@ -94,11 +97,11 @@ const typeList = ref<Type[]>([{
 }, {
     label: "魔物",
     value: 10
-}])
+}]);
 
 async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
     try {
-        await armsAdd.value?.validate()
+        await armsAdd.value?.validate();
         const returnData: AddArmsParams | UpdateArmsParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -110,10 +113,10 @@ async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
             mof: addData.value.mof,
             talent: addData.value.talent,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

@@ -5,17 +5,16 @@
 </template>
 
 <script lang="ts" setup>
-import Kaoshi from "./kaoshi/kaoshi.vue"
+import Kaoshi from "./kaoshi/kaoshi.vue";
 
-let infoObj: any = null
+let infoObj: any = null;
+let paperId: number = 0;
 if (localStorage.getItem("infoObj")) {
-    infoObj = JSON.parse(localStorage.getItem("infoObj") as string)
+    infoObj = JSON.parse(localStorage.getItem("infoObj") as string);
 }
-let paperId: number = 0
 if (infoObj.paperId) {
-    paperId = parseInt(infoObj.paperId as string)
+    paperId = parseInt(infoObj.paperId as string);
 }
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

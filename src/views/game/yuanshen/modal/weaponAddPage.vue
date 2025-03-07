@@ -6,18 +6,16 @@
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="武器类型" name="type" :rules="[{ required: true, message: '请选择类型!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.type"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.type" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
-                <a-select style="width: 100%;" v-model:value="addData.star"
-                    :disabled="prop.type === 'detail'">
+                <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
-                            item.label
+                        item.label
                     }}</a-select-option>
                 </a-select>
             </a-form-item>
@@ -38,21 +36,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddWeaponParams, UpdateWeaponParams } from "@/api/yuanshen"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../weaponList.vue"
+import { ref } from "vue";
+import type { AddWeaponParams, UpdateWeaponParams } from "@/api/yuanshen";
+import type { AddParamsType, Type } from "../weaponList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const weaponAdd = ref()
+}>();
+const weaponAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     type: undefined,
@@ -61,9 +63,9 @@ const addData = ref<AddParamsType>({
     attribute: "",
     introduce: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const weaponTypeList = ref<Type[]>([{
     label: "单手剑",
@@ -80,7 +82,7 @@ const weaponTypeList = ref<Type[]>([{
 }, {
     label: "法器",
     value: 5
-}])
+}]);
 const starList = ref<Type[]>([{
     label: "五星",
     value: 5
@@ -96,11 +98,11 @@ const starList = ref<Type[]>([{
 }, {
     label: "一星",
     value: 1
-}])
+}]);
 
 async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParams> {
     try {
-        await weaponAdd.value?.validate()
+        await weaponAdd.value?.validate();
         const returnData: AddWeaponParams | UpdateWeaponParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -111,10 +113,10 @@ async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParam
             attribute: addData.value.attribute,
             introduce: addData.value.introduce,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

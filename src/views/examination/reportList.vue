@@ -29,12 +29,12 @@
 </template>
 
 <script lang="ts" setup>
-import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination"
-import { Table as aTable } from "ant-design-vue"
-import distributePageVue from "./modal/distributePage.vue"
-import { onMounted, reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
-import paperList from "./modal/paperList.vue"
+import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination";
+import { Table as aTable } from "ant-design-vue";
+import distributePageVue from "./modal/distributePage.vue";
+import { onMounted, reactive, ref } from "vue";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import paperList from "./modal/paperList.vue";
 
 interface scrollType {
     x: number
@@ -85,54 +85,53 @@ const columns = ref<ColumnsType>([
         key: "action",
         width: 280
     },
-])
-
-const data = ref<UsersPaperType[]>()
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+]);
+const data = ref<UsersPaperType[]>();
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
 const paperData = ref<PaperDataType>({
     userId: 0,
     paperList: []
-})
-const visible = ref(false)
-const visible2 = ref(false)
-const distributeData = ref<RecordType | undefined>()
+});
+const visible = ref(false);
+const visible2 = ref(false);
+const distributeData = ref<RecordType | undefined>();
 
 async function getList() {
-    const res = await getStudentsPaper()
+    const res = await getStudentsPaper();
     if (res.data.code === 200) {
-        data.value = []
+        data.value = [];
         res.data.rows.forEach((e: ResultType) => {
             data.value?.push({
                 id: e.id,
                 userName: e.userName,
                 paperList: e.paperList
-            })
+            });
         });
     }
 }
 
 function showModal(record: RecordType) {
-    visible.value = true
-    distributeData.value = record
+    visible.value = true;
+    distributeData.value = record;
 }
 
 function goPaperList(record: RecordType) {
-    visible2.value = true
+    visible2.value = true;
     paperData.value = {
         userId: record.id,
         paperList: record.paperList
-    }
+    };
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

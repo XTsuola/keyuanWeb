@@ -32,7 +32,7 @@
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'star'">
-                    <span>{{ starList.find(item => item.value == record.star)?.label }}</span>
+                    <span>{{starList.find(item => item.value == record.star)?.label}}</span>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -51,7 +51,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+            :show-total="total => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -64,11 +64,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from "@/api/yuanshen"
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/relicsAddPage.vue"
-import type { AxiosPromise } from "axios"
+import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
+import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from "@/api/yuanshen";
+import AddPage from "./modal/relicsAddPage.vue";
+import type { AddType, API as AddPageAPI } from "./modal/relicsAddPage.vue";
+import type { AxiosPromise } from "axios";
 
 export interface AddParamsType extends AddRelicsParams {
     _id?: string
@@ -121,25 +122,25 @@ let addParams = reactive<AddParamsType>({
     fourEffect: "",
     tag: "",
     remark: ""
-})
-const current = ref<number>(1)
-const pageSize = ref<number>(10)
-const total = ref<number>(0)
-const title = ref<string>("添加圣遗物")
-const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+});
+const current = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
+const title = ref<string>("添加圣遗物");
+const addPage = ref<AddPageAPI>();
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     name: "",
     star: undefined,
     tag: ""
-})
+});
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -152,7 +153,7 @@ const starList = ref<Type[]>([{
 }, {
     label: "三星",
     value: 3
-}])
+}]);
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
@@ -195,22 +196,22 @@ const columns = ref<ColumnType[]>([
         key: "action",
         width: 160
     },
-])
-const loading = ref<boolean>(false)
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia("(max-width: 768px)")
-const type = ref<AddType>("add")
+]);
+const loading = ref<boolean>(false);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const mql = window.matchMedia("(max-width: 768px)");
+const type = ref<AddType>("add");
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     const params: GetRelicsListParams = {
@@ -219,80 +220,80 @@ async function getList() {
         name: formState.name,
         star: formState.star,
         tag: formState.tag
-    }
-    const res = await getRelicsList(params)
+    };
+    const res = await getRelicsList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
+        data.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteRelics(params)
+    };
+    const res = await deleteRelics(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
     if (data.value.length == 1) {
-        current.value--
+        current.value--;
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function selectList() {
-    current.value = 1
-    getList()
+    current.value = 1;
+    getList();
 }
 
 function reset() {
-    formState.star = undefined
-    formState.name = formState.tag = ""
-    selectList()
+    formState.star = undefined;
+    formState.name = formState.tag = "";
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
-        title.value = "修改圣遗物"
+        title.value = "修改圣遗物";
         if (item) {
-            addParams._id = item._id
-            addParams.name = item.name
-            addParams.star = item.star
-            addParams.twoEffect = item.twoEffect
-            addParams.fourEffect = item.fourEffect
-            addParams.tag = item.tag
-            addParams.remark = item.remark
-            addParams.id = item.id
+            addParams._id = item._id;
+            addParams.name = item.name;
+            addParams.star = item.star;
+            addParams.twoEffect = item.twoEffect;
+            addParams.fourEffect = item.fourEffect;
+            addParams.tag = item.tag;
+            addParams.remark = item.remark;
+            addParams.id = item.id;
         }
     } else if (showType === 'add') {
-        title.value = "添加圣遗物"
-        addParams.star = undefined
-        addParams._id = addParams.name = addParams.twoEffect = addParams.fourEffect = addParams.tag = addParams.remark = ''
-        addParams.id = 0
+        title.value = "添加圣遗物";
+        addParams.star = undefined;
+        addParams._id = addParams.name = addParams.twoEffect = addParams.fourEffect = addParams.tag = addParams.remark = "";
+        addParams.id = 0;
     } else if (showType === 'detail') {
-        title.value = "查看详情"
+        title.value = "查看详情";
         if (item) {
-            addParams.name = item.name
-            addParams.star = item.star
-            addParams.twoEffect = item.twoEffect
-            addParams.fourEffect = item.fourEffect
-            addParams.tag = item.tag
-            addParams.remark = item.remark
+            addParams.name = item.name;
+            addParams.star = item.star;
+            addParams.twoEffect = item.twoEffect;
+            addParams.fourEffect = item.fourEffect;
+            addParams.tag = item.tag;
+            addParams.remark = item.remark;
         }
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: ((data: AddRelicsParams) => AxiosPromise<any>) | ((data: UpdateRelicsParams) => AxiosPromise<any>)
         msg: string
@@ -300,27 +301,27 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: '新增失败',
         axios: addRelics
-    }
+    };
     if (type.value === "edit") {
-        a.axios = updateRelics
-        a.msg = '修改失败'
+        a.axios = updateRelics;
+        a.msg = '修改失败';
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            message.success(res.data.msg)
-            visible.value = false
+            getList();
+            message.success(res.data.msg);
+            visible.value = false;
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

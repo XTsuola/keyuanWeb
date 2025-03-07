@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <a-card v-for="item in peopleList" class="cardBox" hoverable>
+        <a-card v-for="item in peopleList" :key="item" class="cardBox" hoverable>
             <template #title>
                 <span style="font-size: 20px;font-weight: 600;">{{ item.name }}</span>
             </template>
@@ -19,42 +19,36 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 interface PeopleType {
     name: string
     qq: string
     motto: string
-    icon: string
+    icon: any
 }
 
-const peopleList = ref<PeopleType[]>([])
-
-async function preLoad() {
-    const arrList = [{
-        name: "天罗星-月色",
-        qq: "2049434978",
-        motto: "逆风的方向更适合飞翔",
-        icon: (await import("../../assets/images/manage/moon.png")).default
-    }, {
-        name: "逍遥星-江南",
-        qq: "2604369384",
-        motto: "热爱是一种永恒的可能",
-        icon: (await import("../../assets/images/manage/sakura.png")).default
-    }, {
-        name: "北冥星-黄果树",
-        qq: "1782424540",
-        motto: "你要努力，你想要的要自己给自己",
-        icon: (await import("../../assets/images/manage/smile.png")).default
-    }, {
-        name: "南灵星-鹿鸣",
-        qq: "2467118140",
-        motto: "无论你在这个世界上的什么地方，我都一定会再去见你",
-        icon: (await import("../../assets/images/manage/lu.png")).default
-    }]
-    peopleList.value = arrList
-}
-preLoad()
+const peopleList = ref<PeopleType[]>([{
+    name: "天罗星-月色",
+    qq: "2049434978",
+    motto: "逆风的方向更适合飞翔",
+    icon: new URL("../../assets/images/manage/moon.png", import.meta.url)
+}, {
+    name: "逍遥星-江南",
+    qq: "2604369384",
+    motto: "热爱是一种永恒的可能",
+    icon: new URL("../../assets/images/manage/sakura.png", import.meta.url)
+}, {
+    name: "北冥星-黄果树",
+    qq: "1782424540",
+    motto: "你要努力，你想要的要自己给自己",
+    icon: new URL("../../assets/images/manage/smile.png", import.meta.url)
+}, {
+    name: "南灵星-鹿鸣",
+    qq: "2467118140",
+    motto: "无论你在这个世界上的什么地方，我都一定会再去见你",
+    icon: new URL("../../assets/images/manage/lu.png", import.meta.url)
+}]);
 
 </script>
 <style lang="less" scoped>

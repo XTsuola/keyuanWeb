@@ -49,16 +49,16 @@
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'star'">
-                    <span>{{ starList.find(item => item.value == record.star)?.label }}</span>
+                    <span>{{starList.find(item => item.value == record.star)?.label}}</span>
                 </template>
                 <template v-else-if="column.key === 'gender'">
-                    <span>{{ genderList.find(item => item.value == record.gender)?.label }}</span>
+                    <span>{{genderList.find(item => item.value == record.gender)?.label}}</span>
                 </template>
                 <template v-else-if="column.key === 'camp'">
                     <span>{{ getCamp(record.camp) }}</span>
                 </template>
                 <template v-else-if="column.key === 'castGrainSkill'">
-                    <span>{{record.castGrainSkill }}</span>
+                    <span>{{ record.castGrainSkill }}</span>
                 </template>
                 <template v-else-if="column.key === 'action'">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -77,7 +77,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="formState.pageNo" v-model:page-size="formState.pageSize"
-            :total="total" :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+            :total="total" :show-total="total => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -90,11 +90,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/mhmnz"
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
-import type { AxiosPromise } from "axios"
+import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/mhmnz";
+import AddPage from "./modal/heroAddPage.vue";
+import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
+import type { AxiosPromise } from "axios";
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -143,18 +144,18 @@ let addParams = reactive<AddParamsType>({
     castGrainSkill: "",
     talent: "",
     introduce: ""
-})
-const total = ref<number>(0)
-const title = ref<string>("添加兵种")
-const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+});
+const total = ref<number>(0);
+const title = ref<string>("添加兵种");
+const addPage = ref<AddPageAPI>();
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(false);
 const formState = reactive<GetHeroListParams>({
     pageSize: 10,
     pageNo: 1,
@@ -164,7 +165,7 @@ const formState = reactive<GetHeroListParams>({
     camp: undefined,
     arms: undefined,
     skillGroup: undefined
-})
+});
 const starList = ref<Type[]>([{
     label: "全部",
     value: 0
@@ -183,7 +184,7 @@ const starList = ref<Type[]>([{
 }, {
     label: "R",
     value: 1
-}])
+}]);
 const genderList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -193,7 +194,7 @@ const genderList = ref<Type[]>([{
 }, {
     label: "女",
     value: 2,
-}])
+}]);
 const campList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -233,7 +234,7 @@ const campList = ref<Type[]>([{
 }, {
     label: "梦幻转生",
     value: 12,
-}])
+}]);
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
@@ -289,130 +290,124 @@ const columns = ref<ColumnType[]>([
         key: "castGrainSkill",
         width: 240
     },
-    /* {
-        title: "介绍",
-        dataIndex: "introduce",
-        key: "introduce",
-        width: 200
-    }, */
     {
         title: "操作",
         key: "action",
         width: 160
     },
-])
-const loading = ref<boolean>(false)
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const type = ref<AddType>("add")
-const mql = window.matchMedia("(max-width: 768px)")
+]);
+const loading = ref<boolean>(false);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const type = ref<AddType>("add");
+const mql = window.matchMedia("(max-width: 768px)");
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 function getCamp(arr: number[]) {
-    let brr = []
+    let brr = [];
     if (arr.length > 0) {
         for (let i = 0; i < arr.length; i++) {
-            let str = campList.value.find(item => item.value == arr[i])?.label ? campList.value.find(item => item.value == arr[i])?.label : ""
-            brr.push(str)
+            let str = campList.value.find(item => item.value == arr[i])?.label ? campList.value.find(item => item.value == arr[i])?.label : "";
+            brr.push(str);
         }
     }
-    let result = brr.join("、")
-    return result
+    let result = brr.join("、");
+    return result;
 }
 
 async function getList() {
-    const res = await getHeroList(formState)
+    const res = await getHeroList(formState);
     if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
+        data.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteHero(params)
+    };
+    const res = await deleteHero(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
     if (data.value.length == 1) {
-        formState.pageNo--
+        formState.pageNo--;
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function selectList() {
-    formState.pageNo = 1
-    getList()
+    formState.pageNo = 1;
+    getList();
 }
 
 function reset() {
-    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.skillGroup = undefined
-    selectList()
+    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.skillGroup = undefined;
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
-        title.value = "修改英雄"
+        title.value = "修改英雄";
         if (item) {
-            addParams._id = item._id
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.star = item.star
-            addParams.introduce = item.introduce
-            addParams.exclusive = item.exclusive
-            addParams.arms = item.arms
-            addParams.superSkill = item.superSkill
-            addParams.skillGroup = item.skillGroup
-            addParams.castGrainSkill = item.castGrainSkill
-            addParams.talent = item.talent
-            addParams.camp = item.camp
-            addParams.id = item.id
+            addParams._id = item._id;
+            addParams.name = item.name;
+            addParams.gender = item.gender;
+            addParams.star = item.star;
+            addParams.introduce = item.introduce;
+            addParams.exclusive = item.exclusive;
+            addParams.arms = item.arms;
+            addParams.superSkill = item.superSkill;
+            addParams.skillGroup = item.skillGroup;
+            addParams.castGrainSkill = item.castGrainSkill;
+            addParams.talent = item.talent;
+            addParams.camp = item.camp;
+            addParams.id = item.id;
         }
     } else if (showType === "add") {
-        title.value = "添加英雄"
-        addParams.gender = addParams.star = undefined
-        addParams.camp = []
-        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.castGrainSkill = addParams.introduce = ""
-        addParams.id = 0
+        title.value = "添加英雄";
+        addParams.gender = addParams.star = undefined;
+        addParams.camp = [];
+        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.castGrainSkill = addParams.introduce = "";
+        addParams.id = 0;
     } else if (showType === "detail") {
-        title.value = "查看详情"
+        title.value = "查看详情";
         if (item) {
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.star = item.star
-            addParams.introduce = item.introduce
-            addParams.exclusive = item.exclusive
-            addParams.arms = item.arms
-            addParams.superSkill = item.superSkill
-            addParams.skillGroup = item.skillGroup
-            addParams.castGrainSkill = item.castGrainSkill
-            addParams.talent = item.talent
-            addParams.camp = item.camp
+            addParams.name = item.name;
+            addParams.gender = item.gender;
+            addParams.star = item.star;
+            addParams.introduce = item.introduce;
+            addParams.exclusive = item.exclusive;
+            addParams.arms = item.arms;
+            addParams.superSkill = item.superSkill;
+            addParams.skillGroup = item.skillGroup;
+            addParams.castGrainSkill = item.castGrainSkill;
+            addParams.talent = item.talent;
+            addParams.camp = item.camp;
         }
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
         msg: string
@@ -420,27 +415,27 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addHero
-    }
+    };
     if (type.value === "edit") {
-        a.axios = updateHero
-        a.msg = "修改失败"
+        a.axios = updateHero;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            message.success(res.data.msg)
-            visible.value = false
+            getList();
+            message.success(res.data.msg);
+            visible.value = false;
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

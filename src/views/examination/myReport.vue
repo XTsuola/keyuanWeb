@@ -16,12 +16,11 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable } from "ant-design-vue"
-import { reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
-import { getMyPaperlist, resetNowPaper, type ResetPaperType } from "@/api/examination"
-import router from "@/router"
-
+import { reactive, ref } from "vue";
+import { Table as aTable } from "ant-design-vue";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getMyPaperlist, resetNowPaper, type ResetPaperType } from "@/api/examination";
+import router from "@/router";
 
 interface scrollType {
     x: number
@@ -40,12 +39,12 @@ interface dataType {
     _id: string
 }
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const userId = ref<number | null>(null)
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).userId) {
-    userId.value = JSON.parse(userInfo.value).userId
+    userId.value = JSON.parse(userInfo.value).userId;
 } else {
-    userId.value = null
+    userId.value = null;
 }
 const columns = ref<ColumnsType>([
     {
@@ -86,17 +85,17 @@ const columns = ref<ColumnsType>([
         title: "操作",
         key: "action"
     }
-])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const data = ref<dataType[]>()
+]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const data = ref<dataType[]>();
 
 function goRoom(record: any) {
     const infoObj = {
         userId: record.userId,
         paperId: record.paperId,
-    }
-    localStorage.setItem("infoObj", JSON.stringify(infoObj))
-    router.push({ path: "/room" })
+    };
+    localStorage.setItem("infoObj", JSON.stringify(infoObj));
+    router.push({ path: "/room" });
 }
 
 function lookResult(record: any) {
@@ -105,29 +104,29 @@ function lookResult(record: any) {
         paperId: record.paperId,
         paperName: record.paperName,
         score: record.score
-    }
-    localStorage.setItem("resultObj", JSON.stringify(resultObj))
-    router.push({ path: "/result" })
+    };
+    localStorage.setItem("resultObj", JSON.stringify(resultObj));
+    router.push({ path: "/result" });
 }
 
 async function resetPaper(record: any) {
-    const params:ResetPaperType = {
+    const params: ResetPaperType = {
         paperId: record.paperId,
         reportId: record._id
-    }
-    const res = await resetNowPaper(params)
-    if(res.data.code == 200) {
-        getList()
+    };
+    const res = await resetNowPaper(params);
+    if (res.data.code == 200) {
+        getList();
     }
 }
 
 async function getList() {
     if (userId.value) {
-        const res = await getMyPaperlist(userId.value)
-        data.value = res.data.rows
+        const res = await getMyPaperlist(userId.value);
+        data.value = res.data.rows;
     }
 }
-getList()
+getList();
 
 </script>
 

@@ -27,23 +27,24 @@
 </template>
 
 <script lang="ts" setup>
-import { addUser, updateUser, getUserList, type EditUserType, deleteUser } from "@/api/examination"
-import userAdd, { type API as UserPageAPI } from "./modal/userAddPage.vue"
-import { message, Table as aTable } from "ant-design-vue"
-import { onMounted, reactive, ref } from "vue"
-import type { AxiosPromise } from "axios"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
-import { levelName } from "@/utils/global"
-import md5 from "js-md5"
+import { addUser, updateUser, getUserList, type EditUserType, deleteUser } from "@/api/examination";
+import userAdd from "./modal/userAddPage.vue";
+import type { API as UserPageAPI } from "./modal/userAddPage.vue";
+import { message, Table as aTable } from "ant-design-vue";
+import { onMounted, reactive, ref } from "vue";
+import type { AxiosPromise } from "axios";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { levelName } from "@/utils/global";
+import md5 from "js-md5";
 
-export type TypeFlag = "add" | "edit"
+export type TypeFlag = "add" | "edit";
 
 interface scrollType {
     x: number
     y: number | undefined
 }
 
-const flag = ref<TypeFlag>("add")
+const flag = ref<TypeFlag>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -89,19 +90,19 @@ const columns = ref<ColumnsType>([
         key: "action",
         width: 280
     },
-])
-const loading = ref(false)
-const data = ref<EditUserType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+]);
+const loading = ref(false);
+const data = ref<EditUserType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref(false)
-const title = ref("")
+const visible = ref(false);
+const title = ref("");
 const addData = reactive<EditUserType>({
     _id: "",
     id: 0,
@@ -111,40 +112,40 @@ const addData = reactive<EditUserType>({
     age: "",
     level: undefined,
     remark: ""
-})
-const addPage = ref<UserPageAPI>()
+});
+const addPage = ref<UserPageAPI>();
 
 async function getList() {
-    const res = await getUserList()
+    const res = await getUserList();
     if (res.data.code === 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
 
 function showModal(typeFlag: TypeFlag, record?: EditUserType) {
-    visible.value = true
-    flag.value = typeFlag
+    visible.value = true;
+    flag.value = typeFlag;
     if (typeFlag === "add") {
-        title.value = "添加用户"
-        addData.id = 0
-        addData.userName = addData.account = addData.password = addData.age = addData.remark = ""
-        addData.level = undefined
+        title.value = "添加用户";
+        addData.id = 0;
+        addData.userName = addData.account = addData.password = addData.age = addData.remark = "";
+        addData.level = undefined;
     } else {
         if (record) {
-            title.value = "修改用户"
-            addData.id = record.id
-            addData.userName = record.userName
-            addData.account = record.account
-            addData.password = record.password
-            addData.age = record.age
-            addData.level = record.level
-            addData.remark = record.remark
+            title.value = "修改用户";
+            addData.id = record.id;
+            addData.userName = record.userName;
+            addData.account = record.account;
+            addData.password = record.password;
+            addData.age = record.age;
+            addData.level = record.level;
+            addData.remark = record.remark;
         }
     }
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: (data: EditUserType) => AxiosPromise<any>
         msg: string
@@ -152,42 +153,42 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addUser
-    }
+    };
     if (flag.value === "edit") {
-        a.axios = updateUser
-        a.msg = "修改失败"
+        a.axios = updateUser;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        result.password = md5(result.password)
-        const res = await a.axios(result)
+        result.password = md5(result.password);
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            visible.value = false
-            message.success(res.data.msg)
+            getList();
+            visible.value = false;
+            message.success(res.data.msg);
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 async function deleteOk(e: EditUserType) {
-    const res = await deleteUser(e)
+    const res = await deleteUser(e);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error(res.data.msg)
+        message.error(res.data.msg);
     }
     getList()
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

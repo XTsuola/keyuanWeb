@@ -46,21 +46,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddArmsParams, UpdateArmsParams } from "@/api/hywz"
-import { ref } from "vue"
-import type { AddParamsType } from "../armsList.vue"
+import type { AddArmsParams, UpdateArmsParams } from "@/api/hywz";
+import { ref } from "vue";
+import type { AddParamsType } from "../armsList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const armsAdd = ref()
+}>();
+const armsAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     type: "",
@@ -75,10 +79,9 @@ const addData = ref<AddParamsType>({
     tige: "",
     talent: "",
     remark: ""
-
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
 async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
@@ -100,10 +103,10 @@ async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
             tige: addData.value.tige,
             talent: addData.value.talent,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

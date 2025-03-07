@@ -35,22 +35,23 @@
 </template>
 
 <script lang="ts" setup>
-import { addPaper, updatePaper, getPaperList, type EditPaperType, type DeleteParams, deletePaper, type StemArrType } from "@/api/examination"
-import paperAdd, { type API as AddPageAPI } from "./modal/paperAddPage.vue"
-import stemList from "./modal/stemList.vue"
-import { message, Table as aTable } from "ant-design-vue"
-import { onMounted, reactive, ref } from "vue"
-import type { AxiosPromise } from "axios"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { addPaper, updatePaper, getPaperList, type EditPaperType, type DeleteParams, deletePaper, type StemArrType } from "@/api/examination";
+import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
+import paperAdd from "./modal/paperAddPage.vue";
+import stemList from "./modal/stemList.vue";
+import { message, Table as aTable } from "ant-design-vue";
+import { onMounted, reactive, ref } from "vue";
+import type { AxiosPromise } from "axios";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
 
-export type TypeFlag = "add" | "edit"
+export type TypeFlag = "add" | "edit";
 
 interface scrollType {
     x: number
     y: number | undefined
 }
 
-const flag = ref<TypeFlag>("add")
+const flag = ref<TypeFlag>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -88,20 +89,20 @@ const columns = ref<ColumnsType>([
         key: "action",
         width: 280
     },
-])
-const loading = ref(false)
-const data = ref<EditPaperType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+]);
+const loading = ref(false);
+const data = ref<EditPaperType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref(false)
-const visible2 = ref(false)
-const title = ref("")
+const visible = ref(false);
+const visible2 = ref(false);
+const title = ref("");
 const addData = reactive<EditPaperType>({
     _id: "",
     id: 0,
@@ -110,33 +111,33 @@ const addData = reactive<EditPaperType>({
     score: 0,
     time: "",
     remark: ""
-})
-const stemData = ref<number[]>([])
-const addPage = ref<AddPageAPI>()
+});
+const stemData = ref<number[]>([]);
+const addPage = ref<AddPageAPI>();
 
 async function getList() {
-    const res = await getPaperList()
+    const res = await getPaperList();
     if (res.data.code === 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
 
 function showModal(typeFlag: TypeFlag, record?: EditPaperType) {
-    visible.value = true
-    flag.value = typeFlag
+    visible.value = true;
+    flag.value = typeFlag;
     if (typeFlag === "add") {
-        title.value = "添加试卷"
-        addData.id = 0
-        addData.paperName = addData.remark = ""
-        addData.stemArr = []
+        title.value = "添加试卷";
+        addData.id = 0;
+        addData.paperName = addData.remark = "";
+        addData.stemArr = [];
     } else {
         if (record) {
-            title.value = "修改试卷"
-            addData.id = record.id
-            addData.paperName = record.paperName
-            addData.stemArr = record.stemArr
-            addData.time = record.time
-            addData.remark = record.remark
+            title.value = "修改试卷";
+            addData.id = record.id;
+            addData.paperName = record.paperName;
+            addData.stemArr = record.stemArr;
+            addData.time = record.time;
+            addData.remark = record.remark;
         }
     }
 }
@@ -149,23 +150,23 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addPaper
-    }
+    };
     if (flag.value === "edit") {
-        a.axios = updatePaper
-        a.msg = "修改失败"
+        a.axios = updatePaper;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        loading.value = true
-        const res = await a.axios(result)
+        loading.value = true;
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            visible.value = false
-            message.success(res.data.msg)
+            getList();
+            visible.value = false;
+            message.success(res.data.msg);
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
-        loading.value = false
+        loading.value = false;
     }
 }
 
@@ -173,27 +174,27 @@ async function deleteOk(e: EditPaperType) {
     const params: DeleteParams = {
         _id: e._id,
         id: e.id
-    }
-    const res = await deletePaper(params)
+    };
+    const res = await deletePaper(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error(res.data.msg)
+        message.error(res.data.msg);
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function goStemList(stemArr: StemArrType[]) {
-    visible2.value = true
-    stemData.value = stemArr.map(item => parseInt(item.key as string))
+    visible2.value = true;
+    stemData.value = stemArr.map(item => parseInt(item.key as string));
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

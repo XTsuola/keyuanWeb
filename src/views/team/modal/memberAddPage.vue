@@ -16,7 +16,7 @@
                 <a-select v-model:value="addData.group" placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
                         item.groupName
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="擅长位置">
@@ -38,48 +38,48 @@ export interface API {
     getAddData: () => Promise<false | AddMemberParams | UpdateMemberParams>
 }
 
-export type AddType = "add" | "edit"
+export type AddType = "add" | "edit";
+
+export default {
+    name: 'AddPage'
+}
 
 const { locale, messages } = useI18n();
-
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
+}>();
 const addData = ref<AddParamsType>({
     name: "",
     qq: "",
     group: "",
     position: "",
     remark: ""
-})
+});
 if (prop.type === "edit") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
-const groupList = ref<GroupListType[]>([])
-
-const memberAdd = ref()
-
-
-const lang = ref("en")
+const groupList = ref<GroupListType[]>([]);
+const memberAdd = ref();
+const lang = ref("en");
 
 async function handleChange(e: any) {
-    locale.value = e
+    locale.value = e;
     nextTick(() => {
-        memberAdd.value?.validate()
+        memberAdd.value?.validate();
     })
 }
 
 async function getGroup() {
-    const res = await getGroupInfo()
+    const res = await getGroupInfo();
     if (res.data.code === 200) {
-        groupList.value = res.data.rows
+        groupList.value = res.data.rows;
     }
 }
 
 async function getAddData(): Promise<false | AddMemberParams | UpdateMemberParams> {
     try {
-        await memberAdd.value?.validate()
+        await memberAdd.value?.validate();
         const returnData: AddMemberParams | UpdateMemberParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -88,10 +88,10 @@ async function getAddData(): Promise<false | AddMemberParams | UpdateMemberParam
             group: addData.value.group,
             position: addData.value.position,
             remark: addData.value.remark,
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 
@@ -100,7 +100,7 @@ defineExpose({
 })
 
 onMounted(() => {
-    getGroup()
+    getGroup();
 })
 
 </script>

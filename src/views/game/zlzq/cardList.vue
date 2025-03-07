@@ -52,7 +52,7 @@
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-if="column.key === 'zhenyin'">
-                    {{ zhenyinList.find((item: any) => item.value == record.zhenyin)?.label }}
+                    {{zhenyinList.find(item => item.value == record.zhenyin)?.label}}
                 </template>
                 <template v-if="column.key === 'action'">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -65,15 +65,14 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import simangdiguo from "./cardInfo_18/simangdiguo.json"
-import chanyigu from "./cardInfo_18/chanyigu.json"
-import tiantanggang from "./cardInfo_18/tiantanggang.json"
-import manshikuangye from "./cardInfo_18/manshikuangye.json"
-import dongshenshitu from "./cardInfo_18/dongshenshitu.json"
-import lianyushenyuan from "./cardInfo_18/lianyushenyuan.json"
-import yinmizhe from "./cardInfo_18/yinmizhe.json"
+import { onMounted, reactive, ref } from "vue";
+import simangdiguo from "./cardInfo_18/simangdiguo.json";
+import chanyigu from "./cardInfo_18/chanyigu.json";
+import tiantanggang from "./cardInfo_18/tiantanggang.json";
+import manshikuangye from "./cardInfo_18/manshikuangye.json";
+import dongshenshitu from "./cardInfo_18/dongshenshitu.json";
+import lianyushenyuan from "./cardInfo_18/lianyushenyuan.json";
+import yinmizhe from "./cardInfo_18/yinmizhe.json";
 
 export interface Type {
     label: string
@@ -85,8 +84,8 @@ interface scrollType {
     y: number | undefined
 }
 
-const total = ref<number>(0)
-const visible = ref<boolean>(false)
+const total = ref<number>(0);
+const visible = ref<boolean>(false);
 const columns = ref<any>([
     {
         title: "序号",
@@ -167,17 +166,11 @@ const columns = ref<any>([
         dataIndex: "effect",
         width: 300
     },
-    /* {
-        title: "操作",
-        key: "action",
-        width: 160
-    }, */
-])
+]);
 
-const data = ref<any>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia('(max-width: 768px)')
-
+const data = ref<any>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const mql = window.matchMedia('(max-width: 768px)');
 const qualityList = [{
     label: "全部",
     value: ""
@@ -193,8 +186,7 @@ const qualityList = [{
 }, {
     label: "白",
     value: "白"
-}]
-
+}];
 const costList = [{
     label: "全部",
     value: "",
@@ -228,8 +220,7 @@ const costList = [{
 }, {
     label: "0费",
     value: 0
-}]
-
+}];
 const typeList = [{
     label: "全部",
     value: ""
@@ -242,8 +233,7 @@ const typeList = [{
 }, {
     label: "传记",
     value: 3
-}]
-
+}];
 const zhenyinList = [{
     label: "四芒帝国",
     value: 1
@@ -265,8 +255,7 @@ const zhenyinList = [{
 }, {
     label: "隐秘者",
     value: 7
-}]
-
+}];
 const levelList = [{
     label: "全部",
     value: ""
@@ -285,75 +274,64 @@ const levelList = [{
 }, {
     label: "18级",
     value: 18
-}]
-
+}];
 const formState = reactive({
     zhenyin: [],
     quality: undefined,
     level: undefined,
     cost: undefined,
     type: undefined
-})
+});
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    simangdiguo.forEach((item: any) => item.zhenyin = 1)
-    chanyigu.forEach((item: any) => item.zhenyin = 2)
-    tiantanggang.forEach((item: any) => item.zhenyin = 3)
-    manshikuangye.forEach((item: any) => item.zhenyin = 4)
-    dongshenshitu.forEach((item: any) => item.zhenyin = 5)
-    lianyushenyuan.forEach((item: any) => item.zhenyin = 6)
-    yinmizhe.forEach((item: any) => item.zhenyin = 7)
-    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe]
+    simangdiguo.forEach((item: any) => item.zhenyin = 1);
+    chanyigu.forEach((item: any) => item.zhenyin = 2);
+    tiantanggang.forEach((item: any) => item.zhenyin = 3);
+    manshikuangye.forEach((item: any) => item.zhenyin = 4);
+    dongshenshitu.forEach((item: any) => item.zhenyin = 5);
+    lianyushenyuan.forEach((item: any) => item.zhenyin = 6);
+    yinmizhe.forEach((item: any) => item.zhenyin = 7);
+    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe];
     if (formState.zhenyin.length > 0) {
         allData = allData.filter((item: any) => formState.zhenyin.findIndex((e: any) => e == item.zhenyin) != -1)
     }
     if (formState.quality) {
-        allData = allData.filter((item: any) => item.quality == formState.quality)
+        allData = allData.filter((item: any) => item.quality == formState.quality);
     }
     if (formState.cost != undefined && formState.cost != "") {
-        allData = allData.filter((item: any) => item.cost == formState.cost)
+        allData = allData.filter((item: any) => item.cost == formState.cost);
     }
     if (formState.type) {
-        allData = allData.filter((item: any) => item.type == formState.type)
+        allData = allData.filter((item: any) => item.type == formState.type);
     }
     if (formState.level) {
-        allData = allData.filter((item: any) => item.level == formState.level)
+        allData = allData.filter((item: any) => item.level == formState.level);
     }
-
-    total.value = allData.length
-    data.value = allData
+    total.value = allData.length;
+    data.value = allData;
     for (let i = 0; i < data.value.length; i++) {
-        data.value[i].id = i + 1
+        data.value[i].id = i + 1;
     }
-    /* const params: GetHeroListParams = {
-        pageSize: pageSize.value,
-        pageNo: current.value,
-    }
-    const res = await getHeroList(params)
-    if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
-    } */
 }
 
 function reset() {
-    formState.zhenyin = []
-    formState.quality = formState.cost = formState.type = formState.level = undefined
-    getList()
+    formState.zhenyin = [];
+    formState.quality = formState.cost = formState.type = formState.level = undefined;
+    getList();
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

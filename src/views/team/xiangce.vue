@@ -20,26 +20,25 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Directive, onMounted, onBeforeMount, provide } from 'vue';
-import xiangcePage from './modal/xiangcePage.vue';
+import { ref, type Directive, onMounted, onBeforeMount, provide } from "vue";
+import xiangcePage from "./modal/xiangcePage.vue";
 
-const color = ref("red")
-localStorage.setItem("userFlag", "1")
+const color = ref("red");
+localStorage.setItem("userFlag", "1");
+const name = ref<string>("杰尼龟");
+const name2 = ref("我是小智");
 
-const vColorBg: Directive = (el?, bind?) => {
-    el.style.background = color.value
+function vColorBg(el?, bind?): Directive {
+    el.style.background = color.value;
     if (localStorage.getItem("userFlag") as any == 1) {
-        el.style.background = "pink"
+        el.style.background = "pink";
     }
 }
 
-const name = ref<string>("杰尼龟")
-const name2 = ref("我是小智")
-
-provide("name", name)
+provide("name", name);
 
 function change2() {
-    name2.value = "111"
+    name2.value = "111";
 }
 
 </script>

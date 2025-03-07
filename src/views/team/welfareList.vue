@@ -32,25 +32,13 @@
             </template>
         </a-modal>
     </div>
-    <!-- <div v-color-bg>我是初见8</div> -->
 </template>
 
 <script lang="ts" setup>
-import { message } from "ant-design-vue"
-import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from "@/api/team"
-import { onMounted, reactive, ref, type Directive, } from "vue"
-import type { AxiosPromise } from "axios"
-
-const color = ref("red")
-
-const vColorBg: Directive = (el, bind?) => {
-    el.style.background = color.value
-    if (localStorage.getItem("userFlag") as any == 1) {
-        el.style.background = "pink"
-    } else {
-        el.style.background = "red"
-    }
-}
+import { onMounted, reactive, ref, type Directive, } from "vue";
+import { message } from "ant-design-vue";
+import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from "@/api/team";
+import type { AxiosPromise } from "axios";
 
 interface WelfareType {
     _id: string
@@ -60,49 +48,58 @@ interface WelfareType {
 
 type AddType = "add" | "edit"
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
-if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
-} else {
-    levelId.value = null
+const color = ref("red");
+const vColorBg: Directive = (el, bind?) => {
+    el.style.background = color.value;
+    if (localStorage.getItem("userFlag") as any == 1) {
+        el.style.background = "pink";
+    } else {
+        el.style.background = "red";
+    }
 }
-const data = ref<WelfareType[]>([])
-const visible = ref<boolean>(false)
-const loading = ref<boolean>(false)
-const type = ref<AddType>("add")
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
+if (userInfo.value && JSON.parse(userInfo.value).level) {
+    levelId.value = JSON.parse(userInfo.value).level;
+} else {
+    levelId.value = null;
+}
+const data = ref<WelfareType[]>([]);
+const visible = ref<boolean>(false);
+const loading = ref<boolean>(false);
+const type = ref<AddType>("add");
 const welfareParams = reactive<WelfareType>({
     _id: "",
     id: 0,
     remark: ""
-})
-const welfareAdd = ref()
+});
+const welfareAdd = ref();
 
 async function getList() {
-    const res = await getWelfareList()
+    const res = await getWelfareList();
     if (res.data.code === 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
 
 function showModal(showType: AddType, item?: UpdateWelfareParams) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
         if (item) {
-            welfareParams._id = item._id
-            welfareParams.id = item.id
-            welfareParams.remark = item.remark
+            welfareParams._id = item._id;
+            welfareParams.id = item.id;
+            welfareParams.remark = item.remark;
         }
     } else {
-        welfareParams.remark = ""
+        welfareParams.remark = "";
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
     try {
-        await welfareAdd.value?.validate()
-        loading.value = true
+        await welfareAdd.value?.validate();
+        loading.value = true;
         interface AType {
             axios: ((data: AddWelfareParams) => AxiosPromise<any>) | ((data: UpdateWelfareParams) => AxiosPromise<any>)
             msg: string
@@ -110,47 +107,47 @@ async function handleOk(e: MouseEvent) {
         let a: AType = {
             msg: "新增失败",
             axios: addWelfare
-        }
+        };
         if (type.value === "edit") {
-            a.axios = updateWelfare
-            a.msg = "修改失败"
+            a.axios = updateWelfare;
+            a.msg = "修改失败";
         }
         if (welfareParams.remark && a.axios) {
-            const res = await a.axios(welfareParams)
+            const res = await a.axios(welfareParams);
             if (res.data.code === 200) {
-                getList()
-                message.success(res.data.msg)
-                visible.value = false
+                getList();
+                message.success(res.data.msg);
+                visible.value = false;
             } else {
-                message.error(a.msg)
+                message.error(a.msg);
             }
         }
-        loading.value = false
+        loading.value = false;
     } catch (_) {
-        return false
+        return false;
     }
 }
 
 async function deleteOk(e: WelfareType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteWelfare(params)
+    };
+    const res = await deleteWelfare(params);
     if (res.data.code === 200) {
-        getList()
-        message.success(res.data.msg)
+        getList();
+        message.success(res.data.msg);
     } else {
-        getList()
-        message.error("删除失败")
+        getList();
+        message.error("删除失败");
     }
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

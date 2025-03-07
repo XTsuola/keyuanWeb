@@ -16,39 +16,39 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router"
-import * as icon from "@ant-design/icons-vue"
-import { ref } from "vue"
+import { ref } from "vue";
+import { useRouter, type RouteMeta, type RouteRecordRaw } from "vue-router";
+import * as icon from "@ant-design/icons-vue";
 
 interface Prop {
     menu: RouteRecordRaw
 }
-const router = useRouter()
-const prop = defineProps<Prop>()
-const userId = ref<number>()
-const userInfo = window.sessionStorage.getItem("userInfo")
+const router = useRouter();
+const prop = defineProps<Prop>();
+const userId = ref<number>();
+const userInfo = window.sessionStorage.getItem("userInfo");
 if (userInfo && JSON.parse(userInfo).userId) {
-    userId.value = JSON.parse(userInfo).userId
+    userId.value = JSON.parse(userInfo).userId;
 }
 
 function getShow(meta: RouteMeta) {
-    return meta.isLevel && userId.value ? meta.isLevel.includes(userId.value) : true
+    return meta.isLevel && userId.value ? meta.isLevel.includes(userId.value) : true;
 }
 
 function goView() {
-    let path = router.getRoutes().find(e => e.path.split("/").pop() === prop.menu.path)
+    let path = router.getRoutes().find(e => e.path.split("/").pop() === prop.menu.path);
     if (!path) {
-        path = router.getRoutes().find(e => e.path === prop.menu.path)
+        path = router.getRoutes().find(e => e.path === prop.menu.path);
     } else {
         router.push({
             path: path.path
-        })
+        });
     }
 }
 
 function getMenuIcon(menuIcon: string) {
     type MenuIconType = keyof typeof icon;
-    return icon[menuIcon as MenuIconType]
+    return icon[menuIcon as MenuIconType];
 }
 
 </script>

@@ -110,16 +110,16 @@ function getQizi(index1: number, index2: number, isBlank?: boolean) {
 
 function panduan1(index1: number, index2: number) {
     if ((index1 == 0 && index2 == 3) || (index1 == 1 && index2 == 4) || (index1 == mapData.value.length - 3 && index2 == 3) || (index1 == mapData.value.length - 2 && index2 == 4)) {
-        return true
+        return true;
     }
-    return false
+    return false;
 }
 
 function panduan2(index1: number, index2: number) {
     if ((index1 == 0 && index2 == 4) || (index1 == 1 && index2 == 3) || (index1 == mapData.value.length - 3 && index2 == 4) || (index1 == mapData.value.length - 2 && index2 == 3)) {
-        return true
+        return true;
     }
-    return false
+    return false;
 }
 
 </script>

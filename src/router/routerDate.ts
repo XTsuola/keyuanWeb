@@ -1,5 +1,5 @@
-import type { RouteRecordRaw } from "vue-router"
-import BlankLayout from "@/layout/BlankLayout.vue"
+import type { RouteRecordRaw } from "vue-router";
+import BlankLayout from "@/layout/BlankLayout.vue";
 
 const newRouterDate: Array<RouteRecordRaw> = [
   {
@@ -12,7 +12,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           menuType: "folder",
           key: "team",
           icon: "UserOutlined",
-          label: "客缘战队"
+          label: "客缘战队",
         },
         component: BlankLayout,
         children: [
@@ -22,9 +22,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "home",
               label: "战队介绍",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/home.vue")
+            component: () => import("@/views/team/home.vue"),
           },
           {
             path: "memberList",
@@ -32,9 +32,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "memberList",
               label: "成员管理",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/memberList.vue")
+            component: () => import("@/views/team/memberList.vue"),
           },
           {
             path: "manager",
@@ -42,9 +42,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "manager",
               label: "战队高管",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/manager.vue")
+            component: () => import("@/views/team/manager.vue"),
           },
           {
             path: "wonderfulVideo",
@@ -52,9 +52,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "wonderfulVideo",
               label: "精彩集锦",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/wonderfulVideo.vue")
+            component: () => import("@/views/team/wonderfulVideo.vue"),
           },
           {
             path: "welfareList",
@@ -62,9 +62,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "welfareList",
               label: "战队福利",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/welfareList.vue")
+            component: () => import("@/views/team/welfareList.vue"),
           },
           {
             path: "xiangce",
@@ -72,11 +72,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "xiangce",
               label: "战队相册",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/team/xiangce.vue")
+            component: () => import("@/views/team/xiangce.vue"),
           },
-        ]
+        ],
       },
       {
         path: "/game",
@@ -84,7 +84,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           menuType: "folder",
           key: "game",
           icon: "RocketOutlined",
-          label: "游戏管理"
+          label: "游戏管理",
         },
         component: BlankLayout,
         children: [
@@ -94,7 +94,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "wzry",
               label: "王者荣耀",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
             component: BlankLayout,
             children: [
@@ -104,9 +104,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "wzryHeroList",
                   label: "英雄列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/wzry/heroList.vue")
+                component: () => import("@/views/game/wzry/heroList.vue"),
               },
               {
                 path: "zhanli",
@@ -114,9 +114,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "zhanli",
                   label: "战力计算",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/wzry/zhanli.vue")
+                component: () => import("@/views/game/wzry/zhanli.vue"),
               },
               {
                 path: "wzryguanwang",
@@ -124,11 +124,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "wzryguanwang",
                   label: "王者官网",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/wzry/guanwang.vue")
-              }
-            ]
+                component: () => import("@/views/game/wzry/guanwang.vue"),
+              },
+            ],
           },
           {
             path: "mhmnz",
@@ -136,7 +136,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "mhmnz",
               label: "梦幻模拟战",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
             component: BlankLayout,
             children: [
@@ -146,9 +146,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "mhmnzHeroList",
                   label: "英雄列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/mhmnz/heroList.vue")
+                component: () => import("@/views/game/mhmnz/heroList.vue"),
               },
               {
                 path: "mhmnzArmsList",
@@ -156,9 +156,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "mhmnzArmsList",
                   label: "兵种列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/mhmnz/armsList.vue")
+                component: () => import("@/views/game/mhmnz/armsList.vue"),
               },
               {
                 path: "mhmnzWeaponList",
@@ -166,11 +166,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "mhmnzWeaponList",
                   label: "装备列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/mhmnz/weaponList.vue")
+                component: () => import("@/views/game/mhmnz/weaponList.vue"),
               },
-            ]
+            ],
           },
           {
             path: "yuanshen",
@@ -178,7 +178,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "yuanshen",
               icon: "UnorderedListOutlined",
-              label: "原神"
+              label: "原神",
             },
             component: BlankLayout,
             children: [
@@ -188,9 +188,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yuanshenHeroList",
                   label: "角色列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/heroList.vue")
+                component: () => import("@/views/game/yuanshen/heroList.vue"),
               },
               {
                 path: "yuanshenWeaponList",
@@ -198,9 +198,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yuanshenWeaponList",
                   label: "武器列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/weaponList.vue")
+                component: () => import("@/views/game/yuanshen/weaponList.vue"),
               },
               {
                 path: "yuanshenRelicsList",
@@ -208,9 +208,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yuanshenRelicsList",
                   label: "圣遗物列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/relicsList.vue")
+                component: () => import("@/views/game/yuanshen/relicsList.vue"),
               },
               {
                 path: "yuanshenEnemyList",
@@ -218,9 +218,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yuanshenEnemyList",
                   label: "怪物列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/enemyList.vue")
+                component: () => import("@/views/game/yuanshen/enemyList.vue"),
               },
               {
                 path: "yuanshenAbyss12",
@@ -228,11 +228,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yuanshenAbyss12",
                   label: "深渊十二层",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/abyss12.vue")
-              }
-            ]
+                component: () => import("@/views/game/yuanshen/abyss12.vue"),
+              },
+            ],
           },
           {
             path: "yinyangshi",
@@ -240,7 +240,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "yinyangshi",
               icon: "UnorderedListOutlined",
-              label: "阴阳师"
+              label: "阴阳师",
             },
             component: BlankLayout,
             children: [
@@ -250,11 +250,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "yinyangshiHeroList",
                   label: "式神列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yinyangshi/heroList.vue")
-              }
-            ]
+                component: () => import("@/views/game/yinyangshi/heroList.vue"),
+              },
+            ],
           },
           {
             path: "zhenlizhiquan",
@@ -262,7 +262,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "zhenlizhiquan",
               icon: "UnorderedListOutlined",
-              label: "真理之拳"
+              label: "真理之拳",
             },
             component: BlankLayout,
             children: [
@@ -272,11 +272,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "zhenizhiquanCardList",
                   label: "卡牌列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/zlzq/cardList.vue")
-              }
-            ]
+                component: () => import("@/views/game/zlzq/cardList.vue"),
+              },
+            ],
           },
           {
             path: "huoyanwenzhang",
@@ -284,7 +284,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "folder",
               key: "huoyanwenzhang",
               icon: "UnorderedListOutlined",
-              label: "火焰纹章"
+              label: "火焰纹章",
             },
             component: BlankLayout,
             children: [
@@ -294,13 +294,13 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   menuType: "menu",
                   key: "huoyanwenzhangArmsList",
                   label: "兵种列表",
-                  icon: "UnorderedListOutlined"
+                  icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/hywz/armsList.vue")
-              }
-            ]
-          }
-        ]
+                component: () => import("@/views/game/hywz/armsList.vue"),
+              },
+            ],
+          },
+        ],
       },
       {
         path: "/play",
@@ -308,7 +308,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           menuType: "folder",
           key: "play",
           icon: "RocketOutlined",
-          label: "游戏试玩"
+          label: "游戏试玩",
         },
         component: BlankLayout,
         children: [
@@ -319,9 +319,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "newGame",
               label: "坦克大战",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/play/tanke/index.vue")
+            component: () => import("@/views/play/tanke/index.vue"),
           },
           {
             path: "sokoban",
@@ -330,9 +330,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "sokoban",
               label: "推箱子",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/play/sokoban/index.vue")
+            component: () => import("@/views/play/sokoban/index.vue"),
           },
           {
             path: "chess",
@@ -341,11 +341,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "chess",
               label: "象棋",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/play/chess/index.vue")
-          }
-        ]
+            component: () => import("@/views/play/chess/index.vue"),
+          },
+        ],
       },
       {
         path: "/xingta",
@@ -354,7 +354,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           key: "xingta",
           icon: "DeploymentUnitOutlined",
           label: "星塔联盟",
-          isLevel: [1]
+          isLevel: [1],
         },
         component: BlankLayout,
         children: [
@@ -365,11 +365,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "heroList",
               label: "人物列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/xingta/heroList.vue")
-          }
-        ]
+            component: () => import("@/views/xingta/heroList.vue"),
+          },
+        ],
       },
       {
         path: "/examination",
@@ -377,7 +377,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           menuType: "folder",
           key: "examination",
           icon: "AlertOutlined",
-          label: "考试管理"
+          label: "考试管理",
         },
         component: BlankLayout,
         children: [
@@ -388,9 +388,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "questionList",
               label: "题库列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/examination/questionList.vue")
+            component: () => import("@/views/examination/questionList.vue"),
           },
           {
             path: "paperList",
@@ -399,9 +399,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "paperList",
               label: "试卷列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/examination/paperList.vue")
+            component: () => import("@/views/examination/paperList.vue"),
           },
           {
             path: "userList",
@@ -410,9 +410,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "userList",
               label: "用户列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/examination/userList.vue")
+            component: () => import("@/views/examination/userList.vue"),
           },
           {
             path: "reportList",
@@ -421,9 +421,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "reportList",
               label: "答卷列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1]
+              isLevel: [1],
             },
-            component: () => import("@/views/examination/reportList.vue")
+            component: () => import("@/views/examination/reportList.vue"),
           },
           {
             path: "myReport",
@@ -431,11 +431,11 @@ const newRouterDate: Array<RouteRecordRaw> = [
               menuType: "menu",
               key: "myReport",
               label: "我的试卷",
-              icon: "UnorderedListOutlined"
+              icon: "UnorderedListOutlined",
             },
-            component: () => import("@/views/examination/myReport.vue")
+            component: () => import("@/views/examination/myReport.vue"),
           },
-        ]
+        ],
       },
       {
         path: "myLove",
@@ -444,7 +444,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
           key: "myLove",
           icon: "VideoCameraAddOutlined",
           label: "爱的见证",
-          isLevel: [1, 3]
+          isLevel: [1, 3],
         },
         component: BlankLayout,
         children: [
@@ -455,9 +455,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "travel",
               label: "时光回忆",
               icon: "UnorderedListOutlined",
-              isLevel: [1, 3]
+              isLevel: [1, 3],
             },
-            component: () => import("@/views/myLove/photo.vue")
+            component: () => import("@/views/myLove/photo.vue"),
           },
           {
             path: "worldMap",
@@ -466,9 +466,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "worldMap",
               label: "世界地图",
               icon: "UnorderedListOutlined",
-              isLevel: [1, 3]
+              isLevel: [1, 3],
             },
-            component: () => import("@/views/myLove/worldMap.vue")
+            component: () => import("@/views/myLove/worldMap.vue"),
           },
           {
             path: "cookList",
@@ -477,9 +477,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "cookList",
               label: "菜谱列表",
               icon: "UnorderedListOutlined",
-              isLevel: [1, 3]
+              isLevel: [1, 3],
             },
-            component: () => import("@/views/myLove/cookList.vue")
+            component: () => import("@/views/myLove/cookList.vue"),
           },
           {
             path: "wedding",
@@ -488,9 +488,9 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "wedding",
               label: "结婚纪念",
               icon: "UnorderedListOutlined",
-              isLevel: [1, 3]
+              isLevel: [1, 3],
             },
-            component: () => import("@/views/myLove/wedding/home.vue")
+            component: () => import("@/views/myLove/wedding/home.vue"),
           },
           {
             path: "myCanvas",
@@ -499,14 +499,14 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "myCanvas",
               label: "绘画天地",
               icon: "UnorderedListOutlined",
-              isLevel: [1, 3]
+              isLevel: [1, 3],
             },
-            component: () => import("@/views/myLove/myCanvas.vue")
+            component: () => import("@/views/myLove/myCanvas.vue"),
           },
-        ]
-      }
-    ]
-  }
-]
+        ],
+      },
+    ],
+  },
+];
 
-export default newRouterDate
+export default newRouterDate;

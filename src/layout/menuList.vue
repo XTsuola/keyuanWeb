@@ -7,40 +7,40 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue"
-import MenuItem from "./menuItem.vue"
-import { useRoute, useRouter } from "vue-router"
+import { ref, watch } from "vue";
+import MenuItem from "./menuItem.vue";
+import { useRoute, useRouter } from "vue-router";
 
-const router = useRouter()
-const route = useRoute()
-const BaseRoute = router.getRoutes().find(e => e.path === "/")
-const openKeys = ref<string[]>([])
-const selectedKeys = ref<string[]>([])
-const routerKey = router.getRoutes().find(e => e.path === route.path)
+const router = useRouter();
+const route = useRoute();
+const BaseRoute = router.getRoutes().find(e => e.path === "/");
+const openKeys = ref<string[]>([]);
+const selectedKeys = ref<string[]>([]);
+const routerKey = router.getRoutes().find(e => e.path === route.path);
 
 function updateMenu(arr: string[]) {
     if (!arr[0]) {
-        arr.shift()
-        arr.pop()
-        openKeys.value = arr
+        arr.shift();
+        arr.pop();
+        openKeys.value = arr;
     } else {
-        arr.pop()
-        openKeys.value = arr
+        arr.pop();
+        openKeys.value = arr;
     }
 }
 
 function updatePath(routerObj: any) {
-    selectedKeys.value = []
+    selectedKeys.value = [];
     if (routerObj && routerObj.meta && routerObj.meta.key) {
-        selectedKeys.value.push(routerObj.meta.key)
-        const arr = route.path.split("/")
-        updateMenu(arr)
+        selectedKeys.value.push(routerObj.meta.key);
+        const arr = route.path.split("/");
+        updateMenu(arr);
     }
 }
-updatePath(routerKey)
+updatePath(routerKey);
 
 watch(route, (val) => {
-    updatePath(val)
+    updatePath(val);
 })
 
 </script>
@@ -49,6 +49,7 @@ watch(route, (val) => {
 :deep(.ant-menu-submenu-title) {
     background: #fff;
 }
+
 :deep(.ant-menu-inline) {
     background-color: #fff;
 }

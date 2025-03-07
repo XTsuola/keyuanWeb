@@ -31,21 +31,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddAbyss12Params, UpdateAbyss12Params } from "@/api/yuanshen"
-import { ref } from "vue"
-import type { AddParamsType } from "../abyss12.vue"
+import { ref } from "vue";
+import type { AddAbyss12Params, UpdateAbyss12Params } from "@/api/yuanshen";
+import type { AddParamsType } from "../abyss12.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddAbyss12Params | UpdateAbyss12Params>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const relicsAdd = ref()
+}>();
+const relicsAdd = ref();
 const addData = ref<AddParamsType>({
     version: "",
     firstUpper: "",
@@ -55,14 +59,14 @@ const addData = ref<AddParamsType>({
     thirdUpper: "",
     thirdLower: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
 async function getAddData(): Promise<false | AddAbyss12Params | UpdateAbyss12Params> {
     try {
-        await relicsAdd.value?.validate()
+        await relicsAdd.value?.validate();
         const returnData: AddAbyss12Params | UpdateAbyss12Params = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -74,10 +78,10 @@ async function getAddData(): Promise<false | AddAbyss12Params | UpdateAbyss12Par
             thirdUpper: addData.value.thirdUpper,
             thirdLower: addData.value.thirdLower,
             remark: addData.value.remark,
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

@@ -40,21 +40,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddWeaponParams, UpdateWeaponParams } from "@/api/mhmnz"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../weaponList.vue"
+import { ref } from "vue";
+import type { AddWeaponParams, UpdateWeaponParams } from "@/api/mhmnz";
+import type { AddParamsType, Type } from "../weaponList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const heroAdd = ref()
+}>();
+const heroAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     star: undefined,
@@ -64,9 +68,9 @@ const addData = ref<AddParamsType>({
     introduce: "",
     remark: ""
 
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const starList = ref<Type[]>([{
     label: "SSR",
@@ -80,7 +84,7 @@ const starList = ref<Type[]>([{
 }, {
     label: "N",
     value: 1
-}])
+}]);
 const weaponTypeList = ref<Type[]>([{
     label: "武器",
     value: 1,
@@ -93,18 +97,18 @@ const weaponTypeList = ref<Type[]>([{
 }, {
     label: "饰品",
     value: 4,
-}])
+}]);
 const isExclusiveList = ref<Type[]>([{
     label: "是",
     value: 1,
 }, {
     label: "否",
     value: 2,
-}])
+}]);
 
 async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParams> {
     try {
-        await heroAdd.value?.validate()
+        await heroAdd.value?.validate();
         const returnData: AddWeaponParams | UpdateWeaponParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -115,10 +119,10 @@ async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParam
             shuxing: addData.value.shuxing,
             introduce: addData.value.introduce,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

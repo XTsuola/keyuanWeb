@@ -10,12 +10,11 @@
                     width: '300px',
                     height: '400px',
                 }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
-                    :render="(item: any) => item.title" :disabled="disabled" :showSelectAll="false"
-                    @change="handleChange" />
+                    :render="item => item.title" :disabled="disabled" :showSelectAll="false" @change="handleChange" />
             </a-form-item>
             <a-form-item label="每题分值" name="scoreList" v-if="addData.scoreList.length > 0">
                 <ul>
-                    <li v-for="item in addData.scoreList">
+                    <li v-for="item in addData.scoreList" :key="item">
                         <div style="margin-right: 2px;">
                             {{ item.key }}.
                         </div>
@@ -34,13 +33,18 @@
 </template>
 
 <script lang="ts" setup>
-import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination"
-import { message } from "ant-design-vue"
-import { ref } from "vue"
-import type { TypeFlag } from "../paperList.vue"
+import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination";
+import { message } from "ant-design-vue";
+import { ref } from "vue";
+import type { TypeFlag } from "../paperList.vue";
+import func from 'vue-editor-bridge';
 
 export interface API {
     getAddData: () => Promise<false | EditPaperType>
+}
+
+export default {
+    name: 'PaperAdd',
 }
 
 interface addDataType {
@@ -60,28 +64,27 @@ interface listType {
 const prop = defineProps<{
     flag: TypeFlag
     obj: AddPaperType | EditPaperType
-}>()
-const disabled = ref<boolean>(false)
-const targetKeys = ref<string[]>([])
-const selectedKeys = ref<string[]>([])
-const handleChange = (nextTargetKeys: string[]) => {
-    addData.value.scoreList = nextTargetKeys.map(item => { return { key: item, score: "" } })
-    addData.value.list = nextTargetKeys.map(item => item.toString())
-}
+}>();
+const disabled = ref<boolean>(false);
+const targetKeys = ref<string[]>([]);
+const selectedKeys = ref<string[]>([]);
 const addData = ref<addDataType>({
     paperName: "",
     list: [],
     scoreList: [],
     time: "",
     remark: ""
-})
+});
+const paperAdd = ref();
+const allList = ref<listType[]>();
+
 if (prop.flag === "edit") {
-    const data: EditPaperType = JSON.parse(JSON.stringify(prop.obj))
-    addData.value.id = data.id
-    addData.value.paperName = data.paperName
+    const data: EditPaperType = JSON.parse(JSON.stringify(prop.obj));
+    addData.value.id = data.id;
+    addData.value.paperName = data.paperName;
     if (data.stemArr) {
-        addData.value.list = data.stemArr.map(item => item.key.toString())
-        targetKeys.value = addData.value.list
+        addData.value.list = data.stemArr.map(item => item.key.toString());
+        targetKeys.value = addData.value.list;
     }
     addData.value.scoreList = []
     if (data.stemArr) {
@@ -89,38 +92,41 @@ if (prop.flag === "edit") {
             addData.value.scoreList.push({
                 key: data.stemArr[i].key.toString(),
                 score: data.stemArr[i].score.toString()
-            })
+            });
         }
     }
-    addData.value.time = data.time
-    addData.value.remark = data.remark
+    addData.value.time = data.time;
+    addData.value.remark = data.remark;
 }
-const paperAdd = ref()
-const allList = ref<listType[]>()
+
+function handleChange(nextTargetKeys: string[]) {
+    addData.value.scoreList = nextTargetKeys.map(item => { return { key: item, score: "" } });
+    addData.value.list = nextTargetKeys.map(item => item.toString());
+}
 
 function scoreAdd(list: StemArrType[]) {
-    let sum = 0
+    let sum = 0;
     for (let i = 0; i <= list.length - 1; i++) {
-        sum += parseFloat(list[i].score)
+        sum += parseFloat(list[i].score);
     }
-    return sum
+    return sum;
 }
 
 async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
     for (let i = 0; i <= addData.value.scoreList.length - 1; i++) {
         if (addData.value.scoreList[i].score == "") {
-            message.error("请填写分数！")
-            return false
+            message.error("请填写分数！");
+            return false;
         }
     }
     try {
         await paperAdd.value?.validate()
-        let stemArr = []
+        let stemArr = [];
         for (let i = 0; i < addData.value.list.length; i++) {
             stemArr.push({
                 key: parseInt(addData.value.list[i]),
                 score: addData.value.scoreList[i].score
-            })
+            });
         }
         const returnData: AddPaperType | EditPaperType = {
             id: addData.value.id,
@@ -129,26 +135,26 @@ async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
             score: scoreAdd(addData.value.scoreList),
             time: addData.value.time,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (error) {
-        return false
+        return false;
     }
 }
 
 async function getAll() {
-    const res = await getQuestionList()
+    const res = await getQuestionList();
     if (res.data.code === 200) {
-        allList.value = res.data.rows
+        allList.value = res.data.rows;
         allList.value = res.data.rows.map((item: any) => {
             return {
                 key: item.id.toString(),
                 title: `${item.id.toString()}、${item.stem}`
             }
-        })
+        });
     }
 }
-getAll()
+getAll();
 
 defineExpose({
     getAddData

@@ -85,22 +85,26 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from "@/api/yuanshen"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../heroList.vue"
+import { ref } from "vue";
+import type { AddHeroParams, UpdateHeroParams } from "@/api/yuanshen";
+import type { AddParamsType, Type } from "../heroList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const fileList = ref<any[]>([])
-const heroAdd = ref()
+}>();
+const fileList = ref<any[]>([]);
+const heroAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     gender: undefined,
@@ -118,15 +122,15 @@ const addData = ref<AddParamsType>({
     birthday: "",
     remark: "",
     img: ""
-})
-const imgSrc = ref<any>("")
+});
+const imgSrc = ref<any>("");
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
-    const str = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + addData.value.img
-    imgSrc.value = new URL(str, import.meta.url)
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
+    const str = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + addData.value.img;
+    imgSrc.value = new URL(str, import.meta.url);
     if (addData.value.img) {
-        fileList.value = []
-        fileList.value.push({ url: imgSrc.value.href, name: addData.value.img })
+        fileList.value = [];
+        fileList.value.push({ url: imgSrc.value.href, name: addData.value.img });
     }
 }
 
@@ -136,7 +140,7 @@ const genderList = ref<Type[]>([{
 }, {
     label: "女",
     value: 2
-}])
+}]);
 const countryList = ref<Type[]>([{
     label: "蒙德",
     value: 1
@@ -161,7 +165,7 @@ const countryList = ref<Type[]>([{
 }, {
     label: "异世界",
     value: 8
-}])
+}]);
 const armsList = ref<Type[]>([{
     label: "单手剑",
     value: 1
@@ -177,7 +181,7 @@ const armsList = ref<Type[]>([{
 }, {
     label: "法器",
     value: 5
-}])
+}]);
 const shuxingList = ref<Type[]>([{
     label: "风",
     value: 1
@@ -199,39 +203,39 @@ const shuxingList = ref<Type[]>([{
 }, {
     label: "冰",
     value: 7
-}])
+}]);
 const starList = ref<Type[]>([{
     label: "五星",
     value: 1
 }, {
     label: "四星",
     value: 2
-}])
+}]);
 
 function uploadImg(file: any) {
-    fileList.value = []
-    addData.value.img = ""
-    const target = file.file
+    fileList.value = [];
+    addData.value.img = "";
+    const target = file.file;
     if (target) {
-        const reader = new FileReader()
-        reader.readAsDataURL(target)
+        const reader = new FileReader();
+        reader.readAsDataURL(target);
         reader.addEventListener("load", async (e) => {
             if (e.target && typeof e.target.result === "string") {
-                addData.value.img = e.target.result as any
-                fileList.value.push({ url: addData.value.img, name: file.file.name })
+                addData.value.img = e.target.result as any;
+                fileList.value.push({ url: addData.value.img, name: file.file.name });
             }
         })
     }
 }
 
 function handleRemove() {
-    fileList.value = []
-    addData.value.img = undefined
+    fileList.value = [];
+    addData.value.img = undefined;
 }
 
 async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
-        await heroAdd.value?.validate()
+        await heroAdd.value?.validate();
         const returnData: AddHeroParams | UpdateHeroParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -251,10 +255,10 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             birthday: addData.value.birthday,
             remark: addData.value.remark,
             img: addData.value.img
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

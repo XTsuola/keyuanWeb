@@ -5,28 +5,28 @@
     <div class="BasicLayout" v-show="!flag">
         <sidebarVue ref="sider" />
         <mainVue style="width: 100%;" @showMenu="showMenu" />
-</div>
+    </div>
 </template>
 <script setup lang="ts">
-import sidebarVue from "./Sidebar.vue"
-import mainVue from "./Main.vue"
-import { ref } from "vue"
-import { useCounterStore } from "@/stores/counter"
+import { ref } from "vue";
+import sidebarVue from "./Sidebar.vue";
+import mainVue from "./Main.vue";
+import { useCounterStore } from "@/stores/counter";
 
-const sider = ref()
-const counterStore = useCounterStore()
-const flag = ref(false)
+const sider = ref();
+const counterStore = useCounterStore();
+const flag = ref(false);
 
 if (counterStore.guochangFlag) {
-    flag.value = counterStore.guochangFlag
+    flag.value = counterStore.guochangFlag;
 }
 setTimeout(() => {
-    flag.value = false
-    counterStore.updateFlag(false)
-}, 1000)
+    flag.value = false;
+    counterStore.updateFlag(false);
+}, 1000);
 
 function showMenu() {
-    sider.value.showMenu()
+    sider.value.showMenu();
 }
 
 </script>

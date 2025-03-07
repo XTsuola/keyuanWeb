@@ -13,14 +13,14 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="定位" style="width: 200px">
                 <a-select v-model:value="formState.position" @change="selectList" placeholder="请选择定位">
                     <a-select-option v-for="item in positionList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="皮肤" style="width: 200px">
@@ -39,7 +39,7 @@
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'gender'">
-                    <span>{{ genderList.find(item => item.value == record.gender)?.label }}</span>
+                    <span>{{genderList.find(item => item.value == record.gender)?.label}}</span>
                 </template>
                 <template v-else-if="column.key === 'position'">
                     <span>{{ getPosition(record.position) }}</span>
@@ -64,7 +64,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+            :show-total="total => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -77,11 +77,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/wzry"
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/heroAddPage.vue"
-import type { AxiosPromise } from "axios"
+import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/wzry";
+import AddPage from "./modal/heroAddPage.vue";
+import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
+import type { AxiosPromise } from "axios";
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
@@ -131,26 +132,26 @@ let addParams = reactive<AddParamsType>({
     position: [],
     skin: "",
     remark: ""
-})
-const current = ref<number>(1)
-const pageSize = ref<number>(10)
-const total = ref<number>(0)
-const title = ref<string>("添加兵种")
-const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+});
+const current = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
+const title = ref<string>("添加兵种");
+const addPage = ref<AddPageAPI>();
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     name: "",
     gender: undefined,
     position: undefined,
     skin: ""
-})
+});
 const genderList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -160,7 +161,7 @@ const genderList = ref<Type[]>([{
 }, {
     label: "女",
     value: 2,
-}])
+}]);
 const positionList = ref<Type[]>([{
     label: "全部",
     value: 0,
@@ -182,7 +183,7 @@ const positionList = ref<Type[]>([{
 }, {
     label: "辅助",
     value: 6,
-}])
+}]);
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
@@ -234,59 +235,59 @@ const columns = ref<ColumnType[]>([
         key: "action",
         width: 160
     },
-])
-const loading = ref<boolean>(false)
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const type = ref<AddType>("add")
-const mql = window.matchMedia("(max-width: 768px)")
+]);
+const loading = ref<boolean>(false);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const type = ref<AddType>("add");
+const mql = window.matchMedia("(max-width: 768px)");
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 function getPosition(arr: number[]) {
-    let brr = []
+    let brr = [];
     if (arr.length > 0) {
         for (let i = 0; i < arr.length; i++) {
-            let str = positionList.value.find(item => item.value == arr[i])?.label ? positionList.value.find(item => item.value == arr[i])?.label : ""
-            brr.push(str)
+            let str = positionList.value.find(item => item.value == arr[i])?.label ? positionList.value.find(item => item.value == arr[i])?.label : "";
+            brr.push(str);
         }
     }
-    let result = brr.join("、")
-    return result
+    let result = brr.join("、");
+    return result;
 }
 
 function getCount(str: string) {
-    let count = 0
+    let count = 0;
     if (str.split("、")[0]) {
-        count = str.split("、").length
+        count = str.split("、").length;
     }
-    let level = ""
+    let level = "";
     if (count >= 10) {
-        level = "超神"
+        level = "超神";
     } else if (count == 9) {
-        level = "完美"
+        level = "完美";
     } else if (count == 8) {
-        level = "优秀"
+        level = "优秀";
     } else if (count == 7) {
-        level = "良好"
+        level = "良好";
     } else if (count == 6) {
-        level = "中等"
+        level = "中等";
     } else if (count == 5 || count == 4) {
-        level = "及格"
+        level = "及格";
     } else if (count == 3) {
-        level = "不及格"
+        level = "不及格";
     } else {
-        level = "垃圾"
+        level = "垃圾";
     }
-    return count + "（" + level + "）"
+    return count + "（" + level + "）";
 }
 
 async function getList() {
@@ -297,79 +298,79 @@ async function getList() {
         gender: formState.gender,
         position: formState.position,
         skin: formState.skin
-    }
-    const res = await getHeroList(params)
+    };
+    const res = await getHeroList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
+        data.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteHero(params)
+    };
+    const res = await deleteHero(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
     if (data.value.length == 1) {
-        current.value--
+        current.value--;
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function selectList() {
-    current.value = 1
-    getList()
+    current.value = 1;
+    getList();
 }
 
 function reset() {
-    formState.name = formState.skin = ""
-    formState.gender = formState.position = undefined
-    selectList()
+    formState.name = formState.skin = "";
+    formState.gender = formState.position = undefined;
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
-        title.value = "修改英雄"
+        title.value = "修改英雄";
         if (item) {
-            addParams._id = item._id
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.position = item.position
-            addParams.skin = item.skin
-            addParams.remark = item.remark
-            addParams.id = item.id
+            addParams._id = item._id;
+            addParams.name = item.name;
+            addParams.gender = item.gender;
+            addParams.position = item.position;
+            addParams.skin = item.skin;
+            addParams.remark = item.remark;
+            addParams.id = item.id;
         }
     } else if (showType === "add") {
-        title.value = "添加英雄"
-        addParams.gender = undefined
-        addParams.position = []
-        addParams._id = addParams.name = addParams.skin = addParams.remark = ""
-        addParams.id = 0
+        title.value = "添加英雄";
+        addParams.gender = undefined;
+        addParams.position = [];
+        addParams._id = addParams.name = addParams.skin = addParams.remark = "";
+        addParams.id = 0;
     } else if (showType === "detail") {
-        title.value = "查看详情"
+        title.value = "查看详情";
         if (item) {
-            addParams.name = item.name
-            addParams.gender = item.gender
-            addParams.position = item.position
-            addParams.skin = item.skin
-            addParams.remark = item.remark
+            addParams.name = item.name;
+            addParams.gender = item.gender;
+            addParams.position = item.position;
+            addParams.skin = item.skin;
+            addParams.remark = item.remark;
         }
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
         msg: string
@@ -377,27 +378,27 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addHero
-    }
+    };
     if (type.value === "edit") {
-        a.axios = updateHero
-        a.msg = "修改失败"
+        a.axios = updateHero;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            message.success(res.data.msg)
-            visible.value = false
+            getList();
+            message.success(res.data.msg);
+            visible.value = false;
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

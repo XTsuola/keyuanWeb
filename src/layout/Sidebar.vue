@@ -9,27 +9,27 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
-import menuList from "../layout/menuList.vue"
+import { ref } from "vue";
+import menuList from "../layout/menuList.vue";
 
-const visible = ref<boolean>(false)
-const flag = ref<boolean>(true)
-const mql = window.matchMedia("(max-width: 768px)")
+const visible = ref<boolean>(false);
+const flag = ref<boolean>(true);
+const mql = window.matchMedia("(max-width: 768px)");
 
 function mediaMatchs() {
     if (mql.matches) {
-        flag.value = false
-        visible.value = true
+        flag.value = false;
+        visible.value = true;
     } else {
-        flag.value = true
-        visible.value = false
+        flag.value = true;
+        visible.value = false;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 function showMenu() {
-    visible.value = true
+    visible.value = true;
 }
 
 defineExpose({

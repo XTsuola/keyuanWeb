@@ -13,11 +13,12 @@
             <template v-if="column.key === 'selectArr'">
                 <span v-if="record.type == '1'">A.{{ record.selectArr[0] }}. B.{{ record.selectArr[1] }}. C.{{
                     record.selectArr[2]
-                }}. D.{{ record.selectArr[3] }}</span>
+                    }}. D.{{ record.selectArr[3] }}</span>
                 <span v-else>/</span>
             </template>
             <template v-if="column.key === 'answer'">
-                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ record.selectArr[record.answer - 1] }}</div>
+                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ record.selectArr[record.answer - 1] }}
+                </div>
                 <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
                 <div v-else>{{ record.answer }}</div>
             </template>
@@ -58,24 +59,24 @@
 </template>
 
 <script lang="ts" setup>
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams } from '@/api/examination'
-import questionAddPage, { type API as AddPageAPI } from "./modal/questionAddPage.vue"
-import { message, Table as aTable } from "ant-design-vue"
-import { nextTick, onMounted, reactive, ref } from "vue"
-import type { AxiosPromise } from "axios"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams } from '@/api/examination';
+import questionAddPage from "./modal/questionAddPage.vue";
+import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
+import { message, Table as aTable } from "ant-design-vue";
+import { nextTick, onMounted, reactive, ref } from "vue";
+import type { AxiosPromise } from "axios";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
 
-export type TypeFlag = "add" | "edit"
+export type TypeFlag = "add" | "edit";
 
 interface scrollType {
     x: number
     y: number | undefined
 }
-
-const value = ref("")
-const abcd = ["A", "B", "C", "D"]
-const pageFlag = ref(true)
-const flag = ref<TypeFlag>("add")
+const value = ref("");
+const abcd = ["A", "B", "C", "D"];
+const pageFlag = ref(true);
+const flag = ref<TypeFlag>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -124,20 +125,20 @@ const columns = ref<ColumnsType>([
         key: "action",
         width: 280
     },
-])
-const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"]
-const loading = ref(false)
-const data = ref<EditQuestionType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+]);
+const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
+const loading = ref(false);
+const data = ref<EditQuestionType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref(false)
-const title = ref("")
+const visible = ref(false);
+const title = ref("");
 const addData = reactive<EditQuestionType>({
     _id: "",
     id: 0,
@@ -147,59 +148,59 @@ const addData = reactive<EditQuestionType>({
     answer: "",
     url: "",
     remark: ""
-})
-const addPage = ref<AddPageAPI>()
-const type = ref(1)
+});
+const addPage = ref<AddPageAPI>();
+const type = ref(1);
 
 async function getList() {
-    const res = await getQuestionList()
+    const res = await getQuestionList();
     if (res.data.code === 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
 
 function updatePage(value: string) {
-    pageFlag.value = false
-    type.value = parseInt(value)
+    pageFlag.value = false;
+    type.value = parseInt(value);
     nextTick(() => {
-        pageFlag.value = true
+        pageFlag.value = true;
     })
 }
 
 function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
-    visible.value = true
-    flag.value = typeFlag
+    visible.value = true;
+    flag.value = typeFlag;
     if (typeFlag === "add") {
-        title.value = "添加试题-"
-        value.value = "1"
-        type.value = 1
-        addData.id = 0
-        addData.type = 1
-        addData.selectArr = []
-        addData.stem = addData.answer = addData.url = addData.remark = ""
+        title.value = "添加试题-";
+        value.value = "1";
+        type.value = 1;
+        addData.id = 0;
+        addData.type = 1;
+        addData.selectArr = [];
+        addData.stem = addData.answer = addData.url = addData.remark = "";
     } else {
         if (record) {
-            title.value = "修改试题-"
-            value.value = record.type + ""
-            type.value = record.type
-            addData.id = record.id
-            addData.stem = record.stem
-            addData.type = record.type
-            addData.selectArr = record.selectArr
+            title.value = "修改试题-";
+            value.value = record.type + "";
+            type.value = record.type;
+            addData.id = record.id;
+            addData.stem = record.stem;
+            addData.type = record.type;
+            addData.selectArr = record.selectArr;
             if (addData.type == 1) {
-                const arrList = ["A", "B", "C", "D"]
-                addData.answer = arrList[parseInt(record.answer as string) - 1]
+                const arrList = ["A", "B", "C", "D"];
+                addData.answer = arrList[parseInt(record.answer as string) - 1];
             } else {
-                addData.answer = record.answer
+                addData.answer = record.answer;
             }
-            addData.url = record.url
-            addData.remark = record.remark
+            addData.url = record.url;
+            addData.remark = record.remark;
         }
     }
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: (data: EditQuestionType) => AxiosPromise<any>
         msg: string
@@ -207,54 +208,54 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addQuestion
-    }
+    };
     if (flag.value === "edit") {
-        a.axios = updateQuestion
-        a.msg = "修改失败"
+        a.axios = updateQuestion;
+        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData()
     if (result && a.axios) {
         if (result.type === 1) {
             if (result.answer === "a" || result.answer === "A" || result.answer === "1") {
-                result.answer = "1"
+                result.answer = "1";
             } else if (result.answer === "b" || result.answer === "B" || result.answer === "2") {
-                result.answer = "2"
+                result.answer = "2";
             } else if (result.answer === "c" || result.answer === "C" || result.answer === "3") {
-                result.answer = "3"
+                result.answer = "3";
             } else {
-                result.answer = "4"
+                result.answer = "4";
             }
         } else if (result.type === 2) {
             if (result.answer === "对" || result.answer === "正确" || result.answer === "0") {
-                result.answer = "0"
+                result.answer = "0";
             } else {
-                result.answer = "1"
+                result.answer = "1";
             }
         }
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            visible.value = false
-            message.success(res.data.msg)
+            getList();
+            visible.value = false;
+            message.success(res.data.msg);
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 async function deleteOk(e: EditQuestionType) {
     const params: DeleteParams = {
         _id: e._id,
         id: e.id
-    }
-    const res = await deleteQuestion(params)
+    };
+    const res = await deleteQuestion(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error(res.data.msg)
+        message.error(res.data.msg);
     }
-    getList()
+    getList();
 }
 
 function cancel() {
@@ -262,7 +263,7 @@ function cancel() {
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

@@ -30,21 +30,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddRelicsParams, UpdateRelicsParams } from "@/api/yuanshen"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../relicsList.vue"
+import { ref } from "vue";
+import type { AddRelicsParams, UpdateRelicsParams } from "@/api/yuanshen";
+import type { AddParamsType, Type } from "../relicsList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddRelicsParams | UpdateRelicsParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const relicsAdd = ref()
+}>();
+const relicsAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     star: undefined,
@@ -52,9 +56,9 @@ const addData = ref<AddParamsType>({
     fourEffect: "",
     tag: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const starList = ref<Type[]>([{
     label: "五星",
@@ -65,11 +69,11 @@ const starList = ref<Type[]>([{
 }, {
     label: "三星",
     value: 3
-}])
+}]);
 
 async function getAddData(): Promise<false | AddRelicsParams | UpdateRelicsParams> {
     try {
-        await relicsAdd.value?.validate()
+        await relicsAdd.value?.validate();
         const returnData: AddRelicsParams | UpdateRelicsParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -79,10 +83,10 @@ async function getAddData(): Promise<false | AddRelicsParams | UpdateRelicsParam
             fourEffect: addData.value.fourEffect,
             tag: addData.value.tag,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

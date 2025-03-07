@@ -12,8 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue"
-import { message } from "ant-design-vue"
+import { reactive } from "vue";
+import { message } from "ant-design-vue";
 
 interface ObjType {
     jc: string
@@ -31,22 +31,22 @@ const obj = reactive<ObjType>({
     fs: "",
     xs: "",
     zf: ""
-})
+});
 
 function js(obj: ObjType) {
-    let str = ""
+    let str = "";
     if (obj.jc === "" || obj.pw === "" || obj.df === "" || obj.fs === "") {
-        str = "数据不能为空"
+        str = "数据不能为空";
     }
     if (str) {
-        message.error(str)
-        return false
+        message.error(str);
+        return false;
     }
-    const n = parseInt(obj.jc) + parseInt(obj.pw) + parseInt(obj.df)
-    const xs = (1 + (parseInt(((parseInt(obj.fs) - 1200) / 20 + "")) / 100))
-    const zf = parseInt(n * xs + "")
-    obj.xs = xs + ""
-    obj.zf = zf + ""
+    const n = parseInt(obj.jc) + parseInt(obj.pw) + parseInt(obj.df);
+    const xs = (1 + (parseInt(((parseInt(obj.fs) - 1200) / 20 + "")) / 100));
+    const zf = parseInt(n * xs + "");
+    obj.xs = xs + "";
+    obj.zf = zf + "";
 }
 
 </script>
@@ -55,6 +55,7 @@ function js(obj: ObjType) {
 .main {
     width: 20%;
     margin: 100px 20%;
+
     .title {
         font-size: 20px;
         text-align: center;

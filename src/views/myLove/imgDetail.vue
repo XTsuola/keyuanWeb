@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
-let resultObj = ref<any>(null)
+let resultObj = ref<any>(null);
 if (localStorage.getItem("imgObj")) {
-    resultObj.value = JSON.parse(localStorage.getItem("imgObj") as string)
+    resultObj.value = JSON.parse(localStorage.getItem("imgObj") as string);
 }
 
 </script>

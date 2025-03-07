@@ -56,6 +56,10 @@ export interface API {
 
 export type AddType = "add" | "edit" | "detail"
 
+export default {
+    name: 'AddPage'
+}
+
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType

@@ -11,7 +11,8 @@
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action' && levelId === 1">
-                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)" @cancel="cancel">
+                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                    @cancel="cancel">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </template>
@@ -20,10 +21,14 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable, message } from "ant-design-vue"
-import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination"
-import { reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { Table as aTable, message } from "ant-design-vue";
+import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
+import { reactive, ref } from "vue";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+
+export default {
+    name: 'DistributePageVue',
+}
 
 interface scrollType {
     x: number
@@ -56,12 +61,12 @@ interface RecordType {
     userName: string
 }
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
 const columns = ref<ColumnsType>([
     {
@@ -101,36 +106,36 @@ const columns = ref<ColumnsType>([
         title: "操作",
         key: "action"
     },
-])
+]);
 const prop = defineProps<{
     obj: RecordType | undefined
-}>()
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const data = ref<dataType[]>()
-const parperIdList = ref<number[]>([])
-parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : []
+}>();
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const data = ref<dataType[]>();
+const parperIdList = ref<number[]>([]);
+parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : [];
 const emit = defineEmits<{
     (event: "upDateList"): void
-}>()
-const paperSelect = ref<PaperSelectType[]>()
-const paperId = ref<number | undefined>(undefined)
+}>();
+const paperSelect = ref<PaperSelectType[]>();
+const paperId = ref<number | undefined>(undefined);
 
 async function addPaper() {
     if (paperId.value && prop.obj) {
         const data = {
             userId: prop.obj.id,
             paperId: paperId.value
-        }
-        const res = await addReport(data)
-        parperIdList.value = [...parperIdList.value, paperId.value]
+        };
+        const res = await addReport(data);
+        parperIdList.value = [...parperIdList.value, paperId.value];
         if (res) {
-            paperId.value = undefined
-            getSelect()
-            getList()
-            emit("upDateList")
+            paperId.value = undefined;
+            getSelect();
+            getList();
+            emit("upDateList");
         }
     } else {
-        message.error("请选择试卷！")
+        message.error("请选择试卷！");
     }
 }
 
@@ -139,45 +144,44 @@ async function deleteOk(e: dataType) {
         _id: e._id,
         paperId: e.paperId,
         userId: prop.obj ? prop.obj.id : 0
-    }
-    const res = await deleteReport(params)
+    };
+    const res = await deleteReport(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
         parperIdList.value = parperIdList.value.filter(item => {
-            return item !== e.paperId as number
+            return item !== e.paperId as number;
         })
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
-    getSelect()
-    getList()
-    emit("upDateList")
+    getSelect();
+    getList();
+    emit("upDateList");
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 async function getSelect() {
     if (prop.obj) {
-        const res = await getOthersPaperSelectList(parperIdList.value)
-        paperSelect.value = res.data.rows
+        const res = await getOthersPaperSelectList(parperIdList.value);
+        paperSelect.value = res.data.rows;
     }
 }
-getSelect()
+getSelect();
 
 async function getList() {
     if (prop.obj) {
         const params: PaperDataType = {
             userId: prop.obj.id,
             paperList: parperIdList.value
-        }
-        const res = await getUserPaperList(params)
-        data.value = res.data.rows
+        };
+        const res = await getUserPaperList(params);
+        data.value = res.data.rows;
     }
-
 }
-getList()
+getList();
 
 </script>
 

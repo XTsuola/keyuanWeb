@@ -14,6 +14,6 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 @import "@/assets/base.css";
 
 .routerView {
-  font-family: 'hwhm';
+  font-family: "hwhm";
 }
 </style>

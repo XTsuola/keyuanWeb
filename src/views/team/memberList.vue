@@ -1,4 +1,3 @@
-
 <template>
     {{ $t('hello.hello') }}
     <div class="main">
@@ -13,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
                         item.groupName
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -44,7 +43,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: number) => `共 ${total} 条`" @change="getList" />
+            :show-total="total => `共 ${total} 条`" @change="getList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -52,22 +51,20 @@
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
             </template>
         </a-modal>
-        <!-- <a-card style="width: 300px;height: 200px;border:1px solid red;padding: 0;">
-            <a-image :width="200" :height="200" :src="img" />
-        </a-card> -->
     </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue"
-import { Table as aTable, message } from "ant-design-vue"
-import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team"
-import type { SelectValue } from "ant-design-vue/lib/select"
-import AddPage, { type AddType, type API as AddPageAPI } from "./modal/memberAddPage.vue"
-import type { AxiosPromise } from "axios"
-import { useI18n } from "vue-i18n"
-import { render } from "vue"
-import { effect } from "vue"
+import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
+import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team";
+import type { SelectValue } from "ant-design-vue/lib/select";
+import AddPage from "./modal/memberAddPage.vue";
+import type { AddType, API as AddPageAPI } from "./modal/memberAddPage.vue";
+import type { AxiosPromise } from "axios";
+import { useI18n } from "vue-i18n";
+import { render } from "vue";
+import { effect } from "vue";
 
 export interface GroupListType {
     groupId: number
@@ -102,9 +99,12 @@ interface DataType {
     remark: string
 }
 
-const { locale, messages } = useI18n();
-locale.value = "cn"
+interface FormStateType {
+    groupValue: number | undefined
+}
 
+const { locale, messages } = useI18n();
+locale.value = "cn";
 let addParams = reactive<AddParamsType>({
     _id: "",
     id: 0,
@@ -113,29 +113,24 @@ let addParams = reactive<AddParamsType>({
     group: "",
     position: "",
     remark: ""
-})
-
-interface FormStateType {
-    groupValue: number | undefined
-}
-
-const current = ref<number>(1)
-const pageSize = ref<number>(10)
-const total = ref<number>(0)
-const title = ref<string>("添加成员")
-const addPage = ref<AddPageAPI>()
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+});
+const current = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
+const title = ref<string>("添加成员");
+const addPage = ref<AddPageAPI>();
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     groupValue: undefined
-})
-const groupList = ref<GroupListType[]>([])
+});
+const groupList = ref<GroupListType[]>([]);
 const columns = ref<ColumnType[]>([
     {
         title: "成员名称",
@@ -171,28 +166,28 @@ const columns = ref<ColumnType[]>([
         title: "操作",
         key: "action",
         width: 280
-    },
-])
-const loading = ref<boolean>(false)
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia("(max-width: 768px)")
-const type = ref<AddType>("add")
+    }
+]);
+const loading = ref<boolean>(false);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const mql = window.matchMedia("(max-width: 768px)");
+const type = ref<AddType>("add");
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 async function getGroup() {
-    const res = await getGroupInfo()
+    const res = await getGroupInfo();
     if (res.data.code === 200) {
-        groupList.value = res.data.rows
+        groupList.value = res.data.rows;
     }
 }
 
@@ -201,68 +196,68 @@ async function getList() {
         pageSize: pageSize.value,
         pageNo: current.value,
         group: formState.groupValue
-    }
-    const res = await getMemberList(params)
+    };
+    const res = await getMemberList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows
-        total.value = res.data.total
+        data.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteMember(params)
+    };
+    const res = await deleteMember(params);
     if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.msg);
     } else {
-        message.error("删除失败")
+        message.error("删除失败");
     }
-    getList()
+    getList();
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 function groupChange(e: SelectValue) {
-    getList()
+    getList();
 }
 
 function selectList() {
-    current.value = 1
-    getList()
+    current.value = 1;
+    getList();
 }
 
 function reset() {
-    formState.groupValue = undefined
-    getList()
+    formState.groupValue = undefined;
+    getList();
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
-    type.value = showType
+    type.value = showType;
     if (showType === "edit") {
-        title.value = "修改成员"
+        title.value = "修改成员";
         if (item) {
-            addParams._id = item._id
-            addParams.name = item.name
-            addParams.qq = item.qq
-            addParams.group = item.group
-            addParams.position = item.position
-            addParams.remark = item.remark
-            addParams.id = item.id
+            addParams._id = item._id;
+            addParams.name = item.name;
+            addParams.qq = item.qq;
+            addParams.group = item.group;
+            addParams.position = item.position;
+            addParams.remark = item.remark;
+            addParams.id = item.id;
         }
     } else {
-        title.value = "添加成员"
-        addParams._id = addParams.name = addParams.qq = addParams.group = addParams.position = addParams.remark = ''
-        addParams.id = 0
+        title.value = "添加成员";
+        addParams._id = addParams.name = addParams.qq = addParams.group = addParams.position = addParams.remark = "";
+        addParams.id = 0;
     }
-    visible.value = true
+    visible.value = true;
 }
 
 async function handleOk(e: MouseEvent) {
-    loading.value = true
+    loading.value = true;
     interface AType {
         axios: ((data: AddMemberParams) => AxiosPromise<any>) | ((data: UpdateMemberParams) => AxiosPromise<any>)
         msg: string
@@ -270,28 +265,28 @@ async function handleOk(e: MouseEvent) {
     let a: AType = {
         msg: "新增失败",
         axios: addMember
-    }
+    };
     if (type.value === "edit") {
-        a.axios = updateMember
-        a.msg = "修改失败"
+        a.axios = updateMember;
+        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
+    const result = await addPage.value?.getAddData();
     if (result && a.axios) {
-        const res = await a.axios(result)
+        const res = await a.axios(result);
         if (res.data.code === 200) {
-            getList()
-            message.success(res.data.msg)
-            visible.value = false
+            getList();
+            message.success(res.data.msg);
+            visible.value = false;
         } else {
-            message.error(a.msg)
+            message.error(a.msg);
         }
     }
-    loading.value = false
+    loading.value = false;
 }
 
 onMounted(() => {
-    getList()
-    getGroup()
+    getList();
+    getGroup();
 })
 
 </script>

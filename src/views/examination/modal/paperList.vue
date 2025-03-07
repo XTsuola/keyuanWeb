@@ -8,6 +8,10 @@ import { getUserPaperList, type PaperDataType } from "@/api/examination"
 import { reactive, ref } from "vue"
 import type { ColumnsType } from "ant-design-vue/es/table/interface"
 
+export default {
+  name: 'PaperList',
+}
+
 interface scrollType {
     x: number
     y: number | undefined

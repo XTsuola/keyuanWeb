@@ -11,7 +11,7 @@
                 </template>
                 <template v-else-if="column.key === 'url'">
                     <a @click="showVideo(record.url)">{{ record.name + record.url.slice(record.url.lastIndexOf("."))
-                    }}</a>
+                        }}</a>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -51,7 +51,8 @@
             </template>
         </a-modal>
         <a-modal v-model:visible="visible2" destroyOnClose title="查看锦集" :maskClosable="false">
-            <video style="width: 100%;height: 100%;" v-if="videoFlag" class="video" :src="wrcUrl" controls autoplay></video>
+            <video style="width: 100%;height: 100%;" v-if="videoFlag" class="video" :src="wrcUrl" controls
+                autoplay></video>
             <img v-if="imgFlag" :src="wrcUrl" style="width: 100%;height:100%;" />
             <template #footer></template>
         </a-modal>
@@ -60,10 +61,10 @@
 
 <script lang="ts" setup>
 import COS from "cos-js-sdk-v5"
-import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from "@/api/team"
-import { Table as aTable, message } from "ant-design-vue"
-import { onMounted, reactive, ref } from "vue"
-import { getNowTime } from "@/utils/some"
+import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from "@/api/team";
+import { Table as aTable, message } from "ant-design-vue";
+import { onMounted, reactive, ref } from "vue";
+import { getNowTime } from "@/utils/some";
 
 interface ColumnType {
     title: string
@@ -134,136 +135,134 @@ const columns = ref<ColumnType[]>([
         key: "action",
         width: 280
     },
-])
-
-const data = ref<DataType[]>([])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
-const mql = window.matchMedia("(max-width: 768px)")
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"))
-const levelId = ref<number | null>(null)
+]);
+const data = ref<DataType[]>([]);
+const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const mql = window.matchMedia("(max-width: 768px)");
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level
+    levelId.value = JSON.parse(userInfo.value).level;
 } else {
-    levelId.value = null
+    levelId.value = null;
 }
-const visible = ref<boolean>(false)
-const visible2 = ref<boolean>(false)
-const loading = ref<boolean>(false)
-const videoFlag = ref<boolean>(false)
-const imgFlag = ref<boolean>(false)
-const wrcUrl = ref<string>("")
-const addType = ref<string>("")
+const visible = ref<boolean>(false);
+const visible2 = ref<boolean>(false);
+const loading = ref<boolean>(false);
+const videoFlag = ref<boolean>(false);
+const imgFlag = ref<boolean>(false);
+const wrcUrl = ref<string>("");
+const addType = ref<string>("");
 const addData = reactive<addDataType>({
     name: "",
     url: "",
     author: "",
     time: "",
     remark: ""
-})
-const wonderfulAdd = ref()
+});
+const wonderfulAdd = ref();
 
 function mediaMatchs() {
     if (mql.matches) {
-        scrollObj.y = 550
+        scrollObj.y = 550;
     } else {
-        scrollObj.y = undefined
+        scrollObj.y = undefined;
     }
 }
-mediaMatchs()
-mql.addEventListener("change", mediaMatchs)
+mediaMatchs();
+mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const res = await getWrcList()
+    const res = await getWrcList();
     if (res.data.code === 200) {
-        data.value = res.data.rows
+        data.value = res.data.rows;
     }
 }
 
 function showModal() {
-    visible.value = true
-    addType.value = ""
-    addData.author = addData.name = addData.url = addData.time = addData.remark = ""
+    visible.value = true;
+    addType.value = "";
+    addData.author = addData.name = addData.url = addData.time = addData.remark = "";
 }
 
 function showVideo(url: string) {
-    visible2.value = true
-    const suffix = url.slice(url.lastIndexOf(".") + 1)
-    const imgType = ["jpg", "png", "gif", "jpeg", "bmp", "JPG"]
-    const videoType = ["mp4", "mp3", "m4a"]
-    imgFlag.value = imgType.includes(suffix)
-    videoFlag.value = videoType.includes(suffix)
-    wrcUrl.value = "https://" + url
+    visible2.value = true;
+    const suffix = url.slice(url.lastIndexOf(".") + 1);
+    const imgType = ["jpg", "png", "gif", "jpeg", "bmp", "JPG"];
+    const videoType = ["mp4", "mp3", "m4a"];
+    imgFlag.value = imgType.includes(suffix);
+    videoFlag.value = videoType.includes(suffix);
+    wrcUrl.value = "https://" + url;
 }
 
 async function handleOk(e: MouseEvent) {
     try {
-        await wonderfulAdd.value?.validate()
-        loading.value = true
+        await wonderfulAdd.value?.validate();
+        loading.value = true;
         const params: AddWrcPasrams = {
             name: addData.name,
             url: addData.url,
             author: addData.author,
             time: addData.time,
             remark: addData.remark
-        }
-        const res = await addWrc(params)
+        };
+        const res = await addWrc(params);
         if (res.data.code === 200) {
-            visible.value = false
-            loading.value = false
-            getList()
-            message.success(res.data.msg)
+            visible.value = false;
+            loading.value = false;
+            getList();
+            message.success(res.data.msg);
         }
     } catch (_) {
-        return false
+        return false;
     }
-
 }
 
 async function deleteOk(e: WrcDeleteType) {
     const params: DeleteParams = {
         _id: e._id
-    }
-    const res = await deleteWrc(params)
+    };
+    const res = await deleteWrc(params);
     if (res.data.code === 200) {
-        getList()
-        message.success(res.data.msg)
+        getList();
+        message.success(res.data.msg);
     } else {
-        getList()
-        message.error("删除失败")
+        getList();
+        message.error("删除失败");
     }
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 async function getWrc(e: any) {
-    const target = e.target as any
+    const target = e.target as any;
     const cos = new COS({
         SecretId: "AKID73j9JCo9D0WljRs2waw1pOghRv83h5D3",
         SecretKey: "auxjESQ6WfY9TWItDG2YnlRr0sTr0tVq"
-    })
+    });
     const tengxunCos = {
         Bucket: "suola-1300285550",
         Region: "ap-nanjing"
-    }
-    const fileName = new Date() + target.files[0].name
+    };
+    const fileName = new Date() + target.files[0].name;
     const params = {
         Bucket: tengxunCos.Bucket,
         Region: tengxunCos.Region,
         Key: fileName,
         Body: target.files[0]
-    }
+    };
     cos.putObject(params, async (error, data) => {
         if (!error) {
-            addData.url = data.Location
-            addData.time = getNowTime()
+            addData.url = data.Location;
+            addData.time = getNowTime();
         }
-    })
+    });
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

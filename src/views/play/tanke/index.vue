@@ -5,8 +5,8 @@
             <a-button size="small" @click="reset">重置关卡</a-button>
         </div>
         <div class="box">
-            <div class="list" v-for="(list, y) in mapList">
-                <div class="boxItem" v-for="(item, x) in list">
+            <div class="list" v-for="(list, y) in mapList" :key="y">
+                <div class="boxItem" v-for="(item, x) in list" :key="item + x">
                     <div v-if="item === 0">
                         <div></div>
                     </div>
@@ -46,70 +46,69 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref } from "vue"
-import jsonData from "./data.json"
-import Tanke from "./tanke.vue"
+import { reactive, ref } from "vue";
+import jsonData from "./data.json";
+import Tanke from "./tanke.vue";
 
 interface PositionType {
     x: number
     y: number
 }
 
-const flag = ref<boolean>(true)
-const level = ref<number>(0)
-const mapList = ref<number[][]>([])
-mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
-const tankeDeg = ref<string>("-90deg")
+const flag = ref<boolean>(true);
+const level = ref<number>(0);
+const mapList = ref<number[][]>([]);
+mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data));
+const tankeDeg = ref<string>("-90deg");
 const people = reactive<PositionType>({
     x: jsonData[level.value].peopleX,
     y: jsonData[level.value].peopleY
-})
-
-const trueList = [1, 2]
+});
+const trueList = [1, 2];
 
 function xuanran(x: number, y: number, direction: string) {
     if (direction === "ArrowUp") {
-        people.y--
-        mapList.value[y][x] = 0
+        people.y--;
+        mapList.value[y][x] = 0;
     } else if (direction === "ArrowLeft") {
-        people.x--
-        mapList.value[y][x] = 0
+        people.x--;
+        mapList.value[y][x] = 0;
     } else if (direction === "ArrowDown") {
-        people.y++
-        mapList.value[y][x] = 0
+        people.y++;
+        mapList.value[y][x] = 0;
     } else if (direction === "ArrowRight") {
-        mapList.value[y][x] = 0
-        people.x++
+        people.x++;
+        mapList.value[y][x] = 0;
     }
 }
 
 function moveIt(direction: string) {
     if (direction === "ArrowUp") {
         if (tankeDeg.value === "-90deg" && people.y > 0 && trueList.findIndex(item => item == mapList.value[people.y - 1][people.x]) == -1) {
-            xuanran(people.x, people.y - 1, direction)
+            xuanran(people.x, people.y - 1, direction);
         } else {
-            tankeDeg.value = "-90deg"
+            tankeDeg.value = "-90deg";
         }
     } else if (direction === "ArrowLeft") {
         if (tankeDeg.value === "180deg" && people.x > 0 && trueList.findIndex(item => item == mapList.value[people.y][people.x - 1]) == -1) {
-            xuanran(people.x - 1, people.y, direction)
+            xuanran(people.x - 1, people.y, direction);
         } else {
-            tankeDeg.value = "180deg"
+            tankeDeg.value = "180deg";
         }
     } else if (direction === "ArrowDown") {
         if (tankeDeg.value === "90deg" && people.y < 8 && trueList.findIndex(item => item == mapList.value[people.y + 1][people.x]) == -1) {
-            xuanran(people.x, people.y + 1, direction)
+            xuanran(people.x, people.y + 1, direction);
         } else {
-            tankeDeg.value = "90deg"
+            tankeDeg.value = "90deg";
         }
     } else if (direction === "ArrowRight") {
         if (tankeDeg.value === "0deg" && people.x < 8 && trueList.findIndex(item => item == mapList.value[people.y][people.x + 1]) == -1) {
-            xuanran(people.x + 1, people.y, direction)
+            xuanran(people.x + 1, people.y, direction);
         } else {
-            tankeDeg.value = "0deg"
+            tankeDeg.value = "0deg";
         }
     } else if (direction === " ") {
-        sendZidan(people.x, people.y, tankeDeg.value)
+        sendZidan(people.x, people.y, tankeDeg.value);
     }
 }
 
@@ -117,163 +116,146 @@ document.onkeydown = function (event) {
     var e = event || window.event || arguments.callee.caller.arguments[0];
     if (e && e.key === "ArrowUp") {
         if (tankeDeg.value === "-90deg" && people.y > 0 && trueList.findIndex(item => item == mapList.value[people.y - 1][people.x]) == -1) {
-            xuanran(people.x, people.y - 1, e.key)
+            xuanran(people.x, people.y - 1, e.key);
         } else {
-            tankeDeg.value = "-90deg"
+            tankeDeg.value = "-90deg";
         }
     } else if (e && e.key === "ArrowLeft") {
         if (tankeDeg.value === "180deg" && people.x > 0 && trueList.findIndex(item => item == mapList.value[people.y][people.x - 1]) == -1) {
-            xuanran(people.x - 1, people.y, e.key)
+            xuanran(people.x - 1, people.y, e.key);
         } else {
-            tankeDeg.value = "180deg"
+            tankeDeg.value = "180deg";
         }
     } else if (e && e.key === "ArrowDown") {
         if (tankeDeg.value === "90deg" && people.y < 8 && trueList.findIndex(item => item == mapList.value[people.y + 1][people.x]) == -1) {
-            xuanran(people.x, people.y + 1, e.key)
+            xuanran(people.x, people.y + 1, e.key);
         } else {
-            tankeDeg.value = "90deg"
+            tankeDeg.value = "90deg";
         }
     } else if (e && e.key === "ArrowRight") {
         if (tankeDeg.value === "0deg" && people.x < 8 && trueList.findIndex(item => item == mapList.value[people.y][people.x + 1]) == -1) {
-            xuanran(people.x + 1, people.y, e.key)
+            xuanran(people.x + 1, people.y, e.key);
         } else {
-            tankeDeg.value = "0deg"
+            tankeDeg.value = "0deg";
         }
     } else if (e && e.key === " ") {
-        sendZidan(people.x, people.y, tankeDeg.value)
+        sendZidan(people.x, people.y, tankeDeg.value);
     }
 }
 
 function sendZidan(x: number, y: number, deg: string) {
     if (deg === "0deg") {
-        let timer: number | null = null
+        let timer: number | null = null;
         if (x < 8) {
-            x++
+            x++;
             if (mapList.value[y][x] == 2) {
-                return false
+                return false;
             }
-            mapList.value[y][x] = 9
+            mapList.value[y][x] = 9;
             timer = setInterval(() => {
                 if (x < 8) {
                     if (mapList.value[y][x + 1] == 2 && timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
-                        return false
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
+                        return false;
                     }
-                    mapList.value[y][x] = 0
-                    mapList.value[y][x + 1] = 9
+                    mapList.value[y][x] = 0;
+                    mapList.value[y][x + 1] = 9;
                 } else {
                     if (timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
                     }
                 }
-                x++
-            }, 50)
+                x++;
+            }, 50);
         }
     } else if (deg === "90deg") {
-        let timer: number | null = null
+        let timer: number | null = null;
         if (y < 8) {
-            y++
+            y++;
             if (mapList.value[y][x] == 2) {
-                return false
+                return false;
             }
-            mapList.value[y][x] = 9
+            mapList.value[y][x] = 9;
             timer = setInterval(() => {
                 if (y < 8) {
                     if (mapList.value[y + 1][x] == 2 && timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
-                        return false
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
+                        return false;
                     }
-                    mapList.value[y][x] = 0
-                    mapList.value[y + 1][x] = 9
+                    mapList.value[y][x] = 0;
+                    mapList.value[y + 1][x] = 9;
                 } else {
                     if (timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
                     }
                 }
-                y++
-            }, 50)
+                y++;
+            }, 50);
         }
     } else if (deg === "-90deg") {
-        let timer: number | null = null
+        let timer: number | null = null;
         if (y > 0) {
-            y--
+            y--;
             if (mapList.value[y][x] == 2) {
-                return false
+                return false;
             }
-            mapList.value[y][x] = 9
+            mapList.value[y][x] = 9;
             timer = setInterval(() => {
                 if (y > 0) {
                     if (mapList.value[y - 1][x] == 2 && timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
-                        return false
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
+                        return false;
                     }
-                    mapList.value[y][x] = 0
-                    mapList.value[y - 1][x] = 9
+                    mapList.value[y][x] = 0;
+                    mapList.value[y - 1][x] = 9;
                 } else {
                     if (timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
                     }
                 }
-                y--
-            }, 50)
+                y--;
+            }, 50);
         }
     } else if (deg === "180deg") {
         let timer: number | null = null
         if (x > 0) {
-            x--
+            x--;
             if (mapList.value[y][x] == 2) {
-                return false
+                return false;
             }
-            mapList.value[y][x] = 9
+            mapList.value[y][x] = 9;
             timer = setInterval(() => {
                 if (x > 0) {
                     if (mapList.value[y][x - 1] == 2 && timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
-                        return false
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
+                        return false;
                     }
-                    mapList.value[y][x] = 0
-                    mapList.value[y][x - 1] = 9
+                    mapList.value[y][x] = 0;
+                    mapList.value[y][x - 1] = 9;
                 } else {
                     if (timer) {
-                        clearInterval(timer)
-                        mapList.value[y][x] = 0
+                        clearInterval(timer);
+                        mapList.value[y][x] = 0;
                     }
                 }
-                x--
-            }, 50)
+                x--;
+            }, 50);
         }
     }
 }
 
 function reset() {
-    mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
-    people.x = jsonData[level.value].peopleX
-    people.y = jsonData[level.value].peopleY
+    mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data));
+    people.x = jsonData[level.value].peopleX;
+    people.y = jsonData[level.value].peopleY;
 }
-
-/* watch(count, (newValue, oldValue) => {
-    if (newValue === jsonData[level.value].score) {
-        heartList = []
-        count.value = 0
-        if (level.value < jsonData.length - 1) {
-            level.value++
-            message.success("进入下一关")
-            mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data))
-            people.x = jsonData[level.value].peopleX
-            people.y = jsonData[level.value].peopleY
-        } else {
-            message.success("恭喜通关")
-            flag.value = false
-        }
-    }
-}) */
 
 </script>
 

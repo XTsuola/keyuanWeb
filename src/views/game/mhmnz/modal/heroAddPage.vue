@@ -56,21 +56,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from "@/api/mhmnz"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../heroList.vue"
+import { ref } from "vue";
+import type { AddHeroParams, UpdateHeroParams } from "@/api/mhmnz";
+import type { AddParamsType, Type } from "../heroList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const heroAdd = ref()
+}>();
+const heroAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     star: undefined,
@@ -83,9 +87,9 @@ const addData = ref<AddParamsType>({
     castGrainSkill: "",
     talent: "",
     introduce: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const starList = ref<Type[]>([{
     label: "LLR",
@@ -102,14 +106,14 @@ const starList = ref<Type[]>([{
 }, {
     label: "R",
     value: 1
-}])
+}]);
 const genderList = ref<Type[]>([{
     label: "男",
     value: 1,
 }, {
     label: "女",
     value: 2,
-}])
+}]);
 const campList = ref<Type[]>([{
     label: "主角光环",
     value: 1,
@@ -146,7 +150,7 @@ const campList = ref<Type[]>([{
 }, {
     label: "梦幻转生",
     value: 12,
-}])
+}]);
 
 async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
@@ -165,10 +169,10 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             castGrainSkill: addData.value.castGrainSkill,
             talent: addData.value.talent,
             introduce: addData.value.introduce
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

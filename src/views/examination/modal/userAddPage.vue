@@ -29,19 +29,23 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddUserType, EditUserType } from "@/api/examination"
-import type { FormInstance } from "ant-design-vue"
-import { ref } from "vue"
-import type { TypeFlag } from "../paperList.vue"
+import { ref } from "vue";
+import type { AddUserType, EditUserType } from "@/api/examination";
+import type { FormInstance } from "ant-design-vue";
+import type { TypeFlag } from "../paperList.vue";
 
 export interface API {
     getAddData: () => Promise<false | EditUserType>
 }
 
+export default {
+    name: 'UserAdd'
+}
+
 const prop = defineProps<{
     flag: TypeFlag
     obj: AddUserType | EditUserType
-}>()
+}>();
 
 interface addDataType {
     id?: number
@@ -60,22 +64,23 @@ const addData = ref<addDataType>({
     age: "",
     level: undefined,
     remark: ""
-})
+});
+
 if (prop.flag === "edit") {
-    const data: EditUserType = JSON.parse(JSON.stringify(prop.obj))
-    addData.value.id = data.id
-    addData.value.userName = data.userName
-    addData.value.account = data.account
-    addData.value.password = data.password
-    addData.value.age = data.age
-    addData.value.level = data.level
-    addData.value.remark = data.remark
+    const data: EditUserType = JSON.parse(JSON.stringify(prop.obj));
+    addData.value.id = data.id;
+    addData.value.userName = data.userName;
+    addData.value.account = data.account;
+    addData.value.password = data.password;
+    addData.value.age = data.age;
+    addData.value.level = data.level;
+    addData.value.remark = data.remark;
 }
-const paperAdd = ref<FormInstance>()
+const paperAdd = ref<FormInstance>();
 
 async function getAddData(): Promise<false | AddUserType | EditUserType> {
     try {
-        await paperAdd.value?.validate()
+        await paperAdd.value?.validate();
         const returnData: AddUserType | EditUserType = {
             id: addData.value.id,
             userName: addData.value.userName,
@@ -84,10 +89,10 @@ async function getAddData(): Promise<false | AddUserType | EditUserType> {
             age: addData.value.age,
             level: addData.value.level,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (error) {
-        return false
+        return false;
     }
 }
 

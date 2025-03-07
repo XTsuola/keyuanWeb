@@ -31,30 +31,34 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddHeroParams, UpdateHeroParams } from "@/api/wzry"
-import { ref } from "vue"
-import type { AddParamsType, Type } from "../heroList.vue"
+import { ref } from "vue";
+import type { AddHeroParams, UpdateHeroParams } from "@/api/wzry";
+import type { AddParamsType, Type } from "../heroList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export default {
+    name: 'AddPage'
+}
 
 const prop = defineProps<{
     type: AddType
     addParams: AddParamsType
-}>()
-const heroAdd = ref()
+}>();
+const heroAdd = ref();
 const addData = ref<AddParamsType>({
     name: "",
     gender: undefined,
     position: [],
     skin: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const genderList = ref<Type[]>([{
     label: "男",
@@ -62,7 +66,7 @@ const genderList = ref<Type[]>([{
 }, {
     label: "女",
     value: 2,
-}])
+}]);
 const positionList = ref<Type[]>([{
     label: "战士",
     value: 1,
@@ -81,11 +85,11 @@ const positionList = ref<Type[]>([{
 }, {
     label: "辅助",
     value: 6,
-}])
+}]);
 
 async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
-        await heroAdd.value?.validate()
+        await heroAdd.value?.validate();
         const returnData: AddHeroParams | UpdateHeroParams = {
             _id: addData.value._id,
             id: addData.value.id,
@@ -94,10 +98,10 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
             position: addData.value.position,
             skin: addData.value.skin,
             remark: addData.value.remark
-        }
-        return returnData
+        };
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

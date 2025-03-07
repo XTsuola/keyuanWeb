@@ -2,9 +2,8 @@
     <div class="photo">
         <div style="padding: 10px;"><a-button @click="showAdd">添加回忆</a-button></div>
         <ul>
-            <li v-for="item in photoList" style="width: 9%;">
-                <img @click="showDetail(item)" style="width: 100%;"
-                    :src="baseUrl + 'photoImg/' + item.url" />
+            <li v-for="item in photoList" :key="item" style="width: 9%;">
+                <img @click="showDetail(item)" style="width: 100%;" :src="baseUrl + 'photoImg/' + item.url" />
             </li>
         </ul>
         <render-vnode :vNode="text"></render-vnode>
@@ -46,11 +45,11 @@
 </template>
 
 <script lang="ts" setup>
-import { h, onMounted, reactive, ref } from "vue"
-import { message } from "ant-design-vue"
-import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove"
-import { getNowTime } from "@/utils/some"
-import RenderVnode from "./ceshi"
+import { h, onMounted, reactive, ref } from "vue";
+import { message } from "ant-design-vue";
+import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
+import { getNowTime } from "@/utils/some";
+import RenderVnode from "./ceshi";
 
 interface PhotoType {
     _id: string
@@ -61,86 +60,85 @@ interface PhotoType {
     remark: string
 }
 
-const baseUrl = import.meta.env.VITE_APP_BASE_URL
-
-const str = "../../assets/images/game/box/caiwenji.jpg"
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const str = "../../assets/images/game/box/caiwenji.jpg";
 const text = h("img", {
     src: new URL(str, import.meta.url),
     style: "width:120px;height:120px;margin-left:16px",
-})
-const photoAdd = ref()
-const photoList = ref<PhotoType[]>([])
-const visible = ref(false)
-const loading = ref(false)
+});
+const photoAdd = ref();
+const photoList = ref<PhotoType[]>([]);
+const visible = ref(false);
+const loading = ref(false);
 const addData = reactive<AddPhotoParams>({
     name: "",
     url: "",
     createTime: "",
     remark: "",
     imgType: ""
-})
-const visible2 = ref(false)
-const detailTitle = ref("")
-const detailUrl = ref("")
-const nowImgId = ref("")
-const nowUrl = ref("")
+});
+const visible2 = ref(false);
+const detailTitle = ref("");
+const detailUrl = ref("");
+const nowImgId = ref("");
+const nowUrl = ref("");
 
 function showAdd() {
-    visible.value = true
-    addData.name = addData.url = addData.createTime = addData.remark = addData.imgType = ""
+    visible.value = true;
+    addData.name = addData.url = addData.createTime = addData.remark = addData.imgType = "";
 }
 
 async function handleOk() {
-    loading.value = true
+    loading.value = true;
     try {
-        await photoAdd.value?.validate()
-        const res = await addPhoto(addData)
+        await photoAdd.value?.validate();
+        const res = await addPhoto(addData);
         if (res.data.code == 200) {
-            loading.value = false
-            visible.value = false
-            message.success("新增成功")
-            getList()
+            loading.value = false;
+            visible.value = false;
+            message.success("新增成功");
+            getList();
         }
     } catch (_) {
-        loading.value = false
+        loading.value = false;
     }
 }
 
 function getPhoto(e: any) {
-    const target = e.target as any
-    const list = ["image/png", "image/jpg", "image/bmp", "image/jpeg"]
+    const target = e.target as any;
+    const list = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
     if (target) {
         if (target.files[0]) {
             if (list.indexOf(target.files[0].type) == -1) {
-                message.error("仅支持上传图片！")
-                return false
+                message.error("仅支持上传图片！");
+                return false;
             } else {
-                addData.imgType = list[list.indexOf(target.files[0].type)].split("/")[1]
+                addData.imgType = list[list.indexOf(target.files[0].type)].split("/")[1];
             }
         } else {
-            return false
+            return false;
         }
-        const reader = new FileReader()
-        reader.readAsDataURL(target.files[0])
+        const reader = new FileReader();
+        reader.readAsDataURL(target.files[0]);
         reader.addEventListener("load", async (e) => {
             if (e.target && typeof e.target.result === "string") {
-                addData.url = e.target.result
-                addData.createTime = getNowTime()
+                addData.url = e.target.result;
+                addData.createTime = getNowTime();
             }
         })
     }
 }
 
 function showDetail(item: PhotoType) {
-    visible2.value = true
-    nowImgId.value = item._id
-    detailTitle.value = item.name
-    nowUrl.value = item.url
-    detailUrl.value = import.meta.env.VITE_APP_BASE_URL + "photoImg/" + item.url
+    visible2.value = true;
+    nowImgId.value = item._id;
+    detailTitle.value = item.name;
+    nowUrl.value = item.url;
+    detailUrl.value = import.meta.env.VITE_APP_BASE_URL + "photoImg/" + item.url;
 }
 
 function closeDetail() {
-    visible2.value = false
+    visible2.value = false;
 }
 
 async function deleteImg() {
@@ -148,29 +146,29 @@ async function deleteImg() {
         const params: DeletePhotoParams = {
             _id: nowImgId.value,
             url: nowUrl.value
-        }
-        const res = await deletePhoto(params)
+        };
+        const res = await deletePhoto(params);
         if (res.data.code == 200) {
-            visible2.value = false
-            message.success("删除成功")
-            getList()
+            visible2.value = false;
+            message.success("删除成功");
+            getList();
         }
     }
 }
 
 function cancel() {
-    message.error("取消删除")
+    message.error("取消删除");
 }
 
 async function getList() {
-    const res = await getPhotoList()
+    const res = await getPhotoList();
     if (res.data.code == 200) {
-        photoList.value = res.data.rows
+        photoList.value = res.data.rows;
     }
 }
 
 onMounted(() => {
-    getList()
+    getList();
 })
 
 </script>

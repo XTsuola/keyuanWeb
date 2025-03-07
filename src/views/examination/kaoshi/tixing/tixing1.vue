@@ -9,7 +9,7 @@
         </video>
         <div>
             <a-radio-group v-model:value="prop.obj.answer">
-                <div class="radioDiv" v-for="(select, index) in prop.obj.selectArr">
+                <div class="radioDiv" v-for="(select, index) in prop.obj.selectArr" :key="index">
                     <a-radio :key="index + 1" :value="index + 1">{{ abcdArr[index] }}: {{ select }}</a-radio>
                 </div>
             </a-radio-group>
@@ -18,39 +18,41 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
-import type { test1 } from './tixing'
+import { ref, onMounted } from 'vue';
+import type { test1 } from './tixing';
 
-defineEmits(["update:obj"])
+export default {
+    name: 'Tixing1',
+}
+defineEmits(["update:obj"]);
 
 const prop = defineProps<{
     obj: test1
 }>()
-const abcdArr = ref<Array<string>>(["A", "B", "C", "D"])
-const url = ref<string>("")
-const imgFlag = ref<boolean>(false)
-const videoFlag = ref<boolean>(false)
-const imgSuffixList = ref<string[]>([".jpg", ".png", ".gif", ".jpeg", ".bmp"])
-const videoSuffixList = ref<string[]>([".mp4", ".mp3", ".m4a"])
+const abcdArr = ref<Array<string>>(["A", "B", "C", "D"]);
+const url = ref<string>("");
+const imgFlag = ref<boolean>(false);
+const videoFlag = ref<boolean>(false);
+const imgSuffixList = ref<string[]>([".jpg", ".png", ".gif", ".jpeg", ".bmp"]);
+const videoSuffixList = ref<string[]>([".mp4", ".mp3", ".m4a"]);
 
 onMounted(() => {
     if (prop.obj.url) {
-        let str = prop.obj.url
-        const index = str.lastIndexOf('.')
-        const suffix = str.substring(index, str.length)
+        let str = prop.obj.url;
+        const index = str.lastIndexOf('.');
+        const suffix = str.substring(index, str.length);
         if (imgSuffixList.value.includes(suffix)) {
-            imgFlag.value = true
-            videoFlag.value = false
-            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url
-        } else if(videoSuffixList.value.includes(suffix)) {
-            imgFlag.value = false
-            videoFlag.value = true
-            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url
+            imgFlag.value = true;
+            videoFlag.value = false;
+            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url;
+        } else if (videoSuffixList.value.includes(suffix)) {
+            imgFlag.value = false;
+            videoFlag.value = true;
+            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url;
         }
     } else {
-        imgFlag.value = false
-        videoFlag.value = false
-        url.value = ""
+        imgFlag.value = videoFlag.value = false;
+        url.value = "";
     }
 })
 
@@ -60,23 +62,28 @@ onMounted(() => {
 .type {
     color: darkgreen;
 }
+
 .main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
     div {
         width: 100%;
     }
+
     .title {
         display: flex;
         justify-content: flex-start;
     }
+
     .radioDiv {
         display: flex;
         justify-content: flex-start;
         padding: 10px 5px;
     }
 }
+
 .video {
     width: 60vw;
     height: 45vw;
