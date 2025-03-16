@@ -11,7 +11,7 @@ export function login(data: LoginParams) {
     {
       url: "/login",
       method: "post",
-      data: data,
+      data: data
     },
     false
   );

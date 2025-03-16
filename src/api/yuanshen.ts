@@ -134,7 +134,7 @@ export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/yuanshen/getHeroList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -143,7 +143,7 @@ export function addHero(data: AddHeroParams) {
   return request({
     url: "/yuanshen/addHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -152,7 +152,7 @@ export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/yuanshen/updateHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -161,7 +161,7 @@ export function deleteHero(data: DeleteParams) {
   return request({
     url: "/yuanshen/deleteHero",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -170,7 +170,7 @@ export function getWeaponList(data: GetWeaponListParams) {
   return request({
     url: "/yuanshen/getWeaponList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -179,7 +179,7 @@ export function addWeapon(data: AddWeaponParams) {
   return request({
     url: "/yuanshen/addWeapon",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -188,7 +188,7 @@ export function updateWeapon(data: UpdateWeaponParams) {
   return request({
     url: "/yuanshen/updateWeapon",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -197,7 +197,7 @@ export function deleteWeapon(data: DeleteParams) {
   return request({
     url: "/yuanshen/deleteWeapon",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -206,7 +206,7 @@ export function getRelicsList(data: GetRelicsListParams) {
   return request({
     url: "/yuanshen/getRelicsList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -215,7 +215,7 @@ export function addRelics(data: AddRelicsParams) {
   return request({
     url: "/yuanshen/addRelics",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -224,7 +224,7 @@ export function updateRelics(data: UpdateRelicsParams) {
   return request({
     url: "/yuanshen/updateRelics",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -233,7 +233,7 @@ export function deleteRelics(data: DeleteParams) {
   return request({
     url: "/yuanshen/deleteRelics",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -242,7 +242,7 @@ export function getEnemyList(data: GetEnemyListParams) {
   return request({
     url: "/yuanshen/getEnemyList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -251,7 +251,7 @@ export function addEnemy(data: AddEnemyParams) {
   return request({
     url: "/yuanshen/addEnemy",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -260,7 +260,7 @@ export function updateEnemy(data: UpdateEnemyParams) {
   return request({
     url: "/yuanshen/updateEnemy",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -269,7 +269,7 @@ export function deleteEnemy(data: DeleteParams) {
   return request({
     url: "/yuanshen/deleteEnemy",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -278,7 +278,7 @@ export function getAbyss12List(data: GetAbyss12ListParams) {
   return request({
     url: "/yuanshen/getAbyss12List",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -287,7 +287,7 @@ export function addAbyss12(data: AddAbyss12Params) {
   return request({
     url: "/yuanshen/addAbyss12",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -296,7 +296,7 @@ export function updateAbyss12(data: UpdateAbyss12Params) {
   return request({
     url: "/yuanshen/updateAbyss12",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -305,6 +305,6 @@ export function deleteAbyss12(data: DeleteParams) {
   return request({
     url: "/yuanshen/deleteAbyss12",
     method: "get",
-    params: data,
+    params: data
   });
 }

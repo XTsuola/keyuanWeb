@@ -13,7 +13,7 @@ export const levelName = {
 }
 
 export async function getImg(str: string, callback: (e: any) => void) {
-    const url = new URL(str, import.meta.url)
+    const url = new URL(str, import.meta.url);
     // const url = (await import(str)).default
 }
 

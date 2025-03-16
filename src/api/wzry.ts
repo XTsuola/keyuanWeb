@@ -31,7 +31,7 @@ export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/wzry/getHeroList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -40,7 +40,7 @@ export function addHero(data: AddHeroParams) {
   return request({
     url: "/wzry/addHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -49,7 +49,7 @@ export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/wzry/updateHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -58,6 +58,6 @@ export function deleteHero(data: DeleteParams) {
   return request({
     url: "/wzry/deleteHero",
     method: "get",
-    params: data,
+    params: data
   });
 }

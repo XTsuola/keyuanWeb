@@ -86,7 +86,7 @@ export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/mhmnz/getHeroList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -95,7 +95,7 @@ export function addHero(data: AddHeroParams) {
   return request({
     url: "/mhmnz/addHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -104,7 +104,7 @@ export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/mhmnz/updateHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -113,7 +113,7 @@ export function deleteHero(data: DeleteParams) {
   return request({
     url: "/mhmnz/deleteHero",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -122,7 +122,7 @@ export function getArmsList(data: GetArmsListParams) {
   return request({
     url: "/mhmnz/getArmsList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -131,7 +131,7 @@ export function addArms(data: AddArmsParams) {
   return request({
     url: "/mhmnz/addArms",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -140,7 +140,7 @@ export function updateArms(data: UpdateArmsParams) {
   return request({
     url: "/mhmnz/updateArms",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -149,7 +149,7 @@ export function deleteArms(data: DeleteParams) {
   return request({
     url: "/mhmnz/deleteArms",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -158,7 +158,7 @@ export function getWeaponList(data: GetWeaponListParams) {
   return request({
     url: "/mhmnz/getWeaponList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -167,7 +167,7 @@ export function addWeapon(data: AddWeaponParams) {
   return request({
     url: "/mhmnz/addWeapon",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -176,7 +176,7 @@ export function updateWeapon(data: UpdateWeaponParams) {
   return request({
     url: "/mhmnz/updateWeapon",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -185,6 +185,6 @@ export function deleteWeapon(data: DeleteParams) {
   return request({
     url: "/mhmnz/deleteWeapon",
     method: "get",
-    params: data,
+    params: data
   });
 }

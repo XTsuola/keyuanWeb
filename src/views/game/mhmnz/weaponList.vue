@@ -331,7 +331,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
         title.value = "添加装备";
         addParams.star = addParams.weaponType = addParams.isExclusive = undefined;
         addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = "";
-        addParams.id = 0
+        addParams.id = 0;
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {

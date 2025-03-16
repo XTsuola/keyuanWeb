@@ -54,7 +54,7 @@ export function getUserInfo(data: GetUserInfoParams) {
   return request({
     url: "/getUserInfo",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -63,7 +63,7 @@ export function updateImg(data: UpdateImgParams) {
   return request({
     url: "/updateImg",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -72,7 +72,7 @@ export function getMemberList(data: GetMemberListParams) {
   return request({
     url: "/getMemberList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -80,7 +80,7 @@ export function getMemberList(data: GetMemberListParams) {
 export function getGroupInfo() {
   return request({
     url: "/getGroupInfo",
-    method: "get",
+    method: "get"
   });
 }
 
@@ -89,7 +89,7 @@ export function addMember(data: AddMemberParams) {
   return request({
     url: "/addMember",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -98,7 +98,7 @@ export function updateMember(data: UpdateMemberParams) {
   return request({
     url: "/updateMember",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -107,7 +107,7 @@ export function deleteMember(data: DeleteParams) {
   return request({
     url: "/deleteMember",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -115,7 +115,7 @@ export function deleteMember(data: DeleteParams) {
 export function getWelfareList() {
   return request({
     url: "/getWelfareList",
-    method: "get",
+    method: "get"
   });
 }
 
@@ -124,7 +124,7 @@ export function addWelfare(data: AddWelfareParams) {
   return request({
     url: "/addWelfare",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -133,7 +133,7 @@ export function updateWelfare(data: UpdateWelfareParams) {
   return request({
     url: "/updateWelfare",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -142,7 +142,7 @@ export function deleteWelfare(data: DeleteParams) {
   return request({
     url: "/deleteWelfare",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -150,7 +150,7 @@ export function deleteWelfare(data: DeleteParams) {
 export function getWrcList() {
   return request({
     url: "/getWrcList",
-    method: "get",
+    method: "get"
   });
 }
 
@@ -159,7 +159,7 @@ export function addWrcVideo(data: any) {
   return request({
     url: "/addWrcVideo",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -168,7 +168,7 @@ export function addWrcImg(data: any) {
   return request({
     url: "/addWrcImg",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -177,7 +177,7 @@ export function deleteWrc(data: DeleteParams) {
   return request({
     url: "/deleteWrc",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -186,6 +186,6 @@ export function addWrc(data: AddWrcPasrams) {
   return request({
     url: "/addWrc",
     method: "post",
-    data: data,
+    data: data
   });
 }

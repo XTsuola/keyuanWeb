@@ -30,7 +30,7 @@ export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/xingta/getHeroList",
     method: "get",
-    params: data,
+    params: data
   });
 }
 
@@ -39,7 +39,7 @@ export function addHero(data: AddHeroParams) {
   return request({
     url: "/xingta/addHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -48,7 +48,7 @@ export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/xingta/updateHero",
     method: "post",
-    data: data,
+    data: data
   });
 }
 
@@ -57,6 +57,6 @@ export function deleteHero(data: DeleteParams) {
   return request({
     url: "/xingta/deleteHero",
     method: "get",
-    params: data,
+    params: data
   });
 }

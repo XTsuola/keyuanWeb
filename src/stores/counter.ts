@@ -4,10 +4,10 @@ export const useCounterStore = defineStore({
   id: "counter",
   state: () => ({
     counter: 0,
-    guochangFlag: false,
+    guochangFlag: false
   }),
   getters: {
-    doubleCount: (state) => state.counter * 2,
+    doubleCount: (state) => state.counter * 2
   },
   actions: {
     increment() {
@@ -15,6 +15,6 @@ export const useCounterStore = defineStore({
     },
     updateFlag(flag: boolean) {
       this.guochangFlag = flag;
-    },
+    }
   },
 });
