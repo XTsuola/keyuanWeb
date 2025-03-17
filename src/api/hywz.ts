@@ -36,7 +36,7 @@ export function getArmsList(data: GetArmsListParams) {
   return request({
     url: "/hywz/getArmsList",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -45,7 +45,7 @@ export function addArms(data: AddArmsParams) {
   return request({
     url: "/hywz/addArms",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -54,7 +54,7 @@ export function updateArms(data: UpdateArmsParams) {
   return request({
     url: "/hywz/updateArms",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -63,6 +63,6 @@ export function deleteArms(data: DeleteParams) {
   return request({
     url: "/hywz/deleteArms",
     method: "get",
-    params: data
+    params: data,
   });
 }

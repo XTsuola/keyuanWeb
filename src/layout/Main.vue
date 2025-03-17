@@ -13,7 +13,7 @@
                 <div class="breadCrumbItem" v-for="(item, index) in extraBreadCrumbs">
                     <span @click="tabBreadCrumb(item)" :class="{ breadCrumbItemLink: item.type === 'menu' }">{{
                         item.label
-                    }}</span>
+                        }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
             </div>
@@ -47,12 +47,14 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
+import { getUserInfo, updateImg } from "@/api/team";
 import { SettingFilled } from "@ant-design/icons-vue";
 import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router";
+import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 import router from "@/router";
 import imgBase from "@/assets/images/lanlingwang.jpg";
-import { getUserInfo, updateImg } from "@/api/team";
-import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
+
+
 
 interface UserInfo {
     id: number

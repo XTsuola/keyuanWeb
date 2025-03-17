@@ -8,8 +8,8 @@
 
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import MenuItem from "./menuItem.vue";
 import { useRoute, useRouter } from "vue-router";
+import MenuItem from "./menuItem.vue";
 
 const router = useRouter();
 const route = useRoute();

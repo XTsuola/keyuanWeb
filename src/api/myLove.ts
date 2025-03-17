@@ -46,7 +46,7 @@ export interface DeletePhotoParams {
 export function getPhotoList() {
   return request({
     url: "/myLove/photoList",
-    method: "get"
+    method: "get",
   });
 }
 
@@ -55,7 +55,7 @@ export function addPhoto(data: AddPhotoParams) {
   return request({
     url: "/myLove/addPhoto",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -64,7 +64,7 @@ export function deletePhoto(data: DeletePhotoParams) {
   return request({
     url: "/myLove/deletePhoto",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -73,7 +73,7 @@ export function getCookList(data: GetCookListParams) {
   return request({
     url: "/myLove/getCookList",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -82,7 +82,7 @@ export function addCook(data: AddCookParams) {
   return request({
     url: "/myLove/addCook",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -91,7 +91,7 @@ export function updateCook(data: UpdateCookParams) {
   return request({
     url: "/myLove/updateCook",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -100,6 +100,6 @@ export function deleteCook(data: DeleteParams) {
   return request({
     url: "/myLove/deleteCook",
     method: "get",
-    params: data
+    params: data,
   });
 }

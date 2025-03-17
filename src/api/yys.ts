@@ -37,7 +37,7 @@ export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/yys/getHeroList",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -46,7 +46,7 @@ export function addHero(data: AddHeroParams) {
   return request({
     url: "/yys/addHero",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -55,7 +55,7 @@ export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/yys/updateHero",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -64,6 +64,6 @@ export function deleteHero(data: DeleteParams) {
   return request({
     url: "/yys/deleteHero",
     method: "get",
-    params: data
+    params: data,
   });
 }

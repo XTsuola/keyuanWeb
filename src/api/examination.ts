@@ -108,7 +108,7 @@ export interface ResetPaperType {
 export function getQuestionList() {
   return request({
     url: "/getQuestionList",
-    method: "get"
+    method: "get",
   });
 }
 
@@ -117,7 +117,7 @@ export function addQuestion(data: AddQuestionType) {
   return request({
     url: "/addQuestion",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -126,7 +126,7 @@ export function updateQuestion(data: EditQuestionType) {
   return request({
     url: "/updateQuestion",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -135,7 +135,7 @@ export function deleteQuestion(data: DeleteParams) {
   return request({
     url: "/deleteQuestion",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -143,7 +143,7 @@ export function deleteQuestion(data: DeleteParams) {
 export function getPaperList() {
   return request({
     url: "/getPaperList",
-    method: "get"
+    method: "get",
   });
 }
 
@@ -152,7 +152,7 @@ export function addPaper(data: AddPaperType) {
   return request({
     url: "/addPaper",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -161,7 +161,7 @@ export function updatePaper(data: EditPaperType) {
   return request({
     url: "/updatePaper",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -170,7 +170,7 @@ export function deletePaper(data: DeleteParams) {
   return request({
     url: "/deletePaper",
     method: "get",
-    params: data
+    params: data,
   });
 }
 
@@ -179,7 +179,7 @@ export function getStemArrList(data: number[]) {
   return request({
     url: "/getStemArrList",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -187,7 +187,7 @@ export function getStemArrList(data: number[]) {
 export function getUserList() {
   return request({
     url: "/getUserList",
-    method: "get"
+    method: "get",
   });
 }
 
@@ -196,7 +196,7 @@ export function addUser(data: AddUserType) {
   return request({
     url: "/addUser",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -205,7 +205,7 @@ export function updateUser(data: EditUserType) {
   return request({
     url: "/updateUser",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -214,7 +214,7 @@ export function deleteUser(data: EditUserType) {
   return request({
     url: "/deleteUser",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -222,7 +222,7 @@ export function deleteUser(data: EditUserType) {
 export function getStudentsPaper() {
   return request({
     url: "/getStudentsPaper",
-    method: "get"
+    method: "get",
   });
 }
 
@@ -231,7 +231,7 @@ export function getUserPaperList(data: PaperDataType) {
   return request({
     url: "/getUserPaperList",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -240,7 +240,7 @@ export function getOthersPaperSelectList(data: number[]) {
   return request({
     url: "/getOthersPaperSelectList",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -249,7 +249,7 @@ export function addReport(data: AddReportType) {
   return request({
     url: "/addReport",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -258,7 +258,7 @@ export function deleteReport(data: DeleteReportType) {
   return request({
     url: "/deleteReport",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -266,7 +266,7 @@ export function deleteReport(data: DeleteReportType) {
 export function getMyPaperlist(id: number) {
   return request({
     url: "/getMyPaperlist?id=" + id,
-    method: "get"
+    method: "get",
   });
 }
 
@@ -274,7 +274,7 @@ export function getMyPaperlist(id: number) {
 export function getNowPaper(id: number) {
   return request({
     url: "/getNowPaper?id=" + id,
-    method: "get"
+    method: "get",
   });
 }
 
@@ -283,7 +283,7 @@ export function autoUpdatePaper(data: AutoUpdatePaperParams) {
   return request({
     url: "/autoUpdatePaper",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -292,7 +292,7 @@ export function resetNowPaper(data: ResetPaperType) {
   return request({
     url: "/resetReport",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -301,7 +301,7 @@ export function getResult(data: GetResult) {
   return request({
     url: "/getResult",
     method: "post",
-    data: data
+    data: data,
   });
 }
 
@@ -310,6 +310,6 @@ export function hhh(data: any) {
   return request({
     url: "/sds",
     method: "post",
-    data: data
+    data: data,
   });
 }
