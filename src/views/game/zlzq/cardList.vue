@@ -4,6 +4,9 @@
             卡牌列表
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+            <a-form-item label="名称" style="width: 200px">
+                <a-input v-model:value="formState.name" style="width: 120px;" placeholder="输入名称" />
+            </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
@@ -276,6 +279,7 @@ const levelList = [{
     value: 18
 }];
 const formState = reactive({
+    name: undefined,
     zhenyin: [],
     quality: undefined,
     level: undefined,
@@ -302,6 +306,10 @@ async function getList() {
     lianyushenyuan.forEach((item: any) => item.zhenyin = 6);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe];
+    if (formState.name) {
+        console.log(formState.name)
+        allData = allData.filter((item: any) => item.name.includes(formState.name));
+    }
     if (formState.zhenyin.length > 0) {
         allData = allData.filter((item: any) => formState.zhenyin.findIndex((e: any) => e == item.zhenyin) != -1)
     }
@@ -326,7 +334,7 @@ async function getList() {
 
 function reset() {
     formState.zhenyin = [];
-    formState.quality = formState.cost = formState.type = formState.level = undefined;
+    formState.name = formState.quality = formState.cost = formState.type = formState.level = undefined;
     getList();
 }
 
