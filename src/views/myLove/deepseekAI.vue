@@ -397,11 +397,13 @@ onMounted(async () => {
         border-radius: 8px;
         padding: 16px;
         box-sizing: border-box;
+        overflow: auto;
 
         .message-area {
-            height: calc(100% - 45px - 8px - 36px);
+            height: calc(100% - 45px - 36px);
             width: 100%;
-            padding: 8px 8px 0 8px;
+            padding: 8px 8px 4px 8px;
+            margin-bottom: 10px;
         }
 
         .user-tokens {

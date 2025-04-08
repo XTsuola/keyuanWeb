@@ -126,6 +126,34 @@ defineExpose({
     font-size: 0.875rem;
     line-height: 1.4;
 
+    :deep(h1) {
+      color: #fff;
+    }
+
+    :deep(h2) {
+      color: #fff;
+    }
+
+    :deep(h3) {
+      color: #fff;
+    }
+
+    :deep(h4) {
+      color: #fff;
+    }
+
+    :deep(h5) {
+      color: #fff;
+    }
+
+    :deep(ul) {
+      margin-left: 24px;
+    }
+
+    :deep(ol) {
+      margin-left: 24px;
+    }
+
     :deep(p) {
       margin: 0.5rem 0;
     }
@@ -148,6 +176,7 @@ defineExpose({
     }
   }
 }
+
 .message-item__avatar {
   border-radius: 50%;
 }

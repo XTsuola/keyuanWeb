@@ -9,14 +9,14 @@
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" name="gender" :rules="[{ required: true, message: '请选择性别!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" name="camp" :rules="[{ required: true, message: '请选阵营!' }]">
@@ -24,7 +24,7 @@
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="天赋">
@@ -46,7 +46,8 @@
                 <a-input v-model:value="addData.exclusive" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="铸纹技能">
-                <a-textarea v-model:value="addData.castGrainSkill" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 80px;" v-model:value="addData.castGrainSkill"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="介绍">
                 <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
