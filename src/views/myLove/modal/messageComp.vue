@@ -69,6 +69,7 @@ defineExpose({
 
 .box-item {
   margin-bottom: 12px;
+  margin-right: 12px;
 }
 
 .message-item {

@@ -47,10 +47,6 @@
                                 if (e.isComposing || loading) return;
                                 handleRequest();
                             }" autoComplete="off" />
-                        <!-- <a-select v-model="queryInfos.model" class="model-select" @change="handleModelChange">
-                            <a-option label="DeepSeek" value="deepseek-chat" />
-                            <a-option label="Gemini" value="gemini-chat" />
-                        </a-select> -->
                         <a-button class="send_btn" type="primary" @click="handleRequest" :disabled="!queryKeys"
                             :loading="loading" :class="queryKeys ? 'classA' : ''">
                             <send-outlined />
@@ -235,8 +231,8 @@ onMounted(async () => {
     initIndex();
     initToken();
     initOpenAI();
-      await nextTick()
-      messageRef.value.scrollBottom();
+    await nextTick()
+    messageRef.value.scrollBottom();
 });
 
 </script>
@@ -319,7 +315,7 @@ onMounted(async () => {
         background-color: #2f2f2f;
         padding: 16px;
         border-radius: 8px;
-        height: calc(94vh - 40px - 32px);
+        height: calc(95vh - 180px);
 
         .session-area {
             margin-top: 16px;
@@ -392,7 +388,7 @@ onMounted(async () => {
 
     .container {
         width: 100%;
-        height: calc(94% - 40px);
+        height: 100%;
         background: #1f1f1f;
         border-radius: 8px;
         padding: 16px;
@@ -404,6 +400,19 @@ onMounted(async () => {
             width: 100%;
             padding: 8px 8px 4px 8px;
             margin-bottom: 10px;
+
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background-color: #1f1f1f;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: rgba(254, 44, 85, 0.3);
+                border-radius: 2px;
+            }
         }
 
         .user-tokens {
