@@ -503,6 +503,17 @@ const newRouterDate: Array<RouteRecordRaw> = [
             },
             component: () => import("@/views/myLove/myCanvas.vue"),
           },
+          {
+            path: "deepseekAI",
+            meta: {
+              menuType: "menu",
+              key: "deepseekAI",
+              label: "星塔问答",
+              icon: "UnorderedListOutlined",
+              isLevel: [1, 3],
+            },
+            component: () => import("@/views/myLove/deepseekAI.vue"),
+          },
         ],
       },
     ],
