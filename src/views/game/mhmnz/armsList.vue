@@ -116,6 +116,7 @@ let addParams = reactive<AddParamsType>({
     def: "",
     mof: "",
     talent: "",
+    skin: "",
     remark: ""
 });
 const current = ref<number>(1);
@@ -310,13 +311,14 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.def = item.def;
             addParams.mof = item.mof;
             addParams.talent = item.talent;
+            addParams.skin = item.skin;
             addParams.remark = item.remark;
             addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加兵种";
         addParams.type = undefined;
-        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.remark = "";
+        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.skin = addParams.remark = "";
         addParams.id = 0;
     } else if (showType == "detail") {
         title.value = "查看详情";
@@ -328,6 +330,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.def = item.def;
             addParams.mof = item.mof;
             addParams.talent = item.talent;
+            addParams.skin = item.skin;
             addParams.remark = item.remark;
         }
     }

@@ -13,21 +13,21 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
                 <a-select v-model:value="formState.camp" @change="selectList" placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="兵种" style="width: 220px">
@@ -35,6 +35,9 @@
             </a-form-item>
             <a-form-item label="技能组" style="width: 220px">
                 <a-input v-model:value="formState.skillGroup" placeholder="请输入技能组" />
+            </a-form-item>
+            <a-form-item label="皮肤" style="width: 220px">
+                <a-input v-model:value="formState.skin" placeholder="请输入皮肤" />
             </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
@@ -143,6 +146,7 @@ let addParams = reactive<AddParamsType>({
     skillGroup: "",
     castGrainSkill: "",
     talent: "",
+    skin: "",
     introduce: ""
 });
 const total = ref<number>(0);
@@ -164,7 +168,8 @@ const formState = reactive<GetHeroListParams>({
     gender: undefined,
     camp: undefined,
     arms: undefined,
-    skillGroup: undefined
+    skillGroup: undefined,
+    skin: undefined
 });
 const starList = ref<Type[]>([{
     label: "全部",
@@ -358,7 +363,7 @@ function selectList() {
 }
 
 function reset() {
-    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.skillGroup = undefined;
+    formState.name = formState.star = formState.gender = formState.camp = formState.arms = formState.skillGroup = formState.skin = undefined;
     selectList();
 }
 
@@ -378,6 +383,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.skillGroup = item.skillGroup;
             addParams.castGrainSkill = item.castGrainSkill;
             addParams.talent = item.talent;
+            addParams.skin = item.skin;
             addParams.camp = item.camp;
             addParams.id = item.id;
         }
@@ -385,7 +391,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
         title.value = "添加英雄";
         addParams.gender = addParams.star = undefined;
         addParams.camp = [];
-        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.castGrainSkill = addParams.introduce = "";
+        addParams._id = addParams.name = addParams.exclusive = addParams.superSkill = addParams.castGrainSkill = addParams.castGrainSkill = addParams.skin = addParams.introduce = "";
         addParams.id = 0;
     } else if (showType === "detail") {
         title.value = "查看详情";
@@ -400,6 +406,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.skillGroup = item.skillGroup;
             addParams.castGrainSkill = item.castGrainSkill;
             addParams.talent = item.talent;
+            addParams.skin = item.skin;
             addParams.camp = item.camp;
         }
     }

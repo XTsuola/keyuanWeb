@@ -9,6 +9,7 @@ export interface GetHeroListParams {
   camp: number | undefined;
   arms: string | undefined;
   skillGroup: string | undefined;
+  skin: string | undefined;
 }
 
 export interface AddHeroParams {
@@ -22,6 +23,7 @@ export interface AddHeroParams {
   skillGroup: string;
   castGrainSkill: string;
   talent: string;
+  skin: string
   introduce: string;
 }
 
@@ -45,6 +47,7 @@ export interface AddArmsParams {
   def: string;
   mof: string;
   talent: string;
+  skin: string
   remark: string;
 }
 

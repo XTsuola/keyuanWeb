@@ -27,6 +27,9 @@
             <a-form-item label="技能">
                 <a-textarea v-model:value="addData.talent" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
+            <a-form-item label="皮肤">
+                <a-textarea v-model:value="addData.skin" :disabled="prop.type === 'detail'"></a-textarea>
+            </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
@@ -58,6 +61,7 @@ const addData = ref<AddParamsType>({
     def: "",
     mof: "",
     talent: "",
+    skin: "",
     remark: ""
 });
 if (prop.type === "edit" || prop.type === "detail") {
@@ -108,6 +112,7 @@ async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
             def: addData.value.def,
             mof: addData.value.mof,
             talent: addData.value.talent,
+            skin: addData.value.skin,
             remark: addData.value.remark
         };
         return returnData;
