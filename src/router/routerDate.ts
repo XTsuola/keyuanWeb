@@ -276,6 +276,26 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/cardList.vue"),
               },
+              {
+                path: "zhenizhiquanCardLevel",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanCardLevel",
+                  label: "我的卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/cardLevel.vue"),
+              },
+              {
+                path: "zhenizhiquanYiluolian",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanYiluolian",
+                  label: "伊萝莲",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
+              },
             ],
           },
           {
