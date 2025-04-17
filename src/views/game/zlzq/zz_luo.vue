@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 220px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -76,7 +76,7 @@
 <script lang="ts" setup>
 import { getMyCard } from "@/utils/some";
 import { onMounted, reactive, ref } from "vue";
-import simangdiguo from "./myCardLevel/simangdiguo.json";
+import chanyigu from "./myCardLevel/chanyigu.json";
 import yinmizhe from "./myCardLevel/yinmizhe.json";
 
 export interface Type {
@@ -237,8 +237,8 @@ const typeList = [{
     value: 3
 }];
 const zhenyinList = [{
-    label: "四芒帝国",
-    value: 1
+    label: "禅意谷",
+    value: 2
 }, {
     label: "隐秘者",
     value: 7
@@ -292,13 +292,14 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    simangdiguo.forEach((item: any) => item.zhenyin = 1);
+    chanyigu.forEach((item: any) => item.zhenyin = 2);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    let tempData: any = [...simangdiguo, ...yinmizhe];
-    const myCardList = ["圣殿斥候", "学仆-观测型", "天使琼浆", "沉默否定1", "塔楼弓手", "增援战线", "光明惩戒1", "光明惩戒2", "隐形术", "圣殿御卫",
-        "破魔系教授", "克隆术", "边境高墙", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3", "幻域秘树", "召集护卫", "观星台大预言家", "惩戒天使",
-        "禁卫指挥官", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "流星-7号", "明日香·露娜", "月之神·米拉", "白袍·伊恩", "火蛇巫女·沃凡瑞拉", "武圣·云长"];
+    let tempData: any = [...chanyigu, ...yinmizhe];
+    const myCardList = ["卜命道长", "箭竹守卫", "学仆-观测型", "白羊药师", "树木之怒", "苦行武僧", "沉默否定1", "执剑道者", "铁山靠", "连击1",
+        "深山采药人", "风铃道人", "隐形术", "破魔系教授", "克隆术", "扫叶僧", "驱魔道人", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3",
+        "幻域秘树", "御风武者", "观星台大预言家", "米拉方舟", "流岚刃·琳", "流星-7号", "九天玄女·轩", "上宝沁金耙", "月之神·米拉", "火蛇巫女·沃凡瑞拉"];
     let allData = getMyCard(tempData, myCardList);
+    console.log(allData, "ppp")
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });
     const orangeList = allData.filter(e => e.quality == "橙").map(e => { return e.level });

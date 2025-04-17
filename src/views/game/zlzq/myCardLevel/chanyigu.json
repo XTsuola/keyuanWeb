@@ -232,6 +232,17 @@
   },
   {
     "quality": "橙",
+    "name": "流岚刃·琳",
+    "cost": 3,
+    "level": 12,
+    "type": 1,
+    "attack": 10,
+    "life": 13,
+    "effect": "【神佑】、受到传承:隐形3回合，攻击次数永久加1。",
+    "remark": ""
+  },
+  {
+    "quality": "橙",
     "name": "九天玄女·轩",
     "cost": 4,
     "level": 12,

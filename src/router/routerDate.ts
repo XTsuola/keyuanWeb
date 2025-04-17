@@ -296,6 +296,36 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
               },
+              {
+                path: "zhenizhiquanBaichuzun",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanBaichuzun",
+                  label: "白处尊",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_baichuzun.vue"),
+              },
+              {
+                path: "zhenizhiquanLuo",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanLuo",
+                  label: "洛",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_luo.vue"),
+              },
+              {
+                path: "zhenizhiquanAsitala",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenizhiquanAsitala",
+                  label: "阿斯塔拉",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_asitala.vue"),
+              },
             ],
           },
           {
