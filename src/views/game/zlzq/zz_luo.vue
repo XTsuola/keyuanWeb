@@ -295,8 +295,8 @@ async function getList() {
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let tempData: any = [...chanyigu, ...yinmizhe];
-    const myCardList = ["卜命道长", "箭竹守卫", "学仆-观测型", "白羊药师", "树木之怒", "苦行武僧", "沉默否定1", "执剑道者", "铁山靠", "连击1",
-        "深山采药人", "风铃道人", "隐形术", "破魔系教授", "克隆术", "扫叶僧", "驱魔道人", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3",
+    const myCardList = ["卜命道长", "学仆-观测型", "白羊药师", "树木之怒", "苦行武僧", "沉默否定1", "沉默否定2", "执剑道者", "铁山靠", "连击1",
+        "连击2", "深山采药人", "风铃道人", "隐形术", "破魔系教授", "克隆术", "扫叶僧", "驱魔道人", "学仆-脉冲型1", "学仆-脉冲型2",
         "幻域秘树", "御风武者", "观星台大预言家", "米拉方舟", "流岚刃·琳", "流星-7号", "九天玄女·轩", "上宝沁金耙", "月之神·米拉", "火蛇巫女·沃凡瑞拉"];
     let allData = getMyCard(tempData, myCardList);
     console.log(allData, "ppp")
