@@ -44,7 +44,6 @@ function change2() {
 
 async function testMongodb() {
     const res = await testMongo();
-    console.log(res, "ress")
 }
 
 onMounted(() => {

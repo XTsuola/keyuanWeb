@@ -299,7 +299,6 @@ async function getList() {
         "连击2", "深山采药人", "风铃道人", "隐形术", "破魔系教授", "克隆术", "扫叶僧", "驱魔道人", "学仆-脉冲型1", "学仆-脉冲型2",
         "幻域秘树", "御风武者", "观星台大预言家", "米拉方舟", "流岚刃·琳", "流星-7号", "九天玄女·轩", "上宝沁金耙", "月之神·米拉", "火蛇巫女·沃凡瑞拉"];
     let allData = getMyCard(tempData, myCardList);
-    console.log(allData, "ppp")
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });
     const orangeList = allData.filter(e => e.quality == "橙").map(e => { return e.level });
