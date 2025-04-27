@@ -189,3 +189,10 @@ export function addWrc(data: AddWrcPasrams) {
     data: data,
   });
 }
+
+export function testMongo() {
+  return request({
+    url: "/testMongo",
+    method: "get",
+  });
+}

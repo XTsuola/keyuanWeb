@@ -15,10 +15,8 @@ export function getNowTime(): string {
 }
 
 export function getMyCard(allData, myCardList) {
-  console.log(allData, "ccc");
   const list = [];
   for (let i = 0; i < myCardList.length; i++) {
-    console.log(myCardList[i]);
     let ind = allData.findIndex((e) => e.name == myCardList[i]);
     list.push(allData[ind]);
   }

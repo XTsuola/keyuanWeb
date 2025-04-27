@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+import { testMongo } from "@/api/team";
 import { ref, type Directive, onMounted, onBeforeMount, provide } from "vue";
 import xiangcePage from "./modal/xiangcePage.vue";
 
@@ -40,6 +41,14 @@ provide("name", name);
 function change2() {
     name2.value = "111";
 }
+
+async function testMongodb() {
+    const res = await testMongo();
+}
+
+onMounted(() => {
+    testMongodb()
+})
 
 </script>
 

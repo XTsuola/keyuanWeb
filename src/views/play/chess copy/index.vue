@@ -25,8 +25,6 @@
                 当前：
                 <span v-if="status == 1" :class="nowPlay == 1 ? 'red' : 'black'">{{ nowPlay == 1 ? "红旗" : "黑旗" }}</span>
                 <span v-else>对局结束</span>
-                <div v-if="status == 2" :class="nowPlay == 1 ? 'red' : 'black'">{{ nowPlay == 1 ? "黑棋获胜" : "红棋获胜" }}
-                </div>
             </div>
         </div>
         <div class="reset">
@@ -35,31 +33,15 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import jsonData from "./data.json";
 import { initArray2, luoji } from "./fun";
-import { getChessMap, resetChessMap, updateChessMap } from "@/api/chess";
 
 const mapData = ref<any>([]);
 mapData.value = jsonData.map;
 const status = ref(0);
 status.value = jsonData.status;
-const translate: any = {
-    "1": "兵",
-    "2": "炮",
-    "3": "車",
-    "4": "馬",
-    "5": "相",
-    "6": "仕",
-    "7": "帥",
-    "11": "卒",
-    "12": "炮",
-    "13": "車",
-    "14": "馬",
-    "15": "象",
-    "16": "士",
-    "17": "将"
-}
+const translate: any = jsonData.translate;
 const nowIndex = ref<number | null>(null);
 const nowQizi = ref<number | null>(null);
 const canMap = ref<any>([]);
@@ -78,11 +60,7 @@ function getNowClass(index: number) {
     }
 }
 
-async function getQizi(index1: number, index2: number, isBlank?: boolean) {
-    if (status.value != 1) {
-        alert("对局已结束，" + (nowPlay.value == 1 ? "黑棋" : "红棋") + "获胜！");
-        return false;
-    }
+function getQizi(index1: number, index2: number, isBlank?: boolean) {
     let qizi = mapData.value[index1][index2];
     if (nowPlay.value == 1) {
         if (qizi < 10 && !isBlank) {
@@ -92,14 +70,18 @@ async function getQizi(index1: number, index2: number, isBlank?: boolean) {
         } else {
             if (canMap.value[index1][index2] == 1) {
                 if (nowIndex.value != null) {
-                    const data = {
-                        nowPlay: 1,
-                        nowIndex: nowIndex.value,
-                        index1: index1,
-                        index2: index2,
-                        qizi: nowQizi.value
+                    if (mapData.value[index1][index2] == 17) {
+                        status.value = 2;
+                        alert("红方获胜！");
+                        return false;
+                    } else {
+                        let indexOne: number = Math.floor(nowIndex.value / 10);
+                        let indexTwo: number = nowIndex.value % 10;
+                        mapData.value[index1][index2] = nowQizi.value;
+                        mapData.value[indexOne][indexTwo] = 0;
+                        nowIndex.value = null;
+                        nowPlay.value = 2;
                     }
-                    uopdateData(data);
                 }
             }
         }
@@ -111,15 +93,17 @@ async function getQizi(index1: number, index2: number, isBlank?: boolean) {
         } else {
             if (canMap.value[index1][index2] == 1) {
                 if (nowIndex.value != null) {
-                    if (nowIndex.value != null) {
-                        const data = {
-                            nowPlay: 2,
-                            nowIndex: nowIndex.value,
-                            index1: index1,
-                            index2: index2,
-                            qizi: nowQizi.value
-                        }
-                        uopdateData(data);
+                    if (mapData.value[index1][index2] == 7) {
+                        status.value = 2;
+                        alert("黑方获胜！");
+                        return false;
+                    } else {
+                        let indexOne: number = Math.floor(nowIndex.value / 10);
+                        let indexTwo: number = nowIndex.value % 10;
+                        mapData.value[index1][index2] = nowQizi.value;
+                        mapData.value[indexOne][indexTwo] = 0;
+                        nowIndex.value = null;
+                        nowPlay.value = 1;
                     }
                 }
             }
@@ -141,39 +125,9 @@ function panduan2(index1: number, index2: number) {
     return false;
 }
 
-async function getData() {
-    const res = await getChessMap();
-    if (res.data.code == 200) {
-        mapData.value = res.data.data.map;
-        nowPlay.value = res.data.data.nowPlay;
-        status.value = res.data.data.status;
-        if (res.data.data.status == 2) {
-            alert("游戏已结束，" + (nowPlay.value == 1 ? "黑棋" : "红棋") + "获胜！");
-        }
-    }
+function reset() {
+    alert("重新开始！")
 }
-
-async function uopdateData(data: any) {
-    const res = await updateChessMap(data);
-    if (res.data.code == 200) {
-        nowIndex.value = null;
-        getData();
-    }
-}
-
-async function reset() {
-    const res = await resetChessMap();
-    if (res.data.code == 200) {
-        nowIndex.value = nowQizi.value = null;
-        nowPlay.value = 1;
-        status.value = 1;
-    }
-    getData();
-}
-
-onMounted(() => {
-    getData();
-})
 
 </script>
 <style lang="less" scoped>

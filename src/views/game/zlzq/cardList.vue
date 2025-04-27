@@ -307,7 +307,6 @@ async function getList() {
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe];
     if (formState.name) {
-        console.log(formState.name)
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
     if (formState.zhenyin.length > 0) {

@@ -69,10 +69,10 @@
     "quality": "紫",
     "name": "学仆-脉冲型1",
     "cost": 3,
-    "level": 14,
+    "level": 16,
     "type": 1,
-    "attack": 9,
-    "life": 16,
+    "attack": 11,
+    "life": 20,
     "effect": "【洞察1】、洞察时：自身+2/+6，射击英雄。",
     "remark": ""
   },
@@ -80,10 +80,10 @@
     "quality": "紫",
     "name": "学仆-脉冲型2",
     "cost": 3,
-    "level": 14,
+    "level": 16,
     "type": 1,
-    "attack": 9,
-    "life": 16,
+    "attack": 11,
+    "life": 20,
     "effect": "【洞察1】、洞察时：自身+2/+6，射击英雄。",
     "remark": ""
   },
@@ -96,6 +96,17 @@
     "attack": 9,
     "life": 16,
     "effect": "【洞察1】、洞察时：自身+2/+6，射击英雄。",
+    "remark": ""
+  },
+  {
+    "quality": "紫",
+    "name": "学仆-猛禽型",
+    "cost": 3,
+    "level": 12,
+    "type": 1,
+    "attack": 12,
+    "life": 3,
+    "effect": "【先攻】、命中时：【洞察1】、洞察时：全体先攻友军攻击+5。",
     "remark": ""
   },
   {
