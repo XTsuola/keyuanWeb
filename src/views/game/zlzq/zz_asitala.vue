@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 220px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -295,9 +295,9 @@ async function getList() {
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let tempData: any = [...simangdiguo, ...yinmizhe];
-    const myCardList = ["圣殿斥候", "学仆-观测型1", "学仆-观测型2", "方尖魔碑", "天使琼浆", "沉默否定1", "沉默否定2", "塔楼弓手", "光明惩戒1", "光明惩戒2",
-        "隐形术", "四芒军旗", "圣殿御卫", "破魔系教授", "克隆术", "边境高墙", "学仆-脉冲型1", "学仆-脉冲型2", "幻域秘树", "召集护卫",
-        "观星台大预言家", "惩戒天使", "禁卫指挥官", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "明日香·露娜", "月之神·米拉", "白袍·伊恩", "火蛇巫女·沃凡瑞拉"];
+    const myCardList = ["圣殿斥候", "学仆-观测型1", "学仆-观测型2", "方尖魔碑", "天使琼浆", "圣殿卫士", "沉默否定1", "沉默否定2", "塔楼弓手", "全数否定",
+        "光明惩戒1", "光明惩戒2", "隐形术", "圣殿御卫", "破魔系教授", "克隆术", "边境高墙", "学仆-脉冲型1", "学仆-脉冲型2", "幻域秘树",
+        "召集护卫", "观星台大预言家", "惩戒天使", "禁卫指挥官", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "明日香·露娜", "月之神·米拉", "白袍·伊恩"];
     let allData = getMyCard(tempData, myCardList);
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });

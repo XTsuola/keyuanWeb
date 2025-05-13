@@ -76,8 +76,8 @@
 <script lang="ts" setup>
 import { getMyCard } from "@/utils/some";
 import { onMounted, reactive, ref } from "vue";
+import simangdiguo from "./myCardLevel/simangdiguo.json";
 import chanyigu from "./myCardLevel/chanyigu.json";
-import yinmizhe from "./myCardLevel/yinmizhe.json";
 
 export interface Type {
     label: string
@@ -237,11 +237,11 @@ const typeList = [{
     value: 3
 }];
 const zhenyinList = [{
+    label: "四芒帝国",
+    value: 1
+}, {
     label: "禅意谷",
     value: 2
-}, {
-    label: "隐秘者",
-    value: 7
 }];
 const levelList = [{
     label: "全部",
@@ -292,12 +292,12 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
+    simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
-    yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    let tempData: any = [...chanyigu, ...yinmizhe];
-    const myCardList = ["卜命道长", "学仆-观测型", "白羊药师", "树木之怒", "苦行武僧", "沉默否定1", "沉默否定2", "执剑道者", "铁山靠", "连击1",
-        "连击2", "深山采药人", "风铃道人", "隐形术", "破魔系教授", "克隆术", "扫叶僧", "驱魔道人", "学仆-脉冲型1", "学仆-脉冲型2",
-        "幻域秘树", "御风武者", "观星台大预言家", "米拉方舟", "流岚刃·琳", "流星-7号", "九天玄女·轩", "上宝沁金耙", "月之神·米拉", "火蛇巫女·沃凡瑞拉"];
+    let tempData: any = [...simangdiguo, ...chanyigu];
+    const myCardList = ["圣殿斥候", "卜命道长", "旅行背包", "苦行武僧", "塔楼弓手", "执剑道者", "龟族僧人", "连击1", "连击2", "深山采药人",
+        "叶幻师", "铁山靠", "祥云师太", "光明惩戒1", "光明惩戒2", "圣殿御卫", "驱魔道人", "扫叶僧", "圣殿骑士", "冲锋装备",
+        "召集护卫", "禁卫指挥官", "花光春影·安娜贝尔", "火凤凰·琳", "百花长枪·卡罗琳", "明日香·露娜", "上宝沁金耙", "九天玄女·轩", "白袍·伊恩", "武圣·云长"];
     let allData = getMyCard(tempData, myCardList);
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });

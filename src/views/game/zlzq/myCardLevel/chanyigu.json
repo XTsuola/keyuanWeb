@@ -36,11 +36,11 @@
     "quality": "蓝",
     "name": "苦行武僧",
     "cost": 2,
-    "level": 13,
+    "level": 14,
     "type": 1,
-    "attack": 11,
-    "life": 13,
-    "effect": "【传承4】、回合结束:自身+3/+3，魔防+2。",
+    "attack": 12,
+    "life": 15,
+    "effect": "【传承5】、回合结束:自身+3/+3，魔防+3。",
     "remark": ""
   },
   {
@@ -63,6 +63,17 @@
     "attack": 21,
     "life": 28,
     "effect": "命中玩家:全体友军+3/+4。",
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "龟族僧人",
+    "cost": 3,
+    "level": 15,
+    "type": 1,
+    "attack": 14,
+    "life": 24,
+    "effect": "【护甲4】、【回命】、获得传承:护甲+5。",
     "remark": ""
   },
   {
@@ -221,25 +232,14 @@
   },
   {
     "quality": "橙",
-    "name": "御风武者",
-    "cost": 3,
-    "level": 14,
-    "type": 1,
-    "attack": 19,
-    "life": 15,
-    "effect": "【神佑】、受到传承:隐形3回合，攻击次数永久加1。",
-    "remark": ""
-  },
-  {
-    "quality": "橙",
-    "name": "流岚刃·琳",
+    "name": "火凤凰·琳",
     "cost": 3,
     "level": 12,
     "type": 1,
     "attack": 10,
     "life": 13,
     "effect": "【神佑】、受到传承:隐形3回合，攻击次数永久加1。",
-    "remark": ""
+    "remark": "【火鸟之歌】：所有传承友军具有【魂音】，回合开始、命中：其他传承友军攻击+1"
   },
   {
     "quality": "橙",
