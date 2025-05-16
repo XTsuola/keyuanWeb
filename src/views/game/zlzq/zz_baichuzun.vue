@@ -295,9 +295,9 @@ async function getList() {
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     let tempData: any = [...simangdiguo, ...chanyigu];
-    const myCardList = ["圣殿斥候", "卜命道长", "天使琼浆", "苦行武僧", "塔楼弓手", "执剑道者", "增援战线", "龟族僧人", "连击1", "连击2",
-        "深山采药人", "叶幻师", "光明惩戒1", "光明惩戒2", "圣殿御卫", "边境高墙", "驱魔道人", "扫叶僧", "圣殿骑士", "冲锋装备",
-        "召集护卫", "禁卫指挥官", "花光春影·安娜贝尔", "火凤凰·琳", "百花长枪·卡罗琳", "明日香·露娜", "上宝沁金耙", "九天玄女·轩", "白袍·伊恩", "武圣·云长"];
+    const myCardList = ["圣殿斥候", "卜命道长", "天使琼浆", "塔楼弓手", "圣殿弩手", "执剑道者", "增援战线", "龟族僧人", "连击1", "连击2",
+        "深山采药人", "光明惩戒1", "光明惩戒2", "圣殿御卫", "边境高墙", "驱魔道人", "扫叶僧", "圣殿骑士", "冲锋装备", "召集护卫",
+        "禁卫指挥官", "花光春影·安娜贝尔", "火凤凰·琳", "百花长枪·卡罗琳", "明日香·露娜", "上宝沁金耙", "九天玄女·轩", "永恒之王·莱哈特", "白袍·伊恩", "武圣·云长"];
     let allData = getMyCard(tempData, myCardList);
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });
