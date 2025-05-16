@@ -3,10 +3,10 @@
         "quality": "白",
         "name": "学仆-基础型",
         "cost": 0,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 11,
-        "life": 11,
+        "attack": 13,
+        "life": 13,
         "effect": "/",
         "remark": ""
     },
@@ -14,43 +14,54 @@
         "quality": "白",
         "name": "灵能炸弹",
         "cost": 0,
-        "level": 16,
+        "level": 18,
         "type": 1,
         "attack": 0,
         "life": 1,
-        "effect": "【隐形】、【守军】、【魔免】、充能时爆炸:英雄受到16点伤害，所有相邻友军受到5点伤害。",
+        "effect": "【隐形】、【守军】、【魔免】、充能时爆炸:英雄受到18点伤害，所有相邻友军受到5点伤害。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "沉默术",
         "cost": 1,
-        "level": 16,
+        "level": 18,
         "type": 2,
         "attack": 0,
         "life": 0,
-        "effect": "目标区域坠落16点伤害，并沉默目标单位。",
+        "effect": "目标区域坠落18点伤害，并沉默目标单位。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "幻象巨蛇",
         "cost": 1,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 20,
-        "life": 20,
+        "attack": 24,
+        "life": 24,
         "effect": "【幻象】。",
+        "remark": ""
+    },
+    {
+        "quality": "白",
+        "name": "真理石碎片",
+        "cost": 1,
+        "level": 18,
+        "type": 2,
+        "attack": 0,
+        "life": 0,
+        "effect": "随机友军+1/+1，用于充能。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "机械系学徒",
         "cost": 2,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 13,
-        "life": 13,
+        "attack": 16,
+        "life": 16,
         "effect": "【穿透】。",
         "remark": ""
     },
@@ -58,44 +69,44 @@
         "quality": "白",
         "name": "学仆-发条型",
         "cost": 2,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 15,
-        "life": 15,
-        "effect": "死亡:随机友军+8/+8。",
+        "attack": 17,
+        "life": 17,
+        "effect": "死亡:随机友军+8/+10。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "扭曲之力",
         "cost": 2,
-        "level": 16,
+        "level": 18,
         "type": 2,
         "attack": 0,
         "life": 0,
-        "effect": "目标单位+16/-16。",
+        "effect": "目标单位+18/-18。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "学仆-联能型",
         "cost": 3,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 18,
-        "life": 11,
-        "effect": "攻击前:随机敌军受到3点伤害。",
+        "attack": 21,
+        "life": 13,
+        "effect": "攻击前:随机敌军受到4点伤害。",
         "remark": ""
     },
     {
         "quality": "白",
         "name": "学仆-增强型",
         "cost": 4,
-        "level": 16,
+        "level": 18,
         "type": 1,
-        "attack": 18,
-        "life": 18,
-        "effect": "登场:随机友军+7/+7。",
+        "attack": 22,
+        "life": 22,
+        "effect": "登场:随机友军+9/+9。",
         "remark": ""
     },
     {
@@ -887,7 +898,7 @@
         "type": 1,
         "attack": 50,
         "life": 38,
-        "effect": "登场:前方竖排召唤三个24/24幻象巨蛇-lv18、回合结束:获得两个幻象巨蛇-lv18。",
+        "effect": "登场:前方竖排召唤三个24/24幻象巨蛇-lv18、回合结束:获得两个24/24幻象巨蛇-lv18。",
         "remark": ""
     },
     {
@@ -909,7 +920,7 @@
         "type": 3,
         "attack": 0,
         "life": 0,
-        "effect": "随机敌军攻击-10，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】。",
+        "effect": "随机敌军攻击-20，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】。",
         "remark": ""
     },
     {
@@ -920,7 +931,7 @@
         "type": 3,
         "attack": 0,
         "life": 0,
-        "effect": "在目标区域和随机区域召唤2个18/18幻想蛇-lv15，获得【传记·荒芜挽歌·终】。",
+        "effect": "在目标区域和随机区域召唤2个20/20幻想蛇-lv16，获得【传记·荒芜挽歌·终】。",
         "remark": ""
     },
     {
@@ -931,7 +942,7 @@
         "type": 3,
         "attack": 0,
         "life": 0,
-        "effect": "所有幻象生物+13/+13(无视魔免)。",
+        "effect": "所有幻象生物+18/+18(无视魔免)。",
         "remark": ""
     }
 ]
