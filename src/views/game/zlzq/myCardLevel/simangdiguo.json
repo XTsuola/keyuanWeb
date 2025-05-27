@@ -157,11 +157,11 @@
     "quality": "紫",
     "name": "圣殿骑士",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 1,
-    "attack": 12,
-    "life": 27,
-    "effect": "【护甲3】、【回命】、【协战6】。",
+    "attack": 13,
+    "life": 30,
+    "effect": "【护甲4】、【回命】、【协战6】。",
     "remark": ""
   },
   {

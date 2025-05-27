@@ -287,26 +287,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/cardLevel.vue"),
               },
               {
-                path: "zhenlizhiquanYiluolian",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanYiluolian",
-                  label: "伊萝莲",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
-              },
-              {
-                path: "zhenlizhiquanBaichuzun",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanBaichuzun",
-                  label: "白处尊",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_baichuzun.vue"),
-              },
-              {
                 path: "zhenlizhiquanAsitala",
                 meta: {
                   menuType: "menu",
@@ -317,6 +297,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/zz_asitala.vue"),
               },
               {
+                path: "zhenlizhiquanYiluolian",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenlizhiquanYiluolian",
+                  label: "伊萝莲",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
+              },
+              {
                 path: "zhenlizhiquanMei",
                 meta: {
                   menuType: "menu",
@@ -325,6 +315,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   icon: "UnorderedListOutlined",
                 },
                 component: () => import("@/views/game/zlzq/zz_mei.vue"),
+              },
+              {
+                path: "zhenlizhiquanBaichuzun",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenlizhiquanBaichuzun",
+                  label: "白处尊",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_baichuzun.vue"),
               },
             ],
           },
