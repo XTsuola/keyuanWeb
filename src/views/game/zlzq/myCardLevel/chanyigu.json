@@ -256,11 +256,11 @@
     "quality": "紫",
     "name": "万物之灵",
     "cost": 5,
-    "level": 13,
+    "level": 14,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "目标友军+12/+12并获得【神佑】。",
+    "effect": "目标友军+13/+14并获得【神佑】。",
     "remark": ""
   },
   {
