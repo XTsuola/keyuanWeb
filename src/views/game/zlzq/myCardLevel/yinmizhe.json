@@ -67,6 +67,17 @@
   },
   {
     "quality": "蓝",
+    "name": "虚化术",
+    "cost": 3,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "目标单位+10/+16，并获得【穿透】。",
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
     "name": "全数否定",
     "cost": 3,
     "level": 18,
