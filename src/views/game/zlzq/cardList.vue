@@ -69,13 +69,13 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import simangdiguo from "./cardInfo_18/simangdiguo.json";
-import chanyigu from "./cardInfo_18/chanyigu.json";
-import tiantanggang from "./cardInfo_18/tiantanggang.json";
-import manshikuangye from "./cardInfo_18/manshikuangye.json";
-import dongshenshitu from "./cardInfo_18/dongshenshitu.json";
-import lianyushenyuan from "./cardInfo_18/lianyushenyuan.json";
-import yinmizhe from "./cardInfo_18/yinmizhe.json";
+import simangdiguo from "./cardInfo_20/simangdiguo.json";
+import chanyigu from "./cardInfo_20/chanyigu.json";
+import tiantanggang from "./cardInfo_20/tiantanggang.json";
+import manshikuangye from "./cardInfo_20/manshikuangye.json";
+import dongshenshitu from "./cardInfo_20/dongshenshitu.json";
+import lianyushenyuan from "./cardInfo_20/lianyushenyuan.json";
+import yinmizhe from "./cardInfo_20/yinmizhe.json";
 
 export interface Type {
     label: string
