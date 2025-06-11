@@ -296,8 +296,8 @@ async function getList() {
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let tempData: any = [...simangdiguo, ...yinmizhe];
     const myCardList = ["圣殿斥候1", "学仆-观测型", "方尖魔碑", "天使琼浆", "沉重否定", "全数否定", "圣殿弩手", "塔楼弓手", "增援战线", "光明惩戒1",
-        "隐形术", "圣殿御卫", "破魔系教授", "克隆术", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3", "圣殿骑士", "冲锋装备", "夺取阵地",
-        "观星台大预言家", "禁卫指挥官", "惩戒天使", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "明日香·露娜", "月之神·米拉", "白袍·伊恩", "武圣·云长"];
+        "隐形术", "四芒军旗", "圣殿御卫", "破魔系教授1", "克隆术", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3",  "冲锋装备", "夺取阵地",
+        "观星台大预言家1", "禁卫指挥官", "惩戒天使", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "明日香·露娜", "月之神·米拉", "白袍·伊恩", "武圣·云长"];
     let allData = getMyCard(tempData, myCardList);
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });
