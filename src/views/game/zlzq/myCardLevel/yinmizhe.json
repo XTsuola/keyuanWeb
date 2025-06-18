@@ -146,10 +146,10 @@
     "quality": "紫",
     "name": "学仆-脉冲型2",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 1,
-    "attack": 9,
-    "life": 16,
+    "attack": 10,
+    "life": 18,
     "effect": "【洞察1】、洞察时：自身+2/+6，射击英雄。",
     "remark": ""
   },

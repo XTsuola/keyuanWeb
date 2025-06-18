@@ -234,10 +234,10 @@
     "quality": "紫",
     "name": "惩戒天使",
     "cost": 6,
-    "level": 15,
+    "level": 16,
     "type": 1,
-    "attack": 24,
-    "life": 50,
+    "attack": 25,
+    "life": 60,
     "effect": "【回命】、【洞察3】、登场:消灭对面横排首位新进场敌军。",
     "remark": ""
   },
