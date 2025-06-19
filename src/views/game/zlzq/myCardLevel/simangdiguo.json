@@ -58,11 +58,11 @@
     "quality": "蓝",
     "name": "圣殿弩手",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1,
-    "attack": 15,
-    "life": 33,
-    "effect": "【协战8】、回合开始:射击敌方英雄。",
+    "attack": 17,
+    "life": 35,
+    "effect": "【协战9】、回合开始:射击敌方英雄。",
     "remark": ""
   },
   {
