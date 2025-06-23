@@ -77,6 +77,17 @@
     "remark": ""
   },
   {
+    "quality": "蓝",
+    "name": "请示隐秘者",
+    "cost": 5,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "【洞察1】、抽2张牌，随机友军生命+25、充能:多抓一张牌。",
+    "remark": ""
+  },
+  {
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
