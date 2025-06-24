@@ -13,7 +13,7 @@
                 <p>{{ item.remark }}</p>
                 <a-button v-if="levelId === 1" size="small" style="margin-right: 15px;"
                     @click="showModal('edit', item)">修改</a-button>
-                <a-popconfirm v-if="levelId === 1" title="确定删除该成员吗?" ok-text="Yes" cancel-text="No"
+                <a-popconfirm v-if="levelId === 1" title="确定删除该数据吗?" ok-text="Yes" cancel-text="No"
                     @confirm="deleteOk(item)" @cancel="cancel">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
@@ -37,11 +37,10 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref, type Directive, } from "vue";
 import { message } from "ant-design-vue";
-import { addWelfare, updateWelfare, getWelfareList, type AddWelfareParams, type UpdateWelfareParams, type DeleteParams, deleteWelfare } from "@/api/team";
+import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 import type { AxiosPromise } from "axios";
 
 interface WelfareType {
-    _id: string
     id: number
     remark: string
 }
@@ -69,7 +68,6 @@ const visible = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const type = ref<AddType>("add");
 const welfareParams = reactive<WelfareType>({
-    _id: "",
     id: 0,
     remark: ""
 });
@@ -86,7 +84,6 @@ function showModal(showType: AddType, item?: UpdateWelfareParams) {
     type.value = showType;
     if (showType === "edit") {
         if (item) {
-            welfareParams._id = item._id;
             welfareParams.id = item.id;
             welfareParams.remark = item.remark;
         }
@@ -129,10 +126,7 @@ async function handleOk(e: MouseEvent) {
 }
 
 async function deleteOk(e: WelfareType) {
-    const params: DeleteParams = {
-        _id: e._id
-    };
-    const res = await deleteWelfare(params);
+    const res = await deleteWelfare(e.id);
     if (res.data.code === 200) {
         getList();
         message.success(res.data.msg);

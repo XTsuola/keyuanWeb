@@ -194,7 +194,7 @@ async function getList() {
 
 async function deleteOk(e: DataType) {
     const params: DeleteParams = {
-        _id: e._id
+        id: e.id
     };
     const res = await deleteMember(params);
     if (res.data.code === 200) {

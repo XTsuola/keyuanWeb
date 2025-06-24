@@ -11,11 +11,11 @@
                 </template>
                 <template v-else-if="column.key === 'url'">
                     <a @click="showVideo(record.url)">{{ record.name + record.url.slice(record.url.lastIndexOf("."))
-                        }}</a>
+                    }}</a>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                        <a-popconfirm title="确定删除该成员吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                        <a-popconfirm title="确定删除该数据吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
                             @cancel="cancel">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
@@ -30,7 +30,7 @@
                 <a-form-item label="锦集名称" name="name" :rules="[{ required: true, message: '请输入锦集名称!' }]">
                     <a-input v-model:value="addData.name" type="text" clearable></a-input>
                 </a-form-item>
-                <a-form-item label="锦集地址">
+                <a-form-item label="锦集地址" name="url" :rules="[{ required: true, message: '请上传锦集!' }]">
                     <a-input v-model:value="addData.url" :readonly="true" :disabled="true" type="text" clearable>
                     </a-input>
                 </a-form-item>
@@ -61,7 +61,7 @@
 
 <script lang="ts" setup>
 import COS from "cos-js-sdk-v5"
-import { getWrcList, deleteWrc, type DeleteParams, type AddWrcPasrams, addWrc } from "@/api/team";
+import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import { Table as aTable, message } from "ant-design-vue";
 import { onMounted, reactive, ref } from "vue";
 import { getNowTime } from "@/utils/some";
@@ -85,10 +85,6 @@ interface DataType {
     author: string
     time: string
     remark: string
-}
-
-interface WrcDeleteType extends DataType {
-    _id: string
 }
 
 interface addDataType {
@@ -218,11 +214,8 @@ async function handleOk(e: MouseEvent) {
     }
 }
 
-async function deleteOk(e: WrcDeleteType) {
-    const params: DeleteParams = {
-        _id: e._id
-    };
-    const res = await deleteWrc(params);
+async function deleteOk(id: number) {
+    const res = await deleteWrc(id);
     if (res.data.code === 200) {
         getList();
         message.success(res.data.msg);

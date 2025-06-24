@@ -20,12 +20,7 @@ export interface AddMemberParams {
 }
 
 export interface UpdateMemberParams extends AddMemberParams {
-  _id?: string;
   id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
 }
 
 export interface AddWelfareParams {
@@ -33,7 +28,6 @@ export interface AddWelfareParams {
 }
 
 export interface UpdateWelfareParams extends AddWelfareParams {
-  _id: string;
   id: number;
 }
 
@@ -93,7 +87,7 @@ export function updateMember(data: UpdateMemberParams) {
 export function deleteMember(data: DeleteParams) {
   return request({
     url: "/deleteMember",
-    method: "get",
+    method: "delete",
     params: data,
   });
 }
@@ -125,11 +119,10 @@ export function updateWelfare(data: UpdateWelfareParams) {
 }
 
 // 删除福利
-export function deleteWelfare(data: DeleteParams) {
+export function deleteWelfare(id: number) {
   return request({
-    url: "/deleteWelfare",
-    method: "get",
-    params: data,
+    url: "/deleteWelfare?id=" + id,
+    method: "delete",
   });
 }
 
@@ -141,38 +134,19 @@ export function getWrcList() {
   });
 }
 
-// 新增视频福利
-export function addWrcVideo(data: any) {
-  return request({
-    url: "/addWrcVideo",
-    method: "post",
-    data: data,
-  });
-}
-
-// 新增图片福利
-export function addWrcImg(data: any) {
-  return request({
-    url: "/addWrcImg",
-    method: "post",
-    data: data,
-  });
-}
-
-// 删除精彩锦集
-export function deleteWrc(data: DeleteParams) {
-  return request({
-    url: "/deleteWrc",
-    method: "get",
-    params: data,
-  });
-}
-
 // 新增集锦
 export function addWrc(data: AddWrcPasrams) {
   return request({
     url: "/addWrc",
     method: "post",
     data: data,
+  });
+}
+
+// 删除精彩锦集
+export function deleteWrc(id: number) {
+  return request({
+    url: "/deleteWrc?id=" + id,
+    method: "delete",
   });
 }

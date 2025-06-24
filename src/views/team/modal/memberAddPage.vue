@@ -2,7 +2,7 @@
     <div class="childMain">
         <a-form ref="memberAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
             autocomplete="off">
-            <a-form-item label="成员名称" name="name" :rules="[{ required: true, message: $t('email'), trigger: 'blur' }]">
+            <a-form-item label="成员名称" name="name" :rules="[{ required: true, message: '成员名称', trigger: 'blur' }]">
                 <a-input v-model:value="addData.name" />
             </a-form-item>
             <a-form-item label="QQ账号">
@@ -57,7 +57,6 @@ async function getAddData(): Promise<false | AddMemberParams | UpdateMemberParam
     try {
         await memberAdd.value?.validate();
         const returnData: AddMemberParams | UpdateMemberParams = {
-            _id: addData.value._id,
             id: addData.value.id,
             name: addData.value.name,
             qq: addData.value.qq,
