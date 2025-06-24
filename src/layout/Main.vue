@@ -92,10 +92,7 @@ function logout() {
 }
 
 async function getUserList() {
-    const data = {
-        _id: localrInfo?._id
-    };
-    const res = await getUserInfo(data);
+    const res = await getUserInfo(localrInfo?.userId);
     if (res.data.code == 200) {
         const row = res.data.rows;
         userInfo.value = {

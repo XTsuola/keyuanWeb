@@ -1,5 +1,5 @@
 <template>
-    {{ $t('hello.hello') }}
+    <!-- {{ $t('hello.hello') }} -->
     <div class="main">
         <div class="title">
             成员列表
@@ -8,11 +8,11 @@
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="分组" style="width: 200px">
-                <a-select v-model:value="formState.groupValue" style="width: 120px;" @change="groupChange"
+                <a-select v-model:value="formState.groupName" style="width: 120px;" @change="groupChange"
                     placeholder="请选择分组">
-                    <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.groupValue">{{
-                        item.groupName
-                        }}</a-select-option>
+                    <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
+                        item.label
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -56,8 +56,9 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
+import { groupList } from '@/utils/global';
 import { Table as aTable, message } from "ant-design-vue";
-import { getGroupInfo, getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team";
+import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team";
 import type { SelectValue } from "ant-design-vue/lib/select";
 import AddPage from "./modal/memberAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/memberAddPage.vue";
@@ -65,12 +66,6 @@ import type { AxiosPromise } from "axios";
 import { useI18n } from "vue-i18n";
 import { render } from "vue";
 import { effect } from "vue";
-
-export interface GroupListType {
-    groupId: number
-    groupName: string
-    groupValue: string
-}
 
 export interface AddParamsType extends AddMemberParams {
     _id?: string
@@ -94,13 +89,13 @@ interface DataType {
     id: number
     name: string
     qq: string
-    group: string
+    groupName: string
     position: string
     remark: string
 }
 
 interface FormStateType {
-    groupValue: number | undefined
+    groupName: number | undefined
 }
 
 const { locale, messages } = useI18n();
@@ -110,7 +105,7 @@ let addParams = reactive<AddParamsType>({
     id: 0,
     name: "",
     qq: "",
-    group: "",
+    groupName: "",
     position: "",
     remark: ""
 });
@@ -128,9 +123,9 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
-    groupValue: undefined
+    groupName: undefined
 });
-const groupList = ref<GroupListType[]>([]);
+
 const columns = ref<ColumnType[]>([
     {
         title: "成员名称",
@@ -146,8 +141,8 @@ const columns = ref<ColumnType[]>([
     },
     {
         title: "所属分队",
-        dataIndex: "group",
-        key: "group",
+        dataIndex: "groupName",
+        key: "groupName",
         width: 160
     },
     {
@@ -184,18 +179,11 @@ function mediaMatchs() {
 mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
-async function getGroup() {
-    const res = await getGroupInfo();
-    if (res.data.code === 200) {
-        groupList.value = res.data.rows;
-    }
-}
-
 async function getList() {
     const params: GetMemberListParams = {
         pageSize: pageSize.value,
         pageNo: current.value,
-        group: formState.groupValue
+        groupName: formState.groupName
     };
     const res = await getMemberList(params);
     if (res.data.code === 200) {
@@ -231,7 +219,7 @@ function selectList() {
 }
 
 function reset() {
-    formState.groupValue = undefined;
+    formState.groupName = undefined;
     getList();
 }
 
@@ -243,14 +231,14 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams._id = item._id;
             addParams.name = item.name;
             addParams.qq = item.qq;
-            addParams.group = item.group;
+            addParams.groupName = item.groupName;
             addParams.position = item.position;
             addParams.remark = item.remark;
             addParams.id = item.id;
         }
     } else {
         title.value = "添加成员";
-        addParams._id = addParams.name = addParams.qq = addParams.group = addParams.position = addParams.remark = "";
+        addParams._id = addParams.name = addParams.qq = addParams.groupName = addParams.position = addParams.remark = "";
         addParams.id = 0;
     }
     visible.value = true;
@@ -286,7 +274,6 @@ async function handleOk(e: MouseEvent) {
 
 onMounted(() => {
     getList();
-    getGroup();
 })
 
 </script>

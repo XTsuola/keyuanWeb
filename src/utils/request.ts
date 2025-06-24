@@ -39,13 +39,15 @@ service.interceptors.response.use(res => {
         return res;
     }
 }, error => {
+    if(error.response.data.msg) {
+        message.error(error.response.data.msg)
+    }
     return Promise.reject(error);
 });
 
-export default (config: AxiosRequestConfig<any>, isMessage: boolean = true) => {
+export default (config: AxiosRequestConfig<any>) => {
     if (!config.headers) {
         config.headers = {};
     }
-    config.headers.isMessage = isMessage;
     return service(config);
 }

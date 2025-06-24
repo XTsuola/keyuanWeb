@@ -1,9 +1,5 @@
 import request from "../utils/request";
 
-export interface GetUserInfoParams {
-  _id: string;
-}
-
 export interface UpdateImgParams {
   id: number;
   img: string;
@@ -12,13 +8,13 @@ export interface UpdateImgParams {
 export interface GetMemberListParams {
   pageSize: number;
   pageNo: number;
-  group: number | undefined;
+  groupName: number | undefined;
 }
 
 export interface AddMemberParams {
   name: string;
   qq: string;
-  group: string;
+  groupName: string;
   position: string;
   remark: string;
 }
@@ -50,11 +46,10 @@ export interface AddWrcPasrams {
 }
 
 // 获取用户信息
-export function getUserInfo(data: GetUserInfoParams) {
+export function getUserInfo(id: number) {
   return request({
-    url: "/getUserInfo",
+    url: "/getUserInfo?id=" + id,
     method: "get",
-    params: data,
   });
 }
 
@@ -73,14 +68,6 @@ export function getMemberList(data: GetMemberListParams) {
     url: "/getMemberList",
     method: "get",
     params: data,
-  });
-}
-
-// 获取分组信息
-export function getGroupInfo() {
-  return request({
-    url: "/getGroupInfo",
-    method: "get",
   });
 }
 
@@ -187,12 +174,5 @@ export function addWrc(data: AddWrcPasrams) {
     url: "/addWrc",
     method: "post",
     data: data,
-  });
-}
-
-export function testMongo() {
-  return request({
-    url: "/testMongo",
-    method: "get",
   });
 }

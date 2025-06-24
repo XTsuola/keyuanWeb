@@ -49,12 +49,12 @@ async function onFinish(values: FormState) {
         if (res.data && res.data.code == 200) {
             flag.value = false;
             const userInfo = {
-                _id: res.data.data._id,
-                userId: res.data.data.id,
-                level: res.data.data.level
+                _id: res.data.rows._id,
+                userId: res.data.rows.id,
+                level: res.data.rows.level
             };
             window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
-            window.sessionStorage.setItem("token", res.data.data.token);
+            window.sessionStorage.setItem("token", res.data.rows.token);
             router.push({ path: "/" });
             message.success(res.data.msg);
             counterStore.updateFlag(true);
@@ -62,9 +62,8 @@ async function onFinish(values: FormState) {
             flag.value = false;
             message.error(res.data.msg);
         }
-    } catch (error) {
+    } catch (_) {
         flag.value = false;
-        message.error("服务器异常");
     }
 }
 
