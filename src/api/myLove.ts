@@ -38,7 +38,7 @@ export interface DeleteParams {
 }
 
 export interface DeletePhotoParams {
-  _id: string;
+  id: number;
   url: string;
 }
 
@@ -63,7 +63,7 @@ export function addPhoto(data: AddPhotoParams) {
 export function deletePhoto(data: DeletePhotoParams) {
   return request({
     url: "/myLove/deletePhoto",
-    method: "get",
+    method: "delete",
     params: data,
   });
 }

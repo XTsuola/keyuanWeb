@@ -8,7 +8,6 @@ export function getChessMap() {
   });
 }
 
-
 // 重置棋盘
 export function resetChessMap() {
   return request({

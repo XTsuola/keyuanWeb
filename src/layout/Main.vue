@@ -5,15 +5,15 @@
                 <setting-filled />
             </div>
             <div class="flex breadCrumb">
-                <div class="breadCrumbItem" v-for="(item, index) in breadCrumbs">
+                <div class="breadCrumbItem" v-for="item in breadCrumbs" :key="item">
                     <span v-if="item && item.meta" @click="tabBreadCrumb(item)"
                         :class="{ breadCrumbItemLink: item.meta.menuType === 'menu' }">{{ item.meta.label }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
-                <div class="breadCrumbItem" v-for="(item, index) in extraBreadCrumbs">
+                <div class="breadCrumbItem" v-for="item in extraBreadCrumbs" :key="item">
                     <span @click="tabBreadCrumb(item)" :class="{ breadCrumbItemLink: item.type === 'menu' }">{{
                         item.label
-                        }}</span>
+                    }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { getUserInfo, updateImg } from "@/api/team";
+import { getUserInfo, updateImg, type UpdateImgParams } from "@/api/team";
 import { SettingFilled } from "@ant-design/icons-vue";
 import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router";
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
@@ -101,6 +101,7 @@ async function getUserList() {
             img: row.img,
             remark: row.remark
         };
+        window.sessionStorage.setItem("nowTouxiang", row.img);
         if (row.img) {
             imgValue.value = import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img;
         } else {
@@ -110,18 +111,20 @@ async function getUserList() {
 }
 
 function getImg(e: Event) {
-    const target = e.target;
+    const target: any = e.target;
     if (target) {
         const reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
         reader.addEventListener("load", async (e) => {
             if (e.target && typeof e.target.result === "string") {
                 imgValue.value = e.target.result;
-                let data = {
+                let data: UpdateImgParams = {
                     id: localrInfo?.userId,
+                    oldImg: window.sessionStorage.getItem("nowTouxiang") as string,
                     img: imgValue.value
                 };
                 await updateImg(data);
+                location.reload();
             }
         })
     }

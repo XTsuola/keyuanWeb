@@ -80,7 +80,7 @@ const addData = reactive<AddPhotoParams>({
 const visible2 = ref(false);
 const detailTitle = ref("");
 const detailUrl = ref("");
-const nowImgId = ref("");
+const nowImgId = ref(0);
 const nowUrl = ref("");
 
 function showAdd() {
@@ -131,7 +131,7 @@ function getPhoto(e: any) {
 
 function showDetail(item: PhotoType) {
     visible2.value = true;
-    nowImgId.value = item._id;
+    nowImgId.value = item.id;
     detailTitle.value = item.name;
     nowUrl.value = item.url;
     detailUrl.value = import.meta.env.VITE_APP_BASE_URL + "photoImg/" + item.url;
@@ -144,7 +144,7 @@ function closeDetail() {
 async function deleteImg() {
     if (nowImgId) {
         const params: DeletePhotoParams = {
-            _id: nowImgId.value,
+            id: nowImgId.value,
             url: nowUrl.value
         };
         const res = await deletePhoto(params);

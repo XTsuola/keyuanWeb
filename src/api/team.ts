@@ -2,6 +2,7 @@ import request from "../utils/request";
 
 export interface UpdateImgParams {
   id: number;
+  oldImg: string
   img: string;
 }
 

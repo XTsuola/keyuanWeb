@@ -29,8 +29,8 @@ interface FormState {
 const counterStore = useCounterStore();
 const flag = ref(false);
 const formState = reactive<FormState>({
-    username: "1",
-    password: "1",
+    username: "admin",
+    password: "123",
 });
 const rules = {
     username: [{ required: true, message: "请输入账号！" }],
@@ -49,12 +49,12 @@ async function onFinish(values: FormState) {
         if (res.data && res.data.code == 200) {
             flag.value = false;
             const userInfo = {
-                _id: res.data.rows._id,
                 userId: res.data.rows.id,
-                level: res.data.rows.level
+                level: res.data.rows.level,
             };
             window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
             window.sessionStorage.setItem("token", res.data.rows.token);
+            window.sessionStorage.setItem("nowTouxiang", res.data.rows.img);
             router.push({ path: "/" });
             message.success(res.data.msg);
             counterStore.updateFlag(true);

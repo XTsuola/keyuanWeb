@@ -37,7 +37,6 @@ import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrTyp
 import { message } from "ant-design-vue";
 import { ref } from "vue";
 import type { TypeFlag } from "../paperList.vue";
-import func from 'vue-editor-bridge';
 
 export interface API {
     getAddData: () => Promise<false | EditPaperType>
