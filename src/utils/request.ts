@@ -39,6 +39,7 @@ service.interceptors.response.use(res => {
         return res;
     }
 }, error => {
+    console.log(111222)
     if(error.response.data.msg) {
         message.error(error.response.data.msg)
     }

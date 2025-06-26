@@ -13,7 +13,7 @@
             <template v-if="column.key === 'selectArr'">
                 <span v-if="record.type == '1'">A.{{ record.selectArr[0] }}. B.{{ record.selectArr[1] }}. C.{{
                     record.selectArr[2]
-                    }}. D.{{ record.selectArr[3] }}</span>
+                }}. D.{{ record.selectArr[3] }}</span>
                 <span v-else>/</span>
             </template>
             <template v-if="column.key === 'answer'">
@@ -21,9 +21,6 @@
                 </div>
                 <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
                 <div v-else>{{ record.answer }}</div>
-            </template>
-            <template v-if="column.key === 'url'">
-                <span>{{ record.url ? record.url : "/" }}</span>
             </template>
             <template v-if="column.key === 'remark'">
                 <span>{{ record.remark ? record.remark : "/" }}</span>
@@ -109,12 +106,6 @@ const columns = ref<ColumnsType>([
         width: 160
     },
     {
-        title: "媒体",
-        key: "url",
-        dataIndex: "url",
-        width: 160
-    },
-    {
         title: "注解",
         key: "remark",
         dataIndex: "remark",
@@ -146,7 +137,6 @@ const addData = reactive<EditQuestionType>({
     type: 1,
     selectArr: [],
     answer: "",
-    url: "",
     remark: ""
 });
 const addPage = ref<AddPageAPI>();
@@ -177,7 +167,7 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
         addData.id = 0;
         addData.type = 1;
         addData.selectArr = [];
-        addData.stem = addData.answer = addData.url = addData.remark = "";
+        addData.stem = addData.answer = addData.remark = "";
     } else {
         if (record) {
             title.value = "修改试题-";
@@ -193,7 +183,6 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             } else {
                 addData.answer = record.answer;
             }
-            addData.url = record.url;
             addData.remark = record.remark;
         }
     }
@@ -213,34 +202,39 @@ async function handleOk(e: MouseEvent) {
         a.axios = updateQuestion;
         a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData()
-    if (result && a.axios) {
-        if (result.type === 1) {
-            if (result.answer === "a" || result.answer === "A" || result.answer === "1") {
-                result.answer = "1";
-            } else if (result.answer === "b" || result.answer === "B" || result.answer === "2") {
-                result.answer = "2";
-            } else if (result.answer === "c" || result.answer === "C" || result.answer === "3") {
-                result.answer = "3";
-            } else {
-                result.answer = "4";
+    try {
+        const result = await addPage.value?.getAddData()
+        if (result && a.axios) {
+            if (result.type === 1) {
+                if (result.answer === "a" || result.answer === "A" || result.answer === "1") {
+                    result.answer = "1";
+                } else if (result.answer === "b" || result.answer === "B" || result.answer === "2") {
+                    result.answer = "2";
+                } else if (result.answer === "c" || result.answer === "C" || result.answer === "3") {
+                    result.answer = "3";
+                } else {
+                    result.answer = "4";
+                }
+            } else if (result.type === 2) {
+                if (result.answer === "对" || result.answer === "正确" || result.answer === "0") {
+                    result.answer = "0";
+                } else {
+                    result.answer = "1";
+                }
             }
-        } else if (result.type === 2) {
-            if (result.answer === "对" || result.answer === "正确" || result.answer === "0") {
-                result.answer = "0";
+            const res = await a.axios(result);
+            if (res.data.code === 200) {
+                getList();
+                visible.value = false;
+                message.success(res.data.msg);
             } else {
-                result.answer = "1";
+                message.error(a.msg);
             }
         }
-        const res = await a.axios(result);
-        if (res.data.code === 200) {
-            getList();
-            visible.value = false;
-            message.success(res.data.msg);
-        } else {
-            message.error(a.msg);
-        }
+    } catch (_) {
+
     }
+
     loading.value = false;
 }
 

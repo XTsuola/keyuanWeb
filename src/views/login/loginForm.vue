@@ -54,7 +54,14 @@ async function onFinish(values: FormState) {
             };
             window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
             window.sessionStorage.setItem("token", res.data.rows.token);
-            window.sessionStorage.setItem("nowTouxiang", res.data.rows.img);
+            console.log(res.data.rows, "kkk")
+            if (res.data.rows.img) {
+                console.log(res.data.rows.img, "ppp")
+                window.sessionStorage.setItem("nowTouxiang", res.data.rows.img);
+            } else {
+                console.log(1111)
+                window.sessionStorage.setItem("nowTouxiang", "xxx");
+            }
             router.push({ path: "/" });
             message.success(res.data.msg);
             counterStore.updateFlag(true);

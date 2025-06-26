@@ -53,6 +53,7 @@ import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type Route
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 import router from "@/router";
 import imgBase from "@/assets/images/lanlingwang.jpg";
+import { message } from "ant-design-vue";
 
 
 
@@ -111,8 +112,20 @@ async function getUserList() {
 }
 
 function getImg(e: Event) {
-    const target: any = e.target;
+    const target = e.target as any;
+    const list = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
     if (target) {
+        console.log(target.files[0], "ppp")
+        if (target.files[0]) {
+            if(target.files[0].size > 1024 * 1024 * 2) {
+                message.error("图片大小不能超过2MB！");
+                return false;
+            }
+            if (list.indexOf(target.files[0].type) == -1) {
+                message.error("仅支持上传图片！");
+                return false;
+            }
+        }
         const reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
         reader.addEventListener("load", async (e) => {

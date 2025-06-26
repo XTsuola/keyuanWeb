@@ -13,9 +13,12 @@ export interface StemArrType {
 export interface AddQuestionType {
   stem: string;
   type: number;
-  selectArr: number[] | string[];
+  selectArr: string[];
+  a:string
+  b:string
+  c:string
+  d:string
   answer: string;
-  url: string;
   remark: string;
 }
 
@@ -47,8 +50,7 @@ export interface AddUserType {
 }
 
 export interface EditUserType extends AddUserType {
-  id: number | undefined;
-  _id: string;
+  id: number
 }
 
 export interface UsersPaperType {
@@ -77,7 +79,6 @@ export interface UpdateDataList {
   index: number;
   type: number;
   id: number;
-  url?: string;
   stem: string;
   selectArr?: string[];
   answer?: string;
@@ -210,11 +211,14 @@ export function updateUser(data: EditUserType) {
 }
 
 // 删除试卷
-export function deleteUser(data: EditUserType) {
+export function deleteUser(id:number, level:number) {
   return request({
     url: "/deleteUser",
-    method: "post",
-    data: data,
+    method: "delete",
+    data: {
+      id: id,
+      level: level
+    },
   });
 }
 

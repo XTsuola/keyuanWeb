@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { addUser, updateUser, getUserList, type EditUserType, deleteUser } from "@/api/examination";
+import { addUser, updateUser, getUserList, deleteUser, type EditUserType } from "@/api/examination";
 import userAdd from "./modal/userAddPage.vue";
 import type { API as UserPageAPI } from "./modal/userAddPage.vue";
 import { message, Table as aTable } from "ant-design-vue";
@@ -104,7 +104,6 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref(false);
 const title = ref("");
 const addData = reactive<EditUserType>({
-    _id: "",
     id: 0,
     userName: "",
     account: "",
@@ -173,8 +172,8 @@ async function handleOk(e: MouseEvent) {
     loading.value = false;
 }
 
-async function deleteOk(e: EditUserType) {
-    const res = await deleteUser(e);
+async function deleteOk(e: any) {
+    const res = await deleteUser(e.id, e.level);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {

@@ -12,7 +12,7 @@
                 <a-input v-model:value="addData.password" />
             </a-form-item>
             <a-form-item label="年龄" name="age" :rules="[{ required: true, message: '请输入年龄!' }]">
-                <a-input v-model:value="addData.age" />
+                <a-input-number style="width: 100%;" v-model:value="addData.age" :precision="0" />
             </a-form-item>
             <a-form-item label="身份" name="level" :rules="[{ required: true, message: '请选择身份!' }]"
                 v-if="addData.level !== 1">
