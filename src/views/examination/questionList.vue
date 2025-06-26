@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type DeleteParams } from '@/api/examination';
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType } from '@/api/examination';
 import questionAddPage from "./modal/questionAddPage.vue";
 import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
 import { message, Table as aTable } from "ant-design-vue";
@@ -260,11 +260,7 @@ function getAnswer(record: any) {
 }
 
 async function deleteOk(e: EditQuestionType) {
-    const params: DeleteParams = {
-        _id: e._id,
-        id: e.id
-    };
-    const res = await deleteQuestion(params);
+    const res = await deleteQuestion(e.id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {

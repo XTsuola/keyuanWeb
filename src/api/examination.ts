@@ -130,11 +130,10 @@ export function updateQuestion(data: EditQuestionType) {
 }
 
 // 删除题库试题
-export function deleteQuestion(data: DeleteParams) {
+export function deleteQuestion(id: number) {
   return request({
-    url: "/deleteQuestion",
-    method: "get",
-    params: data,
+    url: "/deleteQuestion?id=" + id,
+    method: "delete",
   });
 }
 

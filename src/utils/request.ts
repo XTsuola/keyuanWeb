@@ -28,18 +28,33 @@ service.interceptors.response.use(res => {
         if (isShowMsg) {
             message.error(res.data.msg);
             sessionStorage.clear();
-            useRouter().push({ path: "/login" });
         }
         isShowMsg = false;
         setTimeout(() => {
             isShowMsg = true;
         }, 1500)
+        setTimeout(() => {
+            location.reload()
+        }, 500)
         return false;
     } else {
         return res;
     }
 }, error => {
-    if(error.response.data.msg) {
+
+    if(error.response.status == 401) {
+        if (isShowMsg) {
+            message.error(error.response.data.msg);
+            sessionStorage.clear();
+        }
+        isShowMsg = false;
+        setTimeout(() => {
+            isShowMsg = true;
+        }, 1500)
+        setTimeout(() => {
+            location.reload()
+        }, 500)
+    } else {
         message.error(error.response.data.msg)
     }
     return Promise.reject(error);
