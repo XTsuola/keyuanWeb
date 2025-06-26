@@ -13,18 +13,16 @@ export interface StemArrType {
 export interface AddQuestionType {
   stem: string;
   type: number;
-  selectArr: string[];
-  a:string
-  b:string
-  c:string
-  d:string
+  a?:string
+  b?:string
+  c?:string
+  d?:string
   answer: string;
   remark: string;
 }
 
 export interface EditQuestionType extends AddQuestionType {
   id: number;
-  _id: string;
 }
 
 export interface AddPaperType {

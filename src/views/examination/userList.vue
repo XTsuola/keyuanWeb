@@ -9,7 +9,7 @@
                 <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                     <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                     <a-divider type="vertical" />
-                    <a-popconfirm title="确定删除该试卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                    <a-popconfirm title="确定删除该用户吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
                         @cancel="cancel">
                         <a-button size="small">删除</a-button>
                     </a-popconfirm>

@@ -3,7 +3,7 @@
         题库列表
         <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">添加试题</a-button>
     </div>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'stem'">
                 <a v-if="record.type === 3">{{ record.stem.replaceAll('/', '_____') }}</a>
@@ -11,13 +11,12 @@
             </template>
             <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
             <template v-if="column.key === 'selectArr'">
-                <span v-if="record.type == '1'">A.{{ record.selectArr[0] }}. B.{{ record.selectArr[1] }}. C.{{
-                    record.selectArr[2]
-                }}. D.{{ record.selectArr[3] }}</span>
+                <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
+                }}</span>
                 <span v-else>/</span>
             </template>
             <template v-if="column.key === 'answer'">
-                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ record.selectArr[record.answer - 1] }}
+                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ getAnswer(record) }}
                 </div>
                 <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
                 <div v-else>{{ record.answer }}</div>
@@ -119,7 +118,7 @@ const columns = ref<ColumnsType>([
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const loading = ref(false);
-const data = ref<EditQuestionType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -131,11 +130,13 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref(false);
 const title = ref("");
 const addData = reactive<EditQuestionType>({
-    _id: "",
     id: 0,
     stem: "",
     type: 1,
-    selectArr: [],
+    a: "",
+    b: "",
+    c: "",
+    d: "",
     answer: "",
     remark: ""
 });
@@ -145,7 +146,7 @@ const type = ref(1);
 async function getList() {
     const res = await getQuestionList();
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
     }
 }
 
@@ -166,7 +167,6 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
         type.value = 1;
         addData.id = 0;
         addData.type = 1;
-        addData.selectArr = [];
         addData.stem = addData.answer = addData.remark = "";
     } else {
         if (record) {
@@ -176,7 +176,10 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             addData.id = record.id;
             addData.stem = record.stem;
             addData.type = record.type;
-            addData.selectArr = record.selectArr;
+            addData.a = record.a;
+            addData.b = record.b;
+            addData.c = record.c;
+            addData.d = record.d;
             if (addData.type == 1) {
                 const arrList = ["A", "B", "C", "D"];
                 addData.answer = arrList[parseInt(record.answer as string) - 1];
@@ -231,11 +234,29 @@ async function handleOk(e: MouseEvent) {
                 message.error(a.msg);
             }
         }
-    } catch (_) {
-
-    }
-
+    } catch (_) { }
     loading.value = false;
+}
+
+function getAnswer(record: any) {
+    let answer = "", ind = parseInt(record.answer);
+    switch (ind) {
+        case 1:
+            answer = record.a
+            break;
+        case 2:
+            answer = record.b
+            break;
+        case 3:
+            answer = record.c
+            break;
+        case 4:
+            answer = record.d
+            break;
+        default:
+            break;
+    }
+    return answer;
 }
 
 async function deleteOk(e: EditQuestionType) {

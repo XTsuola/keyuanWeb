@@ -115,7 +115,6 @@ function getImg(e: Event) {
     const target = e.target as any;
     const list = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
     if (target) {
-        console.log(target.files[0], "ppp")
         if (target.files[0]) {
             if(target.files[0].size > 1024 * 1024 * 2) {
                 message.error("图片大小不能超过2MB！");

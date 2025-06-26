@@ -144,7 +144,6 @@ function panduan2(index1: number, index2: number) {
 async function getData() {
     const res = await getChessMap();
     if (res.data.code == 200) {
-        console.log(res.data.rows.map)
         mapData.value = res.data.rows.map;
         nowPlay.value = res.data.rows.nowPlay;
         status.value = res.data.rows.status;

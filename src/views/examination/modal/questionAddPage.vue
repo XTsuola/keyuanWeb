@@ -21,7 +21,7 @@
             <a-form-item label="D" name="d" :rules="[{ required: true, message: '请输入D选项!' }]">
                 <a-input v-model:value="addData.d" />
             </a-form-item>
-            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswer }]">
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswerType1 }]">
                 <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
@@ -35,7 +35,7 @@
             <a-form-item label="题目名称" name="stem" :rules="[{ required: true, message: '请输入题目名称!' }]">
                 <a-textarea v-model:value="addData.stem" />
             </a-form-item>
-            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswerType2 }]">
                 <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
@@ -78,7 +78,7 @@
                 <a-select style="width: 100%;" v-model:value="addData.stem">
                     <a-select-option v-for="item in opt" :key="item" :value="item">{{
                         item
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
@@ -110,7 +110,6 @@ interface Test {
     c?: string | undefined
     d?: string | undefined
     answer: string
-    url: string
     remark: string
 }
 
@@ -127,7 +126,6 @@ const addData = ref<Test>({
     c: "",
     d: "",
     answer: "",
-    url: "",
     remark: ""
 })
 const opt = ref(["消灭星星"])
@@ -136,14 +134,13 @@ if (prop.flag === "edit") {
     addData.value.id = data.id
     addData.value.stem = data.stem
     addData.value.type = data.type
-    if (data.selectArr && data.selectArr[0] !== "") {
-        addData.value.a = data.selectArr[0]
-        addData.value.b = data.selectArr[1]
-        addData.value.c = data.selectArr[2]
-        addData.value.d = data.selectArr[3]
+    if (data.type == 1) {
+        addData.value.a = data.a
+        addData.value.b = data.b
+        addData.value.c = data.c
+        addData.value.d = data.d
     }
     addData.value.answer = data.answer
-    addData.value.url = data.url
     addData.value.remark = data.remark
 }
 const qustionAdd = ref<FormInstance>()
@@ -155,9 +152,11 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
             id: addData.value.id as number,
             stem: addData.value.stem,
             type: addData.value.type,
-            selectArr: [addData.value.a as string, addData.value.b as string, addData.value.c as string, addData.value.d as string],
+            a: addData.value.a,
+            b: addData.value.b,
+            c: addData.value.c,
+            d: addData.value.d,
             answer: addData.value.answer,
-            url: addData.value.url,
             remark: addData.value.remark
         }
         return returnData
@@ -166,14 +165,29 @@ async function getAddData(): Promise<false | AddQuestionType | EditQuestionType>
     }
 }
 
-function validAnswer(_: any, value: any): any {
+function validAnswerType1(_: any, value: any): any {
     return new Promise((resolve, reject) => {
         if (!value) {
             reject(new Error("请输入答案!"))
         } else {
             const list = ["a", "b", "c", "d", "A", "B", "C", "D", 1, 2, 3, 4]
             if (list.findIndex((item: any) => item == value) == -1) {
-                reject(new Error("请输入合法的答案!"))
+                reject(new Error("请输入合法的答案=>['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D', 1, 2, 3, 4]"))
+            } else {
+                resolve("")
+            }
+        }
+    })
+}
+
+function validAnswerType2(_: any, value: any): any {
+    return new Promise((resolve, reject) => {
+        if (!value) {
+            reject(new Error("请输入答案!"))
+        } else {
+            const list = ["0", "1", "正确", "错误", "对", "错"]
+            if (list.findIndex((item: any) => item == value) == -1) {
+                reject(new Error("请输入合法的答案=>['0', '1', '正确', '错误', '对', '错']"))
             } else {
                 resolve("")
             }
