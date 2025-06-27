@@ -13,12 +13,9 @@ import { getStemArrList } from "@/api/examination";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 
 export interface stemType {
-    _id: string
     id: number
     stem: string
     type: number
-    url: string
-    selectArr: string[]
     answer: string
     remark: string
 }
@@ -32,11 +29,8 @@ interface dataType {
     answer: string
     id: number
     remark: string
-    selectArr: string[]
     stem: string
     type: number
-    url: string
-    _id: string
 }
 
 const columns = ref<ColumnsType>([
@@ -59,21 +53,21 @@ const columns = ref<ColumnsType>([
         width: 100
     },
     {
-        title: "媒体",
-        key: "url",
-        dataIndex: "url",
-        width: 160
+        title: "分数",
+        dataIndex: "score",
+        key: "score",
+        width: 100
     }
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
 const data = ref<dataType[]>();
 const prop = defineProps<{
-    obj: number[]
+    paperId: number
 }>();
 
 async function getList() {
-    const res = await getStemArrList(prop.obj);
+    const res = await getStemArrList(prop.paperId);
     data.value = res.data.rows;
 }
 getList();

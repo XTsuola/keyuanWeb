@@ -18,12 +18,13 @@
                         <div style="margin-right: 2px;">
                             {{ item.key }}.
                         </div>
-                        <a-input v-model:value="item.score" />
+                        <a-input-number style="width: 100%;" v-model:value="item.score" />
                     </li>
                 </ul>
             </a-form-item>
             <a-form-item label="考试时长" name="time" :rules="[{ required: true, message: '请输入考试时长!' }]">
-                <a-input v-model:value="addData.time" style="width: 80%;" /><span style="margin-left: 8px;">分钟</span>
+                <a-input-number v-model:value="addData.time" style="width: calc(100% - 80px);" /><span
+                    style="margin-left: 8px;">分钟</span>
             </a-form-item>
             <a-form-item label="试卷备注" name="remark">
                 <a-textarea v-model:value="addData.remark" />
@@ -47,7 +48,7 @@ interface addDataType {
     paperName: string
     list: string[]
     scoreList: StemArrType[],
-    time: string
+    time: number | null
     remark: string
 }
 
@@ -67,7 +68,7 @@ const addData = ref<addDataType>({
     paperName: "",
     list: [],
     scoreList: [],
-    time: "",
+    time: null,
     remark: ""
 });
 const paperAdd = ref();
@@ -102,7 +103,7 @@ function handleChange(nextTargetKeys: string[]) {
 function scoreAdd(list: StemArrType[]) {
     let sum = 0;
     for (let i = 0; i <= list.length - 1; i++) {
-        sum += parseFloat(list[i].score);
+        sum += parseFloat(list[i].score as string);
     }
     return sum;
 }
@@ -120,7 +121,7 @@ async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
         for (let i = 0; i < addData.value.list.length; i++) {
             stemArr.push({
                 key: parseInt(addData.value.list[i]),
-                score: addData.value.scoreList[i].score
+                score: parseFloat(addData.value.scoreList[i].score as string)
             });
         }
         const returnData: AddPaperType | EditPaperType = {
@@ -128,7 +129,7 @@ async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
             paperName: addData.value.paperName,
             stemArr: stemArr,
             score: scoreAdd(addData.value.scoreList),
-            time: addData.value.time,
+            time: JSON.parse(addData.value.time as any),
             remark: addData.value.remark
         };
         return returnData;

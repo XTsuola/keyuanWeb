@@ -2,7 +2,7 @@
     <div class="title">
         答卷列表
     </div>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action' && levelId === 1">
                 <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -31,9 +31,10 @@
 <script lang="ts" setup>
 import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination";
 import { Table as aTable } from "ant-design-vue";
-import distributePageVue from "./modal/distributePage.vue";
+
 import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import distributePageVue from "./modal/distributePage.vue";
 import paperList from "./modal/paperList.vue";
 
 interface scrollType {
@@ -86,7 +87,7 @@ const columns = ref<ColumnsType>([
         width: 280
     },
 ]);
-const data = ref<UsersPaperType[]>();
+const tableData = ref<UsersPaperType[]>();
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -106,14 +107,8 @@ const distributeData = ref<RecordType | undefined>();
 async function getList() {
     const res = await getStudentsPaper();
     if (res.data.code === 200) {
-        data.value = [];
-        res.data.rows.forEach((e: ResultType) => {
-            data.value?.push({
-                id: e.id,
-                userName: e.userName,
-                paperList: e.paperList
-            });
-        });
+        console.log(res.data.rows, "ppoo")
+         tableData.value = res.data.rows
     }
 }
 

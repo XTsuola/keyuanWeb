@@ -29,7 +29,7 @@ interface scrollType {
 
 interface dataType {
     answerArr: string[] | number[]
-    flag: boolean
+    flag: number
     paperId: number
     paperName: string
     remarkArr: string[]
@@ -74,7 +74,7 @@ const columns = ref<ColumnsType>([
         dataIndex: "score",
         key: "paperName",
         customRender: (opt) => {
-            if (opt.record.flag) {
+            if (opt.record.flag == 0) {
                 return "/"
             } else {
                 return opt.value

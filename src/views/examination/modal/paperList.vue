@@ -22,7 +22,6 @@ interface dataType {
     rightArr: string[] | number[]
     score: string
     userId: number
-    _id: string
 }
 
 const columns = ref<ColumnsType>([
@@ -52,7 +51,7 @@ const columns = ref<ColumnsType>([
         dataIndex: "score",
         key: "paperName",
         customRender: (opt) => {
-            if (opt.record.flag) {
+            if (opt.record.flag == 0) {
                 return "/"
             } else {
                 return opt.value

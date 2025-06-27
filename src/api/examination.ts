@@ -7,7 +7,7 @@ export interface DeleteParams {
 
 export interface StemArrType {
   key: string | number;
-  score: string;
+  score: string | number;
 }
 
 export interface AddQuestionType {
@@ -29,13 +29,12 @@ export interface AddPaperType {
   paperName: string;
   stemArr?: StemArrType[];
   score: number | string;
-  time: string;
+  time: number | null;
   remark: string;
 }
 
 export interface EditPaperType extends AddPaperType {
-  id: number | undefined;
-  _id: string;
+  id: number;
 }
 
 export interface AddUserType {
@@ -164,20 +163,18 @@ export function updatePaper(data: EditPaperType) {
 }
 
 // 删除试卷
-export function deletePaper(data: DeleteParams) {
+export function deletePaper(id: number) {
   return request({
-    url: "/deletePaper",
-    method: "get",
-    params: data,
+    url: "/deletePaper?id=" + id,
+    method: "delete",
   });
 }
 
 // 获取详情试题列表
-export function getStemArrList(data: number[]) {
+export function getStemArrList(id: number) {
   return request({
-    url: "/getStemArrList",
-    method: "post",
-    data: data,
+    url: "/getStemArrList?paperId=" + id,
+    method: "get",
   });
 }
 
