@@ -34,10 +34,11 @@
 </template>
 
 <script lang="ts" setup>
-import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination";
-import { message } from "ant-design-vue";
 import { ref } from "vue";
+import { message } from "ant-design-vue";
 import type { TypeFlag } from "../paperList.vue";
+import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination";
+
 
 export interface API {
     getAddData: () => Promise<false | EditPaperType>

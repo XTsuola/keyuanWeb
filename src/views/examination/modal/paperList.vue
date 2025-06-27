@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable } from "ant-design-vue"
-import { getUserPaperList, type PaperDataType } from "@/api/examination"
-import { reactive, ref } from "vue"
-import type { ColumnsType } from "ant-design-vue/es/table/interface"
+import { reactive, ref } from "vue";
+import { Table as aTable } from "ant-design-vue";
+import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getUserPaperList, type PaperDataType } from "@/api/examination";
 
 interface scrollType {
     x: number

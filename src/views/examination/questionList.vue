@@ -55,13 +55,13 @@
 </template>
 
 <script lang="ts" setup>
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType } from '@/api/examination';
-import questionAddPage from "./modal/questionAddPage.vue";
-import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
-import { message, Table as aTable } from "ant-design-vue";
 import { nextTick, onMounted, reactive, ref } from "vue";
+import { message, Table as aTable } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType } from '@/api/examination';
+import questionAddPage from "./modal/questionAddPage.vue";
 
 export type TypeFlag = "add" | "edit";
 

@@ -60,11 +60,11 @@
 </template>
 
 <script lang="ts" setup>
-import COS from "cos-js-sdk-v5"
-import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
-import { Table as aTable, message } from "ant-design-vue";
 import { onMounted, reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
 import { getNowTime } from "@/utils/some";
+import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
+import COS from "cos-js-sdk-v5";
 
 interface ColumnType {
     title: string

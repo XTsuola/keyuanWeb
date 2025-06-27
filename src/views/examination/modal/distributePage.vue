@@ -21,10 +21,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Table as aTable, message } from "ant-design-vue";
-import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
 import { reactive, ref } from "vue";
+import { Table as aTable, message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
 
 interface scrollType {
     x: number
@@ -40,7 +40,7 @@ interface dataType {
     rightArr: string[] | number[]
     score: string
     userId: number
-    _id: string
+    id: number
 }
 
 interface PaperSelectType {
@@ -137,7 +137,7 @@ async function addPaper() {
 
 async function deleteOk(e: dataType) {
     const params: DeleteReportType = {
-        _id: e._id,
+        id: e.id,
         paperId: e.paperId,
         userId: prop.obj ? prop.obj.id : 0
     };

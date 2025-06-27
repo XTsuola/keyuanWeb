@@ -27,15 +27,15 @@
 </template>
 
 <script lang="ts" setup>
-import { addUser, updateUser, getUserList, deleteUser, type EditUserType } from "@/api/examination";
-import userAdd from "./modal/userAddPage.vue";
-import type { API as UserPageAPI } from "./modal/userAddPage.vue";
-import { message, Table as aTable } from "ant-design-vue";
 import { onMounted, reactive, ref } from "vue";
+import { message, Table as aTable } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { API as UserPageAPI } from "./modal/userAddPage.vue";
 import { levelName } from "@/utils/global";
+import { addUser, updateUser, getUserList, deleteUser, type EditUserType } from "@/api/examination";
 import md5 from "js-md5";
+import userAdd from "./modal/userAddPage.vue";
 
 export type TypeFlag = "add" | "edit";
 

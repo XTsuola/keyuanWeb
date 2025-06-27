@@ -47,8 +47,8 @@
 
 <script lang="tsx" setup>
 import { reactive, ref } from "vue";
-import jsonData from "./data.json";
 import Tanke from "./tanke.vue";
+import jsonData from "./data.json";
 
 interface PositionType {
     x: number

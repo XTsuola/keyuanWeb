@@ -30,9 +30,9 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddUserType, EditUserType } from "@/api/examination";
 import type { FormInstance } from "ant-design-vue";
 import type { TypeFlag } from "../paperList.vue";
+import type { AddUserType, EditUserType } from "@/api/examination";
 
 export interface API {
     getAddData: () => Promise<false | EditUserType>

@@ -37,8 +37,8 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref, type Directive, } from "vue";
 import { message } from "ant-design-vue";
-import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 import type { AxiosPromise } from "axios";
+import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 
 interface WelfareType {
     id: number

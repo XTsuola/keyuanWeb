@@ -35,12 +35,12 @@
 </template>
 
 <script lang="ts" setup>
-import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type StemArrType } from "@/api/examination";
-import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
-import { message, Table as aTable } from "ant-design-vue";
 import { onMounted, reactive, ref } from "vue";
+import { message, Table as aTable } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
+import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type StemArrType } from "@/api/examination";
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
 

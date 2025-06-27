@@ -67,7 +67,7 @@ export interface AddReportType {
 }
 
 export interface DeleteReportType {
-  _id: string;
+  id: number;
   userId: number;
   paperId: number;
 }

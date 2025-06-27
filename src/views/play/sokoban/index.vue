@@ -41,8 +41,8 @@
 
 <script lang="tsx" setup>
 import { reactive, ref, watch } from "vue";
-import jsonData from "./data.json";
 import { message } from "ant-design-vue";
+import jsonData from "./data.json";
 
 interface PositionType {
     x: number

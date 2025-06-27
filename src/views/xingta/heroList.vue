@@ -42,10 +42,10 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { Table as aTable, message } from "ant-design-vue";
+import type { AxiosPromise } from "axios";
+import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/xingta";
 import AddPage from "./modal/heroAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
-import type { AxiosPromise } from "axios";
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string

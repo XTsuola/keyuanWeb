@@ -92,10 +92,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddQuestionType, EditQuestionType } from "@/api/examination"
-import { ref } from "vue"
-import type { TypeFlag } from "../questionList.vue"
-import type { FormInstance } from "ant-design-vue"
+import { ref } from "vue";
+import type { FormInstance } from "ant-design-vue";
+import type { TypeFlag } from "../questionList.vue";
+import type { AddQuestionType, EditQuestionType } from "@/api/examination";
 
 export interface API {
     getAddData: () => Promise<false | EditQuestionType>

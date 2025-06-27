@@ -9,8 +9,8 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
-import { getStemArrList } from "@/api/examination";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getStemArrList } from "@/api/examination";
 
 export interface stemType {
     id: number

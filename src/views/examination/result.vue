@@ -47,9 +47,8 @@
 </template>
 
 <script lang="ts" setup>
-
-import { Table as aTable } from "ant-design-vue";
 import { reactive, ref } from "vue";
+import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getResult, type GetResult } from "@/api/examination";
 

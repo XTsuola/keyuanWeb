@@ -31,7 +31,6 @@
 <script lang="ts" setup>
 import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination";
 import { Table as aTable } from "ant-design-vue";
-
 import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import distributePageVue from "./modal/distributePage.vue";
@@ -40,19 +39,6 @@ import paperList from "./modal/paperList.vue";
 interface scrollType {
     x: number
     y: number | undefined
-}
-
-interface ResultType {
-    account: string
-    age: number
-    id: number
-    img: string
-    level: number
-    paperList: number[]
-    password: string
-    remark: string
-    userName: string
-    _id: string
 }
 
 interface RecordType {
@@ -107,7 +93,6 @@ const distributeData = ref<RecordType | undefined>();
 async function getList() {
     const res = await getStudentsPaper();
     if (res.data.code === 200) {
-        console.log(res.data.rows, "ppoo")
          tableData.value = res.data.rows
     }
 }

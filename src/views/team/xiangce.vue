@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Directive, onMounted, onBeforeMount, provide } from "vue";
+import { ref, onMounted, onBeforeMount, provide } from "vue";
 import xiangcePage from "./modal/xiangcePage.vue";
 
 const color = ref("red");
@@ -28,7 +28,7 @@ localStorage.setItem("userFlag", "1");
 const name = ref<string>("杰尼龟");
 const name2 = ref("我是小智");
 
-function vColorBg(el?, bind?): Directive {
+function vColorBg(el?: any, bind?: any) {
     el.style.background = color.value;
     if (localStorage.getItem("userFlag") as any == 1) {
         el.style.background = "pink";

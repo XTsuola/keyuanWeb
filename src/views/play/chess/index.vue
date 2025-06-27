@@ -36,9 +36,9 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
-import jsonData from "./data.json";
 import { initArray2, luoji } from "./fun";
 import { getChessMap, resetChessMap, updateChessMap } from "@/api/chess";
+import jsonData from "./data.json";
 
 const mapData = ref<any>([]);
 mapData.value = jsonData.map;

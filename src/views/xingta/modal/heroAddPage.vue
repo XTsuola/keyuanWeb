@@ -32,8 +32,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta";
 import type { AddParamsType } from "../heroList.vue";
+import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>

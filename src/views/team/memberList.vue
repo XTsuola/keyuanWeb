@@ -56,16 +56,14 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { groupList } from '@/utils/global';
 import { Table as aTable, message } from "ant-design-vue";
-import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams, type DeleteParams } from "@/api/team";
 import type { SelectValue } from "ant-design-vue/lib/select";
-import AddPage from "./modal/memberAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/memberAddPage.vue";
 import type { AxiosPromise } from "axios";
 import { useI18n } from "vue-i18n";
-import { render } from "vue";
-import { effect } from "vue";
+import { groupList } from '@/utils/global';
+import type { AddType, API as AddPageAPI } from "./modal/memberAddPage.vue";
+import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams } from "@/api/team";
+import AddPage from "./modal/memberAddPage.vue";
 
 export interface AddParamsType extends AddMemberParams {
     _id?: string
