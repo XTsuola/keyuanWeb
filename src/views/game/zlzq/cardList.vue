@@ -164,11 +164,20 @@ const columns = ref<any>([
         }
     },
     {
+        title: "推荐数",
+        dataIndex: "count",
+        key: "count",
+        width: 100,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.count) - parseInt(b.count)
+        }
+    },
+    /* {
         title: "效果",
         key: "effect",
         dataIndex: "effect",
         width: 300
-    },
+    }, */
 ]);
 
 const data = ref<any>([]);
