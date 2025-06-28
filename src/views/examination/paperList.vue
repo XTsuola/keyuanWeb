@@ -163,6 +163,8 @@ async function handleOk(e: MouseEvent) {
                 getList();
                 visible.value = false;
                 message.success(res.data.msg);
+            } else{
+                message.error(res.data.msg);
             }
         }
     } catch (_) { }

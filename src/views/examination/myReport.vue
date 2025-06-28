@@ -5,7 +5,7 @@
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action'">
-                <a-button v-if="record.flag" size="small" @click="goRoom(record)">开始考试</a-button>
+                <a-button v-if="record.flag == 0" size="small" @click="goRoom(record)">开始考试</a-button>
                 <div v-else>
                     <a-button style="margin-right: 15px;" size="small" @click="lookResult(record)">查看答卷</a-button>
                     <a-button size="small" @click="resetPaper(record)">重新考试</a-button>
@@ -19,7 +19,7 @@
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import { getMyPaperlist, resetNowPaper, type ResetPaperType } from "@/api/examination";
+import { getMyPaperList, resetNowPaper, type ResetPaperType } from "@/api/examination";
 import router from "@/router";
 
 interface scrollType {
@@ -122,7 +122,7 @@ async function resetPaper(record: any) {
 
 async function getList() {
     if (userId.value) {
-        const res = await getMyPaperlist(userId.value);
+        const res = await getMyPaperList(userId.value);
         data.value = res.data.rows;
     }
 }

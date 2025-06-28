@@ -77,7 +77,10 @@ export interface UpdateDataList {
   type: number;
   id: number;
   stem: string;
-  selectArr?: string[];
+  a?: string;
+  b?: string;
+  c?: string;
+  d?: string;
   answer?: string;
 }
 
@@ -261,9 +264,9 @@ export function deleteReport(data: DeleteReportType) {
 }
 
 // 获取当前用户试卷
-export function getMyPaperlist(id: number) {
+export function getMyPaperList(id: number) {
   return request({
-    url: "/getMyPaperlist?id=" + id,
+    url: "/getMyPaperList?id=" + id,
     method: "get",
   });
 }
