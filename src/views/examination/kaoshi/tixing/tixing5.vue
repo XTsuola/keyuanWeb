@@ -1,6 +1,6 @@
 <!-- 消灭星星 -->
 <template>
-    <!-- <div class="type">消灭星星</div> -->
+    <div class="type">消灭星星（分值：{{ prop.obj.score }}）</div>
     <div class="main">
         <div class="title">{{ prop.obj.index }}、{{ prop.obj.stem }}</div>
         <div v-for="item in arr" :key="item">
@@ -24,6 +24,8 @@ const arr = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 let flag = false;
 let count = 0;
 let timer: any = null;
+
+console.log(prop.obj, "ppoo")
 
 function mie(item: number) {
     if (arr.value.filter(e => e === 0).length === 0) {

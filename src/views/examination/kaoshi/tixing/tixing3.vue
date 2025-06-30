@@ -1,6 +1,6 @@
 <!-- 填空题 -->
 <template>
-    <div class="type">填空题</div>
+    <div class="type">填空题（分值：{{ prop.obj.score }}）</div>
     <div class="main">
         <div class="title">
             {{ prop.obj.index }}、

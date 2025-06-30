@@ -1,6 +1,6 @@
 <!-- 判断题 -->
 <template>
-    <div class="type">判断题</div>
+    <div class="type">判断题（分值：{{ prop.obj.score }}）</div>
     <div class="main">
         <div class="title">{{ prop.obj.index }}、{{ prop.obj.stem }}</div>
         <img class="img" v-if="imgFlag" :src="url" />·
@@ -10,7 +10,7 @@
         <div>
             <a-radio-group v-model:value="prop.obj.answer">
                 <div class="radioDiv" v-for="index in 2" :key="index">
-                    <a-radio :key="index - 1" :value="index - 1">{{ TFlist[index - 1] }}</a-radio>
+                    <a-radio :key="index - 1" :value="getAnwser(index - 1)">{{ TFlist[index - 1] }}</a-radio>
                 </div>
             </a-radio-group>
         </div>
@@ -25,31 +25,10 @@ const TFlist = ref<Array<string>>(["正确", "错误"]);
 const prop = defineProps<{
     obj: test2
 }>()
-const url = ref<string>("");
-const imgFlag = ref<boolean>(false);
-const videoFlag = ref<boolean>(false);
-const imgSuffixList = ref<string[]>([".jpg", ".png", ".gif", ".jpeg", ".bmp"]);
-const videoSuffixList = ref<string[]>([".mp4", ".mp3", ".m4a"]);
 
-onMounted(() => {
-    if (prop.obj.url) {
-        let str = prop.obj.url;
-        const index = str.lastIndexOf('.');
-        const suffix = str.substring(index, str.length);
-        if (imgSuffixList.value.includes(suffix)) {
-            imgFlag.value = true;
-            videoFlag.value = false;
-            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url;
-        } else if (videoSuffixList.value.includes(suffix)) {
-            imgFlag.value = false;
-            videoFlag.value = true;
-            url.value = import.meta.env.VITE_APP_BASE_URL + 'video/' + prop.obj.url;
-        }
-    } else {
-        imgFlag.value = videoFlag.value = false;
-        url.value = "";
-    }
-})
+function getAnwser(value: number) {
+    return value.toString();
+}
 
 </script>
 
