@@ -13,7 +13,7 @@
                 <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -24,7 +24,10 @@
             </a-form-item>
         </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, record }">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
@@ -173,8 +176,7 @@ const typeList = ref<Type[]>([{
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
-        dataIndex: "id",
-        key: "id",
+        key: "index",
         width: 80
     },
     {

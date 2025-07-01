@@ -25,8 +25,6 @@ let flag = false;
 let count = 0;
 let timer: any = null;
 
-console.log(prop.obj, "ppoo")
-
 function mie(item: number) {
     if (arr.value.filter(e => e === 0).length === 0) {
         flag = true;

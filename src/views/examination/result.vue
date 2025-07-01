@@ -7,7 +7,10 @@
         </div>
     </div>
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-        <template #bodyCell="{ column, record }">
+        <template #bodyCell="{ column, index, record }">
+            <template v-if="column.key === 'index'">
+                {{ index + 1 }}
+            </template>
             <template v-if="column.key === 'type'">
                 <span v-if="record.type == 1">选择题</span>
                 <span v-if="record.type == 2">判断题</span>
@@ -15,8 +18,8 @@
                 <span v-if="record.type == 4">问答题</span>
                 <span v-if="record.type == 5">操作题</span>
             </template>
-            <template v-if="column.key === 'selectArr'">
-                <span>{{ record.selectArr ? getSelectResult(record.selectArr) : "/" }}</span>
+            <template v-if="column.key === 'a'">
+                <span>{{ record.a != "" ? getSelectResult(record) : "/" }}</span>
             </template>
             <template v-if="column.key === 'rightAnswer'">
                 <span v-if="record.type == 1">
@@ -50,7 +53,7 @@
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import { getResult, type GetResult } from "@/api/examination";
+import { getResult } from "@/api/examination";
 
 interface scrollType {
     x: number
@@ -74,10 +77,8 @@ if (localStorage.getItem("resultObj")) {
 const columns = ref<ColumnsType>([
     {
         title: "序号",
-        dataIndex: "index",
         key: "index",
-        width: 100,
-        customRender: (opt) => opt.record.index + 1
+        width: 80
     },
     {
         title: "题目名称",
@@ -91,8 +92,8 @@ const columns = ref<ColumnsType>([
     },
     {
         title: "选项",
-        dataIndex: "selectArr",
-        key: "selectArr"
+        dataIndex: "a",
+        key: "a"
     },
     {
         title: "正确答案",
@@ -124,16 +125,11 @@ const columns = ref<ColumnsType>([
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
 const data = ref<DataType[]>();
 
-function getSelectResult(arr: string[] | number[]) {
-    if (arr[0] == "" && arr[1] == "" && arr[2] == 0 && arr[3] == "") {
+function getSelectResult(record: any) {
+    if (record.a == "" && record.b == "" && record.c == "" && record.d == "") {
         return "/";
     }
-    let brr = [];
-    let prefixList = ["A.", "B.", "C.", "D."];
-    for (let i = 0; i < arr.length; i++) {
-        brr.push(prefixList[i] + arr[i]);
-    }
-    return brr.join("，");
+    return ["A." + record.a, "B." + record.b, "C." + record.c, "D." + record.d].join("，");
 }
 
 function goBack() {
@@ -141,11 +137,7 @@ function goBack() {
 }
 
 async function getList() {
-    let params: GetResult = {
-        paperId: parseInt(resultObj.paperId),
-        userId: parseInt(resultObj.userId),
-    };
-    const res = await getResult(params);
+    const res = await getResult(resultObj.id);
     if (res && res.data.code == 200) {
         data.value = res.data.rows;
     }

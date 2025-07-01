@@ -6,7 +6,10 @@
             </a-button>
         </div>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, record }">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
@@ -111,8 +114,7 @@ const visible = ref<boolean>(false);
 const columns = ref<ColumnType[]>([
     {
         title: "序号",
-        dataIndex: "id",
-        key: "id",
+        key: "index",
         width: 80
     },
     {

@@ -3,12 +3,15 @@
         我的试卷
     </div>
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-        <template #bodyCell="{ column, record }">
+        <template #bodyCell="{ column, index, record }">
+            <template v-if="column.key === 'index'">
+                {{ index + 1 }}
+            </template>
             <template v-if="column.key === 'action'">
                 <a-button v-if="record.flag == 0" size="small" @click="goRoom(record)">开始考试</a-button>
                 <div v-else>
                     <a-button style="margin-right: 15px;" size="small" @click="lookResult(record)">查看答卷</a-button>
-                    <a-button size="small" @click="resetPaper(record)">重新考试</a-button>
+                    <a-button size="small" @click="resetPaper(record.id)">重新考试</a-button>
                 </div>
             </template>
         </template>
@@ -49,9 +52,8 @@ if (userInfo.value && JSON.parse(userInfo.value).userId) {
 const columns = ref<ColumnsType>([
     {
         title: "序号",
-        dataIndex: "paperId",
-        key: "paperId",
-        width: 100
+        key: "index",
+        width: 80
     },
     {
         title: "试卷名称",
@@ -100,8 +102,7 @@ function goRoom(record: any) {
 
 function lookResult(record: any) {
     const resultObj = {
-        userId: record.userId,
-        paperId: record.paperId,
+        id: record.id,
         paperName: record.paperName,
         score: record.score
     };
@@ -109,12 +110,8 @@ function lookResult(record: any) {
     router.push({ path: "/result" });
 }
 
-async function resetPaper(record: any) {
-    const params: ResetPaperType = {
-        paperId: record.paperId,
-        reportId: record._id
-    };
-    const res = await resetNowPaper(params);
+async function resetPaper(id: number) {
+    const res = await resetNowPaper(id);
     if (res.data.code == 200) {
         getList();
     }

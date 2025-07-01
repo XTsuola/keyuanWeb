@@ -12,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -23,7 +23,10 @@
             </a-form-item>
         </a-form>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, record }">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
@@ -125,6 +128,11 @@ const formState = reactive<FormStateType>({
 });
 
 const columns = ref<ColumnType[]>([
+    {
+        title: "序号",
+        key: "index",
+        width: 80
+    },
     {
         title: "成员名称",
         dataIndex: "name",

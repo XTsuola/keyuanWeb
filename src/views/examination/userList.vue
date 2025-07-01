@@ -4,7 +4,10 @@
         <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增用户</a-button>
     </div>
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-        <template #bodyCell="{ column, record }">
+        <template #bodyCell="{ column, index, record }">
+            <template v-if="column.key === 'index'">
+                {{ index + 1 }}
+            </template>
             <template v-if="column.key === 'action' && levelId === 1">
                 <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                     <a-button size="small" @click="showModal('edit', record)">修改</a-button>
@@ -48,8 +51,7 @@ const flag = ref<TypeFlag>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
-        dataIndex: "id",
-        key: "id",
+        key: "index",
         width: 80
     },
     {

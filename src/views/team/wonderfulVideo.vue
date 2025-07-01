@@ -5,13 +5,16 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal()">添加锦集</a-button>
         </div>
         <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-            <template #bodyCell="{ column, record }">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-else-if="column.key === 'url'">
                     <a @click="showVideo(record.url)">{{ record.name + record.url.slice(record.url.lastIndexOf("."))
-                    }}</a>
+                        }}</a>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
                     <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
@@ -96,6 +99,11 @@ interface addDataType {
 }
 
 const columns = ref<ColumnType[]>([
+    {
+        title: "序号",
+        key: "index",
+        width: 80
+    },
     {
         title: "名称",
         dataIndex: "name",

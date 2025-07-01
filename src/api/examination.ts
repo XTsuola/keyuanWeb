@@ -95,16 +95,6 @@ export interface PaperDataType {
   paperList: number[];
 }
 
-export interface GetResult {
-  paperId: number;
-  userId: number;
-}
-
-export interface ResetPaperType {
-  paperId: number;
-  reportId: number;
-}
-
 // 获取题库列表
 export function getQuestionList() {
   return request({
@@ -289,20 +279,18 @@ export function autoUpdatePaper(data: AutoUpdatePaperParams) {
 }
 
 // 重置当前试卷
-export function resetNowPaper(data: ResetPaperType) {
+export function resetNowPaper(id: number) {
   return request({
-    url: "/resetReport",
-    method: "post",
-    data: data,
+    url: "/resetReport?id=" + id,
+    method: "get",
   });
 }
 
 // 查询结果
-export function getResult(data: GetResult) {
+export function getResult(id: number) {
   return request({
-    url: "/getResult",
-    method: "post",
-    data: data,
+    url: "/getResult?id=" + id,
+    method: "get",
   });
 }
 

@@ -3,7 +3,10 @@
         答卷列表
     </div>
     <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
-        <template #bodyCell="{ column, record }">
+        <template #bodyCell="{ column, index, record }">
+            <template v-if="column.key === 'index'">
+                {{ index + 1 }}
+            </template>
             <template v-if="column.key === 'action' && levelId === 1">
                 <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
                     <a-button size="small" @click="goPaperList(record)">查看试卷</a-button>
@@ -50,8 +53,7 @@ interface RecordType {
 const columns = ref<ColumnsType>([
     {
         title: "序号",
-        dataIndex: "id",
-        key: "id",
+        key: "index",
         width: 80
     },
     {

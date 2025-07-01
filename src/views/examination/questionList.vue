@@ -4,7 +4,10 @@
         <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">添加试题</a-button>
     </div>
     <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
-        <template #bodyCell="{ column, record }">
+        <template #bodyCell="{ column, index, record }">
+            <template v-if="column.key === 'index'">
+                {{ index + 1 }}
+            </template>
             <template v-if="column.key === 'stem'">
                 <a v-if="record.type === 3">{{ record.stem.replaceAll('/', '_____') }}</a>
                 <a v-else>{{ record.stem }}</a>
@@ -76,8 +79,7 @@ const flag = ref<TypeFlag>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
-        dataIndex: "id",
-        key: "id",
+        key: "index",
         width: 80
     },
     {
