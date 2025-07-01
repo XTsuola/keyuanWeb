@@ -51,7 +51,6 @@ import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, t
 import AddPage from "./modal/heroAddPage.vue";
 
 export interface AddParamsType extends AddHeroParams {
-    _id?: string
     id?: number
 }
 
@@ -74,7 +73,6 @@ interface scrollType {
 }
 
 interface DataType {
-    _id: string
     id: number
     name: string
     gender: number | undefined
@@ -87,7 +85,6 @@ interface DataType {
 }
 
 let addParams = reactive<AddParamsType>({
-    _id: "",
     id: 0,
     name: "",
     title: "",
@@ -200,10 +197,7 @@ async function getList() {
 }
 
 async function deleteOk(e: DataType) {
-    const params: DeleteParams = {
-        _id: e._id
-    };
-    const res = await deleteHero(params);
+    const res = await deleteHero(e.id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
@@ -269,17 +263,19 @@ async function handleOk(e: MouseEvent) {
         a.axios = updateHero;
         a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData();
-    if (result && a.axios) {
-        const res = await a.axios(result);
-        if (res.data.code === 200) {
-            getList();
-            message.success(res.data.msg);
-            visible.value = false;
-        } else {
-            message.error(a.msg);
+    try {
+        const result = await addPage.value?.getAddData();
+        if (result && a.axios) {
+            const res = await a.axios(result);
+            if (res.data.code === 200) {
+                getList();
+                message.success(res.data.msg);
+                visible.value = false;
+            } else {
+                message.error(a.msg);
+            }
         }
-    }
+    } catch (_) { }
     loading.value = false;
 }
 

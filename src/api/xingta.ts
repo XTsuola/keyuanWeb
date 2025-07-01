@@ -17,12 +17,7 @@ export interface AddHeroParams {
 }
 
 export interface UpdateHeroParams extends AddHeroParams {
-  _id?: string;
   id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
 }
 
 // 获取英雄列表
@@ -53,10 +48,9 @@ export function updateHero(data: UpdateHeroParams) {
 }
 
 // 删除角色
-export function deleteHero(data: DeleteParams) {
+export function deleteHero(id: number) {
   return request({
-    url: "/xingta/deleteHero",
-    method: "get",
-    params: data,
+    url: "/xingta/deleteHero?id=" + id,
+    method: "delete",
   });
 }
