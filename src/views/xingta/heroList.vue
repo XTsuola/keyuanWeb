@@ -218,7 +218,6 @@ function showModal(showType: AddType, item?: AddParamsType) {
     if (showType === "edit") {
         title.value = "修改角色";
         if (item) {
-            addParams._id = item._id;
             addParams.name = item.name;
             addParams.title = item.title;
             addParams.mainShuxing = item.mainShuxing;
@@ -231,7 +230,7 @@ function showModal(showType: AddType, item?: AddParamsType) {
         }
     } else if (showType === "add") {
         title.value = "添加角色";
-        addParams._id = addParams.name = addParams.title = addParams.mainShuxing = addParams.otherShuxing = addParams.weapon = addParams.gongfa = addParams.introduce = addParams.remark = "";
+        addParams.name = addParams.title = addParams.mainShuxing = addParams.otherShuxing = addParams.weapon = addParams.gongfa = addParams.introduce = addParams.remark = "";
         addParams.id = 0;
     } else if (showType === "detail") {
         title.value = "查看详情";
