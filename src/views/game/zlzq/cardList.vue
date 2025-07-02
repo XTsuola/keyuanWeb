@@ -2,6 +2,7 @@
     <div class="main">
         <div class="title">
             卡牌列表
+            <a-button @click="capture">导出为图片</a-button>
         </div>
         <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="名称" style="width: 200px">
@@ -49,7 +50,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+        <a-table ref="tableRef" :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="pagination">
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -79,6 +80,9 @@ import manshikuangye from "./cardInfo_20/manshikuangye.json";
 import dongshenshitu from "./cardInfo_20/dongshenshitu.json";
 import lianyushenyuan from "./cardInfo_20/lianyushenyuan.json";
 import yinmizhe from "./cardInfo_20/yinmizhe.json";
+import { recommendCardList } from "./recommendCard";
+import html2canvas from 'html2canvas';
+
 
 export interface Type {
     label: string
@@ -90,6 +94,12 @@ interface scrollType {
     y: number | undefined
 }
 
+const tableRef = ref(null)
+const pagination = {
+  showSizeChanger: true, // 显示页大小切换器
+  pageSizeOptions: ['10', '20', '50', '100', '500', '1000'], // 添加更多选项
+  defaultPageSize: 10, // 默认每页50条
+}
 const total = ref<number>(0);
 const visible = ref<boolean>(false);
 const columns = ref<any>([
@@ -116,62 +126,72 @@ const columns = ref<any>([
         key: "quality",
         width: 80
     },
-    {
-        title: "等级",
-        dataIndex: "level",
-        key: "level",
-        width: 100
-    },
+    // {
+    //     title: "等级",
+    //     dataIndex: "level",
+    //     key: "level",
+    //     width: 100
+    // },
     {
         title: "费用",
         dataIndex: "cost",
         key: "cost",
         width: 100
     },
-    {
-        title: "类型",
-        dataIndex: "type",
-        key: "type",
-        width: 100,
-        customRender: (opt: any) => opt.value == 1 ? "战士" : "法术"
-    },
-    {
-        title: "攻击",
-        dataIndex: "attack",
-        key: "attck",
-        width: 100,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.attack) - parseInt(b.attack)
-        }
-    },
-    {
-        title: "生命",
-        dataIndex: "life",
-        key: "life",
-        width: 100,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.life) - parseInt(b.life)
-        }
-    },
-    {
-        title: "总计",
-        key: "remark",
-        dataIndex: "remark",
-        width: 100,
-        customRender: (opt: any) => {
-            return parseInt(opt.record.attack) + parseInt(opt.record.life)
-        },
-        sorter: (a: any, b: any) => {
-            return (parseInt(a.life) + parseInt(a.attack)) - (parseInt(b.life) + parseInt(b.attack))
-        }
-    },
+    // {
+    //     title: "类型",
+    //     dataIndex: "type",
+    //     key: "type",
+    //     width: 100,
+    //     customRender: (opt: any) => opt.value == 1 ? "战士" : "法术"
+    // },
+    // {
+    //     title: "攻击",
+    //     dataIndex: "attack",
+    //     key: "attck",
+    //     width: 100,
+    //     sorter: (a: any, b: any) => {
+    //         return parseInt(a.attack) - parseInt(b.attack)
+    //     }
+    // },
+    // {
+    //     title: "生命",
+    //     dataIndex: "life",
+    //     key: "life",
+    //     width: 100,
+    //     sorter: (a: any, b: any) => {
+    //         return parseInt(a.life) - parseInt(b.life)
+    //     }
+    // },
+    // {
+    //     title: "总计",
+    //     key: "remark",
+    //     dataIndex: "remark",
+    //     width: 100,
+    //     customRender: (opt: any) => {
+    //         return parseInt(opt.record.attack) + parseInt(opt.record.life)
+    //     },
+    //     sorter: (a: any, b: any) => {
+    //         return (parseInt(a.life) + parseInt(a.attack)) - (parseInt(b.life) + parseInt(b.attack))
+    //     }
+    // },
     {
         title: "推荐数",
         dataIndex: "count",
         key: "count",
         width: 100,
         sorter: (a: any, b: any) => {
-            return parseInt(a.count) - parseInt(b.count)
+            return a.count - b.count
+        }
+    },
+    {
+        title: "推荐值",
+        dataIndex: "rarity",
+        key: "rarity",
+        width: 100,
+        customRender: (opt: any) => (opt.value + 1).toFixed(2),    
+        sorter: (a: any, b: any) => {
+            return a.rarity - b.rarity
         }
     },
     /* {
@@ -309,14 +329,62 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    chanyigu.forEach((item: any) => item.zhenyin = 2);
-    tiantanggang.forEach((item: any) => item.zhenyin = 3);
-    manshikuangye.forEach((item: any) => item.zhenyin = 4);
-    dongshenshitu.forEach((item: any) => item.zhenyin = 5);
-    lianyushenyuan.forEach((item: any) => item.zhenyin = 6);
-    yinmizhe.forEach((item: any) => item.zhenyin = 7);
+    simangdiguo.forEach((item: any) => {
+        item.zhenyin = 1;
+        item.count = 0;
+        item.rarity = 0;
+    });
+    chanyigu.forEach((item: any) => {
+        item.zhenyin = 2;
+        item.count = 0;
+        item.rarity = 0;
+    })
+    tiantanggang.forEach((item: any) => {
+        item.zhenyin = 3;
+        item.count = 0;
+        item.rarity = 0;
+    })
+    manshikuangye.forEach((item: any) => {
+        item.zhenyin = 4;
+        item.count = 0;
+        item.rarity = 0;
+    })
+    dongshenshitu.forEach((item: any) => {
+        item.zhenyin = 5;
+        item.count = 0;
+        item.rarity = 0;
+    })
+    lianyushenyuan.forEach((item: any) => {
+        item.zhenyin = 6;
+        item.count = 0;
+        item.rarity = 0;
+    })
+    yinmizhe.forEach((item: any) => {
+        item.zhenyin = 7;
+        item.count = 0;
+        item.rarity = 0;
+    })
     let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe];
+    for (let key in recommendCardList) {
+        const data = recommendCardList[key].data
+        for(let i=0; i<data.length; i++) {
+            const index = allData.findIndex(e => e.name == data[i])
+            allData[index].count += 1;
+            let rat = 0;
+            if(allData[index].quality == "蓝") {
+                rat = 0.5;
+            } else if(allData[index].quality == "紫") {
+                rat = 0.4;
+            } else if(allData[index].quality == "橙") {
+                rat = 0.1;
+            }
+            if(allData[index].zhenyin == data[i].zhu) {
+                allData[index].rarity += (0.7 * rat)
+            } else {
+                allData[index].rarity += (0.3 * rat)
+            }
+        }
+    }
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
@@ -346,6 +414,16 @@ function reset() {
     formState.zhenyin = [];
     formState.name = formState.quality = formState.cost = formState.type = formState.level = undefined;
     getList();
+}
+
+function capture() {
+  if (!tableRef.value) return
+  html2canvas(tableRef.value.$el).then(canvas => {
+    const link = document.createElement('a')
+    link.download = 'table.png'
+    link.href = canvas.toDataURL('image/png')
+    link.click()
+  })
 }
 
 onMounted(() => {
