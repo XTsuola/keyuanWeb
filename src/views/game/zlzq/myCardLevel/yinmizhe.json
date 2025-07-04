@@ -14,10 +14,10 @@
     "quality": "蓝",
     "name": "方尖魔碑",
     "cost": 2,
-    "level": 18,
+    "level": 19,
     "type": 1,
     "attack": 0,
-    "life": 32,
+    "life": 36,
     "effect": "【守军】、敌方法力上限-1、回合结束:70%几率【洞察1】。",
     "remark": ""
   },

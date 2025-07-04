@@ -47,11 +47,11 @@
     "quality": "蓝",
     "name": "树木之怒",
     "cost": 2,
-    "level": 12,
+    "level": 17,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "随机区域敌军、及敌方玩家受到20点伤害。",
+    "effect": "随机区域敌军、及敌方玩家受到43点伤害。",
     "remark": ""
   },
   {
@@ -102,11 +102,11 @@
     "quality": "蓝",
     "name": "深山采药人",
     "cost": 3,
-    "level": 15,
+    "level": 16,
     "type": 1,
-    "attack": 13,
-    "life": 23,
-    "effect": "【传承6】、登场:英雄生命+20。",
+    "attack": 14,
+    "life": 25,
+    "effect": "【传承6】、登场:英雄生命+22。",
     "remark": ""
   },
   {
@@ -124,11 +124,11 @@
     "quality": "蓝",
     "name": "连击2",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "目标友军+3/+17，魔防+2，获得【二连击】。",
+    "effect": "目标友军+4/+18，魔防+3，获得【二连击】。",
     "remark": ""
   },
   {
@@ -234,10 +234,10 @@
     "quality": "紫",
     "name": "墨轩隐士",
     "cost": 4,
-    "level": 13,
+    "level": 12,
     "type": 1,
     "attack": 3,
-    "life": 25,
+    "life": 23,
     "effect": "【洞察1】、法力上限+1、回合结束:复制场上另一单位，到你手上。",
     "remark": ""
   },
