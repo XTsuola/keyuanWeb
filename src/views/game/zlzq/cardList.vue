@@ -403,6 +403,7 @@ async function getList() {
     if (formState.level) {
         allData = allData.filter((item: any) => item.level == formState.level);
     }
+    // allData = allData.filter((item: any) => item.count == 0);
     total.value = allData.length;
     data.value = allData;
     for (let i = 0; i < data.value.length; i++) {
