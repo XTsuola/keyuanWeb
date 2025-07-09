@@ -3,22 +3,11 @@
     "quality": "蓝",
     "name": "卜命道长",
     "cost": 1,
-    "level": 16,
-    "type": 1,
-    "attack": 14,
-    "life": 11,
-    "effect": "【传承4】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "拒马",
-    "cost": 2,
     "level": 12,
     "type": 1,
-    "attack": 8,
-    "life": 23,
-    "effect": "【守军】、【荆棘】。",
+    "attack": 9,
+    "life": 6,
+    "effect": "【传承3】。",
     "remark": ""
   },
   {
@@ -30,17 +19,6 @@
     "attack": 6,
     "life": 7,
     "effect": "【洞察1】、【传承6】、法力上限+1。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "苦行武僧",
-    "cost": 2,
-    "level": 12,
-    "type": 1,
-    "attack": 10,
-    "life": 14,
-    "effect": "【传承4】、回合结束:自身+3/+2，魔防+2。",
     "remark": ""
   },
   {
@@ -100,17 +78,6 @@
   },
   {
     "quality": "蓝",
-    "name": "深山采药人",
-    "cost": 3,
-    "level": 16,
-    "type": 1,
-    "attack": 14,
-    "life": 25,
-    "effect": "【传承6】、登场:英雄生命+22。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
     "name": "连击1",
     "cost": 3,
     "level": 17,
@@ -140,17 +107,6 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标友军加攻，等同其一半生命值、另一友军生命+6、75%几率抽一张牌。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "醉道人",
-    "cost": 3,
-    "level": 12,
-    "type": 1,
-    "attack": 14,
-    "life": 20,
-    "effect": "攻击前、死亡:全场其他生物受到1点伤害。",
     "remark": ""
   },
   {
