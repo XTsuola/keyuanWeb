@@ -39,26 +39,17 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from "@/api/mhmnz";
-import AddPage from "./modal/armsAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/armsAddPage.vue";
+import { message } from "ant-design-vue";
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams } from "@/api/mhmnz";
 import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/armsAddPage.vue";
+import AddPage from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddArmsParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -214,7 +205,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
 

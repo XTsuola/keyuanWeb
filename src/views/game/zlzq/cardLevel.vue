@@ -55,20 +55,11 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
+import type { ScrollType } from "@/utils/global";
 import simangdiguo from "./myCardLevel/simangdiguo.json";
 import chanyigu from "./myCardLevel/chanyigu.json";
 import yinmizhe from "./myCardLevel/yinmizhe.json";
 import MyTabel from "@/components/table.vue";
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
 
 const total = ref<number>(0);
 const columns = ref<any>([
@@ -157,7 +148,7 @@ const columns = ref<any>([
 ]);
 
 const tableData = ref<any>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia('(max-width: 768px)');
 const qualityList = [{
     label: "全部",

@@ -15,7 +15,7 @@ export type AddType = "add" | "edit" | "detail"
 
 export interface Type {
     label: string
-    value: number | undefined
+    value: number | string | undefined
 }
 
 export const levelName = {

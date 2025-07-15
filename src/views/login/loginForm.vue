@@ -15,10 +15,10 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { message } from "ant-design-vue";
 import { useRouter } from "vue-router";
-import { login, type LoginParams } from "@/api/login";
+import { message } from "ant-design-vue";
 import { useCounterStore } from "@/stores/counter";
+import { login, type LoginParams } from "@/api/login";
 import md5 from "js-md5";
 
 interface FormState {

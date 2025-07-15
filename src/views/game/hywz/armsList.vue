@@ -33,20 +33,16 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from "@/api/hywz";
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams } from "@/api/hywz";
 import AddPage from "./modal/armsAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/armsAddPage.vue";
 import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddArmsParams {
     _id?: string
     id?: number
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -212,7 +208,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
 
@@ -250,10 +246,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

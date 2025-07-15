@@ -42,7 +42,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { AddWeaponParams, UpdateWeaponParams } from "@/api/mhmnz";
-import type { AddParamsType, Type } from "../weaponList.vue";
+import type { Type } from "@/utils/global";
+import type { AddParamsType } from "../weaponList.vue";
+
 
 export interface API {
     getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>

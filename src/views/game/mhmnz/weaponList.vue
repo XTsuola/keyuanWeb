@@ -13,21 +13,21 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="装备类型" style="width: 240px">
                 <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择装备">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" style="width: 240px">
                 <a-select v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -54,25 +54,16 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams, type DeleteParams } from "@/api/mhmnz";
-import AddPage from "./modal/weaponAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/weaponAddPage.vue";
+import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams } from "@/api/mhmnz";
 import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/weaponAddPage.vue";
+import AddPage from "./modal/weaponAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddWeaponParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -226,7 +217,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const type = ref<AddType>("add");
 const mql = window.matchMedia("(max-width: 768px)");
 

@@ -13,21 +13,21 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
                 <a-select v-model:value="formState.camp" @change="selectList" placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="兵种" style="width: 220px">
@@ -63,25 +63,16 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/mhmnz";
-import AddPage from "./modal/heroAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/mhmnz";
 import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/heroAddPage.vue";
+import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -275,7 +266,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const type = ref<AddType>("add");
 const mql = window.matchMedia("(max-width: 768px)");
 

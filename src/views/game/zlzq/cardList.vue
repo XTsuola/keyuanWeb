@@ -56,6 +56,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
+import type { ScrollType } from "@/utils/global";
+import { recommendCardList } from "./recommendCard";
 import simangdiguo from "./cardInfo_20/simangdiguo.json";
 import chanyigu from "./cardInfo_20/chanyigu.json";
 import tiantanggang from "./cardInfo_20/tiantanggang.json";
@@ -63,26 +65,10 @@ import manshikuangye from "./cardInfo_20/manshikuangye.json";
 import dongshenshitu from "./cardInfo_20/dongshenshitu.json";
 import lianyushenyuan from "./cardInfo_20/lianyushenyuan.json";
 import yinmizhe from "./cardInfo_20/yinmizhe.json";
-import { recommendCardList } from "./recommendCard";
 import html2canvas from 'html2canvas';
 import MyTabel from "@/components/table.vue";
 
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
-
 const tableRef = ref<any>(null)
-/* const pagination = {
-  showSizeChanger: true, // 显示页大小切换器
-  pageSizeOptions: ['10', '20', '50', '100', '500', '1000'], // 添加更多选项
-  defaultPageSize: 10, // 默认每页50条
-} */
 const total = ref<number>(0);
 const columns = ref<any>([
     {
@@ -189,7 +175,7 @@ const columns = ref<any>([
 ]);
 
 const tableData = ref<any>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia('(max-width: 768px)');
 const qualityList = [{
     label: "全部",

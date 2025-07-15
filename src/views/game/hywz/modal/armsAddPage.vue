@@ -49,12 +49,11 @@
 import type { AddArmsParams, UpdateArmsParams } from "@/api/hywz";
 import { ref } from "vue";
 import type { AddParamsType } from "../armsList.vue";
+import type { AddType } from "@/utils/global";
 
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
 }
-
-export type AddType = "add" | "edit" | "detail";
 
 const prop = defineProps<{
     type: AddType

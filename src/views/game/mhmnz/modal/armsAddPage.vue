@@ -40,13 +40,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { AddArmsParams, UpdateArmsParams } from "@/api/mhmnz";
-import type { AddParamsType, Type } from "../armsList.vue";
+import type { AddType, Type } from "@/utils/global";
+import type { AddParamsType } from "../armsList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
 }
-
-export type AddType = "add" | "edit" | "detail"
 
 const prop = defineProps<{
     type: AddType

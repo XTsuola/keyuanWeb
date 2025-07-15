@@ -50,25 +50,17 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/wzry";
-import AddPage from "./modal/heroAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
 import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/heroAddPage.vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/wzry";
+import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
+
 
 export interface AddParamsType extends AddHeroParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -213,7 +205,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const type = ref<AddType>("add");
 const mql = window.matchMedia("(max-width: 768px)");
 

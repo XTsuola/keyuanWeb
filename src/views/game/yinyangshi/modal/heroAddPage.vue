@@ -54,13 +54,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { AddHeroParams, UpdateHeroParams } from "@/api/yys";
-import type { AddParamsType, Type } from "../heroList.vue";
+import type { AddParamsType } from "../heroList.vue";
+import type { AddType, Type } from "@/utils/global";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
-
-export type AddType = "add" | "edit" | "detail"
 
 const prop = defineProps<{
     type: AddType

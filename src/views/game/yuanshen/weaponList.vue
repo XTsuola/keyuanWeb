@@ -53,25 +53,16 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
+import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { API as AddPageAPI } from "./modal/weaponAddPage.vue";
 import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams } from "@/api/yuanshen";
 import AddPage from "./modal/weaponAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/weaponAddPage.vue";
-import type { AxiosPromise } from "axios";
 import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddWeaponParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -226,7 +217,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
 
