@@ -38,11 +38,11 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
+import { useI18n } from "vue-i18n";
 import type { SelectValue } from "ant-design-vue/lib/select";
 import type { AxiosPromise } from "axios";
-import { useI18n } from "vue-i18n";
-import { groupList, type AddType, type ScrollType } from '@/utils/global';
 import type { API as AddPageAPI } from "./modal/memberAddPage.vue";
+import { groupList, type AddType, type ScrollType } from '@/utils/global';
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
