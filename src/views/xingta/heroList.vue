@@ -119,7 +119,7 @@ const columns = ref<any>([
         title: "功法",
         dataIndex: "gongfa",
         key: "gongfa",
-        width: 160,
+        width: 180,
     },
     {
         title: "介绍",
@@ -138,7 +138,7 @@ const columns = ref<any>([
         key: "action",
         align: "center",
         list: ["detail", "edit", "delete"],
-        width: 140
+        width: 120
     },
 ]);
 const loading = ref<boolean>(false);
