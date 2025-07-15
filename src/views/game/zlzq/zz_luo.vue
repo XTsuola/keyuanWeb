@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -63,7 +63,7 @@
 import { onMounted, reactive, ref } from "vue";
 import type { ScrollType } from "@/utils/global";
 import { getMyCard } from "@/utils/some";
-import simangdiguo from "./myCardLevel/simangdiguo.json";
+import chanyigu from "./myCardLevel/chanyigu.json";
 import yinmizhe from "./myCardLevel/yinmizhe.json";
 import MyTabel from "@/components/table.vue";
 
@@ -217,8 +217,8 @@ const typeList = [{
     value: 3
 }];
 const zhenyinList = [{
-    label: "四芒帝国",
-    value: 1
+    label: "禅意谷",
+    value: 2
 }, {
     label: "隐秘者",
     value: 7
@@ -278,12 +278,12 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    let tempData: any = [...simangdiguo, ...yinmizhe];
-    const myCardList = ["圣殿斥候1", "学仆-观测型1", "方尖魔碑", "天使琼浆", "沉重否定", "全数否定", "圣殿弩手", "增援战线", "光明惩戒1", "隐形术",
-        "四芒军旗", "圣殿御卫", "破魔系教授1", "克隆术", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3", "冲锋装备", "夺取阵地", "观星台大预言家1",
-        "禁卫指挥官", "惩戒天使", "米拉方舟", "花光春影·安娜贝尔", "百花长枪·卡罗琳", "明日香·露娜", "月之神·米拉", "永恒之王·莱哈特", "白袍·伊恩", "武圣·云长"];
+    chanyigu.forEach((item: any) => item.zhenyin = 2);
+    yinmizhe.forEach((item: any) => item.zhenyin = 78);
+    let tempData: any = [...yinmizhe, ...chanyigu];
+    const myCardList = ["学仆-观测型1", "学仆-观测型2", "方尖魔碑", "沉重否定", "树木之怒", "飓风术", "长耳庄巧姑", "全数否定", "连击1", "执剑道者",
+        "龟族僧人", "铁山靠", "风卷残云1", "风卷残云2", "隐形术", "破魔系教授1", "破魔系教授2", "克隆术", "学仆-脉冲型1", "学仆-脉冲型2",
+        "学仆-脉冲型3", "御风武者", "墨轩隐士", "蟠桃会", "观星台大预言家1", "万物之灵", "米拉方舟", "九天玄女·轩", "上宝沁金耙", "月之神·米拉"];
     let allData = getMyCard(tempData, myCardList);
     const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
     const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });

@@ -307,6 +307,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
               },
               {
+                path: "zhenlizhiquanLuo",
+                meta: {
+                  menuType: "menu",
+                  key: "zhenlizhiquanLuo",
+                  label: "洛",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zz_luo.vue"),
+              },
+              {
                 path: "zhenlizhiquanMei",
                 meta: {
                   menuType: "menu",
