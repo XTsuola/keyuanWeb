@@ -13,21 +13,21 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" style="width: 200px">
                 <a-select v-model:value="formState.camp" @change="selectList" placeholder="请选择阵营">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="兵种" style="width: 220px">
@@ -46,7 +46,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -62,7 +62,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/mhmnz";
 import AddPage from "./modal/heroAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
@@ -77,14 +77,6 @@ export interface AddParamsType extends AddHeroParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -209,7 +201,7 @@ const campList = ref<Type[]>([{
     label: "梦幻转生",
     value: 12,
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -220,15 +212,15 @@ const columns = ref<ColumnType[]>([
         title: "名称",
         dataIndex: "name",
         key: "name",
-        width:80
+        width: 80
     },
     {
         title: "稀有度",
         dataIndex: "star",
         key: "star",
         width: 60,
-        customRender: (opt) => {
-           return starList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return starList.value.find(item => item.value == opt.value)?.label
         },
     },
     {
@@ -236,8 +228,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "gender",
         key: "gender",
         width: 60,
-        customRender: (opt) => {
-           return genderList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return genderList.value.find(item => item.value == opt.value)?.label
         },
     },
     {
@@ -245,8 +237,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "camp",
         key: "camp",
         width: 120,
-        customRender: (opt) => {
-           return getCamp(opt.value)
+        customRender: (opt: any) => {
+            return getCamp(opt.value)
         },
     },
     {
@@ -339,10 +331,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

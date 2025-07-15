@@ -13,7 +13,7 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="关键词" style="width: 220px">
@@ -26,7 +26,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -42,8 +42,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type DeleteParams, type AddRelicsParams, type UpdateRelicsParams } from "@/api/yuanshen";
+import { message } from "ant-design-vue";
+import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsListParams, type AddRelicsParams, type UpdateRelicsParams } from "@/api/yuanshen";
 import AddPage from "./modal/relicsAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/relicsAddPage.vue";
 import type { AxiosPromise } from "axios";
@@ -57,14 +57,6 @@ export interface AddParamsType extends AddRelicsParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -132,7 +124,7 @@ const starList = ref<Type[]>([{
     label: "三星",
     value: 3
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -150,8 +142,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "star",
         key: "star",
         width: 80,
-        customRender: (opt) => {
-           return starList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return starList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -222,10 +214,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

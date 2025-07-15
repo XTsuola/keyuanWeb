@@ -10,11 +10,12 @@
                     width: '300px',
                     height: '400px',
                 }" v-model:target-keys="targetKeys" v-model:selected-keys="selectedKeys" :data-source="allList"
-                    :render="item => item.title" :disabled="disabled" :showSelectAll="false" @change="handleChange" />
+                    :render="(item: any) => item.title" :disabled="disabled" :showSelectAll="false"
+                    @change="handleChange" />
             </a-form-item>
             <a-form-item label="每题分值" name="scoreList" v-if="addData.scoreList.length > 0">
                 <ul>
-                    <li v-for="item in addData.scoreList" :key="item">
+                    <li v-for="(item, index) in addData.scoreList" :key="index">
                         <div style="margin-right: 2px;">
                             {{ item.key }}.
                         </div>

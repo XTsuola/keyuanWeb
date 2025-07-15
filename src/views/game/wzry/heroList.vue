@@ -33,7 +33,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -49,7 +49,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/wzry";
 import AddPage from "./modal/heroAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
@@ -64,14 +64,6 @@ export interface AddParamsType extends AddHeroParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -156,7 +148,7 @@ const positionList = ref<Type[]>([{
     label: "辅助",
     value: 6,
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -174,8 +166,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "gender",
         key: "gender",
         width: 80,
-        customRender: (opt) => {
-           return genderList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return genderList.value.find(item => item.value == opt.value)?.label
         },
     },
     {
@@ -183,8 +175,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "position",
         key: "position",
         width: 100,
-        customRender: (opt) => {
-           return getPosition(opt.value)
+        customRender: (opt: any) => {
+            return getPosition(opt.value)
         },
     },
     {
@@ -198,8 +190,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "skinCount",
         key: "skinCount",
         width: 100,
-        customRender: (opt) => {
-           return getCount(opt.record.skin)
+        customRender: (opt: any) => {
+            return getCount(opt.record.skin)
         },
     },
     {

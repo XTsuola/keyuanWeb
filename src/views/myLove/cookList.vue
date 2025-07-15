@@ -14,7 +14,7 @@
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="荤素" style="width: 200px">
@@ -22,7 +22,7 @@
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="熟练度" style="width: 220px">
@@ -30,7 +30,7 @@
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -74,7 +74,7 @@
             </template>
         </a-table>
         <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="total => `共 ${total} 条`" @change="changeList" />
+            :show-total="(total: any) => `共 ${total} 条`" @change="changeList" />
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>

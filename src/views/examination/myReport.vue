@@ -22,7 +22,7 @@
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import { getMyPaperList, resetNowPaper, type ResetPaperType } from "@/api/examination";
+import { getMyPaperList, resetNowPaper } from "@/api/examination";
 import router from "@/router";
 
 interface scrollType {

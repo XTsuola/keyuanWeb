@@ -77,7 +77,6 @@ interface scrollType {
 }
 
 const total = ref<number>(0);
-const visible = ref<boolean>(false);
 const columns = ref<any>([
     {
         title: "序号",

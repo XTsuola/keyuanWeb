@@ -12,7 +12,7 @@
                 <a-select v-model:value="addData.groupName" placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="擅长位置">
@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, nextTick, defineComponent } from "vue";
+import { ref } from "vue";
 import type { AddMemberParams, UpdateMemberParams } from "@/api/team";
 import { groupList } from '@/utils/global';
 import type { AddParamsType } from "../memberList.vue";

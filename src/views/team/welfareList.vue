@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, type Directive, } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
@@ -47,15 +47,6 @@ interface WelfareType {
 
 type AddType = "add" | "edit"
 
-const color = ref("red");
-const vColorBg: Directive = (el, bind?) => {
-    el.style.background = color.value;
-    if (localStorage.getItem("userFlag") as any == 1) {
-        el.style.background = "pink";
-    } else {
-        el.style.background = "red";
-    }
-}
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {

@@ -16,35 +16,9 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
-        <!-- <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, index, record }">
-                <template v-if="column.key === 'index'">
-                    {{ index + 1 }}
-                </template>
-                <template v-if="column.key === 'name'">
-                    <a>{{ record.name }}</a>
-                </template>
-                <template v-else-if="column.key === 'action' && levelId === 1">
-                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                        <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
-                        <span v-if="levelId === 1">
-                            <a-divider type="vertical" />
-                            <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                            <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该条数据吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                                @cancel="cancel">
-                                <a-button size="small">删除</a-button>
-                            </a-popconfirm>
-                        </span>
-                    </span>
-                </template>
-            </template>
-        </a-table>
-        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="total => `共 ${total} 条`" @change="getList" /> -->
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -58,8 +32,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type DeleteParams, type AddAbyss12Params, type UpdateAbyss12Params } from "@/api/yuanshen";
+import { message } from "ant-design-vue";
+import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type AddAbyss12Params, type UpdateAbyss12Params } from "@/api/yuanshen";
 import type { AddType, API as AddPageAPI } from "./modal/abyss12AddPage.vue";
 import type { AxiosPromise } from "axios";
 import AddPage from "./modal/abyss12AddPage.vue";
@@ -73,14 +47,6 @@ export interface AddParamsType extends AddAbyss12Params {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -131,7 +97,7 @@ const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     name: "",
 });
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -228,10 +194,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

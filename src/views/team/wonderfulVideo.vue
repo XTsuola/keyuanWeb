@@ -4,8 +4,9 @@
             精彩锦集列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal()">添加锦集</a-button>
         </div>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
-            :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @showVideo="showVideo" @delete="deleteOk" @change-page="changePage"></MyTabel>
+        <MyTabel :columnsData="columns" :dataSource="tableData"
+            :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @showVideo="showVideo"
+            @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose title="添加锦集" :maskClosable="false">
             <input type="file" @input="getWrc" />
             <a-form ref="wonderfulAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
@@ -44,18 +45,11 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import { getNowTime } from "@/utils/some";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width: number
-}
 
 interface scrollType {
     x: number
@@ -79,7 +73,7 @@ interface addDataType {
     remark: string
 }
 
-const columns = ref<ColumnType[]>([
+const columns = ref<any[]>([
     {
         title: "序号",
         key: "index",
@@ -222,7 +216,7 @@ async function deleteOk(id: number) {
         message.error("删除失败");
     }
     if (tableData.value.length == 1) {
-        current.value--;
+        currentPage.value--;
     }
     getList();
 }

@@ -13,42 +13,42 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="国家" style="width: 200px">
                 <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器" style="width: 200px">
                 <a-select v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" style="width: 200px">
                 <a-select v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width: 200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星座" style="width: 200px">
                 <a-select v-model:value="formState.starSign" @change="selectList" placeholder="请选择星星座">
                     <a-select-option v-for="item in starSignList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -58,7 +58,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -74,8 +74,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/yuanshen";
+import { message } from "ant-design-vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/yuanshen";
 import AddPage from "./modal/heroAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
 import type { AxiosPromise } from "axios";
@@ -89,14 +89,6 @@ export interface AddParamsType extends AddHeroParams {
 export interface Type {
     label: string
     value: number | string | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -301,7 +293,7 @@ const starSignList = ref<Type[]>([{
     label: "摩羯座",
     value: "摩羯座"
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -319,8 +311,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "gender",
         key: "gender",
         width: 60,
-        customRender: (opt) => {
-           return genderList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return genderList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -328,8 +320,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "country",
         key: "country",
         width: 60,
-        customRender: (opt) => {
-           return countryList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return countryList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -337,8 +329,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "arms",
         key: "arms",
         width: 80,
-        customRender: (opt) => {
-           return armsList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return armsList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -346,8 +338,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "shuxing",
         key: "shuxing",
         width: 60,
-        customRender: (opt) => {
-           return shuxingList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return shuxingList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -355,8 +347,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "star",
         key: "star",
         width: 60,
-        customRender: (opt) => {
-           return starList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return starList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -452,10 +444,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

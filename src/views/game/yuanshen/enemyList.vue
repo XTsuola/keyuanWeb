@@ -13,7 +13,7 @@
                 <a-select v-model:value="formState.enemyType" @change="selectList" placeholder="请选择类型">
                     <a-select-option v-for="item in enemyTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -23,7 +23,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -39,8 +39,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getEnemyList, addEnemy, updateEnemy, deleteEnemy, type GetEnemyListParams, type DeleteParams, type AddEnemyParams, type UpdateEnemyParams } from "@/api/yuanshen";
+import { message } from "ant-design-vue";
+import { getEnemyList, addEnemy, updateEnemy, deleteEnemy, type GetEnemyListParams, type AddEnemyParams, type UpdateEnemyParams } from "@/api/yuanshen";
 import AddPage from "./modal/enemyAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/enemyAddPage.vue";
 import type { AxiosPromise } from "axios";
@@ -54,14 +54,6 @@ export interface AddParamsType extends AddEnemyParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -153,7 +145,7 @@ const formState = reactive<FormStateType>({
     name: "",
     enemyType: undefined
 });
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -171,8 +163,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "enemyType",
         key: "enemyType",
         width: 100,
-        customRender: (opt) => {
-           return enemyTypeList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return enemyTypeList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -230,10 +222,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {

@@ -33,12 +33,12 @@
 
 <script lang="ts" setup>
 import { ref, nextTick, reactive, onMounted, onUnmounted } from "vue";
+import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams, type UpdateDataList } from "@/api/examination";
 import Tixing1 from "./tixing/tixing1.vue";
 import Tixing2 from "./tixing/tixing2.vue";
 import Tixing3 from "./tixing/tixing3.vue";
 import Tixing4 from "./tixing/tixing4.vue";
 import Tixing5 from "./tixing/tixing5.vue";
-import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams, type UpdateDataList } from "@/api/examination";
 import { message } from "ant-design-vue";
 
 const prop = defineProps<{

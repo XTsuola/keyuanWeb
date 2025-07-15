@@ -5,32 +5,9 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增角色
             </a-button>
         </div>
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, index, record }">
-                <template v-if="column.key === 'index'">
-                    {{ index + 1 }}
-                </template>
-                <template v-if="column.key === 'name'">
-                    <a>{{ record.name }}</a>
-                </template>
-                <template v-else-if="column.key === 'action' && levelId === 1">
-                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                        <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
-                        <span v-if="levelId === 1">
-                            <a-divider type="vertical" />
-                            <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                            <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该角色吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                                @cancel="cancel">
-                                <a-button size="small">删除</a-button>
-                            </a-popconfirm>
-                        </span>
-                    </span>
-                </template>
-            </template>
-        </a-table>
-        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="total => `共 ${total} 条`" @change="getList" />
+        <MyTabel :columnsData="columns" :dataSource="tableData"
+            :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
+            @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -44,11 +21,12 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/xingta";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/xingta";
 import AddPage from "./modal/heroAddPage.vue";
+import MyTabel from "@/components/table.vue";
 
 export interface AddParamsType extends AddHeroParams {
     id?: number
@@ -57,14 +35,6 @@ export interface AddParamsType extends AddHeroParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -95,7 +65,7 @@ let addParams = reactive<AddParamsType>({
     introduce: "",
     remark: ""
 });
-const current = ref<number>(1);
+const currentPage = ref<number>(1);
 const pageSize = ref<number>(20);
 const total = ref<number>(0);
 const title = ref<string>("添加角色");
@@ -108,68 +78,71 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60
     },
     {
         title: "名称",
         dataIndex: "name",
         key: "name",
-        width: 120
+        width: 80
     },
     {
         title: "称号",
         dataIndex: "title",
         key: "title",
-        width: 100
+        width: 80
     },
     {
         title: "主属性",
         dataIndex: "mainShuxing",
         key: "mainShuxing",
-        width: 100
+        width: 80
     },
     {
         title: "副属性",
         dataIndex: "otherShuxing",
         key: "otherShuxing",
-        width: 160
+        width: 140
     },
     {
         title: "神器",
         dataIndex: "weapon",
         key: "weapon",
-        width: 100
+        width: 80
     },
     {
         title: "功法",
         dataIndex: "gongfa",
         key: "gongfa",
-        width: 200,
+        width: 160,
     },
     {
         title: "介绍",
         dataIndex: "introduce",
         key: "introduce",
-        width: 160
+        width: 100
     },
     {
         title: "备注",
         key: "remark",
         dataIndex: "remark",
-        width: 160
+        width: 80
     },
     {
         title: "操作",
         key: "action",
-        width: 160
+        align: "center",
+        list: ["detail", "edit", "delete"],
+        width: 140
     },
 ]);
 const loading = ref<boolean>(false);
-const data = ref<DataType[]>([]);
+const tableData = ref<DataType[]>([]);
 const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia('(max-width: 768px)');
 const type = ref<AddType>("add");
@@ -187,11 +160,11 @@ mql.addEventListener("change", mediaMatchs);
 async function getList() {
     const params: GetHeroListParams = {
         pageSize: pageSize.value,
-        pageNo: current.value,
+        pageNo: currentPage.value,
     };
     const res = await getHeroList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
         total.value = res.data.total;
     }
 }
@@ -203,14 +176,10 @@ async function deleteOk(e: DataType) {
     } else {
         message.error("删除失败");
     }
-    if (data.value.length == 1) {
-        current.value--;
+    if (tableData.value.length == 1) {
+        currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function showModal(showType: AddType, item?: AddParamsType) {
@@ -277,6 +246,12 @@ async function handleOk(e: MouseEvent) {
     } catch (_) { }
     loading.value = false;
 }
+
+function changePage(page: number) {
+    currentPage.value = page;
+    getList();
+}
+
 
 onMounted(() => {
     getList();

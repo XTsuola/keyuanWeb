@@ -17,7 +17,6 @@
             <a-form-item label="C" name="c" :rules="[{ required: true, message: '请输入C选项!' }]">
                 <a-input v-model:value="addData.c" />
             </a-form-item>
-
             <a-form-item label="D" name="d" :rules="[{ required: true, message: '请输入D选项!' }]">
                 <a-input v-model:value="addData.d" />
             </a-form-item>

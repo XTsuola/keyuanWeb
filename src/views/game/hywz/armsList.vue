@@ -16,7 +16,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams, type DeleteParams } from "@/api/hywz";
 import AddPage from "./modal/armsAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/armsAddPage.vue";
@@ -42,14 +42,6 @@ import MyTabel from "@/components/table.vue";
 export interface AddParamsType extends AddArmsParams {
     _id?: string
     id?: number
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -104,7 +96,7 @@ const visible = ref<boolean>(false);
 const formState = reactive<FormStateType>({
     name: ""
 });
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",

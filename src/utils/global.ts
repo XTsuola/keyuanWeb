@@ -6,18 +6,13 @@ export interface Breadcrumb {
   label: string;
 }
 
-export interface GroupListType {
-    label: string
-    value: number
-}
-
 export const levelName = {
   1: "超级管理员",
   2: "管理员",
   3: "普通成员",
 };
 
-export const groupList: GroupListType[] = [{
+export const groupList: any = [{
     label: "暂无分组",
     value: "暂无分组"
 }, {

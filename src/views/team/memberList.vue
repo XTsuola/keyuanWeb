@@ -22,7 +22,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @edit="showModal"
             @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -37,7 +37,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import type { SelectValue } from "ant-design-vue/lib/select";
 import type { AxiosPromise } from "axios";
 import { useI18n } from "vue-i18n";
@@ -71,7 +71,7 @@ interface FormStateType {
     groupName: number | undefined
 }
 
-const { locale, messages } = useI18n();
+const { locale } = useI18n();
 locale.value = "cn";
 let addParams = reactive<AddParamsType>({
     _id: "",
@@ -181,13 +181,9 @@ async function deleteOk(id: number) {
         message.error("删除失败");
     }
     if (tableData.value.length == 1) {
-        current.value--;
+        currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function groupChange(e: SelectValue) {

@@ -64,7 +64,6 @@ async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
     try {
         await heroAdd.value?.validate();
         const returnData: AddHeroParams | UpdateHeroParams = {
-            _id: addData.value._id,
             id: addData.value.id,
             name: addData.value.name,
             title: addData.value.title,

@@ -7,8 +7,8 @@
                     本网站采用本地缓存模式运行，不会留存任何涉及您个人的信息数据，请放心使用。
                 </div>
             </div>
-            <div class="grid-space-between" :class="!isMobile ? 'grid-box' : ''">
-                <div class="left-container" v-if="!isMobile">
+            <div class="grid-space-between">
+                <div class="left-container">
                     <a-button class="add-btn" size="large" @click="handleAddSession">
                         <template #icon>
                             <plus-outlined />
@@ -35,15 +35,15 @@
                     <div class="message-area">
                         <MessageComp ref="messageRef" :message="queryInfos.messages" :loading="loading"></MessageComp>
                     </div>
-                    <div class="user-tokens" :class="isMobile ? 'left-space' : ''">
+                    <div class="user-tokens">
                         <span v-if="queryInfos.model == 'deepseek-chat'">
                             当前余额为：￥{{ totalAmt || 0 }}
                         </span>
                         <span v-else>免费</span>
                     </div>
-                    <div class="input-area" :class="isMobile ? 'left-space' : ''">
+                    <div class="input-area">
                         <a-input v-model:value="queryKeys" id="keyInput" placeholder="请输入内容" show-word-limit
-                            @keydown.enter.native="(e) => {
+                            @keydown.enter.native="(e: any) => {
                                 if (e.isComposing || loading) return;
                                 handleRequest();
                             }" autoComplete="off" />
@@ -59,8 +59,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, nextTick, createVNode, watch, onMounted } from "vue";
-import { PlusOutlined, DeleteOutlined, EditOutlined, ClearOutlined, ExclamationCircleOutlined, SendOutlined } from '@ant-design/icons-vue';
+import { ref, nextTick, watch, onMounted } from "vue";
+import { PlusOutlined, DeleteOutlined, EditOutlined, ClearOutlined, SendOutlined } from '@ant-design/icons-vue';
 import OpenAI from "openai";
 import { API_CONFIG as DEEPSEEK_CONFIG, MODEL_CONFIG, STORAGE_KEYS } from '@/api/deepseek';
 import { message, Modal } from "ant-design-vue";
@@ -208,7 +208,6 @@ function initSessionList() {
 };
 
 
-// 监听数据变化
 watch(sessionList, (val) => {
     const list = val.map((o: any, i: any) => ({
         ...o,

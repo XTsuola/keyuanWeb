@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeMount, provide } from "vue";
+import { ref, provide } from "vue";
 import xiangcePage from "./modal/xiangcePage.vue";
 
 const color = ref("red");

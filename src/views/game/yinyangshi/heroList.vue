@@ -13,14 +13,14 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类别" style="width: 200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择类别">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -30,7 +30,7 @@
                 </div>
             </a-form-item>
         </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData" :loading="tableLoading"
+        <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
@@ -46,8 +46,8 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams, type DeleteParams } from "@/api/yys"
+import { message } from "ant-design-vue";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/yys"
 import AddPage from "./modal/heroAddPage.vue"
 import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
 import type { AxiosPromise } from "axios";
@@ -61,14 +61,6 @@ export interface AddParamsType extends AddHeroParams {
 export interface Type {
     label: string
     value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
 }
 
 interface scrollType {
@@ -164,7 +156,7 @@ const starList = ref<Type[]>([{
     label: "联动",
     value: 7
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -182,8 +174,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "gender",
         key: "gender",
         width: 60,
-        customRender: (opt) => {
-           return genderList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return genderList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -191,8 +183,8 @@ const columns = ref<ColumnType[]>([
         dataIndex: "star",
         key: "star",
         width: 60,
-        customRender: (opt) => {
-           return starList.value.find(item => item.value == opt.value)?.label
+        customRender: (opt: any) => {
+            return starList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -317,10 +309,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function selectList() {
