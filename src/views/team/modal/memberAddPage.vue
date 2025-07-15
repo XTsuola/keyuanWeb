@@ -28,14 +28,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { AddMemberParams, UpdateMemberParams } from "@/api/team";
-import { groupList } from '@/utils/global';
+import { groupList, type AddType } from '@/utils/global';
 import type { AddParamsType } from "../memberList.vue";
 
 export interface API {
     getAddData: () => Promise<false | AddMemberParams | UpdateMemberParams>
 }
-
-export type AddType = "add" | "edit";
 
 const prop = defineProps<{
     type: AddType

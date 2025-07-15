@@ -38,11 +38,7 @@ import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import distributePageVue from "./modal/distributePage.vue";
 import paperList from "./modal/paperList.vue";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
+import type { ScrollType } from "@/utils/global";
 
 interface RecordType {
     id: number
@@ -76,7 +72,7 @@ const columns = ref<ColumnsType>([
     },
 ]);
 const tableData = ref<UsersPaperType[]>();
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {

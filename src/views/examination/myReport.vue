@@ -22,13 +22,9 @@
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { ScrollType } from "@/utils/global";
 import { getMyPaperList, resetNowPaper } from "@/api/examination";
 import router from "@/router";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
 
 interface dataType {
     answerArr: string[] | number[]
@@ -88,7 +84,7 @@ const columns = ref<ColumnsType>([
         key: "action"
     }
 ]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const data = ref<dataType[]>();
 
 function goRoom(record: any) {

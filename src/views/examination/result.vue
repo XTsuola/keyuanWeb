@@ -54,11 +54,7 @@ import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getResult } from "@/api/examination";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
+import type { ScrollType } from "@/utils/global";
 
 interface DataType {
     index: number
@@ -122,7 +118,7 @@ const columns = ref<ColumnsType>([
         customRender: opt => opt.value ? opt.value : "/"
     },
 ]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const data = ref<DataType[]>();
 
 function getSelectResult(record: any) {

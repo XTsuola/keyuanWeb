@@ -17,13 +17,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
-import type { test1 } from './tixing';
+import type { Test1 } from './tixing';
 
 defineEmits(["update:obj"]);
 
 const prop = defineProps<{
-    obj: test1
+    obj: Test1
 }>()
 
 </script>

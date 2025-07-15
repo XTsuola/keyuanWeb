@@ -47,14 +47,10 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { getNowTime } from "@/utils/some";
+import { ScrollType } from "@/utils/global";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
 
 interface DataType {
     key: number
@@ -119,7 +115,7 @@ const columns = ref<any[]>([
     },
 ]);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);

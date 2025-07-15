@@ -35,19 +35,12 @@ import { message, Table as aTable } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { API as UserPageAPI } from "./modal/userAddPage.vue";
-import { levelName } from "@/utils/global";
+import { levelName, type AddType, type ScrollType } from "@/utils/global";
 import { addUser, updateUser, getUserList, deleteUser, type EditUserType } from "@/api/examination";
 import md5 from "js-md5";
 import userAdd from "./modal/userAddPage.vue";
 
-export type TypeFlag = "add" | "edit";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
-
-const flag = ref<TypeFlag>("add");
+const flag = ref<AddType>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -95,7 +88,7 @@ const columns = ref<ColumnsType>([
 ]);
 const loading = ref(false);
 const data = ref<EditUserType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -123,7 +116,7 @@ async function getList() {
     }
 }
 
-function showModal(typeFlag: TypeFlag, record?: EditUserType) {
+function showModal(typeFlag: AddType, record?: EditUserType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {

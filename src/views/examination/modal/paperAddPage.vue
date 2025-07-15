@@ -37,9 +37,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { message } from "ant-design-vue";
-import type { TypeFlag } from "../paperList.vue";
+import type { AddType } from "@/utils/global";
 import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination";
-
 
 export interface API {
     getAddData: () => Promise<false | EditPaperType>
@@ -60,7 +59,7 @@ interface listType {
 }
 
 const prop = defineProps<{
-    flag: TypeFlag
+    flag: AddType
     obj: AddPaperType | EditPaperType
 }>();
 const disabled = ref<boolean>(false);

@@ -38,14 +38,13 @@
 import { reactive, ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
+import { AddType } from "@/utils/global";
 import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 
 interface WelfareType {
     id: number
     remark: string
 }
-
-type AddType = "add" | "edit"
 
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);

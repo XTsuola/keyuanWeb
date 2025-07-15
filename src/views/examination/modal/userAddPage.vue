@@ -31,7 +31,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { FormInstance } from "ant-design-vue";
-import type { TypeFlag } from "../paperList.vue";
+import type { AddType } from "@/utils/global";
 import type { AddUserType, EditUserType } from "@/api/examination";
 
 export interface API {
@@ -39,7 +39,7 @@ export interface API {
 }
 
 const prop = defineProps<{
-    flag: TypeFlag
+    flag: AddType
     obj: AddUserType | EditUserType
 }>();
 

@@ -25,11 +25,7 @@ import { reactive, ref } from "vue";
 import { Table as aTable, message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
+import type { ScrollType } from "@/utils/global";
 
 interface dataType {
     answerArr: string[] | number[]
@@ -106,7 +102,7 @@ const columns = ref<ColumnsType>([
 const prop = defineProps<{
     obj: RecordType | undefined
 }>();
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const data = ref<dataType[]>();
 const parperIdList = ref<number[]>([]);
 parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : [];

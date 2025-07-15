@@ -14,7 +14,7 @@
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="荤素" style="width: 200px">
@@ -22,7 +22,7 @@
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="熟练度" style="width: 220px">
@@ -30,7 +30,7 @@
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -64,8 +64,7 @@
                             <a-divider type="vertical" />
                             <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                             <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该圣遗物吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                                @cancel="cancel">
+                            <a-popconfirm title="确定删除该圣遗物吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)">
                                 <a-button size="small">删除</a-button>
                             </a-popconfirm>
                         </span>
@@ -94,28 +93,11 @@ import type { SelectValue } from "ant-design-vue/lib/select";
 import AddPage from "./modal/cookAddPage.vue";
 import type { AddType, API as AddPageAPI } from "./modal/cookAddPage.vue";
 import type { AxiosPromise } from "axios";
+import type { ScrollType, Type } from "@/utils/global";
 
 export interface AddParamsType extends AddCookParams {
     _id?: string
     id?: number
-}
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
-
-interface ColumnType {
-    title: string
-    dataIndex?: string
-    key: string
-    width?: number
-    sorter?: any
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -225,7 +207,7 @@ const masteryList = ref<Type[]>([{
     label: "精通",
     value: 4
 }]);
-const columns = ref<ColumnType[]>([
+const columns = ref<any>([
     {
         title: "序号",
         key: "index",
@@ -281,7 +263,7 @@ const columns = ref<ColumnType[]>([
 ]);
 const loading = ref<boolean>(false);
 const data = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
 
@@ -325,10 +307,6 @@ async function deleteOk(e: DataType) {
         current.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function groupChange(e: SelectValue) {

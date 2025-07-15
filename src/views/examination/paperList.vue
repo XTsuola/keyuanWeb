@@ -40,21 +40,15 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message, Table as aTable } from "ant-design-vue";
-import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { AxiosPromise } from "axios";
+import type { AddType, ScrollType } from "@/utils/global";
 import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
 import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type StemArrType } from "@/api/examination";
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
 
-export type TypeFlag = "add" | "edit";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
-
-const flag = ref<TypeFlag>("add");
+const flag = ref<AddType>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -94,7 +88,7 @@ const columns = ref<ColumnsType>([
 ]);
 const loading = ref(false);
 const data = ref<EditPaperType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -123,7 +117,7 @@ async function getList() {
     }
 }
 
-function showModal(typeFlag: TypeFlag, record?: EditPaperType) {
+function showModal(typeFlag: AddType, record?: EditPaperType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {

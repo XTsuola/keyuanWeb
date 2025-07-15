@@ -6,12 +6,8 @@
 import { reactive, ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { ScrollType } from "@/utils/global";
 import { getUserPaperList, type PaperDataType } from "@/api/examination";
-
-interface scrollType {
-    x: number
-    y: number | undefined
-}
 
 interface dataType {
     answerArr: string[] | number[]
@@ -59,7 +55,7 @@ const columns = ref<ColumnsType>([
         },
     },
 ])
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined })
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined })
 const data = ref<dataType[]>()
 const prop = defineProps<{
     obj: PaperDataType

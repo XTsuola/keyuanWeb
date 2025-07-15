@@ -3,10 +3,6 @@
     <div class="type">判断题（分值：{{ prop.obj.score }}）</div>
     <div class="main">
         <div class="title">{{ prop.obj.index }}、{{ prop.obj.stem }}</div>
-        <img class="img" v-if="imgFlag" :src="url" />·
-        <video v-if="videoFlag" class="video" controls>
-            <source :src="url" type="video/mp4" />
-        </video>
         <div>
             <a-radio-group v-model:value="prop.obj.answer">
                 <div class="radioDiv" v-for="index in 2" :key="index">
@@ -18,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
-import type { test2 } from "./tixing";
+import { ref } from "vue";
+import type { Test2 } from "./tixing";
 
 const TFlist = ref<Array<string>>(["正确", "错误"]);
 const prop = defineProps<{
-    obj: test2
+    obj: Test2
 }>()
 
 function getAnwser(value: number) {

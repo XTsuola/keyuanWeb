@@ -8,11 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
-import type { test4 } from "./tixing";
+import type { Test4 } from "./tixing";
 
 const prop = defineProps<{
-    obj: test4
+    obj: Test4
 }>();
 
 </script>

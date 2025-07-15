@@ -65,13 +65,10 @@ import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
 import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType } from '@/api/examination';
 import questionAddPage from "./modal/questionAddPage.vue";
+import type { ScrollType } from "@/utils/global";
 
 export type TypeFlag = "add" | "edit";
 
-interface scrollType {
-    x: number
-    y: number | undefined
-}
 const value = ref("");
 const abcd = ["A", "B", "C", "D"];
 const pageFlag = ref(true);
@@ -121,7 +118,7 @@ const columns = ref<ColumnsType>([
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const loading = ref(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {

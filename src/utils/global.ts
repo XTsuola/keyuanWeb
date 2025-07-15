@@ -6,6 +6,18 @@ export interface Breadcrumb {
   label: string;
 }
 
+export interface ScrollType {
+    x: number
+    y: number | undefined
+}
+
+export type AddType = "add" | "edit" | "detail"
+
+export interface Type {
+    label: string
+    value: number | undefined
+}
+
 export const levelName = {
   1: "超级管理员",
   2: "管理员",

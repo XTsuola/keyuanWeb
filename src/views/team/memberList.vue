@@ -12,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -41,8 +41,8 @@ import { message } from "ant-design-vue";
 import type { SelectValue } from "ant-design-vue/lib/select";
 import type { AxiosPromise } from "axios";
 import { useI18n } from "vue-i18n";
-import { groupList } from '@/utils/global';
-import type { AddType, API as AddPageAPI } from "./modal/memberAddPage.vue";
+import { groupList, type AddType, type ScrollType } from '@/utils/global';
+import type { API as AddPageAPI } from "./modal/memberAddPage.vue";
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
@@ -50,11 +50,6 @@ import AddPage from "./modal/memberAddPage.vue";
 export interface AddParamsType extends AddMemberParams {
     _id?: string
     id?: number
-}
-
-interface scrollType {
-    x: number
-    y: number | undefined
 }
 
 interface DataType {
@@ -146,7 +141,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<DataType[]>([]);
-const scrollObj = reactive<scrollType>({ x: 400, y: undefined });
+const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
 

@@ -34,12 +34,11 @@
 import { ref } from "vue";
 import type { AddParamsType } from "../heroList.vue";
 import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta";
+import type { AddType } from "@/utils/global";
 
 export interface API {
     getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
 }
-
-export type AddType = "add" | "edit" | "detail";
 
 const prop = defineProps<{
     type: AddType

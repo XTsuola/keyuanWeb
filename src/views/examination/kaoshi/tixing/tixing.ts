@@ -1,35 +1,39 @@
-export interface test1 {
+export interface Test1 {
   index: number;
   stem: string;
-  url: string;
   selectArr: string[];
   answer: string;
+  score: number | string;
+  a: number | string;
+  b: number | string;
+  c: number | string;
+  d: number | string;
 }
 
-export interface test2 {
+export interface Test2 {
   index: number;
   stem: string;
-  url: string;
   answer: string;
+  score: number | string;
 }
 
-export interface test3 {
+export interface Test3 {
   index: number;
   stem: string;
-  url: string;
   answer: string;
+  score: number | string;
 }
 
-export interface test4 {
+export interface Test4 {
   index: number;
   stem: string;
-  url: string;
   answer: string;
+  score: number | string;
 }
 
-export interface test5 {
+export interface Test5 {
   index: number;
   stem: string;
-  url: string;
   answer: string;
+  score: number | string;
 }
