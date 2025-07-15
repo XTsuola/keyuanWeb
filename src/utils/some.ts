@@ -14,10 +14,10 @@ export function getNowTime(): string {
   return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
 }
 
-export function getMyCard(allData, myCardList) {
+export function getMyCard(allData: any, myCardList: any) {
   const list = [];
   for (let i = 0; i < myCardList.length; i++) {
-    let ind = allData.findIndex((e) => e.name == myCardList[i]);
+    let ind = allData.findIndex((e: any) => e.name == myCardList[i]);
     list.push(allData[ind]);
   }
   return list;

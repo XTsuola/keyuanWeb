@@ -11,12 +11,12 @@ export interface ScrollType {
     y: number | undefined
 }
 
-export type AddType = "add" | "edit" | "detail"
-
 export interface Type {
     label: string
     value: number | string | undefined
 }
+
+export type AddType = "add" | "edit" | "detail"
 
 export const levelName = {
   1: "超级管理员",
@@ -59,11 +59,8 @@ export async function getImg(str: string, callback: (e: any) => void) {
     }
     callback(crr)
 }
-
 const xxx = ref<any>("")
-
 let kk = ["../../assets/img/eda1.png", "../../assets/img/eda2.png", "../../assets/img/eda3.png"]
-
 getImg(kk, (res) => { 
     xxx.value = res
 }) */

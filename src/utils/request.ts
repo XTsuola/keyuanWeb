@@ -41,7 +41,6 @@ service.interceptors.response.use(res => {
         return res;
     }
 }, error => {
-
     if(error.response.status == 401) {
         if (isShowMsg) {
             message.error(error.response.data.msg);
