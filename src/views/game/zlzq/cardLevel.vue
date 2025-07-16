@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -49,6 +49,7 @@
                 </div>
             </a-form-item>
         </a-form>
+         <span>白石头累计消耗：{{ count }}</span>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>
 </template>
@@ -144,6 +145,15 @@ const columns = ref<any>([
         key: "remark",
         dataIndex: "remark",
         width: 160
+    },
+    {
+        title: "白石头消耗",
+        key: "bai",
+        dataIndex: "bai",
+        width: 160,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.bai) - parseInt(b.bai)
+        }
     }
 ]);
 
@@ -224,6 +234,12 @@ const levelList = [{
     label: "全部",
     value: ""
 }, {
+    label: "20级",
+    value: 20
+}, {
+    label: "19级",
+    value: 19
+}, {
     label: "18级",
     value: 18
 }, {
@@ -264,7 +280,10 @@ function mediaMatchs() {
 mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
+const count = ref(0);
+
 async function getList() {
+    count.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
@@ -291,6 +310,24 @@ async function getList() {
     tableData.value = allData;
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level)
+        count.value += tableData.value[i].bai
+    }
+}
+
+const lList = [35, 185, 385, 465, 625, 725, 845];
+const zList = [50, 250, 550, 670, 870, 990, 1140];
+const cList = [100, 450, 1050, 1270, 1670, 1870, 2170];
+
+function getBai(quality: string, level: number) {
+    if (quality == "蓝") {
+        return level - 14 >= 0 ? lList[level - 14] : 0;
+    } else if (quality == "紫") {
+        return level - 14 >= 0 ? zList[level - 14] : 0;
+    } else if (quality == "橙") {
+        return level - 14 >= 0 ? cList[level - 14] : 0;
+    } else {
+        return 0;
     }
 }
 
