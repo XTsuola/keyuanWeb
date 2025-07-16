@@ -12,6 +12,17 @@
   },
   {
     "quality": "蓝",
+    "name": "箭竹守卫",
+    "cost": 1,
+    "level": 18,
+    "type": 1,
+    "attack": 18,
+    "life": 4,
+    "effect": "登场:向敌横排投掷竹矛，10点伤害、攻击前:向敌前排投掷竹矛，6点伤害。",
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
     "level": 12,
