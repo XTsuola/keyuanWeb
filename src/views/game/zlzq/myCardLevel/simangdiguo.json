@@ -14,11 +14,11 @@
     "quality": "蓝",
     "name": "圣殿斥候2",
     "cost": 1,
-    "level": 15,
+    "level": 16,
     "type": 1,
-    "attack": 13,
-    "life": 9,
-    "effect": "【洞察1】、【协战5】。",
+    "attack": 15,
+    "life": 10,
+    "effect": "【洞察1】、【协战6】。",
     "remark": ""
   },
   {

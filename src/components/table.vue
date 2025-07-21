@@ -1,21 +1,23 @@
 <template>
     <div class="myTable">
-        <a-table :columns="prop.columnsData" :loading="prop.loading" :data-source="prop.dataSource" :pagination="prop.pagination ? false : true"
+        <a-table :columns="prop.columnsData" :loading="prop.loading" :data-source="prop.dataSource" :pagination="flag"
             bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
-                    <span v-if="prop.pagination">{{ (prop.pagination.currentPage - 1) * prop.pagination.pageSize + index + 1 }}</span>
+                    <span v-if="prop.pagination">{{ (prop.pagination.currentPage - 1) * prop.pagination.pageSize + index
+                        + 1 }}</span>
                     <span v-else>{{ record.id }}</span>
                 </template>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
                 </template>
                 <template v-if="column.key === 'url'">
-                    <a @click="emits('showVideo', record.url)">{{ record.name + record.url.slice(record.url.lastIndexOf(".")) }}</a>
+                    <a @click="emits('showVideo', record.url)">{{ record.name +
+                        record.url.slice(record.url.lastIndexOf(".")) }}</a>
                 </template>
                 <template v-if="column.key === 'action'">
                     <span class="action">
-                        <span v-for="(item, index) in column.list" class="action" :key = index>
+                        <span v-for="(item, index) in column.list" class="action" :key=index>
                             <span v-if="item == 'look'">
                                 <span class="pointer" @click="emits('look', record)">
                                     <a-button size="small">查看</a-button>
@@ -65,6 +67,7 @@
     </div>
 </template>
 <script lang="ts" setup>
+import { ref } from "vue";
 import { Table as aTable } from "ant-design-vue";
 // import { EditOutlined, CloseOutlined, UserOutlined, SearchOutlined, DownloadOutlined } from '@ant-design/icons-vue';
 
@@ -78,12 +81,18 @@ interface Prop {
     dataSource: any
     columnsData: any
     loading?: boolean
-    pagination: Pagination | boolean
+    pagination: Pagination | boolean | any
     isAdmin?: string | null
 }
 
+const flag = ref<any>(false);
 const prop = defineProps<Prop>();
 const emits = defineEmits(["detail", "edit", "delete", "changePage", "download", "resetPassword", "changeAdmin", "look", "showVideo"]);
+if (prop.pagination) {
+    flag.value = false
+} else {
+    flag.value = true
+}
 
 </script>
 <style lang="less" scoped>
