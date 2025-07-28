@@ -38,7 +38,7 @@
 import { reactive, ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import { AddType } from "@/utils/global";
+import type { AddType } from "@/utils/global";
 import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 
 interface WelfareType {
