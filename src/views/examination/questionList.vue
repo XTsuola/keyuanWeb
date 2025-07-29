@@ -1,74 +1,83 @@
 <template>
-    <div class="title">
-        题库列表
-        <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">添加试题</a-button>
-    </div>
-    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
-        <template #bodyCell="{ column, index, record }">
-            <template v-if="column.key === 'index'">
-                {{ index + 1 }}
-            </template>
-            <template v-if="column.key === 'stem'">
-                <a v-if="record.type === 3">{{ record.stem.replaceAll('/', '_____') }}</a>
-                <a v-else>{{ record.stem }}</a>
-            </template>
-            <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
-            <template v-if="column.key === 'selectArr'">
-                <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
-                }}</span>
-                <span v-else>/</span>
-            </template>
-            <template v-if="column.key === 'answer'">
-                <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ getAnswer(record) }}
-                </div>
-                <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
-                <div v-else>{{ record.answer }}</div>
-            </template>
-            <template v-if="column.key === 'remark'">
-                <span>{{ record.remark ? record.remark : "/" }}</span>
-            </template>
-            <template v-else-if="column.key === 'action' && levelId === 1">
-                <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                    <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                    <a-divider type="vertical" />
-                    <a-popconfirm title="确定删除该试题吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                        @cancel="cancel">
-                        <a-button size="small">删除</a-button>
-                    </a-popconfirm>
-                </span>
-            </template>
-        </template>
-    </a-table>
-    <a-modal v-model:visible="visible" destroyOnClose :title="title + typeArr[type - 1]" :maskClosable="false">
-        <div style="display: flex;justify-content: center;">
-            <a-radio-group v-model:value="value" @change="updatePage(value)" v-if="flag !== 'edit'">
-                <a-radio-button value="1">选择题</a-radio-button>
-                <a-radio-button value="2">判断题</a-radio-button>
-                <a-radio-button value="3">填空题</a-radio-button>
-                <a-radio-button value="4">问答题</a-radio-button>
-                <a-radio-button value="5">操作题</a-radio-button>
-            </a-radio-group>
+    <div class="questionList">
+        <div class="title">
+            题库列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
+                v-if="levelId === 1">添加试题</a-button>
         </div>
-        <questionAddPage v-if="pageFlag" :obj="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
-        <template #footer>
-            <a-button key="back" @click="visible = false">取消</a-button>
-            <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
-        </template>
-    </a-modal>
+        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
+                <template v-if="column.key === 'stem'">
+                    <a v-if="record.type === 3">{{ record.stem.replaceAll('/', '_____') }}</a>
+                    <a v-else>{{ record.stem }}</a>
+                </template>
+                <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
+                <template v-if="column.key === 'selectArr'">
+                    <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
+                        }}</span>
+                    <span v-else>/</span>
+                </template>
+                <template v-if="column.key === 'answer'">
+                    <div v-if="record.type === 1">{{ abcd[record.answer - 1] }}.{{ getAnswer(record) }}
+                    </div>
+                    <div v-else-if="record.type === 2">{{ record.answer === '1' ? '错误' : '正确' }}</div>
+                    <div v-else>{{ record.answer }}</div>
+                </template>
+                <template v-if="column.key === 'remark'">
+                    <span>{{ record.remark ? record.remark : "/" }}</span>
+                </template>
+                <template v-else-if="column.key === 'action' && levelId === 1">
+                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                        <a-button size="small" @click="showModal('edit', record)">修改</a-button>
+                        <a-divider type="vertical" />
+                        <a-popconfirm title="确定删除该试题吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
+                            @cancel="cancel">
+                            <a-button size="small">删除</a-button>
+                        </a-popconfirm>
+                    </span>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
+            :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
+            :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
+        <a-modal v-model:visible="visible" destroyOnClose :title="title + typeArr[type - 1]" :maskClosable="false">
+            <div style="display: flex;justify-content: center;">
+                <a-radio-group v-model:value="value" @change="updatePage(value)" v-if="flag !== 'edit'">
+                    <a-radio-button value="1">选择题</a-radio-button>
+                    <a-radio-button value="2">判断题</a-radio-button>
+                    <a-radio-button value="3">填空题</a-radio-button>
+                    <a-radio-button value="4">问答题</a-radio-button>
+                    <a-radio-button value="5">操作题</a-radio-button>
+                </a-radio-group>
+            </div>
+            <questionAddPage v-if="pageFlag" :obj="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
+            <template #footer>
+                <a-button key="back" @click="visible = false">取消</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
+            </template>
+        </a-modal>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import { nextTick, onMounted, reactive, ref } from "vue";
-import { message, Table as aTable } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType } from '@/api/examination';
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type GetQuestionListType } from '@/api/examination';
 import questionAddPage from "./modal/questionAddPage.vue";
 import type { ScrollType } from "@/utils/global";
 
 export type TypeFlag = "add" | "edit";
 
+const currentPage = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
 const value = ref("");
 const abcd = ["A", "B", "C", "D"];
 const pageFlag = ref(true);
@@ -143,9 +152,14 @@ const addPage = ref<AddPageAPI>();
 const type = ref(1);
 
 async function getList() {
-    const res = await getQuestionList();
+    const params: GetQuestionListType = {
+        pageSize: pageSize.value,
+        pageNo: currentPage.value
+    };
+    const res = await getQuestionList(params);
     if (res.data.code === 200) {
         tableData.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
@@ -182,7 +196,7 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             if (addData.type == 1) {
                 const arrList = ["A", "B", "C", "D"];
                 addData.answer = arrList[parseInt(record.answer as string) - 1];
-            } else if(addData.type == 2) {
+            } else if (addData.type == 2) {
                 addData.answer = record.answer == "1" ? "错误" : "正确";
             } else {
                 addData.answer = record.answer;
@@ -260,13 +274,22 @@ function getAnswer(record: any) {
     return answer;
 }
 
-async function deleteOk(e: EditQuestionType) {
-    const res = await deleteQuestion(e.id);
+async function deleteOk(id: number) {
+    const res = await deleteQuestion(id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
-        message.error(res.data.msg);
+        message.error("删除失败");
     }
+    if (tableData.value.length == 1) {
+        currentPage.value--;
+    }
+    getList();
+}
+
+
+function changePage(page: number) {
+    currentPage.value = page;
     getList();
 }
 
@@ -281,26 +304,18 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 15px;
-}
+.questionList {
+    padding: 20px;
 
-.box {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    .box_title {
-        width: 80px;
-        white-space: nowrap;
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 15px 15px 0;
     }
-}
 
-.img {
-    width: 100%;
-    height: 100%;
+    .pagination {
+        text-align: right;
+        margin-top: 20px;
+    }
 }
 </style>

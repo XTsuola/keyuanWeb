@@ -13,10 +13,10 @@ export interface StemArrType {
 export interface AddQuestionType {
   stem: string;
   type: number;
-  a?:string
-  b?:string
-  c?:string
-  d?:string
+  a?: string
+  b?: string
+  c?: string
+  d?: string
   answer: number | string;
   remark: string;
 }
@@ -96,10 +96,15 @@ export interface PaperDataType {
 }
 
 // 获取题库列表
-export function getQuestionList() {
+export interface GetQuestionListType {
+  pageSize: number;
+  pageNo: number;
+}
+export function getQuestionList(data: GetQuestionListType) {
   return request({
     url: "/getQuestionList",
     method: "get",
+    params: data,
   });
 }
 
@@ -198,7 +203,7 @@ export function updateUser(data: EditUserType) {
 }
 
 // 删除试卷
-export function deleteUser(id:number, level:number) {
+export function deleteUser(id: number, level: number) {
   return request({
     url: "/deleteUser",
     method: "delete",

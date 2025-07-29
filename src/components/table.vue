@@ -68,7 +68,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Table as aTable } from "ant-design-vue";
 // import { EditOutlined, CloseOutlined, UserOutlined, SearchOutlined, DownloadOutlined } from '@ant-design/icons-vue';
 
 interface Pagination {
