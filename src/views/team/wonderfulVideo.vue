@@ -47,7 +47,7 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { getNowTime } from "@/utils/some";
-import { ScrollType } from "@/utils/global";
+import type { ScrollType } from "@/utils/global";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";

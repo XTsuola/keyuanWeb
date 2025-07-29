@@ -17,7 +17,7 @@ export interface AddQuestionType {
   b?:string
   c?:string
   d?:string
-  answer: string;
+  answer: number | string;
   remark: string;
 }
 

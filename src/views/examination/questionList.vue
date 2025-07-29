@@ -182,6 +182,8 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
             if (addData.type == 1) {
                 const arrList = ["A", "B", "C", "D"];
                 addData.answer = arrList[parseInt(record.answer as string) - 1];
+            } else if(addData.type == 2) {
+                addData.answer = record.answer == "1" ? "错误" : "正确";
             } else {
                 addData.answer = record.answer;
             }

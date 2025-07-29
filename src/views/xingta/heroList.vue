@@ -160,8 +160,8 @@ async function getList() {
     }
 }
 
-async function deleteOk(e: DataType) {
-    const res = await deleteHero(e.id);
+async function deleteOk(id: number) {
+    const res = await deleteHero(id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
