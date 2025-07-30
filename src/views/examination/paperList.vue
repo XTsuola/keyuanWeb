@@ -1,45 +1,51 @@
 <template>
-    <div class="title">
-        试卷列表
-        <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">添加试卷</a-button>
+    <div class="paperList">
+        <div class="title">
+            试卷列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
+                v-if="levelId === 1">添加试卷</a-button>
+        </div>
+        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
+                <template v-if="column.key === 'action' && levelId === 1">
+                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                        <a-button size="small" @click="goStemList(record.id)">查看试题</a-button>
+                        <a-divider type="vertical" />
+                        <a-button size="small" @click="showModal('edit', record)">修改</a-button>
+                        <a-divider type="vertical" />
+                        <a-popconfirm title="确定删除该试卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
+                            @cancel="cancel">
+                            <a-button size="small">删除</a-button>
+                        </a-popconfirm>
+                    </span>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
+            :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
+            :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
+        <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+            <paperAdd :obj="addData" :flag="flag" ref="addPage"></paperAdd>
+            <template #footer>
+                <a-button key="back" @click="visible = false">取消</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
+            </template>
+        </a-modal>
+        <a-modal :width="750" v-model:visible="visible2" destroyOnClose title="所有题目" :maskClosable="false">
+            <stemList :paperId="paperId"></stemList>
+            <template #footer>
+                <a-button key="back2" @click="visible2 = false">返回</a-button>
+            </template>
+        </a-modal>
     </div>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-        <template #bodyCell="{ column, index, record }">
-            <template v-if="column.key === 'index'">
-                {{ index + 1 }}
-            </template>
-            <template v-if="column.key === 'action' && levelId === 1">
-                <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                    <a-button size="small" @click="goStemList(record.id)">查看试题</a-button>
-                    <a-divider type="vertical" />
-                    <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                    <a-divider type="vertical" />
-                    <a-popconfirm title="确定删除该试卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                        @cancel="cancel">
-                        <a-button size="small">删除</a-button>
-                    </a-popconfirm>
-                </span>
-            </template>
-        </template>
-    </a-table>
-    <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
-        <paperAdd :obj="addData" :flag="flag" ref="addPage"></paperAdd>
-        <template #footer>
-            <a-button key="back" @click="visible = false">取消</a-button>
-            <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
-        </template>
-    </a-modal>
-    <a-modal :width="750" v-model:visible="visible2" destroyOnClose title="所有题目" :maskClosable="false">
-        <stemList :paperId="paperId"></stemList>
-        <template #footer>
-            <a-button key="back2" @click="visible2 = false">返回</a-button>
-        </template>
-    </a-modal>
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { message, Table as aTable } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
@@ -48,6 +54,9 @@ import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, t
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
 
+const currentPage = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
 const flag = ref<AddType>("add");
 const columns = ref<ColumnsType>([
     {
@@ -167,8 +176,8 @@ async function handleOk(e: MouseEvent) {
     loading.value = false;
 }
 
-async function deleteOk(e: EditPaperType) {
-    const res = await deletePaper(e.id);
+async function deleteOk(id: number) {
+    const res = await deletePaper(id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
@@ -186,6 +195,11 @@ function goStemList(id: number) {
     paperId.value = id;
 }
 
+function changePage(page: number) {
+    currentPage.value = page;
+    getList();
+}
+
 onMounted(() => {
     getList();
 })
@@ -193,34 +207,18 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 15px;
-}
+.paperList {
+    padding: 20px;
 
-.box {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    .box_title {
-        width: 80px;
-        white-space: nowrap;
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 15px 15px 0;
     }
-}
 
-.img {
-    width: 100%;
-    height: 100%;
-}
-
-.stemArr {
-    .stemArr_douhao:last-child {
-        span {
-            display: none;
-        }
+    .pagination {
+        text-align: right;
+        margin-top: 20px;
     }
 }
 </style>

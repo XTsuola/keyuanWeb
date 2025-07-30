@@ -279,7 +279,7 @@ async function deleteOk(id: number) {
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
-        message.error("删除失败");
+        message.error(res.data.msg);
     }
     if (tableData.value.length == 1) {
         currentPage.value--;
