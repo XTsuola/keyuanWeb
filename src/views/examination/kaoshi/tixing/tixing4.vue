@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { Test4 } from "./tixing";
+import type { Test2 } from "./tixing";
 
 const prop = defineProps<{
-    obj: Test4
+    obj: Test2
 }>();
 
 </script>
@@ -34,11 +34,5 @@ const prop = defineProps<{
         display: flex;
         justify-content: flex-start;
     }
-}
-
-.video {
-    width: 60vw;
-    height: 45vw;
-    margin-bottom: 20px;
 }
 </style>

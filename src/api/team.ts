@@ -1,44 +1,5 @@
 import request from "../utils/request";
 
-export interface UpdateImgParams {
-  id: number;
-  oldImg: string
-  img: string;
-}
-
-export interface GetMemberListParams {
-  pageSize: number;
-  pageNo: number;
-  groupName: number | undefined;
-}
-
-export interface AddMemberParams {
-  name: string;
-  qq: string;
-  groupName: string;
-  position: string;
-  remark: string;
-}
-
-export interface UpdateMemberParams extends AddMemberParams {
-  id?: number;
-}
-
-export interface AddWelfareParams {
-  remark: string;
-}
-
-export interface UpdateWelfareParams extends AddWelfareParams {
-  id: number;
-}
-
-export interface AddWrcPasrams {
-  name: string;
-  url: string;
-  author: string;
-  time: string;
-  remark: string;
-}
 
 // 获取用户信息
 export function getUserInfo(id: number) {
@@ -49,6 +10,11 @@ export function getUserInfo(id: number) {
 }
 
 // 修改头像
+export interface UpdateImgParams {
+  id: number;
+  oldImg: string
+  img: string;
+}
 export function updateImg(data: UpdateImgParams) {
   return request({
     url: "/updateImg",
@@ -58,6 +24,11 @@ export function updateImg(data: UpdateImgParams) {
 }
 
 // 获取成员列表
+export interface GetMemberListParams {
+  pageSize: number;
+  pageNo: number;
+  groupName: number | undefined;
+}
 export function getMemberList(data: GetMemberListParams) {
   return request({
     url: "/getMemberList",
@@ -67,6 +38,13 @@ export function getMemberList(data: GetMemberListParams) {
 }
 
 // 新增成员
+export interface AddMemberParams {
+  name: string;
+  qq: string;
+  groupName: string;
+  position: string;
+  remark: string;
+}
 export function addMember(data: AddMemberParams) {
   return request({
     url: "/addMember",
@@ -76,6 +54,9 @@ export function addMember(data: AddMemberParams) {
 }
 
 // 修改成员
+export interface UpdateMemberParams extends AddMemberParams {
+  id: number;
+}
 export function updateMember(data: UpdateMemberParams) {
   return request({
     url: "/updateMember",
@@ -101,6 +82,9 @@ export function getWelfareList() {
 }
 
 // 新增福利
+export interface AddWelfareParams {
+  remark: string;
+}
 export function addWelfare(data: AddWelfareParams) {
   return request({
     url: "/addWelfare",
@@ -110,6 +94,9 @@ export function addWelfare(data: AddWelfareParams) {
 }
 
 // 修改福利
+export interface UpdateWelfareParams extends AddWelfareParams {
+  id: number;
+}
 export function updateWelfare(data: UpdateWelfareParams) {
   return request({
     url: "/updateWelfare",
@@ -136,6 +123,13 @@ export function getWrcList(data: any) {
 }
 
 // 新增集锦
+export interface AddWrcPasrams {
+  name: string;
+  url: string;
+  author: string;
+  time: string;
+  remark: string;
+}
 export function addWrc(data: AddWrcPasrams) {
   return request({
     url: "/addWrc",

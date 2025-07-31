@@ -12,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -39,37 +39,19 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { useI18n } from "vue-i18n";
-import type { SelectValue } from "ant-design-vue/lib/select";
 import type { AxiosPromise } from "axios";
-import type { API as AddPageAPI } from "./modal/memberAddPage.vue";
 import { groupList, type AddType, type ScrollType } from '@/utils/global';
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
-export interface AddParamsType extends AddMemberParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    qq: string
-    groupName: string
-    position: string
-    remark: string
-}
-
 interface FormStateType {
-    groupName: number | undefined
+    groupName: number | undefined;
 }
 
 const { locale } = useI18n();
 locale.value = "cn";
-let addParams = reactive<AddParamsType>({
-    _id: "",
+let addParams = reactive<UpdateMemberParams>({
     id: 0,
     name: "",
     qq: "",
@@ -81,7 +63,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加成员");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -140,7 +122,7 @@ const columns = ref<any>([
     }
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<UpdateMemberParams[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -181,7 +163,7 @@ async function deleteOk(id: number) {
     getList();
 }
 
-function groupChange(e: SelectValue) {
+function groupChange() {
     getList();
 }
 
@@ -200,23 +182,22 @@ function reset() {
     getList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: UpdateMemberParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改成员";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.qq = item.qq;
             addParams.groupName = item.groupName;
             addParams.position = item.position;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else {
         title.value = "添加成员";
-        addParams._id = addParams.name = addParams.qq = addParams.groupName = addParams.position = addParams.remark = "";
         addParams.id = 0;
+        addParams.name = addParams.qq = addParams.groupName = addParams.position = addParams.remark = "";
     }
     visible.value = true;
 }
@@ -225,17 +206,14 @@ async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
         axios: ((data: AddMemberParams) => AxiosPromise<any>) | ((data: UpdateMemberParams) => AxiosPromise<any>)
-        msg: string
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addMember
     };
     if (type.value === "edit") {
         a.axios = updateMember;
-        a.msg = "修改失败";
     }
-    const result = await addPage.value?.getAddData();
+    const result: any = await addPage.value?.getAddData();
     if (result && a.axios) {
         const res = await a.axios(result);
         if (res.data.code === 200) {
@@ -243,7 +221,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;

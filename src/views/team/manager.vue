@@ -22,10 +22,10 @@
 import { ref } from "vue";
 
 interface PeopleType {
-    name: string
-    qq: string
-    motto: string
-    icon: any
+    name: string;
+    qq: string;
+    motto: string;
+    icon: any;
 }
 
 const peopleList = ref<PeopleType[]>([{

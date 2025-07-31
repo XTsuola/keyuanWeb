@@ -16,24 +16,3 @@ export interface Test2 {
   answer: string;
   score: number | string;
 }
-
-export interface Test3 {
-  index: number;
-  stem: string;
-  answer: string;
-  score: number | string;
-}
-
-export interface Test4 {
-  index: number;
-  stem: string;
-  answer: string;
-  score: number | string;
-}
-
-export interface Test5 {
-  index: number;
-  stem: string;
-  answer: string;
-  score: number | string;
-}

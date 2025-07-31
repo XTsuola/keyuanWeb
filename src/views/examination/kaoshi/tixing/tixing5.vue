@@ -13,12 +13,12 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { Test5 } from "./tixing";
+import type { Test2 } from "./tixing";
 
 defineEmits(["update:obj"]);
 
 const prop = defineProps<{
-    obj: Test5
+    obj: Test2
 }>();
 const arr = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 let flag = false;

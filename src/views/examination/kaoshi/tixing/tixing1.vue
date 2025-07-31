@@ -54,10 +54,4 @@ const prop = defineProps<{
         padding: 10px 5px;
     }
 }
-
-.video {
-    width: 60vw;
-    height: 45vw;
-    margin-bottom: 20px;
-}
 </style>

@@ -22,18 +22,11 @@ interface ImportMetaEnv {
   readonly VITE_APP_BASE_URL: string
 }
 
-import 'js-md5'
-
-declare module 'js-md5' {
-  interface md5 {
-
-  }
-}
-
 declare global {
   interface Window {
     BMap: T
     init: any
     BMapGL: T
+    config: any
   }
 }

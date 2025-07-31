@@ -16,10 +16,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { Test3 } from "./tixing";
+import type { Test2 } from "./tixing";
 
 const prop = defineProps<{
-    obj: Test3
+    obj: Test2
 }>();
 
 </script>

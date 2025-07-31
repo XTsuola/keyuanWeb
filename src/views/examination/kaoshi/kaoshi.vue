@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick, reactive, onMounted, onUnmounted } from "vue";
-import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams, type UpdateDataList } from "@/api/examination";
+import { autoUpdatePaper, getNowPaper, type AutoUpdatePaperParams } from "@/api/examination";
 import Tixing1 from "./tixing/tixing1.vue";
 import Tixing2 from "./tixing/tixing2.vue";
 import Tixing3 from "./tixing/tixing3.vue";
@@ -41,14 +41,26 @@ import Tixing4 from "./tixing/tixing4.vue";
 import Tixing5 from "./tixing/tixing5.vue";
 import { message } from "ant-design-vue";
 
+interface UpdateDataList {
+    index: number;
+    type: number;
+    id: number;
+    stem: string;
+    a?: string;
+    b?: string;
+    c?: string;
+    d?: string;
+    answer?: string;
+}
+
 const prop = defineProps<{
     paperId: number
 }>();
 
 interface InfoType {
-    paperName: string
-    score: string
-    time: number
+    paperName: string;
+    score: string;
+    time: number;
 }
 
 const index = ref<number>(0);
@@ -129,9 +141,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    if (timer) {
-        clearInterval(timer);
-    }
+    if (timer) clearInterval(timer);
 })
 
 </script>

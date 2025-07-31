@@ -8,13 +8,13 @@
                 </div>
             </a-card>
         </div>
-        <div style="background: #ececec;padding: 0 15px 20px 15px;" v-for="item in data" :key="item.id">
+        <div style="background: #ececec;padding: 0 15px 20px 15px;" v-for="item in tableData" :key="item.id">
             <a-card style="width: 100%">
                 <p>{{ item.remark }}</p>
                 <a-button v-if="levelId === 1" size="small" style="margin-right: 15px;"
                     @click="showModal('edit', item)">修改</a-button>
                 <a-popconfirm v-if="levelId === 1" title="确定删除该数据吗?" ok-text="Yes" cancel-text="No"
-                    @confirm="deleteOk(item)" @cancel="cancel">
+                    @confirm="deleteOk(item.id)" @cancel="cancel">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </a-card>
@@ -41,11 +41,6 @@ import type { AxiosPromise } from "axios";
 import type { AddType } from "@/utils/global";
 import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
 
-interface WelfareType {
-    id: number
-    remark: string
-}
-
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -53,11 +48,11 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 } else {
     levelId.value = null;
 }
-const data = ref<WelfareType[]>([]);
+const tableData = ref<UpdateWelfareParams[]>([]);
 const visible = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const type = ref<AddType>("add");
-const welfareParams = reactive<WelfareType>({
+const welfareParams = reactive<UpdateWelfareParams>({
     id: 0,
     remark: ""
 });
@@ -66,7 +61,7 @@ const welfareAdd = ref();
 async function getList() {
     const res = await getWelfareList();
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
     }
 }
 
@@ -89,15 +84,12 @@ async function handleOk(e: MouseEvent) {
         loading.value = true;
         interface AType {
             axios: ((data: AddWelfareParams) => AxiosPromise<any>) | ((data: UpdateWelfareParams) => AxiosPromise<any>)
-            msg: string
         }
         let a: AType = {
-            msg: "新增失败",
             axios: addWelfare
         };
         if (type.value === "edit") {
             a.axios = updateWelfare;
-            a.msg = "修改失败";
         }
         if (welfareParams.remark && a.axios) {
             const res = await a.axios(welfareParams);
@@ -106,7 +98,7 @@ async function handleOk(e: MouseEvent) {
                 message.success(res.data.msg);
                 visible.value = false;
             } else {
-                message.error(a.msg);
+                message.error(res.data.msg);
             }
         }
         loading.value = false;
@@ -115,8 +107,8 @@ async function handleOk(e: MouseEvent) {
     }
 }
 
-async function deleteOk(e: WelfareType) {
-    const res = await deleteWelfare(e.id);
+async function deleteOk(id: number) {
+    const res = await deleteWelfare(id);
     if (res.data.code === 200) {
         getList();
         message.success(res.data.msg);

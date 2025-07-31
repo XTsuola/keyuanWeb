@@ -29,17 +29,13 @@
 import { ref } from "vue";
 import type { AddMemberParams, UpdateMemberParams } from "@/api/team";
 import { groupList, type AddType } from '@/utils/global';
-import type { AddParamsType } from "../memberList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddMemberParams | UpdateMemberParams>
-}
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddMemberParams
 }>();
-const addData = ref<AddParamsType>({
+const addData = ref<UpdateMemberParams>({
+    id: 0,
     name: "",
     qq: "",
     groupName: "",
@@ -51,7 +47,7 @@ if (prop.type === "edit") {
 }
 const memberAdd = ref();
 
-async function getAddData(): Promise<false | AddMemberParams | UpdateMemberParams> {
+async function getAddData() {
     try {
         await memberAdd.value?.validate();
         const returnData: AddMemberParams | UpdateMemberParams = {

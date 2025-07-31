@@ -3,9 +3,7 @@ import request from "../utils/request";
 const QUERY_BASE_URL = "http://127.0.0.1:3000"; // 接口请求基础地址
 const DEEP_SEEK = "https://api.deepseek.com"; // deepseek-gpt基础地址
 
-/**
- * 注册到window对象上
- */
+// 注册到window对象上
 window.config = {
   baseUrl: QUERY_BASE_URL,
   deepseekUrl: DEEP_SEEK,
@@ -16,8 +14,7 @@ export const data = {
   deepseekUrl: window.config.deepseekUrl,
 };
 
-// DeepSeek配置文件
-// API配置
+// DeepSeek配置文件 API配置
 export const API_CONFIG = {
   baseURL: "https://api.deepseek.com",
   apiKey: "sk-18f133bb6a204f9bb6bb6423a5eedcc7", // 换成自己的apiKey
@@ -39,7 +36,7 @@ export const STORAGE_KEYS = {
 
 const baseUrl = data.deepseekUrl; // 添加代理(本地在vite.config.js添加，服务器在nginx添加)
 
-export function getTokens(param) {
+export function getTokens(param: any) {
   return request({
     url: baseUrl + "/user/balance",
     method: "get",

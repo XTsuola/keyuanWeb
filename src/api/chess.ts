@@ -21,6 +21,6 @@ export function updateChessMap(data: any) {
   return request({
     url: "/chess/update",
     method: "post",
-    data: data
+    data: data,
   });
 }

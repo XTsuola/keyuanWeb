@@ -1,10 +1,19 @@
 import request from "../utils/request";
 
+// 获取英雄列表
 export interface GetHeroListParams {
   pageSize: number;
   pageNo: number;
 }
+export function getHeroList(data: GetHeroListParams) {
+  return request({
+    url: "/xingta/getHeroList",
+    method: "get",
+    params: data,
+  });
+}
 
+// 新增角色
 export interface AddHeroParams {
   name: string;
   title: string;
@@ -15,21 +24,6 @@ export interface AddHeroParams {
   introduce: string;
   remark: string;
 }
-
-export interface UpdateHeroParams extends AddHeroParams {
-  id?: number;
-}
-
-// 获取英雄列表
-export function getHeroList(data: GetHeroListParams) {
-  return request({
-    url: "/xingta/getHeroList",
-    method: "get",
-    params: data,
-  });
-}
-
-// 新增角色
 export function addHero(data: AddHeroParams) {
   return request({
     url: "/xingta/addHero",
@@ -39,6 +33,9 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改角色
+export interface UpdateHeroParams extends AddHeroParams {
+  id?: number;
+}
 export function updateHero(data: UpdateHeroParams) {
   return request({
     url: "/xingta/updateHero",

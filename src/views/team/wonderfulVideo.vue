@@ -181,7 +181,7 @@ function showVideo(url: string) {
     wrcUrl.value = "https://" + url;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     try {
         await wonderfulAdd.value?.validate();
         loading.value = true;
@@ -220,10 +220,6 @@ async function deleteOk(id: number) {
 function changePage(page: number) {
     currentPage.value = page;
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 async function getWrc(e: any) {

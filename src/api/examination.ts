@@ -1,99 +1,20 @@
 import request from "../utils/request";
 
-export interface DeleteParams {
-  _id: string;
-  id?: number;
-}
-
 export interface StemArrType {
   key: string | number;
   score: string | number;
 }
 
-export interface AddQuestionType {
-  stem: string;
-  type: number;
-  a?: string
-  b?: string
-  c?: string
-  d?: string
-  answer: number | string;
-  remark: string;
-}
+// export interface UsersPaperType {
+//   id: number;
+//   userName: string;
+//   paperList: number[];
+// }
 
-export interface EditQuestionType extends AddQuestionType {
-  id: number;
-}
-
-export interface AddPaperType {
-  paperName: string;
-  stemArr?: StemArrType[];
-  score: number | string;
-  time: number | null;
-  remark: string;
-}
-
-export interface EditPaperType extends AddPaperType {
-  id: number;
-}
-
-export interface AddUserType {
-  userName: string;
-  account: string;
-  password: string;
-  age: string;
-  level: number | undefined;
-  remark: string;
-}
-
-export interface EditUserType extends AddUserType {
-  id: number
-}
-
-export interface UsersPaperType {
-  id: number;
-  userName: string;
-  paperList: number[];
-}
-
-export interface DistributeType {
-  id: number;
-  paperArr: number[];
-}
-
-export interface AddReportType {
-  userId: number;
-  paperId: number;
-}
-
-export interface DeleteReportType {
-  id: number;
-  userId: number;
-  paperId: number;
-}
-
-export interface UpdateDataList {
-  index: number;
-  type: number;
-  id: number;
-  stem: string;
-  a?: string;
-  b?: string;
-  c?: string;
-  d?: string;
-  answer?: string;
-}
-
-export interface AutoUpdatePaperParams {
-  dataArr: string;
-  paperId: number;
-  userId: number;
-}
-
-export interface PaperDataType {
-  userId: number;
-  paperList: number[];
-}
+// export interface DistributeType {
+//   id: number;
+//   paperArr: number[];
+// }
 
 // 获取题库列表
 export interface GetQuestionListType {
@@ -109,6 +30,16 @@ export function getQuestionList(data: GetQuestionListType) {
 }
 
 // 新增题库试题
+export interface AddQuestionType {
+  stem: string;
+  type: number;
+  a?: string
+  b?: string
+  c?: string
+  d?: string
+  answer: number | string;
+  remark: string;
+}
 export function addQuestion(data: AddQuestionType) {
   return request({
     url: "/addQuestion",
@@ -118,6 +49,10 @@ export function addQuestion(data: AddQuestionType) {
 }
 
 // 修改题库试题
+export interface EditQuestionType extends AddQuestionType {
+  id: number;
+}
+
 export function updateQuestion(data: EditQuestionType) {
   return request({
     url: "/updateQuestion",
@@ -148,6 +83,13 @@ export function getPaperList(data: GetPaperListType) {
 }
 
 // 新增试卷
+export interface AddPaperType {
+  paperName: string;
+  stemArr?: StemArrType[];
+  score: number | string;
+  time: number | null;
+  remark: string;
+}
 export function addPaper(data: AddPaperType) {
   return request({
     url: "/addPaper",
@@ -157,6 +99,9 @@ export function addPaper(data: AddPaperType) {
 }
 
 // 修改试卷
+export interface EditPaperType extends AddPaperType {
+  id: number;
+}
 export function updatePaper(data: EditPaperType) {
   return request({
     url: "/updatePaper",
@@ -195,6 +140,14 @@ export function getUserList(data: GetUserListType) {
 }
 
 // 新增用户
+export interface AddUserType {
+  userName: string;
+  account: string;
+  password: string;
+  age: string;
+  level: number | undefined;
+  remark: string;
+}
 export function addUser(data: AddUserType) {
   return request({
     url: "/addUser",
@@ -204,6 +157,9 @@ export function addUser(data: AddUserType) {
 }
 
 // 修改用户
+export interface EditUserType extends AddUserType {
+  id: number;
+}
 export function updateUser(data: EditUserType) {
   return request({
     url: "/updateUser",
@@ -238,6 +194,10 @@ export function getStudentsPaper(data: GetStudentsPaperListType) {
 }
 
 // 获取用户对应试卷详情
+export interface PaperDataType {
+  userId: number;
+  paperList: number[];
+}
 export function getUserPaperList(data: PaperDataType) {
   return request({
     url: "/getUserPaperList",
@@ -256,6 +216,10 @@ export function getOthersPaperSelectList(data: number[]) {
 }
 
 // 新增答卷
+export interface AddReportType {
+  userId: number;
+  paperId: number;
+}
 export function addReport(data: AddReportType) {
   return request({
     url: "/addReport",
@@ -265,6 +229,11 @@ export function addReport(data: AddReportType) {
 }
 
 // 删除考卷
+export interface DeleteReportType {
+  id: number;
+  userId: number;
+  paperId: number;
+}
 export function deleteReport(data: DeleteReportType) {
   return request({
     url: "/deleteReport",
@@ -296,6 +265,11 @@ export function getNowPaper(id: number) {
 }
 
 // 自动阅卷
+export interface AutoUpdatePaperParams {
+  dataArr: string;
+  paperId: number;
+  userId: number;
+}
 export function autoUpdatePaper(data: AutoUpdatePaperParams) {
   return request({
     url: "/autoUpdatePaper",
