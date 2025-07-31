@@ -40,7 +40,7 @@ import { message } from "ant-design-vue";
 import type { AddType } from "@/utils/global";
 import { getQuestionList, type AddPaperType, type StemArrType } from "@/api/examination";
 
-interface addDataType {
+interface AddPaperParamsType {
     id?: number
     paperName: string
     list: string[]
@@ -61,7 +61,7 @@ const prop = defineProps<{
 const disabled = ref<boolean>(false);
 const targetKeys = ref<string[]>([]);
 const selectedKeys = ref<string[]>([]);
-const addData = ref<addDataType>({
+const addData = ref<AddPaperParamsType>({
     paperName: "",
     list: [],
     scoreList: [],

@@ -80,7 +80,7 @@
                         }}</a-select-option>
                 </a-select>
             </a-form-item>
-            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
+            <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswerType5 }]">
                 <a-input v-model:value="addData.answer" />
             </a-form-item>
             <a-form-item label="解释说明" name="remark">
@@ -96,24 +96,12 @@ import type { FormInstance } from "ant-design-vue";
 import type { TypeFlag } from "../questionList.vue";
 import type { AddQuestionType } from "@/api/examination";
 
-interface Test {
-    id?: number
-    stem: string
-    type: number
-    a?: string | undefined
-    b?: string | undefined
-    c?: string | undefined
-    d?: string | undefined
-    answer: string
-    remark: string
-}
-
 const prop = defineProps<{
     flag: TypeFlag
     type: number
     obj: AddQuestionType
 }>()
-const addData = ref<Test>({
+const addData = ref<AddQuestionType>({
     stem: "",
     type: prop.type,
     a: "",
@@ -122,29 +110,29 @@ const addData = ref<Test>({
     d: "",
     answer: "",
     remark: ""
-})
-const opt = ref(["消灭星星"])
+});
+const opt = ref(["消灭星星"]);
 if (prop.flag === "edit") {
-    const data = JSON.parse(JSON.stringify(prop.obj))
-    addData.value.id = data.id
-    addData.value.stem = data.stem
-    addData.value.type = data.type
+    const data = JSON.parse(JSON.stringify(prop.obj));
+    addData.value.id = data.id;
+    addData.value.stem = data.stem;
+    addData.value.type = data.type;
     if (data.type == 1) {
-        addData.value.a = data.a
-        addData.value.b = data.b
-        addData.value.c = data.c
-        addData.value.d = data.d
+        addData.value.a = data.a;
+        addData.value.b = data.b;
+        addData.value.c = data.c;
+        addData.value.d = data.d;
     }
-    addData.value.answer = data.answer
-    addData.value.remark = data.remark
+    addData.value.answer = data.answer;
+    addData.value.remark = data.remark;
 }
-const qustionAdd = ref<FormInstance>()
+const qustionAdd = ref<any>();
 
 async function getAddData() {
     try {
         await qustionAdd.value?.validate()
         const returnData: AddQuestionType = {
-            id: addData.value.id as number,
+            id: addData.value.id,
             stem: addData.value.stem,
             type: addData.value.type,
             a: addData.value.a,
@@ -154,22 +142,22 @@ async function getAddData() {
             answer: addData.value.answer,
             remark: addData.value.remark
         }
-        return returnData
+        return returnData;
     } catch (_) {
-        return false
+        return false;
     }
 }
 
 function validAnswerType1(_: any, value: any): any {
     return new Promise((resolve, reject) => {
         if (!value) {
-            reject(new Error("请输入答案!"))
+            reject(new Error("请输入答案!"));
         } else {
-            const list = ["a", "b", "c", "d", "A", "B", "C", "D", 1, 2, 3, 4]
+            const list = ["a", "b", "c", "d", "A", "B", "C", "D", 1, 2, 3, 4];
             if (list.findIndex((item: any) => item == value) == -1) {
-                reject(new Error("请输入合法的答案=>['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D', 1, 2, 3, 4]"))
+                reject(new Error("请输入合法的答案=>['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D', 1, 2, 3, 4]"));
             } else {
-                resolve("")
+                resolve("");
             }
         }
     })
@@ -178,13 +166,38 @@ function validAnswerType1(_: any, value: any): any {
 function validAnswerType2(_: any, value: any): any {
     return new Promise((resolve, reject) => {
         if (!value) {
+            reject(new Error("请输入答案!"));
+        } else {
+            const list = ["0", "1", "正确", "错误", "对", "错"];
+            if (list.findIndex((item: any) => item == value) == -1) {
+                reject(new Error("请输入合法的答案=>['0', '1', '正确', '错误', '对', '错']"));
+            } else {
+                resolve("");
+            }
+        }
+    })
+}
+
+function validAnswerType5(_: any, value: any): any {
+    return new Promise((resolve, reject) => {
+        if (!value) {
             reject(new Error("请输入答案!"))
         } else {
-            const list = ["0", "1", "正确", "错误", "对", "错"]
-            if (list.findIndex((item: any) => item == value) == -1) {
-                reject(new Error("请输入合法的答案=>['0', '1', '正确', '错误', '对', '错']"))
-            } else {
-                resolve("")
+            try {
+                const data = JSON.parse(value);
+                if (data.length == 5) {
+                    for (let i = 0; i < data.length; i++) {
+                        if (Number.isNaN(parseFloat(data[i]))) {
+                            reject(new Error("请输入合法的答案类型数组=>[x,x,x,x,x]，其中x为浮点型数"));
+                            break;
+                        }
+                    }
+                    resolve("");
+                } else {
+                    reject(new Error("请输入合法的答案类型数组=>[x,x,x,x,x]，其中x为浮点型数"));
+                }
+            } catch (_) {
+                reject(new Error("请输入合法的答案类型数组=>[x,x,x,x,x]，其中x为浮点型数"));
             }
         }
     })

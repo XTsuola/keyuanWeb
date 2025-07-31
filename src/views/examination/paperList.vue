@@ -150,7 +150,7 @@ function showModal(typeFlag: AddType, record?: AddPaperType) {
     }
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     interface AType {
         axios: (data: AddPaperType) => AxiosPromise<any>
     }
