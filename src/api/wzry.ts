@@ -1,33 +1,14 @@
 import request from "../utils/request";
+import type { PaginationType } from "./common";
 
-export interface GetHeroListParams {
-  pageSize: number;
-  pageNo: number;
+// 获取英雄列表
+export interface GetHeroListType extends PaginationType {
   name: string;
   gender: number | undefined;
   position: number | undefined;
   skin: string;
 }
-
-export interface AddHeroParams {
-  name: string;
-  gender: number | undefined;
-  position: number[];
-  skin: string;
-  remark: string;
-}
-
-export interface UpdateHeroParams extends AddHeroParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
-}
-
-// 获取英雄列表
-export function getHeroList(data: GetHeroListParams) {
+export function getHeroList(data: GetHeroListType) {
   return request({
     url: "/wzry/getHeroList",
     method: "get",
@@ -36,6 +17,14 @@ export function getHeroList(data: GetHeroListParams) {
 }
 
 // 新增角色
+export interface AddHeroParams {
+  id?: number;
+  name: string;
+  gender: number | undefined;
+  position: number[];
+  skin: string;
+  remark: string;
+}
 export function addHero(data: AddHeroParams) {
   return request({
     url: "/wzry/addHero",
@@ -45,7 +34,7 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改角色
-export function updateHero(data: UpdateHeroParams) {
+export function updateHero(data: AddHeroParams) {
   return request({
     url: "/wzry/updateHero",
     method: "post",
