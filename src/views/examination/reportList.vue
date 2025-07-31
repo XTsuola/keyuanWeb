@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type UsersPaperType, getStudentsPaper, type PaperDataType, type GetStudentsPaperListType } from "@/api/examination";
+import { getStudentsPaper, type PaperDataType, type GetStudentsPaperListType } from "@/api/examination";
 import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import distributePageVue from "./modal/distributePage.vue";
@@ -80,7 +80,7 @@ const columns = ref<ColumnsType>([
         width: 240
     },
 ]);
-const tableData = ref<UsersPaperType[]>();
+const tableData = ref<any>();
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);

@@ -14,7 +14,7 @@
                 <a-button v-if="levelId === 1" size="small" style="margin-right: 15px;"
                     @click="showModal('edit', item)">修改</a-button>
                 <a-popconfirm v-if="levelId === 1" title="确定删除该数据吗?" ok-text="Yes" cancel-text="No"
-                    @confirm="deleteOk(item)" @cancel="cancel">
+                    @confirm="deleteOk(item.id)">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </a-card>
@@ -48,7 +48,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 } else {
     levelId.value = null;
 }
-const tableData = ref<AddWelfareParams[]>([]);
+const tableData = ref<any>([]);
 const visible = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const type = ref<AddType>("add");
@@ -105,8 +105,8 @@ async function handleOk() {
     } catch (_) { }
 }
 
-async function deleteOk(data: any) {
-    const res = await deleteWelfare(data.id);
+async function deleteOk(id: number) {
+    const res = await deleteWelfare(id);
     if (res.data.code === 200) {
         getList();
         message.success(res.data.msg);
@@ -114,10 +114,6 @@ async function deleteOk(data: any) {
         getList();
         message.error("删除失败");
     }
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 onMounted(() => {

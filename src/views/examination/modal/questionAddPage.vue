@@ -77,7 +77,7 @@
                 <a-select style="width: 100%;" v-model:value="addData.stem">
                     <a-select-option v-for="item in opt" :key="item" :value="item">{{
                         item
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="正确答案" name="answer" :rules="[{ required: true, message: '请输入答案!' }]">
@@ -94,11 +94,7 @@
 import { ref } from "vue";
 import type { FormInstance } from "ant-design-vue";
 import type { TypeFlag } from "../questionList.vue";
-import type { AddQuestionType, EditQuestionType } from "@/api/examination";
-
-export interface API {
-    getAddData: () => Promise<false | EditQuestionType>
-}
+import type { AddQuestionType } from "@/api/examination";
 
 interface Test {
     id?: number
@@ -115,7 +111,7 @@ interface Test {
 const prop = defineProps<{
     flag: TypeFlag
     type: number
-    obj: AddQuestionType | EditQuestionType
+    obj: AddQuestionType
 }>()
 const addData = ref<Test>({
     stem: "",
@@ -144,10 +140,10 @@ if (prop.flag === "edit") {
 }
 const qustionAdd = ref<FormInstance>()
 
-async function getAddData(): Promise<false | AddQuestionType | EditQuestionType> {
+async function getAddData() {
     try {
         await qustionAdd.value?.validate()
-        const returnData: AddQuestionType | EditQuestionType = {
+        const returnData: AddQuestionType = {
             id: addData.value.id as number,
             stem: addData.value.stem,
             type: addData.value.type,

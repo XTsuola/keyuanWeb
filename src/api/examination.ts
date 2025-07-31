@@ -31,6 +31,7 @@ export function getQuestionList(data: GetQuestionListType) {
 
 // 新增题库试题
 export interface AddQuestionType {
+  id?: number;
   stem: string;
   type: number;
   a?: string
@@ -49,11 +50,7 @@ export function addQuestion(data: AddQuestionType) {
 }
 
 // 修改题库试题
-export interface EditQuestionType extends AddQuestionType {
-  id: number;
-}
-
-export function updateQuestion(data: EditQuestionType) {
+export function updateQuestion(data: AddQuestionType) {
   return request({
     url: "/updateQuestion",
     method: "post",
@@ -84,6 +81,7 @@ export function getPaperList(data: GetPaperListType) {
 
 // 新增试卷
 export interface AddPaperType {
+  id?: number;
   paperName: string;
   stemArr?: StemArrType[];
   score: number | string;
@@ -99,10 +97,7 @@ export function addPaper(data: AddPaperType) {
 }
 
 // 修改试卷
-export interface EditPaperType extends AddPaperType {
-  id: number;
-}
-export function updatePaper(data: EditPaperType) {
+export function updatePaper(data: AddPaperType) {
   return request({
     url: "/updatePaper",
     method: "post",
@@ -141,6 +136,7 @@ export function getUserList(data: GetUserListType) {
 
 // 新增用户
 export interface AddUserType {
+  id?: number;
   userName: string;
   account: string;
   password: string;
@@ -155,12 +151,7 @@ export function addUser(data: AddUserType) {
     data: data,
   });
 }
-
-// 修改用户
-export interface EditUserType extends AddUserType {
-  id: number;
-}
-export function updateUser(data: EditUserType) {
+export function updateUser(data: AddUserType) {
   return request({
     url: "/updateUser",
     method: "post",

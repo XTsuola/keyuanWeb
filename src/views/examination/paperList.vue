@@ -16,8 +16,7 @@
                         <a-divider type="vertical" />
                         <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                         <a-divider type="vertical" />
-                        <a-popconfirm title="确定删除该试卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
-                            @cancel="cancel">
+                        <a-popconfirm title="确定删除该试卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
                     </div>
@@ -49,8 +48,7 @@ import { message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
-import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type GetPaperListType } from "@/api/examination";
+import { addPaper, updatePaper, getPaperList, deletePaper, type GetPaperListType, type AddPaperType } from "@/api/examination";
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
 
@@ -98,7 +96,7 @@ const columns = ref<ColumnsType>([
     },
 ]);
 const loading = ref(false);
-const tableData = ref<EditPaperType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -110,8 +108,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref(false);
 const visible2 = ref(false);
 const title = ref("");
-const addData = reactive<EditPaperType>({
-    id: 0,
+const addData = reactive<AddPaperType>({
     paperName: "",
     stemArr: [],
     score: 0,
@@ -119,7 +116,7 @@ const addData = reactive<EditPaperType>({
     remark: ""
 });
 const paperId = ref<number>(0);
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 
 async function getList() {
     const params: GetPaperListType = {
@@ -133,7 +130,7 @@ async function getList() {
     }
 }
 
-function showModal(typeFlag: AddType, record?: EditPaperType) {
+function showModal(typeFlag: AddType, record?: AddPaperType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {
@@ -155,7 +152,7 @@ function showModal(typeFlag: AddType, record?: EditPaperType) {
 
 async function handleOk(e: MouseEvent) {
     interface AType {
-        axios: (data: EditPaperType) => AxiosPromise<any>
+        axios: (data: AddPaperType) => AxiosPromise<any>
     }
     let a: AType = {
         axios: addPaper
@@ -164,7 +161,7 @@ async function handleOk(e: MouseEvent) {
         a.axios = updatePaper;
     }
     try {
-        const result = await addPage.value?.getAddData();
+        const result: any = await addPage.value?.getAddData();
         if (result && a.axios) {
             loading.value = true;
             const res = await a.axios(result);
@@ -191,10 +188,6 @@ async function deleteOk(id: number) {
         currentPage.value--;
     }
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 function goStemList(id: number) {

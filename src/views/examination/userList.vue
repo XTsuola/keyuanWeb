@@ -14,8 +14,7 @@
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                         <a-divider type="vertical" />
-                        <a-popconfirm title="确定删除该用户吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                            @cancel="cancel">
+                        <a-popconfirm title="确定删除该用户吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
                     </div>
@@ -40,9 +39,8 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import type { API as UserPageAPI } from "./modal/userAddPage.vue";
 import { levelName, type AddType, type ScrollType } from "@/utils/global";
-import { addUser, updateUser, getUserList, deleteUser, type GetPaperListType, type EditUserType } from "@/api/examination";
+import { addUser, updateUser, getUserList, deleteUser, type GetPaperListType, type AddUserType } from "@/api/examination";
 import md5 from "js-md5";
 import userAdd from "./modal/userAddPage.vue";
 
@@ -96,7 +94,7 @@ const columns = ref<ColumnsType>([
     },
 ]);
 const loading = ref(false);
-const tableData = ref<EditUserType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -107,7 +105,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const visible = ref(false);
 const title = ref("");
-const addData = reactive<EditUserType>({
+const addData = reactive<AddUserType>({
     id: 0,
     userName: "",
     account: "",
@@ -116,7 +114,7 @@ const addData = reactive<EditUserType>({
     level: undefined,
     remark: ""
 });
-const addPage = ref<UserPageAPI>();
+const addPage = ref<any>();
 
 async function getList() {
     const params: GetPaperListType = {
@@ -130,7 +128,7 @@ async function getList() {
     }
 }
 
-function showModal(typeFlag: AddType, record?: EditUserType) {
+function showModal(typeFlag: AddType, record?: AddUserType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {
@@ -155,7 +153,7 @@ function showModal(typeFlag: AddType, record?: EditUserType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: (data: EditUserType) => AxiosPromise<any>;
+        axios: (data: AddUserType) => AxiosPromise<any>;
     }
     let a: AType = {
         axios: addUser
@@ -163,7 +161,7 @@ async function handleOk(e: MouseEvent) {
     if (flag.value === "edit") {
         a.axios = updateUser;
     }
-    const result = await addPage.value?.getAddData();
+    const result: any = await addPage.value?.getAddData();
     if (result && a.axios) {
         result.password = md5(result.password);
         const res = await a.axios(result);
@@ -194,10 +192,6 @@ async function deleteOk(e: any) {
 function changePage(page: number) {
     currentPage.value = page;
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 onMounted(() => {

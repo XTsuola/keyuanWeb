@@ -1,5 +1,5 @@
 <template>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj"></a-table>
+    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj"></a-table>
 </template>
 
 <script lang="ts" setup>
@@ -56,14 +56,14 @@ const columns = ref<ColumnsType>([
     },
 ])
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined })
-const data = ref<dataType[]>()
+const tableData = ref<dataType[]>()
 const prop = defineProps<{
     obj: PaperDataType
 }>()
 
 async function getList() {
     const res = await getUserPaperList(prop.obj)
-    data.value = res.data.rows
+    tableData.value = res.data.rows
 }
 getList()
 

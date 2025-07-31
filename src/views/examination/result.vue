@@ -1,5 +1,5 @@
 <template>
-    <div class="title">
+    <div class="result">
         <div style="font-size: 20px;">我的答卷</div>
         <div style="font-size: 20px;font-weight: 600;">试卷名称:{{ resultObj.paperName }} (得分:{{ resultObj.score }})</div>
         <div>
@@ -143,7 +143,7 @@ getList();
 </script>
 
 <style lang="less" scoped>
-.title {
+.result {
     padding: 10px 20px 10px 20px;
     display: flex;
     justify-content: space-between;

@@ -122,7 +122,7 @@ const columns = ref<any>([
     }
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<AddMemberParams[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");

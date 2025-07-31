@@ -1,5 +1,5 @@
 <template>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
         </template>
@@ -57,14 +57,14 @@ const columns = ref<ColumnsType>([
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const data = ref<dataType[]>();
+const tableData = ref<dataType[]>();
 const prop = defineProps<{
     paperId: number
 }>();
 
 async function getList() {
     const res = await getStemArrList(prop.paperId);
-    data.value = res.data.rows;
+    tableData.value = res.data.rows;
 }
 getList();
 

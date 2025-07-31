@@ -32,28 +32,14 @@
 import { ref } from "vue";
 import type { FormInstance } from "ant-design-vue";
 import type { AddType } from "@/utils/global";
-import type { AddUserType, EditUserType } from "@/api/examination";
-
-export interface API {
-    getAddData: () => Promise<false | EditUserType>
-}
+import type { AddUserType } from "@/api/examination";
 
 const prop = defineProps<{
     flag: AddType
-    obj: AddUserType | EditUserType
+    obj: AddUserType
 }>();
 
-interface addDataType {
-    id?: number
-    userName: string
-    account: string
-    password: string
-    age: string
-    level: number | undefined
-    remark: string
-}
-
-const addData = ref<addDataType>({
+const addData = ref<AddUserType>({
     userName: "",
     account: "",
     password: "",
@@ -63,7 +49,7 @@ const addData = ref<addDataType>({
 });
 
 if (prop.flag === "edit") {
-    const data: EditUserType = JSON.parse(JSON.stringify(prop.obj));
+    const data: AddUserType = JSON.parse(JSON.stringify(prop.obj));
     addData.value.id = data.id;
     addData.value.userName = data.userName;
     addData.value.account = data.account;
@@ -74,10 +60,10 @@ if (prop.flag === "edit") {
 }
 const paperAdd = ref<FormInstance>();
 
-async function getAddData(): Promise<false | AddUserType | EditUserType> {
+async function getAddData() {
     try {
         await paperAdd.value?.validate();
-        const returnData: AddUserType | EditUserType = {
+        const returnData: AddUserType = {
             id: addData.value.id,
             userName: addData.value.userName,
             account: addData.value.account,

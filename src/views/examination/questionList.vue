@@ -17,7 +17,7 @@
                 <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
                 <template v-if="column.key === 'selectArr'">
                     <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
-                    }}</span>
+                        }}</span>
                     <span v-else>/</span>
                 </template>
                 <template v-if="column.key === 'answer'">
@@ -33,8 +33,7 @@
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                         <a-divider type="vertical" />
-                        <a-popconfirm title="确定删除该试题吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
-                            @cancel="cancel">
+                        <a-popconfirm title="确定删除该试题吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
                     </div>
@@ -68,8 +67,7 @@ import { nextTick, onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import type { API as AddPageAPI } from "./modal/questionAddPage.vue";
-import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type EditQuestionType, type GetQuestionListType } from '@/api/examination';
+import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type AddQuestionType, type GetQuestionListType } from '@/api/examination';
 import questionAddPage from "./modal/questionAddPage.vue";
 import type { ScrollType } from "@/utils/global";
 
@@ -139,8 +137,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const visible = ref(false);
 const title = ref("");
-const addData = reactive<EditQuestionType>({
-    id: 0,
+const addData = reactive<AddQuestionType>({
     stem: "",
     type: 1,
     a: "",
@@ -150,7 +147,7 @@ const addData = reactive<EditQuestionType>({
     answer: "",
     remark: ""
 });
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const type = ref(1);
 
 async function getList() {
@@ -173,7 +170,7 @@ function updatePage(value: string) {
     })
 }
 
-function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
+function showModal(typeFlag: TypeFlag, record?: AddQuestionType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {
@@ -211,7 +208,7 @@ function showModal(typeFlag: TypeFlag, record?: EditQuestionType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: (data: EditQuestionType) => AxiosPromise<any>
+        axios: (data: AddQuestionType) => AxiosPromise<any>
     }
     let a: AType = {
         axios: addQuestion
@@ -290,10 +287,6 @@ async function deleteOk(id: number) {
 function changePage(page: number) {
     currentPage.value = page;
     getList();
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 onMounted(() => {

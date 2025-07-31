@@ -11,8 +11,7 @@
     <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action' && levelId === 1">
-                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                    @cancel="cancel">
+                <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </template>
@@ -44,7 +43,6 @@ interface PaperSelectType {
     paperName: string
     remark: string
     stemArr: number[]
-    _id: string
 }
 
 interface RecordType {
@@ -149,10 +147,6 @@ async function deleteOk(e: dataType) {
     getSelect();
     getList();
     emit("upDateList");
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 async function getSelect() {

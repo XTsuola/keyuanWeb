@@ -38,11 +38,7 @@
 import { ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AddType } from "@/utils/global";
-import { getQuestionList, type AddPaperType, type EditPaperType, type StemArrType } from "@/api/examination";
-
-export interface API {
-    getAddData: () => Promise<false | EditPaperType>
-}
+import { getQuestionList, type AddPaperType, type StemArrType } from "@/api/examination";
 
 interface addDataType {
     id?: number
@@ -60,7 +56,7 @@ interface listType {
 
 const prop = defineProps<{
     flag: AddType
-    obj: AddPaperType | EditPaperType
+    obj: AddPaperType
 }>();
 const disabled = ref<boolean>(false);
 const targetKeys = ref<string[]>([]);
@@ -76,7 +72,7 @@ const paperAdd = ref();
 const allList = ref<listType[]>();
 
 if (prop.flag === "edit") {
-    const data: EditPaperType = JSON.parse(JSON.stringify(prop.obj));
+    const data: AddPaperType = JSON.parse(JSON.stringify(prop.obj));
     addData.value.id = data.id;
     addData.value.paperName = data.paperName;
     if (data.stemArr) {
@@ -109,7 +105,7 @@ function scoreAdd(list: StemArrType[]) {
     return sum;
 }
 
-async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
+async function getAddData() {
     for (let i = 0; i <= addData.value.scoreList.length - 1; i++) {
         if (addData.value.scoreList[i].score == "") {
             message.error("请填写分数！");
@@ -125,7 +121,7 @@ async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
                 score: parseFloat(addData.value.scoreList[i].score as string)
             });
         }
-        const returnData: AddPaperType | EditPaperType = {
+        const returnData: AddPaperType = {
             id: addData.value.id,
             paperName: addData.value.paperName,
             stemArr: stemArr,
@@ -140,7 +136,7 @@ async function getAddData(): Promise<false | AddPaperType | EditPaperType> {
 }
 
 async function getAll() {
-    const res = await getQuestionList();
+    const res = await getQuestionList({ pageSize: 999, pageNo: 1 });
     if (res.data.code === 200) {
         allList.value = res.data.rows;
         allList.value = res.data.rows.map((item: any) => {
