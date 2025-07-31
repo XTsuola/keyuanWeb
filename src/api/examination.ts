@@ -135,10 +135,15 @@ export function deleteQuestion(id: number) {
 }
 
 // 获取试卷列表
-export function getPaperList() {
+export interface GetPaperListType {
+  pageSize: number;
+  pageNo: number;
+}
+export function getPaperList(data: GetPaperListType) {
   return request({
     url: "/getPaperList",
     method: "get",
+    params: data,
   });
 }
 
@@ -177,10 +182,15 @@ export function getStemArrList(id: number) {
 }
 
 // 获取用户列表
-export function getUserList() {
+export interface GetUserListType {
+  pageSize: number;
+  pageNo: number;
+}
+export function getUserList(data: GetUserListType) {
   return request({
     url: "/getUserList",
     method: "get",
+    params: data,
   });
 }
 
@@ -215,10 +225,15 @@ export function deleteUser(id: number, level: number) {
 }
 
 // 获取所有用户关联的试卷
-export function getStudentsPaper() {
+export interface GetStudentsPaperListType {
+  pageSize: number;
+  pageNo: number;
+}
+export function getStudentsPaper(data: GetStudentsPaperListType) {
   return request({
     url: "/getStudentsPaper",
     method: "get",
+    params: data,
   });
 }
 
@@ -259,10 +274,16 @@ export function deleteReport(data: DeleteReportType) {
 }
 
 // 获取当前用户试卷
-export function getMyPaperList(id: number) {
+export interface GetMyPaperListType {
+  id: number;
+  pageSize: number;
+  pageNo: number;
+}
+export function getMyPaperList(data: GetMyPaperListType) {
   return request({
-    url: "/getMyPaperList?id=" + id,
+    url: "/getMyPaperList",
     method: "get",
+    params: data,
   });
 }
 

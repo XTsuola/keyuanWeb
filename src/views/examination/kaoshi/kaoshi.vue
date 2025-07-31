@@ -103,6 +103,8 @@ function reduce() {
         nextTick(() => {
             flag.value = true;
         })
+    } else {
+        message.info("已是第一题！");
     }
 }
 

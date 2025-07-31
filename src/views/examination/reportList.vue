@@ -1,39 +1,43 @@
 <template>
-    <div class="title">
-        答卷列表
+    <div class="reportList">
+        <div class="title">
+            答卷列表
+        </div>
+        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
+                <template v-if="column.key === 'action' && levelId === 1">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <a-button size="small" @click="goPaperList(record)">查看试卷</a-button>
+                        <a-divider type="vertical" />
+                        <a-button size="small" @click="showModal(record)">分配</a-button>
+                    </div>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
+            :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
+            :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
+        <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName"
+            :maskClosable="false">
+            <distributePageVue :obj="distributeData" @upDateList="getList" ref="distributePage"></distributePageVue>
+            <template #footer>
+                <a-button key="back" @click="visible = false">关闭</a-button>
+            </template>
+        </a-modal>
+        <a-modal :width="750" v-model:visible="visible2" destroyOnClose title="所有答卷" :maskClosable="false">
+            <paperList :obj="paperData"></paperList>
+            <template #footer>
+                <a-button key="back2" @click="visible2 = false">返回</a-button>
+            </template>
+        </a-modal>
     </div>
-    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
-        <template #bodyCell="{ column, index, record }">
-            <template v-if="column.key === 'index'">
-                {{ index + 1 }}
-            </template>
-            <template v-if="column.key === 'action' && levelId === 1">
-                <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                    <a-button size="small" @click="goPaperList(record)">查看试卷</a-button>
-                    <a-divider type="vertical" />
-                    <a-button size="small" @click="showModal(record)">分配</a-button>
-                </span>
-            </template>
-        </template>
-    </a-table>
-    <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName"
-        :maskClosable="false">
-        <distributePageVue :obj="distributeData" @upDateList="getList" ref="distributePage"></distributePageVue>
-        <template #footer>
-            <a-button key="back" @click="visible = false">关闭</a-button>
-        </template>
-    </a-modal>
-    <a-modal :width="750" v-model:visible="visible2" destroyOnClose title="所有答卷" :maskClosable="false">
-        <paperList :obj="paperData"></paperList>
-        <template #footer>
-            <a-button key="back2" @click="visible2 = false">返回</a-button>
-        </template>
-    </a-modal>
 </template>
 
 <script lang="ts" setup>
-import { type UsersPaperType, getStudentsPaper, type PaperDataType } from "@/api/examination";
-import { Table as aTable } from "ant-design-vue";
+import { type UsersPaperType, getStudentsPaper, type PaperDataType, type GetStudentsPaperListType } from "@/api/examination";
 import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import distributePageVue from "./modal/distributePage.vue";
@@ -46,29 +50,34 @@ interface RecordType {
     userName: string
 }
 
+const currentPage = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
 const columns = ref<ColumnsType>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60
     },
     {
         title: "姓名",
         dataIndex: "userName",
         key: "userName",
-        width: 200
+        width: 350
     },
     {
         title: "试卷数",
         dataIndex: "paperList",
         customRender: (opt) => opt.value.length,
         key: "paperList",
-        width: 100
+        width: 350
     },
     {
         title: "操作",
         key: "action",
-        width: 280
+        align: "center",
+        width: 240
     },
 ]);
 const tableData = ref<UsersPaperType[]>();
@@ -89,9 +98,14 @@ const visible2 = ref(false);
 const distributeData = ref<RecordType | undefined>();
 
 async function getList() {
-    const res = await getStudentsPaper();
+    const params: GetStudentsPaperListType = {
+        pageSize: pageSize.value,
+        pageNo: currentPage.value
+    };
+    const res = await getStudentsPaper(params);
     if (res.data.code === 200) {
-         tableData.value = res.data.rows
+        tableData.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
@@ -108,6 +122,11 @@ function goPaperList(record: RecordType) {
     };
 }
 
+function changePage(page: number) {
+    currentPage.value = page;
+    getList();
+}
+
 onMounted(() => {
     getList();
 })
@@ -115,34 +134,18 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 15px;
-}
+.reportList {
+    padding: 20px;
 
-.box {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    .box_title {
-        width: 80px;
-        white-space: nowrap;
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 15px 15px 0;
     }
-}
 
-.img {
-    width: 100%;
-    height: 100%;
-}
-
-.paperList {
-    .paperList_douhao:last-child {
-        span {
-            display: none;
-        }
+    .pagination {
+        text-align: right;
+        margin-top: 20px;
     }
 }
 </style>

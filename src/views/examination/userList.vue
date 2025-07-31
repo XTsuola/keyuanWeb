@@ -1,51 +1,61 @@
 <template>
-    <div class="title">
-        用户列表
-        <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增用户</a-button>
+    <div class="userList">
+        <div class="title">
+            用户列表
+            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
+                v-if="levelId === 1">新增用户</a-button>
+        </div>
+        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+            <template #bodyCell="{ column, index, record }">
+                <template v-if="column.key === 'index'">
+                    {{ index + 1 }}
+                </template>
+                <template v-if="column.key === 'action' && levelId === 1">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <a-button size="small" @click="showModal('edit', record)">修改</a-button>
+                        <a-divider type="vertical" />
+                        <a-popconfirm title="确定删除该用户吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
+                            @cancel="cancel">
+                            <a-button size="small">删除</a-button>
+                        </a-popconfirm>
+                    </div>
+                </template>
+            </template>
+        </a-table>
+        <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
+            :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
+            :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
+        <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+            <userAdd :obj="addData" :flag="flag" ref="addPage"></userAdd>
+            <template #footer>
+                <a-button key="back" @click="visible = false">取消</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
+            </template>
+        </a-modal>
     </div>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
-        <template #bodyCell="{ column, index, record }">
-            <template v-if="column.key === 'index'">
-                {{ index + 1 }}
-            </template>
-            <template v-if="column.key === 'action' && levelId === 1">
-                <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                    <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                    <a-divider type="vertical" />
-                    <a-popconfirm title="确定删除该用户吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)"
-                        @cancel="cancel">
-                        <a-button size="small">删除</a-button>
-                    </a-popconfirm>
-                </span>
-            </template>
-        </template>
-    </a-table>
-    <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
-        <userAdd :obj="addData" :flag="flag" ref="addPage"></userAdd>
-        <template #footer>
-            <a-button key="back" @click="visible = false">取消</a-button>
-            <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
-        </template>
-    </a-modal>
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { message, Table as aTable } from "ant-design-vue";
+import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { API as UserPageAPI } from "./modal/userAddPage.vue";
 import { levelName, type AddType, type ScrollType } from "@/utils/global";
-import { addUser, updateUser, getUserList, deleteUser, type EditUserType } from "@/api/examination";
+import { addUser, updateUser, getUserList, deleteUser, type GetPaperListType, type EditUserType } from "@/api/examination";
 import md5 from "js-md5";
 import userAdd from "./modal/userAddPage.vue";
 
+const currentPage = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
 const flag = ref<AddType>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60
     },
     {
         title: "姓名",
@@ -56,38 +66,37 @@ const columns = ref<ColumnsType>([
     {
         title: "账号",
         dataIndex: "account",
-        key: "account"
-    },
-    {
-        title: "密码",
-        dataIndex: "password",
-        key: "password"
+        key: "account",
+        width: 140
     },
     {
         title: "年龄",
         dataIndex: "age",
-        key: "age"
+        key: "age",
+        width: 140
     },
     {
         title: "身份",
         dataIndex: "level",
         key: "level",
-        customRender: (opt) => levelName[opt.value as keyof typeof levelName]
+        customRender: (opt) => levelName[opt.value as keyof typeof levelName],
+        width: 140
     },
     {
         title: "备注",
         dataIndex: "remark",
         key: "remark",
-        width: 200
+        width: 140
     },
     {
         title: "操作",
         key: "action",
-        width: 280
+        align: "center",
+        width: 240
     },
 ]);
 const loading = ref(false);
-const data = ref<EditUserType[]>([]);
+const tableData = ref<EditUserType[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -110,9 +119,14 @@ const addData = reactive<EditUserType>({
 const addPage = ref<UserPageAPI>();
 
 async function getList() {
-    const res = await getUserList();
+    const params: GetPaperListType = {
+        pageSize: pageSize.value,
+        pageNo: currentPage.value
+    };
+    const res = await getUserList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
@@ -141,16 +155,13 @@ function showModal(typeFlag: AddType, record?: EditUserType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: (data: EditUserType) => AxiosPromise<any>
-        msg: string
+        axios: (data: EditUserType) => AxiosPromise<any>;
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addUser
     };
     if (flag.value === "edit") {
         a.axios = updateUser;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -161,7 +172,7 @@ async function handleOk(e: MouseEvent) {
             visible.value = false;
             message.success(res.data.msg);
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -174,7 +185,15 @@ async function deleteOk(e: any) {
     } else {
         message.error(res.data.msg);
     }
+    if (tableData.value.length == 1) {
+        currentPage.value--;
+    }
     getList()
+}
+
+function changePage(page: number) {
+    currentPage.value = page;
+    getList();
 }
 
 function cancel() {
@@ -188,34 +207,18 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 15px;
-}
+.userList {
+    padding: 20px;
 
-.box {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    .box_title {
-        width: 80px;
-        white-space: nowrap;
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 15px 15px 0;
     }
-}
 
-.img {
-    width: 100%;
-    height: 100%;
-}
-
-.stemArr {
-    .stemArr_douhao:last-child {
-        span {
-            display: none;
-        }
+    .pagination {
+        text-align: right;
+        margin-top: 20px;
     }
 }
 </style>

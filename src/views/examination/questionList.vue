@@ -5,7 +5,7 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
                 v-if="levelId === 1">添加试题</a-button>
         </div>
-        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false">
+        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -17,7 +17,7 @@
                 <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
                 <template v-if="column.key === 'selectArr'">
                     <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
-                        }}</span>
+                    }}</span>
                     <span v-else>/</span>
                 </template>
                 <template v-if="column.key === 'answer'">
@@ -30,14 +30,14 @@
                     <span>{{ record.remark ? record.remark : "/" }}</span>
                 </template>
                 <template v-else-if="column.key === 'action' && levelId === 1">
-                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                    <div style="display: flex;justify-content: center;align-items: center;">
                         <a-button size="small" @click="showModal('edit', record)">修改</a-button>
                         <a-divider type="vertical" />
                         <a-popconfirm title="确定删除该试题吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record.id)"
                             @cancel="cancel">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
-                    </span>
+                    </div>
                 </template>
             </template>
         </a-table>
@@ -86,19 +86,20 @@ const columns = ref<ColumnsType>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60,
     },
     {
         title: "题目",
         dataIndex: "stem",
         key: "stem",
-        width: 200
+        width: 160
     },
     {
         title: "题目类型",
         dataIndex: "type",
         key: "type",
-        width: 100
+        width: 80
     },
     {
         title: "选项",
@@ -110,7 +111,7 @@ const columns = ref<ColumnsType>([
         title: "答案",
         dataIndex: "answer",
         key: "answer",
-        width: 160
+        width: 140
     },
     {
         title: "注解",
@@ -121,7 +122,8 @@ const columns = ref<ColumnsType>([
     {
         title: "操作",
         key: "action",
-        width: 280
+        align: "center",
+        width: 240
     },
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
@@ -210,15 +212,12 @@ async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
         axios: (data: EditQuestionType) => AxiosPromise<any>
-        msg: string
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addQuestion
     };
     if (flag.value === "edit") {
         a.axios = updateQuestion;
-        a.msg = "修改失败";
     }
     try {
         const result = await addPage.value?.getAddData()
@@ -246,7 +245,7 @@ async function handleOk(e: MouseEvent) {
                 visible.value = false;
                 message.success(res.data.msg);
             } else {
-                message.error(a.msg);
+                message.error(res.data.msg);
             }
         }
     } catch (_) { }

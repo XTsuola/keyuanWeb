@@ -5,13 +5,13 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
                 v-if="levelId === 1">添加试卷</a-button>
         </div>
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
+        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
                 </template>
                 <template v-if="column.key === 'action' && levelId === 1">
-                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
+                    <div style="display: flex;justify-content: center;align-items: center;">
                         <a-button size="small" @click="goStemList(record.id)">查看试题</a-button>
                         <a-divider type="vertical" />
                         <a-button size="small" @click="showModal('edit', record)">修改</a-button>
@@ -20,7 +20,7 @@
                             @cancel="cancel">
                             <a-button size="small">删除</a-button>
                         </a-popconfirm>
-                    </span>
+                    </div>
                 </template>
             </template>
         </a-table>
@@ -50,7 +50,7 @@ import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
 import type { API as AddPageAPI } from "./modal/paperAddPage.vue";
-import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type StemArrType } from "@/api/examination";
+import { addPaper, updatePaper, getPaperList, deletePaper, type EditPaperType, type GetPaperListType } from "@/api/examination";
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
 
@@ -62,41 +62,43 @@ const columns = ref<ColumnsType>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60
     },
     {
         title: "试卷名称",
         dataIndex: "paperName",
         key: "paperName",
-        width: 200
+        width: 240
     },
     {
         title: "总分",
         dataIndex: "score",
         key: "score",
-        width: 100
+        width: 120
     },
     {
         title: "时间",
         dataIndex: "time",
         key: "time",
-        width: 120,
-        customRender: (opt) => opt.value + "分钟"
+        customRender: (opt) => opt.value + "分钟",
+        width: 140
     },
     {
         title: "备注",
         dataIndex: "remark",
         key: "remark",
-        width: 160
+        width: 200
     },
     {
         title: "操作",
         key: "action",
-        width: 280
+        align: "center",
+        width: 240
     },
 ]);
 const loading = ref(false);
-const data = ref<EditPaperType[]>([]);
+const tableData = ref<EditPaperType[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -120,9 +122,14 @@ const paperId = ref<number>(0);
 const addPage = ref<AddPageAPI>();
 
 async function getList() {
-    const res = await getPaperList();
+    const params: GetPaperListType = {
+        pageSize: pageSize.value,
+        pageNo: currentPage.value
+    };
+    const res = await getPaperList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
+        total.value = res.data.total;
     }
 }
 
@@ -149,15 +156,12 @@ function showModal(typeFlag: AddType, record?: EditPaperType) {
 async function handleOk(e: MouseEvent) {
     interface AType {
         axios: (data: EditPaperType) => AxiosPromise<any>
-        msg: string
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addPaper
     };
     if (flag.value === "edit") {
         a.axios = updatePaper;
-        a.msg = "修改失败";
     }
     try {
         const result = await addPage.value?.getAddData();
@@ -182,6 +186,9 @@ async function deleteOk(id: number) {
         message.success(res.data.msg);
     } else {
         message.error(res.data.msg);
+    }
+    if (tableData.value.length == 1) {
+        currentPage.value--;
     }
     getList();
 }
