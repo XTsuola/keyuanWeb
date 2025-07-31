@@ -176,8 +176,7 @@ function changePage(page: number) {
 
 function reset() {
     formState.groupName = undefined;
-    currentPage.value = 1;
-    getList();
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddMemberParams) {

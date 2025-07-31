@@ -53,20 +53,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddHeroParams, UpdateHeroParams } from "@/api/yys";
-import type { AddParamsType } from "../heroList.vue";
+import type { AddHeroParams } from "@/api/yys";
 import type { AddType, Type } from "@/utils/global";
-
-export interface API {
-    getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
-}
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddHeroParams
 }>();
 const heroAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddHeroParams>({
     name: "",
     gender: undefined,
     star: undefined,
@@ -113,11 +108,10 @@ const starList = ref<Type[]>([{
     value: 7
 }]);
 
-async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
+async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams | UpdateHeroParams = {
-            _id: addData.value._id,
+        const returnData: AddHeroParams = {
             id: addData.value.id,
             name: addData.value.name,
             gender: addData.value.gender,

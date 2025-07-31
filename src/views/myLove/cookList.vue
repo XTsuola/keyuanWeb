@@ -270,8 +270,7 @@ function changePage(page: number) {
 function reset() {
     formState.name = "";
     formState.cookType = formState.hunsu = formState.mastery = undefined;
-    currentPage.value = 1;
-    getList();
+    selectList();
 }
 
 function showModal(showType: AddType, item?: AddCookParams) {

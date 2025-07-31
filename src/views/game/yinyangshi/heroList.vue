@@ -49,38 +49,12 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType, Type } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/heroAddPage.vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/yys"
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListType, type AddHeroParams } from "@/api/yys"
 import AddPage from "./modal/heroAddPage.vue"
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddHeroParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    gender: number | undefined
-    star: number | undefined
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddHeroParams>({
+    id: undefined,
     name: "",
     gender: undefined,
     star: undefined,
@@ -98,7 +72,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加式神");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -107,7 +81,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     gender: undefined,
     star: undefined,
@@ -183,7 +157,7 @@ const columns = ref<any>([
         dataIndex: "gj",
         key: "gj",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.gj) - parseInt(b.gj)
         }
     },
@@ -192,7 +166,7 @@ const columns = ref<any>([
         dataIndex: "sm",
         key: "sm",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.sm) - parseInt(b.sm)
         }
     },
@@ -201,7 +175,7 @@ const columns = ref<any>([
         dataIndex: "fy",
         key: "fy",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.fy) - parseInt(b.fy)
         }
     },
@@ -210,7 +184,7 @@ const columns = ref<any>([
         dataIndex: "sd",
         key: "sd",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.sd) - parseInt(b.sd)
         }
     },
@@ -219,7 +193,7 @@ const columns = ref<any>([
         dataIndex: "bj",
         key: "bj",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.bj) - parseInt(b.bj)
         }
     },
@@ -228,7 +202,7 @@ const columns = ref<any>([
         dataIndex: "bs",
         key: "bs",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.bs) - parseInt(b.bs)
         }
     },
@@ -237,7 +211,7 @@ const columns = ref<any>([
         dataIndex: "mz",
         key: "mz",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.mz) - parseInt(b.mz)
         }
     },
@@ -246,7 +220,7 @@ const columns = ref<any>([
         dataIndex: "dk",
         key: "dk",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.dk) - parseInt(b.dk)
         }
     },
@@ -259,7 +233,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -275,7 +249,7 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const params: GetHeroListParams = {
+    const params: GetHeroListType = {
         pageSize: pageSize.value,
         pageNo: currentPage.value,
         name: formState.name,
@@ -318,12 +292,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddHeroParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改式神";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.gender = item.gender;
             addParams.star = item.star;
@@ -336,13 +310,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.mz = item.mz;
             addParams.dk = item.dk;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加式神";
-        addParams.gender = addParams.star = undefined;
-        addParams._id = addParams.name = addParams.gj = addParams.sm = addParams.fy = addParams.sd = addParams.bj = addParams.bs = addParams.mz = addParams.dk = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.gender = addParams.star = undefined;
+        addParams.name = addParams.gj = addParams.sm = addParams.fy = addParams.sd = addParams.bj = addParams.bs = addParams.mz = addParams.dk = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -363,19 +335,16 @@ function showModal(showType: AddType, item?: AddParamsType) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
-        axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddHeroParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addHero
     };
     if (type.value === "edit") {
         a.axios = updateHero;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -385,7 +354,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -413,10 +382,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

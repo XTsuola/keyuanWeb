@@ -13,14 +13,14 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="定位" style="width: 200px">
                 <a-select v-model:value="formState.position" @change="selectList" placeholder="请选择定位">
                     <a-select-option v-for="item in positionList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="皮肤" style="width: 200px">
@@ -274,7 +274,6 @@ function changePage(page: number) {
 function reset() {
     formState.name = formState.skin = "";
     formState.gender = formState.position = undefined;
-    currentPage.value = 1;
     selectList();
 }
 
@@ -355,10 +354,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

@@ -1,14 +1,25 @@
 import request from "../utils/request";
+import type { PaginationType } from "./common";
 
-export interface GetHeroListParams {
+// 获取式神列表
+export interface GetHeroListType extends PaginationType {
   pageSize: number;
   pageNo: number;
   name: string;
   gender: number | undefined;
   star: number | undefined;
 }
+export function getHeroList(data: GetHeroListType) {
+  return request({
+    url: "/yys/getHeroList",
+    method: "get",
+    params: data,
+  });
+}
 
+// 新增式神
 export interface AddHeroParams {
+  id?: number;
   name: string;
   gender: number | undefined;
   star: number | undefined;
@@ -22,26 +33,6 @@ export interface AddHeroParams {
   dk: string;
   remark: string;
 }
-
-export interface UpdateHeroParams extends AddHeroParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
-}
-
-// 获取式神列表
-export function getHeroList(data: GetHeroListParams) {
-  return request({
-    url: "/yys/getHeroList",
-    method: "get",
-    params: data,
-  });
-}
-
-// 新增式神
 export function addHero(data: AddHeroParams) {
   return request({
     url: "/yys/addHero",
@@ -51,7 +42,7 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改式神
-export function updateHero(data: UpdateHeroParams) {
+export function updateHero(data: AddHeroParams) {
   return request({
     url: "/yys/updateHero",
     method: "post",
