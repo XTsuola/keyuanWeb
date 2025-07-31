@@ -13,15 +13,6 @@
                 <div @click="goPhotos(2)">公园外景</div>
             </div>
         </div>
-        <div class="middle">
-            <div class="m_left">
-                <div>执子之手</div>
-            </div>
-            <img class="m_center" src="@/assets/images/love/wedding/home/0.jpg" />
-            <div class="m_right">
-                <div>与子偕老</div>
-            </div>
-        </div>
         <div class="flooter">
             <div class="f_left">
                 <img src="@/assets/images/love/wedding/home/3.jpg" />
@@ -35,7 +26,6 @@
                 <div @click="goPhotos(4)">欢喜花嫁</div>
             </div>
         </div>
-        <!-- <Texiao style="overflow: hidden"></Texiao> -->
         <div>
             <div style="font-size: 40px;text-align: right;margin-top: 60px;margin-right: 20px;">
                 <img style="width: 120px;margin-right: 50px;" src="@/assets/images/love/wedding/icon/qingshu.png"
@@ -51,24 +41,23 @@ import router from "@/router";
 
 function goPhotos(ind: number) {
     if (ind == 1) {
-        router.push("/photos/filmSpace")
+        router.push("/photos/filmSpace");
     } else if (ind == 2) {
-        router.push("/photos/parkExterior")
+        router.push("/photos/parkExterior");
     } else if (ind == 3) {
-        router.push("/photos/chineseStyle")
+        router.push("/photos/chineseStyle");
     } else if (ind == 4) {
-        router.push("/photos/hanayome")
+        router.push("/photos/hanayome");
     }
 }
 
 function go() {
-    router.push("/shiyan")
+    router.push("/shiyan");
 }
 
 </script>
 <style lang="less" scoped>
 .home {
-    width: 100%;
     height: 100%;
     overflow: auto;
 
@@ -127,41 +116,5 @@ function go() {
             text-shadow: 0px 4px 0px #fff, 0px -4px 0px #9da181, 4px 0px 0px #fff, -4px 0px 0px #9da181;
         }
     }
-
-    .middle {
-        background-color: pink;
-        width: 100%;
-        height: calc(67.5vw - 162px);
-        display: flex;
-
-        .m_left,
-        .m_center,
-        .m_right {
-            height: 100%;
-            justify-content: center;
-        }
-
-        .m_left,
-        .m_right {
-            width: 27.5%;
-            padding-top: 50px;
-            width: 100%;
-            height: 100%;
-            writing-mode: vertical-lr;
-            font-size: 48px;
-            letter-spacing: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 0px 4px 0px #fff, 0px -4px 0px #9da181, 4px 0px 0px #fff, -4px 0px 0px #9da181;
-            color: rgb(255, 225, 0);
-        }
-
-        .m_center {
-            width: 45%;
-        }
-    }
-
-
 }
 </style>

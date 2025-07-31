@@ -8,29 +8,29 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const imglist: any = ref([])
-const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/oneList/"
+const imglist: any = ref([]);
+const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/oneList/";
 
 let list: string[] = []
 for (let i = 1; i <= 14; i++) {
-    const str = baseUrl + i + ".jpg"
-    list.push(str)
+    const str = baseUrl + i + ".jpg";
+    list.push(str);
 }
 
 for (let i = 0; i < list.length; i++) {
-    const url = new URL(list[i], import.meta.url)
-    imglist.value.push(url)
+    const url = new URL(list[i], import.meta.url);
+    imglist.value.push(url);
 }
 
 function go(obj: any) {
-    const url: string = obj.href
-    window.open(url)
+    const url: string = obj.href;
+    window.open(url);
 }
 
 function goBack() {
-    history.back()
+    history.back();
 }
 
 </script>

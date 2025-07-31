@@ -1,11 +1,8 @@
 import request from "../utils/request";
+import type { PaginationType } from "./common";
 
 // 获取英雄列表
-export interface GetHeroListParams {
-  pageSize: number;
-  pageNo: number;
-}
-export function getHeroList(data: GetHeroListParams) {
+export function getHeroList(data: PaginationType) {
   return request({
     url: "/xingta/getHeroList",
     method: "get",

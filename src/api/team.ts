@@ -1,5 +1,5 @@
 import request from "../utils/request";
-
+import type { PaginationType } from "./common";
 
 // 获取用户信息
 export function getUserInfo(id: number) {
@@ -24,9 +24,7 @@ export function updateImg(data: UpdateImgParams) {
 }
 
 // 获取成员列表
-export interface GetMemberListParams {
-  pageSize: number;
-  pageNo: number;
+export interface GetMemberListParams extends PaginationType {
   groupName: number | undefined;
 }
 export function getMemberList(data: GetMemberListParams) {
@@ -110,7 +108,7 @@ export function deleteWelfare(id: number) {
 }
 
 // 获取精彩锦集列表
-export function getWrcList(data: any) {
+export function getWrcList(data: PaginationType) {
   return request({
     url: "/getWrcList",
     method: "get",

@@ -118,7 +118,7 @@ async function getQizi(index1: number, index2: number, isBlank?: boolean) {
                             index1: index1,
                             index2: index2,
                             qizi: nowQizi.value
-                        }
+                        };
                         uopdateData(data);
                     }
                 }

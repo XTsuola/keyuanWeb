@@ -36,7 +36,7 @@
     <a-modal width="50%" v-model:visible="visible2" destroyOnClose :title="'图片名称：' + detailTitle" :maskClosable="false">
         <img style="max-width: 100%;" :src="detailUrl" />
         <template #footer>
-            <a-popconfirm title="确定删除该图片吗?" ok-text="Yes" cancel-text="No" @confirm="deleteImg()" @cancel="cancel">
+            <a-popconfirm title="确定删除该图片吗?" ok-text="Yes" cancel-text="No" @confirm="deleteImg()">
                 <a-button size="small">删除</a-button>
             </a-popconfirm>
             <a-button @click="closeDetail()">关闭</a-button>
@@ -99,9 +99,8 @@ async function handleOk() {
             message.success("新增成功");
             getList();
         }
-    } catch (_) {
-        loading.value = false;
-    }
+    } catch (_) { }
+    loading.value = false;
 }
 
 function getPhoto(e: any) {
@@ -154,10 +153,6 @@ async function deleteImg() {
             getList();
         }
     }
-}
-
-function cancel() {
-    message.error("取消删除");
 }
 
 async function getList() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="heroList">
         <div class="title">
             角色列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增角色
@@ -24,9 +24,10 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams } from "@/api/xingta";
+import { getHeroList, addHero, updateHero, deleteHero, type AddHeroParams } from "@/api/xingta";
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
+import type { PaginationType } from "@/api/common";
 
 let addParams = reactive<AddHeroParams>({
     id: undefined,
@@ -132,7 +133,7 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const params: GetHeroListParams = {
+    const params: PaginationType = {
         pageSize: pageSize.value,
         pageNo: currentPage.value,
     };
@@ -231,7 +232,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.heroList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -240,10 +241,6 @@ onMounted(() => {
         font-size: 18px;
         font-weight: 600;
         margin: 0 15px 15px 0;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

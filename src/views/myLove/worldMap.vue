@@ -43,12 +43,12 @@ import { travelList, dataList } from "./travel";
 
 const flag = ref(true);
 const infoWindow = ref(null);
-const map = ref<any>(null)
-let Bmap:any = window.BMapGL
+const map = ref<any>(null);
+let Bmap: any = window.BMapGL
 const level = ref<number>(12);
-let myCharts2:any = null;
+let myCharts2: any = null;
 const myEcharts2 = ref();
-let myCharts3:any = null;
+let myCharts3: any = null;
 const myEcharts3 = ref();
 const colorList = ["#5470C6", "#91CC75", "#FAC858", "#EE6666", "#73C0DE", "#3BA272", "#FC8452", "#9A60B4", "#EA7CCC", "#5470C6"];
 const showFlag = ref(true);
@@ -147,16 +147,16 @@ function setPoint() {
     }
 }
 
-function changeSize(e:any) {
+function changeSize(e: any) {
     flag.value = false;
     map.value.setZoom(e);
 }
 
-function afterChangeSize(e:any) {
+function afterChangeSize() {
     flag.value = true;
 }
 
-function handleRightClick(e:any) {
+function handleRightClick(e: any) {
     e.preventDefault();
 }
 
@@ -174,9 +174,9 @@ function getTableData() {
 
 function getChart2Data() {
     const list = travelList;
-    let arr:any = [];
+    let arr: any = [];
     for (let i = 0; i < list.length; i++) {
-        const index = arr.findIndex((item:any) => item.name == list[i].city);
+        const index = arr.findIndex((item: any) => item.name == list[i].city);
         if (index != -1) {
             arr[index].count++;
         } else {
@@ -191,15 +191,15 @@ function getChart2Data() {
 
 function getChart3Data() {
     const list = travelList;
-    let arr:any = [];
+    let arr: any = [];
     for (let i = 0; i < list.length; i++) {
         arr = arr.concat(list[i].friend);
     }
-    let brr:any = [];
+    let brr: any = [];
     for (let i = 0; i < arr.length; i++) {
         const crr = arr[i].split("、");
         for (let j = 0; j < crr.length; j++) {
-            const index = brr.findIndex((item:any) => item.name == crr[j]);
+            const index = brr.findIndex((item: any) => item.name == crr[j]);
             if (index != -1) {
                 brr[index].count++;
             } else {
@@ -219,12 +219,12 @@ function getList() {
 
 function draw2() {
     const list = getChart2Data();
-    const arr = list.map((item:any) => {
+    const arr = list.map((item: any) => {
         return {
             name: item.name,
             value: item.count
         }
-    }).sort((a:any, b:any) => { return b.value - a.value }).slice(0, 10);
+    }).sort((a: any, b: any) => { return b.value - a.value }).slice(0, 10);
     const option = {
         tooltip: {
             trigger: 'item'
@@ -258,12 +258,12 @@ function draw2() {
 
 function draw3() {
     const list = getChart3Data();
-    const arr = list.map((item:any) => {
+    const arr = list.map((item: any) => {
         return {
             name: item.name,
             value: item.count
         }
-    }).sort((a:any, b:any) => { return b.value - a.value }).slice(0, 10);
+    }).sort((a: any, b: any) => { return b.value - a.value }).slice(0, 10);
     const option = {
         tooltip: {
             trigger: 'axis',
@@ -273,7 +273,7 @@ function draw3() {
         },
         xAxis: {
             type: 'category',
-            data: arr.map((item:any) => item.name),
+            data: arr.map((item: any) => item.name),
             axisLabel: {
                 interval: 0
             }
@@ -283,7 +283,7 @@ function draw3() {
         },
         series: [
             {
-                data: arr.map((item:any, index:number) => {
+                data: arr.map((item: any, index: number) => {
                     return {
                         value: item.value,
                         itemStyle: {
@@ -325,7 +325,7 @@ function drawCharts() {
     draw3();
 }
 
-function goPoint(record:any) {
+function goPoint(record: any) {
     map.value.centerAndZoom(new Bmap.Point(record.lng, record.lat), 15);
 }
 
@@ -334,7 +334,7 @@ onMounted(() => {
     nextTick(() => {
         initMap();
         setPoint();
-        map.value.addEventListener("zoomend", function () {
+        map.value.addEventListener("zoomend", () => {
             if (flag.value) {
                 setTimeout(() => {
                     level.value = map.value.getZoom();

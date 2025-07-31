@@ -1,6 +1,6 @@
 <template>
     <!-- {{ $t('hello.hello') }} -->
-    <div class="main">
+    <div class="memberList">
         <div class="title">
             成员列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增成员
@@ -12,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -45,10 +45,6 @@ import { getMemberList, addMember, updateMember, deleteMember, type GetMemberLis
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
-interface FormStateType {
-    groupName: number | undefined;
-}
-
 const { locale } = useI18n();
 locale.value = "cn";
 let addParams = reactive<AddMemberParams>({
@@ -72,7 +68,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     groupName: undefined
 });
 
@@ -164,6 +160,7 @@ async function deleteOk(id: number) {
 }
 
 function groupChange() {
+    currentPage.value = 1;
     getList();
 }
 
@@ -179,6 +176,7 @@ function changePage(page: number) {
 
 function reset() {
     formState.groupName = undefined;
+    currentPage.value = 1;
     getList();
 }
 
@@ -234,7 +232,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.memberList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -250,13 +248,5 @@ onMounted(() => {
         justify-content: flex-start;
         flex-wrap: wrap;
     }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
-    }
-}
-
-:deep(.ant-card-body) {
-    padding: 2px;
 }
 </style>

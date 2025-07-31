@@ -8,39 +8,40 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const imglist: any = ref([])
-const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/fourList/"
+const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/fourList/";
 
 let list: string[] = []
 for (let i = 1; i <= 21; i++) {
-    const str = baseUrl + i + ".jpg"
-    list.push(str)
+    const str = baseUrl + i + ".jpg";
+    list.push(str);
 }
 
 for (let i = 0; i < list.length; i++) {
-    const url = new URL(list[i], import.meta.url)
-    imglist.value.push(url)
+    const url = new URL(list[i], import.meta.url);
+    imglist.value.push(url);
 }
 
 function go(obj: any) {
-    const url: string = obj.href
-    window.open(url)
+    const url: string = obj.href;
+    window.open(url);
 }
 
 function goBack() {
-    history.back()
+    history.back();
 }
 
 </script>
-    
+
 <style lang="less" scoped>
 .filmSpace {
     .header {
         font-size: 80px;
         text-shadow: 0px 3px 0px #fff, 0px -3px 0px #9da181, 3px 0px 0px #fff, -3px 0px 0px #9da181;
         text-align: center;
+
         img {
             position: absolute;
             right: 10px;

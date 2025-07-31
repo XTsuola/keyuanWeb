@@ -9,24 +9,24 @@
                 <a-select ref="select" style="width: 100%;" v-model:value="addData.cookType"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
-                            item.label
-                    }}</a-select-option>
+                        item.label
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="荤素" name="hunsu" :rules="[{ required: true, message: '请选择荤素!' }]">
                 <a-select ref="select" style="width: 100%;" v-model:value="addData.hunsu"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
-                            item.label
-                    }}</a-select-option>
+                        item.label
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="熟练度" name="mastery" :rules="[{ required: true, message: '请选择熟练度!' }]">
                 <a-select ref="select" style="width: 100%;" v-model:value="addData.mastery"
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
-                            item.label
-                    }}</a-select-option>
+                        item.label
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="次数" name="count" :rules="[{ required: true, message: '请输入次数!' }]">
@@ -36,7 +36,8 @@
                 <a-textarea v-model:value="addData.foodMaterials" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="做法">
-                <a-textarea style="min-height: 140px;" v-model:value="addData.practice" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 140px;" v-model:value="addData.practice"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
@@ -46,22 +47,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddCookParams, UpdateCookParams } from "@/api/myLove"
+import type { AddCookParams } from "@/api/myLove"
+import type { AddType, Type } from "@/utils/global";
 import { ref } from "vue"
-import type { AddParamsType, Type } from "../cookList.vue"
-
-export interface API {
-    getAddData: () => Promise<false | AddCookParams | UpdateCookParams>
-}
-
-export type AddType = "add" | "edit" | "detail"
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddCookParams
 }>()
 const relicsAdd = ref()
-const addData = ref<AddParamsType>({
+const addData = ref<AddCookParams>({
     name: "",
     cookType: undefined,
     hunsu: undefined,
@@ -120,11 +115,10 @@ const masteryList = ref<Type[]>([{
     value: 4
 }])
 
-async function getAddData(): Promise<false | AddCookParams | UpdateCookParams> {
+async function getAddData() {
     try {
         await relicsAdd.value?.validate()
-        const returnData: AddCookParams | UpdateCookParams = {
-            _id: addData.value._id,
+        const returnData: AddCookParams = {
             id: addData.value.id,
             name: addData.value.name,
             cookType: addData.value.cookType,

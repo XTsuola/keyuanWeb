@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="welfareList">
         <div style="background: #ececec;padding: 20px 15px 20px 15px;">
             <a-card style="width: 100%;">
                 <div style="display: flex;justify-content: space-between;">
@@ -8,7 +8,7 @@
                 </div>
             </a-card>
         </div>
-        <div style="background: #ececec;padding: 0 15px 20px 15px;" v-for="item in tableData" :key="item.id">
+        <div class="card" v-for="item in tableData" :key="item.id">
             <a-card style="width: 100%">
                 <p>{{ item.remark }}</p>
                 <a-button v-if="levelId === 1" size="small" style="margin-right: 15px;"
@@ -123,7 +123,8 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.welfareList {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 
@@ -131,13 +132,9 @@ onMounted(() => {
         font-weight: 600;
     }
 
-    p {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        font-size: 18px;
-        padding-left: 5px;
-        padding-right: 5px;
+    .card {
+        background: #ececec;
+        padding: 0 15px 20px 15px;
     }
 }
 </style>

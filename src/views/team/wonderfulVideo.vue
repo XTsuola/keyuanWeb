@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="wonderfulVideo">
         <div class="title">
             精彩锦集列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal()">添加锦集</a-button>
@@ -51,6 +51,7 @@ import type { ScrollType } from "@/utils/global";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
+import type { PaginationType } from "@/api/common";
 
 const columns = ref<any[]>([
     {
@@ -136,7 +137,7 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const params: any = {
+    const params: PaginationType = {
         pageSize: pageSize.value,
         pageNo: currentPage.value
     };
@@ -233,7 +234,8 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.wonderfulVideo {
+    padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
 

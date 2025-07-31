@@ -7,12 +7,9 @@ export interface LoginParams {
 
 // 登录
 export function login(data: LoginParams) {
-  return request(
-    {
-      url: "/login",
-      method: "post",
-      data: data,
-    },
-    false
-  );
+  return request({
+    url: "/login",
+    method: "post",
+    data: data,
+  });
 }

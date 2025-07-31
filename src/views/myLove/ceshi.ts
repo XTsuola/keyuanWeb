@@ -1,4 +1,4 @@
-import { defineComponent, h, isVNode } from "vue"
+import { defineComponent, h, isVNode } from "vue";
 
 const RenderVnode = defineComponent({
     props: {
@@ -9,9 +9,9 @@ const RenderVnode = defineComponent({
     },
     render() {
         if (isVNode(this.vNode)) {
-            return this.vNode
+            return this.vNode;
         } else {
-            return h("div", this.vNode as any)
+            return h("div", this.vNode as any);
         }
     }
 })

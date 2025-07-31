@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="cookList">
         <div class="title">
             菜谱列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增菜谱
@@ -14,7 +14,7 @@
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="荤素" style="width: 200px">
@@ -22,7 +22,7 @@
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="熟练度" style="width: 220px">
@@ -30,7 +30,7 @@
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -40,40 +40,9 @@
                 </div>
             </a-form-item>
         </a-form>
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" :pagination="false">
-            <template #bodyCell="{ column, index, record }">
-                <template v-if="column.key === 'index'">
-                    {{ index + 1 }}
-                </template>
-                <template v-if="column.key === 'name'">
-                    <a>{{ record.name }}</a>
-                </template>
-                <template v-else-if="column.key === 'cookType'">
-                    <span>{{cookTypeList.find(item => item.value == record.cookType)?.label}}</span>
-                </template>
-                <template v-else-if="column.key === 'hunsu'">
-                    <span>{{hunsuList.find(item => item.value == record.hunsu)?.label}}</span>
-                </template>
-                <template v-else-if="column.key === 'mastery'">
-                    <span>{{masteryList.find(item => item.value == record.mastery)?.label}}</span>
-                </template>
-                <template v-else-if="column.key === 'action' && levelId === 1">
-                    <span style="display: flex;flex-wrap: nowrap;white-space: nowrap;align-items: center;">
-                        <a-button size="small" @click="showModal('detail', record)">查看详情</a-button>
-                        <span v-if="levelId === 1">
-                            <a-divider type="vertical" />
-                            <a-button size="small" @click="showModal('edit', record)">修改</a-button>
-                            <a-divider type="vertical" />
-                            <a-popconfirm title="确定删除该圣遗物吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)">
-                                <a-button size="small">删除</a-button>
-                            </a-popconfirm>
-                        </span>
-                    </span>
-                </template>
-            </template>
-        </a-table>
-        <a-pagination class="pagination" v-model:current="current" v-model:page-size="pageSize" :total="total"
-            :show-total="(total: any) => `共 ${total} 条`" @change="changeList" />
+        <MyTabel :columnsData="columns" :dataSource="tableData"
+            :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
+            @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
         <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
@@ -87,43 +56,15 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
-import { getCookList, addCook, updateCook, deleteCook, type DeleteParams, type GetCookListParams, type AddCookParams, type UpdateCookParams } from "@/api/myLove";
-import type { SelectValue } from "ant-design-vue/lib/select";
-import AddPage from "./modal/cookAddPage.vue";
-import type { AddType, API as AddPageAPI } from "./modal/cookAddPage.vue";
+import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { ScrollType, Type } from "@/utils/global";
+import { getCookList, addCook, updateCook, deleteCook, type GetCookListType, type AddCookParams } from "@/api/myLove";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import MyTabel from "@/components/table.vue";
+import AddPage from "./modal/cookAddPage.vue";
 
-export interface AddParamsType extends AddCookParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    cookType: number | undefined
-    hunsu: number | undefined
-    mastery: number | undefined
-    star: number | undefined
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddCookParams>({
+    id: undefined,
     name: "",
     cookType: undefined,
     hunsu: undefined,
@@ -133,11 +74,11 @@ let addParams = reactive<AddParamsType>({
     count: "",
     remark: ""
 });
-const current = ref<number>(1);
+const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加菜谱");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -146,12 +87,11 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     cookType: undefined,
     hunsu: undefined,
-    mastery: undefined,
-    star: undefined,
+    mastery: undefined
 });
 const cookTypeList = ref<Type[]>([{
     label: "全部",
@@ -211,7 +151,8 @@ const columns = ref<any>([
     {
         title: "序号",
         key: "index",
-        width: 80
+        align: "center",
+        width: 60
     },
     {
         title: "名称",
@@ -223,46 +164,51 @@ const columns = ref<any>([
         title: "类型",
         dataIndex: "cookType",
         key: "cookType",
+        customRender: (opt: any) => {
+            return cookTypeList.value.find(item => item.value == opt.value)?.label
+        },
         width: 80,
     },
     {
         title: "荤素",
         dataIndex: "hunsu",
         key: "hunsu",
+        customRender: (opt: any) => {
+            return hunsuList.value.find(item => item.value == opt.value)?.label
+        },
         width: 80,
     },
     {
         title: "熟练度",
         dataIndex: "mastery",
         key: "mastery",
-        width: 90,
-    },
-    {
-        title: "食材",
-        dataIndex: "foodMaterials",
-        key: "foodMaterials",
-        width: 200
+        customRender: (opt: any) => {
+            return masteryList.value.find(item => item.value == opt.value)?.label
+        },
+        width: 80,
     },
     {
         title: "次数",
         dataIndex: "count",
         key: "count",
-        width: 180
+        width: 160
     },
     {
         title: "备注",
         key: "remark",
         dataIndex: "remark",
-        width: 180
+        width: 160
     },
     {
         title: "操作",
         key: "action",
-        width: 160
+        align: "center",
+        list: ["detail", "edit", "delete"],
+        width: 240
     },
 ]);
 const loading = ref<boolean>(false);
-const data = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -278,9 +224,9 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const params: GetCookListParams = {
+    const params: GetCookListType = {
         pageSize: pageSize.value,
-        pageNo: current.value,
+        pageNo: currentPage.value,
         name: formState.name,
         cookType: formState.cookType,
         hunsu: formState.hunsu,
@@ -288,54 +234,52 @@ async function getList() {
     };
     const res = await getCookList(params);
     if (res.data.code === 200) {
-        data.value = res.data.rows;
+        tableData.value = res.data.rows;
         total.value = res.data.total;
     }
 }
 
-async function deleteOk(e: DataType) {
-    const params: DeleteParams = {
-        _id: e._id
-    };
-    const res = await deleteCook(params);
+async function deleteOk(id: number) {
+    const res = await deleteCook(id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
         message.error("删除失败");
     }
-    if (data.value.length == 1) {
-        current.value--;
+    if (tableData.value.length == 1) {
+        currentPage.value = 1;
     }
     getList();
 }
 
-function groupChange(e: SelectValue) {
-    current.value = 1;
+function groupChange() {
+    currentPage.value = 1;
     getList();
 }
 
 function selectList() {
-    current.value = 1;
+    currentPage.value = 1;
+    getList();
+}
+
+function changePage(page: number) {
+    currentPage.value = page;
     getList();
 }
 
 function reset() {
     formState.name = "";
     formState.cookType = formState.hunsu = formState.mastery = undefined;
-    current.value = 1;
+    currentPage.value = 1;
     getList();
 }
 
-function changeList() {
-    getList();
-}
-
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddCookParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改菜谱";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.cookType = item.cookType;
             addParams.hunsu = item.hunsu;
@@ -344,13 +288,12 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.practice = item.practice;
             addParams.count = item.count;
             addParams.remark = item.remark;
-            addParams.id = item.id;
+
         }
     } else if (showType === "add") {
         title.value = "添加菜谱";
-        addParams.cookType = addParams.hunsu = addParams.mastery = undefined;
-        addParams._id = addParams.name = addParams.foodMaterials = addParams.practice = addParams.count = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.cookType = addParams.hunsu = addParams.mastery = undefined;
+        addParams.name = addParams.foodMaterials = addParams.practice = addParams.count = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -367,19 +310,16 @@ function showModal(showType: AddType, item?: AddParamsType) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
-        axios: ((data: AddCookParams) => AxiosPromise<any>) | ((data: UpdateCookParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddCookParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addCook
     };
     if (type.value === "edit") {
         a.axios = updateCook;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -389,7 +329,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -402,7 +342,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.cookList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -417,10 +357,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>
