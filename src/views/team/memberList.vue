@@ -12,7 +12,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -41,7 +41,7 @@ import { message } from "ant-design-vue";
 import { useI18n } from "vue-i18n";
 import type { AxiosPromise } from "axios";
 import { groupList, type AddType, type ScrollType } from '@/utils/global';
-import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams, type UpdateMemberParams } from "@/api/team";
+import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
@@ -51,8 +51,8 @@ interface FormStateType {
 
 const { locale } = useI18n();
 locale.value = "cn";
-let addParams = reactive<UpdateMemberParams>({
-    id: 0,
+let addParams = reactive<AddMemberParams>({
+    id: undefined,
     name: "",
     qq: "",
     groupName: "",
@@ -122,7 +122,7 @@ const columns = ref<any>([
     }
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<UpdateMemberParams[]>([]);
+const tableData = ref<AddMemberParams[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -182,7 +182,7 @@ function reset() {
     getList();
 }
 
-function showModal(showType: AddType, item?: UpdateMemberParams) {
+function showModal(showType: AddType, item?: AddMemberParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改成员";
@@ -202,10 +202,10 @@ function showModal(showType: AddType, item?: UpdateMemberParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
-        axios: ((data: AddMemberParams) => AxiosPromise<any>) | ((data: UpdateMemberParams) => AxiosPromise<any>)
+        axios: ((data: AddMemberParams) => AxiosPromise<any>)
     }
     let a: AType = {
         axios: addMember

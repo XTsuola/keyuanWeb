@@ -39,6 +39,7 @@ export function getMemberList(data: GetMemberListParams) {
 
 // 新增成员
 export interface AddMemberParams {
+  id?: number
   name: string;
   qq: string;
   groupName: string;
@@ -54,10 +55,7 @@ export function addMember(data: AddMemberParams) {
 }
 
 // 修改成员
-export interface UpdateMemberParams extends AddMemberParams {
-  id: number;
-}
-export function updateMember(data: UpdateMemberParams) {
+export function updateMember(data: AddMemberParams) {
   return request({
     url: "/updateMember",
     method: "post",
@@ -83,6 +81,7 @@ export function getWelfareList() {
 
 // 新增福利
 export interface AddWelfareParams {
+  id?: number;
   remark: string;
 }
 export function addWelfare(data: AddWelfareParams) {
@@ -94,10 +93,7 @@ export function addWelfare(data: AddWelfareParams) {
 }
 
 // 修改福利
-export interface UpdateWelfareParams extends AddWelfareParams {
-  id: number;
-}
-export function updateWelfare(data: UpdateWelfareParams) {
+export function updateWelfare(data: AddWelfareParams) {
   return request({
     url: "/updateWelfare",
     method: "post",
@@ -118,7 +114,7 @@ export function getWrcList(data: any) {
   return request({
     url: "/getWrcList",
     method: "get",
-     params: data,
+    params: data,
   });
 }
 

@@ -14,7 +14,7 @@
                 <a-button v-if="levelId === 1" size="small" style="margin-right: 15px;"
                     @click="showModal('edit', item)">修改</a-button>
                 <a-popconfirm v-if="levelId === 1" title="确定删除该数据吗?" ok-text="Yes" cancel-text="No"
-                    @confirm="deleteOk(item.id)" @cancel="cancel">
+                    @confirm="deleteOk(item)" @cancel="cancel">
                     <a-button size="small">删除</a-button>
                 </a-popconfirm>
             </a-card>
@@ -39,7 +39,7 @@ import { reactive, ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType } from "@/utils/global";
-import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams, type UpdateWelfareParams } from "@/api/team";
+import { getWelfareList, addWelfare, updateWelfare, deleteWelfare, type AddWelfareParams } from "@/api/team";
 
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
@@ -48,12 +48,12 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 } else {
     levelId.value = null;
 }
-const tableData = ref<UpdateWelfareParams[]>([]);
+const tableData = ref<AddWelfareParams[]>([]);
 const visible = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const type = ref<AddType>("add");
-const welfareParams = reactive<UpdateWelfareParams>({
-    id: 0,
+const welfareParams = reactive<AddWelfareParams>({
+    id: undefined,
     remark: ""
 });
 const welfareAdd = ref();
@@ -65,7 +65,7 @@ async function getList() {
     }
 }
 
-function showModal(showType: AddType, item?: UpdateWelfareParams) {
+function showModal(showType: AddType, item?: AddWelfareParams) {
     type.value = showType;
     if (showType === "edit") {
         if (item) {
@@ -78,12 +78,12 @@ function showModal(showType: AddType, item?: UpdateWelfareParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     try {
         await welfareAdd.value?.validate();
         loading.value = true;
         interface AType {
-            axios: ((data: AddWelfareParams) => AxiosPromise<any>) | ((data: UpdateWelfareParams) => AxiosPromise<any>)
+            axios: ((data: AddWelfareParams) => AxiosPromise<any>)
         }
         let a: AType = {
             axios: addWelfare
@@ -102,13 +102,11 @@ async function handleOk(e: MouseEvent) {
             }
         }
         loading.value = false;
-    } catch (_) {
-        return false;
-    }
+    } catch (_) { }
 }
 
-async function deleteOk(id: number) {
-    const res = await deleteWelfare(id);
+async function deleteOk(data: any) {
+    const res = await deleteWelfare(data.id);
     if (res.data.code === 200) {
         getList();
         message.success(res.data.msg);

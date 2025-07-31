@@ -15,6 +15,7 @@ export function getHeroList(data: GetHeroListParams) {
 
 // 新增角色
 export interface AddHeroParams {
+  id?: number;
   name: string;
   title: string;
   mainShuxing: string;
@@ -33,10 +34,7 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改角色
-export interface UpdateHeroParams extends AddHeroParams {
-  id?: number;
-}
-export function updateHero(data: UpdateHeroParams) {
+export function updateHero(data: AddHeroParams) {
   return request({
     url: "/xingta/updateHero",
     method: "post",

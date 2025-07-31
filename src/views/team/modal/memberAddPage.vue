@@ -27,15 +27,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddMemberParams, UpdateMemberParams } from "@/api/team";
 import { groupList, type AddType } from '@/utils/global';
+import type { AddMemberParams } from "@/api/team";
 
 const prop = defineProps<{
     type: AddType
     addParams: AddMemberParams
 }>();
-const addData = ref<UpdateMemberParams>({
-    id: 0,
+const memberAdd = ref();
+const addData = ref<AddMemberParams>({
     name: "",
     qq: "",
     groupName: "",
@@ -45,12 +45,11 @@ const addData = ref<UpdateMemberParams>({
 if (prop.type === "edit") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
-const memberAdd = ref();
 
 async function getAddData() {
     try {
         await memberAdd.value?.validate();
-        const returnData: AddMemberParams | UpdateMemberParams = {
+        const returnData: AddMemberParams = {
             id: addData.value.id,
             name: addData.value.name,
             qq: addData.value.qq,

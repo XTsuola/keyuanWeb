@@ -52,23 +52,6 @@ import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
 
-interface DataType {
-    key: number
-    name: string
-    url: string
-    author: string
-    time: string
-    remark: string
-}
-
-interface addDataType {
-    name: string
-    url: string
-    author: string
-    time: string
-    remark: string
-}
-
 const columns = ref<any[]>([
     {
         title: "序号",
@@ -114,7 +97,7 @@ const columns = ref<any[]>([
         width: 140
     },
 ]);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<AddWrcPasrams[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
@@ -133,8 +116,7 @@ const loading = ref<boolean>(false);
 const videoFlag = ref<boolean>(false);
 const imgFlag = ref<boolean>(false);
 const wrcUrl = ref<string>("");
-const addType = ref<string>("");
-const addData = reactive<addDataType>({
+const addData = reactive<AddWrcPasrams>({
     name: "",
     url: "",
     author: "",
@@ -167,7 +149,6 @@ async function getList() {
 
 function showModal() {
     visible.value = true;
-    addType.value = "";
     addData.author = addData.name = addData.url = addData.time = addData.remark = "";
 }
 
@@ -199,9 +180,7 @@ async function handleOk() {
             getList();
             message.success(res.data.msg);
         }
-    } catch (_) {
-        return false;
-    }
+    } catch (_) { }
 }
 
 async function deleteOk(id: number) {

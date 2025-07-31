@@ -33,19 +33,14 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { AddType } from "@/utils/global";
-import type { AddHeroParams, UpdateHeroParams } from "@/api/xingta";
-import type { AddParamsType } from "../heroList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
-}
+import type { AddHeroParams } from "@/api/xingta";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddHeroParams
 }>();
 const heroAdd = ref();;
-const addData = ref<AddParamsType>({
+const addData = ref<AddHeroParams>({
     name: "",
     title: "",
     mainShuxing: "",
@@ -59,10 +54,10 @@ if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
-async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
+async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams | UpdateHeroParams = {
+        const returnData: AddHeroParams = {
             id: addData.value.id,
             name: addData.value.name,
             title: addData.value.title,

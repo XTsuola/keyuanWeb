@@ -23,30 +23,13 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { API as AddPageAPI } from "./modal/heroAddPage.vue";
 import type { AddType, ScrollType } from "@/utils/global";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/xingta";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams } from "@/api/xingta";
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddHeroParams {
-    id?: number
-}
-
-interface DataType {
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-let addParams = reactive<AddParamsType>({
-    id: 0,
+let addParams = reactive<AddHeroParams>({
+    id: undefined,
     name: "",
     title: "",
     mainShuxing: "",
@@ -60,7 +43,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(20);
 const total = ref<number>(0);
 const title = ref<string>("添加角色");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem('userInfo'));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -133,7 +116,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<AddHeroParams[]>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia('(max-width: 768px)');
 const type = ref<AddType>("add");
@@ -173,7 +156,7 @@ async function deleteOk(id: number) {
     getList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddHeroParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改角色";
@@ -211,19 +194,16 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddHeroParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addHero
     };
     if (type.value === "edit") {
         a.axios = updateHero;
-        a.msg = "修改失败";
     }
     try {
-        const result = await addPage.value?.getAddData();
+        const result: any = await addPage.value?.getAddData();
         if (result && a.axios) {
             const res = await a.axios(result);
             if (res.data.code === 200) {
@@ -231,7 +211,7 @@ async function handleOk(e: MouseEvent) {
                 message.success(res.data.msg);
                 visible.value = false;
             } else {
-                message.error(a.msg);
+                message.error(res.data.msg);
             }
         }
     } catch (_) { }
