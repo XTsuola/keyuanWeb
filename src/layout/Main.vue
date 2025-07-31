@@ -47,15 +47,13 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { getUserInfo, updateImg, type UpdateImgParams } from "@/api/team";
+import { message } from "ant-design-vue";
 import { SettingFilled } from "@ant-design/icons-vue";
 import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router";
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
+import { getUserInfo, updateImg, type UpdateImgParams } from "@/api/team";
 import router from "@/router";
 import imgBase from "@/assets/images/lanlingwang.jpg";
-import { message } from "ant-design-vue";
-
-
 
 interface UserInfo {
     id: number
@@ -74,8 +72,8 @@ const userInfo = ref<UserInfo>({
 const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
 const route = useRoute();
 const imgValue = ref<string>("");
-const breadCrumbs = ref<(RouteRecordNormalized | undefined)[]>([]);
-const extraBreadCrumbs = ref<GlobeBreadcrumbType[]>([]);
+const breadCrumbs = ref<(RouteRecordNormalized | undefined | any)[]>([]);
+const extraBreadCrumbs = ref<GlobeBreadcrumbType[] | any>([]);
 
 router.push({
     path: route.fullPath
@@ -116,7 +114,7 @@ function getImg(e: Event) {
     const list = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
     if (target) {
         if (target.files[0]) {
-            if(target.files[0].size > 1024 * 1024 * 2) {
+            if (target.files[0].size > 1024 * 1024 * 2) {
                 message.error("图片大小不能超过2MB！");
                 return false;
             }
