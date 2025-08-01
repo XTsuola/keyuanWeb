@@ -32,21 +32,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddAbyss12Params, UpdateAbyss12Params } from "@/api/yuanshen";
-import type { AddParamsType } from "../abyss12.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddAbyss12Params | UpdateAbyss12Params>
-}
-
-export type AddType = "add" | "edit" | "detail";
+import type { AddType } from "@/utils/global";
+import type { AddAbyssParams } from "@/api/yuanshen";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddAbyssParams
 }>();
 const relicsAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddAbyssParams>({
     version: "",
     firstUpper: "",
     firstLower: "",
@@ -60,11 +54,10 @@ if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
-async function getAddData(): Promise<false | AddAbyss12Params | UpdateAbyss12Params> {
+async function getAddData() {
     try {
         await relicsAdd.value?.validate();
-        const returnData: AddAbyss12Params | UpdateAbyss12Params = {
-            _id: addData.value._id,
+        const returnData: AddAbyssParams = {
             id: addData.value.id,
             version: addData.value.version,
             firstUpper: addData.value.firstUpper,

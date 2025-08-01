@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="enemyList">
         <div class="title">
             怪物列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增怪物
@@ -41,37 +41,13 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { ScrollType, Type } from "@/utils/global";
-import type { AddType, API as AddPageAPI } from "./modal/enemyAddPage.vue";
-import { getEnemyList, addEnemy, updateEnemy, deleteEnemy, type GetEnemyListParams, type AddEnemyParams, type UpdateEnemyParams } from "@/api/yuanshen";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import { getEnemyList, addEnemy, updateEnemy, deleteEnemy, type GetEnemyListParams, type AddEnemyParams } from "@/api/yuanshen";
 import AddPage from "./modal/enemyAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-
-export interface AddParamsType extends AddEnemyParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    enemyType: number | undefined
-}
-
-let addParams = reactive<AddParamsType>({
+let addParams = reactive<AddEnemyParams>({
+    id: undefined,
     name: "",
     enemyType: undefined,
     info: "",
@@ -81,7 +57,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加圣遗物");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -133,7 +109,7 @@ const enemyTypeList = ref<Type[]>([{
     value: 99
 }]);
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     enemyType: undefined
 });
@@ -174,7 +150,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -232,23 +208,21 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddEnemyParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改圣遗物";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.enemyType = item.enemyType;
             addParams.info = item.info;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加圣遗物";
-        addParams._id = addParams.name = addParams.info = addParams.remark = "";
-        addParams.enemyType = undefined;
-        addParams.id = 0;
+        addParams.id = addParams.enemyType = undefined;
+        addParams.name = addParams.info = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -264,16 +238,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddEnemyParams) => AxiosPromise<any>) | ((data: UpdateEnemyParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddEnemyParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addEnemy
     };
     if (type.value === "edit") {
         a.axios = updateEnemy;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -283,7 +254,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -296,7 +267,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.enemyList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -311,10 +282,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

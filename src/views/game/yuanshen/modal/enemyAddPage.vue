@@ -25,26 +25,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddEnemyParams, UpdateEnemyParams } from "@/api/yuanshen";
-import type { AddParamsType } from "../enemyList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddEnemyParams | UpdateEnemyParams>
-}
-
-export type AddType = "add" | "edit" | "detail";
-
-export interface Type {
-    label: string
-    value: number | undefined
-}
+import type { AddType, Type } from "@/utils/global";
+import type { AddEnemyParams } from "@/api/yuanshen";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddEnemyParams
 }>();
 const relicsAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddEnemyParams>({
     name: "",
     enemyType: undefined,
     info: "",
@@ -95,11 +84,10 @@ const enemyTypeList = ref<Type[]>([{
     value: 99
 }]);
 
-async function getAddData(): Promise<false | AddEnemyParams | UpdateEnemyParams> {
+async function getAddData() {
     try {
         await relicsAdd.value?.validate();
-        const returnData: AddEnemyParams | UpdateEnemyParams = {
-            _id: addData.value._id,
+        const returnData: AddEnemyParams = {
             id: addData.value.id,
             name: addData.value.name,
             enemyType: addData.value.enemyType,

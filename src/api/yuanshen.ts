@@ -1,99 +1,6 @@
 import request from "../utils/request";
 import type { PaginationType } from "./common";
 
-export interface GetWeaponListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  type: number | undefined;
-  star: number | undefined;
-  baseAttack: string;
-  attribute: string;
-}
-
-export interface AddWeaponParams {
-  name: string;
-  type: number | undefined;
-  star: number | undefined;
-  baseAttack: string;
-  attribute: string;
-  introduce: string;
-  remark: string;
-}
-
-export interface UpdateWeaponParams extends AddWeaponParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface GetRelicsListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  star: number | undefined;
-  tag: string;
-}
-
-export interface AddRelicsParams {
-  name: string;
-  star: number | undefined;
-  twoEffect: string;
-  fourEffect: string;
-  tag: string;
-  remark: string;
-}
-
-export interface UpdateRelicsParams extends AddRelicsParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface GetEnemyListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  enemyType: number | undefined;
-}
-
-export interface AddEnemyParams {
-  name: string;
-  enemyType: number | undefined;
-  info: string;
-  remark: string;
-}
-
-export interface UpdateEnemyParams extends AddEnemyParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface GetAbyss12ListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-}
-
-export interface AddAbyss12Params {
-  version: string;
-  firstUpper: string;
-  firstLower: string;
-  secondUpper: string;
-  secondLower: string;
-  thirdUpper: string;
-  thirdLower: string;
-  remark: string;
-}
-
-export interface UpdateAbyss12Params extends AddAbyss12Params {
-  _id?: string;
-  id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
-  img?: undefined | string;
-}
-
 // 获取角色列表
 export interface GetHeroListParams extends PaginationType {
   name: string;
@@ -158,6 +65,13 @@ export function deleteHero(id: number) {
 }
 
 // 获取武器列表
+export interface GetWeaponListParams extends PaginationType {
+  name: string;
+  type: number | undefined;
+  star: number | undefined;
+  baseAttack: string;
+  attribute: string;
+}
 export function getWeaponList(data: GetWeaponListParams) {
   return request({
     url: "/yuanshen/getWeaponList",
@@ -167,6 +81,16 @@ export function getWeaponList(data: GetWeaponListParams) {
 }
 
 // 新增武器
+export interface AddWeaponParams {
+  id?: number;
+  name: string;
+  type: number | undefined;
+  star: number | undefined;
+  baseAttack: string;
+  attribute: string;
+  introduce: string;
+  remark: string;
+}
 export function addWeapon(data: AddWeaponParams) {
   return request({
     url: "/yuanshen/addWeapon",
@@ -176,7 +100,7 @@ export function addWeapon(data: AddWeaponParams) {
 }
 
 // 修改武器
-export function updateWeapon(data: UpdateWeaponParams) {
+export function updateWeapon(data: AddWeaponParams) {
   return request({
     url: "/yuanshen/updateWeapon",
     method: "post",
@@ -193,6 +117,11 @@ export function deleteWeapon(id: number) {
 }
 
 // 获取圣遗物列表
+export interface GetRelicsListParams extends PaginationType {
+  name: string;
+  star: number | undefined;
+  tag: string;
+}
 export function getRelicsList(data: GetRelicsListParams) {
   return request({
     url: "/yuanshen/getRelicsList",
@@ -202,6 +131,15 @@ export function getRelicsList(data: GetRelicsListParams) {
 }
 
 // 新增圣遗物
+export interface AddRelicsParams {
+  id?: number;
+  name: string;
+  star: number | undefined;
+  twoEffect: string;
+  fourEffect: string;
+  tag: string;
+  remark: string;
+}
 export function addRelics(data: AddRelicsParams) {
   return request({
     url: "/yuanshen/addRelics",
@@ -211,7 +149,7 @@ export function addRelics(data: AddRelicsParams) {
 }
 
 // 修改圣遗物
-export function updateRelics(data: UpdateRelicsParams) {
+export function updateRelics(data: AddRelicsParams) {
   return request({
     url: "/yuanshen/updateRelics",
     method: "post",
@@ -228,6 +166,10 @@ export function deleteRelics(id: number) {
 }
 
 // 获取怪物列表
+export interface GetEnemyListParams extends PaginationType {
+  name: string;
+  enemyType: number | undefined;
+}
 export function getEnemyList(data: GetEnemyListParams) {
   return request({
     url: "/yuanshen/getEnemyList",
@@ -237,6 +179,13 @@ export function getEnemyList(data: GetEnemyListParams) {
 }
 
 // 新增怪物
+export interface AddEnemyParams {
+  id?: number;
+  name: string;
+  enemyType: number | undefined;
+  info: string;
+  remark: string;
+}
 export function addEnemy(data: AddEnemyParams) {
   return request({
     url: "/yuanshen/addEnemy",
@@ -246,7 +195,7 @@ export function addEnemy(data: AddEnemyParams) {
 }
 
 // 修改怪物
-export function updateEnemy(data: UpdateEnemyParams) {
+export function updateEnemy(data: AddEnemyParams) {
   return request({
     url: "/yuanshen/updateEnemy",
     method: "post",
@@ -263,7 +212,10 @@ export function deleteEnemy(id: number) {
 }
 
 // 获取深渊12层怪物列表
-export function getAbyss12List(data: GetAbyss12ListParams) {
+export interface GetAbyssListParams extends PaginationType {
+  name: string;
+}
+export function getAbyssList(data: GetAbyssListParams) {
   return request({
     url: "/yuanshen/getAbyss12List",
     method: "get",
@@ -272,27 +224,38 @@ export function getAbyss12List(data: GetAbyss12ListParams) {
 }
 
 // 新增深渊12层怪物
-export function addAbyss12(data: AddAbyss12Params) {
+export interface AddAbyssParams {
+  id?: number;
+  version: string;
+  firstUpper: string;
+  firstLower: string;
+  secondUpper: string;
+  secondLower: string;
+  thirdUpper: string;
+  thirdLower: string;
+  remark: string;
+}
+export function addAbyss(data: AddAbyssParams) {
   return request({
-    url: "/yuanshen/addAbyss12",
+    url: "/yuanshen/addAbyss",
     method: "post",
     data: data,
   });
 }
 
 // 修改深渊12层怪物
-export function updateAbyss12(data: UpdateAbyss12Params) {
+export function updateAbyss(data: AddAbyssParams) {
   return request({
-    url: "/yuanshen/updateAbyss12",
+    url: "/yuanshen/updateAbyss",
     method: "post",
     data: data,
   });
 }
 
 // 删除深渊12层怪物
-export function deleteAbyss12(id: number) {
+export function deleteAbyss(id: number) {
   return request({
-    url: "/yuanshen/deleteAbyss12?id=" + id,
+    url: "/yuanshen/deleteAbyss?id=" + id,
     method: "delete",
   });
 }

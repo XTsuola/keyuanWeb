@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="weaponList">
         <div class="title">
             武器列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增武器
@@ -13,14 +13,14 @@
                 <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择武器类型">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width:200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="基础攻击" style="width: 240px">
@@ -55,40 +55,12 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType, Type } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/weaponAddPage.vue";
-import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams } from "@/api/yuanshen";
+import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams } from "@/api/yuanshen";
 import AddPage from "./modal/weaponAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddWeaponParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    weaponType: number | undefined
-    star: number | undefined
-    baseAttack: string
-    attribute: string
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddWeaponParams>({
+    id: undefined,
     name: "",
     type: undefined,
     star: undefined,
@@ -101,7 +73,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加武器");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -110,7 +82,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     weaponType: undefined,
     star: undefined,
@@ -191,7 +163,7 @@ const columns = ref<any>([
         dataIndex: "baseAttack",
         key: "baseAttack",
         width: 100,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddWeaponParams, b: AddWeaponParams) => {
             return parseInt(a.baseAttack) - parseInt(b.baseAttack)
         }
     },
@@ -216,7 +188,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -277,12 +249,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddWeaponParams) {
     type.value = showType;
     if (showType === 'edit') {
         title.value = "修改武器";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.type = item.type;
             addParams.star = item.star;
@@ -290,13 +262,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.attribute = item.attribute;
             addParams.introduce = item.introduce;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else if (showType === 'add') {
         title.value = "添加武器";
-        addParams.type = addParams.star = undefined;
-        addParams._id = addParams.name = addParams.baseAttack = addParams.attribute = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.type = addParams.star = undefined;
+        addParams.name = addParams.baseAttack = addParams.attribute = addParams.remark = "";
     } else if (showType === 'detail') {
         title.value = "查看详情";
         if (item) {
@@ -315,16 +285,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddWeaponParams) => AxiosPromise<any>) | ((data: UpdateWeaponParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddWeaponParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addWeapon
     };
     if (type.value === "edit") {
         a.axios = updateWeapon;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -334,7 +301,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -347,7 +314,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.weaponList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -362,10 +329,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

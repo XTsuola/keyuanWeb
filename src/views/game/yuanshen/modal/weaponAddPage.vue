@@ -9,14 +9,14 @@
                 <a-select style="width: 100%;" v-model:value="addData.type" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="基础攻击" name="baseAttack" :rules="[{ required: true, message: '请输入基础攻击!' }]">
@@ -37,21 +37,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddWeaponParams, UpdateWeaponParams } from "@/api/yuanshen";
-import type { AddParamsType, Type } from "../weaponList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
-}
-
-export type AddType = "add" | "edit" | "detail";
+import type { AddType, Type } from "@/utils/global";
+import type { AddWeaponParams } from "@/api/yuanshen";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddWeaponParams
 }>();
 const weaponAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddWeaponParams>({
     name: "",
     type: undefined,
     star: undefined,
@@ -96,11 +90,10 @@ const starList = ref<Type[]>([{
     value: 1
 }]);
 
-async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParams> {
+async function getAddData() {
     try {
         await weaponAdd.value?.validate();
-        const returnData: AddWeaponParams | UpdateWeaponParams = {
-            _id: addData.value._id,
+        const returnData: AddWeaponParams = {
             id: addData.value.id,
             name: addData.value.name,
             type: addData.value.type,

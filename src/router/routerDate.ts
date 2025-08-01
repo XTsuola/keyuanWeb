@@ -230,7 +230,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   label: "深渊十二层",
                   icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/yuanshen/abyss12.vue"),
+                component: () => import("@/views/game/yuanshen/abyssList.vue"),
               },
             ],
           },

@@ -31,21 +31,16 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddRelicsParams, UpdateRelicsParams } from "@/api/yuanshen";
-import type { AddParamsType, Type } from "../relicsList.vue";
+import type { AddType, Type } from "@/utils/global";
+import type { AddRelicsParams } from "@/api/yuanshen";
 
-export interface API {
-    getAddData: () => Promise<false | AddRelicsParams | UpdateRelicsParams>
-}
-
-export type AddType = "add" | "edit" | "detail";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddRelicsParams
 }>();
 const relicsAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddRelicsParams>({
     name: "",
     star: undefined,
     twoEffect: "",
@@ -67,11 +62,10 @@ const starList = ref<Type[]>([{
     value: 3
 }]);
 
-async function getAddData(): Promise<false | AddRelicsParams | UpdateRelicsParams> {
+async function getAddData(): Promise<false | AddRelicsParams> {
     try {
         await relicsAdd.value?.validate();
-        const returnData: AddRelicsParams | UpdateRelicsParams = {
-            _id: addData.value._id,
+        const returnData: AddRelicsParams = {
             id: addData.value.id,
             name: addData.value.name,
             star: addData.value.star,

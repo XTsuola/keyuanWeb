@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="abyssList">
         <div class="title">
             深渊12层怪物列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增数据
@@ -35,34 +35,12 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/abyss12AddPage.vue";
-import { getAbyss12List, addAbyss12, updateAbyss12, deleteAbyss12, type GetAbyss12ListParams, type AddAbyss12Params, type UpdateAbyss12Params } from "@/api/yuanshen";
-import AddPage from "./modal/abyss12AddPage.vue";
+import { getAbyssList, addAbyss, updateAbyss, deleteAbyss, type GetAbyssListParams, type AddAbyssParams } from "@/api/yuanshen";
+import AddPage from "./modal/abyssAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddAbyss12Params {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-}
-
-let addParams = reactive<AddParamsType>({
+let addParams = reactive<AddAbyssParams>({
+    id: undefined,
     version: "",
     firstUpper: "",
     firstLower: "",
@@ -76,7 +54,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加圣遗物");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -85,7 +63,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
 });
 const columns = ref<any>([
@@ -146,7 +124,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -162,12 +140,12 @@ mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
-    const params: GetAbyss12ListParams = {
+    const params: GetAbyssListParams = {
         pageSize: pageSize.value,
         pageNo: currentPage.value,
         name: formState.name
     };
-    const res = await getAbyss12List(params);
+    const res = await getAbyssList(params);
     if (res.data.code === 200) {
         tableData.value = res.data.rows;
         total.value = res.data.total;
@@ -175,7 +153,7 @@ async function getList() {
 }
 
 async function deleteOk(id: number) {
-    const res = await deleteAbyss12(id);
+    const res = await deleteAbyss(id);
     if (res.data.code === 200) {
         message.success(res.data.msg);
     } else {
@@ -202,12 +180,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddAbyssParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改圣遗物";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.version = item.version;
             addParams.firstUpper = item.firstUpper;
             addParams.firstLower = item.firstLower;
@@ -216,12 +194,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.thirdUpper = item.thirdUpper;
             addParams.thirdLower = item.thirdLower;
             addParams.remark = item.remark;;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加圣遗物";
-        addParams._id = addParams.version = addParams.firstUpper = addParams.firstLower = addParams.secondUpper = addParams.secondLower = addParams.thirdUpper = addParams.thirdLower = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = undefined;
+        addParams.version = addParams.firstUpper = addParams.firstLower = addParams.secondUpper = addParams.secondLower = addParams.thirdUpper = addParams.thirdLower = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -241,16 +218,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddAbyss12Params) => AxiosPromise<any>) | ((data: UpdateAbyss12Params) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddAbyssParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
-        axios: addAbyss12
+        axios: addAbyss
     };
     if (type.value === "edit") {
-        a.axios = updateAbyss12;
-        a.msg = "修改失败";
+        a.axios = updateAbyss;
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -260,7 +234,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -273,7 +247,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.abyssList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -288,10 +262,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>
