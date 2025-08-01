@@ -53,8 +53,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddHeroParams } from "@/api/yys";
 import type { AddType, Type } from "@/utils/global";
+import type { AddHeroParams } from "@/api/yys";
 
 const prop = defineProps<{
     type: AddType

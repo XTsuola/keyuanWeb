@@ -6,7 +6,7 @@
         </div>
         <div class="box">
             <div class="list" v-for="(list, y) in mapList" :key="y">
-                <div class="boxItem" v-for="(item, x) in list" :key="item + x">
+                <div class="boxItem" v-for="(item, x) in list" :key="x">
                     <div v-if="item === 0">
                         <div></div>
                     </div>

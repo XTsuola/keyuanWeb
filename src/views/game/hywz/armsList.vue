@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="armsList">
         <div class="title">
             兵种列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增兵种
@@ -319,7 +319,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.armsList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -334,10 +334,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

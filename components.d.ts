@@ -34,6 +34,7 @@ declare module 'vue' {
     ATable: typeof import('ant-design-vue/es')['Table']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATransfer: typeof import('ant-design-vue/es')['Transfer']
+    AUpload: typeof import('ant-design-vue/es')['Upload']
     Echarts: typeof import('./src/components/echarts.vue')['default']
     Search: typeof import('./src/components/search.vue')['default']
     Table: typeof import('./src/components/table.vue')['default']

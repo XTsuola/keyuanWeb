@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="heroList">
         <div class="title">
             英雄列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增英雄
@@ -339,7 +339,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.heroList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;

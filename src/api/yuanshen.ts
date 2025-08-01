@@ -1,40 +1,5 @@
 import request from "../utils/request";
-
-export interface GetHeroListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  gender: number | undefined;
-  country: number | undefined;
-  arms: number | undefined;
-  shuxing: number | undefined;
-  star: number | undefined;
-  starSign: string | undefined;
-}
-
-export interface AddHeroParams {
-  name: string;
-  gender: number | undefined;
-  country: number | undefined;
-  arms: number | undefined;
-  shuxing: number | undefined;
-  star: number | undefined;
-  lifeSeat: string;
-  life: string;
-  att: string;
-  def: string;
-  breach: string;
-  introduce: string;
-  remark: string;
-  firstLook: string;
-  birthday: string;
-  img?: "";
-}
-
-export interface UpdateHeroParams extends AddHeroParams {
-  _id?: string;
-  id?: number;
-}
+import type { PaginationType } from "./common";
 
 export interface GetWeaponListParams {
   pageSize: number;
@@ -130,6 +95,15 @@ export interface DeleteParams {
 }
 
 // 获取角色列表
+export interface GetHeroListParams extends PaginationType {
+  name: string;
+  gender: number | undefined;
+  country: number | undefined;
+  arms: number | undefined;
+  shuxing: number | undefined;
+  star: number | undefined;
+  starSign: string | undefined;
+}
 export function getHeroList(data: GetHeroListParams) {
   return request({
     url: "/yuanshen/getHeroList",
@@ -139,6 +113,25 @@ export function getHeroList(data: GetHeroListParams) {
 }
 
 // 新增角色
+export interface AddHeroParams {
+  id?: number;
+  name: string;
+  gender: number | undefined;
+  country: number | undefined;
+  arms: number | undefined;
+  shuxing: number | undefined;
+  star: number | undefined;
+  lifeSeat: string;
+  life: string;
+  att: string;
+  def: string;
+  breach: string;
+  introduce: string;
+  remark: string;
+  firstLook: string;
+  birthday: string;
+  img?: "";
+}
 export function addHero(data: AddHeroParams) {
   return request({
     url: "/yuanshen/addHero",
@@ -148,7 +141,7 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改角色
-export function updateHero(data: UpdateHeroParams) {
+export function updateHero(data: AddHeroParams) {
   return request({
     url: "/yuanshen/updateHero",
     method: "post",

@@ -1,7 +1,7 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }" autocomplete="off"
-            :hideRequiredMark="prop.type === 'detail'">
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
+            autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
@@ -75,8 +75,8 @@
                 <div v-if="prop.type === 'detail'">
                     <a :href="imgSrc" target="_blank">{{ addData.img }}</a>
                 </div>
-                <a-upload v-else v-model:file-list="fileList" action="" :customRequest="uploadImg" @remove="handleRemove"
-                    :maxCount="1" accept="image/png, image/jpeg, image/jpg">
+                <a-upload v-else v-model:file-list="fileList" action="" :customRequest="uploadImg"
+                    @remove="handleRemove" :maxCount="1" accept="image/png, image/jpeg, image/jpg">
                     <a-button v-if="fileList.length == 0">上传</a-button>
                 </a-upload>
             </a-form-item>
@@ -86,22 +86,16 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddHeroParams, UpdateHeroParams } from "@/api/yuanshen";
-import type { AddParamsType, Type } from "../heroList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
-}
-
-export type AddType = "add" | "edit" | "detail";
+import type { AddType, Type } from "@/utils/global";
+import type { AddHeroParams } from "@/api/yuanshen";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddHeroParams
 }>();
 const fileList = ref<any[]>([]);
 const heroAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddHeroParams>({
     name: "",
     gender: undefined,
     country: undefined,
@@ -122,7 +116,7 @@ const addData = ref<AddParamsType>({
 const imgSrc = ref<any>("");
 if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
-    const str = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + addData.value.img;
+    const str = import.meta.env.VITE_APP_BASE_URL + "yuanshenImg/hero/" + addData.value.img;
     imgSrc.value = new URL(str, import.meta.url);
     if (addData.value.img) {
         fileList.value = [];
@@ -229,11 +223,10 @@ function handleRemove() {
     addData.value.img = undefined;
 }
 
-async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
+async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams | UpdateHeroParams = {
-            _id: addData.value._id,
+        const returnData: AddHeroParams = {
             id: addData.value.id,
             name: addData.value.name,
             gender: addData.value.gender,

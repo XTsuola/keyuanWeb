@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="heroList">
         <div class="title">
             角色列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增角色
@@ -13,42 +13,42 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="国家" style="width: 200px">
                 <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器" style="width: 200px">
                 <a-select v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" style="width: 200px">
                 <a-select v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width: 200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星座" style="width: 200px">
                 <a-select v-model:value="formState.starSign" @change="selectList" placeholder="请选择星星座">
                     <a-select-option v-for="item in starSignList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -76,45 +76,13 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { ScrollType, Type } from "@/utils/global";
-import type { AddType, API as AddPageAPI } from "./modal/heroAddPage.vue";
-import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams, type UpdateHeroParams } from "@/api/yuanshen";
+import type { AddType, ScrollType, Type } from "@/utils/global";
+import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams } from "@/api/yuanshen";
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-
-export interface AddParamsType extends AddHeroParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    introduce: string
-    remark: string
-    img: string | undefined
-}
-
-interface FormStateType {
-    name: string
-    gender: number | undefined
-    country: number | undefined
-    arms: number | undefined
-    shuxing: number | undefined
-    star: number | undefined
-    starSign: string | undefined
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddHeroParams>({
+    id: undefined,
     name: "",
     gender: undefined,
     country: undefined,
@@ -135,7 +103,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加角色");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -144,7 +112,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     gender: undefined,
     country: undefined,
@@ -348,7 +316,7 @@ const columns = ref<any>([
         dataIndex: "life",
         key: "life",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.life) - parseInt(b.life)
         }
     },
@@ -357,7 +325,7 @@ const columns = ref<any>([
         dataIndex: "att",
         key: "att",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.att) - parseInt(b.att)
         }
     },
@@ -366,7 +334,7 @@ const columns = ref<any>([
         dataIndex: "def",
         key: "def",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddHeroParams, b: AddHeroParams) => {
             return parseInt(a.def) - parseInt(b.def)
         }
     },
@@ -391,7 +359,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -454,12 +422,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddHeroParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改角色";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.gender = item.gender;
             addParams.country = item.country;
@@ -476,13 +444,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.birthday = item.birthday;
             addParams.remark = item.remark;
             addParams.img = item.img;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加角色";
-        addParams.gender = addParams.country = addParams.arms = addParams.shuxing = addParams.star = undefined;
-        addParams._id = addParams.name = addParams.introduce = addParams.firstLook = addParams.birthday = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.gender = addParams.country = addParams.arms = addParams.shuxing = addParams.star = undefined;
+        addParams.name = addParams.introduce = addParams.firstLook = addParams.birthday = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -510,16 +476,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddHeroParams) => AxiosPromise<any>) | ((data: UpdateHeroParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddHeroParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addHero
     };
     if (type.value === "edit") {
         a.axios = updateHero;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -529,15 +492,10 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
-}
-
-function getUrl(img: string): string {
-    const str: string = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + img;
-    return new URL(str, import.meta.url) as any;
 }
 
 onMounted(() => {
@@ -547,7 +505,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.heroList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -562,10 +520,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>
