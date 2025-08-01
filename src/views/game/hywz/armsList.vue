@@ -33,35 +33,14 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams } from "@/api/hywz";
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams } from "@/api/hywz";
 import AddPage from "./modal/armsAddPage.vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddArmsParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    qq: string
-    group: string
-    position: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddArmsParams>({
+    id: undefined,
     name: "",
     type: "",
     life: "",
@@ -80,7 +59,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加兵种");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -89,7 +68,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: ""
 });
 const columns = ref<any>([
@@ -116,7 +95,7 @@ const columns = ref<any>([
         dataIndex: "life",
         key: "life",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.life) - parseInt(b.life)
         }
     },
@@ -125,7 +104,7 @@ const columns = ref<any>([
         dataIndex: "att",
         key: "att",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.att) - parseInt(b.att)
         }
     },
@@ -134,7 +113,7 @@ const columns = ref<any>([
         dataIndex: "magic",
         key: "magic",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.magic) - parseInt(b.magic)
         }
     },
@@ -143,7 +122,7 @@ const columns = ref<any>([
         dataIndex: "skill",
         key: "skill",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.skill) - parseInt(b.skill)
         }
     },
@@ -152,7 +131,7 @@ const columns = ref<any>([
         dataIndex: "speed",
         key: "speed",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.speed) - parseInt(b.speed)
         }
     },
@@ -161,7 +140,7 @@ const columns = ref<any>([
         dataIndex: "xingyun",
         key: "xingyun",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.xingyun) - parseInt(b.xingyun)
         }
     },
@@ -170,7 +149,7 @@ const columns = ref<any>([
         dataIndex: "def",
         key: "def",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.def) - parseInt(b.def)
         }
     },
@@ -179,7 +158,7 @@ const columns = ref<any>([
         dataIndex: "mof",
         key: "mof",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.mof) - parseInt(b.mof)
         }
     },
@@ -188,7 +167,7 @@ const columns = ref<any>([
         dataIndex: "tige",
         key: "tige",
         width: 60,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.tige) - parseInt(b.tige)
         }
     },
@@ -207,7 +186,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -263,12 +242,11 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddArmsParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改兵种";
         if (item) {
-            addParams._id = item._id;
             addParams.name = item.name;
             addParams.type = item.type;
             addParams.life = item.life;
@@ -285,9 +263,9 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.id = item.id;
         }
     } else if (showType === "add") {
-        title.value = "添加兵种"
-        addParams._id = addParams.type = addParams.name = addParams.life = addParams.att = addParams.magic = addParams.skill = addParams.speed = addParams.xingyun = addParams.def = addParams.mof = addParams.tige = addParams.talent = addParams.remark = "";
-        addParams.id = 0;
+        title.value = "添加兵种";
+        addParams.id = undefined;
+        addParams.type = addParams.name = addParams.life = addParams.att = addParams.magic = addParams.skill = addParams.speed = addParams.xingyun = addParams.def = addParams.mof = addParams.tige = addParams.talent = addParams.remark = "";
     } else if (showType == "detail") {
         title.value = "查看详情";
         if (item) {
@@ -309,19 +287,16 @@ function showModal(showType: AddType, item?: AddParamsType) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
-        axios: ((data: AddArmsParams) => AxiosPromise<any>) | ((data: UpdateArmsParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddArmsParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addArms
     };
     if (type.value === "edit") {
         a.axios = updateArms;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -331,7 +306,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;

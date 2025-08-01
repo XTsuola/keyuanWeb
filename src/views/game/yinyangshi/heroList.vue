@@ -263,19 +263,6 @@ async function getList() {
     }
 }
 
-async function deleteOk(id: number) {
-    const res = await deleteHero(id);
-    if (res.data.code === 200) {
-        message.success(res.data.msg);
-    } else {
-        message.error("删除失败");
-    }
-    if (tableData.value.length == 1) {
-        currentPage.value--;
-    }
-    getList();
-}
-
 function selectList() {
     currentPage.value = 1;
     getList();
@@ -358,6 +345,19 @@ async function handleOk() {
         }
     }
     loading.value = false;
+}
+
+async function deleteOk(id: number) {
+    const res = await deleteHero(id);
+    if (res.data.code === 200) {
+        message.success(res.data.msg);
+    } else {
+        message.error("删除失败");
+    }
+    if (tableData.value.length == 1) {
+        currentPage.value--;
+    }
+    getList();
 }
 
 onMounted(() => {

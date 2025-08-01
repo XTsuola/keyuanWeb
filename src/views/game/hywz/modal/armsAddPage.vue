@@ -46,21 +46,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddArmsParams, UpdateArmsParams } from "@/api/hywz";
 import { ref } from "vue";
-import type { AddParamsType } from "../armsList.vue";
+import type { AddArmsParams } from "@/api/hywz";
 import type { AddType } from "@/utils/global";
-
-export interface API {
-    getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
-}
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddArmsParams
 }>();
 const armsAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddArmsParams>({
     name: "",
     type: "",
     life: "",
@@ -79,11 +74,10 @@ if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 
-async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
+async function getAddData() {
     try {
         await armsAdd.value?.validate()
-        const returnData: AddArmsParams | UpdateArmsParams = {
-            _id: addData.value._id,
+        const returnData: AddArmsParams = {
             id: addData.value.id,
             name: addData.value.name,
             type: addData.value.type,

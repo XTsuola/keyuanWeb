@@ -1,12 +1,21 @@
 import request from "../utils/request";
+import type { PaginationType } from "./common";
 
-export interface GetArmsListParams {
-  pageSize: number;
-  pageNo: number;
+// 获取兵种列表
+export interface GetArmsListParams extends PaginationType {
   name: string;
 }
+export function getArmsList(data: GetArmsListParams) {
+  return request({
+    url: "/hywz/getArmsList",
+    method: "get",
+    params: data,
+  });
+}
 
+// 新增兵种
 export interface AddArmsParams {
+  id?: number;
   name: string;
   type: string | undefined;
   life: string;
@@ -21,26 +30,6 @@ export interface AddArmsParams {
   talent: string;
   remark: string;
 }
-
-export interface UpdateArmsParams extends AddArmsParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
-}
-
-// 获取兵种列表
-export function getArmsList(data: GetArmsListParams) {
-  return request({
-    url: "/hywz/getArmsList",
-    method: "get",
-    params: data,
-  });
-}
-
-// 新增兵种
 export function addArms(data: AddArmsParams) {
   return request({
     url: "/hywz/addArms",
@@ -50,7 +39,7 @@ export function addArms(data: AddArmsParams) {
 }
 
 // 修改兵种
-export function updateArms(data: UpdateArmsParams) {
+export function updateArms(data: AddArmsParams) {
   return request({
     url: "/hywz/updateArms",
     method: "post",
