@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="zhanli">
         <div class="title">战力计算</div>
         <div class="sx"><span>英雄基础分：</span><a-input v-model:value="obj.jc" /></div>
         <div class="sx"><span>排位表现分：</span><a-input v-model:value="obj.pw" /></div>
@@ -52,7 +52,7 @@ function js(obj: ObjType) {
 </script>
 
 <style lang="less" scoped>
-.main {
+.zhanli {
     width: 20%;
     margin: 100px 20%;
 

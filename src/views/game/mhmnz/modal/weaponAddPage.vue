@@ -41,23 +41,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddWeaponParams, UpdateWeaponParams } from "@/api/mhmnz";
-import type { Type } from "@/utils/global";
-import type { AddParamsType } from "../weaponList.vue";
-
-
-export interface API {
-    getAddData: () => Promise<false | AddWeaponParams | UpdateWeaponParams>
-}
-
-export type AddType = "add" | "edit" | "detail";
+import type { AddType, Type } from "@/utils/global";
+import type { AddWeaponParams } from "@/api/mhmnz";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddWeaponParams
 }>();
 const heroAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddWeaponParams>({
     name: "",
     star: undefined,
     weaponType: undefined,
@@ -104,11 +96,10 @@ const isExclusiveList = ref<Type[]>([{
     value: 2,
 }]);
 
-async function getAddData(): Promise<false | AddWeaponParams | UpdateWeaponParams> {
+async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddWeaponParams | UpdateWeaponParams = {
-            _id: addData.value._id,
+        const returnData: AddWeaponParams = {
             id: addData.value.id,
             name: addData.value.name,
             star: addData.value.star,

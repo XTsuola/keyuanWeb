@@ -1,8 +1,8 @@
 import request from "../utils/request";
+import type { PaginationType } from "./common";
 
-export interface GetHeroListParams {
-  pageSize: number;
-  pageNo: number;
+// 获取英雄列表
+export interface GetHeroListParams extends PaginationType {
   name: string | undefined;
   star: number | undefined;
   gender: number | undefined;
@@ -11,8 +11,17 @@ export interface GetHeroListParams {
   skillGroup: string | undefined;
   skin: string | undefined;
 }
+export function getHeroList(data: GetHeroListParams) {
+  return request({
+    url: "/mhmnz/getHeroList",
+    method: "get",
+    params: data,
+  });
+}
 
+// 新增兵英雄
 export interface AddHeroParams {
+  id?: number;
   name: string;
   gender: number | undefined;
   star: number | undefined;
@@ -26,74 +35,6 @@ export interface AddHeroParams {
   skin: string
   introduce: string;
 }
-
-export interface UpdateHeroParams extends AddHeroParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface GetArmsListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  type: number | undefined;
-}
-
-export interface AddArmsParams {
-  name: string;
-  type: number | undefined;
-  life: string;
-  att: string;
-  def: string;
-  mof: string;
-  talent: string;
-  skin: string
-  remark: string;
-}
-
-export interface UpdateArmsParams extends AddArmsParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface GetWeaponListParams {
-  pageSize: number;
-  pageNo: number;
-  name: string;
-  star: number | undefined;
-  weaponType: number | undefined;
-  isExclusive: number | undefined;
-}
-
-export interface AddWeaponParams {
-  name: string;
-  star: number | undefined;
-  weaponType: number | undefined;
-  isExclusive: number | undefined;
-  shuxing: string;
-  introduce: string;
-  remark: string;
-}
-
-export interface UpdateWeaponParams extends AddWeaponParams {
-  _id?: string;
-  id?: number;
-}
-
-export interface DeleteParams {
-  _id: string;
-}
-
-// 获取英雄列表
-export function getHeroList(data: GetHeroListParams) {
-  return request({
-    url: "/mhmnz/getHeroList",
-    method: "get",
-    params: data,
-  });
-}
-
-// 新增兵英雄
 export function addHero(data: AddHeroParams) {
   return request({
     url: "/mhmnz/addHero",
@@ -103,7 +44,7 @@ export function addHero(data: AddHeroParams) {
 }
 
 // 修改英雄
-export function updateHero(data: UpdateHeroParams) {
+export function updateHero(data: AddHeroParams) {
   return request({
     url: "/mhmnz/updateHero",
     method: "post",
@@ -120,6 +61,10 @@ export function deleteHero(id: number) {
 }
 
 // 获取兵种列表
+export interface GetArmsListParams extends PaginationType {
+  name: string;
+  type: number | undefined;
+}
 export function getArmsList(data: GetArmsListParams) {
   return request({
     url: "/mhmnz/getArmsList",
@@ -129,6 +74,18 @@ export function getArmsList(data: GetArmsListParams) {
 }
 
 // 新增兵种
+export interface AddArmsParams {
+  id?: number;
+  name: string;
+  type: number | undefined;
+  life: string;
+  att: string;
+  def: string;
+  mof: string;
+  talent: string;
+  skin: string
+  remark: string;
+}
 export function addArms(data: AddArmsParams) {
   return request({
     url: "/mhmnz/addArms",
@@ -138,7 +95,7 @@ export function addArms(data: AddArmsParams) {
 }
 
 // 修改兵种
-export function updateArms(data: UpdateArmsParams) {
+export function updateArms(data: AddArmsParams) {
   return request({
     url: "/mhmnz/updateArms",
     method: "post",
@@ -155,6 +112,12 @@ export function deleteArms(id: number) {
 }
 
 // 获取武器列表
+export interface GetWeaponListParams extends PaginationType {
+  name: string;
+  star: number | undefined;
+  weaponType: number | undefined;
+  isExclusive: number | undefined;
+}
 export function getWeaponList(data: GetWeaponListParams) {
   return request({
     url: "/mhmnz/getWeaponList",
@@ -164,6 +127,16 @@ export function getWeaponList(data: GetWeaponListParams) {
 }
 
 // 新增武器
+export interface AddWeaponParams {
+  id?: number;
+  name: string;
+  star: number | undefined;
+  weaponType: number | undefined;
+  isExclusive: number | undefined;
+  shuxing: string;
+  introduce: string;
+  remark: string;
+}
 export function addWeapon(data: AddWeaponParams) {
   return request({
     url: "/mhmnz/addWeapon",
@@ -173,7 +146,7 @@ export function addWeapon(data: AddWeaponParams) {
 }
 
 // 修改武器
-export function updateWeapon(data: UpdateWeaponParams) {
+export function updateWeapon(data: AddWeaponParams) {
   return request({
     url: "/mhmnz/updateWeapon",
     method: "post",

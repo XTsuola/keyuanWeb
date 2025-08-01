@@ -217,7 +217,7 @@ export interface GetAbyssListParams extends PaginationType {
 }
 export function getAbyssList(data: GetAbyssListParams) {
   return request({
-    url: "/yuanshen/getAbyss12List",
+    url: "/yuanshen/getAbyssList",
     method: "get",
     params: data,
   });

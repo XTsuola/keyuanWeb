@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="weaponList">
         <div class="title">
             装备列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增装备
@@ -54,38 +54,14 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams, type UpdateWeaponParams } from "@/api/mhmnz";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType, Type } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/weaponAddPage.vue";
+import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponListParams, type AddWeaponParams } from "@/api/mhmnz";
 import AddPage from "./modal/weaponAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddWeaponParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    qq: string
-    group: string
-    position: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    star: number | undefined
-    weaponType: number | undefined
-    isExclusive: number | undefined
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddWeaponParams>({
+    id: undefined,
     name: "",
     star: undefined,
     weaponType: undefined,
@@ -98,7 +74,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加武器");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -107,7 +83,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     star: undefined,
     weaponType: undefined,
@@ -216,7 +192,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const type = ref<AddType>("add");
 const mql = window.matchMedia("(max-width: 768px)");
@@ -276,12 +252,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddWeaponParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改装备";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.star = item.star;
             addParams.weaponType = item.weaponType;
@@ -289,13 +265,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.shuxing = item.shuxing;
             addParams.introduce = item.introduce;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加装备";
-        addParams.star = addParams.weaponType = addParams.isExclusive = undefined;
-        addParams._id = addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.star = addParams.weaponType = addParams.isExclusive = undefined;
+        addParams.name = addParams.shuxing = addParams.introduce = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -314,16 +288,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddWeaponParams) => AxiosPromise<any>) | ((data: UpdateWeaponParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddWeaponParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addWeapon
     };
     if (type.value === "edit") {
         a.axios = updateWeapon;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -333,7 +304,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -346,7 +317,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.weaponList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -361,10 +332,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

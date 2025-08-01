@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="armsList">
         <div class="title">
             兵种列表
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增兵种
@@ -13,7 +13,7 @@
                 <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -40,36 +40,14 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams, type UpdateArmsParams } from "@/api/mhmnz";
 import type { AxiosPromise } from "axios";
 import type { AddType, ScrollType, Type } from "@/utils/global";
-import type { API as AddPageAPI } from "./modal/armsAddPage.vue";
+import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams } from "@/api/mhmnz";
 import AddPage from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-export interface AddParamsType extends AddArmsParams {
-    _id?: string
-    id?: number
-}
-
-interface DataType {
-    _id: string
-    id: number
-    name: string
-    qq: string
-    group: string
-    position: string
-    remark: string
-}
-
-interface FormStateType {
-    name: string
-    armsType: number | undefined
-}
-
-let addParams = reactive<AddParamsType>({
-    _id: "",
-    id: 0,
+let addParams = reactive<AddArmsParams>({
+    id: undefined,
     name: "",
     type: undefined,
     life: "",
@@ -84,7 +62,7 @@ const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加兵种");
-const addPage = ref<AddPageAPI>();
+const addPage = ref<any>();
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -93,7 +71,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = null;
 }
 const visible = ref<boolean>(false);
-const formState = reactive<FormStateType>({
+const formState = reactive<any>({
     name: "",
     armsType: undefined
 });
@@ -158,7 +136,7 @@ const columns = ref<any>([
         dataIndex: "life",
         key: "life",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.life) - parseInt(b.life)
         }
     },
@@ -167,7 +145,7 @@ const columns = ref<any>([
         dataIndex: "att",
         key: "att",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.att) - parseInt(b.att)
         }
     },
@@ -176,7 +154,7 @@ const columns = ref<any>([
         dataIndex: "def",
         key: "def",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.def) - parseInt(b.def)
         }
     },
@@ -185,7 +163,7 @@ const columns = ref<any>([
         dataIndex: "mof",
         key: "mof",
         width: 80,
-        sorter: (a: AddParamsType, b: AddParamsType) => {
+        sorter: (a: AddArmsParams, b: AddArmsParams) => {
             return parseInt(a.mof) - parseInt(b.mof)
         }
     },
@@ -204,7 +182,7 @@ const columns = ref<any>([
     },
 ]);
 const loading = ref<boolean>(false);
-const tableData = ref<DataType[]>([]);
+const tableData = ref<any>([]);
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
@@ -262,12 +240,12 @@ function reset() {
     selectList();
 }
 
-function showModal(showType: AddType, item?: AddParamsType) {
+function showModal(showType: AddType, item?: AddArmsParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改兵种";
         if (item) {
-            addParams._id = item._id;
+            addParams.id = item.id;
             addParams.name = item.name;
             addParams.type = item.type;
             addParams.life = item.life;
@@ -277,13 +255,11 @@ function showModal(showType: AddType, item?: AddParamsType) {
             addParams.talent = item.talent;
             addParams.skin = item.skin;
             addParams.remark = item.remark;
-            addParams.id = item.id;
         }
     } else if (showType === "add") {
         title.value = "添加兵种";
-        addParams.type = undefined;
-        addParams._id = addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.skin = addParams.remark = "";
-        addParams.id = 0;
+        addParams.id = addParams.type = undefined;
+        addParams.name = addParams.life = addParams.att = addParams.def = addParams.mof = addParams.talent = addParams.skin = addParams.remark = "";
     } else if (showType == "detail") {
         title.value = "查看详情";
         if (item) {
@@ -304,16 +280,13 @@ function showModal(showType: AddType, item?: AddParamsType) {
 async function handleOk(e: MouseEvent) {
     loading.value = true;
     interface AType {
-        axios: ((data: AddArmsParams) => AxiosPromise<any>) | ((data: UpdateArmsParams) => AxiosPromise<any>)
-        msg: string
+        axios: ((data: AddArmsParams) => AxiosPromise<any>)
     }
     let a: AType = {
-        msg: "新增失败",
         axios: addArms
     };
     if (type.value === "edit") {
         a.axios = updateArms;
-        a.msg = "修改失败";
     }
     const result = await addPage.value?.getAddData();
     if (result && a.axios) {
@@ -323,7 +296,7 @@ async function handleOk(e: MouseEvent) {
             message.success(res.data.msg);
             visible.value = false;
         } else {
-            message.error(a.msg);
+            message.error(res.data.msg);
         }
     }
     loading.value = false;
@@ -336,7 +309,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.main {
+.armsList {
     padding: 20px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
@@ -351,10 +324,6 @@ onMounted(() => {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .pagination {
-        margin: 20px 0 20px 20px;
     }
 }
 </style>

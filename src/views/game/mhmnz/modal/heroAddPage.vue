@@ -9,14 +9,14 @@
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="性别" name="gender" :rules="[{ required: true, message: '请选择性别!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="阵营" name="camp" :rules="[{ required: true, message: '请选阵营!' }]">
@@ -24,7 +24,7 @@
                     :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in campList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="天赋">
@@ -61,20 +61,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddHeroParams, UpdateHeroParams } from "@/api/mhmnz";
 import type { AddType, Type } from "@/utils/global";
-import type { AddParamsType } from "../heroList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddHeroParams | UpdateHeroParams>
-}
+import type { AddHeroParams } from "@/api/mhmnz";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddHeroParams
 }>();
 const heroAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddHeroParams>({
     name: "",
     star: undefined,
     gender: undefined,
@@ -152,11 +147,10 @@ const campList = ref<Type[]>([{
     value: 12,
 }]);
 
-async function getAddData(): Promise<false | AddHeroParams | UpdateHeroParams> {
+async function getAddData() {
     try {
         await heroAdd.value?.validate()
-        const returnData: AddHeroParams | UpdateHeroParams = {
-            _id: addData.value._id,
+        const returnData: AddHeroParams = {
             id: addData.value.id,
             name: addData.value.name,
             star: addData.value.star,

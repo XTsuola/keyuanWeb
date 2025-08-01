@@ -39,20 +39,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddArmsParams, UpdateArmsParams } from "@/api/mhmnz";
 import type { AddType, Type } from "@/utils/global";
-import type { AddParamsType } from "../armsList.vue";
-
-export interface API {
-    getAddData: () => Promise<false | AddArmsParams | UpdateArmsParams>
-}
+import type { AddArmsParams } from "@/api/mhmnz";
 
 const prop = defineProps<{
     type: AddType
-    addParams: AddParamsType
+    addParams: AddArmsParams
 }>();
 const armsAdd = ref();
-const addData = ref<AddParamsType>({
+const addData = ref<AddArmsParams>({
     name: "",
     type: undefined,
     life: "",
@@ -98,11 +93,10 @@ const typeList = ref<Type[]>([{
     value: 10
 }]);
 
-async function getAddData(): Promise<false | AddArmsParams | UpdateArmsParams> {
+async function getAddData() {
     try {
         await armsAdd.value?.validate();
-        const returnData: AddArmsParams | UpdateArmsParams = {
-            _id: addData.value._id,
+        const returnData: AddArmsParams = {
             id: addData.value.id,
             name: addData.value.name,
             type: addData.value.type,
