@@ -22,7 +22,7 @@ export const levelName = {
   1: "超级管理员",
   2: "管理员",
   3: "普通成员",
-};
+}
 
 export const groupList: any = [{
     label: "暂无分组",
@@ -45,7 +45,7 @@ export const groupList: any = [{
 }, {
     label: "六队",
     value: "六队"
-}];
+}]
 
 export async function getImg(str: string, callback: (e: any) => void) {
   const url = new URL(str, import.meta.url);

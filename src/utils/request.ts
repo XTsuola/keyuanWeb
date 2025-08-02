@@ -32,10 +32,10 @@ service.interceptors.response.use(res => {
         isShowMsg = false;
         setTimeout(() => {
             isShowMsg = true;
-        }, 1500)
+        }, 1500);
         setTimeout(() => {
             location.reload()
-        }, 500)
+        }, 500);
         return false;
     } else {
         return res;
