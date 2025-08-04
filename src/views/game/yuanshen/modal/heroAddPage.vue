@@ -226,26 +226,7 @@ function handleRemove() {
 async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            gender: addData.value.gender,
-            country: addData.value.country,
-            arms: addData.value.arms,
-            shuxing: addData.value.shuxing,
-            life: addData.value.life,
-            att: addData.value.att,
-            def: addData.value.def,
-            breach: addData.value.breach,
-            lifeSeat: addData.value.lifeSeat,
-            star: addData.value.star,
-            introduce: addData.value.introduce,
-            firstLook: addData.value.firstLook,
-            birthday: addData.value.birthday,
-            remark: addData.value.remark,
-            img: addData.value.img
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

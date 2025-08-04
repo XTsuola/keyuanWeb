@@ -111,22 +111,7 @@ const starList = ref<Type[]>([{
 async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            gender: addData.value.gender,
-            gj: addData.value.gj,
-            sm: addData.value.sm,
-            fy: addData.value.fy,
-            sd: addData.value.sd,
-            bj: addData.value.bj,
-            bs: addData.value.bs,
-            mz: addData.value.mz,
-            dk: addData.value.dk,
-            star: addData.value.star,
-            remark: addData.value.remark,
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

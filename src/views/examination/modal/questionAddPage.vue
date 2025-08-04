@@ -92,15 +92,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { FormInstance } from "ant-design-vue";
 import type { TypeFlag } from "../questionList.vue";
 import type { AddQuestionType } from "@/api/examination";
 
 const prop = defineProps<{
     flag: TypeFlag
     type: number
-    obj: AddQuestionType
+    addParams: AddQuestionType
 }>()
+const qustionAdd = ref<any>();
 const addData = ref<AddQuestionType>({
     stem: "",
     type: prop.type,
@@ -113,36 +113,13 @@ const addData = ref<AddQuestionType>({
 });
 const opt = ref(["消灭星星"]);
 if (prop.flag === "edit") {
-    const data = JSON.parse(JSON.stringify(prop.obj));
-    addData.value.id = data.id;
-    addData.value.stem = data.stem;
-    addData.value.type = data.type;
-    if (data.type == 1) {
-        addData.value.a = data.a;
-        addData.value.b = data.b;
-        addData.value.c = data.c;
-        addData.value.d = data.d;
-    }
-    addData.value.answer = data.answer;
-    addData.value.remark = data.remark;
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
-const qustionAdd = ref<any>();
 
 async function getAddData() {
     try {
         await qustionAdd.value?.validate()
-        const returnData: AddQuestionType = {
-            id: addData.value.id,
-            stem: addData.value.stem,
-            type: addData.value.type,
-            a: addData.value.a,
-            b: addData.value.b,
-            c: addData.value.c,
-            d: addData.value.d,
-            answer: addData.value.answer,
-            remark: addData.value.remark
-        }
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

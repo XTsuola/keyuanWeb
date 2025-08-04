@@ -25,7 +25,7 @@
             :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
             :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
         <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
-            <userAdd :obj="addData" :flag="flag" ref="addPage"></userAdd>
+            <userAdd :addParams="addData" :flag="flag" ref="addPage"></userAdd>
             <template #footer>
                 <a-button key="back" @click="visible = false">取消</a-button>
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>

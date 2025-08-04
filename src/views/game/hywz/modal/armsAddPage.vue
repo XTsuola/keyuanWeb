@@ -77,23 +77,7 @@ if (prop.type === "edit" || prop.type === "detail") {
 async function getAddData() {
     try {
         await armsAdd.value?.validate()
-        const returnData: AddArmsParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            type: addData.value.type,
-            life: addData.value.life,
-            att: addData.value.att,
-            magic: addData.value.magic,
-            skill: addData.value.skill,
-            speed: addData.value.speed,
-            xingyun: addData.value.xingyun,
-            def: addData.value.def,
-            mof: addData.value.mof,
-            tige: addData.value.tige,
-            talent: addData.value.talent,
-            remark: addData.value.remark
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

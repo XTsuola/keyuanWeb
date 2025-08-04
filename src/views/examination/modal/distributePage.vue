@@ -26,18 +26,6 @@ import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
 import type { ScrollType } from "@/utils/global";
 
-interface dataType {
-    answerArr: string[] | number[]
-    flag: boolean
-    paperId: number
-    paperName: string
-    remarkArr: string[]
-    rightArr: string[] | number[]
-    score: string
-    userId: number
-    id: number
-}
-
 interface PaperSelectType {
     id: number
     paperName: string
@@ -101,7 +89,7 @@ const prop = defineProps<{
     obj: RecordType | undefined
 }>();
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const data = ref<dataType[]>();
+const data = ref<any>();
 const parperIdList = ref<number[]>([]);
 parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : [];
 const emit = defineEmits<{
@@ -129,7 +117,7 @@ async function addPaper() {
     }
 }
 
-async function deleteOk(e: dataType) {
+async function deleteOk(e: any) {
     const params: DeleteReportType = {
         id: e.id,
         paperId: e.paperId,

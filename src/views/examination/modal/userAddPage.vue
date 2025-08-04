@@ -30,15 +30,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { FormInstance } from "ant-design-vue";
 import type { AddType } from "@/utils/global";
 import type { AddUserType } from "@/api/examination";
 
 const prop = defineProps<{
     flag: AddType
-    obj: AddUserType
+    addParams: AddUserType
 }>();
 
+const userAdd = ref();
 const addData = ref<AddUserType>({
     userName: "",
     account: "",
@@ -49,30 +49,13 @@ const addData = ref<AddUserType>({
 });
 
 if (prop.flag === "edit") {
-    const data: AddUserType = JSON.parse(JSON.stringify(prop.obj));
-    addData.value.id = data.id;
-    addData.value.userName = data.userName;
-    addData.value.account = data.account;
-    addData.value.password = data.password;
-    addData.value.age = data.age;
-    addData.value.level = data.level;
-    addData.value.remark = data.remark;
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
-const paperAdd = ref<FormInstance>();
 
 async function getAddData() {
     try {
-        await paperAdd.value?.validate();
-        const returnData: AddUserType = {
-            id: addData.value.id,
-            userName: addData.value.userName,
-            account: addData.value.account,
-            password: addData.value.password,
-            age: addData.value.age,
-            level: addData.value.level,
-            remark: addData.value.remark
-        };
-        return returnData;
+        await userAdd.value?.validate();
+        return addData.value;
     } catch (error) {
         return false;
     }

@@ -65,16 +65,7 @@ const starList = ref<Type[]>([{
 async function getAddData(): Promise<false | AddRelicsParams> {
     try {
         await relicsAdd.value?.validate();
-        const returnData: AddRelicsParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            star: addData.value.star,
-            twoEffect: addData.value.twoEffect,
-            fourEffect: addData.value.fourEffect,
-            tag: addData.value.tag,
-            remark: addData.value.remark
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

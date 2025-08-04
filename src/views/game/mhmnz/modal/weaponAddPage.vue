@@ -48,7 +48,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddWeaponParams
 }>();
-const heroAdd = ref();
+const weaponAdd = ref();
 const addData = ref<AddWeaponParams>({
     name: "",
     star: undefined,
@@ -57,7 +57,6 @@ const addData = ref<AddWeaponParams>({
     shuxing: "",
     introduce: "",
     remark: ""
-
 });
 if (prop.type === "edit" || prop.type === "detail") {
     addData.value = JSON.parse(JSON.stringify(prop.addParams));
@@ -98,18 +97,8 @@ const isExclusiveList = ref<Type[]>([{
 
 async function getAddData() {
     try {
-        await heroAdd.value?.validate();
-        const returnData: AddWeaponParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            star: addData.value.star,
-            weaponType: addData.value.weaponType,
-            isExclusive: addData.value.isExclusive,
-            shuxing: addData.value.shuxing,
-            introduce: addData.value.introduce,
-            remark: addData.value.remark
-        };
-        return returnData;
+        await weaponAdd.value?.validate();
+        return addData.value;
     } catch (_) {
         return false;
     }

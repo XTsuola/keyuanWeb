@@ -55,7 +55,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddCookParams
 }>()
-const relicsAdd = ref()
+const cookAdd = ref()
 const addData = ref<AddCookParams>({
     name: "",
     cookType: undefined,
@@ -117,19 +117,8 @@ const masteryList = ref<Type[]>([{
 
 async function getAddData() {
     try {
-        await relicsAdd.value?.validate()
-        const returnData: AddCookParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            cookType: addData.value.cookType,
-            hunsu: addData.value.hunsu,
-            mastery: addData.value.mastery,
-            foodMaterials: addData.value.foodMaterials,
-            practice: addData.value.practice,
-            count: addData.value.count,
-            remark: addData.value.remark
-        }
-        return returnData
+        await cookAdd.value?.validate()
+        return addData.value
     } catch (_) {
         return false
     }

@@ -56,7 +56,7 @@ interface listType {
 
 const prop = defineProps<{
     flag: AddType
-    obj: AddPaperType
+    addParams: AddPaperType
 }>();
 const disabled = ref<boolean>(false);
 const targetKeys = ref<string[]>([]);
@@ -72,7 +72,7 @@ const paperAdd = ref();
 const allList = ref<listType[]>();
 
 if (prop.flag === "edit") {
-    const data: AddPaperType = JSON.parse(JSON.stringify(prop.obj));
+    const data: AddPaperType = JSON.parse(JSON.stringify(prop.addParams));
     addData.value.id = data.id;
     addData.value.paperName = data.paperName;
     if (data.stemArr) {

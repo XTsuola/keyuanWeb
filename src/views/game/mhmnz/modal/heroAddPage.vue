@@ -150,22 +150,7 @@ const campList = ref<Type[]>([{
 async function getAddData() {
     try {
         await heroAdd.value?.validate()
-        const returnData: AddHeroParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            star: addData.value.star,
-            gender: addData.value.gender,
-            camp: addData.value.camp,
-            exclusive: addData.value.exclusive,
-            arms: addData.value.arms,
-            superSkill: addData.value.superSkill,
-            skillGroup: addData.value.skillGroup,
-            castGrainSkill: addData.value.castGrainSkill,
-            talent: addData.value.talent,
-            skin: addData.value.skin,
-            introduce: addData.value.introduce
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

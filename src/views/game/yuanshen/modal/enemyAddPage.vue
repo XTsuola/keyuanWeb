@@ -1,6 +1,6 @@
 <template>
     <div class="childMain">
-        <a-form ref="relicsAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
+        <a-form ref="enemyAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
             autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="怪物名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
@@ -32,7 +32,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddEnemyParams
 }>();
-const relicsAdd = ref();
+const enemyAdd = ref();
 const addData = ref<AddEnemyParams>({
     name: "",
     enemyType: undefined,
@@ -86,15 +86,8 @@ const enemyTypeList = ref<Type[]>([{
 
 async function getAddData() {
     try {
-        await relicsAdd.value?.validate();
-        const returnData: AddEnemyParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            enemyType: addData.value.enemyType,
-            info: addData.value.info,
-            remark: addData.value.remark,
-        };
-        return returnData;
+        await enemyAdd.value?.validate();
+        return addData.value;
     } catch (_) {
         return false;
     }

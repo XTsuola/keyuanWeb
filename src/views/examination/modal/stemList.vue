@@ -13,22 +13,6 @@ import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { ScrollType } from "@/utils/global";
 import { getStemArrList } from "@/api/examination";
 
-export interface stemType {
-    id: number
-    stem: string
-    type: number
-    answer: string
-    remark: string
-}
-
-interface dataType {
-    answer: string
-    id: number
-    remark: string
-    stem: string
-    type: number
-}
-
 const columns = ref<ColumnsType>([
     {
         title: "ID",
@@ -57,7 +41,7 @@ const columns = ref<ColumnsType>([
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const tableData = ref<dataType[]>();
+const tableData = ref<any>();
 const prop = defineProps<{
     paperId: number
 }>();

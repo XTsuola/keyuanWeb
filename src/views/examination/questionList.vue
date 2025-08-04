@@ -53,7 +53,7 @@
                     <a-radio-button value="5">操作题</a-radio-button>
                 </a-radio-group>
             </div>
-            <questionAddPage v-if="pageFlag" :obj="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
+            <questionAddPage v-if="pageFlag" :addParams="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
             <template #footer>
                 <a-button key="back" @click="visible = false">取消</a-button>
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>

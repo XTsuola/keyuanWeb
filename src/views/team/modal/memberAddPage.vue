@@ -49,15 +49,7 @@ if (prop.type === "edit") {
 async function getAddData() {
     try {
         await memberAdd.value?.validate();
-        const returnData: AddMemberParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            qq: addData.value.qq,
-            groupName: addData.value.groupName,
-            position: addData.value.position,
-            remark: addData.value.remark,
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

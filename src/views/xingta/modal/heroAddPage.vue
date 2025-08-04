@@ -1,6 +1,6 @@
 <template>
     <div class="childMain">
-        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
+        <a-form ref="heroAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: prop.labelSpan }"
             autocomplete="off" :hideRequiredMark="prop.type === 'detail'">
             <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                 <a-input v-model:value="addData.name" :disabled="prop.type === 'detail'"></a-input>
@@ -36,8 +36,9 @@ import type { AddType } from "@/utils/global";
 import type { AddHeroParams } from "@/api/xingta";
 
 const prop = defineProps<{
-    type: AddType
-    addParams: AddHeroParams
+    type: AddType;
+    addParams: AddHeroParams;
+    labelSpan: number;
 }>();
 const heroAdd = ref();;
 const addData = ref<AddHeroParams>({
@@ -57,18 +58,7 @@ if (prop.type === "edit" || prop.type === "detail") {
 async function getAddData() {
     try {
         await heroAdd.value?.validate();
-        const returnData: AddHeroParams = {
-            id: addData.value.id,
-            name: addData.value.name,
-            title: addData.value.title,
-            mainShuxing: addData.value.mainShuxing,
-            otherShuxing: addData.value.otherShuxing,
-            weapon: addData.value.weapon,
-            gongfa: addData.value.gongfa,
-            introduce: addData.value.introduce,
-            remark: addData.value.remark,
-        };
-        return returnData;
+        return addData.value;
     } catch (_) {
         return false;
     }

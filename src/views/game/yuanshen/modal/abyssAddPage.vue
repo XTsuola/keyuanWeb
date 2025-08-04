@@ -39,7 +39,7 @@ const prop = defineProps<{
     type: AddType
     addParams: AddAbyssParams
 }>();
-const relicsAdd = ref();
+const abyssAdd = ref();
 const addData = ref<AddAbyssParams>({
     version: "",
     firstUpper: "",
@@ -56,19 +56,8 @@ if (prop.type === "edit" || prop.type === "detail") {
 
 async function getAddData() {
     try {
-        await relicsAdd.value?.validate();
-        const returnData: AddAbyssParams = {
-            id: addData.value.id,
-            version: addData.value.version,
-            firstUpper: addData.value.firstUpper,
-            firstLower: addData.value.firstLower,
-            secondUpper: addData.value.secondUpper,
-            secondLower: addData.value.secondLower,
-            thirdUpper: addData.value.thirdUpper,
-            thirdLower: addData.value.thirdLower,
-            remark: addData.value.remark,
-        };
-        return returnData;
+        await abyssAdd.value?.validate();
+        return addData.value;
     } catch (_) {
         return false;
     }
