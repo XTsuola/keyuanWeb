@@ -154,17 +154,23 @@ onMounted(() => {
     canvas.addEventListener("mousemove", handleMouseMove);;
     canvas.addEventListener("mouseup", handleMouseUp);
     canvas.addEventListener("contextmenu", function (event: any) { // 右击事件
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;;
-        const y = event.clientY - rect.top;
-        const clickedObject = getObjectAtPosition(x, y);
-        if (clickedObject) {
-            const ind = objects.findIndex((item: any) => item.id == clickedObject.id);
-            if (nowObj && nowObj.id != objects[ind].id) {
-                addLine(101, nowObj.id, objects[ind].id, "#000");
-                clearhb();
-                drawAll();
-                nowObj = null;
+        if (nowObj != null) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;;
+            const y = event.clientY - rect.top;
+            const clickedObject = getObjectAtPosition(x, y);
+            if (clickedObject) {
+                const ind = objects.findIndex((item: any) => item.id == clickedObject.id);
+                if (nowObj && nowObj.id != objects[ind].id) {
+                    if (objects.findIndex((e: any) => e.id1 == nowObj.id && e.id2 == clickedObject.id) == -1 && objects.findIndex((e: any) => e.id2 == nowObj.id && e.id1 == clickedObject.id) == -1) {
+                        addLine(Date.now(), nowObj.id, objects[ind].id, "#000");
+                        clearhb();
+                        drawAll();
+                        nowObj = null;
+                    } else {
+                        return false
+                    }
+                }
             }
         }
     })
