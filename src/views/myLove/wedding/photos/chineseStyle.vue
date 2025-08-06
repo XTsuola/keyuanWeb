@@ -13,7 +13,7 @@ import { ref } from "vue";
 const imglist: any = ref([]);
 const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/threeList/";
 
-let list: string[] = []
+let list: string[] = [];
 for (let i = 1; i <= 20; i++) {
     const str = baseUrl + i + ".jpg";
     list.push(str);

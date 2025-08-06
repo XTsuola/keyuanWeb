@@ -66,9 +66,8 @@ async function onFinish(values: FormState) {
             flag.value = false;
             message.error(res.data.msg);
         }
-    } catch (_) {
-        flag.value = false;
-    }
+    } catch (_) { }
+    flag.value = false;
 }
 
 </script>

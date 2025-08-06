@@ -8,7 +8,7 @@
                 <a-button @click="goBack()">返回</a-button>
             </div>
         </div>
-        <a-table :columns="columns" :data-source="data" :scroll="scrollObj" bordered>
+        <a-table :columns="columns" :data-source="tableData" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -53,11 +53,9 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
-import { Table as aTable } from "ant-design-vue";
+import { ref, onMounted } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getResult } from "@/api/examination";
-import type { ScrollType } from "@/utils/global";
 
 interface DataType {
     index: number
@@ -130,8 +128,7 @@ const columns = ref<ColumnsType>([
         width: 240
     },
 ]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const data = ref<DataType[]>();
+const tableData = ref<DataType[]>();
 
 function getSelectResult(record: any) {
     if (record.a == "" && record.b == "" && record.c == "" && record.d == "") {
@@ -140,17 +137,20 @@ function getSelectResult(record: any) {
     return ["A." + record.a, "B." + record.b, "C." + record.c, "D." + record.d].join("，");
 }
 
+async function getList() {
+    const res = await getResult(resultObj.id);
+    if (res && res.data.code == 200) {
+        tableData.value = res.data.rows;
+    }
+}
+
 function goBack() {
     history.back();
 }
 
-async function getList() {
-    const res = await getResult(resultObj.id);
-    if (res && res.data.code == 200) {
-        data.value = res.data.rows;
-    }
-}
-getList();
+onMounted(() => {
+    getList();
+})
 
 </script>
 

@@ -40,7 +40,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref, watch } from "vue";
+import { ref, reactive, watch } from "vue";
 import { message } from "ant-design-vue";
 import jsonData from "./data.json";
 

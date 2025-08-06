@@ -45,20 +45,11 @@
 </template>
 
 <script lang="ts" setup>
-import { h, onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted, h } from "vue";
 import { message } from "ant-design-vue";
-import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
 import { getNowTime } from "@/utils/some";
+import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
 import RenderVnode from "./ceshi";
-
-interface PhotoType {
-    _id: string
-    id: number
-    name: string
-    url: string
-    createTime: string
-    remark: string
-}
 
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 const str = "../../assets/images/game/box/caiwenji.jpg";
@@ -67,7 +58,7 @@ const text = h("img", {
     style: "width:120px;height:120px;margin-left:16px",
 });
 const photoAdd = ref();
-const photoList = ref<PhotoType[]>([]);
+const photoList = ref<any>([]);
 const visible = ref(false);
 const loading = ref(false);
 const addData = reactive<AddPhotoParams>({
@@ -128,7 +119,7 @@ function getPhoto(e: any) {
     }
 }
 
-function showDetail(item: PhotoType) {
+function showDetail(item: any) {
     visible2.value = true;
     nowImgId.value = item.id;
     detailTitle.value = item.name;

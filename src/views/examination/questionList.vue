@@ -5,7 +5,7 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
                 v-if="levelId === 1">添加试题</a-button>
         </div>
-        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+        <a-table :columns="columns" :data-source="tableData" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -67,11 +67,9 @@ import { nextTick, onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import type { AddType } from "@/utils/global";
 import { addQuestion, updateQuestion, getQuestionList, deleteQuestion, type AddQuestionType, type GetQuestionListType } from '@/api/examination';
 import questionAddPage from "./modal/questionAddPage.vue";
-import type { ScrollType } from "@/utils/global";
-
-export type TypeFlag = "add" | "edit";
 
 const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
@@ -79,7 +77,7 @@ const total = ref<number>(0);
 const value = ref("");
 const abcd = ["A", "B", "C", "D"];
 const pageFlag = ref(true);
-const flag = ref<TypeFlag>("add");
+const flag = ref<AddType>("add");
 const columns = ref<ColumnsType>([
     {
         title: "序号",
@@ -127,7 +125,6 @@ const columns = ref<ColumnsType>([
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const loading = ref(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -170,7 +167,7 @@ function updatePage(value: string) {
     })
 }
 
-function showModal(typeFlag: TypeFlag, record?: AddQuestionType) {
+function showModal(typeFlag: AddType, record?: AddQuestionType) {
     visible.value = true;
     flag.value = typeFlag;
     if (typeFlag === "add") {
@@ -205,7 +202,7 @@ function showModal(typeFlag: TypeFlag, record?: AddQuestionType) {
     }
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: (data: AddQuestionType) => AxiosPromise<any>

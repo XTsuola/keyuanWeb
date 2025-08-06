@@ -36,7 +36,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
-import { initArray2, luoji } from "./fun";
+import { initArray2D, luoji } from "./fun";
 import { getChessMap, resetChessMap, updateChessMap } from "@/api/chess";
 import jsonData from "./data.json";
 
@@ -63,7 +63,7 @@ const translate: any = {
 const nowIndex = ref<number | null>(null);
 const nowQizi = ref<number | null>(null);
 const canMap = ref<any>([]);
-canMap.value = initArray2();
+canMap.value = initArray2D();
 const nowPlay = ref(1);
 
 function getNowClass(index: number) {

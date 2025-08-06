@@ -36,7 +36,7 @@ import { message } from "ant-design-vue";
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams } from "@/api/hywz";
 import AddPage from "./modal/armsAddPage.vue";
 import type { AxiosPromise } from "axios";
-import type { AddType, ScrollType } from "@/utils/global";
+import type { AddType } from "@/utils/global";
 import MyTabel from "@/components/table.vue";
 
 let addParams = reactive<AddArmsParams>({
@@ -187,19 +187,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     const params: GetArmsListParams = {

@@ -8,7 +8,7 @@
             <a-button style="margin-left: 20px;" @click="addPaper()">新增考卷</a-button>
         </div>
     </div>
-    <a-table :columns="columns" :data-source="data" :scroll="scrollObj">
+    <a-table :columns="columns" :data-source="data">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action' && levelId === 1">
                 <a-popconfirm title="确定删除该考卷吗?" ok-text="Yes" cancel-text="No" @confirm="deleteOk(record)">
@@ -20,11 +20,10 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
-import { Table as aTable, message } from "ant-design-vue";
+import { ref } from "vue";
+import { message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getUserPaperList, getOthersPaperSelectList, addReport, deleteReport, type DeleteReportType, type PaperDataType } from "@/api/examination";
-import type { ScrollType } from "@/utils/global";
 
 interface PaperSelectType {
     id: number
@@ -88,7 +87,6 @@ const columns = ref<ColumnsType>([
 const prop = defineProps<{
     obj: RecordType | undefined
 }>();
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const data = ref<any>();
 const parperIdList = ref<number[]>([]);
 parperIdList.value = prop.obj?.paperList ? prop.obj?.paperList : [];

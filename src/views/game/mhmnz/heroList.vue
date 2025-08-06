@@ -64,7 +64,7 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { AddType, ScrollType, Type } from "@/utils/global";
+import type { AddType, Type } from "@/utils/global";
 import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, type AddHeroParams } from "@/api/mhmnz";
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
@@ -249,19 +249,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const type = ref<AddType>("add");
-const mql = window.matchMedia("(max-width: 768px)");
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 function getCamp(arr: number[]) {
     let brr = [];

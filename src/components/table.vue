@@ -1,7 +1,7 @@
 <template>
     <div class="myTable">
         <a-table :columns="prop.columnsData" :loading="prop.loading" :data-source="prop.dataSource" :pagination="flag"
-            :scroll="scrollObj" bordered>
+            bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     <span v-if="prop.pagination">{{ (prop.pagination.currentPage - 1) * prop.pagination.pageSize + index
@@ -67,9 +67,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
-import type { ScrollType } from "@/utils/global";
-// import { EditOutlined, CloseOutlined, UserOutlined, SearchOutlined, DownloadOutlined } from '@ant-design/icons-vue';
+import { ref } from "vue";
 
 interface Pagination {
     currentPage: number
@@ -88,7 +86,6 @@ interface Prop {
 const flag = ref<any>(false);
 const prop = defineProps<Prop>();
 const emits = defineEmits(["detail", "edit", "delete", "changePage", "download", "resetPassword", "changeAdmin", "look", "showVideo"]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 if (prop.pagination) {
     flag.value = false
 } else {

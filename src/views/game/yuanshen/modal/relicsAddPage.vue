@@ -34,7 +34,6 @@ import { ref } from "vue";
 import type { AddType, Type } from "@/utils/global";
 import type { AddRelicsParams } from "@/api/yuanshen";
 
-
 const prop = defineProps<{
     type: AddType
     addParams: AddRelicsParams

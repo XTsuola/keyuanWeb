@@ -1,4 +1,4 @@
-export function initArray2() {
+export function initArray2D() {
     const rows = 10;
     const cols = 9;
     const defaultValue = 0;
@@ -10,7 +10,7 @@ export function initArray2() {
 let gong1 = [73, 74, 75, 83, 84, 85, 93, 94, 95], gong2 = [3, 4, 5, 13, 14, 15, 23, 24, 25];
 
 export function luoji(index1: number, index2: number, mapData: any) {
-    let canMap = initArray2();
+    let canMap = initArray2D();
     let now = mapData[index1][index2];
     let len1 = mapData.length;
     let len2 = mapData[0].length;

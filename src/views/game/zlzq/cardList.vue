@@ -55,8 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
-import type { ScrollType } from "@/utils/global";
+import { ref, reactive, onMounted } from "vue";
 import { recommendCardList } from "./recommendCard";
 import simangdiguo from "./cardInfo_20/simangdiguo.json";
 import chanyigu from "./cardInfo_20/chanyigu.json";
@@ -98,12 +97,6 @@ const columns = ref<any>([
         key: "quality",
         width: 80
     },
-    // {
-    //     title: "等级",
-    //     dataIndex: "level",
-    //     key: "level",
-    //     width: 100
-    // },
     {
         title: "费用",
         dataIndex: "cost",
@@ -175,8 +168,6 @@ const columns = ref<any>([
 ]);
 
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const mql = window.matchMedia('(max-width: 768px)');
 const qualityList = [{
     label: "全部",
     value: ""
@@ -289,16 +280,6 @@ const formState = reactive({
     cost: undefined,
     type: undefined
 });
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     simangdiguo.forEach((item: any) => {

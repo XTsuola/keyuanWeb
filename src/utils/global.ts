@@ -6,11 +6,6 @@ export interface Breadcrumb {
   label: string;
 }
 
-export interface ScrollType {
-    x: number
-    y: number | undefined
-}
-
 export interface Type {
     label: string
     value: number | string | undefined

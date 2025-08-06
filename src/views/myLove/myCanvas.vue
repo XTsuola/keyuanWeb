@@ -168,7 +168,7 @@ onMounted(() => {
                         drawAll();
                         nowObj = null;
                     } else {
-                        return false
+                        return false;
                     }
                 }
             }

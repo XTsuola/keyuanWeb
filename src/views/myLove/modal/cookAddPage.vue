@@ -47,15 +47,15 @@
 </template>
 
 <script lang="ts" setup>
-import type { AddCookParams } from "@/api/myLove"
+import { ref } from "vue";
 import type { AddType, Type } from "@/utils/global";
-import { ref } from "vue"
+import type { AddCookParams } from "@/api/myLove";
 
 const prop = defineProps<{
     type: AddType
     addParams: AddCookParams
-}>()
-const cookAdd = ref()
+}>();
+const cookAdd = ref();
 const addData = ref<AddCookParams>({
     name: "",
     cookType: undefined,
@@ -65,9 +65,9 @@ const addData = ref<AddCookParams>({
     practice: "",
     count: "",
     remark: ""
-})
+});
 if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams))
+    addData.value = JSON.parse(JSON.stringify(prop.addParams));
 }
 const cookTypeList = ref<Type[]>([{
     label: "烧菜",
@@ -90,7 +90,7 @@ const cookTypeList = ref<Type[]>([{
 }, {
     label: "其他",
     value: 7
-}])
+}]);
 const hunsuList = ref<Type[]>([{
     label: "荤菜",
     value: 1
@@ -100,7 +100,7 @@ const hunsuList = ref<Type[]>([{
 }, {
     label: "其他",
     value: 3
-}])
+}]);
 const masteryList = ref<Type[]>([{
     label: "未学",
     value: 1
@@ -113,14 +113,14 @@ const masteryList = ref<Type[]>([{
 }, {
     label: "精通",
     value: 4
-}])
+}]);
 
 async function getAddData() {
     try {
-        await cookAdd.value?.validate()
-        return addData.value
+        await cookAdd.value?.validate();
+        return addData.value;
     } catch (_) {
-        return false
+        return false;
     }
 }
 

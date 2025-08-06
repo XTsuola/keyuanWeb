@@ -3,7 +3,7 @@
         <div class="title">
             答卷列表
         </div>
-        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+        <a-table :columns="columns" :data-source="tableData" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -37,12 +37,11 @@
 </template>
 
 <script lang="ts" setup>
-import { getStudentsPaper, type PaperDataType, type GetStudentsPaperListType } from "@/api/examination";
-import { onMounted, reactive, ref } from "vue";
+import { ref, onMounted } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
+import { getStudentsPaper, type PaperDataType, type GetStudentsPaperListType } from "@/api/examination";
 import distributePageVue from "./modal/distributePage.vue";
 import paperList from "./modal/paperList.vue";
-import type { ScrollType } from "@/utils/global";
 
 interface RecordType {
     id: number
@@ -81,7 +80,6 @@ const columns = ref<ColumnsType>([
     },
 ]);
 const tableData = ref<any>();
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {

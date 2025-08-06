@@ -5,7 +5,7 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')"
                 v-if="levelId === 1">添加试卷</a-button>
         </div>
-        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+        <a-table :columns="columns" :data-source="tableData" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -47,7 +47,7 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import type { AxiosPromise } from "axios";
-import type { AddType, ScrollType } from "@/utils/global";
+import type { AddType } from "@/utils/global";
 import { addPaper, updatePaper, getPaperList, deletePaper, type GetPaperListType, type AddPaperType } from "@/api/examination";
 import paperAdd from "./modal/paperAddPage.vue";
 import stemList from "./modal/stemList.vue";
@@ -97,7 +97,6 @@ const columns = ref<ColumnsType>([
 ]);
 const loading = ref(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {

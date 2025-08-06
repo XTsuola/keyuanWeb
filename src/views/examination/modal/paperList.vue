@@ -1,12 +1,10 @@
 <template>
-    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj"></a-table>
+    <a-table :columns="columns" :data-source="tableData"></a-table>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { Table as aTable } from "ant-design-vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import type { ScrollType } from "@/utils/global";
 import { getUserPaperList, type PaperDataType } from "@/api/examination";
 
 const columns = ref<ColumnsType>([
@@ -44,7 +42,6 @@ const columns = ref<ColumnsType>([
         },
     },
 ])
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined })
 const tableData = ref<any>()
 const prop = defineProps<{
     obj: PaperDataType

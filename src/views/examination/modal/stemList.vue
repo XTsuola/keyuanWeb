@@ -1,5 +1,5 @@
 <template>
-    <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj">
+    <a-table :columns="columns" :data-source="tableData">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
         </template>
@@ -7,10 +7,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
-import { Table as aTable } from "ant-design-vue";
+import { ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import type { ScrollType } from "@/utils/global";
 import { getStemArrList } from "@/api/examination";
 
 const columns = ref<ColumnsType>([
@@ -40,7 +38,6 @@ const columns = ref<ColumnsType>([
     }
 ]);
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const tableData = ref<any>();
 const prop = defineProps<{
     paperId: number

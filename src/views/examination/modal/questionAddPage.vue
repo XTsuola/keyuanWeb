@@ -77,7 +77,7 @@
                 <a-select style="width: 100%;" v-model:value="addData.stem">
                     <a-select-option v-for="item in opt" :key="item" :value="item">{{
                         item
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="正确答案" name="answer" :rules="[{ required: true, validator: validAnswerType5 }]">
@@ -92,11 +92,12 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { TypeFlag } from "../questionList.vue";
+import type { AddType } from "@/utils/global";
 import type { AddQuestionType } from "@/api/examination";
 
+
 const prop = defineProps<{
-    flag: TypeFlag
+    flag: AddType
     type: number
     addParams: AddQuestionType
 }>()

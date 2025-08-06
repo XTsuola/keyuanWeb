@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -60,8 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
-import type { ScrollType } from "@/utils/global";
+import { ref, reactive, onMounted } from "vue";
 import { getMyCard } from "@/utils/some";
 import simangdiguo from "../myCardLevel/simangdiguo.json";
 import chanyigu from "../myCardLevel/chanyigu.json";
@@ -161,8 +160,6 @@ const columns = ref<any>([
 ]);
 
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const mql = window.matchMedia('(max-width: 768px)');
 const qualityList = [{
     label: "全部",
     value: ""
@@ -273,16 +270,6 @@ const blueCard = ref(0);
 const purpleCard = ref(0);
 const orangeCard = ref(0);
 const allCard = ref(0);
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     let tempData: any = [];

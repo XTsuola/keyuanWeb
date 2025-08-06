@@ -3,7 +3,7 @@
         <div class="title">
             我的试卷
         </div>
-        <a-table :columns="columns" :data-source="tableData" :scroll="scrollObj" :pagination="false" bordered>
+        <a-table :columns="columns" :data-source="tableData" :pagination="false" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ index + 1 }}
@@ -26,7 +26,6 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
-import type { ScrollType } from "@/utils/global";
 import { getMyPaperList, resetNowPaper, type GetMyPaperListType } from "@/api/examination";
 import router from "@/router";
 
@@ -86,7 +85,6 @@ const columns = ref<ColumnsType>([
         width: 240
     }
 ]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
 const tableData = ref<any>([]);
 
 function goRoom(record: any) {

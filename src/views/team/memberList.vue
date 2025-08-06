@@ -40,7 +40,7 @@ import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { useI18n } from "vue-i18n";
 import type { AxiosPromise } from "axios";
-import { groupList, type AddType, type ScrollType } from '@/utils/global';
+import { groupList, type AddType } from '@/utils/global';
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
@@ -119,19 +119,7 @@ const columns = ref<any>([
 ]);
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const mql = window.matchMedia("(max-width: 768px)");
 const type = ref<AddType>("add");
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     const params: GetMemberListParams = {

@@ -46,7 +46,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive, ref } from "vue";
+import { ref, reactive } from "vue";
 import Tanke from "./tanke.vue";
 import jsonData from "./data.json";
 

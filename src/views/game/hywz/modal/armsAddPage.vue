@@ -47,8 +47,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import type { AddArmsParams } from "@/api/hywz";
 import type { AddType } from "@/utils/global";
+import type { AddArmsParams } from "@/api/hywz";
 
 const prop = defineProps<{
     type: AddType

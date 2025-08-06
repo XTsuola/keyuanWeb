@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, ref } from "vue";
+import { ref, inject } from "vue";
 
 let name: any = inject("name");
 const name2 = ref<string>();

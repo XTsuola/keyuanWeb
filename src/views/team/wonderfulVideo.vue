@@ -47,7 +47,6 @@
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { getNowTime } from "@/utils/some";
-import type { ScrollType } from "@/utils/global";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
@@ -99,8 +98,6 @@ const columns = ref<any[]>([
     },
 ]);
 const tableData = ref<AddWrcPasrams[]>([]);
-const scrollObj = reactive<ScrollType>({ x: 400, y: undefined });
-const mql = window.matchMedia("(max-width: 768px)");
 const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
@@ -117,6 +114,7 @@ const loading = ref<boolean>(false);
 const videoFlag = ref<boolean>(false);
 const imgFlag = ref<boolean>(false);
 const wrcUrl = ref<string>("");
+const wonderfulAdd = ref();
 const addData = reactive<AddWrcPasrams>({
     name: "",
     url: "",
@@ -124,17 +122,6 @@ const addData = reactive<AddWrcPasrams>({
     time: "",
     remark: ""
 });
-const wonderfulAdd = ref();
-
-function mediaMatchs() {
-    if (mql.matches) {
-        scrollObj.y = 550;
-    } else {
-        scrollObj.y = undefined;
-    }
-}
-mediaMatchs();
-mql.addEventListener("change", mediaMatchs);
 
 async function getList() {
     const params: PaginationType = {
