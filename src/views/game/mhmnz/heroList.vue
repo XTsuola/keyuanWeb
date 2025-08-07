@@ -300,7 +300,8 @@ function selectList() {
     getList();
 }
 
-function changePage(page: number) {
+function changePage(page: number, size: number) {
+    pageSize.value = size;
     currentPage.value = page;
     getList();
 }

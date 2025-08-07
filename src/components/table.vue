@@ -63,7 +63,7 @@
         <a-pagination v-if="prop.pagination" class="pagination" v-model:current="prop.pagination.currentPage"
             v-model:page-size="prop.pagination.pageSize" :pageSizeOptions="['10', '15', '20', '50', '100']"
             :total="prop.pagination.total" :show-total="(total: any) => `共 ${total} 条`"
-            @change="emits('changePage', prop.pagination.currentPage)" />
+            @change="emits('changePage', prop.pagination.currentPage, prop.pagination.pageSize)" />
     </div>
 </template>
 <script lang="ts" setup>
