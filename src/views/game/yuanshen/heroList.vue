@@ -13,42 +13,42 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="国家" style="width: 200px">
                 <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器" style="width: 200px">
                 <a-select v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" style="width: 200px">
                 <a-select v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width: 200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星座" style="width: 200px">
                 <a-select v-model:value="formState.starSign" @change="selectList" placeholder="请选择星星座">
                     <a-select-option v-for="item in starSignList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -156,8 +156,14 @@ const countryList = ref<Type[]>([{
     label: "至冬",
     value: 7
 }, {
-    label: "异世界",
+    label: "挪德卡莱",
     value: 8
+}, {
+    label: "坎瑞亚",
+    value: 9
+}, {
+    label: "异世界",
+    value: 10
 }]);
 const armsList = ref<Type[]>([{
     label: "全部",
@@ -472,17 +478,19 @@ async function handleOk(e: MouseEvent) {
     if (type.value === "edit") {
         a.axios = updateHero;
     }
-    const result = await addPage.value?.getAddData();
-    if (result && a.axios) {
-        const res = await a.axios(result);
-        if (res.data.code === 200) {
-            getList();
-            message.success(res.data.msg);
-            visible.value = false;
-        } else {
-            message.error(res.data.msg);
+    try {
+        const result = await addPage.value?.getAddData();
+        if (result && a.axios) {
+            const res = await a.axios(result);
+            if (res.data.code === 200) {
+                getList();
+                message.success(res.data.msg);
+                visible.value = false;
+            } else {
+                message.error(res.data.msg);
+            }
         }
-    }
+    } catch (_) { }
     loading.value = false;
 }
 

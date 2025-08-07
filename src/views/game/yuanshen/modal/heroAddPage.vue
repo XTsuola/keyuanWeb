@@ -9,35 +9,35 @@
                 <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="所属国家" name="country" :rules="[{ required: true, message: '请选择国家!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.country" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类型" name="arms" :rules="[{ required: true, message: '请选择武器类型!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.arms" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" name="shuxing" :rules="[{ required: true, message: '请选择属性!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.shuxing" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="生命">
@@ -153,8 +153,14 @@ const countryList = ref<Type[]>([{
     label: "至冬",
     value: 7
 }, {
-    label: "异世界",
+    label: "挪德卡莱",
     value: 8
+}, {
+    label: "坎瑞亚",
+    value: 9
+}, {
+    label: "异世界",
+    value: 10
 }]);
 const armsList = ref<Type[]>([{
     label: "单手剑",
