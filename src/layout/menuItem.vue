@@ -32,7 +32,7 @@ if (userInfo && JSON.parse(userInfo).userId) {
 }
 
 function getShow(meta: RouteMeta) {
-    return meta.isLevel && userId.value ? meta.isLevel.includes(userId.value) : true;
+    return (meta as any).isLevel && userId.value ? (meta as any).isLevel.includes(userId.value) : true;
 }
 
 function goView() {
