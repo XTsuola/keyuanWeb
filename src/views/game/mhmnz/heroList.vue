@@ -49,7 +49,7 @@
         <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @detail="showModal"
             @edit="showModal" @delete="deleteOk" @change-page="changePage"></MyTabel>
-        <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+        <a-modal v-model:open="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
                 <a-button key="back" @click="visible = false">{{ type === 'detail' ? "关闭" : "取消" }}</a-button>

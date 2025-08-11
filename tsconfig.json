@@ -1,22 +1,23 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src/**/*.vue",
-    "public/config.js"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ],
   "compilerOptions": {
+    "module": "esnext",
     "ignoreDeprecations": "5.0",
     "strict": true,
     "baseUrl": ".",
+    "jsx": "preserve",
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
     },
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true

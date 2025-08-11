@@ -8,7 +8,7 @@
         </ul>
         <render-vnode :vNode="text"></render-vnode>
     </div>
-    <a-modal v-model:visible="visible" destroyOnClose title="添加回忆" :maskClosable="false">
+    <a-modal v-model:open="visible" destroyOnClose title="添加回忆" :maskClosable="false">
         <input type="file" @input="getPhoto" />
         <a-form ref="photoAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
             autocomplete="off">
@@ -33,7 +33,7 @@
             </a-button>
         </template>
     </a-modal>
-    <a-modal width="50%" v-model:visible="visible2" destroyOnClose :title="'图片名称：' + detailTitle" :maskClosable="false">
+    <a-modal width="50%" v-model:open="visible2" destroyOnClose :title="'图片名称：' + detailTitle" :maskClosable="false">
         <img style="max-width: 100%;" :src="detailUrl" />
         <template #footer>
             <a-popconfirm title="确定删除该图片吗?" ok-text="Yes" cancel-text="No" @confirm="deleteImg()">
@@ -47,7 +47,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted, h } from "vue";
 import { message } from "ant-design-vue";
-import { getNowTime } from "@/utils/some";
+import { getNowTime } from "@/utils/global";
 import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
 import RenderVnode from "./ceshi";
 

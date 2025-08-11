@@ -1,5 +1,4 @@
 <template>
-    <!-- {{ $t('hello.hello') }} -->
     <div class="memberList">
         <div class="title">
             成员列表
@@ -25,7 +24,7 @@
         <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @edit="showModal"
             @delete="deleteOk" @change-page="changePage"></MyTabel>
-        <a-modal v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+        <a-modal v-model:open="visible" destroyOnClose :title="title" :maskClosable="false">
             <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
             <template #footer>
                 <a-button key="back" @click="visible = false">取消</a-button>
@@ -38,15 +37,12 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { useI18n } from "vue-i18n";
 import type { AxiosPromise } from "axios";
 import { groupList, type AddType } from '@/utils/global';
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
-const { locale } = useI18n();
-locale.value = "cn";
 let addParams = reactive<AddMemberParams>({
     id: undefined,
     name: "",

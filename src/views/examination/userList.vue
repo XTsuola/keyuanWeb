@@ -24,7 +24,7 @@
         <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
             :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
             :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
-        <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="title" :maskClosable="false">
+        <a-modal :width="750" v-model:open="visible" destroyOnClose :title="title" :maskClosable="false">
             <userAdd :addParams="addData" :flag="flag" ref="addPage"></userAdd>
             <template #footer>
                 <a-button key="back" @click="visible = false">取消</a-button>
@@ -41,7 +41,7 @@ import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { levelName, type AddType } from "@/utils/global";
 import { addUser, updateUser, getUserList, deleteUser, type GetPaperListType, type AddUserType } from "@/api/examination";
-import md5 from "js-md5";
+import MD5 from "crypto-js/md5";
 import userAdd from "./modal/userAddPage.vue";
 
 const currentPage = ref<number>(1);
@@ -162,7 +162,7 @@ async function handleOk(e: MouseEvent) {
     }
     const result: any = await addPage.value?.getAddData();
     if (result && a.axios) {
-        result.password = md5(result.password);
+        result.password = MD5(result.password).toString();
         const res = await a.axios(result);
         if (res.data.code === 200) {
             getList();

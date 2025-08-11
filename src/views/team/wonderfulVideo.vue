@@ -7,7 +7,7 @@
         <MyTabel :columnsData="columns" :dataSource="tableData"
             :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @showVideo="showVideo"
             @delete="deleteOk" @change-page="changePage"></MyTabel>
-        <a-modal v-model:visible="visible" destroyOnClose title="添加锦集" :maskClosable="false">
+        <a-modal v-model:open="visible" destroyOnClose title="添加锦集" :maskClosable="false">
             <input type="file" @input="getWrc" />
             <a-form ref="wonderfulAdd" style="width: 100%;" :model="addData" name="basic" :label-col="{ span: 4 }"
                 autocomplete="off">
@@ -34,7 +34,7 @@
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
             </template>
         </a-modal>
-        <a-modal v-model:visible="visible2" destroyOnClose title="查看锦集" :maskClosable="false">
+        <a-modal v-model:open="visible2" destroyOnClose title="查看锦集" :maskClosable="false">
             <video style="width: 100%;height: 100%;" v-if="videoFlag" class="video" :src="wrcUrl" controls
                 autoplay></video>
             <img v-if="imgFlag" :src="wrcUrl" style="width: 100%;height:100%;" />
@@ -46,11 +46,12 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from "vue";
 import { message } from "ant-design-vue";
-import { getNowTime } from "@/utils/some";
-import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import COS from "cos-js-sdk-v5";
-import MyTabel from "@/components/table.vue";
 import type { PaginationType } from "@/api/common";
+import { getNowTime } from "@/utils/global";
+import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
+import MyTabel from "@/components/table.vue";
+
 
 const columns = ref<any[]>([
     {
@@ -207,7 +208,7 @@ async function getWrc(e: any) {
         Key: fileName,
         Body: target.files[0]
     };
-    cos.putObject(params, async (error, data) => {
+    cos.putObject(params, async (error: any, data: any) => {
         if (!error) {
             addData.url = data.Location;
             addData.time = getNowTime();

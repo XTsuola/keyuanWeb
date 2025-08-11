@@ -13,7 +13,7 @@
                 <div class="breadCrumbItem" v-for="item in extraBreadCrumbs" :key="item">
                     <span @click="tabBreadCrumb(item)" :class="{ breadCrumbItemLink: item.type === 'menu' }">{{
                         item.label
-                    }}</span>
+                        }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
             </div>
@@ -49,7 +49,7 @@
 import { onMounted, ref } from "vue";
 import { message } from "ant-design-vue";
 import { SettingFilled } from "@ant-design/icons-vue";
-import { onBeforeRouteUpdate, useRoute, type RouteLocationNormalized, type RouteRecordNormalized } from "vue-router";
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 import { getUserInfo, updateImg, type UpdateImgParams } from "@/api/team";
 import router from "@/router";
@@ -72,7 +72,7 @@ const userInfo = ref<UserInfo>({
 const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
 const route = useRoute();
 const imgValue = ref<string>("");
-const breadCrumbs = ref<(RouteRecordNormalized | undefined | any)[]>([]);
+const breadCrumbs = ref<any>([]);
 const extraBreadCrumbs = ref<GlobeBreadcrumbType[] | any>([]);
 
 router.push({
@@ -140,15 +140,15 @@ function getImg(e: Event) {
     }
 }
 
-function setBreadcrumb(to?: RouteLocationNormalized, from?: RouteLocationNormalized) {
-    const getBreadcrumbCore = (to: RouteLocationNormalized | string) => {
+function setBreadcrumb(to?: any, from?: any) {
+    const getBreadcrumbCore = (to: any) => {
         const routes = router.getRoutes();
         let routesData: string[] = [];
         if (typeof to === "string") {
             const seachroutesData = routes.find(e => e.meta.key === to)?.path.split("/").filter(e => e);
             if (seachroutesData) routesData = seachroutesData;
         } else {
-            routesData = to.path.split("/").filter(e => e);
+            routesData = to.path.split("/").filter((e: any) => e);
         }
         breadCrumbs.value = routesData.map((_, index) => {
             return routes.find(item => item.path === `/${routesData.filter((_, i) => i <= index).join("/")}`);
@@ -167,7 +167,7 @@ function setBreadcrumb(to?: RouteLocationNormalized, from?: RouteLocationNormali
 onBeforeRouteUpdate(setBreadcrumb);
 setBreadcrumb(route);
 
-function tabBreadCrumb(e?: (RouteRecordNormalized | any)) {
+function tabBreadCrumb(e?: any) {
     if (e.path !== route.path && e.meta.menuType === "menu") {
         router.push({
             path: e.path

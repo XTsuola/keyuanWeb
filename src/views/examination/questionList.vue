@@ -43,7 +43,7 @@
         <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
             :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
             :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
-        <a-modal v-model:visible="visible" destroyOnClose :title="title + typeArr[type - 1]" :maskClosable="false">
+        <a-modal v-model:open="visible" destroyOnClose :title="title + typeArr[type - 1]" :maskClosable="false">
             <div style="display: flex;justify-content: center;">
                 <a-radio-group v-model:value="value" @change="updatePage(value)" v-if="flag !== 'edit'">
                     <a-radio-button value="1">选择题</a-radio-button>

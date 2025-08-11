@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "./index";
 
 // 获取当前棋盘
 export function getChessMap() {

@@ -19,7 +19,7 @@ import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
 import { useCounterStore } from "@/stores/counter";
 import { login, type LoginParams } from "@/api/login";
-import md5 from "js-md5";
+import MD5 from "crypto-js/md5";
 
 interface FormState {
     username: string;
@@ -42,7 +42,7 @@ async function onFinish(values: FormState) {
     flag.value = true;
     const data: LoginParams = {
         account: values.username,
-        password: md5(values.password)
+        password: MD5(values.password).toString()
     };
     try {
         const res = await login(data);

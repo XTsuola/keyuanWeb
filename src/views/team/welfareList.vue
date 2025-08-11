@@ -19,7 +19,7 @@
                 </a-popconfirm>
             </a-card>
         </div>
-        <a-modal v-model:visible="visible" destroyOnClose title="添加福利" :maskClosable="false">
+        <a-modal v-model:open="visible" destroyOnClose title="添加福利" :maskClosable="false">
             <a-form ref="welfareAdd" style="width: 100%;" :model="welfareParams" name="basic" :label-col="{ span: 4 }"
                 autocomplete="off">
                 <a-form-item label="福利内容" name="remark" :rules="[{ required: true, message: '请输入福利内容!' }]">

@@ -61,7 +61,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import { getMyCard } from "@/utils/some";
+import { getMyCard } from "@/utils/global";
 import simangdiguo from "../myCardLevel/simangdiguo.json";
 import chanyigu from "../myCardLevel/chanyigu.json";
 import yinmizhe from "../myCardLevel/yinmizhe.json";

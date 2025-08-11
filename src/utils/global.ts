@@ -1,9 +1,9 @@
 export type AsldeMenuType = "group" | "folder" | "menu";
 
 export interface Breadcrumb {
-  url: string;
-  type: AsldeMenuType;
-  label: string;
+    url: string;
+    type: AsldeMenuType;
+    label: string;
 }
 
 export interface Type {
@@ -14,9 +14,9 @@ export interface Type {
 export type AddType = "add" | "edit" | "detail"
 
 export const levelName = {
-  1: "超级管理员",
-  2: "管理员",
-  3: "普通成员",
+    1: "超级管理员",
+    2: "管理员",
+    3: "普通成员",
 }
 
 export const groupList: any = [{
@@ -43,8 +43,33 @@ export const groupList: any = [{
 }]
 
 export async function getImg(str: string, callback: (e: any) => void) {
-  const url = new URL(str, import.meta.url);
-  // const url = (await import(str)).default
+    const url = new URL(str, import.meta.url);
+    // const url = (await import(str)).default
+}
+
+export function getNowTime(): string {
+    const date = new Date();
+    const Y = date.getFullYear();
+    const M =
+        date.getMonth() + 1 < 10
+            ? "0" + (date.getMonth() + 1)
+            : date.getMonth() + 1;
+    const D = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    const h = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    const m =
+        date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    const s =
+        date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+}
+
+export function getMyCard(allData: any, myCardList: any) {
+    const list = [];
+    for (let i = 0; i < myCardList.length; i++) {
+        let ind = allData.findIndex((e: any) => e.name == myCardList[i]);
+        list.push(allData[ind]);
+    }
+    return list;
 }
 
 /* async function getImg(str: string[], callback: (e: any) => void) {

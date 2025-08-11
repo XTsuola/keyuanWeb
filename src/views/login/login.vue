@@ -17,7 +17,7 @@ import LoginForm from "./loginForm.vue";
 .main {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: #fff;
     display: flex;
     justify-content: center;

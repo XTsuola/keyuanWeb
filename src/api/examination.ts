@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "./index";
 
 export interface StemArrType {
   key: string | number;

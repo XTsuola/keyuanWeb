@@ -1,6 +1,5 @@
 import { message } from "ant-design-vue";
 import axios, { type AxiosRequestConfig } from "axios";
-import { useRouter } from "vue-router";
 
 // 创建axios实例
 const service = axios.create({
@@ -23,7 +22,7 @@ service.interceptors.request.use(config => {
 
 // 响应拦截器
 let isShowMsg = true;
-service.interceptors.response.use(res => {
+service.interceptors.response.use((res: any) => {
     if (res.data.code == 401) {
         if (isShowMsg) {
             message.error(res.data.msg);
@@ -41,7 +40,7 @@ service.interceptors.response.use(res => {
         return res;
     }
 }, error => {
-    if(error.response.status == 401) {
+    if (error.response.status == 401) {
         if (isShowMsg) {
             message.error(error.response.data.msg);
             sessionStorage.clear();
@@ -54,7 +53,7 @@ service.interceptors.response.use(res => {
             location.reload()
         }, 500)
     } else {
-        message.error(error.response.data.msg)
+        message.error(error.response.data.msg);
     }
     return Promise.reject(error);
 });

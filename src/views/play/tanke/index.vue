@@ -145,7 +145,7 @@ document.onkeydown = function (event) {
 
 function sendZidan(x: number, y: number, deg: string) {
     if (deg === "0deg") {
-        let timer: number | null = null;
+        let timer: any = null;
         if (x < 8) {
             x++;
             if (mapList.value[y][x] == 2) {
@@ -171,7 +171,7 @@ function sendZidan(x: number, y: number, deg: string) {
             }, 50);
         }
     } else if (deg === "90deg") {
-        let timer: number | null = null;
+        let timer: any = null;
         if (y < 8) {
             y++;
             if (mapList.value[y][x] == 2) {
@@ -197,7 +197,7 @@ function sendZidan(x: number, y: number, deg: string) {
             }, 50);
         }
     } else if (deg === "-90deg") {
-        let timer: number | null = null;
+        let timer: any = null;
         if (y > 0) {
             y--;
             if (mapList.value[y][x] == 2) {
@@ -223,7 +223,7 @@ function sendZidan(x: number, y: number, deg: string) {
             }, 50);
         }
     } else if (deg === "180deg") {
-        let timer: number | null = null
+        let timer: any = null
         if (x > 0) {
             x--;
             if (mapList.value[y][x] == 2) {

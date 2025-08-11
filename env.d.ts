@@ -1,11 +1,14 @@
 /// <reference types="vite/client" />
 
+import Breadcrumb from 'echarts/types/src/chart/treemap/Breadcrumb.js'
+import { HTMLAttributes } from 'vue'
 import 'vue-router'
+
+type AsldeMenuType = "group" | "folder" | "menu";
 
 declare module 'vue-router' {
   interface RouteMeta {
     menuType?: AsldeMenuType,
-    icon: string,
     key?: string,
     icon?: keyof typeof import("@ant-design/icons-vue")
     iconType?: "file" | "iconfont"
@@ -20,13 +23,4 @@ declare module 'vue-router' {
 
 interface ImportMetaEnv {
   readonly VITE_APP_BASE_URL: string
-}
-
-declare global {
-  interface Window {
-    BMap: T
-    init: any
-    BMapGL: T
-    config: any
-  }
 }

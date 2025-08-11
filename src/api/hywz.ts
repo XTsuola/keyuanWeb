@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "./index";
 import type { PaginationType } from "./common";
 
 // 获取兵种列表

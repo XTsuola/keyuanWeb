@@ -20,14 +20,14 @@
         <a-pagination class="pagination" v-model:current="currentPage" v-model:page-size="pageSize"
             :pageSizeOptions="['10', '15', '20', '50', '100']" :total="total"
             :show-total="(total: any) => `共 ${total} 条`" @change="changePage" />
-        <a-modal :width="750" v-model:visible="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName"
+        <a-modal :width="750" v-model:open="visible" destroyOnClose :title="'分配试卷-' + distributeData?.userName"
             :maskClosable="false">
             <distributePageVue :obj="distributeData" @upDateList="getList" ref="distributePage"></distributePageVue>
             <template #footer>
                 <a-button key="back" @click="visible = false">关闭</a-button>
             </template>
         </a-modal>
-        <a-modal :width="750" v-model:visible="visible2" destroyOnClose title="所有答卷" :maskClosable="false">
+        <a-modal :width="750" v-model:open="visible2" destroyOnClose title="所有答卷" :maskClosable="false">
             <paperList :obj="paperData"></paperList>
             <template #footer>
                 <a-button key="back2" @click="visible2 = false">返回</a-button>
