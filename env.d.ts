@@ -1,8 +1,6 @@
-/// <reference types="vite/client" />
-
+import 'vue-router'
 import Breadcrumb from 'echarts/types/src/chart/treemap/Breadcrumb.js'
 import { HTMLAttributes } from 'vue'
-import 'vue-router'
 
 type AsldeMenuType = "group" | "folder" | "menu";
 
