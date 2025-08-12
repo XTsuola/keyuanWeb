@@ -80,11 +80,11 @@
     "quality": "蓝",
     "name": "执剑道者",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1,
-    "attack": 27,
-    "life": 33,
-    "effect": "命中玩家:全体友军+3/+4。",
+    "attack": 30,
+    "life": 35,
+    "effect": "命中玩家:全体友军+4/+4。",
     "remark": ""
   },
   {
