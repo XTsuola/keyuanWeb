@@ -11,7 +11,7 @@
                     placeholder="请选择分组">
                     <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import { groupList, type AddType } from '@/utils/global';

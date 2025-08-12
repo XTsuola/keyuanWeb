@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const isDragging = ref(false);
 let prevMouseX = 0;

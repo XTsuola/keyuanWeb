@@ -13,7 +13,7 @@
                 <a-select v-model:value="formState.enemyType" @change="selectList" placeholder="请选择类型">
                     <a-select-option v-for="item in enemyTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, Type } from "@/utils/global";

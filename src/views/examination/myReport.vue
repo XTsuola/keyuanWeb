@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, onMounted } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getMyPaperList, resetNowPaper, type GetMyPaperListType } from "@/api/examination";
 import router from "@/router";

@@ -13,21 +13,21 @@
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择稀有度">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="装备类型" style="width: 240px">
                 <a-select v-model:value="formState.weaponType" @change="selectList" placeholder="请选择装备">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="是否专属" style="width: 240px">
                 <a-select v-model:value="formState.isExclusive" @change="selectList" placeholder="请选择">
                     <a-select-option v-for="item in isExclusiveList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType, Type } from "@/utils/global";

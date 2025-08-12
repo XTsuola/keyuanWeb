@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { init } from 'echarts';
 import type { ListType } from "./travel";
 import { travelList, dataList } from "./travel";

@@ -14,7 +14,7 @@
                     placeholder="请选择类型">
                     <a-select-option v-for="item in cookTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="荤素" style="width: 200px">
@@ -22,7 +22,7 @@
                     placeholder="请选择荤素">
                     <a-select-option v-for="item in hunsuList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="熟练度" style="width: 220px">
@@ -30,7 +30,7 @@
                     placeholder="请选择熟练度">
                     <a-select-option v-for="item in masteryList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import { getCookList, addCook, updateCook, deleteCook, type GetCookListType, type AddCookParams } from "@/api/myLove";

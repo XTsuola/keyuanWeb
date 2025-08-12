@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
 import { getUserPaperList, type PaperDataType } from "@/api/examination";
 

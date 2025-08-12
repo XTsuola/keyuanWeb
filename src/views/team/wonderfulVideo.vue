@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import COS from "cos-js-sdk-v5";
 import type { PaginationType } from "@/api/common";

@@ -17,7 +17,7 @@
                 <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
                 <template v-if="column.key === 'selectArr'">
                     <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
-                        }}</span>
+                    }}</span>
                     <span v-else>/</span>
                 </template>
                 <template v-if="column.key === 'answer'">
@@ -53,7 +53,8 @@
                     <a-radio-button value="5">操作题</a-radio-button>
                 </a-radio-group>
             </div>
-            <questionAddPage v-if="pageFlag" :addParams="addData" :type="type" :flag="flag" ref="addPage"></questionAddPage>
+            <questionAddPage v-if="pageFlag" :addParams="addData" :type="type" :flag="flag" ref="addPage">
+            </questionAddPage>
             <template #footer>
                 <a-button key="back" @click="visible = false">取消</a-button>
                 <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
@@ -63,7 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted, nextTick } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { ColumnsType } from "ant-design-vue/es/table/interface";
