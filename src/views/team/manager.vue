@@ -8,10 +8,10 @@
                 <img style="width: 26px;height: 26px;" :src="item.icon" />
             </template>
             <div>
-                <p>QQ：{{ item.qq }}</p>
+                <div>QQ：{{ item.qq }}</div>
                 <div class="qianming">
-                    <p style="width: 70px;">个性签名：</p>
-                    <P style="flex: 1">{{ item.motto }}</P>
+                    <div style="width: 70px;">个性签名：</div>
+                    <div style="flex: 1">{{ item.motto }}</div>
                 </div>
 
             </div>
@@ -80,6 +80,11 @@ const peopleList = ref<PeopleType[]>([{
         border: 4px solid aliceblue;
         animation: bgc 1s forwards infinite linear;
     }
+
+    .qianming {
+        display: flex;
+        justify-content: flex-start;
+    }
 }
 
 @keyframes bgc {
@@ -102,10 +107,5 @@ const peopleList = ref<PeopleType[]>([{
     100% {
         border-image: linear-gradient(-30deg, red, blue, blue) 1;
     }
-}
-
-.qianming {
-    display: flex;
-    justify-content: flex-start;
 }
 </style>

@@ -2,7 +2,7 @@
     <div class="main">
         暂无数据
     </div>
-    <div v-hash>我是初见</div>
+    <!-- <div v-hash>我是初见</div> -->
     <div v-show="false" v-color-bg="color"></div>
     <div v-color-bg>我是初见2</div>
     <div @click="change2()">{{ name2 }}</div>
@@ -13,9 +13,7 @@
     </xiangcePage>
     <div>————————————————————————————————分割线———————————————————————————————————</div>
     <div class="box">
-        <div class="horse">
-
-        </div>
+        <div class="horse"></div>
     </div>
 </template>
 

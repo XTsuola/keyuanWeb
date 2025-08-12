@@ -336,6 +336,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/zz_baichuzun.vue"),
               },
+              {
+                path: "xingkongCard",
+                meta: {
+                  menuType: "menu",
+                  key: "xingkongCard",
+                  label: "星空卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/xk_level.vue"),
+              },
             ],
           },
           {
