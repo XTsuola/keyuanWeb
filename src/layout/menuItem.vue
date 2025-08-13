@@ -1,7 +1,8 @@
 <template>
     <a-sub-menu :key="menu.meta.key" v-if="menu.meta?.menuType === 'folder' && getShow(menu.meta)">
         <template #icon>
-            <component v-if="menu.meta && menu.meta.icon" :is="getMenuIcon(menu.meta.icon)"></component>
+            <component v-if="menu.meta && menu.meta.icon" :is="(getMenuIcon((menu.meta as any).icon) as any)">
+            </component>
         </template>
         <template #title>{{ menu.meta?.label }}</template>
         <menuItem v-for="item in menu.children" :menu="item">
@@ -9,7 +10,8 @@
     </a-sub-menu>
     <a-menu-item :key="menu.meta.key" @click="goView" v-if="menu.meta?.menuType === 'menu' && getShow(menu.meta)">
         <template #icon>
-            <component v-if="menu.meta && menu.meta.icon" :is="getMenuIcon(menu.meta.icon)"></component>
+            <component v-if="menu.meta && menu.meta.icon" :is="(getMenuIcon((menu.meta as any).icon) as any)">
+            </component>
         </template>
         {{ menu.meta?.label }}
     </a-menu-item>
