@@ -1,0 +1,114 @@
+[
+  {
+    "quality": "蓝",
+    "name": "学仆-观测型",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定1",
+    "cost": 2,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定2",
+    "cost": 2,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "学仆-观测型",
+    "cost": 5,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "破魔系教授",
+    "cost": 2,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "克隆术",
+    "cost": 2,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "缄言法师",
+    "cost": 3,
+    "level": 19,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "学仆-脉冲型",
+    "cost": 3,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻域秘树1",
+    "cost": 4,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻域秘树2",
+    "cost": 4,
+    "level": 15,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻象龙",
+    "cost": 6,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "米拉方舟",
+    "cost": 7,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "魔像-钢翼仲裁者",
+    "cost": 9,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "流星-7号",
+    "cost": 4,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "月之神·米拉",
+    "cost": 5,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "火蛇巫女·沃凡瑞拉",
+    "cost": 7,
+    "level": 17,
+    "type": 1
+  }
+]

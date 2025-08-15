@@ -344,7 +344,17 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   label: "星空卡等",
                   icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/zlzq/xk_level.vue"),
+                component: () => import("@/views/game/zlzq/z_xk_level.vue"),
+              },
+              {
+                path: "dahetaoCard",
+                meta: {
+                  menuType: "menu",
+                  key: "dahetaoCard",
+                  label: "大核桃卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_dht_level.vue"),
               },
             ],
           },
