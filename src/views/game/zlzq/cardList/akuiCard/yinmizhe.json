@@ -1,0 +1,121 @@
+[
+  {
+    "quality": "蓝",
+    "name": "方尖魔碑",
+    "cost": 2,
+    "level": 15,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "全数否定",
+    "cost": 3,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "虚化术",
+    "cost": 3,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "学仆-能源型",
+    "cost": 5,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "请示隐秘者",
+    "cost": 5,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "破魔系教授",
+    "cost": 2,
+    "level": 13,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "传记·海市蜃楼·蛇",
+    "cost": 2,
+    "level": 10,
+    "type": 3
+  },
+  {
+    "quality": "紫",
+    "name": "克隆术",
+    "cost": 2,
+    "level": 9,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "缄言法师",
+    "cost": 3,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻域秘树",
+    "cost": 4,
+    "level": 13,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "改造魔卷",
+    "cost": 4,
+    "level": 10,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "召熊幻术师",
+    "cost": 5,
+    "level": 11,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻象龙",
+    "cost": 6,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "米拉方舟",
+    "cost": 7,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "月之神·米拉",
+    "cost": 5,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "火蛇巫女·沃凡瑞拉",
+    "cost": 7,
+    "level": 11,
+    "type": 1
+  }
+]

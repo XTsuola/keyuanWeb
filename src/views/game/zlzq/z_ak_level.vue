@@ -56,10 +56,10 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import manshikuangye from "./cardList/dahetaoCard/manshikuangye.json";
-import yinmizhe from "./cardList/dahetaoCard/yinmizhe.json";
-import simangdiguo from "./cardList/dahetaoCard/simangdiguo.json";
-import chanyigu from "./cardList/dahetaoCard/chanyigu.json";
+import simangdiguo from "./cardList/akuiCard/simangdiguo.json";
+import tiantanggang from "./cardList/akuiCard/tiantanggang.json";
+import manshikuangye from "./cardList/akuiCard/manshikuangye.json";
+import yinmizhe from "./cardList/akuiCard/yinmizhe.json";
 import MyTabel from "@/components/table.vue";
 
 const total = ref<number>(0);
@@ -191,8 +191,8 @@ const zhenyinList = [{
     label: "四芒帝国",
     value: 1
 }, {
-    label: "禅意谷",
-    value: 2
+    label: "天堂港",
+    value: 3
 }, {
     label: "蛮石旷野",
     value: 4
@@ -233,6 +233,12 @@ const levelList = [{
 }, {
     label: "11级",
     value: 11
+}, {
+    label: "10级",
+    value: 10
+}, {
+    label: "9级",
+    value: 9
 }];
 const formState = reactive({
     name: undefined,
@@ -247,10 +253,10 @@ const count = ref(0);
 async function getList() {
     count.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    chanyigu.forEach((item: any) => item.zhenyin = 2);
+    tiantanggang.forEach((item: any) => item.zhenyin = 3);
     manshikuangye.forEach((item: any) => item.zhenyin = 4);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    let allData: any = [...simangdiguo, ...chanyigu, ...manshikuangye, ...yinmizhe];
+    let allData: any = [...simangdiguo, ...tiantanggang, ...manshikuangye, ...yinmizhe];
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }

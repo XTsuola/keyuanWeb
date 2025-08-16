@@ -356,6 +356,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/z_dht_level.vue"),
               },
+              {
+                path: "akui",
+                meta: {
+                  menuType: "menu",
+                  key: "akui",
+                  label: "阿奎卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_ak_level.vue"),
+              },
             ],
           },
           {

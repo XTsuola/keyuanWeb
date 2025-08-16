@@ -56,9 +56,9 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import simangdiguo from "./xingkongCard/simangdiguo.json";
-import tiantanggang from "./xingkongCard/tiantanggang.json";
-import yinmizhe from "./xingkongCard/yinmizhe.json";
+import simangdiguo from "./cardList/xingkongCard/simangdiguo.json";
+import tiantanggang from "./cardList/xingkongCard/tiantanggang.json";
+import yinmizhe from "./cardList/xingkongCard/yinmizhe.json";
 import MyTabel from "@/components/table.vue";
 
 const total = ref<number>(0);
