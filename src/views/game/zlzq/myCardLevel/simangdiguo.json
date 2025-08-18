@@ -14,22 +14,11 @@
     "quality": "蓝",
     "name": "圣殿斥候2",
     "cost": 1,
-    "level": 17,
+    "level": 19,
     "type": 1,
-    "attack": 17,
-    "life": 11,
-    "effect": "【洞察1】、【协战6】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "天使琼浆",
-    "cost": 2,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、英雄生命+28、抓一张牌、75%几率获得《真理碎片》。",
+    "attack": 20,
+    "life": 16,
+    "effect": "【洞察1】、【协战7】。",
     "remark": ""
   },
   {
@@ -56,24 +45,13 @@
   },
   {
     "quality": "蓝",
-    "name": "光明惩戒1",
+    "name": "光明惩戒",
     "cost": 5,
     "level": 20,
     "type": 2,
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、横排所有敌军受到150点伤害、50%概率获得《真理碎片》。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "光明惩戒2",
-    "cost": 5,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、横排所有敌军受到75点伤害。",
     "remark": ""
   },
   {
@@ -118,17 +96,6 @@
     "attack": 11,
     "life": 24,
     "effect": "【护甲3】、【回命】、【协战5】。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "边境高墙",
-    "cost": 3,
-    "level": 12,
-    "type": 1,
-    "attack": 0,
-    "life": 50,
-    "effect": "【守军】、【磐龙】、【护甲3】、回合结束:【洞察1】，若场上有冰封，自身生命+6。",
     "remark": ""
   },
   {

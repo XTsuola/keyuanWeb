@@ -12,17 +12,6 @@
   },
   {
     "quality": "蓝",
-    "name": "箭竹守卫",
-    "cost": 1,
-    "level": 12,
-    "type": 1,
-    "attack": 9,
-    "life": 2,
-    "effect": "登场:向敌横排投掷竹矛，6点伤害、攻击前:向敌前排投掷竹矛，3点伤害。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
     "level": 12,
@@ -63,17 +52,6 @@
     "attack": 16,
     "life": 17,
     "effect": "【洞察1】、【法力封锁1】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "龟族僧人",
-    "cost": 3,
-    "level": 12,
-    "type": 1,
-    "attack": 10,
-    "life": 17,
-    "effect": "【护甲3】、【回命】、获得传承:护甲+4。",
     "remark": ""
   },
   {
@@ -190,10 +168,10 @@
     "quality": "紫",
     "name": "御风武者",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 1,
-    "attack": 29,
-    "life": 19,
+    "attack": 32,
+    "life": 21,
     "effect": "【先攻】、命中英雄时:75%几率吹回随机敌军。",
     "remark": ""
   },
