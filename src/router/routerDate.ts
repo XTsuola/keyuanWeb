@@ -357,6 +357,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/z_dht_level.vue"),
               },
               {
+                path: "qieCard",
+                meta: {
+                  menuType: "menu",
+                  key: "qieCard",
+                  label: "企鹅卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_qe_level.vue"),
+              },
+              {
                 path: "akui",
                 meta: {
                   menuType: "menu",
