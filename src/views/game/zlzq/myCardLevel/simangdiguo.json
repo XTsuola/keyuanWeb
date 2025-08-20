@@ -67,17 +67,6 @@
   },
   {
     "quality": "紫",
-    "name": "传记·钢铁守卫",
-    "cost": 1,
-    "level": 12,
-    "type": 3,
-    "attack": 0,
-    "life": 0,
-    "effect": "前排位置召唤圣堂门卫-lv10、获得【传记·钢铁赞歌】",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
     "name": "圣殿御卫",
     "cost": 2,
     "level": 20,
@@ -85,17 +74,6 @@
     "attack": 20,
     "life": 32,
     "effect": "【洞察1】、命中英雄:召唤16/8警卫-lv15。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "圣殿骑士",
-    "cost": 3,
-    "level": 12,
-    "type": 1,
-    "attack": 11,
-    "life": 24,
-    "effect": "【护甲3】、【回命】、【协战5】。",
     "remark": ""
   },
   {
@@ -118,28 +96,6 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、将横排敌军移回玩家手上、友军横排召唤15/7警卫-lv14。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "召集护卫",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、在目标位置和随机位置，召唤1/25圣堂门卫-lv12、护甲友军攻击+5，获得【磐龙】1回合。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "炽阳坠落",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "横排敌军受到27点伤害，英雄生命+27。",
     "remark": ""
   },
   {

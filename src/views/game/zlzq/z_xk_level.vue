@@ -49,10 +49,10 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span style="margin-right: 20px;">白石头累计消耗：{{ count }}</span>
-        <span style="margin-right: 20px;">蓝卡卡等：{{ blueLevel }}</span>
-        <span style="margin-right: 20px;">紫卡卡等：{{ purpleLevel }}</span>
-        <span style="margin-right: 20px;">金卡卡等：{{ goldLevel }}</span>
+        <span style="margin-right: 30px;">白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
+        <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
+        <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
         <span>总卡等：{{ allLevel }}</span>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>

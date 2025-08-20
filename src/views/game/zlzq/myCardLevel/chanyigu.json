@@ -1,17 +1,6 @@
 [
   {
     "quality": "蓝",
-    "name": "卜命道长",
-    "cost": 1,
-    "level": 12,
-    "type": 1,
-    "attack": 9,
-    "life": 6,
-    "effect": "【传承3】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
     "level": 12,
@@ -67,24 +56,13 @@
   },
   {
     "quality": "蓝",
-    "name": "连击1",
+    "name": "连击",
     "cost": 3,
     "level": 20,
     "type": 2,
     "attack": 0,
     "life": 0,
     "effect": "目标友军+8/+30，魔防+6，获得【二连击】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "连击2",
-    "cost": 3,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "目标友军+3/+15，魔防+1，获得【二连击】。",
     "remark": ""
   },
   {
@@ -107,28 +85,6 @@
     "attack": 16,
     "life": 15,
     "effect": "【洞察1】、登场:吹回随机敌军。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "祥云师太",
-    "cost": 4,
-    "level": 12,
-    "type": 1,
-    "attack": 10,
-    "life": 10,
-    "effect": "【传承10】、登场:随机相邻友军生命加倍，获得【护甲1】。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "风卷残云",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "吹回横排所有敌军，英雄生命+15，60%几率获得《真理石碎片》。",
     "remark": ""
   },
   {
@@ -173,17 +129,6 @@
     "attack": 32,
     "life": 21,
     "effect": "【先攻】、命中英雄时:75%几率吹回随机敌军。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "墨轩隐士",
-    "cost": 4,
-    "level": 12,
-    "type": 1,
-    "attack": 3,
-    "life": 23,
-    "effect": "【洞察1】、法力上限+1、回合结束:复制场上另一单位，到你手上。",
     "remark": ""
   },
   {
