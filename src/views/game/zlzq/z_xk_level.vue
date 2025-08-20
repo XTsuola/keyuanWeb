@@ -49,7 +49,11 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span>白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 20px;">白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 20px;">蓝卡卡等：{{ blueLevel }}</span>
+        <span style="margin-right: 20px;">紫卡卡等：{{ purpleLevel }}</span>
+        <span style="margin-right: 20px;">金卡卡等：{{ goldLevel }}</span>
+        <span>总卡等：{{ allLevel }}</span>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>
 </template>
@@ -236,6 +240,10 @@ const formState = reactive({
     type: undefined
 });
 const count = ref(0);
+const blueLevel = ref<any>(1);
+const purpleLevel = ref<any>(1);
+const goldLevel = ref<any>(1);
+const allLevel = ref<any>(1);
 
 async function getList() {
     count.value = 0;
@@ -243,6 +251,14 @@ async function getList() {
     tiantanggang.forEach((item: any) => item.zhenyin = 3);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let allData: any = [...simangdiguo, ...tiantanggang, ...yinmizhe];
+    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
+    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
+    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
+    let levelDataAll = allData.map((e: any) => e.level);
+    blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
+    purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
+    goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
+    allLevel.value = (levelDataAll.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / levelDataAll.length).toFixed(2);
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
@@ -265,8 +281,8 @@ async function getList() {
     tableData.value = allData;
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
-        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level)
-        count.value += tableData.value[i].bai
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        count.value += tableData.value[i].bai;
     }
 }
 
