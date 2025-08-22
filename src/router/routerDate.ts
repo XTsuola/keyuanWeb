@@ -376,6 +376,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/z_ak_level.vue"),
               },
+              {
+                path: "laodu",
+                meta: {
+                  menuType: "menu",
+                  key: "laodu",
+                  label: "老杜卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_ld_level.vue"),
+              },
             ],
           },
           {
