@@ -3,10 +3,10 @@
     "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
-    "level": 12,
+    "level": 13,
     "type": 1,
     "attack": 6,
-    "life": 7,
+    "life": 9,
     "effect": "【洞察1】、【传承6】、法力上限+1。",
     "remark": ""
   },
