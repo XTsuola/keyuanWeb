@@ -15,17 +15,17 @@
   },
   {
     "quality": "蓝",
+    "name": "狡诈学徒",
+    "cost": 2,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "黑夜突袭",
     "cost": 2,
     "level": 18,
     "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "狡诈学徒",
-    "cost": 2,
-    "level": 17,
-    "type": 1
   },
   {
     "quality": "蓝",
@@ -108,7 +108,7 @@
     "quality": "橙",
     "name": "夏日女郎·鲍莉",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 1
   }
 ]
