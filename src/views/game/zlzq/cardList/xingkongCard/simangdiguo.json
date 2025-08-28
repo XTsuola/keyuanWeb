@@ -8,20 +8,6 @@
   },
   {
     "quality": "蓝",
-    "name": "圣殿卫士",
-    "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "修女",
-    "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "圣殿弩手",
     "cost": 3,
     "level": 20,
@@ -80,7 +66,7 @@
     "quality": "紫",
     "name": "圣殿骑士",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -95,13 +81,6 @@
     "name": "禁卫百夫长",
     "cost": 5,
     "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "禁卫指挥官",
-    "cost": 6,
-    "level": 17,
     "type": 1
   },
   {
