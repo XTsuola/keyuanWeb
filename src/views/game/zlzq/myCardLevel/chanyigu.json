@@ -23,17 +23,6 @@
   },
   {
     "quality": "蓝",
-    "name": "飓风术",
-    "cost": 2,
-    "level": 14,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、目标敌军吹回手上、英雄生命+18。",
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
     "name": "锁妖塔守卫",
     "cost": 2,
     "level": 14,
@@ -41,6 +30,17 @@
     "attack": 16,
     "life": 17,
     "effect": "【洞察1】、【法力封锁1】。",
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "飓风术",
+    "cost": 2,
+    "level": 14,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "【洞察1】、目标敌军吹回手上、英雄生命+18。",
     "remark": ""
   },
   {
@@ -129,17 +129,6 @@
     "attack": 32,
     "life": 21,
     "effect": "【先攻】、命中英雄时:75%几率吹回随机敌军。",
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "蟠桃会",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、抓3张牌，英雄生命+18、随机一个友军+4/+4。",
     "remark": ""
   },
   {
