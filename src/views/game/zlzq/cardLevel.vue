@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -95,15 +95,6 @@ const columns = ref<any>([
         width: 60
     },
     {
-        title: "等级",
-        dataIndex: "level",
-        key: "level",
-        width: 80,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.level) - parseInt(b.level)
-        }
-    },
-    {
         title: "费用",
         dataIndex: "cost",
         key: "cost",
@@ -113,6 +104,63 @@ const columns = ref<any>([
         }
     },
     {
+        title: "等级",
+        dataIndex: "level",
+        key: "level",
+        width: 80,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.level) - parseInt(b.level)
+        }
+    },
+    {
+        title: "当前卡数",
+        dataIndex: "count",
+        key: "count",
+        width: 80,
+        customRender: (opt: any) => {
+            switch (opt.record.quality) {
+                case "蓝":
+                    return opt.record.count;
+                case "紫":
+                    return opt.record.count;
+                case "橙":
+                    return opt.record.count;
+                default:
+                    return ""
+            }
+        },
+        sorter: (a: any, b: any) => {
+            return parseInt(a.count) - parseInt(b.count)
+        }
+    },
+    {
+        title: "贷款数",
+        dataIndex: "daikuan",
+        key: "daikuan",
+        width: 80,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.daikuan) - parseInt(b.daikuan)
+        }
+    },
+    {
+        title: "下级还差",
+        dataIndex: "nextlevel",
+        key: "nextlevel",
+        width: 80,
+        customRender: (opt: any) => {
+            switch (opt.record.quality) {
+                case "蓝":
+                    return opt.record.level == 20 ? 0 : cardLevel1[opt.record.level] - opt.record.count;
+                case "紫":
+                    return opt.record.level == 20 ? 0 : cardLevel2[opt.record.level] - opt.record.count;
+                case "橙":
+                    return opt.record.level == 20 ? 0 : cardLevel3[opt.record.level] - opt.record.count;
+                default:
+                    return ""
+            }
+        }
+    },
+    /* {
         title: "类型",
         dataIndex: "type",
         key: "type",
@@ -148,7 +196,7 @@ const columns = ref<any>([
         key: "remark",
         dataIndex: "remark",
         width: 160
-    },
+    }, */
     {
         title: "白石头消耗",
         key: "bai",
@@ -274,6 +322,10 @@ const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
+
+const cardLevel1 = [1, 2, 4, 8, 16, 32, 64, 128, 192, 320, 448, 640, 832, 1152, 1472, 1792, 2240, 2688, 3136, 3584];
+const cardLevel2 = [1, 2, 4, 8, 16, 32, 64, 96, 160, 224, 320, 416, 576, 736, 960, 1184, 1408, 1728, 2048, 2368];
+const cardLevel3 = [1, 2, 4, 8, 16, 32, 64, 96, 128, 192, 256, 352, 448, 576, 704, 832, 1024, 1216, 1408, 1600];
 
 async function getList() {
     count.value = 0;
