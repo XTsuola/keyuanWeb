@@ -67,13 +67,24 @@
   },
   {
     "quality": "紫",
-    "name": "克隆术",
+    "name": "克隆术1",
     "cost": 2,
-    "level": 16,
+    "level": 14,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "【洞察1】、复制目标单位到手上，英雄生命+28。",
+    "effect": "【洞察1】、复制目标单位到手上，英雄生命+22。",
+    "remark": ""
+  },
+  {
+    "quality": "紫",
+    "name": "克隆术2",
+    "cost": 2,
+    "level": 14,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "【洞察1】、复制目标单位到手上，英雄生命+22。",
     "remark": ""
   },
   {
@@ -102,11 +113,11 @@
     "quality": "紫",
     "name": "学仆-脉冲型3",
     "cost": 3,
-    "level": 16,
+    "level": 17,
     "type": 1,
-    "attack": 11,
-    "life": 20,
-    "effect": "【洞察1】、洞察时：自身+2/+6，射击英雄。",
+    "attack": 12,
+    "life": 21,
+    "effect": "【洞察1】、洞察时：自身+2/+7，射击英雄。",
     "remark": ""
   },
   {
