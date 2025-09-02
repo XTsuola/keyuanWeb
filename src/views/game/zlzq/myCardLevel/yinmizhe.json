@@ -94,13 +94,13 @@
     "quality": "紫",
     "name": "克隆术2",
     "cost": 2,
-    "level": 13,
+    "level": 14,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "复制目标单位到手上，英雄生命+22。",
-    "count": 533,
-    "daikuan": 0,
+    "effect": "【洞察1】、复制目标单位到手上，英雄生命+22。",
+    "count": 736,
+    "daikuan": 110,
     "remark": ""
   },
   {
