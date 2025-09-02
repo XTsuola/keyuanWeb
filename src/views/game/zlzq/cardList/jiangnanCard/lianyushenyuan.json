@@ -1,0 +1,107 @@
+[
+  {
+    "quality": "蓝",
+    "name": "落雷击",
+    "cost": 1,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "炎球",
+    "cost": 2,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "热火冲锋",
+    "cost": 2,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "无面狂奔者",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "狂暴炎球",
+    "cost": 3,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "烈焰风暴1",
+    "cost": 4,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "烈焰风暴2",
+    "cost": 4,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "碎颅魔1",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "碎颅魔2",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "觅食大嘴兽",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "绝望镰魔",
+    "cost": 3,
+    "level": 19,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "岩浆球",
+    "cost": 3,
+    "level": 18,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "灼神双炎",
+    "cost": 4,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "雷光炼狱",
+    "cost": 5,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "熔金饕餮兽",
+    "cost": 5,
+    "level": 20,
+    "type": 1
+  }
+]

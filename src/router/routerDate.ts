@@ -386,6 +386,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/z_ld_level.vue"),
               },
+              {
+                path: "jiangnan",
+                meta: {
+                  menuType: "menu",
+                  key: "jiangnan",
+                  label: "江南卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_jn_level.vue"),
+              },
             ],
           },
           {
