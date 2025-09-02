@@ -455,6 +455,17 @@ const newRouterDate: Array<RouteRecordRaw> = [
             },
             component: () => import("@/views/play/chess/index.vue"),
           },
+          {
+            path: "qingshu",
+            meta: {
+              menuType: "menu",
+              key: "qingshu",
+              label: "情书",
+              icon: "UnorderedListOutlined",
+              isLevel: [1],
+            },
+            component: () => import("@/views/play/qingshu/index.vue"),
+          },
         ],
       },
       {
