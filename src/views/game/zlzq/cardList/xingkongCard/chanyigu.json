@@ -1,0 +1,107 @@
+[
+  {
+    "quality": "蓝",
+    "name": "拒马",
+    "cost": 2,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "苦行武僧",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "飓风术",
+    "cost": 2,
+    "level": 7,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "龟族僧人",
+    "cost": 3,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "执剑道者",
+    "cost": 3,
+    "level": 13,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "连击1",
+    "cost": 3,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "连击2",
+    "cost": 3,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "风铃道人",
+    "cost": 4,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云1",
+    "cost": 4,
+    "level": 9,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云2",
+    "cost": 4,
+    "level": 5,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "驱魔道人",
+    "cost": 3,
+    "level": 10,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "御风武者",
+    "cost": 4,
+    "level": 10,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "蟠桃会1",
+    "cost": 4,
+    "level": 9,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "蟠桃会2",
+    "cost": 4,
+    "level": 9,
+    "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "上宝沁金耙",
+    "cost": 4,
+    "level": 9,
+    "type": 2
+  }
+]

@@ -25,6 +25,8 @@
         </div>
         <div class="container bottom20">
             <div class="container_left">
+                <div>我的状态： <a-tag v-if="myStatus != 2" color="#87d068">存活</a-tag><a-tag v-else color="#f50">淘汰</a-tag>
+                </div>
                 <div>我的手牌：{{myHandCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div>我的弃牌：{{myDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div class="myBtn">
@@ -35,6 +37,8 @@
 
             </div>
             <div class="container_right">
+                <div>她的状态： <a-tag v-if="yourStatus != 2" color="#87d068">存活</a-tag><a-tag v-else color="#f50">淘汰</a-tag>
+                </div>
                 <div>她的手牌：{{yourHandCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div>她的弃牌：{{yourDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div class="myBtn">
@@ -77,8 +81,10 @@ const cardPile = ref<number[]>([]);
 const disPile = ref<number[]>([]);
 const myHandCards = ref<number[]>([]);
 const myDisCards = ref<number[]>([]);
+const myStatus = ref<number>(1);
 const yourHandCards = ref<number[]>([]);
 const yourDisCards = ref<number[]>([]);
+const yourStatus = ref<number>(1);
 
 const round = ref(1);
 
@@ -98,8 +104,16 @@ async function getList() {
         round.value = res.data.rows.round;
         myHandCards.value = res.data.rows.userData[0].handCards;
         myDisCards.value = res.data.rows.userData[0].disCards;
+        myStatus.value = res.data.rows.userData[0].status;
         yourHandCards.value = res.data.rows.userData[1].handCards;
         yourDisCards.value = res.data.rows.userData[1].disCards;
+        yourStatus.value = res.data.rows.userData[1].status;
+        for (let i = 0; i < res.data.rows.userData.length; i++) {
+            if (res.data.rows.userData[i].status == 2) {
+                gameStatus.value = false;
+                return
+            }
+        }
     }
 }
 
