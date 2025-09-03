@@ -9,9 +9,6 @@ export function useWebSocket(url: string, options: any = {}) {
 
     const connect = () => {
         ws.value = new WebSocket(url)
-
-        console.log(ws.value, "opp")
-
         ws.value.onopen = () => {
             status.value = 'connected'
             console.log('WebSocket 已连接')
