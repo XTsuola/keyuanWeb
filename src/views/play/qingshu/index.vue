@@ -25,7 +25,7 @@
         </div>
         <div class="container bottom20">
             <div class="container_left">
-                <div>我的状态： <a-tag v-if="myStatus != 2" color="#87d068">存活</a-tag><a-tag v-else color="#f50">淘汰</a-tag>
+                <div>我的状态： <a-tag :color="statusList[myStatus].color">{{ statusList[myStatus].name }}</a-tag>
                 </div>
                 <div>我的手牌：{{myHandCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div>我的弃牌：{{myDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
@@ -37,7 +37,7 @@
 
             </div>
             <div class="container_right">
-                <div>她的状态： <a-tag v-if="yourStatus != 2" color="#87d068">存活</a-tag><a-tag v-else color="#f50">淘汰</a-tag>
+                <div>她的状态： <a-tag :color="statusList[yourStatus].color">{{ statusList[yourStatus].name }}</a-tag>
                 </div>
                 <div>她的手牌：{{yourHandCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div>她的弃牌：{{yourDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
@@ -74,6 +74,23 @@ import { message } from "ant-design-vue";
 
 const { status, messages, sendMessage } = useWebSocket('ws://127.0.0.1:7001/ws');
 
+const statusList = [{
+    name: "未开始",
+    status: 0,
+    color: "#ccc",
+}, {
+    name: "存活",
+    status: 1,
+    color: "#87d068",
+}, {
+    name: "淘汰",
+    status: 2,
+    color: "#f50",
+}, {
+    name: "保护",
+    status: 3,
+    color: "#2db7f5",
+}]
 const gameStatus = ref(true);
 const input = ref('')
 const showRule = ref(false);

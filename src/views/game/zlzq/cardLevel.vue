@@ -49,7 +49,8 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span style="margin-right: 30px;">白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
+        <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
         <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
         <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
         <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
@@ -84,7 +85,7 @@ const columns = ref<any>([
         title: "阵营",
         dataIndex: "zhenyin",
         key: "zhenyin",
-        width: 80,
+        width: 100,
         customRender: (opt: any) => {
             return zhenyinList.find(item => item.value == opt.value)?.label
         }
@@ -93,13 +94,13 @@ const columns = ref<any>([
         title: "品质",
         dataIndex: "quality",
         key: "quality",
-        width: 60
+        width: 80
     },
     {
         title: "费用",
         dataIndex: "cost",
         key: "cost",
-        width: 60,
+        width: 80,
         sorter: (a: any, b: any) => {
             return parseInt(a.cost) - parseInt(b.cost)
         }
@@ -117,7 +118,7 @@ const columns = ref<any>([
         title: "当前卡数",
         dataIndex: "count",
         key: "count",
-        width: 80,
+        width: 100,
         customRender: (opt: any) => {
             switch (opt.record.quality) {
                 case "蓝":
@@ -138,7 +139,7 @@ const columns = ref<any>([
         title: "贷款数",
         dataIndex: "daikuan",
         key: "daikuan",
-        width: 80,
+        width: 100,
         sorter: (a: any, b: any) => {
             return parseInt(a.daikuan) - parseInt(b.daikuan)
         }
@@ -147,7 +148,7 @@ const columns = ref<any>([
         title: "下级还差",
         dataIndex: "nextlevel",
         key: "nextlevel",
-        width: 80,
+        width: 100,
         customRender: (opt: any) => {
             switch (opt.record.quality) {
                 case "蓝":
@@ -199,10 +200,19 @@ const columns = ref<any>([
         width: 160
     }, */
     {
+        title: "钻石",
+        key: "zuanshi",
+        dataIndex: "zuanshi",
+        width: 100,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.zuanshi) - parseInt(b.zuanshi)
+        }
+    },
+    {
         title: "白石头消耗",
         key: "bai",
         dataIndex: "bai",
-        width: 160,
+        width: 100,
         sorter: (a: any, b: any) => {
             return parseInt(a.bai) - parseInt(b.bai)
         }
@@ -321,31 +331,23 @@ const formState = reactive({
     cost: undefined,
     type: undefined
 });
-const count = ref(0);
+const countBaishitou = ref(0);
+const countZuanshi = ref(0);
 const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
-
 const cardLevel1 = [1, 2, 4, 8, 16, 32, 64, 128, 192, 320, 448, 640, 832, 1152, 1472, 1792, 2240, 2688, 3136, 3584];
 const cardLevel2 = [1, 2, 4, 8, 16, 32, 64, 96, 160, 224, 320, 416, 576, 736, 960, 1184, 1408, 1728, 2048, 2368];
 const cardLevel3 = [1, 2, 4, 8, 16, 32, 64, 96, 128, 192, 256, 352, 448, 576, 704, 832, 1024, 1216, 1408, 1600];
 
 async function getList() {
-    count.value = 0;
+    countBaishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     tiantanggang.forEach((item: any) => item.zhenyin = 3);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
     let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...yinmizhe];
-    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
-    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
-    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
-    let levelDataAll = allData.map((e: any) => e.level);
-    blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
-    purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
-    goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
-    allLevel.value = (levelDataAll.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / levelDataAll.length).toFixed(2);
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
@@ -365,25 +367,227 @@ async function getList() {
         allData = allData.filter((item: any) => item.level == formState.level);
     }
     total.value = allData.length;
+    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
+    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
+    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
+    let levelDataAll = allData.map((e: any) => e.level);
+    blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
+    purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
+    goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
+    allLevel.value = (levelDataAll.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / levelDataAll.length).toFixed(2);
     tableData.value = allData;
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
-        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level)
-        count.value += tableData.value[i].bai
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
+        countBaishitou.value += tableData.value[i].bai;
+        countZuanshi.value += tableData.value[i].zuanshi;
     }
 }
 
-const lList = [35, 185, 385, 465, 625, 725, 845];
-const zList = [50, 250, 550, 670, 870, 990, 1140];
-const cList = [100, 450, 1050, 1270, 1670, 1870, 2170];
+const lList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 10,
+    jinshitou: 0
+}, {
+    zuanshi: 35,
+    jinshitou: 0
+}, {
+    zuanshi: 90,
+    jinshitou: 0
+}, {
+    zuanshi: 220,
+    jinshitou: 0
+}, {
+    zuanshi: 500,
+    jinshitou: 0
+}, {
+    zuanshi: 820,
+    jinshitou: 0
+}, {
+    zuanshi: 1570,
+    jinshitou: 0
+}, {
+    zuanshi: 2470,
+    jinshitou: 0
+}, {
+    zuanshi: 3940,
+    jinshitou: 0
+}, {
+    zuanshi: 5460,
+    jinshitou: 0
+}, {
+    zuanshi: 7780,
+    jinshitou: 35
+}, {
+    zuanshi: 10100,
+    jinshitou: 185
+}, {
+    zuanshi: 12600,
+    jinshitou: 385
+}, {
+    zuanshi: 16100,
+    jinshitou: 465
+}, {
+    zuanshi: 19800,
+    jinshitou: 625
+}, {
+    zuanshi: 23680,
+    jinshitou: 725
+}, {
+    zuanshi: 27950,
+    jinshitou: 845
+}];
+const zList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 50
+}, {
+    zuanshi: 0,
+    jinshitou: 250
+}, {
+    zuanshi: 0,
+    jinshitou: 550
+}, {
+    zuanshi: 0,
+    jinshitou: 670
+}, {
+    zuanshi: 0,
+    jinshitou: 870
+}, {
+    zuanshi: 0,
+    jinshitou: 990
+}, {
+    zuanshi: 0,
+    jinshitou: 1140
+}];
+const cList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 100
+}, {
+    zuanshi: 0,
+    jinshitou: 450
+}, {
+    zuanshi: 0,
+    jinshitou: 1050
+}, {
+    zuanshi: 0,
+    jinshitou: 1270
+}, {
+    zuanshi: 0,
+    jinshitou: 1670
+}, {
+    zuanshi: 0,
+    jinshitou: 1870
+}, {
+    zuanshi: 0,
+    jinshitou: 2170
+}];
 
 function getBai(quality: string, level: number) {
     if (quality == "蓝") {
-        return level - 14 >= 0 ? lList[level - 14] : 0;
+        return level - 14 >= 0 ? lList[level - 1].jinshitou : 0;
     } else if (quality == "紫") {
-        return level - 14 >= 0 ? zList[level - 14] : 0;
+        return level - 14 >= 0 ? zList[level - 1].jinshitou : 0;
     } else if (quality == "橙") {
-        return level - 14 >= 0 ? cList[level - 14] : 0;
+        return level - 14 >= 0 ? cList[level - 1].jinshitou : 0;
+    } else {
+        return 0;
+    }
+}
+
+function getZuan(quality: string, level: number) {
+    if (quality == "蓝") {
+        return lList[level - 1].zuanshi;
+    } else if (quality == "紫") {
+        return zList[level - 1].zuanshi;
+    } else if (quality == "橙") {
+        return cList[level - 1].zuanshi;
     } else {
         return 0;
     }
