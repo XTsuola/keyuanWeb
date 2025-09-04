@@ -39,7 +39,7 @@
                 <div class="myBtn">
                     <a-button style="margin-right: 10px;" type="primary" @click="getNewCard(1)"
                         :disabled="myHandCards.length > 1 || round % 2 == 0">摸牌</a-button>
-                    <a-button type="primary" @click="disNowCard(1)" :disabled="myHandCards.length < 2">出牌</a-button>
+                    <a-button type="primary" @click="panduan(1)" :disabled="myHandCards.length < 2">出牌</a-button>
                 </div>
 
             </div>
@@ -58,7 +58,7 @@
                 <div class="myBtn">
                     <a-button style="margin-right: 10px;" type="primary" @click="getNewCard(2)"
                         :disabled="yourHandCards.length > 1 || round % 2 == 1">摸牌</a-button>
-                    <a-button type="primary" @click="disNowCard(2)" :disabled="yourHandCards.length < 2">出牌</a-button>
+                    <a-button type="primary" @click="panduan(2)" :disabled="yourHandCards.length < 2">出牌</a-button>
                 </div>
             </div>
         </div>
@@ -75,6 +75,24 @@
             <div v-for="value in qingshuBase.roleIntroduce">{{ value }}</div>
             <template #footer>
                 <a-button key="back" @click="showRule = false">关闭</a-button>
+            </template>
+        </a-modal>
+        <a-modal v-model:open="visible" destroyOnClose :maskClosable="false" centered>
+            <div>
+                <div>我猜测的牌是：</div>
+                <div style="display: flex;justify-content: flex-start;align-items: center;height: 40px;">
+                    <div class="cardBox" :class="yourPai == 2 ? 'borderRed' : ''" @click="yourPai = 2">牧师</div>
+                    <div class="cardBox" :class="yourPai == 3 ? 'borderRed' : ''" @click="yourPai = 3">男爵</div>
+                    <div class="cardBox" :class="yourPai == 4 ? 'borderRed' : ''" @click="yourPai = 4">侍女</div>
+                    <div class="cardBox" :class="yourPai == 5 ? 'borderRed' : ''" @click="yourPai = 5">王子</div>
+                    <div class="cardBox" :class="yourPai == 6 ? 'borderRed' : ''" @click="yourPai = 6">国王</div>
+                    <div class="cardBox" :class="yourPai == 7 ? 'borderRed' : ''" @click="yourPai = 7">女伯爵</div>
+                    <div class="cardBox" :class="yourPai == 8 ? 'borderRed' : ''" @click="yourPai = 8">公主</div>
+                </div>
+            </div>
+            <template #footer>
+                <a-button key="back" @click="visible = false">取消</a-button>
+                <a-button key="submit" type="primary" :loading="loading" @click="disNowCard">确定</a-button>
             </template>
         </a-modal>
     </div>
@@ -108,6 +126,8 @@ const statusList = [{
     status: 3,
     color: "#2db7f5",
 }]
+const loading = ref(false);
+const visible = ref(false);
 const gameStatus = ref(true);
 const input = ref('')
 const showRule = ref(false);
@@ -119,7 +139,7 @@ const myStatus = ref<number>(1);
 const yourHandCards = ref<number[]>([]);
 const yourDisCards = ref<number[]>([]);
 const yourStatus = ref<number>(1);
-
+const yourPai = ref(-1);
 const round = ref(1);
 
 // 发送按钮点击事件
@@ -159,7 +179,7 @@ async function reset() {
     if (res.status == 200) {
         getList();
         gameStatus.value = true;
-        nowIndex.value = -1;
+        nowIndex.value = yourPai.value = -1;
         nowPai.value = 0;
     }
 }
@@ -175,12 +195,15 @@ async function getNewCard(userId: number) {
     }
 }
 
-async function disNowCard(userId: number) {
+let nowUserId = - 1
+function panduan(userId: number) {
+    nowUserId = userId;
+    yourPai.value = -1;
     if (nowIndex.value == -1) {
         message.error("请选择牌");
         return
     }
-    if(nowPai.value == 8) {
+    if (nowPai.value == 8) {
         message.error("公主不能被打出");
         return
     }
@@ -190,10 +213,19 @@ async function disNowCard(userId: number) {
             return
         }
     }
+    if (nowPai.value == 1) {
+        visible.value = true;
+        return
+    }
+    disNowCard()
+}
+
+async function disNowCard() {
+    loading.value = true;
     const params: any = {
-        myId: userId,
+        myId: nowUserId,
         pai: nowPai.value,
-        yourPai: 4,
+        yourPai: yourPai.value,
         index: nowIndex.value
     }
     const res = await disCard(params)
@@ -202,6 +234,8 @@ async function disNowCard(userId: number) {
         nowPai.value = 0;
         getList();
     }
+    visible.value = false;
+    loading.value = false;
 }
 
 function getNowCard(pai: number, index: number) {
