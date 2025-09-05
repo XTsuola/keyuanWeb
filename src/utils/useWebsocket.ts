@@ -1,7 +1,8 @@
 import { ref, onBeforeUnmount } from 'vue'
 
-export function useWebSocket(url: string, options: any = {}) {
-    const { reconnectInterval = 3000 } = options
+export function useWebSocket(url: string, options: {
+    onmessage?: (msg: any) => void
+} = {}) {
     const ws = ref<any>(null)
     const messages = ref<any>([])
     const status = ref('disconnected')
@@ -15,12 +16,15 @@ export function useWebSocket(url: string, options: any = {}) {
         }
         ws.value.onmessage = (event: any) => {
             messages.value.push(event.data)
+            if (options.onmessage) {
+                options.onmessage(event.data);
+            }
         }
 
         ws.value.onclose = () => {
             status.value = 'disconnected'
             console.log('WebSocket 已关闭，准备重连…')
-            reconnectTimer = setTimeout(connect, reconnectInterval)
+            reconnectTimer = setTimeout(connect, 3000)
         }
 
         ws.value.onerror = (err: any) => {
@@ -29,10 +33,14 @@ export function useWebSocket(url: string, options: any = {}) {
         }
     }
 
-    const sendMessage = (msg: any) => {
-        if (ws.value && ws.value.readyState === WebSocket.OPEN) {
-            ws.value.send(msg)
+    const sendMessage = (command: any) => {
+        if (ws.value && command.type) {
+            ws.value.send(JSON.stringify(command));
         }
+    }
+
+    const closeWS = () => {
+        ws.value.close();
     }
 
     connect()
@@ -42,5 +50,5 @@ export function useWebSocket(url: string, options: any = {}) {
         ws.value?.close()
     })
 
-    return { ws, messages, status, sendMessage }
+    return { ws, messages, status, sendMessage, closeWS }
 }

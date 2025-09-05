@@ -1,27 +1,25 @@
 <template>
-    <!-- <div class="p-4">
-        <div class="flex gap-2 my-2">
-            <input v-model="input" placeholder="输入消息" class="border px-2 py-1 rounded" />
-            <button @click="handleSend" class="bg-blue-500 text-white px-3 py-1 rounded">
-                发送
-            </button>
-        </div>
-        <h3 class="mt-4 font-semibold">收到的消息:</h3>
-        <ul class="list-disc pl-6">
-            <li v-for="(msg, index) in messages" :key="index">
-                {{ msg }}
-            </li>
-        </ul>
-    </div> -->
     <div class="qingshu">
         <div class="bottom20">
-            牌堆区域：{{cardPile.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}
+            <span v-if="gameStatus">
+                牌堆区域：{{cardPile.map(e => qingshuBase.role.find(v => v.id == e)?.name ? "?" : "").join("、")}}
+            </span>
+            <span v-else>
+                牌堆区域：{{cardPile.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}
+            </span>
+
         </div>
         <div class="bottom20">
-            干扰区域：{{disPile.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}
+            <span v-if="gameStatus">
+                干扰区域：{{disPile.map(e => qingshuBase.role.find(v => v.id == e)?.name ? "?" : "").join("、")}}
+            </span>
+            <span v-else>
+                干扰区域：{{disPile.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}
+            </span>
+
         </div>
         <div>
-            <span>游戏状态：{{ gameStatus ? (round % 2 == 0 ? "江南回合" : "月色回合") : "游戏结束" }}、 回合数：{{ round }}</span>
+            <span>游戏状态：{{ gameStatus ? (round % 2 == 0 ? "江南回合" : "月色回合") : "游戏结束" }}</span>
         </div>
         <div class="container bottom20">
             <div class="container_left">
@@ -29,7 +27,7 @@
                 </div>
                 <div>我的手牌：</div>
                 <div style="display: flex;justify-content: flex-start;align-items: center;height: 40px;">
-                    <div class="cardBox" :class="(nowIndex == index && round % 2 == 1) ? 'borderRed' : ''"
+                    <div class="cardBox" :class="nowIndex == index && myHandCards.length > 1 ? 'borderRed' : ''"
                         v-for="(item, index) in myHandCards" @click="getNowCard(item, index)">
                         {{qingshuBase.role.find(v => v.id == item)?.name}}
                     </div>
@@ -37,29 +35,24 @@
                 <div>我的弃牌：</div>
                 <div>{{myDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
                 <div class="myBtn">
-                    <a-button style="margin-right: 10px;" type="primary" @click="getNewCard(1)"
-                        :disabled="myHandCards.length > 1 || round % 2 == 0">摸牌</a-button>
-                    <a-button type="primary" @click="panduan(1)" :disabled="myHandCards.length < 2">出牌</a-button>
+                    <a-button style="margin-right: 10px;" type="primary" @click="getNewCard()"
+                        :disabled="myHandCards.length > 1 || round % 2 == myId - 1">摸牌</a-button>
+                    <a-button type="primary" @click="panduan()" :disabled="myHandCards.length < 2">出牌</a-button>
                 </div>
 
             </div>
             <div class="container_right">
-                <div>她的状态： <a-tag :color="statusList[yourStatus].color">{{ statusList[yourStatus].name }}</a-tag>
+                <div>对手状态： <a-tag :color="statusList[yourStatus].color">{{ statusList[yourStatus].name }}</a-tag>
                 </div>
-                <div>她的手牌：</div>
+                <div>对手手牌：</div>
                 <div style="display: flex;justify-content: flex-start;align-items: center;height: 40px;">
-                    <div class="cardBox" :class="(nowIndex == index && round % 2 == 0) ? 'borderRed' : ''"
-                        v-for="(item, index) in yourHandCards" @click="getNowCard(item, index)">
-                        {{qingshuBase.role.find(v => v.id == item)?.name}}
+                    <div class="cardBox" v-for="(item, index) in yourHandCards" @click="getNowCard(item, index)">
+                        <span v-if="!gameStatus">{{qingshuBase.role.find(v => v.id == item)?.name}}</span>
+                        <span v-else>?</span>
                     </div>
                 </div>
-                <div>她的弃牌：</div>
+                <div>对手弃牌：</div>
                 <div>{{yourDisCards.map(e => qingshuBase.role.find(v => v.id == e)?.name).join("、")}}</div>
-                <div class="myBtn">
-                    <a-button style="margin-right: 10px;" type="primary" @click="getNewCard(2)"
-                        :disabled="yourHandCards.length > 1 || round % 2 == 1">摸牌</a-button>
-                    <a-button type="primary" @click="panduan(2)" :disabled="yourHandCards.length < 2">出牌</a-button>
-                </div>
             </div>
         </div>
         <div class="bottom20">
@@ -98,14 +91,46 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useWebSocket } from "@/utils/useWebsocket";
 import { qingshuBase } from "@/utils/global";
-import { disCard, getCard, getGameMap, resetGame } from "@/api/qingshu";
+import { getGameMap } from "@/api/qingshu";
 import { message } from "ant-design-vue";
 
-const { status, messages, sendMessage } = useWebSocket('ws://127.0.0.1:7001/ws');
-
+const myId = ref(-1);
+const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+if (userInfo.value && JSON.parse(userInfo.value).userId) {
+    myId.value = JSON.parse(userInfo.value).userId;
+} else {
+    myId.value = -1;
+}
+const { sendMessage, closeWS } = useWebSocket(`ws://127.0.0.1:8002/ws?userId=${myId.value}`,
+    {
+        onmessage: (msg: any) => {
+            if (msg) {
+                const data = JSON.parse(msg);
+                console.log("外部回调拿到消息:", msg);
+                if (data.msg == "摸牌成功") {
+                    getList();
+                } else if (data.msg == "重置成功") {
+                    getList();
+                    gameStatus.value = true;
+                    nowIndex.value = yourPai.value = -1;
+                    nowPai.value = 0;
+                } else if (data.msg == "出牌成功") {
+                    getList();
+                    nowIndex.value = -1;
+                    nowPai.value = 0;
+                    visible.value = loading.value = false;
+                } else {
+                    if (data.code == 202) {
+                        message.info("你对手的手牌是：" + qingshuBase.role[parseInt(data.msg) - 1].name)
+                    }
+                }
+            }
+        },
+    }
+);
 const nowIndex = ref(-1);
 const nowPai = ref(0);
 
@@ -142,62 +167,61 @@ const yourStatus = ref<number>(1);
 const yourPai = ref(-1);
 const round = ref(1);
 
-// 发送按钮点击事件
-function handleSend() {
-    if (input.value.trim() !== '') {
-        sendMessage(input.value)
-        input.value = ''
-    }
-}
-
 async function getList() {
     const res = await getGameMap();
     if (res.status == 200) {
         cardPile.value = res.data.rows.cardPile;
         disPile.value = res.data.rows.disPile;
         round.value = res.data.rows.round;
-        myHandCards.value = res.data.rows.userData[0].handCards;
-        myDisCards.value = res.data.rows.userData[0].disCards;
-        myStatus.value = res.data.rows.userData[0].status;
-        yourHandCards.value = res.data.rows.userData[1].handCards;
-        yourDisCards.value = res.data.rows.userData[1].disCards;
-        yourStatus.value = res.data.rows.userData[1].status;
+        myHandCards.value = res.data.rows.userData[myId.value == 1 ? 0 : 1].handCards;
+        myDisCards.value = res.data.rows.userData[myId.value == 1 ? 0 : 1].disCards;
+        myStatus.value = res.data.rows.userData[myId.value == 1 ? 0 : 1].status;
+        yourHandCards.value = res.data.rows.userData[myId.value == 1 ? 1 : 0].handCards;
+        yourDisCards.value = res.data.rows.userData[myId.value == 1 ? 1 : 0].disCards;
+        yourStatus.value = res.data.rows.userData[myId.value == 1 ? 1 : 0].status;
         if (res.data.rows.msg && res.data.rows.status == 2) {
             gameStatus.value = false;
             message.error(res.data.rows.msg)
-        } else {
+        }
+        /* else {
             if (!isNaN(parseInt(res.data.rows.msg))) {
                 const msg = "他的手牌是：" + qingshuBase.role[parseInt(res.data.rows.msg) - 1].name;
                 message.info(msg);
             }
-        }
+        } */
     }
 }
 
 async function reset() {
-    const res = await resetGame();
-    if (res.status == 200) {
-        getList();
-        gameStatus.value = true;
-        nowIndex.value = yourPai.value = -1;
-        nowPai.value = 0;
+    // const res = await resetGame();
+    // if (res.status == 200) {
+    //     getList();
+    //     gameStatus.value = true;
+    //     nowIndex.value = yourPai.value = -1;
+    //     nowPai.value = 0;
+    // }
+    const command = {
+        type: 9, // 重置
+        userId: myId.value
     }
+    sendMessage(command)
 }
 
-async function getNewCard(userId: number) {
+async function getNewCard() { // 摸牌
     if (!gameStatus.value) {
         message.error("游戏结束！")
         return
     }
-    const res = await getCard(userId)
-    if (res.status == 200) {
-        getList();
+    const command = {
+        type: 1,
+        userId: myId.value
     }
+    sendMessage(command)
 }
 
 let nowUserId = - 1
-function panduan(userId: number) {
-    nowUserId = userId;
+function panduan() {
+    nowUserId = myId.value;
     yourPai.value = -1;
     if (nowIndex.value == -1) {
         message.error("请选择牌");
@@ -220,22 +244,16 @@ function panduan(userId: number) {
     disNowCard()
 }
 
-async function disNowCard() {
+async function disNowCard() { // 出牌
     loading.value = true;
-    const params: any = {
-        myId: nowUserId,
+    const command = {
+        type: 2,
+        userId: myId.value,
         pai: nowPai.value,
         yourPai: yourPai.value,
         index: nowIndex.value
     }
-    const res = await disCard(params)
-    if (res.status == 200) {
-        nowIndex.value = -1;
-        nowPai.value = 0;
-        getList();
-    }
-    visible.value = false;
-    loading.value = false;
+    sendMessage(command)
 }
 
 function getNowCard(pai: number, index: number) {
@@ -248,6 +266,10 @@ function getNowCard(pai: number, index: number) {
 onMounted(() => {
     getList();
 })
+
+onBeforeUnmount(() => {
+    closeWS();
+});
 
 </script>
 <style lang="less" scoped>
@@ -299,6 +321,11 @@ onMounted(() => {
     border: 1px solid #ccc;
     margin-right: 10px;
     cursor: pointer;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30px
 }
 
 .borderRed {

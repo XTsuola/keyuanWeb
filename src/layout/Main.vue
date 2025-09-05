@@ -69,7 +69,7 @@ const userInfo = ref<UserInfo>({
     img: "",
     remark: ""
 });
-const localrInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
+const localInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
 const route = useRoute();
 const imgValue = ref<string>("");
 const breadCrumbs = ref<any>([]);
@@ -91,7 +91,7 @@ function logout() {
 }
 
 async function getUserList() {
-    const res = await getUserInfo(localrInfo?.userId);
+    const res = await getUserInfo(localInfo?.userId);
     if (res.data.code == 200) {
         const row = res.data.rows;
         userInfo.value = {
@@ -129,7 +129,7 @@ function getImg(e: Event) {
             if (e.target && typeof e.target.result === "string") {
                 imgValue.value = e.target.result;
                 let data: UpdateImgParams = {
-                    id: localrInfo?.userId,
+                    id: localInfo?.userId,
                     oldImg: window.sessionStorage.getItem("nowTouxiang") as string,
                     img: imgValue.value
                 };

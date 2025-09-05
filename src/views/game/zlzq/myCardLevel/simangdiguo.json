@@ -94,11 +94,11 @@
     "quality": "紫",
     "name": "夺取阵地",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "【洞察1】、将横排敌军移回玩家手上、友军横排召唤15/7警卫-lv14。",
+    "effect": "【洞察1】、将横排敌军移回玩家手上、友军横排召唤16/8警卫-lv15。",
     "count": 1402,
     "daikuan": 0,
     "remark": ""

@@ -482,7 +482,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               key: "qingshu",
               label: "情书",
               icon: "UnorderedListOutlined",
-              isLevel: [1],
+              isLevel: [1, 2],
             },
             component: () => import("@/views/play/qingshu/index.vue"),
           },
