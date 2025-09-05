@@ -357,11 +357,21 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/z_xk_level.vue"),
               },
               {
+                path: "hezhongshanCard",
+                meta: {
+                  menuType: "menu",
+                  key: "hezhongshanCard",
+                  label: "河中山卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_hzs_level.vue"),
+              },
+              {
                 path: "dahetaoCard",
                 meta: {
                   menuType: "menu",
                   key: "dahetaoCard",
-                  label: "大核桃卡等",
+                  label: "大核桃",
                   icon: "UnorderedListOutlined",
                 },
                 component: () => import("@/views/game/zlzq/z_dht_level.vue"),
