@@ -29,9 +29,9 @@
   },
   {
     "quality": "蓝",
-    "name": "虚化术",
+    "name": "全数否定",
     "cost": 3,
-    "level": 13,
+    "level": 18,
     "type": 2
   },
   {
@@ -59,7 +59,7 @@
     "quality": "紫",
     "name": "缄言法师",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 1
   },
   {

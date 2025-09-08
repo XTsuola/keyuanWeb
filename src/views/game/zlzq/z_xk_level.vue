@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -49,7 +49,8 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span style="margin-right: 30px;">白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
+        <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
         <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
         <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
         <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
@@ -119,6 +120,15 @@ const columns = ref<any>([
         key: "type",
         width: 80,
         customRender: (opt: any) => opt.value == 1 ? "战士" : (opt.value == 2 ? "法术" : "传记")
+    },
+    {
+        title: "钻石",
+        key: "zuanshi",
+        dataIndex: "zuanshi",
+        width: 100,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.zuanshi) - parseInt(b.zuanshi)
+        }
     },
     {
         title: "白石头消耗",
@@ -264,14 +274,224 @@ const formState = reactive({
     cost: undefined,
     type: undefined
 });
-const count = ref(0);
+const countBaishitou = ref(0);
+const countZuanshi = ref(0);
 const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
 
+const lList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 10,
+    jinshitou: 0
+}, {
+    zuanshi: 35,
+    jinshitou: 0
+}, {
+    zuanshi: 90,
+    jinshitou: 0
+}, {
+    zuanshi: 220,
+    jinshitou: 0
+}, {
+    zuanshi: 500,
+    jinshitou: 0
+}, {
+    zuanshi: 820,
+    jinshitou: 0
+}, {
+    zuanshi: 1570,
+    jinshitou: 0
+}, {
+    zuanshi: 2470,
+    jinshitou: 0
+}, {
+    zuanshi: 3940,
+    jinshitou: 0
+}, {
+    zuanshi: 5460,
+    jinshitou: 0
+}, {
+    zuanshi: 7780,
+    jinshitou: 35
+}, {
+    zuanshi: 10100,
+    jinshitou: 185
+}, {
+    zuanshi: 12600,
+    jinshitou: 385
+}, {
+    zuanshi: 16100,
+    jinshitou: 465
+}, {
+    zuanshi: 19800,
+    jinshitou: 625
+}, {
+    zuanshi: 23680,
+    jinshitou: 725
+}, {
+    zuanshi: 27950,
+    jinshitou: 845
+}];
+const zList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 50
+}, {
+    zuanshi: 0,
+    jinshitou: 250
+}, {
+    zuanshi: 0,
+    jinshitou: 550
+}, {
+    zuanshi: 0,
+    jinshitou: 670
+}, {
+    zuanshi: 0,
+    jinshitou: 870
+}, {
+    zuanshi: 0,
+    jinshitou: 990
+}, {
+    zuanshi: 0,
+    jinshitou: 1140
+}];
+const cList = [{
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 0
+}, {
+    zuanshi: 0,
+    jinshitou: 100
+}, {
+    zuanshi: 0,
+    jinshitou: 450
+}, {
+    zuanshi: 0,
+    jinshitou: 1050
+}, {
+    zuanshi: 0,
+    jinshitou: 1270
+}, {
+    zuanshi: 0,
+    jinshitou: 1670
+}, {
+    zuanshi: 0,
+    jinshitou: 1870
+}, {
+    zuanshi: 0,
+    jinshitou: 2170
+}];
+
+function getBai(quality: string, level: number) {
+    if (quality == "蓝") {
+        return level - 14 >= 0 ? lList[level - 1].jinshitou : 0;
+    } else if (quality == "紫") {
+        return level - 14 >= 0 ? zList[level - 1].jinshitou : 0;
+    } else if (quality == "橙") {
+        return level - 14 >= 0 ? cList[level - 1].jinshitou : 0;
+    } else {
+        return 0;
+    }
+}
+
+function getZuan(quality: string, level: number) {
+    if (quality == "蓝") {
+        return lList[level - 1].zuanshi;
+    } else if (quality == "紫") {
+        return zList[level - 1].zuanshi;
+    } else if (quality == "橙") {
+        return cList[level - 1].zuanshi;
+    } else {
+        return 0;
+    }
+}
+
+
 async function getList() {
-    count.value = 0;
+    countBaishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     tiantanggang.forEach((item: any) => item.zhenyin = 3);
@@ -308,23 +528,11 @@ async function getList() {
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
         tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
-        count.value += tableData.value[i].bai;
-    }
-}
-
-const lList = [35, 185, 385, 465, 625, 725, 845];
-const zList = [50, 250, 550, 670, 870, 990, 1140];
-const cList = [100, 450, 1050, 1270, 1670, 1870, 2170];
-
-function getBai(quality: string, level: number) {
-    if (quality == "蓝") {
-        return level - 14 >= 0 ? lList[level - 14] : 0;
-    } else if (quality == "紫") {
-        return level - 14 >= 0 ? zList[level - 14] : 0;
-    } else if (quality == "橙") {
-        return level - 14 >= 0 ? cList[level - 14] : 0;
-    } else {
-        return 0;
+        tableData.value[i].id = i + 1;
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
+        countBaishitou.value += tableData.value[i].bai;
+        countZuanshi.value += tableData.value[i].zuanshi;
     }
 }
 

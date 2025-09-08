@@ -327,16 +327,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/zz_mei.vue"),
               },
               {
-                path: "zhenlizhiquanBaichuzun",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanBaichuzun",
-                  label: "白处尊",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_baichuzun.vue"),
-              },
-              {
                 path: "zhenlizhiquanYafendaikesi",
                 meta: {
                   menuType: "menu",
