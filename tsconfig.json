@@ -2,7 +2,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "env.d.ts"
   ],
   "compilerOptions": {
     "module": "esnext",
