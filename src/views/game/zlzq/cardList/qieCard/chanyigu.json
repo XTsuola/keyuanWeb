@@ -29,16 +29,9 @@
   },
   {
     "quality": "蓝",
-    "name": "树木之怒2",
-    "cost": 2,
-    "level": 18,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "白羊药师1",
     "cost": 2,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -50,16 +43,23 @@
   },
   {
     "quality": "蓝",
+    "name": "树木之怒2",
+    "cost": 2,
+    "level": 18,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "疾风猎手",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "风铃道人",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -73,7 +73,7 @@
     "quality": "紫",
     "name": "扫叶僧1",
     "cost": 3,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
@@ -87,14 +87,14 @@
     "quality": "紫",
     "name": "御风武者",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "疾风传说",
     "cost": 4,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {

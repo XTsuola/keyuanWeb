@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -61,6 +61,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
+import { blueObj, purpleObj, goldObj } from "@/utils/global";
 import simangdiguo from "./myCardLevel/simangdiguo.json";
 import chanyigu from "./myCardLevel/chanyigu.json";
 import yinmizhe from "./myCardLevel/yinmizhe.json";
@@ -151,11 +152,11 @@ const columns = ref<any>([
         customRender: (opt: any) => {
             switch (opt.record.quality) {
                 case "蓝":
-                    return opt.record.level == 20 ? 0 : cardLevel1[opt.record.level] - opt.record.count;
+                    return opt.record.level == 20 ? 0 : blueObj[opt.record.level].count - opt.record.count;
                 case "紫":
-                    return opt.record.level == 20 ? 0 : cardLevel2[opt.record.level] - opt.record.count;
+                    return opt.record.level == 20 ? 0 : purpleObj[opt.record.level].count - opt.record.count;
                 case "橙":
-                    return opt.record.level == 20 ? 0 : cardLevel3[opt.record.level] - opt.record.count;
+                    return opt.record.level == 20 ? 0 : goldObj[opt.record.level].count - opt.record.count;
                 default:
                     return ""
             }
@@ -333,9 +334,6 @@ const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
-const cardLevel1 = [1, 2, 4, 8, 16, 32, 64, 128, 192, 320, 448, 640, 832, 1152, 1472, 1792, 2240, 2688, 3136, 3584];
-const cardLevel2 = [1, 2, 4, 8, 16, 32, 64, 96, 160, 224, 320, 416, 576, 736, 960, 1184, 1408, 1728, 2048, 2368];
-const cardLevel3 = [1, 2, 4, 8, 16, 32, 64, 96, 128, 192, 256, 352, 448, 576, 704, 832, 1024, 1216, 1408, 1600];
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
@@ -380,197 +378,13 @@ async function getList() {
     }
 }
 
-const lList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 10,
-    jinshitou: 0
-}, {
-    zuanshi: 35,
-    jinshitou: 0
-}, {
-    zuanshi: 90,
-    jinshitou: 0
-}, {
-    zuanshi: 220,
-    jinshitou: 0
-}, {
-    zuanshi: 500,
-    jinshitou: 0
-}, {
-    zuanshi: 820,
-    jinshitou: 0
-}, {
-    zuanshi: 1570,
-    jinshitou: 0
-}, {
-    zuanshi: 2470,
-    jinshitou: 0
-}, {
-    zuanshi: 3940,
-    jinshitou: 0
-}, {
-    zuanshi: 5460,
-    jinshitou: 0
-}, {
-    zuanshi: 7780,
-    jinshitou: 35
-}, {
-    zuanshi: 10100,
-    jinshitou: 185
-}, {
-    zuanshi: 12600,
-    jinshitou: 385
-}, {
-    zuanshi: 16100,
-    jinshitou: 465
-}, {
-    zuanshi: 19800,
-    jinshitou: 625
-}, {
-    zuanshi: 23680,
-    jinshitou: 725
-}, {
-    zuanshi: 27950,
-    jinshitou: 845
-}];
-const zList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 50
-}, {
-    zuanshi: 0,
-    jinshitou: 250
-}, {
-    zuanshi: 0,
-    jinshitou: 550
-}, {
-    zuanshi: 0,
-    jinshitou: 670
-}, {
-    zuanshi: 0,
-    jinshitou: 870
-}, {
-    zuanshi: 0,
-    jinshitou: 990
-}, {
-    zuanshi: 0,
-    jinshitou: 1140
-}];
-const cList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 100
-}, {
-    zuanshi: 0,
-    jinshitou: 450
-}, {
-    zuanshi: 0,
-    jinshitou: 1050
-}, {
-    zuanshi: 0,
-    jinshitou: 1270
-}, {
-    zuanshi: 0,
-    jinshitou: 1670
-}, {
-    zuanshi: 0,
-    jinshitou: 1870
-}, {
-    zuanshi: 0,
-    jinshitou: 2170
-}];
-
 function getBai(quality: string, level: number) {
     if (quality == "蓝") {
-        return level - 14 >= 0 ? lList[level - 1].jinshitou : 0;
+        return blueObj[level - 1].cailiao[3];
     } else if (quality == "紫") {
-        return level - 14 >= 0 ? zList[level - 1].jinshitou : 0;
+        return purpleObj[level - 1].cailiao[3];
     } else if (quality == "橙") {
-        return level - 14 >= 0 ? cList[level - 1].jinshitou : 0;
+        return goldObj[level - 1].cailiao[3];
     } else {
         return 0;
     }
@@ -578,11 +392,11 @@ function getBai(quality: string, level: number) {
 
 function getZuan(quality: string, level: number) {
     if (quality == "蓝") {
-        return lList[level - 1].zuanshi;
+        return blueObj[level - 1].zuanshi;
     } else if (quality == "紫") {
-        return zList[level - 1].zuanshi;
+        return purpleObj[level - 1].zuanshi;
     } else if (quality == "橙") {
-        return cList[level - 1].zuanshi;
+        return goldObj[level - 1].zuanshi;
     } else {
         return 0;
     }

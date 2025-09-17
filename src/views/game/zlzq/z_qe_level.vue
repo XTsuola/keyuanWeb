@@ -49,7 +49,8 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span style="margin-right: 30px;">白石头累计消耗：{{ count }}</span>
+        <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
+        <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
         <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
         <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
         <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
@@ -60,10 +61,11 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import tiantanggang from "./cardList/qieCard/tiantanggang.json"
+import { blueObj, purpleObj, goldObj } from "@/utils/global";
+import tiantanggang from "./cardList/qieCard/tiantanggang.json";
 import lianyushenyuan from "./cardList/qieCard/lianyushenyuan.json";
 import chanyigu from "./cardList/qieCard/chanyigu.json";
-import simangdiguo from "./cardList/qieCard/simangdiguo.json"
+import simangdiguo from "./cardList/qieCard/simangdiguo.json";
 import MyTabel from "@/components/table.vue";
 
 const total = ref<number>(0);
@@ -119,6 +121,15 @@ const columns = ref<any>([
         key: "type",
         width: 80,
         customRender: (opt: any) => opt.value == 1 ? "战士" : "法术"
+    },
+    {
+        title: "钻石",
+        key: "zuanshi",
+        dataIndex: "zuanshi",
+        width: 100,
+        sorter: (a: any, b: any) => {
+            return parseInt(a.zuanshi) - parseInt(b.zuanshi)
+        }
     },
     {
         title: "白石头消耗",
@@ -249,14 +260,15 @@ const formState = reactive({
     cost: undefined,
     type: undefined
 });
-const count = ref(0);
+const countBaishitou = ref(0);
+const countZuanshi = ref(0);
 const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
 
 async function getList() {
-    count.value = 0;
+    countBaishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     tiantanggang.forEach((item: any) => item.zhenyin = 3);
@@ -292,22 +304,34 @@ async function getList() {
     tableData.value = allData;
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
-        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level)
-        count.value += tableData.value[i].bai
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].id = i + 1;
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
+        countBaishitou.value += tableData.value[i].bai;
+        countZuanshi.value += tableData.value[i].zuanshi;
     }
 }
 
-const lList = [35, 185, 385, 465, 625, 725, 845];
-const zList = [50, 250, 550, 670, 870, 990, 1140];
-const cList = [100, 450, 1050, 1270, 1670, 1870, 2170];
-
 function getBai(quality: string, level: number) {
     if (quality == "蓝") {
-        return level - 14 >= 0 ? lList[level - 14] : 0;
+        return blueObj[level - 1].cailiao[3];
     } else if (quality == "紫") {
-        return level - 14 >= 0 ? zList[level - 14] : 0;
+        return purpleObj[level - 1].cailiao[3];
     } else if (quality == "橙") {
-        return level - 14 >= 0 ? cList[level - 14] : 0;
+        return goldObj[level - 1].cailiao[3];
+    } else {
+        return 0;
+    }
+}
+
+function getZuan(quality: string, level: number) {
+    if (quality == "蓝") {
+        return blueObj[level - 1].zuanshi;
+    } else if (quality == "紫") {
+        return purpleObj[level - 1].zuanshi;
+    } else if (quality == "橙") {
+        return goldObj[level - 1].zuanshi;
     } else {
         return 0;
     }

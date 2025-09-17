@@ -10,8 +10,15 @@
     "quality": "蓝",
     "name": "心灵黑洞2",
     "cost": 1,
-    "level": 13,
+    "level": 14,
     "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "狡诈学徒",
+    "cost": 2,
+    "level": 20,
+    "type": 1
   },
   {
     "quality": "蓝",
@@ -19,13 +26,6 @@
     "cost": 2,
     "level": 20,
     "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "狡诈学徒",
-    "cost": 2,
-    "level": 19,
-    "type": 1
   },
   {
     "quality": "蓝",
@@ -38,14 +38,14 @@
     "quality": "蓝",
     "name": "不法交易",
     "cost": 3,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "热血矿工",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 1
   },
   {
@@ -59,7 +59,7 @@
     "quality": "紫",
     "name": "红海猎魔人",
     "cost": 2,
-    "level": 18,
+    "level": 20,
     "type": 1
   },
   {
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "黑金诈术师",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
@@ -101,7 +101,7 @@
     "quality": "橙",
     "name": "夏日女郎·鲍莉",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -115,7 +115,7 @@
     "quality": "橙",
     "name": "天雷降临·布瑞恩",
     "cost": 5,
-    "level": 15,
+    "level": 16,
     "type": 1
   }
 ]

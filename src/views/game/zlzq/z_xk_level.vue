@@ -61,6 +61,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
+import { blueObj, purpleObj, goldObj } from "@/utils/global";
 import simangdiguo from "./cardList/xingkongCard/simangdiguo.json";
 import tiantanggang from "./cardList/xingkongCard/tiantanggang.json";
 import yinmizhe from "./cardList/xingkongCard/yinmizhe.json";
@@ -253,197 +254,13 @@ const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
 
-const lList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 10,
-    jinshitou: 0
-}, {
-    zuanshi: 35,
-    jinshitou: 0
-}, {
-    zuanshi: 90,
-    jinshitou: 0
-}, {
-    zuanshi: 220,
-    jinshitou: 0
-}, {
-    zuanshi: 500,
-    jinshitou: 0
-}, {
-    zuanshi: 820,
-    jinshitou: 0
-}, {
-    zuanshi: 1570,
-    jinshitou: 0
-}, {
-    zuanshi: 2470,
-    jinshitou: 0
-}, {
-    zuanshi: 3940,
-    jinshitou: 0
-}, {
-    zuanshi: 5460,
-    jinshitou: 0
-}, {
-    zuanshi: 7780,
-    jinshitou: 35
-}, {
-    zuanshi: 10100,
-    jinshitou: 185
-}, {
-    zuanshi: 12600,
-    jinshitou: 385
-}, {
-    zuanshi: 16100,
-    jinshitou: 465
-}, {
-    zuanshi: 19800,
-    jinshitou: 625
-}, {
-    zuanshi: 23680,
-    jinshitou: 725
-}, {
-    zuanshi: 27950,
-    jinshitou: 845
-}];
-const zList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 50
-}, {
-    zuanshi: 0,
-    jinshitou: 250
-}, {
-    zuanshi: 0,
-    jinshitou: 550
-}, {
-    zuanshi: 0,
-    jinshitou: 670
-}, {
-    zuanshi: 0,
-    jinshitou: 870
-}, {
-    zuanshi: 0,
-    jinshitou: 990
-}, {
-    zuanshi: 0,
-    jinshitou: 1140
-}];
-const cList = [{
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 0
-}, {
-    zuanshi: 0,
-    jinshitou: 100
-}, {
-    zuanshi: 0,
-    jinshitou: 450
-}, {
-    zuanshi: 0,
-    jinshitou: 1050
-}, {
-    zuanshi: 0,
-    jinshitou: 1270
-}, {
-    zuanshi: 0,
-    jinshitou: 1670
-}, {
-    zuanshi: 0,
-    jinshitou: 1870
-}, {
-    zuanshi: 0,
-    jinshitou: 2170
-}];
-
 function getBai(quality: string, level: number) {
     if (quality == "蓝") {
-        return level - 14 >= 0 ? lList[level - 1].jinshitou : 0;
+        return blueObj[level - 1].cailiao[3];
     } else if (quality == "紫") {
-        return level - 14 >= 0 ? zList[level - 1].jinshitou : 0;
+        return purpleObj[level - 1].cailiao[3];
     } else if (quality == "橙") {
-        return level - 14 >= 0 ? cList[level - 1].jinshitou : 0;
+        return goldObj[level - 1].cailiao[3];
     } else {
         return 0;
     }
@@ -451,16 +268,15 @@ function getBai(quality: string, level: number) {
 
 function getZuan(quality: string, level: number) {
     if (quality == "蓝") {
-        return lList[level - 1].zuanshi;
+        return blueObj[level - 1].zuanshi;
     } else if (quality == "紫") {
-        return zList[level - 1].zuanshi;
+        return purpleObj[level - 1].zuanshi;
     } else if (quality == "橙") {
-        return cList[level - 1].zuanshi;
+        return goldObj[level - 1].zuanshi;
     } else {
         return 0;
     }
 }
-
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
