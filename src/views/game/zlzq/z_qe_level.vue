@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -62,10 +62,10 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
-import tiantanggang from "./cardList/qieCard/tiantanggang.json";
-import lianyushenyuan from "./cardList/qieCard/lianyushenyuan.json";
-import chanyigu from "./cardList/qieCard/chanyigu.json";
 import simangdiguo from "./cardList/qieCard/simangdiguo.json";
+import tiantanggang from "./cardList/qieCard/tiantanggang.json";
+import chanyigu from "./cardList/qieCard/chanyigu.json";
+import lianyushenyuan from "./cardList/qieCard/lianyushenyuan.json";
 import MyTabel from "@/components/table.vue";
 
 const total = ref<number>(0);
@@ -120,7 +120,7 @@ const columns = ref<any>([
         dataIndex: "type",
         key: "type",
         width: 80,
-        customRender: (opt: any) => opt.value == 1 ? "战士" : "法术"
+        customRender: (opt: any) => opt.value == 1 ? "战士" : (opt.value == 2 ? "法术" : "传记")
     },
     {
         title: "钻石",
@@ -267,52 +267,6 @@ const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
 
-async function getList() {
-    countBaishitou.value = countZuanshi.value = 0;
-    simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    chanyigu.forEach((item: any) => item.zhenyin = 2);
-    tiantanggang.forEach((item: any) => item.zhenyin = 3);
-    lianyushenyuan.forEach((item: any) => item.zhenyin = 5);
-    let allData: any = [...simangdiguo, ...tiantanggang, ...chanyigu, ...lianyushenyuan];
-    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
-    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
-    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
-    let levelDataAll = allData.map((e: any) => e.level);
-    blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
-    purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
-    goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
-    allLevel.value = (levelDataAll.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / levelDataAll.length).toFixed(2);
-    if (formState.name) {
-        allData = allData.filter((item: any) => item.name.includes(formState.name));
-    }
-    if (formState.zhenyin.length > 0) {
-        allData = allData.filter((item: any) => formState.zhenyin.findIndex((e: any) => e == item.zhenyin) != -1)
-    }
-    if (formState.quality) {
-        allData = allData.filter((item: any) => item.quality == formState.quality);
-    }
-    if (formState.cost != undefined && formState.cost != "") {
-        allData = allData.filter((item: any) => item.cost == formState.cost);
-    }
-    if (formState.type) {
-        allData = allData.filter((item: any) => item.type == formState.type);
-    }
-    if (formState.level) {
-        allData = allData.filter((item: any) => item.level == formState.level);
-    }
-    total.value = allData.length;
-    tableData.value = allData;
-    for (let i = 0; i < tableData.value.length; i++) {
-        tableData.value[i].id = i + 1;
-        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
-        tableData.value[i].id = i + 1;
-        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
-        tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
-        countBaishitou.value += tableData.value[i].bai;
-        countZuanshi.value += tableData.value[i].zuanshi;
-    }
-}
-
 function getBai(quality: string, level: number) {
     if (quality == "蓝") {
         return blueObj[level - 1].cailiao[3];
@@ -334,6 +288,52 @@ function getZuan(quality: string, level: number) {
         return goldObj[level - 1].zuanshi;
     } else {
         return 0;
+    }
+}
+
+async function getList() {
+    countBaishitou.value = countZuanshi.value = 0;
+    simangdiguo.forEach((item: any) => item.zhenyin = 1);
+    chanyigu.forEach((item: any) => item.zhenyin = 2);
+    tiantanggang.forEach((item: any) => item.zhenyin = 3);
+    lianyushenyuan.forEach((item: any) => item.zhenyin = 5);
+    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...lianyushenyuan];
+    if (formState.name) {
+        allData = allData.filter((item: any) => item.name.includes(formState.name));
+    }
+    if (formState.zhenyin.length > 0) {
+        allData = allData.filter((item: any) => formState.zhenyin.findIndex((e: any) => e == item.zhenyin) != -1)
+    }
+    if (formState.quality) {
+        allData = allData.filter((item: any) => item.quality == formState.quality);
+    }
+    if (formState.cost != undefined && formState.cost != "") {
+        allData = allData.filter((item: any) => item.cost == formState.cost);
+    }
+    if (formState.type) {
+        allData = allData.filter((item: any) => item.type == formState.type);
+    }
+    if (formState.level) {
+        allData = allData.filter((item: any) => item.level == formState.level);
+    }
+    total.value = allData.length;
+    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
+    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
+    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
+    let levelDataAll = allData.map((e: any) => e.level);
+    blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
+    purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
+    goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
+    allLevel.value = (levelDataAll.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / levelDataAll.length).toFixed(2);
+    tableData.value = allData;
+    for (let i = 0; i < tableData.value.length; i++) {
+        tableData.value[i].id = i + 1;
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].id = i + 1;
+        tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
+        countBaishitou.value += tableData.value[i].bai;
+        countZuanshi.value += tableData.value[i].zuanshi;
     }
 }
 
