@@ -3,11 +3,11 @@
     "quality": "蓝",
     "name": "树木之怒",
     "cost": 2,
-    "level": 19,
+    "level": 20,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "随机区域敌军、及敌方玩家受到51点伤害。",
+    "effect": "随机区域敌军、及敌方玩家受到54点伤害。",
     "count": 3136,
     "daikuan": 180,
     "remark": ""
