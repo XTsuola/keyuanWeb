@@ -8,6 +8,13 @@
   },
   {
     "quality": "蓝",
+    "name": "旅行背包",
+    "cost": 1,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "圣殿卫士",
     "cost": 2,
     "level": 20,
@@ -15,16 +22,16 @@
   },
   {
     "quality": "蓝",
-    "name": "民兵队长",
+    "name": "修女",
     "cost": 2,
     "level": 19,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "盾甲禁卫",
-    "cost": 3,
-    "level": 20,
+    "name": "民兵队长",
+    "cost": 2,
+    "level": 19,
     "type": 1
   },
   {
@@ -45,7 +52,7 @@
     "quality": "蓝",
     "name": "光明惩戒1",
     "cost": 5,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
@@ -57,17 +64,17 @@
   },
   {
     "quality": "紫",
-    "name": "四芒军旗1",
+    "name": "四芒军旗",
     "cost": 1,
     "level": 16,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "四芒军旗2",
+    "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 12,
-    "type": 1
+    "level": 14,
+    "type": 3
   },
   {
     "quality": "紫",
@@ -87,21 +94,21 @@
     "quality": "紫",
     "name": "白袍主教",
     "cost": 3,
-    "level": 18,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "边境高墙",
+    "name": "冲锋装备",
     "cost": 3,
-    "level": 16,
-    "type": 1
+    "level": 14,
+    "type": 2
   },
   {
     "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 15,
+    "level": 17,
     "type": 2
   },
   {
@@ -129,7 +136,7 @@
     "quality": "橙",
     "name": "春花使者·卡洛琳",
     "cost": 4,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -143,7 +150,7 @@
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {

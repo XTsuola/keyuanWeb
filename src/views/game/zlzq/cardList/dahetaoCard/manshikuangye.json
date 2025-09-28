@@ -17,14 +17,7 @@
     "quality": "蓝",
     "name": "旷野祭师2",
     "cost": 2,
-    "level": 18,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "蓄力射手",
-    "cost": 2,
-    "level": 20,
+    "level": 17,
     "type": 1
   },
   {
@@ -43,9 +36,9 @@
   },
   {
     "quality": "蓝",
-    "name": "天降碎石",
-    "cost": 3,
-    "level": 20,
+    "name": "势如破竹3",
+    "cost": 2,
+    "level": 17,
     "type": 2
   },
   {
@@ -71,17 +64,31 @@
   },
   {
     "quality": "紫",
-    "name": "活力仙人掌",
-    "cost": 3,
-    "level": 20,
+    "name": "血蜥头领",
+    "cost": 2,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "肥鼠晚宴",
+    "name": "肥鼠晚宴1",
     "cost": 3,
     "level": 20,
     "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "肥鼠晚宴2",
+    "cost": 3,
+    "level": 18,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "活力仙人掌",
+    "cost": 3,
+    "level": 20,
+    "type": 1
   },
   {
     "quality": "紫",
@@ -106,13 +113,6 @@
   },
   {
     "quality": "紫",
-    "name": "源力苏醒",
-    "cost": 6,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "紫",
     "name": "贪食白龙",
     "cost": 8,
     "level": 20,
@@ -122,28 +122,28 @@
     "quality": "橙",
     "name": "孔雀王·霍利",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "精灵王子·大羽",
     "cost": 3,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "双头法师",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "热血摇滚·凯",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {

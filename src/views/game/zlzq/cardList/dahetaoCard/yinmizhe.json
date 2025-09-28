@@ -1,10 +1,10 @@
 [
   {
     "quality": "蓝",
-    "name": "学仆-观测型",
-    "cost": 2,
-    "level": 20,
-    "type": 1
+    "name": "电流激活",
+    "cost": 1,
+    "level": 14,
+    "type": 2
   },
   {
     "quality": "蓝",
@@ -17,7 +17,14 @@
     "quality": "蓝",
     "name": "沉重否定2",
     "cost": 2,
-    "level": 15,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "全数否定",
+    "cost": 3,
+    "level": 20,
     "type": 2
   },
   {
@@ -31,14 +38,14 @@
     "quality": "紫",
     "name": "破魔系教授",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "克隆术",
     "cost": 2,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -50,30 +57,16 @@
   },
   {
     "quality": "紫",
-    "name": "学仆-脉冲型",
-    "cost": 3,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "幻域秘树1",
+    "name": "幻域秘树",
     "cost": 4,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "幻域秘树2",
-    "cost": 4,
-    "level": 15,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "幻象龙",
     "cost": 6,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -94,7 +87,7 @@
     "quality": "橙",
     "name": "流星-7号",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -108,7 +101,7 @@
     "quality": "橙",
     "name": "火蛇巫女·沃凡瑞拉",
     "cost": 7,
-    "level": 17,
+    "level": 18,
     "type": 1
   }
 ]
