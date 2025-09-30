@@ -130,7 +130,6 @@ function getImg(e: Event) {
                 imgValue.value = e.target.result;
                 let data: UpdateImgParams = {
                     id: localInfo?.userId,
-                    oldImg: window.sessionStorage.getItem("nowTouxiang") as string,
                     img: imgValue.value
                 };
                 await updateImg(data);

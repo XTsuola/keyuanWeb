@@ -12,7 +12,6 @@ export function getUserInfo(id: number) {
 // 修改头像
 export interface UpdateImgParams {
   id: number;
-  oldImg: string
   img: string;
 }
 export function updateImg(data: UpdateImgParams) {
