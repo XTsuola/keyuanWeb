@@ -27,13 +27,13 @@
   },
   {
     "quality": "蓝",
-    "name": "暗潮涌动",
+    "name": "先发制人",
     "cost": 1,
     "level": 12,
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "吸取敌方英雄19点生命。",
+    "effect": "目标友军+8/+5，若它具有先攻，则获得【践踏】，抽一张牌。",
     "count": 750,
     "daikuan": 0,
     "remark": ""
@@ -113,6 +113,19 @@
     "life": 0,
     "effect": "【洞察1】、英雄生命-2，抽两张牌、敌方英雄生命-15。",
     "count": 878,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "紫",
+    "name": "海燕精卫",
+    "cost": 2,
+    "level": 12,
+    "type": 1,
+    "attack": 8,
+    "life": 13,
+    "effect": "登场:【枪击】、攻击前:友军多于敌军则【枪击】，无敌军则枪击英雄。",
+    "count": 901,
     "daikuan": 0,
     "remark": ""
   },

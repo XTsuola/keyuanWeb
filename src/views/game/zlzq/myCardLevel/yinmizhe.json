@@ -1,6 +1,19 @@
 [
   {
     "quality": "蓝",
+    "name": "洞悉之眼",
+    "cost": 2,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "【洞察1】、英雄生命+14。",
+    "count": 2688,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
     "name": "学仆-观测型",
     "cost": 2,
     "level": 20,
@@ -20,7 +33,7 @@
     "type": 2,
     "attack": 0,
     "life": 0,
-    "effect": "目标敌军攻击-65，并沉默",
+    "effect": "目标敌军攻击-65，并沉默。",
     "count": 2688,
     "daikuan": 0,
     "remark": ""
@@ -35,19 +48,6 @@
     "life": 0,
     "effect": "【洞察1】、横排敌军攻击-33。",
     "count": 3584,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "虚化术",
-    "cost": 3,
-    "level": 16,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "目标单位+18/+26，并获得【穿透】。",
-    "count": 1792,
     "daikuan": 0,
     "remark": ""
   },
@@ -111,7 +111,7 @@
     "type": 1,
     "attack": 16,
     "life": 30,
-    "effect": "【洞察1】、洞察时：自身+3/+8，射击英雄。",
+    "effect": "【洞察1】、洞察时:自身+3/+8，射击英雄。",
     "count": 2368,
     "daikuan": 0,
     "remark": ""
@@ -124,7 +124,7 @@
     "type": 1,
     "attack": 16,
     "life": 30,
-    "effect": "【洞察1】、洞察时：自身+3/+8，射击英雄。",
+    "effect": "【洞察1】、洞察时:自身+3/+8，射击英雄。",
     "count": 2368,
     "daikuan": 0,
     "remark": ""
@@ -133,11 +133,11 @@
     "quality": "紫",
     "name": "学仆-脉冲型3",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1,
-    "attack": 13,
-    "life": 24,
-    "effect": "【洞察1】、洞察时：自身+2/+7，射击英雄。",
+    "attack": 15,
+    "life": 26,
+    "effect": "【洞察1】、洞察时:自身+2/+8，射击英雄。",
     "count": 1184,
     "daikuan": 719,
     "remark": ""
@@ -159,11 +159,11 @@
     "quality": "紫",
     "name": "观星台大预言家",
     "cost": 5,
-    "level": 15,
+    "level": 17,
     "type": 1,
-    "attack": 9,
-    "life": 23,
-    "effect": "【洞察1】、【魔防9】、洞察时：抽一张牌。",
+    "attack": 12,
+    "life": 28,
+    "effect": "【洞察1】、【魔防12】、洞察时：抽一张牌。",
     "count": 1346,
     "daikuan": 0,
     "remark": ""
