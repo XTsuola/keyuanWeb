@@ -24,7 +24,7 @@
     "quality": "蓝",
     "name": "天使琼浆",
     "cost": 2,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -45,21 +45,21 @@
     "quality": "蓝",
     "name": "光明惩戒",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "圣殿御卫",
     "cost": 2,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "边境高墙",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "夺取阵地",
     "cost": 4,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -94,7 +94,7 @@
     "quality": "橙",
     "name": "花光春影·安娜贝尔",
     "cost": 3,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -109,6 +109,13 @@
     "name": "明日香·露娜",
     "cost": 4,
     "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "永恒之王·莱哈特",
+    "cost": 5,
+    "level": 17,
     "type": 1
   },
   {

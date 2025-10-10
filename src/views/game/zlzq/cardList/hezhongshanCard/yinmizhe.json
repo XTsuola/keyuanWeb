@@ -17,7 +17,7 @@
     "quality": "蓝",
     "name": "沉重否定",
     "cost": 2,
-    "level": 14,
+    "level": 16,
     "type": 2
   },
   {
@@ -28,17 +28,10 @@
     "type": 2
   },
   {
-    "quality": "蓝",
-    "name": "学仆-能源型",
-    "cost": 5,
-    "level": 17,
-    "type": 1
-  },
-  {
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
@@ -94,7 +87,7 @@
     "quality": "紫",
     "name": "学仆-塑钢型",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -108,21 +101,14 @@
     "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "月之神·米拉",
     "cost": 5,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "滑板少年·迪宁",
-    "cost": 6,
-    "level": 13,
+    "level": 17,
     "type": 1
   }
 ]

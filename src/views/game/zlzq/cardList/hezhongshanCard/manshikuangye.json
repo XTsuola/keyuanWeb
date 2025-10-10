@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "愚笨鲸头鹅",
     "cost": 0,
-    "level": 16,
+    "level": 18,
     "type": 1
   },
   {
@@ -15,20 +15,6 @@
   },
   {
     "quality": "蓝",
-    "name": "旷野祭师1",
-    "cost": 2,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "旷野祭师2",
-    "cost": 2,
-    "level": 14,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "势如破竹",
     "cost": 2,
     "level": 20,
@@ -36,30 +22,44 @@
   },
   {
     "quality": "蓝",
+    "name": "旷野祭师1",
+    "cost": 2,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "旷野祭师2",
+    "cost": 2,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "天降碎石",
     "cost": 3,
-    "level": 16,
+    "level": 19,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "强行捕猎",
     "cost": 4,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "无畏猎户",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "诱敌草人",
     "cost": 2,
-    "level": 14,
+    "level": 18,
     "type": 1
   },
   {
@@ -73,14 +73,14 @@
     "quality": "紫",
     "name": "飞斧狂人2",
     "cost": 4,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "飞斧女豪",
     "cost": 5,
-    "level": 14,
+    "level": 15,
     "type": 1
   },
   {
@@ -94,7 +94,7 @@
     "quality": "橙",
     "name": "精灵王子·大羽",
     "cost": 3,
-    "level": 14,
+    "level": 16,
     "type": 1
   },
   {
