@@ -210,7 +210,7 @@ const zhenyinList = [{
     value: 2
 }, {
     label: "蛮石旷野",
-    value: 5
+    value: 4
 }, {
     label: "隐秘者",
     value: 7
@@ -287,11 +287,11 @@ function getZuan(quality: string, level: number) {
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
-    yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    chanyigu.forEach((item: any) => item.zhenyin = 2);
-    manshikuangye.forEach((item: any) => item.zhenyin = 5);
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    let allData: any = [...manshikuangye, ...yinmizhe, ...chanyigu, ...simangdiguo];
+    chanyigu.forEach((item: any) => item.zhenyin = 2);
+    manshikuangye.forEach((item: any) => item.zhenyin = 4);
+    yinmizhe.forEach((item: any) => item.zhenyin = 7);
+    let allData: any = [...simangdiguo, ...chanyigu, ...manshikuangye, ...yinmizhe];
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }

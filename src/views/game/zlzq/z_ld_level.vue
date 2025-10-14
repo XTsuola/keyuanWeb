@@ -293,9 +293,9 @@ function getZuan(quality: string, level: number) {
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    tiantanggang.forEach((item: any) => item.zhenyin = 3);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
-    let allData: any = [...simangdiguo, ...tiantanggang, ...chanyigu];
+    tiantanggang.forEach((item: any) => item.zhenyin = 3);
+    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang];
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }

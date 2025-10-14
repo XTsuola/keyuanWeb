@@ -1,13 +1,6 @@
 [
   {
     "quality": "蓝",
-    "name": "愚笨鲸头鹅",
-    "cost": 0,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "蓄力射手1",
     "cost": 2,
     "level": 20,
@@ -31,7 +24,7 @@
     "quality": "蓝",
     "name": "势如破竹1",
     "cost": 2,
-    "level": 18,
+    "level": 19,
     "type": 2
   },
   {
@@ -45,7 +38,7 @@
     "quality": "蓝",
     "name": "天降碎石",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -64,16 +57,23 @@
   },
   {
     "quality": "紫",
+    "name": "暴怒野人",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "诱敌草人",
     "cost": 2,
-    "level": 18,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "活力仙人掌",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -99,13 +99,6 @@
   },
   {
     "quality": "紫",
-    "name": "石斧头领",
-    "cost": 5,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "飞斧女豪",
     "cost": 5,
     "level": 20,
@@ -122,14 +115,7 @@
     "quality": "橙",
     "name": "双头法师",
     "cost": 4,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "热血摇滚·凯",
-    "cost": 5,
-    "level": 18,
+    "level": 20,
     "type": 1
   }
 ]

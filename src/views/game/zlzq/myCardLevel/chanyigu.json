@@ -78,6 +78,19 @@
     "remark": ""
   },
   {
+    "quality": "蓝",
+    "name": "风卷残云",
+    "cost": 4,
+    "level": 12,
+    "type": 2,
+    "attack": 29,
+    "life": 29,
+    "effect": "吹回横排所有敌军，英雄生命+15，60%几率获得《真理石碎片》。",
+    "count": 3584,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
     "quality": "紫",
     "name": "蟠桃隐士",
     "cost": 2,
@@ -87,19 +100,6 @@
     "life": 29,
     "effect": "【洞察1】、回合结束:获得手牌:仙桃-lv14。",
     "count": 736,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "驱魔道人",
-    "cost": 3,
-    "level": 18,
-    "type": 1,
-    "attack": 22,
-    "life": 25,
-    "effect": "【洞察1】、【神佑】、命中时:自身+4/+4。",
-    "count": 1728,
     "daikuan": 0,
     "remark": ""
   },

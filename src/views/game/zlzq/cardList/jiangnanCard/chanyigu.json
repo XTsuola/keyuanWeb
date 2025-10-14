@@ -1,16 +1,9 @@
 [
   {
     "quality": "蓝",
-    "name": "箭竹守卫",
-    "cost": 1,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "白羊药师",
     "cost": 2,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -45,7 +38,7 @@
     "quality": "蓝",
     "name": "叶幻师",
     "cost": 3,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
@@ -66,15 +59,22 @@
     "quality": "蓝",
     "name": "连击3",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
-    "quality": "紫",
-    "name": "驱魔道人",
-    "cost": 3,
-    "level": 20,
+    "quality": "蓝",
+    "name": "风铃道人",
+    "cost": 4,
+    "level": 18,
     "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云",
+    "cost": 4,
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "紫",
@@ -85,23 +85,23 @@
   },
   {
     "quality": "紫",
-    "name": "万物之灵1",
-    "cost": 5,
-    "level": 13,
+    "name": "萌化术",
+    "cost": 4,
+    "level": 12,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "万物之灵2",
+    "name": "万物之灵",
     "cost": 5,
-    "level": 12,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "橙",
     "name": "上宝沁金耙",
     "cost": 4,
-    "level": 9,
+    "level": 12,
     "type": 2
   }
 ]
