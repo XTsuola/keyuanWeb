@@ -1,37 +1,37 @@
 [
   {
     "quality": "蓝",
-    "name": "拒马",
+    "name": "长耳庄巧姑",
+    "cost": 2,
+    "level": 19,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "太极剑法1",
     "cost": 2,
     "level": 12,
-    "type": 1
+    "type": 2
   },
   {
     "quality": "蓝",
-    "name": "苦行武僧",
+    "name": "太极剑法2",
     "cost": 2,
     "level": 12,
-    "type": 1
+    "type": 2
   },
-  {
+   {
     "quality": "蓝",
-    "name": "龟族僧人",
-    "cost": 3,
-    "level": 15,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "执剑道者",
-    "cost": 3,
-    "level": 13,
-    "type": 1
+    "name": "飓风术",
+    "cost": 2,
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
@@ -43,28 +43,35 @@
   },
   {
     "quality": "蓝",
-    "name": "风铃道人",
+    "name": "风卷残云1",
     "cost": 4,
     "level": 12,
-    "type": 1
+    "type": 2
   },
   {
     "quality": "蓝",
-    "name": "风卷残云",
+    "name": "风卷残云2",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云3",
     "cost": 4,
     "level": 12,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "驱魔道人",
-    "cost": 3,
+    "name": "墨轩隐士1",
+    "cost": 4,
     "level": 12,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "御风武者",
+    "name": "墨轩隐士2",
     "cost": 4,
     "level": 12,
     "type": 1
@@ -84,16 +91,9 @@
     "type": 2
   },
   {
-    "quality": "紫",
-    "name": "萌化术1",
-    "cost": 4,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术2",
-    "cost": 4,
+    "quality": "橙",
+    "name": "灵龟神丹",
+    "cost": 3,
     "level": 12,
     "type": 2
   },

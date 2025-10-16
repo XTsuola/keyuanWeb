@@ -406,6 +406,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/z_jn_level.vue"),
               },
+              {
+                path: "jiaoshou",
+                meta: {
+                  menuType: "menu",
+                  key: "jiaoshou",
+                  label: "教授卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_js_level.vue"),
+              },
             ],
           },
           {
