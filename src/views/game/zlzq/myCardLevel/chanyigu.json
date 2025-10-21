@@ -22,7 +22,7 @@
     "life": 0,
     "effect": "随机区域敌军、及敌方玩家受到51点伤害。",
     "count": 3136,
-    "daikuan": 180,
+    "daikuan": 0,
     "remark": ""
   },
   {
@@ -34,7 +34,20 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标敌军吹回手上、英雄生命+24。",
-    "count": 1472,
+    "count": 1792,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "太极剑法",
+    "cost": 2,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "目标友军攻击+12、魔防+12，获得【先攻】持续1回合、抽一张牌。",
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -60,7 +73,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标友军加攻，等同其一半生命值、另一友军生命+18、75%几率抽一张牌。",
-    "count": 2435,
+    "count": 2688,
     "daikuan": 0,
     "remark": ""
   },
@@ -74,32 +87,6 @@
     "life": 29,
     "effect": "【洞察1】、登场:吹回随机敌军。",
     "count": 3584,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "风卷残云",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 29,
-    "life": 29,
-    "effect": "吹回横排所有敌军，英雄生命+15，60%几率获得《真理石碎片》。",
-    "count": 3584,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "蟠桃隐士",
-    "cost": 2,
-    "level": 14,
-    "type": 1,
-    "attack": 0,
-    "life": 29,
-    "effect": "【洞察1】、回合结束:获得手牌:仙桃-lv14。",
-    "count": 736,
     "daikuan": 0,
     "remark": ""
   },
@@ -142,16 +129,29 @@
     "daikuan": 0,
     "remark": ""
   },
-   {
+  {
     "quality": "紫",
-    "name": "萌化术",
+    "name": "萌化术1",
     "cost": 4,
     "level": 12,
     "type": 2,
     "attack": 0,
     "life": 0,
     "effect": "目标区域敌军变成1/1熊大宝，随机友军+11/+11。。",
-    "count": 1264,
+    "count": 416,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "紫",
+    "name": "萌化术2",
+    "cost": 4,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "目标区域敌军变成1/1熊大宝，随机友军+11/+11。。",
+    "count": 416,
     "daikuan": 0,
     "remark": ""
   },
@@ -164,7 +164,7 @@
     "attack": 0,
     "life": 0,
     "effect": "目标友军+13/+14并获得【神佑】。",
-    "count": 736,
+    "count": 576,
     "daikuan": 0,
     "remark": ""
   },
@@ -177,7 +177,7 @@
     "attack": 13,
     "life": 21,
     "effect": "【洞察2】、命中:【洞察2】、洞察时:全体友军+1/+5，全体敌军-2/-2。",
-    "count": 858,
+    "count": 1216,
     "daikuan": 0,
     "remark": "【漫步九天】：登场时：本回合获得【穿透】。"
   },
@@ -190,7 +190,7 @@
     "attack": 0,
     "life": 0,
     "effect": "目标友军+13/+13、获得【回命】、【践踏】、【传承13】。",
-    "count": 765,
+    "count": 576,
     "daikuan": 0,
     "remark": "【九齿钉耙】：目标友军攻击+9，魔防+9，护甲+9，持续1回合。"
   }

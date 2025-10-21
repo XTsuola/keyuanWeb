@@ -1,14 +1,27 @@
 [
   {
     "quality": "蓝",
-    "name": "洞悉之眼",
-    "cost": 2,
+    "name": "洞悉之眼1",
+    "cost": 0,
     "level": 12,
     "type": 2,
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、英雄生命+14。",
-    "count": 2688,
+    "count": 640,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "洞悉之眼2",
+    "cost": 0,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "【洞察1】、英雄生命+14。",
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -73,7 +86,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标单位+16/+18，获得【隐形】。",
-    "count": 1041,
+    "count": 1408,
     "daikuan": 0,
     "remark": ""
   },
@@ -86,7 +99,7 @@
     "attack": 18,
     "life": 25,
     "effect": "【洞察1】、登场:沉默随机敌军、命中时:60%几率【洞察1】、回合结束:35%几率沉默随机敌军。",
-    "count": 2064,
+    "count": 2048,
     "daikuan": 0,
     "remark": ""
   },
@@ -113,7 +126,7 @@
     "life": 0,
     "effect": "【洞察1】、复制目标单位到手上，英雄生命+22。",
     "count": 736,
-    "daikuan": 110,
+    "daikuan": 0,
     "remark": ""
   },
   {
@@ -151,8 +164,8 @@
     "attack": 16,
     "life": 30,
     "effect": "【洞察1】、洞察时:自身+3/+8，射击英雄。",
-    "count": 1184,
-    "daikuan": 719,
+    "count": 2368,
+    "daikuan": 0,
     "remark": ""
   },
   {
@@ -164,7 +177,7 @@
     "attack": 0,
     "life": 49,
     "effect": "【洞察1】、【魔防6】、法力上限+2、回合开始:随机敌军-2x/-2x(x为你的法力)。",
-    "count": 1919,
+    "count": 2048,
     "daikuan": 0,
     "remark": ""
   },
@@ -177,7 +190,7 @@
     "attack": 12,
     "life": 28,
     "effect": "【洞察1】、【魔防12】、洞察时：抽一张牌。",
-    "count": 1346,
+    "count": 1408,
     "daikuan": 0,
     "remark": ""
   },
@@ -190,7 +203,7 @@
     "attack": 40,
     "life": 80,
     "effect": "【洞察1】、【磐龙】、【穿透】、【护甲12】、【魔防12】、洞察时：获得《渗透型》lv18、护甲友军死亡：自身+8/+20。",
-    "count": 1770,
+    "count": 1728,
     "daikuan": 0,
     "remark": ""
   },
@@ -203,7 +216,7 @@
     "attack": 15,
     "life": 18,
     "effect": "法力上限+3，你的法术卡使用后，移回手上、死亡:自身回手，75%概率获得沉默术-lv6。",
-    "count": 1021,
+    "count": 704,
     "daikuan": 0,
     "remark": "【伴月入眠】：【洞察1】、洞察时：英雄生命+3。"
   }

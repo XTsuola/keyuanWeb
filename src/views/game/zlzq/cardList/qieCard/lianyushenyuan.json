@@ -1,14 +1,7 @@
 [
   {
     "quality": "蓝",
-    "name": "冥河守卫1",
-    "cost": 1,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "冥河守卫2",
+    "name": "冥河守卫",
     "cost": 1,
     "level": 20,
     "type": 1
@@ -18,6 +11,13 @@
     "name": "落雷击",
     "cost": 1,
     "level": 19,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "炎球",
+    "cost": 2,
+    "level": 20,
     "type": 2
   },
   {
@@ -85,6 +85,13 @@
   },
   {
     "quality": "紫",
+    "name": "夺魂死镰",
+    "cost": 5,
+    "level": 15,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "恶灵魔焰",
     "cost": 6,
     "level": 18,
@@ -94,21 +101,21 @@
     "quality": "橙",
     "name": "恶魔之心",
     "cost": 2,
-    "level": 10,
+    "level": 12,
     "type": 2
   },
   {
     "quality": "橙",
     "name": "熔金饕餮兽",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "猩红女妖·莉莉丝",
     "cost": 6,
-    "level": 15,
+    "level": 16,
     "type": 1
   }
 ]
