@@ -64,6 +64,7 @@ import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
 import simangdiguo from "./myCardLevel/simangdiguo.json";
 import chanyigu from "./myCardLevel/chanyigu.json";
+import tiantanggang from "./myCardLevel/tiantanggang.json";
 import yinmizhe from "./myCardLevel/yinmizhe.json";
 import MyTabel from "@/components/table.vue";
 
@@ -286,6 +287,9 @@ const zhenyinList = [{
     label: "禅意谷",
     value: 2
 }, {
+    label: "天堂港",
+    value: 3
+}, {
     label: "隐秘者",
     value: 7
 }];
@@ -339,8 +343,9 @@ async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
+    tiantanggang.forEach((item: any) => item.zhenyin = 3);
     yinmizhe.forEach((item: any) => item.zhenyin = 7);
-    let allData: any = [...simangdiguo, ...chanyigu, ...yinmizhe];
+    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...yinmizhe];
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
