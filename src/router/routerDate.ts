@@ -387,6 +387,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/z_ak_level.vue"),
               },
               {
+                path: "guyue",
+                meta: {
+                  menuType: "menu",
+                  key: "guyue",
+                  label: "古月卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_gy_level.vue"),
+              },
+              {
                 path: "laodu",
                 meta: {
                   menuType: "menu",

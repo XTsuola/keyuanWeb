@@ -1,7 +1,7 @@
 [
   {
     "quality": "蓝",
-    "name": "长耳庄巧姑",
+    "name": "长耳庄巧姑1",
     "cost": 2,
     "level": 20,
     "type": 1,
@@ -9,6 +9,19 @@
     "life": 15,
     "effect": "【洞察1】、【传承10】、法力上限+1。",
     "count": 3584,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "长耳庄巧姑2",
+    "cost": 2,
+    "level": 12,
+    "type": 1,
+    "attack": 6,
+    "life": 7,
+    "effect": "【洞察1】、【传承6】、法力上限+1。",
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -35,19 +48,6 @@
     "life": 0,
     "effect": "【洞察1】、目标敌军吹回手上、英雄生命+24。",
     "count": 1792,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "太极剑法",
-    "cost": 2,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "目标友军攻击+12、魔防+12，获得【先攻】持续1回合、抽一张牌。",
-    "count": 640,
     "daikuan": 0,
     "remark": ""
   },

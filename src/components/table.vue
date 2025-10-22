@@ -1,7 +1,7 @@
 <template>
     <div class="myTable">
-        <a-table :columns="prop.columnsData" :loading="prop.loading" :data-source="prop.dataSource" :pagination="flag"
-            bordered>
+        <a-table :columns="prop.columnsData" :loading="prop.loading" :data-source="prop.dataSource"
+            :pagination="prop.pagination ? false : true" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     <span v-if="prop.pagination">{{ (prop.pagination.currentPage - 1) * prop.pagination.pageSize + index
@@ -67,7 +67,6 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
 
 interface Pagination {
     currentPage: number
@@ -83,14 +82,8 @@ interface Prop {
     isAdmin?: string | null
 }
 
-const flag = ref<any>(false);
 const prop = defineProps<Prop>();
 const emits = defineEmits(["detail", "edit", "delete", "changePage", "download", "resetPassword", "changeAdmin", "look", "showVideo"]);
-if (prop.pagination) {
-    flag.value = false
-} else {
-    flag.value = true
-}
 
 </script>
 <style lang="less" scoped>

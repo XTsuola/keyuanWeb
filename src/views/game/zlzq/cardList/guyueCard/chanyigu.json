@@ -1,0 +1,212 @@
+[
+  {
+    "quality": "蓝",
+    "name": "雪庐草人1",
+    "cost": 1,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "雪庐草人2",
+    "cost": 1,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "卜命道长",
+    "cost": 1,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "苦行武僧",
+    "cost": 2,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "黑松林货郎",
+    "cost": 2,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "龟族僧人",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "执剑道者",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "深山采药人",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "连击",
+    "cost": 3,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "铁山靠",
+    "cost": 3,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "羊族壮士",
+    "cost": 5,
+    "level": 19,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "植甲师",
+    "cost": 2,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "传记·月落",
+    "cost": 2,
+    "level": 15,
+    "type": 3
+  },
+  {
+    "quality": "紫",
+    "name": "宫廷乐师",
+    "cost": 2,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "驱魔道人",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "雪山飞狐",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "御风武者",
+    "cost": 4,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "墨轩隐士",
+    "cost": 4,
+    "level": 15,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "萌化术",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "渡船隐士",
+    "cost": 5,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "万物之灵1",
+    "cost": 5,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "万物之灵2",
+    "cost": 5,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "寒霜寺护院僧",
+    "cost": 6,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "流岚刃·琳",
+    "cost": 3,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "灵龟神丹",
+    "cost": 3,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "神机玄女·轩",
+    "cost": 4,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "雪域春光·凛",
+    "cost": 4,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "悟能禅杖",
+    "cost": 4,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "逍遥居士·铭",
+    "cost": 5,
+    "level": 17,
+    "type": 1
+  }
+]
