@@ -1,0 +1,107 @@
+[
+  {
+    "quality": "蓝",
+    "name": "旅行背包",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "重装固守",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "传记·生命序曲1",
+    "cost": 1,
+    "level": 12,
+    "type": 3
+  },
+  {
+    "quality": "蓝",
+    "name": "传记·生命序曲2",
+    "cost": 1,
+    "level": 12,
+    "type": 3
+  },
+  {
+    "quality": "蓝",
+    "name": "天使琼浆1",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "天使琼浆2",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "天使琼浆3",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+   {
+    "quality": "蓝",
+    "name": "炫目神光",
+    "cost": 1,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "光明惩戒1",
+    "cost": 5,
+    "level": 13,
+    "type": 2
+  },
+   {
+    "quality": "蓝",
+    "name": "光明惩戒2",
+    "cost": 5,
+    "level": 13,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "夺取阵地1",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "夺取阵地2",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "圣枪·卡洛琳",
+    "cost": 4,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "明日之音·露娜",
+    "cost": 4,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "正阳大主教·伊恩",
+    "cost": 6,
+    "level": 12,
+    "type": 1
+  }
+]

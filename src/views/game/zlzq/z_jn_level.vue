@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -62,6 +62,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
+import simangdiguo from "./cardList/jiangnanCard/simangdiguo.json";
 import chanyigu from "./cardList/jiangnanCard/chanyigu.json";
 import manshikuangye from "./cardList/jiangnanCard/manshikuangye.json";
 import lianyushenyuan from "./cardList/jiangnanCard/lianyushenyuan.json";
@@ -202,6 +203,9 @@ const typeList = [{
     value: 3
 }];
 const zhenyinList = [{
+    label: "四芒帝国",
+    value: 1
+}, {
     label: "禅意谷",
     value: 2
 }, {
@@ -283,10 +287,11 @@ function getZuan(quality: string, level: number) {
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
+    simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     manshikuangye.forEach((item: any) => item.zhenyin = 4);
     lianyushenyuan.forEach((item: any) => item.zhenyin = 5);
-    let allData: any = [...chanyigu, ...manshikuangye, ...lianyushenyuan];
+    let allData: any = [...simangdiguo, ...chanyigu, ...manshikuangye, ...lianyushenyuan];
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
