@@ -24,7 +24,7 @@
     "quality": "蓝",
     "name": "黑夜突袭",
     "cost": 2,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "黑金诈术师",
     "cost": 4,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {
