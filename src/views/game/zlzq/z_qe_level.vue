@@ -63,8 +63,8 @@
 import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
 import simangdiguo from "./cardList/qieCard/simangdiguo.json";
-import tiantanggang from "./cardList/qieCard/tiantanggang.json";
 import chanyigu from "./cardList/qieCard/chanyigu.json";
+import tiantanggang from "./cardList/qieCard/tiantanggang.json";
 import lianyushenyuan from "./cardList/qieCard/lianyushenyuan.json";
 import MyTabel from "@/components/table.vue";
 
@@ -245,12 +245,6 @@ const levelList = [{
 }, {
     label: "12级",
     value: 12
-}, {
-    label: "11级",
-    value: 11
-}, {
-    label: "10级",
-    value: 10
 }];
 const formState = reactive({
     name: undefined,

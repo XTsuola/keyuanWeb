@@ -245,12 +245,6 @@ const levelList = [{
 }, {
     label: "12级",
     value: 12
-}, {
-    label: "11级",
-    value: 11
-}, {
-    label: "10级",
-    value: 10
 }];
 const formState = reactive({
     name: undefined,
