@@ -632,6 +632,17 @@ const newRouterDate: Array<RouteRecordRaw> = [
             component: () => import("@/views/myLove/worldMap.vue"),
           },
           {
+            path: "worldMap2",
+            meta: {
+              menuType: "menu",
+              key: "worldMap2",
+              label: "世界地图2",
+              icon: "UnorderedListOutlined",
+              isLevel: [1, 3],
+            },
+            component: () => import("@/views/myLove/worldMap2.vue"),
+          },
+          {
             path: "cookList",
             meta: {
               menuType: "menu",
