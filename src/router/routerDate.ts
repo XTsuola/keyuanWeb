@@ -417,6 +417,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/z_jn_level.vue"),
               },
               {
+                path: "taotailang",
+                meta: {
+                  menuType: "menu",
+                  key: "taotailang",
+                  label: "淘汰郎卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/z_ttl_level.vue"),
+              },
+              {
                 path: "jiaoshou",
                 meta: {
                   menuType: "menu",

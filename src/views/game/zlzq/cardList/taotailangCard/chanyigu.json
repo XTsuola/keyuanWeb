@@ -1,14 +1,7 @@
 [
   {
     "quality": "蓝",
-    "name": "拒马",
-    "cost": 2,
-    "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "苦行武僧",
+    "name": "长耳庄巧姑",
     "cost": 2,
     "level": 12,
     "type": 1
@@ -24,36 +17,36 @@
     "quality": "蓝",
     "name": "龟族僧人",
     "cost": 3,
-    "level": 15,
+    "level": 14,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "执剑道者",
+    "name": "叶幻师",
     "cost": 3,
-    "level": 13,
+    "level": 12,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 13,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "连击2",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "风铃道人",
-    "cost": 4,
+    "name": "铁山靠",
+    "cost": 3,
     "level": 12,
-    "type": 1
+    "type": 2
   },
   {
     "quality": "蓝",
@@ -66,6 +59,13 @@
     "quality": "紫",
     "name": "驱魔道人",
     "cost": 3,
+    "level": 13,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "扫叶僧",
+    "cost": 3,
     "level": 12,
     "type": 1
   },
@@ -73,20 +73,20 @@
     "quality": "紫",
     "name": "御风武者",
     "cost": 4,
-    "level": 12,
+    "level": 13,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "蟠桃会",
+    "name": "泰山之力",
     "cost": 4,
     "level": 12,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "萌化术",
-    "cost": 4,
+    "name": "万物之灵",
+    "cost": 5,
     "level": 12,
     "type": 2
   },
@@ -96,6 +96,13 @@
     "cost": 3,
     "level": 12,
     "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "神机玄女·轩",
+    "cost": 4,
+    "level": 12,
+    "type": 1
   },
   {
     "quality": "橙",
