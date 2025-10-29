@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -61,13 +61,14 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import { blueObj, purpleObj, goldObj } from "@/utils/global";
-import simangdiguo from "./cardList/qieCard/simangdiguo.json";
-import chanyigu from "./cardList/qieCard/chanyigu.json";
-import tiantanggang from "./cardList/qieCard/tiantanggang.json";
-import lianyushenyuan from "./cardList/qieCard/lianyushenyuan.json";
+import { blueObj, purpleObj, goldObj, Type } from "@/utils/global";
 import MyTabel from "@/components/table.vue";
 
+interface Prop {
+    cardData: any
+}
+
+const prop = defineProps<Prop>();
 const total = ref<number>(0);
 const columns = ref<any>([
     {
@@ -88,7 +89,7 @@ const columns = ref<any>([
         key: "zhenyin",
         width: 80,
         customRender: (opt: any) => {
-            return zhenyinList.find(item => item.value == opt.value)?.label
+            return zhenyinList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
@@ -202,19 +203,27 @@ const typeList = [{
     label: "传记",
     value: 3
 }];
-const zhenyinList = [{
+const zhenyinList = ref<Type[]>([]);
+zhenyinList.value = prop.cardData.map((e: any) => {
+    return {
+        label: e.name,
+        value: e.value
+    }
+})
+/* const zhenyinList = [{
     label: "四芒帝国",
     value: 1
-}, {
-    label: "禅意谷",
-    value: 2
 }, {
     label: "天堂港",
     value: 3
 }, {
-    label: "炼狱深渊",
-    value: 5
-}];
+    label: "蛮石旷野",
+    value: 4
+}, {
+    label: "隐秘者",
+    value: 7
+}]; */
+
 const levelList = [{
     label: "全部",
     value: ""
@@ -287,11 +296,11 @@ function getZuan(quality: string, level: number) {
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
-    simangdiguo.forEach((item: any) => item.zhenyin = 1);
-    chanyigu.forEach((item: any) => item.zhenyin = 2);
-    tiantanggang.forEach((item: any) => item.zhenyin = 3);
-    lianyushenyuan.forEach((item: any) => item.zhenyin = 5);
-    let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...lianyushenyuan];
+    let allData: any = [];
+    for (let i = 0; i < prop.cardData.length; i++) {
+        prop.cardData[i].data.forEach((item: any) => item.zhenyin = prop.cardData[i].value);
+        allData.push(...prop.cardData[i].data);
+    }
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
