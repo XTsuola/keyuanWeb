@@ -59,7 +59,7 @@
     "quality": "紫",
     "name": "边境高墙",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -68,13 +68,6 @@
     "cost": 3,
     "level": 17,
     "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "冲锋装备",
-    "cost": 3,
-    "level": 17,
-    "type": 2
   },
   {
     "quality": "紫",
@@ -87,7 +80,7 @@
     "quality": "紫",
     "name": "惩戒天使",
     "cost": 6,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -101,7 +94,7 @@
     "quality": "橙",
     "name": "百花长枪·卡洛琳",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -122,7 +115,7 @@
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 18,
+    "level": 20,
     "type": 1
   },
   {

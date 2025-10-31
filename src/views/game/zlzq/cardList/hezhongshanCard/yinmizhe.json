@@ -17,7 +17,7 @@
     "quality": "蓝",
     "name": "沉重否定",
     "cost": 2,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -94,14 +94,21 @@
     "quality": "紫",
     "name": "观星台大预言家",
     "cost": 5,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
-    "level": 17,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "No.4希尔伯特",
+    "cost": 2,
+    "level": 13,
     "type": 1
   },
   {
