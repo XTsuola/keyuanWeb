@@ -282,7 +282,7 @@ const formState = reactive({
 });
 
 async function getList() {
-    simangdiguo.forEach((item: any) => {
+    /* simangdiguo.forEach((item: any) => {
         item.zhenyin = 1;
         item.count = 0;
         item.rarity = 0;
@@ -316,14 +316,14 @@ async function getList() {
         item.zhenyin = 7;
         item.count = 0;
         item.rarity = 0;
-    })
+    }) */
     let allData: any = [...simangdiguo, ...chanyigu, ...tiantanggang, ...manshikuangye, ...dongshenshitu, ...lianyushenyuan, ...yinmizhe];
     for (let key in recommendCardList) {
         const data: any = recommendCardList[key].data
         for (let i = 0; i < data.length; i++) {
             const index = allData.findIndex((e: any) => e.name == data[i])
-            allData[index].count += 1;
-            let rat = 0;
+            // allData[index].count += 1;
+            /* let rat = 0;
             if (allData[index].quality == "蓝") {
                 rat = 0.5;
             } else if (allData[index].quality == "紫") {
@@ -335,7 +335,7 @@ async function getList() {
                 allData[index].rarity += (0.7 * rat)
             } else {
                 allData[index].rarity += (0.3 * rat)
-            }
+            } */
         }
     }
     if (formState.name) {

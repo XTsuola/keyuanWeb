@@ -77,16 +77,16 @@
     "daikuan": 0,
     "remark": ""
   },
-  {
-    "quality": "蓝",
-    "name": "风铃道人",
-    "cost": 4,
-    "level": 15,
+    {
+    "quality": "紫",
+    "name": "逍遥琴师",
+    "cost": 3,
+    "level": 19,
     "type": 1,
-    "attack": 17,
-    "life": 17,
-    "effect": "【洞察1】、登场:吹回随机敌军。",
-    "count": 3584,
+    "attack": 28,
+    "life": 31,
+    "effect": "回合开始:魔音攻击全体敌军和英雄4点伤害、回合结束:75%几率，魔音攻击。",
+    "count": 2048,
     "daikuan": 0,
     "remark": ""
   },

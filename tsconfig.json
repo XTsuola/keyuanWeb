@@ -7,6 +7,8 @@
   ],
   "compilerOptions": {
     "module": "esnext",
+    "target": "ES2022",
+    "lib":["es2022"],
     "ignoreDeprecations": "5.0",
     "strict": true,
     "baseUrl": ".",
