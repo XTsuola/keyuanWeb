@@ -17,7 +17,7 @@
     "quality": "蓝",
     "name": "蓄力射手",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -50,17 +50,24 @@
   },
   {
     "quality": "紫",
-    "name": "活力仙人掌",
-    "cost": 3,
-    "level": 17,
+    "name": "无畏猎户",
+    "cost": 2,
+    "level": 14,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "肥鼠晚宴",
     "cost": 3,
-    "level": 17,
+    "level": 18,
     "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "活力仙人掌",
+    "cost": 3,
+    "level": 17,
+    "type": 1
   },
   {
     "quality": "紫",
@@ -122,7 +129,7 @@
     "quality": "橙",
     "name": "白象战歌·鲁玛",
     "cost": 7,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {

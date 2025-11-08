@@ -36,6 +36,13 @@
   },
   {
     "quality": "紫",
+    "name": "咒术系学士",
+    "cost": 2,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "克隆术",
     "cost": 2,
     "level": 14,
@@ -43,23 +50,9 @@
   },
   {
     "quality": "紫",
-    "name": "魔像-御咒铁卫",
-    "cost": 3,
-    "level": 14,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
     "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "学仆-塑钢型",
-    "cost": 4,
-    "level": 14,
     "type": 1
   },
   {
