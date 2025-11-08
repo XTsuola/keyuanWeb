@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -153,11 +153,11 @@ const columns = ref<any>([
         customRender: (opt: any) => {
             switch (opt.record.quality) {
                 case "蓝":
-                    return opt.record.level == 20 ? 0 : blueObj[opt.record.level].count - opt.record.count;
+                    return opt.record.level == 20 ? "/" : blueObj[opt.record.level].count - opt.record.count;
                 case "紫":
-                    return opt.record.level == 20 ? 0 : purpleObj[opt.record.level].count - opt.record.count;
+                    return opt.record.level == 20 ? "/" : purpleObj[opt.record.level].count - opt.record.count;
                 case "橙":
-                    return opt.record.level == 20 ? 0 : goldObj[opt.record.level].count - opt.record.count;
+                    return opt.record.level == 20 ? "/" : goldObj[opt.record.level].count - opt.record.count;
                 default:
                     return ""
             }

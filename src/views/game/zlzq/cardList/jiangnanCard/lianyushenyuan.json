@@ -8,17 +8,17 @@
   },
   {
     "quality": "蓝",
+    "name": "沸腾血刃",
+    "cost": 1,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "爆燃邪鬼",
     "cost": 2,
     "level": 20,
     "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "炎球",
-    "cost": 2,
-    "level": 20,
-    "type": 2
   },
   {
     "quality": "蓝",
@@ -71,6 +71,13 @@
   },
   {
     "quality": "紫",
+    "name": "鲜血督军",
+    "cost": 4,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "灼神双炎",
     "cost": 4,
     "level": 20,
@@ -88,13 +95,6 @@
     "name": "巴克&巴罗",
     "cost": 4,
     "level": 18,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "熔岩进击",
-    "cost": 4,
-    "level": 12,
     "type": 1
   },
   {
