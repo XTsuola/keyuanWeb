@@ -17,14 +17,14 @@
     "quality": "蓝",
     "name": "蓄力射手",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "迅捷长矛手",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -57,17 +57,17 @@
   },
   {
     "quality": "紫",
+    "name": "肥鼠晚宴",
+    "cost": 3,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "活力仙人掌",
     "cost": 3,
     "level": 14,
     "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "肥鼠晚宴",
-    "cost": 3,
-    "level": 14,
-    "type": 2
   },
   {
     "quality": "紫",
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "饥蛮巨汉",
     "cost": 4,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {

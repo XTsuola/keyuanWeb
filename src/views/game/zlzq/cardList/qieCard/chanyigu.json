@@ -1,59 +1,45 @@
 [
   {
     "quality": "蓝",
-    "name": "箭竹守卫1",
+    "name": "箭竹守卫",
     "cost": 1,
     "level": 20,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "箭竹守卫2",
-    "cost": 1,
+    "name": "白羊药师",
+    "cost": 2,
     "level": 19,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "卜命道长",
-    "cost": 1,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "树木之怒1",
+    "name": "树木之怒",
     "cost": 2,
     "level": 19,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "树木之怒2",
-    "cost": 2,
-    "level": 18,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "白羊药师1",
-    "cost": 2,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "白羊药师2",
-    "cost": 2,
-    "level": 18,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "疾风猎手",
+    "name": "执剑道者",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "连击1",
+    "cost": 3,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "连击2",
+    "cost": 3,
+    "level": 14,
+    "type": 2
   },
   {
     "quality": "蓝",
@@ -61,6 +47,13 @@
     "cost": 4,
     "level": 20,
     "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云",
+    "cost": 4,
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "紫",
@@ -71,16 +64,9 @@
   },
   {
     "quality": "紫",
-    "name": "扫叶僧1",
+    "name": "扫叶僧",
     "cost": 3,
     "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "扫叶僧2",
-    "cost": 3,
-    "level": 15,
     "type": 1
   },
   {
@@ -98,10 +84,24 @@
     "type": 2
   },
   {
+    "quality": "紫",
+    "name": "萌化术",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
     "quality": "橙",
     "name": "九天玄女·轩",
     "cost": 4,
     "level": 17,
     "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "上宝沁金耙",
+    "cost": 4,
+    "level": 12,
+    "type": 2
   }
 ]

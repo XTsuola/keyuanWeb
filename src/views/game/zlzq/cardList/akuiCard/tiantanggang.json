@@ -10,7 +10,7 @@
     "quality": "蓝",
     "name": "心灵黑洞2",
     "cost": 1,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -45,7 +45,7 @@
     "quality": "蓝",
     "name": "不法交易",
     "cost": 3,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -94,7 +94,7 @@
     "quality": "紫",
     "name": "黑旗舰队船长",
     "cost": 6,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
