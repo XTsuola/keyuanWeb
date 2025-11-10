@@ -284,7 +284,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   label: "我的卡等",
                   icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/zlzq/cardLevel.vue"),
+                component: () => import("@/views/game/zlzq/cardList/zz_myCard/z_level.vue"),
               },
               {
                 path: "zhenlizhiquanAsitala",

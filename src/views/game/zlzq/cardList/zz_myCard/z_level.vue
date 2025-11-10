@@ -62,10 +62,10 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
-import simangdiguo from "./myCardLevel/simangdiguo.json";
-import chanyigu from "./myCardLevel/chanyigu.json";
-import tiantanggang from "./myCardLevel/tiantanggang.json";
-import yinmizhe from "./myCardLevel/yinmizhe.json";
+import simangdiguo from "./simangdiguo.json";
+import chanyigu from "./chanyigu.json";
+import tiantanggang from "./tiantanggang.json";
+import yinmizhe from "./yinmizhe.json";
 import MyTabel from "@/components/table.vue";
 
 const total = ref<number>(0);
