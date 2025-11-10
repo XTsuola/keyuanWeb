@@ -1,13 +1,6 @@
 [
   {
     "quality": "蓝",
-    "name": "长耳庄巧姑",
-    "cost": 2,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "太极剑法1",
     "cost": 2,
     "level": 12,
@@ -20,7 +13,14 @@
     "level": 12,
     "type": 2
   },
-   {
+  {
+    "quality": "蓝",
+    "name": "太极剑法3",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
     "quality": "蓝",
     "name": "飓风术",
     "cost": 2,

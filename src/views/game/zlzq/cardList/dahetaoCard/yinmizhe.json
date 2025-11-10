@@ -64,6 +64,13 @@
   },
   {
     "quality": "紫",
+    "name": "学仆-脉冲型",
+    "cost": 3,
+    "level": 19,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
     "level": 20,
