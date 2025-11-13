@@ -327,16 +327,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 component: () => import("@/views/game/zlzq/zz_genaluoer.vue"),
               },
               {
-                path: "zhenlizhiquanMogen",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanMogen",
-                  label: "摩根",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_mogen.vue"),
-              },
-              {
                 path: "xingkongCard",
                 meta: {
                   menuType: "menu",

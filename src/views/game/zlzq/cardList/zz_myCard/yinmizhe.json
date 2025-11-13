@@ -79,19 +79,6 @@
   },
   {
     "quality": "紫",
-    "name": "隐形术",
-    "cost": 1,
-    "level": 17,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "【洞察1】、目标单位+16/+18，获得【隐形】。",
-    "count": 1408,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "紫",
     "name": "破魔系教授",
     "cost": 2,
     "level": 20,

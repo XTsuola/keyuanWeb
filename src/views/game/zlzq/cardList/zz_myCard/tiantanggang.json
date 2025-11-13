@@ -53,7 +53,7 @@
   },
   {
     "quality": "蓝",
-    "name": "狡诈学徒1",
+    "name": "狡诈学徒",
     "cost": 2,
     "level": 16,
     "type": 1,
@@ -61,45 +61,6 @@
     "life": 13,
     "effect": "【洞察1】、登场:吹回对面首位新进场敌军、洞察时自身攻击+3。",
     "count": 1792,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "狡诈学徒2",
-    "cost": 2,
-    "level": 12,
-    "type": 1,
-    "attack": 12,
-    "life": 8,
-    "effect": "【洞察1】、登场:吹回对面首位新进场敌军、洞察时自身攻击+1。",
-    "count": 640,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "狡诈学徒3",
-    "cost": 2,
-    "level": 12,
-    "type": 1,
-    "attack": 12,
-    "life": 8,
-    "effect": "【洞察1】、登场:吹回对面首位新进场敌军、洞察时自身攻击+1。",
-    "count": 640,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "黑金勒索者",
-    "cost": 2,
-    "level": 12,
-    "type": 1,
-    "attack": 15,
-    "life": 10,
-    "effect": "每当一个敌军死亡时:随机友军+3/+3，登场:敌方玩家禁疗一回合。",
-    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -180,6 +141,19 @@
     "count": 416,
     "daikuan": 0,
     "remark": ""
+  },
+  {
+    "quality": "橙",
+    "name": "夏日女郎·鲍莉",
+    "cost": 3,
+    "level": 12,
+    "type": 1,
+    "attack": 11,
+    "life": 11,
+    "effect": "登场:召唤8/8水手-lv11、攻击前:随机敌军受到11点伤害、回合结束:自身回手。",
+    "count": 448,
+    "daikuan": 0,
+    "remark": "【沐浴阳光】：登场：全体友军攻击+1，获得【回命】1回合。"
   },
   {
     "quality": "橙",

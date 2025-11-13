@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import MyCardList from "./modal/myCardList.vue";
+import MyCardList from "./z_heroLevel.vue";
 
 const myData = ref(["洞悉之眼1", "圣殿斥候1", "圣殿斥候2", "学仆-观测型1", "天使琼浆", "沉重否定", "圣殿弩手", "增援战线", "全数否定", "田园守望者",
     "光明惩戒", "四芒军旗", "圣殿御卫", "破魔系教授", "克隆术1", "克隆术2", "学仆-脉冲型1", "学仆-脉冲型2", "学仆-脉冲型3", "幻域秘树",
