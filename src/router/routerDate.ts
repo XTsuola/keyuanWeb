@@ -426,6 +426,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/cardList/jiaoshouCard/z_level.vue"),
               },
+              {
+                path: "ceshiCard",
+                meta: {
+                  menuType: "menu",
+                  key: "ceshiCard",
+                  label: "测试卡等",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zzz_ceshiLevel.vue"),
+              },
             ],
           },
           {

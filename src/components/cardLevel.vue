@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -49,12 +49,14 @@
                 </div>
             </a-form-item>
         </a-form>
-        <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
-        <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
-        <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
-        <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
-        <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
-        <span>总卡等：{{ allLevel }}</span>
+        <div>
+            <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
+            <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
+            <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
+            <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
+            <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
+            <span>平均卡等：{{ allLevel }}</span>
+        </div>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>
 </template>

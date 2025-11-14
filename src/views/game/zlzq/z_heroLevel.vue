@@ -12,35 +12,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -54,7 +54,43 @@
             <span>蓝卡等级：{{ blueCard.toFixed(2) }}</span>
             <span>紫卡等级：{{ purpleCard.toFixed(2) }}</span>
             <span>橙卡等级：{{ orangeCard.toFixed(2) }}</span>
-            <span>总计等级：{{ allCard.toFixed(2) }}</span>
+            <span>平均等级：{{ allCard.toFixed(2) }}</span>
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <span>当前等级已用资源：</span>
+            <div class="cardLevel">
+                <span style="width: 130px;">白石头：{{ nowLevel.baishitou }}</span>
+                <span style="width: 130px;">黑石头：{{ nowLevel.heishitou }}</span>
+                <span style="width: 130px;">红石头：{{ nowLevel.hongshitou }}</span>
+                <span style="width: 130px;">黄石头：{{ nowLevel.huangshitou }}</span>
+                <span style="width: 130px;">钻石：{{ (nowLevel.zuanshi / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">战力：{{ (nowLevel.zhanli / 10000).toFixed(2) }}万</span>
+            </div>
+        </div>
+        <div>
+            <span>20级满级所需资源：</span>
+            <div class="cardLevel">
+                <span style="width: 130px;">白石头：{{ to20Level.baishitou }}</span>
+                <span style="width: 130px;">黑石头：{{ to20Level.heishitou }}</span>
+                <span style="width: 130px;">红石头：{{ to20Level.hongshitou }}</span>
+                <span style="width: 130px;">黄石头：{{ to20Level.huangshitou }}</span>
+                <span style="width: 130px;">钻石：{{ (to20Level.zuanshi / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">战力：{{ (to20Level.zhanli / 10000).toFixed(2) }}万</span>
+            </div>
+        </div>
+        <div>
+            <span>当前到满级所需差值：</span>
+            <div class="cardLevel">
+                <span style="width: 130px;">白石头：{{ to20Level.baishitou - nowLevel.baishitou }}</span>
+                <span style="width: 130px;">黑石头：{{ to20Level.heishitou - nowLevel.heishitou }}</span>
+                <span style="width: 130px;">红石头：{{ to20Level.hongshitou - nowLevel.hongshitou }}</span>
+                <span style="width: 130px;">黄石头：{{ to20Level.huangshitou - nowLevel.huangshitou }}</span>
+                <span style="width: 130px;">钻石：{{ ((to20Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">战力：{{ ((to20Level.zhanli - nowLevel.zhanli) / 10000).toFixed(2) }}万</span>
+            </div>
         </div>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>
@@ -62,7 +98,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import { getMyCard } from "@/utils/global";
+import { getMyCard, blueObj, purpleObj, goldObj } from "@/utils/global";
 import simangdiguo from "./cardList/zz_myCard/simangdiguo.json";
 import chanyigu from "./cardList/zz_myCard/chanyigu.json";
 import tiantanggang from "./cardList/zz_myCard/tiantanggang.json";
@@ -73,6 +109,29 @@ interface Prop {
     myData: string[]
     zhongzu: number[]
 }
+
+const to20Level = reactive<any>({
+    baishitou: 0,
+    heishitou: 0,
+    hongshitou: 0,
+    huangshitou: 0,
+    zuanshi: 0,
+    zhanli: 0,
+})
+
+const nowLevel = reactive<any>({
+    baishitou: 0,
+    heishitou: 0,
+    hongshitou: 0,
+    huangshitou: 0,
+    zuanshi: 0,
+    zhanli: 0,
+})
+
+const blueCard = ref(0);
+const purpleCard = ref(0);
+const orangeCard = ref(0);
+const allCard = ref(0);
 
 const prop = defineProps<Prop>();
 const total = ref<number>(0);
@@ -274,10 +333,6 @@ const formState = reactive({
     cost: undefined,
     type: undefined
 });
-const blueCard = ref(0);
-const purpleCard = ref(0);
-const orangeCard = ref(0);
-const allCard = ref(0);
 
 async function getList() {
     let tempData: any = [];
@@ -298,14 +353,6 @@ async function getList() {
         tempData = [...tempData, ...yinmizhe]
     }
     let allData = getMyCard(tempData, prop.myData);
-    const blueList = allData.filter(e => e.quality == "蓝").map(e => { return e.level });
-    const purpleList = allData.filter(e => e.quality == "紫").map(e => { return e.level });
-    const orangeList = allData.filter(e => e.quality == "橙").map(e => { return e.level });
-    const allList = allData.map(e => { return e.level });
-    blueCard.value = blueList.length != 0 ? blueList.reduce((a: any, b: any) => a + b) / blueList.length : 0;
-    purpleCard.value = purpleList.length != 0 ? purpleList.reduce((a: any, b: any) => a + b) / purpleList.length : 0;
-    orangeCard.value = orangeList.length != 0 ? orangeList.reduce((a: any, b: any) => a + b) / orangeList.length : 0;
-    allCard.value = allList.length != 0 ? allList.reduce((a: any, b: any) => a + b) / allList.length : 0;
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
     }
@@ -325,6 +372,49 @@ async function getList() {
         allData = allData.filter((item: any) => item.level == formState.level);
     }
     total.value = allData.length;
+    const blueList = allData.filter(e => e.quality == "蓝");
+    const purpleList = allData.filter(e => e.quality == "紫");
+    const goldList = allData.filter(e => e.quality == "橙");
+    let blueLevel = 0, purpleLevel = 0, goldLevel = 0;
+    for (let i = 0; i < blueList.length; i++) {
+        blueLevel += blueList[i].level;
+        nowLevel.baishitou += blueObj[blueList[i].level - 1].cailiao[3];
+        nowLevel.heishitou += blueObj[blueList[i].level - 1].cailiao[2];
+        nowLevel.hongshitou += blueObj[blueList[i].level - 1].cailiao[1];
+        nowLevel.huangshitou += blueObj[blueList[i].level - 1].cailiao[0];
+        nowLevel.zuanshi += blueObj[blueList[i].level - 1].zuanshi;
+        nowLevel.zhanli += blueObj[blueList[i].level - 1].zhanli;
+    }
+
+    for (let i = 0; i < purpleList.length; i++) {
+        purpleLevel += purpleList[i].level;
+        nowLevel.baishitou += purpleObj[purpleList[i].level - 1].cailiao[3];
+        nowLevel.heishitou += purpleObj[purpleList[i].level - 1].cailiao[2];
+        nowLevel.hongshitou += purpleObj[purpleList[i].level - 1].cailiao[1];
+        nowLevel.huangshitou += purpleObj[purpleList[i].level - 1].cailiao[0];
+        nowLevel.zuanshi += purpleObj[purpleList[i].level - 1].zuanshi;
+        nowLevel.zhanli += purpleObj[purpleList[i].level - 1].zhanli;
+    }
+    for (let i = 0; i < goldList.length; i++) {
+        goldLevel += goldList[i].level;
+        nowLevel.baishitou += goldObj[goldList[i].level - 1].cailiao[3];
+        nowLevel.heishitou += goldObj[goldList[i].level - 1].cailiao[2];
+        nowLevel.hongshitou += goldObj[goldList[i].level - 1].cailiao[1];
+        nowLevel.huangshitou += goldObj[goldList[i].level - 1].cailiao[0];
+        nowLevel.zuanshi += goldObj[goldList[i].level - 1].zuanshi;
+        nowLevel.zhanli += goldObj[goldList[i].level - 1].zhanli;
+    }
+    blueCard.value = blueLevel / blueList.length;
+    purpleCard.value = purpleLevel / purpleList.length;
+    orangeCard.value = goldLevel / goldList.length;
+    allCard.value = (blueLevel + purpleLevel + goldLevel) / (blueList.length + purpleList.length + goldList.length);
+
+    to20Level.baishitou = (blueList.length * blueObj[19].cailiao[3]) + (purpleList.length * purpleObj[19].cailiao[3]) + (goldList.length * goldObj[19].cailiao[3]);
+    to20Level.heishitou = (blueList.length * blueObj[19].cailiao[2]) + (purpleList.length * purpleObj[19].cailiao[2]) + (goldList.length * goldObj[19].cailiao[2]);
+    to20Level.hongshitou = (blueList.length * blueObj[19].cailiao[1]) + (purpleList.length * purpleObj[19].cailiao[1]) + (goldList.length * goldObj[19].cailiao[1]);
+    to20Level.huangshitou = (blueList.length * blueObj[19].cailiao[0]) + (purpleList.length * purpleObj[19].cailiao[0]) + (goldList.length * goldObj[19].cailiao[0]);
+    to20Level.zuanshi = (blueList.length * blueObj[19].zuanshi) + (purpleList.length * purpleObj[19].zuanshi) + (goldList.length * goldObj[19].zuanshi);
+    to20Level.zhanli = (blueList.length * blueObj[19].zhanli) + (purpleList.length * purpleObj[19].zhanli) + (goldList.length * goldObj[19].zhanli);
     tableData.value = allData;
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
