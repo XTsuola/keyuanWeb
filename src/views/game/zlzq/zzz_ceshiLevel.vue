@@ -1,4 +1,3 @@
-@ -1,377 +0,0 @@
 <template>
     <div class="main">
         <div class="title">

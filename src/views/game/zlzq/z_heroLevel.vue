@@ -12,35 +12,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -50,6 +50,7 @@
                 </div>
             </a-form-item>
         </a-form>
+
         <div class="cardLevel">
             <span>蓝卡等级：{{ blueCard.toFixed(2) }}</span>
             <span>紫卡等级：{{ purpleCard.toFixed(2) }}</span>
@@ -57,7 +58,12 @@
             <span>平均等级：{{ allCard.toFixed(2) }}</span>
         </div>
         <div>
-
+            <span>还需卡数量：</span>
+            <div class="cardLevel">
+                <span style="width: 130px;">蓝卡：{{ nowLevel.blue }}</span>
+                <span style="width: 130px;">紫卡：{{ nowLevel.purple }}</span>
+                <span style="width: 130px;">橙卡：{{ nowLevel.gold }}</span>
+            </div>
         </div>
         <div>
             <span>当前等级已用资源：</span>
@@ -126,6 +132,9 @@ const nowLevel = reactive<any>({
     huangshitou: 0,
     zuanshi: 0,
     zhanli: 0,
+    blue: 0,
+    purple: 0,
+    gold: 0
 })
 
 const blueCard = ref(0);
@@ -336,6 +345,7 @@ const formState = reactive({
 
 async function getList() {
     let tempData: any = [];
+    nowLevel.baishitou = nowLevel.heishitou = nowLevel.hongshitou = nowLevel.huangshitou = nowLevel.zhanli = nowLevel.zuanshi = nowLevel.blue = nowLevel.purple = nowLevel.gold = 0;
     if (prop.zhongzu.findIndex((e: any) => e == 1) != -1) {
         simangdiguo.forEach((item: any) => item.zhenyin = 1)
         tempData = [...tempData, ...simangdiguo]
@@ -384,6 +394,7 @@ async function getList() {
         nowLevel.huangshitou += blueObj[blueList[i].level - 1].cailiao[0];
         nowLevel.zuanshi += blueObj[blueList[i].level - 1].zuanshi;
         nowLevel.zhanli += blueObj[blueList[i].level - 1].zhanli;
+        nowLevel.blue += (3584 - blueObj[blueList[i].level - 1].count);
     }
 
     for (let i = 0; i < purpleList.length; i++) {
@@ -394,6 +405,7 @@ async function getList() {
         nowLevel.huangshitou += purpleObj[purpleList[i].level - 1].cailiao[0];
         nowLevel.zuanshi += purpleObj[purpleList[i].level - 1].zuanshi;
         nowLevel.zhanli += purpleObj[purpleList[i].level - 1].zhanli;
+        nowLevel.purple += (2368 - purpleObj[purpleList[i].level - 1].count);
     }
     for (let i = 0; i < goldList.length; i++) {
         goldLevel += goldList[i].level;
@@ -403,6 +415,7 @@ async function getList() {
         nowLevel.huangshitou += goldObj[goldList[i].level - 1].cailiao[0];
         nowLevel.zuanshi += goldObj[goldList[i].level - 1].zuanshi;
         nowLevel.zhanli += goldObj[goldList[i].level - 1].zhanli;
+        nowLevel.gold += (1600 - goldObj[goldList[i].level - 1].count);
     }
     blueCard.value = blueLevel / blueList.length;
     purpleCard.value = purpleLevel / purpleList.length;

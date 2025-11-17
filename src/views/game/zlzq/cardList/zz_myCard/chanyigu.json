@@ -14,32 +14,6 @@
   },
   {
     "quality": "蓝",
-    "name": "树木之怒",
-    "cost": 2,
-    "level": 19,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "随机区域敌军、及敌方玩家受到51点伤害。",
-    "count": 3136,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
-    "name": "苦行武僧",
-    "cost": 2,
-    "level": 18,
-    "type": 1,
-    "attack": 16,
-    "life": 30,
-    "effect": "【传承6】、回合结束:自身+4/+4，魔防+4。",
-    "count": 3584,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "蓝",
     "name": "飓风术1",
     "cost": 2,
     "level": 13,
@@ -47,7 +21,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标敌军吹回手上、英雄生命+15。",
-    "count": 1792,
+    "count": 832,
     "daikuan": 0,
     "remark": ""
   },
@@ -60,7 +34,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标敌军吹回手上、英雄生命+15。",
-    "count": 1792,
+    "count": 832,
     "daikuan": 0,
     "remark": ""
   },
@@ -99,7 +73,33 @@
     "attack": 13,
     "life": 12,
     "effect": "【洞察1】、登场:吹回随机敌军。",
-    "count": 3584,
+    "count": 640,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云1",
+    "cost": 4,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "吹回横排所有敌军，英雄生命+15，60%几率获得《真理石碎片》。",
+    "count": 640,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云2",
+    "cost": 4,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "吹回横排所有敌军，英雄生命+15，60%几率获得《真理石碎片》。",
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -138,7 +138,7 @@
     "attack": 5,
     "life": 39,
     "effect": "【洞察1】、法力上限+1、回合结束:复制场上另一单位，到你手上。",
-    "count": 1200,
+    "count": 1408,
     "daikuan": 0,
     "remark": ""
   },
@@ -151,7 +151,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、抓3张牌，英雄生命+18、随机一个友军+4/+4。",
-    "count": 1264,
+    "count": 416,
     "daikuan": 0,
     "remark": ""
   },
@@ -164,7 +164,7 @@
     "attack": 0,
     "life": 0,
     "effect": "目标友军+12/+12并获得【神佑】。",
-    "count": 576,
+    "count": 416,
     "daikuan": 0,
     "remark": ""
   },
