@@ -1,5 +1,8 @@
 import type { RouteRecordRaw } from "vue-router";
 import BlankLayout from "@/layout/BlankLayout.vue";
+import { createDynamicChildren, friendCardRouterData } from "./friend";
+
+const friendRouter = createDynamicChildren(friendCardRouterData);
 
 const newRouterDate: Array<RouteRecordRaw> = [
   {
@@ -326,106 +329,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/zz_genaluoer.vue"),
               },
-              {
-                path: "xingkongCard",
-                meta: {
-                  menuType: "menu",
-                  key: "xingkongCard",
-                  label: "星空卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/xingkongCard/z_level.vue"),
-              },
-              {
-                path: "hezhongshanCard",
-                meta: {
-                  menuType: "menu",
-                  key: "hezhongshanCard",
-                  label: "河中山卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/hezhongshanCard/z_level.vue"),
-              },
-              {
-                path: "dahetaoCard",
-                meta: {
-                  menuType: "menu",
-                  key: "dahetaoCard",
-                  label: "大核桃",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/dahetaoCard/z_level.vue"),
-              },
-              {
-                path: "qieCard",
-                meta: {
-                  menuType: "menu",
-                  key: "qieCard",
-                  label: "企鹅卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/qieCard/z_level.vue"),
-              },
-              {
-                path: "akuiCard",
-                meta: {
-                  menuType: "menu",
-                  key: "akuiCard",
-                  label: "阿奎卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/akuiCard/z_level.vue"),
-              },
-              {
-                path: "guyueCard",
-                meta: {
-                  menuType: "menu",
-                  key: "guyueCard",
-                  label: "古月卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/guyueCard/z_level.vue"),
-              },
-              {
-                path: "laoduCard",
-                meta: {
-                  menuType: "menu",
-                  key: "laoduCard",
-                  label: "老杜卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/laoduCard/z_level.vue"),
-              },
-              {
-                path: "jiangnanCard",
-                meta: {
-                  menuType: "menu",
-                  key: "jiangnanCard",
-                  label: "江南卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/jiangnanCard/z_level.vue"),
-              },
-              {
-                path: "taotailangCard",
-                meta: {
-                  menuType: "menu",
-                  key: "taotailangCard",
-                  label: "淘汰郎卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/taotailangCard/z_level.vue"),
-              },
-              {
-                path: "jiaoshouCard",
-                meta: {
-                  menuType: "menu",
-                  key: "jiaoshouCard",
-                  label: "教授卡等",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList/jiaoshouCard/z_level.vue"),
-              },
+              ...friendRouter,
               {
                 path: "ceshiCard",
                 meta: {
