@@ -15,16 +15,9 @@
   },
   {
     "quality": "蓝",
-    "name": "沉重否定1",
+    "name": "沉重否定",
     "cost": 2,
     "level": 17,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "沉重否定1",
-    "cost": 2,
-    "level": 12,
     "type": 2
   },
   {
@@ -94,7 +87,7 @@
     "quality": "紫",
     "name": "学仆-塑钢型",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {

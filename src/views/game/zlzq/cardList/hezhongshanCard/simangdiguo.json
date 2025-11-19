@@ -94,7 +94,7 @@
     "quality": "橙",
     "name": "百花长枪·卡洛琳",
     "cost": 4,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -108,7 +108,7 @@
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -116,6 +116,13 @@
     "name": "白袍·伊恩",
     "cost": 6,
     "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "武圣·关羽",
+    "cost": 8,
+    "level": 17,
     "type": 1
   }
 ]
