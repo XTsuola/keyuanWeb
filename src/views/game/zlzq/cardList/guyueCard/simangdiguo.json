@@ -10,14 +10,14 @@
     "quality": "蓝",
     "name": "圣殿卫士",
     "cost": 2,
-    "level": 12,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "民兵队长",
     "cost": 2,
-    "level": 12,
+    "level": 15,
     "type": 1
   },
   {
@@ -31,7 +31,7 @@
     "quality": "蓝",
     "name": "增援战线",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -57,16 +57,16 @@
   },
   {
     "quality": "紫",
-    "name": "四芒军旗",
+    "name": "四芒军旗1",
     "cost": 1,
     "level": 14,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "圣殿御卫",
-    "cost": 2,
-    "level": 16,
+    "name": "四芒军旗2",
+    "cost": 1,
+    "level": 12,
     "type": 1
   },
   {
@@ -78,9 +78,9 @@
   },
   {
     "quality": "紫",
-    "name": "白袍主教",
-    "cost": 3,
-    "level": 18,
+    "name": "圣殿御卫",
+    "cost": 2,
+    "level": 17,
     "type": 1
   },
   {
@@ -99,9 +99,16 @@
   },
   {
     "quality": "紫",
-    "name": "惩戒天使",
+    "name": "禁卫指挥官",
     "cost": 6,
-    "level": 14,
+    "level": 15,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "花光春影·安娜贝尔",
+    "cost": 3,
+    "level": 12,
     "type": 1
   },
   {
@@ -115,6 +122,13 @@
     "quality": "橙",
     "name": "明日香·露娜",
     "cost": 4,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "永恒之王·莱哈特",
+    "cost": 5,
     "level": 12,
     "type": 1
   },

@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -52,9 +52,9 @@
         <div>
             <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
             <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
-            <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
-            <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
-            <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
+            <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}（{{ blueCount }}张）</span>
+            <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}（{{ purpleCount }}张）</span>
+            <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}（{{ goldCount }}张）</span>
             <span>平均卡等：{{ allLevel }}</span>
         </div>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
@@ -270,6 +270,9 @@ const countZuanshi = ref(0);
 const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
+const blueCount = ref<any>(0);
+const purpleCount = ref<any>(0);
+const goldCount = ref<any>(0);
 const allLevel = ref<any>(1);
 
 function getBai(quality: string, level: number) {
@@ -326,6 +329,9 @@ async function getList() {
     let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
     let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
     let levelDataAll = allData.map((e: any) => e.level);
+    blueCount.value = leveDataBlue.length;
+    purpleCount.value = leveDataPurple.length;
+    goldCount.value = leveDataGold.length;
     blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
     purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
     goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);
