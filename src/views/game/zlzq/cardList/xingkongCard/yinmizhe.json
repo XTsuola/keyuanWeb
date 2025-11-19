@@ -45,7 +45,7 @@
     "quality": "紫",
     "name": "克隆术",
     "cost": 2,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
@@ -94,14 +94,14 @@
     "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
-    "level": 15,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "月之神·米拉",
     "cost": 5,
-    "level": 15,
+    "level": 16,
     "type": 1
   }
 ]

@@ -51,10 +51,10 @@
         </a-form>
         <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
         <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
-        <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}</span>
-        <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}</span>
-        <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}</span>
-        <span>总卡等：{{ allLevel }}</span>
+        <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}（{{ blueCount }}张）</span>
+        <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}（{{ purpleCount }}张）</span>
+        <span style="margin-right: 30px;">金卡卡等：{{ goldLevel }}（{{ goldCount }}张）</span>
+        <span>总卡等：{{ allLevel }}（{{ blueCount + purpleCount + goldCount }}张）</span>
         <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"></MyTabel>
     </div>
 </template>
@@ -338,6 +338,9 @@ const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
 const goldLevel = ref<any>(1);
 const allLevel = ref<any>(1);
+const blueCount = ref<any>(0);
+const purpleCount = ref<any>(0);
+const goldCount = ref<any>(0);
 
 async function getList() {
     countBaishitou.value = countZuanshi.value = 0;
@@ -369,6 +372,9 @@ async function getList() {
     let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
     let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
     let levelDataAll = allData.map((e: any) => e.level);
+    blueCount.value = leveDataBlue.length;
+    purpleCount.value = leveDataPurple.length;
+    goldCount.value = leveDataGold.length;
     blueLevel.value = (leveDataBlue.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataBlue.length).toFixed(2);
     purpleLevel.value = (leveDataPurple.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataPurple.length).toFixed(2);
     goldLevel.value = (leveDataGold.reduce((accumulator: any, currentValue: any) => accumulator + currentValue, 0) / leveDataGold.length).toFixed(2);

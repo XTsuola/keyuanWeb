@@ -1,13 +1,6 @@
 [
   {
     "quality": "蓝",
-    "name": "拒马",
-    "cost": 2,
-    "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "苦行武僧",
     "cost": 2,
     "level": 12,
@@ -44,6 +37,13 @@
   {
     "quality": "蓝",
     "name": "连击2",
+    "cost": 3,
+    "level": 13,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "连击3",
     "cost": 3,
     "level": 13,
     "type": 2
