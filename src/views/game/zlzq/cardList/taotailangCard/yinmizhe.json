@@ -10,7 +10,7 @@
     "quality": "蓝",
     "name": "沉重否定1",
     "cost": 2,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
@@ -52,7 +52,14 @@
     "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
-    "level": 17,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "学仆-塑钢型",
+    "cost": 4,
+    "level": 14,
     "type": 1
   },
   {
@@ -87,14 +94,14 @@
     "quality": "紫",
     "name": "魔像-钢翼仲裁者",
     "cost": 9,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "月之神·米拉",
     "cost": 5,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {

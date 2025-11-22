@@ -24,7 +24,7 @@
     "quality": "蓝",
     "name": "天降碎石",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 2
   },
   {
@@ -108,7 +108,7 @@
     "quality": "紫",
     "name": "贪食白龙",
     "cost": 8,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -136,7 +136,7 @@
     "quality": "橙",
     "name": "荒原暴君·血眼",
     "cost": 8,
-    "level": 13,
+    "level": 14,
     "type": 1
   }
 ]
