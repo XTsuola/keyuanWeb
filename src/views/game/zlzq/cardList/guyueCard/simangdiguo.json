@@ -22,7 +22,14 @@
   },
   {
     "quality": "蓝",
-    "name": "圣殿弩手",
+    "name": "圣殿弩手1",
+    "cost": 3,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "圣殿弩手2",
     "cost": 3,
     "level": 20,
     "type": 1
@@ -38,7 +45,7 @@
     "quality": "蓝",
     "name": "田园守望者",
     "cost": 3,
-    "level": 13,
+    "level": 15,
     "type": 1
   },
   {
@@ -85,6 +92,13 @@
   },
   {
     "quality": "紫",
+    "name": "白袍主教",
+    "cost": 3,
+    "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "圣殿骑士",
     "cost": 3,
     "level": 17,
@@ -92,8 +106,22 @@
   },
   {
     "quality": "紫",
+    "name": "冲锋装备",
+    "cost": 3,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "田园保卫战",
+    "cost": 5,
     "level": 15,
     "type": 2
   },
@@ -102,13 +130,6 @@
     "name": "禁卫指挥官",
     "cost": 6,
     "level": 15,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "花光春影·安娜贝尔",
-    "cost": 3,
-    "level": 12,
     "type": 1
   },
   {
@@ -122,13 +143,6 @@
     "quality": "橙",
     "name": "明日香·露娜",
     "cost": 4,
-    "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "永恒之王·莱哈特",
-    "cost": 5,
     "level": 12,
     "type": 1
   },
