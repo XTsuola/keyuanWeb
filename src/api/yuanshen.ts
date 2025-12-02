@@ -29,11 +29,7 @@ export interface AddHeroParams {
   shuxing: number | undefined;
   star: number | undefined;
   lifeSeat: string;
-  life: string;
-  att: string;
-  def: string;
   breach: string;
-  introduce: string;
   remark: string;
   firstLook: string;
   birthday: string;

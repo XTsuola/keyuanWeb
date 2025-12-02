@@ -9,45 +9,36 @@
                 <a-select style="width: 100%;" v-model:value="addData.gender" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="所属国家" name="country" :rules="[{ required: true, message: '请选择国家!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.country" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器类型" name="arms" :rules="[{ required: true, message: '请选择武器类型!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.arms" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" name="shuxing" :rules="[{ required: true, message: '请选择属性!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.shuxing" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
-            </a-form-item>
-            <a-form-item label="生命">
-                <a-input v-model:value="addData.life" :disabled="prop.type === 'detail'"></a-input>
-            </a-form-item>
-            <a-form-item label="攻击">
-                <a-input v-model:value="addData.att" :disabled="prop.type === 'detail'"></a-input>
-            </a-form-item>
-            <a-form-item label="防御">
-                <a-input v-model:value="addData.def" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="突破加成">
                 <a-input v-model:value="addData.breach" :disabled="prop.type === 'detail'"></a-input>
@@ -55,10 +46,6 @@
             <a-form-item label="命之座">
                 <a-textarea v-model:value="addData.lifeSeat" :disabled="prop.type === 'detail'"
                     style="height: 240px;"></a-textarea>
-            </a-form-item>
-            <a-form-item label="介绍">
-                <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"
-                    style="height: 160px;"></a-textarea>
             </a-form-item>
             <a-form-item label="初次见面">
                 <a-textarea v-model:value="addData.firstLook" :disabled="prop.type === 'detail'"
@@ -101,13 +88,9 @@ const addData = ref<AddHeroParams>({
     country: undefined,
     arms: undefined,
     shuxing: undefined,
-    life: "",
-    att: "",
-    def: "",
     breach: "",
     lifeSeat: "",
     star: undefined,
-    introduce: "",
     firstLook: "",
     birthday: "",
     remark: "",
@@ -215,7 +198,7 @@ function uploadImg(file: any) {
     if (target) {
         const reader = new FileReader();
         reader.readAsDataURL(target);
-        reader.addEventListener("load", async (e) => {
+        reader.addEventListener("load", async (e: any) => {
             if (e.target && typeof e.target.result === "string") {
                 addData.value.img = e.target.result as any;
                 fileList.value.push({ url: addData.value.img, name: file.file.name });

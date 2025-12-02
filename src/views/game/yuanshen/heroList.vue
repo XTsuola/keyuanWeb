@@ -13,42 +13,42 @@
                 <a-select v-model:value="formState.gender" @change="selectList" placeholder="请选择性别">
                     <a-select-option v-for="item in genderList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="国家" style="width: 200px">
                 <a-select v-model:value="formState.country" @change="selectList" placeholder="请选择国家">
                     <a-select-option v-for="item in countryList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="武器" style="width: 200px">
                 <a-select v-model:value="formState.arms" @change="selectList" placeholder="请选择武器">
                     <a-select-option v-for="item in armsList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="属性" style="width: 200px">
                 <a-select v-model:value="formState.shuxing" @change="selectList" placeholder="请选择属性">
                     <a-select-option v-for="item in shuxingList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" style="width: 200px">
                 <a-select v-model:value="formState.star" @change="selectList" placeholder="请选择星级">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星座" style="width: 200px">
                 <a-select v-model:value="formState.starSign" @change="selectList" placeholder="请选择星星座">
                     <a-select-option v-for="item in starSignList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -90,11 +90,7 @@ let addParams = reactive<AddHeroParams>({
     shuxing: undefined,
     star: undefined,
     lifeSeat: "",
-    life: "",
-    att: "",
-    def: "",
     breach: "",
-    introduce: "",
     firstLook: "",
     birthday: "",
     remark: ""
@@ -104,7 +100,7 @@ const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加角色");
 const addPage = ref<any>();
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level;
@@ -276,7 +272,7 @@ const columns = ref<any>([
         title: "性别",
         dataIndex: "gender",
         key: "gender",
-        width: 60,
+        width: 80,
         customRender: (opt: any) => {
             return genderList.value.find(item => item.value == opt.value)?.label
         }
@@ -285,13 +281,13 @@ const columns = ref<any>([
         title: "国家",
         dataIndex: "country",
         key: "country",
-        width: 60,
+        width: 80,
         customRender: (opt: any) => {
             return countryList.value.find(item => item.value == opt.value)?.label
         }
     },
     {
-        title: "武器",
+        title: "武器类型",
         dataIndex: "arms",
         key: "arms",
         width: 80,
@@ -303,7 +299,7 @@ const columns = ref<any>([
         title: "属性",
         dataIndex: "shuxing",
         key: "shuxing",
-        width: 60,
+        width: 80,
         customRender: (opt: any) => {
             return shuxingList.value.find(item => item.value == opt.value)?.label
         }
@@ -312,36 +308,9 @@ const columns = ref<any>([
         title: "星级",
         dataIndex: "star",
         key: "star",
-        width: 60,
+        width: 80,
         customRender: (opt: any) => {
             return starList.value.find(item => item.value == opt.value)?.label
-        }
-    },
-    {
-        title: "生命",
-        dataIndex: "life",
-        key: "life",
-        width: 60,
-        sorter: (a: AddHeroParams, b: AddHeroParams) => {
-            return parseInt(a.life) - parseInt(b.life)
-        }
-    },
-    {
-        title: "攻击",
-        dataIndex: "att",
-        key: "att",
-        width: 60,
-        sorter: (a: AddHeroParams, b: AddHeroParams) => {
-            return parseInt(a.att) - parseInt(b.att)
-        }
-    },
-    {
-        title: "防御",
-        dataIndex: "def",
-        key: "def",
-        width: 60,
-        sorter: (a: AddHeroParams, b: AddHeroParams) => {
-            return parseInt(a.def) - parseInt(b.def)
         }
     },
     {
@@ -430,11 +399,7 @@ function showModal(showType: AddType, item?: AddHeroParams) {
             addParams.shuxing = item.shuxing;
             addParams.star = item.star;
             addParams.lifeSeat = item.lifeSeat;
-            addParams.life = item.life;
-            addParams.att = item.att;
-            addParams.def = item.def;
             addParams.breach = item.breach;
-            addParams.introduce = item.introduce;
             addParams.firstLook = item.firstLook;
             addParams.birthday = item.birthday;
             addParams.remark = item.remark;
@@ -443,7 +408,7 @@ function showModal(showType: AddType, item?: AddHeroParams) {
     } else if (showType === "add") {
         title.value = "添加角色";
         addParams.id = addParams.gender = addParams.country = addParams.arms = addParams.shuxing = addParams.star = undefined;
-        addParams.name = addParams.introduce = addParams.firstLook = addParams.birthday = addParams.remark = "";
+        addParams.name = addParams.firstLook = addParams.birthday = addParams.remark = "";
     } else if (showType === "detail") {
         title.value = "查看详情";
         if (item) {
@@ -454,11 +419,7 @@ function showModal(showType: AddType, item?: AddHeroParams) {
             addParams.shuxing = item.shuxing;
             addParams.star = item.star;
             addParams.lifeSeat = item.lifeSeat;
-            addParams.life = item.life;
-            addParams.att = item.att;
-            addParams.def = item.def;
             addParams.breach = item.breach;
-            addParams.introduce = item.introduce;
             addParams.firstLook = item.firstLook;
             addParams.birthday = item.birthday;
             addParams.remark = item.remark;
@@ -468,7 +429,7 @@ function showModal(showType: AddType, item?: AddHeroParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: ((data: AddHeroParams) => AxiosPromise<any>)
