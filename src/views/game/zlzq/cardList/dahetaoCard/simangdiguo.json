@@ -24,7 +24,7 @@
     "quality": "蓝",
     "name": "田园守望者2",
     "cost": 3,
-    "level": 17,
+    "level": 19,
     "type": 1
   },
   {
@@ -50,17 +50,17 @@
   },
   {
     "quality": "紫",
-    "name": "四芒军旗",
+    "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 18,
-    "type": 1
+    "level": 20,
+    "type": 3
   },
   {
     "quality": "紫",
-    "name": "传记·钢铁守卫",
+    "name": "四芒军旗",
     "cost": 1,
-    "level": 18,
-    "type": 3
+    "level": 19,
+    "type": 1
   },
   {
     "quality": "紫",
@@ -87,7 +87,7 @@
     "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 18,
+    "level": 19,
     "type": 2
   },
   {
@@ -101,14 +101,14 @@
     "quality": "橙",
     "name": "明日香·露娜",
     "cost": 4,
-    "level": 13,
+    "level": 14,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {

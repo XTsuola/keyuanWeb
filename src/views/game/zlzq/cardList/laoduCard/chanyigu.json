@@ -1,17 +1,17 @@
 [
   {
     "quality": "蓝",
-    "name": "苦行武僧",
+    "name": "拒马",
     "cost": 2,
     "level": 18,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "拒马",
+    "name": "飓风术",
     "cost": 2,
-    "level": 18,
-    "type": 1
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "蓝",
@@ -50,16 +50,16 @@
   },
   {
     "quality": "蓝",
-    "name": "叶幻师",
+    "name": "铁山靠1",
     "cost": 3,
-    "level": 16,
-    "type": 1
+    "level": 17,
+    "type": 2
   },
-  {
+    {
     "quality": "蓝",
-    "name": "铁山靠",
+    "name": "铁山靠2",
     "cost": 3,
-    "level": 14,
+    "level": 12,
     "type": 2
   },
   {
@@ -106,44 +106,9 @@
   },
   {
     "quality": "紫",
-    "name": "墨轩隐士",
-    "cost": 4,
-    "level": 14,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "泰山之力",
     "cost": 4,
     "level": 14,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术",
-    "cost": 4,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "万物之灵1",
-    "cost": 5,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "万物之灵2",
-    "cost": 5,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "橙",
-    "name": "神机玄女·轩",
-    "cost": 5,
-    "level": 15,
     "type": 1
   },
   {

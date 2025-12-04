@@ -1,10 +1,24 @@
 [
   {
     "quality": "蓝",
+    "name": "洞悉之眼",
+    "cost": 0,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "电流激活",
     "cost": 1,
     "level": 20,
     "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "学仆-观测型",
+    "cost": 2,
+    "level": 20,
+    "type": 1
   },
   {
     "quality": "蓝",
@@ -31,7 +45,7 @@
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -52,7 +66,7 @@
     "quality": "紫",
     "name": "克隆术",
     "cost": 2,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {

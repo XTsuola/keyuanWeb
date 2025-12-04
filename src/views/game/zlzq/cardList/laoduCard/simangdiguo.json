@@ -8,20 +8,6 @@
   },
   {
     "quality": "蓝",
-    "name": "旅行背包",
-    "cost": 1,
-    "level": 16,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "重装固守",
-    "cost": 1,
-    "level": 13,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "圣殿卫士",
     "cost": 2,
     "level": 20,
@@ -29,7 +15,7 @@
   },
   {
     "quality": "蓝",
-    "name": "民兵队长",
+    "name": "修女",
     "cost": 2,
     "level": 20,
     "type": 1
@@ -52,7 +38,7 @@
     "quality": "蓝",
     "name": "田园守望者",
     "cost": 3,
-    "level": 16,
+    "level": 19,
     "type": 1
   },
   {
@@ -66,7 +52,7 @@
     "quality": "蓝",
     "name": "光明惩戒2",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 2
   },
   {
@@ -80,7 +66,7 @@
     "quality": "紫",
     "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 16,
+    "level": 17,
     "type": 3
   },
   {
@@ -108,21 +94,14 @@
     "quality": "紫",
     "name": "边境高墙",
     "cost": 3,
-    "level": 16,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "冲锋装备1",
+    "name": "冲锋装备",
     "cost": 3,
-    "level": 15,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "冲锋装备2",
-    "cost": 3,
-    "level": 13,
+    "level": 16,
     "type": 2
   },
   {
@@ -137,6 +116,13 @@
     "name": "夺取阵地",
     "cost": 4,
     "level": 15,
+    "type": 2
+  },
+   {
+    "quality": "紫",
+    "name": "炽阳坠落",
+    "cost": 4,
+    "level": 14,
     "type": 2
   },
   {
@@ -178,7 +164,7 @@
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
