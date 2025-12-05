@@ -219,7 +219,7 @@ function moveIt(direction: string) {
     }
 }
 
-document.onkeydown = function (event) {
+document.onkeydown = function (event: any) {
     var e = event || window.event || arguments.callee.caller.arguments[0];
     if (e && e.key === "ArrowUp") {
         if (people.y > 0 && mapList.value[people.y - 1][people.x] !== 1 && !(mapList.value[people.y - 1][people.x] === 2 && mapList.value[people.y - 2] && mapList.value[people.y - 2][people.x] === 2)) {

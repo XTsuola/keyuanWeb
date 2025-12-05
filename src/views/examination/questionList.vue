@@ -126,7 +126,7 @@ const columns = ref<ColumnsType>([
 const typeArr = ["选择题", "判断题", "填空题", "问答题", "操作题"];
 const loading = ref(false);
 const tableData = ref<any>([]);
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level;

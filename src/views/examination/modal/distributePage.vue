@@ -38,7 +38,7 @@ interface RecordType {
     userName: string
 }
 
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level;

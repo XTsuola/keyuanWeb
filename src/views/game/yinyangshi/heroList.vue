@@ -73,7 +73,7 @@ const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const title = ref<string>("添加式神");
 const addPage = ref<any>();
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level;

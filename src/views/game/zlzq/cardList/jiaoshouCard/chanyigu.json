@@ -22,16 +22,9 @@
   },
   {
     "quality": "蓝",
-    "name": "飓风术",
-    "cost": 2,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
@@ -96,6 +89,13 @@
     "cost": 3,
     "level": 12,
     "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "神机玄女·轩",
+    "cost": 4,
+    "level": 13,
+    "type": 1
   },
   {
     "quality": "橙",

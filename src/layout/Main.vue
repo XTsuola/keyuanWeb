@@ -13,7 +13,7 @@
                 <div class="breadCrumbItem" v-for="item in extraBreadCrumbs" :key="item">
                     <span @click="tabBreadCrumb(item)" :class="{ breadCrumbItemLink: item.type === 'menu' }">{{
                         item.label
-                        }}</span>
+                    }}</span>
                     <span class="breadCrumbItem_delimiter">></span>
                 </div>
             </div>
@@ -69,7 +69,7 @@ const userInfo = ref<UserInfo>({
     img: "",
     remark: ""
 });
-const localInfo = JSON.parse(window.sessionStorage.getItem("userInfo") as string);
+const localInfo = JSON.parse(sessionStorage.getItem("userInfo") as string);
 const route = useRoute();
 const imgValue = ref<string>("");
 const breadCrumbs = ref<any>([]);
@@ -100,7 +100,7 @@ async function getUserList() {
             img: row.img,
             remark: row.remark
         };
-        window.sessionStorage.setItem("nowTouxiang", row.img);
+        sessionStorage.setItem("nowTouxiang", row.img);
         if (row.img) {
             imgValue.value = import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img;
         } else {

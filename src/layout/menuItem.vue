@@ -28,7 +28,7 @@ interface Prop {
 const router = useRouter();
 const prop = defineProps<Prop>();
 const userId = ref<number>();
-const userInfo = window.sessionStorage.getItem("userInfo");
+const userInfo = sessionStorage.getItem("userInfo");
 if (userInfo && JSON.parse(userInfo).userId) {
     userId.value = JSON.parse(userInfo).userId;
 }

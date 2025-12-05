@@ -98,7 +98,7 @@ import { getGameMap } from "@/api/qingshu";
 import { message } from "ant-design-vue";
 
 const myId = ref(-1);
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 if (userInfo.value && JSON.parse(userInfo.value).userId) {
     myId.value = JSON.parse(userInfo.value).userId;
 } else {

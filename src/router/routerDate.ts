@@ -340,6 +340,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/zzz_ceshiLevel.vue"),
               },
+              {
+                path: "bikebiao",
+                meta: {
+                  menuType: "menu",
+                  key: "bikebiao",
+                  label: "提升曲线",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/zlzq/zzz_xy_bikebiao.vue"),
+              },
             ],
           },
           {

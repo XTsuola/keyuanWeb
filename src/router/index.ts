@@ -56,7 +56,7 @@ const router = createRouter({
 
 // 路由拦截
 router.beforeEach((to, from, next) => {
-  const token = window.sessionStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
   if (to.fullPath === "/") {
     if (token) {
       next({

@@ -32,7 +32,7 @@ import router from "@/router";
 const currentPage = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
-const userInfo = ref<string | null>(window.sessionStorage.getItem("userInfo"));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const userId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).userId) {
     userId.value = JSON.parse(userInfo.value).userId;

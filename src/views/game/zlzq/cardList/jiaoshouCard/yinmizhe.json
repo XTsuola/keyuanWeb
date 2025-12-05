@@ -1,28 +1,21 @@
 [
   {
     "quality": "蓝",
-    "name": "沉重否定1",
-    "cost": 2,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "沉重否定2",
-    "cost": 2,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "灵能布控1",
-    "cost": 2,
+    "name": "洞悉之眼",
+    "cost": 0,
     "level": 12,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "灵能布控2",
+    "name": "沉重否定1",
+    "cost": 2,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定2",
     "cost": 2,
     "level": 12,
     "type": 2
@@ -36,30 +29,16 @@
   },
   {
     "quality": "蓝",
-    "name": "占卜命运1",
+    "name": "虚化术",
     "cost": 3,
-    "level": 12,
+    "level": 16,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "占卜命运2",
+    "name": "虚化印记",
     "cost": 3,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "占卜命运3",
-    "cost": 3,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "请示隐秘者",
-    "cost": 5,
-    "level": 12,
+    "level": 14,
     "type": 2
   },
   {
@@ -75,6 +54,20 @@
     "cost": 2,
     "level": 14,
     "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "咒术系学士",
+    "cost": 3,
+    "level": 13,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "神秘学教授",
+    "cost": 3,
+    "level": 12,
+    "type": 1
   },
   {
     "quality": "紫",
@@ -95,6 +88,13 @@
     "name": "米拉方舟",
     "cost": 7,
     "level": 18,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "No.8雷鸣·泰拉德",
+    "cost": 1,
+    "level": 13,
     "type": 1
   },
   {

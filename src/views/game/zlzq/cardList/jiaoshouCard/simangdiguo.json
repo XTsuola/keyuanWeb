@@ -8,14 +8,21 @@
   },
   {
     "quality": "蓝",
-    "name": "民兵队长",
-    "cost": 2,
-    "level": 20,
-    "type": 1
+    "name": "旅行背包",
+    "cost": 1,
+    "level": 17,
+    "type": 2
   },
   {
     "quality": "蓝",
     "name": "天使琼浆",
+    "cost": 2,
+    "level": 20,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "炫目神光",
     "cost": 2,
     "level": 20,
     "type": 2
@@ -31,7 +38,7 @@
     "quality": "蓝",
     "name": "田园守望者",
     "cost": 3,
-    "level": 14,
+    "level": 17,
     "type": 1
   },
   {
@@ -43,17 +50,17 @@
   },
   {
     "quality": "紫",
+    "name": "四芒军旗",
+    "cost": 1,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "传记·钢铁守卫",
     "cost": 1,
     "level": 20,
     "type": 3
-  },
-  {
-    "quality": "紫",
-    "name": "四芒军旗",
-    "cost": 1,
-    "level": 19,
-    "type": 1
   },
   {
     "quality": "紫",
@@ -78,9 +85,16 @@
   },
   {
     "quality": "紫",
+    "name": "冲锋装备",
+    "cost": 3,
+    "level": 19,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -122,27 +136,20 @@
     "quality": "橙",
     "name": "明日香·露娜",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "审判天使·蕾娜",
-    "cost": 7,
     "level": 20,
     "type": 1
   },

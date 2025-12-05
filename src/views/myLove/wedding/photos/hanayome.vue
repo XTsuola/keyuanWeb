@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts" setup>
+import router from "@/router";
 import { ref } from "vue";
 
 const imglist: any = ref([]);
@@ -30,17 +31,18 @@ function go(obj: any) {
 }
 
 function goBack() {
-    history.back();
+    router.go(-1);
 }
 
 </script>
-    
+
 <style lang="less" scoped>
 .filmSpace {
     .header {
         font-size: 80px;
         text-shadow: 0px 3px 0px #fff, 0px -3px 0px #9da181, 3px 0px 0px #fff, -3px 0px 0px #9da181;
         text-align: center;
+
         img {
             position: absolute;
             right: 10px;
