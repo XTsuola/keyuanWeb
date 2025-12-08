@@ -18,14 +18,14 @@ const timeList = [
     "10.22", "10.28", "11.04", "11.11", "11.18", "11.25", "12.02"
 ]
 
-const dataList = [{
+const dataList: any = [{
     name: "KB",
     data: [
         4105.48, 4286.69, 4425.78, 4480.66, 4585.56, 4655.85, 4705.02, 4743.24, 4788.86, 4816.45,
         4974.67, 5007.57, 5027.14, 5104.83, 5132.28, 5261.63, 5355.67, 5458.09, 5516.04, 5625.79,
         5740.82, 5816.10, 5893.24, 5984.85, 6186.70, 6218.23, 6220.88, 6347.95, 6478.73, 6491.09,
         6541.82, 6747.74, 6790.43, 6852.34, 6873.45, 6933.33, 7010.85
-    ]
+    ],
 }, {
     name: "核桃",
     data: [
@@ -94,25 +94,78 @@ const dataList = [{
 
 function draw() {
     const series = [];
-    for (let i = 0; i < dataList.length; i++) {
+    for (let i = 0; i < dataList[0].data.length; i++) {
+        for (let j = 0; j < dataList.length; j++) {
+            if (i == 0) {
+                dataList[j].dataAvg = [0]
+            } else {
+                dataList[j].dataAvg.push((dataList[j].data[i] - dataList[j].data[i - 1]).toFixed(2));
+            }
+        }
+
+    }
+    /* for (let i = 0; i < dataList.length; i++) {
         series.push({
             name: dataList[i].name,
             data: dataList[i].data,
             showSymbol: false,
+            smooth: true,
+            type: 'line'
+        })
+    } */
+    for (let i = 0; i < dataList.length; i++) {
+        series.push({
+            name: dataList[i].name,
+            data: dataList[i].dataAvg,
+            showSymbol: false,
+            smooth: true,
             type: 'line'
         })
     }
+    console.log(dataList)
     const option = {
         legend: {
-            show: true
+            orient: 'horizontal',
+            bottom: 40,
+        },
+        grid: {
+            bottom: '15%'
         },
         tooltip: {
             trigger: 'axis'
         },
         xAxis: {
             type: 'category',
-            data: timeList
+            data: timeList,
+            axisLabel: {
+                // interval: parseInt((timeList.length / 4).toString()),
+                showMinLabel: true,
+                showMaxLabel: true,
+            }
         },
+        dataZoom: [{
+            type: 'inside',
+        }, {
+            type: 'inside',
+        }, {
+            type: 'slider',
+            show: true,
+            handleSize: 0,
+            startValue: 0,
+            endValue: 500000,
+            height: 5,
+            left: 200,
+            right: 150,
+            bottom: 15,
+            borderColor: "#ccc",
+            fillerColor: '#4cccfe',
+            borderRadius: 5,
+            backgroundColor: '#efefef',
+            showDataShadow: false,
+            showDetail: false,
+            realtime: true,
+            filterMode: 'filter',
+        }],
         yAxis: {
             type: 'value'
         },
@@ -133,10 +186,12 @@ onMounted(() => {
 <style lang="less" scoped>
 .main {
     padding: 20px;
+    height: 100%;
+    width: 100%;
 
     .chart {
-        height: 70vh;
-        width: 70vw
+        height: 100%;
+        width: 100%;
     }
 }
 </style>
