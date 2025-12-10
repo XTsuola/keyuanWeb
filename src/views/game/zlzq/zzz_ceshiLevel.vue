@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="title">
-            {{ name }}分析图 （当前生命：{{ xueliang }} / 距离满命：{{ manXue - xueliang }}）
+            {{ name }}-卡组分析图 （当前生命：{{ xueliang }} / 距离满命：{{ manXue - xueliang }}）
         </div>
         <div class="cardLevel">
             <span>蓝卡等级：{{ blueCard.toFixed(2) }}（{{ blueList.length }}张）</span>
@@ -65,13 +65,13 @@
             <span>还需资源折算人民币：</span>
             <div class="cardLevel">
                 <span style="width: 130px;">白石头：{{ ((to20Level.baishitou - nowLevel.baishitou) * bai).toFixed(2)
-                    }}元</span>
+                }}元</span>
                 <span style="width: 130px;">黑石头：{{ ((to20Level.heishitou - nowLevel.heishitou) * hei).toFixed(2)
-                    }}元</span>
+                }}元</span>
                 <span style="width: 130px;">红石头：{{ ((to20Level.hongshitou - nowLevel.hongshitou) * hong).toFixed(2)
-                    }}元</span>
+                }}元</span>
                 <span style="width: 130px;">黄石头：{{ ((to20Level.huangshitou - nowLevel.huangshitou) * huang).toFixed(2)
-                    }}元</span>
+                }}元</span>
                 <span style="width: 130px;">钻石：{{ ((to20Level.zuanshi - nowLevel.zuanshi) * zuan).toFixed(2) }}元</span>
                 <span style="width: 130px;">累计：{{ (((to20Level.baishitou - nowLevel.baishitou) * bai) +
                     ((to20Level.heishitou - nowLevel.heishitou) * hei) + ((to20Level.hongshitou -
@@ -96,7 +96,7 @@ let hong = 0;
 let hei = 0;
 let bai = 0;
 let zuan = 0.0026666
-let manXue = 269;
+let manXue = 299;
 
 const name = ref<any>("测试");
 const xueliang = ref<any>(0);

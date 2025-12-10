@@ -31,7 +31,7 @@
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -45,7 +45,7 @@
     "quality": "紫",
     "name": "克隆术1",
     "cost": 2,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
@@ -94,7 +94,7 @@
     "quality": "紫",
     "name": "观星台大预言家",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
