@@ -21,7 +21,7 @@
     "attack": 6,
     "life": 7,
     "effect": "【洞察1】、【传承6】、法力上限+1。",
-    "count": 3584,
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -34,7 +34,7 @@
     "attack": 0,
     "life": 0,
     "effect": "目标友军+3/+15，魔防+1，获得【二连击】。",
-    "count": 3584,
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -47,7 +47,20 @@
     "attack": 0,
     "life": 0,
     "effect": "目标友军+3/+15，魔防+1，获得【二连击】。",
-    "count": 3584,
+    "count": 640,
+    "daikuan": 0,
+    "remark": ""
+  },
+  {
+    "quality": "蓝",
+    "name": "连击3",
+    "cost": 3,
+    "level": 12,
+    "type": 2,
+    "attack": 0,
+    "life": 0,
+    "effect": "目标友军+3/+15，魔防+1，获得【二连击】。",
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -60,7 +73,7 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、目标友军加攻，等同其一半生命值、另一友军生命+5、70%几率抽一张牌。",
-    "count": 3136,
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -73,7 +86,7 @@
     "attack": 13,
     "life": 12,
     "effect": "【洞察1】、登场:吹回随机敌军。",
-    "count": 3584,
+    "count": 640,
     "daikuan": 0,
     "remark": ""
   },
@@ -125,7 +138,7 @@
     "attack": 3,
     "life": 23,
     "effect": "【洞察1】、法力上限+1、回合结束:复制场上另一单位，到你手上。",
-    "count": 1408,
+    "count": 416,
     "daikuan": 0,
     "remark": ""
   },
@@ -138,19 +151,6 @@
     "attack": 0,
     "life": 0,
     "effect": "【洞察1】、抓3张牌，英雄生命+18、随机一个友军+4/+4。",
-    "count": 416,
-    "daikuan": 0,
-    "remark": ""
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术",
-    "cost": 4,
-    "level": 12,
-    "type": 2,
-    "attack": 0,
-    "life": 0,
-    "effect": "目标区域敌军变成1/1熊大宝，随机友军+11/+11。",
     "count": 416,
     "daikuan": 0,
     "remark": ""
@@ -190,7 +190,7 @@
     "attack": 0,
     "life": 0,
     "effect": "标友军+10/+10、获得【回命】、【践踏】、【传承10】。",
-    "count": 576,
+    "count": 352,
     "daikuan": 0,
     "remark": "【九齿钉耙】：目标友军攻击+9，魔防+9，护甲+9，持续1回合。"
   }
