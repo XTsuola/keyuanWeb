@@ -1,28 +1,7 @@
 [
   {
     "quality": "蓝",
-    "name": "圣殿斥候",
-    "cost": 1,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "旅行背包",
-    "cost": 1,
-    "level": 17,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "天使琼浆",
-    "cost": 2,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "炫目神光",
     "cost": 2,
     "level": 20,
     "type": 2
@@ -64,31 +43,10 @@
   },
   {
     "quality": "紫",
-    "name": "圣殿御卫",
-    "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "白袍主教",
-    "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "圣殿骑士",
     "cost": 3,
     "level": 20,
     "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "冲锋装备",
-    "cost": 3,
-    "level": 19,
-    "type": 2
   },
   {
     "quality": "紫",
@@ -99,23 +57,16 @@
   },
   {
     "quality": "紫",
-    "name": "夺取阵地1",
-    "cost": 4,
-    "level": 16,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "夺取阵地2",
-    "cost": 4,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "紫",
     "name": "阳炎坠落",
     "cost": 4,
     "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "夺取阵地",
+    "cost": 4,
+    "level": 12,
     "type": 2
   },
   {
@@ -129,7 +80,7 @@
     "quality": "橙",
     "name": "百花长枪·卡洛琳",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
@@ -150,6 +101,13 @@
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
+    "level": 20,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "炫目天使·蕾娜",
+    "cost": 7,
     "level": 20,
     "type": 1
   },

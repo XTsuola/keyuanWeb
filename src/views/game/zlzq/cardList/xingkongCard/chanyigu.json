@@ -3,14 +3,14 @@
     "quality": "蓝",
     "name": "苦行武僧",
     "cost": 2,
-    "level": 12,
+    "level": 14,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "拒马",
     "cost": 2,
-    "level": 12,
+    "level": 14,
     "type": 1
   },
   {
@@ -22,6 +22,13 @@
   },
   {
     "quality": "蓝",
+    "name": "执剑道者",
+    "cost": 3,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "龟族僧人",
     "cost": 3,
     "level": 15,
@@ -29,16 +36,9 @@
   },
   {
     "quality": "蓝",
-    "name": "执剑道者",
-    "cost": 3,
-    "level": 13,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
@@ -52,7 +52,7 @@
     "quality": "蓝",
     "name": "风铃道人",
     "cost": 4,
-    "level": 12,
+    "level": 16,
     "type": 1
   },
   {
@@ -66,14 +66,14 @@
     "quality": "紫",
     "name": "驱魔道人",
     "cost": 3,
-    "level": 12,
+    "level": 13,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "御风武者",
     "cost": 4,
-    "level": 12,
+    "level": 13,
     "type": 1
   },
   {

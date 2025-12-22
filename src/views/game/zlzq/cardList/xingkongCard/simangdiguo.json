@@ -80,21 +80,14 @@
     "quality": "紫",
     "name": "炽阳坠落",
     "cost": 4,
-    "level": 15,
+    "level": 18,
     "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "禁卫百夫长",
-    "cost": 5,
-    "level": 20,
-    "type": 1
   },
   {
     "quality": "橙",
     "name": "花光春影·安娜贝尔",
     "cost": 3,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
