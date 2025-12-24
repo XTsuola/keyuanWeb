@@ -22,21 +22,7 @@
   },
   {
     "quality": "蓝",
-    "name": "执剑道者",
-    "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "连击1",
-    "cost": 3,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "连击2",
+    "name": "连击",
     "cost": 3,
     "level": 14,
     "type": 2
@@ -47,13 +33,6 @@
     "cost": 4,
     "level": 20,
     "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "风卷残云",
-    "cost": 4,
-    "level": 12,
-    "type": 2
   },
   {
     "quality": "紫",
@@ -75,20 +54,6 @@
     "cost": 4,
     "level": 18,
     "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "疾风传说",
-    "cost": 4,
-    "level": 15,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术",
-    "cost": 4,
-    "level": 12,
-    "type": 2
   },
   {
     "quality": "橙",
