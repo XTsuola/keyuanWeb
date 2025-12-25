@@ -52,7 +52,6 @@ import { getNowTime } from "@/utils/global";
 import { getWrcList, deleteWrc, type AddWrcPasrams, addWrc } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 
-
 const columns = ref<any[]>([
     {
         title: "序号",

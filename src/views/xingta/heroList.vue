@@ -45,7 +45,7 @@ const pageSize = ref<number>(20);
 const total = ref<number>(0);
 const title = ref<string>("添加角色");
 const addPage = ref<any>();
-const userInfo = ref<string | null>(sessionStorage.getItem('userInfo'));
+const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
 const levelId = ref<number | null>(null);
 if (userInfo.value && JSON.parse(userInfo.value).level) {
     levelId.value = JSON.parse(userInfo.value).level;
@@ -180,7 +180,7 @@ function showModal(showType: AddType, item?: AddHeroParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk(_: any) {
     loading.value = true;
     interface AType {
         axios: ((data: AddHeroParams) => AxiosPromise<any>)

@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import { groupList, type AddType } from '@/utils/global';
+import { groupList, type AddType } from "@/utils/global";
 import type { AddMemberParams } from "@/api/team";
 
 const prop = defineProps<{

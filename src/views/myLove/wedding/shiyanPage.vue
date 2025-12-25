@@ -92,6 +92,8 @@ function reset(num: number) {
 }
 reset(0);
 
+declare var history: any;
+
 function goBack() {
     history.back();
 }

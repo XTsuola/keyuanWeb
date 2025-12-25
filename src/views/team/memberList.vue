@@ -38,7 +38,7 @@
 import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import { groupList, type AddType } from '@/utils/global';
+import { groupList, type AddType } from "@/utils/global";
 import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
@@ -67,7 +67,6 @@ const visible = ref<boolean>(false);
 const formState = reactive<any>({
     groupName: undefined
 });
-
 const columns = ref<any>([
     {
         title: "序号",
