@@ -109,7 +109,6 @@ const { sendMessage, closeWS } = useWebSocket(`ws://127.0.0.1:8002/ws?userId=${m
         onmessage: (msg: any) => {
             if (msg) {
                 const data = JSON.parse(msg);
-                console.log("外部回调拿到消息:", msg);
                 if (data.msg == "摸牌成功") {
                     getList();
                 } else if (data.msg == "重置成功") {

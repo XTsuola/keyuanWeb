@@ -104,15 +104,6 @@ function draw() {
         }
 
     }
-    /* for (let i = 0; i < dataList.length; i++) {
-        series.push({
-            name: dataList[i].name,
-            data: dataList[i].data,
-            showSymbol: false,
-            smooth: true,
-            type: 'line'
-        })
-    } */
     for (let i = 0; i < dataList.length; i++) {
         series.push({
             name: dataList[i].name,
@@ -122,7 +113,6 @@ function draw() {
             type: 'line'
         })
     }
-    console.log(dataList)
     const option = {
         legend: {
             orient: 'horizontal',
@@ -138,7 +128,6 @@ function draw() {
             type: 'category',
             data: timeList,
             axisLabel: {
-                // interval: parseInt((timeList.length / 4).toString()),
                 showMinLabel: true,
                 showMaxLabel: true,
             }

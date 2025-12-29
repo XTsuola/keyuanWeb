@@ -106,8 +106,6 @@ const goldList: any = [...ceshiData[2]];
 name.value = ceshiData[3][0]
 xueliang.value = ceshiData[3][1]
 
-console.log(blueList)
-
 const to20Level = reactive<any>({
     baishitou: 0,
     heishitou: 0,

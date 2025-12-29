@@ -149,7 +149,7 @@ function showModal(typeFlag: AddType, record?: AddUserType) {
     }
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk(_: any) {
     loading.value = true;
     interface AType {
         axios: (data: AddUserType) => AxiosPromise<any>;
