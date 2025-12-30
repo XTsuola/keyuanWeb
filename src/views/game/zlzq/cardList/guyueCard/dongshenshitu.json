@@ -31,14 +31,7 @@
     "quality": "蓝",
     "name": "神庙魔像",
     "cost": 3,
-    "level": 19,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "极地狂信者",
-    "cost": 3,
-    "level": 16,
+    "level": 20,
     "type": 1
   },
   {
@@ -52,14 +45,14 @@
     "quality": "橙",
     "name": "无头骑士冰刃",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
     "quality": "橙",
     "name": "辉夜女王",
     "cost": 5,
-    "level": 16,
+    "level": 18,
     "type": 1
   }
 ]
