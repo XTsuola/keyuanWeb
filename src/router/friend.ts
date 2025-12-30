@@ -6,6 +6,7 @@ export const friendCardRouterData = [
   { key: "akuiCard", label: "阿奎卡等" },
   { key: "guyueCard", label: "古月卡等" },
   { key: "laoduCard", label: "老杜卡等" },
+  { key: "laowangCard", label: "老王卡等" },
   { key: "taotailangCard", label: "淘汰郎卡等" },
   { key: "jiaoshouCard", label: "教授卡等" }
 ];
