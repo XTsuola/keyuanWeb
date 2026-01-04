@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "炽阳坠落",
     "cost": 4,
-    "level": 18,
+    "level": 20,
     "type": 2
   },
   {
@@ -122,7 +122,7 @@
     "quality": "橙",
     "name": "武圣·云长",
     "cost": 8,
-    "level": 18,
+    "level": 19,
     "type": 1
   }
 ]

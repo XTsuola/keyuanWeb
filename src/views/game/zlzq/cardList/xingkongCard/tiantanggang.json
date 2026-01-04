@@ -31,7 +31,7 @@
     "quality": "蓝",
     "name": "黑金勒索者",
     "cost": 2,
-    "level": 15,
+    "level": 16,
     "type": 1
   },
   {
@@ -101,7 +101,7 @@
     "quality": "橙",
     "name": "天雷降临·布瑞恩",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 1
   }
 ]
