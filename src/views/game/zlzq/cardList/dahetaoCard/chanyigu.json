@@ -1,14 +1,21 @@
 [
   {
     "quality": "蓝",
-    "name": "苦行武僧",
+    "name": "长耳庄巧姑",
     "cost": 2,
-    "level": 20,
+    "level": 12,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "飓风术",
+    "name": "飓风术1",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "飓风术2",
     "cost": 2,
     "level": 12,
     "type": 2
@@ -57,35 +64,28 @@
   },
   {
     "quality": "蓝",
-    "name": "风卷残云",
+    "name": "风卷残云1",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "风卷残云2",
     "cost": 4,
     "level": 12,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "御风武者",
-    "cost": 4,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "墨轩隐士",
     "cost": 4,
-    "level": 20,
+    "level": 12,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "万物之灵1",
-    "cost": 5,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "万物之灵2",
+    "name": "万物之灵",
     "cost": 5,
     "level": 14,
     "type": 2
