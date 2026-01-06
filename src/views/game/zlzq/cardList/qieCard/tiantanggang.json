@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "心灵黑洞1",
     "cost": 1,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -116,6 +116,13 @@
     "name": "天雷降临·布瑞恩",
     "cost": 5,
     "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "黑金三代目·梅森",
+    "cost": 7,
+    "level": 14,
     "type": 1
   }
 ]
