@@ -8,20 +8,6 @@
   },
   {
     "quality": "蓝",
-    "name": "蓄力射手1",
-    "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "蓄力射手2",
-    "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "旷野祭师1",
     "cost": 2,
     "level": 20,
@@ -45,19 +31,19 @@
     "quality": "蓝",
     "name": "势如破竹2",
     "cost": 2,
-    "level": 18,
+    "level": 20,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "高原卫士",
-    "cost": 2,
+    "name": "天降碎石1",
+    "cost": 3,
     "level": 20,
-    "type": 1
+    "type": 2
   },
   {
     "quality": "蓝",
-    "name": "天降碎石",
+    "name": "天降碎石2",
     "cost": 3,
     "level": 20,
     "type": 2
@@ -105,6 +91,13 @@
     "type": 1
   },
   {
+    "quality": "紫",
+    "name": "贪食白龙",
+    "cost": 8,
+    "level": 20,
+    "type": 1
+  },
+  {
     "quality": "橙",
     "name": "精灵王子·大羽",
     "cost": 3,
@@ -115,7 +108,14 @@
     "quality": "橙",
     "name": "热血摇滚·凯",
     "cost": 5,
-    "level": 15,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "橙",
+    "name": "白象战歌·鲁玛",
+    "cost": 7,
+    "level": 18,
     "type": 1
   }
 ]

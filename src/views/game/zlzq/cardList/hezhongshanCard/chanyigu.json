@@ -3,57 +3,57 @@
     "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
-    "level": 18,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "树木之怒",
+    "name": "白羊药师",
+    "cost": 2,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "飓风术",
     "cost": 2,
     "level": 15,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "飓风术",
+    "name": "太极剑法",
     "cost": 2,
-    "level": 14,
+    "level": 12,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 18,
+    "level": 20,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "连击2",
     "cost": 3,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "铁山靠",
     "cost": 3,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "风卷残云",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "蟠桃隐士",
-    "cost": 2,
-    "level": 14,
-    "type": 1
   },
   {
     "quality": "紫",
@@ -66,21 +66,21 @@
     "quality": "紫",
     "name": "墨轩隐士",
     "cost": 4,
-    "level": 14,
+    "level": 15,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "蟠桃会",
     "cost": 4,
-    "level": 14,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "泰山之力",
-    "cost": 4,
-    "level": 12,
+    "name": "拔地而起",
+    "cost": 6,
+    "level": 14,
     "type": 2
   },
   {
@@ -94,7 +94,7 @@
     "quality": "橙",
     "name": "上宝沁金耙",
     "cost": 4,
-    "level": 13,
+    "level": 14,
     "type": 2
   },
   {
