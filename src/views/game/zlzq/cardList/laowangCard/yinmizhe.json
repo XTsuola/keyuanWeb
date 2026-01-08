@@ -29,6 +29,13 @@
   },
   {
     "quality": "紫",
+    "name": "克隆术",
+    "cost": 2,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
     "level": 18,
@@ -36,10 +43,10 @@
   },
   {
     "quality": "紫",
-    "name": "心灵操控",
+    "name": "米拉方舟",
     "cost": 7,
-    "level": 14,
-    "type": 2
+    "level": 17,
+    "type": 1
   },
   {
     "quality": "橙",
