@@ -3,7 +3,28 @@
     "quality": "蓝",
     "name": "飓风术",
     "cost": 2,
-    "level": 13,
+    "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "太极剑法1",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "太极剑法2",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "太极剑法3",
+    "cost": 2,
+    "level": 12,
     "type": 2
   },
   {
@@ -15,27 +36,6 @@
   },
   {
     "quality": "蓝",
-    "name": "太极剑法",
-    "cost": 2,
-    "level": 12,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "连击",
-    "cost": 3,
-    "level": 18,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "铁山靠",
-    "cost": 3,
-    "level": 16,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "明月曲",
     "cost": 3,
     "level": 12,
@@ -43,17 +43,17 @@
   },
   {
     "quality": "蓝",
-    "name": "风卷残云",
+    "name": "风卷残云1",
     "cost": 4,
     "level": 12,
     "type": 2
   },
   {
-    "quality": "紫",
-    "name": "扫叶僧",
-    "cost": 3,
-    "level": 17,
-    "type": 1
+    "quality": "蓝",
+    "name": "风卷残云2",
+    "cost": 4,
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "紫",
@@ -85,16 +85,16 @@
   },
   {
     "quality": "橙",
-    "name": "灵龟神丹",
+    "name": "灵龟神丹·艮",
     "cost": 3,
     "level": 12,
     "type": 2
   },
   {
     "quality": "橙",
-    "name": "神机玄女·轩",
+    "name": "九天玄女·轩",
     "cost": 4,
-    "level": 13,
+    "level": 14,
     "type": 1
   },
   {

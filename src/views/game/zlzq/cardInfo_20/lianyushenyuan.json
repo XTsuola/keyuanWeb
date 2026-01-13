@@ -111,7 +111,7 @@
   },
   {
     "quality": "蓝",
-    "name": "地狱刀吏",
+    "name": "炼狱刀吏",
     "cost": 2,
     "level": 20,
     "type": 1,
@@ -309,7 +309,7 @@
   },
   {
     "quality": "蓝",
-    "name": "地狱双头犬",
+    "name": "炼狱双头犬",
     "cost": 4,
     "level": 20,
     "type": 1,
@@ -595,7 +595,7 @@
   },
   {
     "quality": "紫",
-    "name": "地狱屠夫",
+    "name": "炼狱屠夫",
     "cost": 5,
     "level": 20,
     "type": 1,
@@ -606,7 +606,7 @@
   },
   {
     "quality": "紫",
-    "name": "地狱三头犬",
+    "name": "炼狱三头犬",
     "cost": 5,
     "level": 20,
     "type": 1,
@@ -716,7 +716,7 @@
   },
   {
     "quality": "紫",
-    "name": "地狱巨口",
+    "name": "炼狱巨口",
     "cost": 7,
     "level": 20,
     "type": 1,
@@ -826,7 +826,7 @@
   },
   {
     "quality": "橙",
-    "name": "烬喉地狱魔",
+    "name": "烬喉炼狱魔",
     "cost": 8,
     "level": 20,
     "type": 1,
