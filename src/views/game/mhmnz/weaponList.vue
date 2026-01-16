@@ -274,7 +274,7 @@ function showModal(showType: AddType, item?: AddWeaponParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: ((data: AddWeaponParams) => AxiosPromise<any>)

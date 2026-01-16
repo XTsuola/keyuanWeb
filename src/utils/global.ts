@@ -188,6 +188,18 @@ export const blueObj = [{
     zuanshi: 28050,
     cailiao: [30200, 4060, 1970, 845],
     count: 3584,
+}, {
+    level: 21,
+    zhanli: 134000,
+    zuanshi: 33950,
+    cailiao: [36200, 5640, 2860, 995],
+    count: 4224,
+}, {
+    level: 22,
+    zhanli: 154000,
+    zuanshi: 40150,
+    cailiao: [43200, 8020, 3930, 1145],
+    count: 4864,
 }]
 
 export const purpleObj = [{
@@ -310,6 +322,18 @@ export const purpleObj = [{
     zuanshi: 51410,
     cailiao: [30420, 15000, 3110, 1140],
     count: 2368,
+}, {
+    level: 21,
+    zhanli: 360000,
+    zuanshi: 62010,
+    cailiao: [38720, 18300, 4230, 1290],
+    count: 2784,
+}, {
+    level: 22,
+    zhanli: 415000,
+    zuanshi: 73010,
+    cailiao: [47420, 21800, 5550, 1455],
+    count: 3200,
 }]
 
 export const goldObj = [{
@@ -432,6 +456,18 @@ export const goldObj = [{
     zuanshi: 158700,
     cailiao: [80000, 26320, 4760, 2170],
     count: 1600
+}, {
+    level: 21,
+    zhanli: 1098000,
+    zuanshi: 187800,
+    cailiao: [93120, 32440, 6820, 2470],
+    count: 1856,
+}, {
+    level: 22,
+    zhanli: 1258000,
+    zuanshi: 217400,
+    cailiao: [106620, 38840, 9180, 2800],
+    count: 2112
 }]
 
 export async function getImg(str: string, callback: (e: any) => void) {
