@@ -136,6 +136,13 @@ const cardLevel: number[] = ceshiData.cardLevel;
 const blueList: number[] = [];
 const purpleList: number[] = [];
 const goldList: number[] = [];
+const pp = gradeData.map((e: any) => {
+    return {
+        id: e.id,
+        grade: e.grade
+    }
+})
+console.log(pp, "pp")
 for (let i = 0; i < cardList.length; i++) {
     const obj: any = gradeData.find((e: any) => e.name == cardList[i]);
     const grade = JSON.parse(obj.grade)[0];

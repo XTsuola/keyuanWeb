@@ -44642,12 +44642,12 @@ export const gradeData = [
             {
                 "attack": 33,
                 "life": 33,
-                "effect": "登场:召唤20/20水手-lv21、攻击前:随机敌军受到27点伤害、回合结束:自身回手"
+                "effect": "登场:召唤20/20水手-lv21、攻击前:随机敌军受到33点伤害、回合结束:自身回手"
             },
             {
                 "attack": 36,
                 "life": 36,
-                "effect": "登场:召唤22/22水手-lv22、攻击前:随机敌军受到30点伤害、回合结束:自身回手"
+                "effect": "登场:召唤22/22水手-lv22、攻击前:随机敌军受到36点伤害、回合结束:自身回手"
             }
         ]
     },
@@ -68205,7 +68205,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/hantiejunshi.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "data": [
             {
                 "attack": 3,
@@ -68309,12 +68309,12 @@ export const gradeData = [
             },
             {
                 "attack": 37,
-                "life": 8,
+                "life": 10,
                 "effect": "【洞察1】、登场:冰封相邻随机位置"
             },
             {
                 "attack": 40,
-                "life": 9,
+                "life": 11,
                 "effect": "【洞察1】、登场:冰封相邻随机位置"
             }
         ]
