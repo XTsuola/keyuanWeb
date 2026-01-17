@@ -1,6 +1,7 @@
 <template>
     <div class="main">
         <div class="title">
+            <img style="height: 50px;width: 50px;border: 1px solid #cccccc;padding: 1px;" :src="heroImg">
             {{ name }}-卡组分析图 （当前生命：{{ nowLife }} / 距离满命：{{ maxLfie - nowLife }}）
         </div>
         <div class="cardLevel">
@@ -20,14 +21,14 @@
                 <span style="width: 130px;">橙卡：{{ nowLevel.gold }}</span>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <span>还需卡折算人民币：</span>
             <div class="cardLevel">
                 <span style="width: 130px;">蓝卡：{{ (nowLevel.blue * 0.01).toFixed(2) }}元</span>
                 <span style="width: 130px;">紫卡：{{ (nowLevel.purple * 0.15).toFixed(2) }}元</span>
                 <span style="width: 130px;">橙卡：{{ (nowLevel.gold).toFixed(2) }}元</span>
             </div>
-        </div>
+        </div> -->
         <div>
             <span>22级满级所需资源：</span>
             <div class="cardLevel">
@@ -84,25 +85,32 @@
             <div>强卡占比：</div>
             <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">SS级：</div>{{ ((ss / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">SS级：</div><span style="width: 50px;">{{ ((ss / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ ss }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">S级：</div>{{ ((s / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">S级：</div><span style="width: 50px;">{{ ((s / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ s }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">A+级：</div>{{ ((aa / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">A+级：</div><span style="width: 50px;">{{ ((aa / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ aa }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">A级：</div>{{ ((a / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">A级：</div><span style="width: 50px;">{{ ((a / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ a }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">B级：</div>{{ ((b / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">B级：</div><span style="width: 50px;">{{ ((b / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ b }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">C级：</div>{{ ((c / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">C级：</div><span style="width: 50px;">{{ ((c / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ c }}张）</span>
                 </div>
                 <div style="display: flex;justify-self: flex-start;">
-                    <div style="width: 60px;">D级：</div>{{ ((d / 30) * 100).toFixed(2) }}%
+                    <div style="width: 60px;">D级：</div><span style="width: 50px;">{{ ((d / 30) * 100).toFixed(2)
+                        }}%</span><span>（{{ d }}张）</span>
                 </div>
             </div>
         </div>
@@ -112,7 +120,8 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { blueObj, purpleObj, goldObj } from "@/utils/global";
-import { gradeData as data, gradeData } from "./cardData22/data";
+import { gradeData } from "./dataAll/cardData";
+import { heroData } from "./dataAll/heroData";
 import { ceshiData } from "./zzzz_ceshiData";
 
 let huang = 0.00213;
@@ -121,8 +130,8 @@ let hei = 0.06453;
 let bai = 0.054;
 let zuan = 0.0026666
 let maxLfie = 321;
-
 const name = ref<any>("测试");
+const heroImg = ref<any>("");
 const nowLife = ref<any>(0);
 const ss = ref(0);
 const s = ref(0);
@@ -136,13 +145,6 @@ const cardLevel: number[] = ceshiData.cardLevel;
 const blueList: number[] = [];
 const purpleList: number[] = [];
 const goldList: number[] = [];
-const pp = gradeData.map((e: any) => {
-    return {
-        id: e.id,
-        grade: e.grade
-    }
-})
-console.log(pp, "pp")
 for (let i = 0; i < cardList.length; i++) {
     const obj: any = gradeData.find((e: any) => e.name == cardList[i]);
     const grade = JSON.parse(obj.grade)[0];
@@ -150,18 +152,26 @@ for (let i = 0; i < cardList.length; i++) {
     if (qulaity == 4) goldList.push(cardLevel[i]);
     else if (qulaity == 3) purpleList.push(cardLevel[i]);
     else if (qulaity == 2) blueList.push(cardLevel[i]);
-    if (grade == 6) ss.value++;
-    else if (grade == 5) s.value++;
-    else if (grade == 4) aa.value++;
-    else if (grade == 3) a.value++;
-    else if (grade == 2) b.value++;
+    if (grade == 6) {
+        ss.value++;
+    } else if (grade == 5) {
+        s.value++;
+    } else if (grade == 4) {
+        aa.value++;
+    } else if (grade == 3) {
+        a.value++;
+    } else if (grade == 2) {
+        // console.log(obj, "obj");
+        b.value++;
+    }
     else if (grade == 1) c.value++;
     else if (grade == 0) d.value++;
 }
-
 name.value = ceshiData.name + "-" + ceshiData.hero.name;
+const nowImg: any = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
+console.log(nowImg)
+heroImg.value = nowImg;
 nowLife.value = ceshiData.hero.life;
-
 const to22Level = reactive<any>({
     baishitou: 0,
     heishitou: 0,
@@ -169,8 +179,7 @@ const to22Level = reactive<any>({
     huangshitou: 0,
     zuanshi: 0,
     zhanli: 0,
-})
-
+});
 const nowLevel = reactive<any>({
     baishitou: 0,
     heishitou: 0,
@@ -181,8 +190,7 @@ const nowLevel = reactive<any>({
     blue: 0,
     purple: 0,
     gold: 0
-})
-
+});
 const blueCard = ref(0);
 const purpleCard = ref(0);
 const orangeCard = ref(0);
@@ -200,7 +208,6 @@ async function getList() {
         nowLevel.zhanli += blueObj[blueList[i] - 1].zhanli;
         nowLevel.blue += (4864 - blueObj[blueList[i] - 1].count);
     }
-
     for (let i = 0; i < purpleList.length; i++) {
         purpleLevel += purpleList[i];
         nowLevel.baishitou += purpleObj[purpleList[i] - 1].cailiao[3];
@@ -219,13 +226,12 @@ async function getList() {
         nowLevel.huangshitou += goldObj[goldList[i] - 1].cailiao[0];
         nowLevel.zuanshi += goldObj[goldList[i] - 1].zuanshi;
         nowLevel.zhanli += goldObj[goldList[i] - 1].zhanli;
-        nowLevel.gold += (2112 - goldObj[goldList[i] - 1].count)
+        nowLevel.gold += (2112 - goldObj[goldList[i] - 1].count);
     }
     blueCard.value = blueLevel / blueList.length;
     purpleCard.value = purpleLevel / purpleList.length;
     orangeCard.value = goldLevel / goldList.length;
     allCard.value = (blueLevel + purpleLevel + goldLevel) / (blueList.length + purpleList.length + goldList.length);
-
     to22Level.baishitou = (blueList.length * blueObj[21].cailiao[3]) + (purpleList.length * purpleObj[21].cailiao[3]) + (goldList.length * goldObj[21].cailiao[3]);
     to22Level.heishitou = (blueList.length * blueObj[21].cailiao[2]) + (purpleList.length * purpleObj[21].cailiao[2]) + (goldList.length * goldObj[21].cailiao[2]);
     to22Level.hongshitou = (blueList.length * blueObj[21].cailiao[1]) + (purpleList.length * purpleObj[21].cailiao[1]) + (goldList.length * goldObj[21].cailiao[1]);

@@ -62332,12 +62332,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合结束:召唤17/48贪食肥鼠-lv21和16/46贪食肥鼠-lv20、英雄生命+24"
+                "effect": "回合结束:召唤2个17/48贪食肥鼠-lv21、英雄生命+21"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合结束:召唤2个17/48贪食肥鼠-lv21、英雄生命+28"
+                "effect": "回合结束:召唤2个18/50贪食肥鼠-lv22、英雄生命+22"
             }
         ]
     },
@@ -73817,7 +73817,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/dongshenshitu/zhuanhuashitu.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,

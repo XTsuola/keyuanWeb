@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -137,70 +137,6 @@ const columns = ref<any>([
         }
     },
     {
-        title: "贷款数",
-        dataIndex: "daikuan",
-        key: "daikuan",
-        width: 100,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.daikuan) - parseInt(b.daikuan)
-        }
-    },
-    {
-        title: "下级还差",
-        dataIndex: "nextlevel",
-        key: "nextlevel",
-        width: 100,
-        customRender: (opt: any) => {
-            switch (opt.record.quality) {
-                case "蓝":
-                    return opt.record.level == 20 ? "/" : blueObj[opt.record.level].count - opt.record.count;
-                case "紫":
-                    return opt.record.level == 20 ? "/" : purpleObj[opt.record.level].count - opt.record.count;
-                case "橙":
-                    return opt.record.level == 20 ? "/" : goldObj[opt.record.level].count - opt.record.count;
-                default:
-                    return ""
-            }
-        }
-    },
-    /* {
-        title: "类型",
-        dataIndex: "type",
-        key: "type",
-        width: 80,
-        customRender: (opt: any) => opt.value == 1 ? "战士" : "法术"
-    },
-    {
-        title: "攻击",
-        dataIndex: "attack",
-        key: "attck",
-        width: 80,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.attack) - parseInt(b.attack)
-        }
-    },
-    {
-        title: "生命",
-        dataIndex: "life",
-        key: "life",
-        width: 80,
-        sorter: (a: any, b: any) => {
-            return parseInt(a.life) - parseInt(b.life)
-        }
-    },
-    {
-        title: "效果",
-        key: "effect",
-        dataIndex: "effect",
-        width: 160
-    },
-    {
-        title: "皮肤效果",
-        key: "remark",
-        dataIndex: "remark",
-        width: 160
-    }, */
-    {
         title: "钻石",
         key: "zuanshi",
         dataIndex: "zuanshi",
@@ -296,6 +232,12 @@ const zhenyinList = [{
 const levelList = [{
     label: "全部",
     value: ""
+}, {
+    label: "22级",
+    value: 22
+}, {
+    label: "20级",
+    value: 21
 }, {
     label: "20级",
     value: 20
