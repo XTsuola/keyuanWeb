@@ -3,14 +3,14 @@
     "quality": "蓝",
     "name": "学仆-观测型",
     "cost": 2,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "方尖魔碑",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
@@ -31,14 +31,21 @@
     "quality": "蓝",
     "name": "全数否定",
     "cost": 3,
-    "level": 20,
+    "level": 21,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "学仆-能源型",
-    "cost": 5,
-    "level": 15,
+    "name": "占卜命运",
+    "cost": 3,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "隐形术",
+    "cost": 1,
+    "level": 12,
     "type": 2
   },
   {
@@ -60,13 +67,6 @@
     "name": "学仆-脉冲型",
     "cost": 3,
     "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "缄言法师",
-    "cost": 3,
-    "level": 16,
     "type": 1
   },
   {

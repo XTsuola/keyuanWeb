@@ -17,14 +17,14 @@
     "quality": "蓝",
     "name": "狡诈学徒",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "黑夜突袭",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
@@ -38,7 +38,7 @@
     "quality": "蓝",
     "name": "酗酒醉汉",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
@@ -52,21 +52,21 @@
     "quality": "紫",
     "name": "海燕精卫",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "红海猎魔人",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "黑水伏击",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
@@ -101,7 +101,7 @@
     "quality": "橙",
     "name": "夏日女郎·鲍莉",
     "cost": 3,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -115,7 +115,7 @@
     "quality": "橙",
     "name": "天雷降临·布瑞恩",
     "cost": 5,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {

@@ -1,6 +1,13 @@
 [
   {
     "quality": "蓝",
+    "name": "落雷击",
+    "cost": 1,
+    "level": 22,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "冥河守卫",
     "cost": 1,
     "level": 20,
@@ -8,65 +15,51 @@
   },
   {
     "quality": "蓝",
-    "name": "落雷击",
-    "cost": 1,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "猩红勇士",
-    "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "烈焰风暴",
     "cost": 4,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "碎颅魔",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "觅食大嘴兽",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "绝望镰魔",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "岩浆球",
     "cost": 3,
-    "level": 17,
+    "level": 18,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "灼神双炎",
     "cost": 4,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "雷光炼狱",
     "cost": 5,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
@@ -89,6 +82,13 @@
     "cost": 2,
     "level": 12,
     "type": 2
+  },
+  {
+    "quality": "橙",
+    "name": "岩魔",
+    "cost": 3,
+    "level": 18,
+    "type": 1
   },
   {
     "quality": "橙",

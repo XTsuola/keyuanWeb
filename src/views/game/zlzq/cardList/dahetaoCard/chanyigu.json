@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "长耳庄巧姑",
     "cost": 2,
-    "level": 12,
+    "level": 15,
     "type": 1
   },
   {
@@ -38,21 +38,21 @@
     "quality": "蓝",
     "name": "龟族僧人",
     "cost": 3,
-    "level": 20,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "连击1",
     "cost": 3,
-    "level": 20,
+    "level": 16,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "连击2",
     "cost": 3,
-    "level": 20,
+    "level": 16,
     "type": 2
   },
   {
