@@ -9,20 +9,21 @@
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="两件套效果">
                 <a-textarea v-model:value="addData.twoEffect" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="四件套效果">
-                <a-textarea v-model:value="addData.fourEffect" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="min-height: 160px;" v-model:value="addData.fourEffect"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="关键词">
                 <a-textarea v-model:value="addData.tag" :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
-                <a-textarea style="min-height: 200px;" v-model:value="addData.remark"
+                <a-textarea style="min-height: 100px;" v-model:value="addData.remark"
                     :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
         </a-form>

@@ -1837,7 +1837,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/simangdiguo/xuanmushenguang.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,
@@ -8547,7 +8547,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/simangdiguo/shengguangzhujiao.jpg",
-        "grade": "[2]",
+        "grade": "[4]",
         "data": [
             {
                 "attack": 1,

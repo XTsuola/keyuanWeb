@@ -9,14 +9,14 @@
                 <a-select style="width: 100%;" v-model:value="addData.type" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in weaponTypeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="星级" name="star" :rules="[{ required: true, message: '请选择星级!' }]">
                 <a-select style="width: 100%;" v-model:value="addData.star" :disabled="prop.type === 'detail'">
                     <a-select-option v-for="item in starList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="基础攻击" name="baseAttack" :rules="[{ required: true, message: '请输入基础攻击!' }]">
@@ -26,7 +26,8 @@
                 <a-input v-model:value="addData.attribute" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
             <a-form-item label="技能">
-                <a-textarea v-model:value="addData.introduce" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="height: 150px;" v-model:value="addData.introduce"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
