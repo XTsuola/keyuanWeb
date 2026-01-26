@@ -44,6 +44,8 @@ import { ref, reactive, watch } from "vue";
 import { message } from "ant-design-vue";
 import jsonData from "./data.json";
 
+declare var window: any;
+
 interface PositionType {
     x: number
     y: number

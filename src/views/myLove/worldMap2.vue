@@ -37,20 +37,17 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, nextTick } from "vue";
-import { init } from 'echarts';
-import type { ListType } from "./travel";
 import { cityList } from "./travel";
 
+declare var window: any;
+declare var document: any;
+
 const flag = ref(true);
-const infoWindow = ref(null);
 const map = ref<any>(null);
 let Bmap: any = window.BMapGL
 const level = ref<number>(12);
 let myCharts2: any = null;
-const myEcharts2 = ref();
 let myCharts3: any = null;
-const myEcharts3 = ref();
-const colorList = ["#5470C6", "#91CC75", "#FAC858", "#EE6666", "#73C0DE", "#3BA272", "#FC8452", "#9A60B4", "#EA7CCC", "#5470C6"];
 const showFlag = ref(true);
 const originalColumns = [
     {
@@ -127,7 +124,7 @@ function initMap() {
 };
 
 function createDownTriangle(size = 12, color = "#ff0000") {
-    const canvas = document.createElement("canvas");
+    const canvas:any = document.createElement("canvas");
     canvas.width = size;
     canvas.height = size;
     const ctx: any = canvas.getContext("2d");

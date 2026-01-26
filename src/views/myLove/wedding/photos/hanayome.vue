@@ -11,6 +11,8 @@
 import router from "@/router";
 import { ref } from "vue";
 
+declare var window: any;
+
 const imglist: any = ref([]);
 const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/twoList/";
 

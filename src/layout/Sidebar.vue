@@ -12,6 +12,8 @@
 import { ref } from "vue";
 import menuList from "../layout/menuList.vue";
 
+declare var window: any;
+
 const visible = ref<boolean>(false);
 const flag = ref<boolean>(true);
 const mql = window.matchMedia("(max-width: 768px)");

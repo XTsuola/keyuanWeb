@@ -50,6 +50,9 @@ import { ref, reactive } from "vue";
 import Tanke from "./tanke.vue";
 import jsonData from "./data.json";
 
+declare var window: any;
+declare var document: any;
+
 interface PositionType {
     x: number
     y: number
