@@ -1,15 +1,4 @@
 /*
-mofang（红绿橙蓝）
-
-标准情况：
-
-白左上同色竖：URU'R'
-白右上同色横：U'F'UF'
-白左上异色左：F'U'F
-白右上异色右：RUR'
-
-
-
 分散情况：
 
 
@@ -62,12 +51,14 @@ mofang（红绿橙蓝）
 
 oll情况：
 
+三筒：RUR'UR'FRF'U2R'FRF'
 
 H型：RUR'U'MURU'r'
 箭头型：rUR'U'M'URU'R'
 
 鱼1：RUR'URU2R'
 鱼2：R'U'RU'R'U'2R
+
 
 大拇指右：
 左同色：fRUR'U'f'
@@ -78,16 +69,35 @@ H型：RUR'U'MURU'r'
 
 左拐角：
 前右同色：F(RUR'U')2F'
-前全同色：FURU'R'F'鱼2
+前全同色右上连色：FURU'R'F'鱼2
+前全同色2：rUUR'U'RUR'U'RU'r'
 右全同色：l'UllU'llU'llUl' = 左手（上回下下勾 下下勾 下下回上）
+多点前同色：RUR'U'R'FR2UR'U'F'（上勾下回 下压上上 勾下回提）
 
 风筝型：
 解法1：FR'FRURU'R' =（下下上上 左上右下）
-解法2：FRRU'R'U'RUR'F' = (压 上上 右下右上左下 上)
+解法2：FRRU'R'U'RUR'F' = (压上 右下右上左下 上)
 
 C字型：
 开口左：R'U'R'FR'F'UR =（下回 下压上提 勾上）
 开口右：左手（下回 下压上提 勾上）
+
+手枪型：
+下右同色：FURU'R'2F'RURU'R'（压勾上回下下提 上勾上回下）
+
+pll
+对角换：R'UR'U'RD'R'DR'UD'R2U'R'2DR2
+邻角换：R'U'F'RUR'U'R'FR2U'R'U'RUR'UR
+领角换左：RUR'U'R'FR2U'R'U'RUR'F'
+
+zbll
+对称鱼：RU'L'UR'U'L（上回上回下回下）
+
+U形坦克对自己：RUR'D'RU'R'D（上勾下拨 上回下推）
+
+双头中心对称鱼对自己：（拨上勾下 推上回下）
+
+
 
 
 
