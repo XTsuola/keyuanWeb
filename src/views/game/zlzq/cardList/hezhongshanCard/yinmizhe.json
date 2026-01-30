@@ -3,42 +3,49 @@
     "quality": "蓝",
     "name": "学仆-观测型",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "沉重否定",
+    "name": "沉重否定1",
     "cost": 2,
-    "level": 19,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定2",
+    "cost": 2,
+    "level": 15,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "全数否定",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "破魔系教授",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "克隆术1",
     "cost": 2,
-    "level": 16,
+    "level": 15,
     "type": 2
   },
   {
@@ -52,33 +59,26 @@
     "quality": "紫",
     "name": "学仆-脉冲型1",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "学仆-脉冲型2",
     "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "学仆-脉冲型3",
-    "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "幻域秘树",
-    "cost": 4,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "学仆-塑钢型",
+    "cost": 4,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "幻域秘树",
     "cost": 4,
     "level": 20,
     "type": 1
@@ -94,14 +94,14 @@
     "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "橙",
-    "name": "流星-7号",
-    "cost": 4,
-    "level": 20,
+    "name": "章鱼博士·希尔伯特",
+    "cost": 2,
+    "level": 15,
     "type": 1
   },
   {
