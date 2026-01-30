@@ -3,21 +3,21 @@
     "quality": "蓝",
     "name": "圣殿弩手",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "增援战线",
     "cost": 3,
-    "level": 20,
+    "level": 21,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "田园守望者",
     "cost": 3,
-    "level": 17,
+    "level": 19,
     "type": 1
   },
   {
@@ -31,7 +31,7 @@
     "quality": "紫",
     "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 19,
+    "level": 20,
     "type": 3
   },
   {
@@ -52,7 +52,7 @@
     "quality": "紫",
     "name": "白袍主教",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
@@ -66,7 +66,7 @@
     "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -74,13 +74,6 @@
     "name": "夺取阵地",
     "cost": 4,
     "level": 16,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "阳炎坠落",
-    "cost": 4,
-    "level": 15,
     "type": 2
   },
   {
@@ -122,7 +115,7 @@
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
