@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "学仆-观测型",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
@@ -31,7 +31,7 @@
     "quality": "蓝",
     "name": "全数否定",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 2
   },
   {
@@ -50,6 +50,13 @@
   },
   {
     "quality": "紫",
+    "name": "克隆术",
+    "cost": 2,
+    "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "咒术系学士",
     "cost": 2,
     "level": 14,
@@ -57,23 +64,9 @@
   },
   {
     "quality": "紫",
-    "name": "克隆术",
-    "cost": 2,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "紫",
     "name": "神秘学教授",
     "cost": 2,
     "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "学仆-脉冲型",
-    "cost": 3,
-    "level": 17,
     "type": 1
   },
   {
@@ -85,16 +78,23 @@
   },
   {
     "quality": "紫",
-    "name": "观星台大预言家",
+    "name": "观星台大预言家1",
     "cost": 5,
     "level": 17,
     "type": 1
   },
   {
     "quality": "紫",
+    "name": "观星台大预言家2",
+    "cost": 5,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
-    "level": 19,
+    "level": 21,
     "type": 1
   },
   {

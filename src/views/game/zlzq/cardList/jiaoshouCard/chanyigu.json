@@ -29,7 +29,14 @@
   },
   {
     "quality": "蓝",
-    "name": "明月心",
+    "name": "明月心1",
+    "cost": 2,
+    "level": 13,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "明月心2",
     "cost": 2,
     "level": 12,
     "type": 2
@@ -38,7 +45,7 @@
     "quality": "蓝",
     "name": "明月曲",
     "cost": 3,
-    "level": 12,
+    "level": 14,
     "type": 2
   },
   {
@@ -51,6 +58,13 @@
   {
     "quality": "蓝",
     "name": "风卷残云2",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+   {
+    "quality": "蓝",
+    "name": "风卷残云3",
     "cost": 4,
     "level": 12,
     "type": 2
@@ -77,25 +91,11 @@
     "type": 2
   },
   {
-    "quality": "紫",
-    "name": "万物之灵",
-    "cost": 5,
-    "level": 13,
-    "type": 2
-  },
-  {
     "quality": "橙",
     "name": "灵龟神丹·艮",
     "cost": 3,
     "level": 12,
     "type": 2
-  },
-  {
-    "quality": "橙",
-    "name": "九天玄女·轩",
-    "cost": 4,
-    "level": 14,
-    "type": 1
   },
   {
     "quality": "橙",
