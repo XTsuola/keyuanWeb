@@ -81,7 +81,7 @@ import { getHeroList, addHero, updateHero, deleteHero, type GetHeroListParams, t
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddHeroParams>({
+const addParams = reactive<AddHeroParams>({
     id: undefined,
     name: "",
     gender: undefined,

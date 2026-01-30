@@ -39,7 +39,7 @@ import { getAbyssList, addAbyss, updateAbyss, deleteAbyss, type GetAbyssListPara
 import AddPage from "./modal/abyssAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddAbyssParams>({
+const addParams = reactive<AddAbyssParams>({
     id: undefined,
     version: "",
     firstUpper: "",
@@ -204,7 +204,7 @@ function showModal(showType: AddType, item?: AddAbyssParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: ((data: AddAbyssParams) => AxiosPromise<any>)

@@ -39,7 +39,7 @@ import type { AxiosPromise } from "axios";
 import type { AddType } from "@/utils/global";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddArmsParams>({
+const addParams = reactive<AddArmsParams>({
     id: undefined,
     name: "",
     type: "",

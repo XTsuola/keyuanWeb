@@ -46,7 +46,7 @@ import { getEnemyList, addEnemy, updateEnemy, deleteEnemy, type GetEnemyListPara
 import AddPage from "./modal/enemyAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddEnemyParams>({
+const addParams = reactive<AddEnemyParams>({
     id: undefined,
     name: "",
     enemyType: undefined,
@@ -224,7 +224,7 @@ function showModal(showType: AddType, item?: AddEnemyParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: ((data: AddEnemyParams) => AxiosPromise<any>)

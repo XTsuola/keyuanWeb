@@ -49,7 +49,7 @@ import { getRelicsList, addRelics, updateRelics, deleteRelics, type GetRelicsLis
 import AddPage from "./modal/relicsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddRelicsParams>({
+const addParams = reactive<AddRelicsParams>({
     id: undefined,
     name: "",
     star: undefined,
@@ -217,7 +217,7 @@ function showModal(showType: AddType, item?: AddRelicsParams) {
     visible.value = true;
 }
 
-async function handleOk(e: MouseEvent) {
+async function handleOk() {
     loading.value = true;
     interface AType {
         axios: ((data: AddRelicsParams) => AxiosPromise<any>)

@@ -46,7 +46,7 @@ import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, t
 import AddPage from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddArmsParams>({
+const addParams = reactive<AddArmsParams>({
     id: undefined,
     name: "",
     type: undefined,

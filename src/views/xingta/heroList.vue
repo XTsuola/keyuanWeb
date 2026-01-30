@@ -29,7 +29,7 @@ import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
 import type { PaginationType } from "@/api/common";
 
-let addParams = reactive<AddHeroParams>({
+const addParams = reactive<AddHeroParams>({
     id: undefined,
     name: "",
     title: "",

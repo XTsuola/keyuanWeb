@@ -43,7 +43,7 @@ import { getMemberList, addMember, updateMember, deleteMember, type GetMemberLis
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
-let addParams = reactive<AddMemberParams>({
+const addParams = reactive<AddMemberParams>({
     id: undefined,
     name: "",
     qq: "",

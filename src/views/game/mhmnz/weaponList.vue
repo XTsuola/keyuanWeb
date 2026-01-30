@@ -60,7 +60,7 @@ import { getWeaponList, addWeapon, updateWeapon, deleteWeapon, type GetWeaponLis
 import AddPage from "./modal/weaponAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
-let addParams = reactive<AddWeaponParams>({
+const addParams = reactive<AddWeaponParams>({
     id: undefined,
     name: "",
     star: undefined,

@@ -63,7 +63,7 @@ import type { AddType, Type } from "@/utils/global";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/cookAddPage.vue";
 
-let addParams = reactive<AddCookParams>({
+const addParams = reactive<AddCookParams>({
     id: undefined,
     name: "",
     cookType: undefined,
