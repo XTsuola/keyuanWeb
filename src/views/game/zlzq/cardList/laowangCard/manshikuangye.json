@@ -1,24 +1,24 @@
 [
   {
     "quality": "蓝",
-    "name": "势如破竹1",
+    "name": "蓄力射手",
     "cost": 2,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "势如破竹2",
-    "cost": 2,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "蛮石穿山甲",
-    "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "势如破竹",
+    "cost": 2,
+    "level": 22,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "强行捕猎",
+    "cost": 4,
+    "level": 14,
+    "type": 2
   },
   {
     "quality": "紫",
@@ -45,7 +45,7 @@
     "quality": "紫",
     "name": "飞斧狂人1",
     "cost": 4,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -57,14 +57,14 @@
   },
   {
     "quality": "紫",
-    "name": "石斧头领",
+    "name": "飞斧女豪",
     "cost": 5,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "飞斧女豪",
+    "name": "石斧头领",
     "cost": 5,
     "level": 20,
     "type": 1
@@ -87,21 +87,21 @@
     "quality": "橙",
     "name": "双头法师",
     "cost": 4,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "热血摇滚·凯",
     "cost": 5,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "白象战歌·鲁玛",
     "cost": 7,
-    "level": 20,
+    "level": 21,
     "type": 1
   }
 ]

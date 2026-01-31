@@ -3,14 +3,21 @@
     "quality": "蓝",
     "name": "雪庐草人1",
     "cost": 1,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "雪庐草人2",
     "cost": 1,
-    "level": 20,
+    "level": 21,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "苦行武僧",
+    "cost": 2,
+    "level": 22,
     "type": 1
   },
   {
@@ -22,9 +29,30 @@
   },
   {
     "quality": "蓝",
+    "name": "龟族僧人",
+    "cost": 3,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "雪狐剑客",
+    "cost": 3,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "连击",
+    "cost": 3,
+    "level": 22,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
     "name": "深山采药人",
     "cost": 3,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -36,24 +64,17 @@
   },
   {
     "quality": "蓝",
-    "name": "风卷残云1",
-    "cost": 4,
+    "name": "铁山靠",
+    "cost": 3,
     "level": 12,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "风卷残云2",
+    "name": "风卷残云",
     "cost": 4,
     "level": 12,
     "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "植甲师",
-    "cost": 2,
-    "level": 17,
-    "type": 1
   },
   {
     "quality": "紫",
@@ -73,6 +94,20 @@
     "quality": "紫",
     "name": "雪山飞狐",
     "cost": 3,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "当铺掌柜",
+    "cost": 3,
+    "level": 14,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "御风武者",
+    "cost": 4,
     "level": 20,
     "type": 1
   },
@@ -87,36 +122,22 @@
     "quality": "紫",
     "name": "黑竹林地",
     "cost": 4,
+    "level": 19,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "萌化术",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "渡船隐士",
+    "cost": 5,
     "level": 18,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "墨轩隐士",
-    "cost": 4,
-    "level": 17,
     "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "龙纹尊者",
-    "cost": 4,
-    "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术1",
-    "cost": 4,
-    "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "萌化术2",
-    "cost": 4,
-    "level": 12,
-    "type": 2
   },
   {
     "quality": "紫",
@@ -126,25 +147,18 @@
     "type": 2
   },
   {
-    "quality": "紫",
-    "name": "渡船隐士",
-    "cost": 5,
-    "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "披甲罗汉",
-    "cost": 6,
-    "level": 17,
+    "quality": "橙",
+    "name": "火凤凰·林",
+    "cost": 3,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "橙",
-    "name": "火凤凰·林",
+    "name": "灵龟神丹·艮",
     "cost": 3,
-    "level": 18,
-    "type": 1
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "橙",
@@ -164,13 +178,6 @@
     "quality": "橙",
     "name": "豆子·凛",
     "cost": 4,
-    "level": 17,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "踏雪行·铭",
-    "cost": 5,
     "level": 17,
     "type": 1
   }

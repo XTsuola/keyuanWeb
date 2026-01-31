@@ -1,16 +1,51 @@
 [
   {
     "quality": "蓝",
+    "name": "洞悉之眼",
+    "cost": 0,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "方尖魔碑",
+    "cost": 2,
+    "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "沉重否定1",
-    "cost": 1,
+    "cost": 2,
     "level": 14,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "沉重否定2",
-    "cost": 1,
+    "cost": 2,
     "level": 13,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "沉重否定3",
+    "cost": 2,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "全数否定",
+    "cost": 3,
+    "level": 16,
+    "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "占卜命运",
+    "cost": 3,
+    "level": 12,
     "type": 2
   },
   {
@@ -29,9 +64,16 @@
   },
   {
     "quality": "紫",
-    "name": "克隆术",
+    "name": "克隆术1",
     "cost": 2,
     "level": 14,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "克隆术2",
+    "cost": 2,
+    "level": 12,
     "type": 2
   },
   {
@@ -43,6 +85,13 @@
   },
   {
     "quality": "紫",
+    "name": "改造魔卷",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
     "name": "米拉方舟",
     "cost": 7,
     "level": 17,
@@ -50,22 +99,8 @@
   },
   {
     "quality": "橙",
-    "name": "青月·米拉",
+    "name": "猩红之月·米拉",
     "cost": 5,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "滑板少年·迪宁",
-    "cost": 6,
-    "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "隐秘公爵·伊斯多维尔",
-    "cost": 9,
     "level": 16,
     "type": 1
   }

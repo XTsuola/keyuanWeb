@@ -1,16 +1,16 @@
 [
   {
     "quality": "蓝",
-    "name": "圣殿卫士",
+    "name": "炫目神光",
     "cost": 2,
     "level": 17,
-    "type": 1
+    "type": 2
   },
   {
     "quality": "蓝",
     "name": "圣殿弩手",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
@@ -24,7 +24,7 @@
     "quality": "蓝",
     "name": "田园守望者2",
     "cost": 3,
-    "level": 16,
+    "level": 15,
     "type": 1
   },
   {
@@ -36,37 +36,30 @@
   },
   {
     "quality": "蓝",
-    "name": "光明惩戒1",
+    "name": "光明惩戒",
     "cost": 5,
-    "level": 15,
+    "level": 20,
     "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "光明惩戒2",
-    "cost": 5,
-    "level": 15,
-    "type": 2
-  },
-  {
-    "quality": "紫",
-    "name": "四芒军旗",
-    "cost": 1,
-    "level": 15,
-    "type": 1
   },
   {
     "quality": "紫",
     "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 15,
+    "level": 17,
     "type": 3
   },
   {
     "quality": "紫",
-    "name": "圣殿御卫",
-    "cost": 2,
-    "level": 17,
+    "name": "四芒军旗",
+    "cost": 1,
+    "level": 16,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "白袍主教",
+    "cost": 3,
+    "level": 20,
     "type": 1
   },
   {
@@ -80,15 +73,15 @@
     "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
-    "quality": "橙",
-    "name": "花光春影·安娜贝尔",
-    "cost": 3,
-    "level": 16,
-    "type": 1
+    "quality": "紫",
+    "name": "夺取阵地",
+    "cost": 4,
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "橙",
@@ -101,14 +94,7 @@
     "quality": "橙",
     "name": "明日香·露娜",
     "cost": 4,
-    "level": 15,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "永恒之王·莱哈特",
-    "cost": 5,
-    "level": 17,
+    "level": 12,
     "type": 1
   },
   {
