@@ -12573,7 +12573,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/yinmizhe/fangjianmobei.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "data": [
             {
                 "attack": 0,
@@ -25871,7 +25871,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/zhijiandaozhe.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "data": [
             {
                 "attack": 2,
@@ -47221,7 +47221,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/duyejiachong.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 2,
