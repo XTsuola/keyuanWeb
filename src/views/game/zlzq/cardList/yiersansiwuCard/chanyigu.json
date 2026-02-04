@@ -1,16 +1,23 @@
 [
   {
     "quality": "蓝",
-    "name": "雪庐草人",
+    "name": "雪庐草人1",
     "cost": 1,
     "level": 17,
     "type": 1
   },
   {
     "quality": "蓝",
-    "name": "卜命道长",
+    "name": "雪庐草人2",
     "cost": 1,
-    "level": 16,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "长耳庄巧姑",
+    "cost": 2,
+    "level": 20,
     "type": 1
   },
   {
@@ -18,13 +25,6 @@
     "name": "苦行武僧",
     "cost": 2,
     "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "长耳庄巧姑",
-    "cost": 2,
-    "level": 19,
     "type": 1
   },
   {
@@ -38,7 +38,7 @@
     "quality": "紫",
     "name": "植甲师",
     "cost": 2,
-    "level": 13,
+    "level": 14,
     "type": 1
   },
   {
@@ -53,6 +53,20 @@
     "name": "雪山飞狐",
     "cost": 3,
     "level": 17,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "萌化术",
+    "cost": 4,
+    "level": 12,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "渡船隐士",
+    "cost": 5,
+    "level": 14,
     "type": 1
   },
   {
@@ -95,13 +109,6 @@
     "name": "咱们三熊",
     "cost": 4,
     "level": 12,
-    "type": 1
-  },
-  {
-    "quality": "橙",
-    "name": "踏雪行·铭",
-    "cost": 5,
-    "level": 13,
     "type": 1
   }
 ]

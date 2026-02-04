@@ -4033,7 +4033,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/jianlouche.jpg",
-        "grade": "[1]",
+        "grade": "[0]",
         "data": [
             {
                 "attack": 1,
@@ -5619,7 +5619,7 @@ export const gradeData = [
         "cost": 3,
         "type": 3,
         "img": "/simangdiguo/zhuanji_shengmingyongtandiao.jpg",
-        "grade": "[1]",
+        "grade": "[0]",
         "data": [
             {
                 "attack": 0,
@@ -5985,7 +5985,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/simangdiguo/liuxingdoushi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 2,
@@ -20503,7 +20503,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/yinmizhe/zhuanji_haishishenloushe.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,
@@ -22211,7 +22211,7 @@ export const gradeData = [
         "cost": 1,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangexu.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "data": [
             {
                 "attack": 0,
@@ -22333,7 +22333,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangepo.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "data": [
             {
                 "attack": 0,
@@ -22455,7 +22455,7 @@ export const gradeData = [
         "cost": 4,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangezhong.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "data": [
             {
                 "attack": 0,
@@ -28311,7 +28311,7 @@ export const gradeData = [
         "cost": 3,
         "type": 3,
         "img": "/chanyigu/zhuanji_jinsheng.jpg",
-        "grade": "[2]",
+        "grade": "[0]",
         "data": [
             {
                 "attack": 0,
@@ -32459,7 +32459,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/chanyigu/zhuanji_yueluo.jpg",
-        "grade": "[5]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,
@@ -32581,7 +32581,7 @@ export const gradeData = [
         "cost": 3,
         "type": 3,
         "img": "/chanyigu/zhuanji_risheng.jpg",
-        "grade": "[5]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,
@@ -33435,7 +33435,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/xiaoyaojushi_ming.jpg",
-        "grade": "[2]",
+        "grade": "[4]",
         "data": [
             {
                 "attack": 5,
@@ -65155,7 +65155,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/manshikuangye/zhuanji_yemanhuayuan.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "data": [
             {
                 "attack": 0,
@@ -71377,7 +71377,7 @@ export const gradeData = [
         "cost": 5,
         "type": 3,
         "img": "/dongshenshitu/zhuanji_mengshouxiaogu.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "data": [
             {
                 "attack": 0,
@@ -76257,7 +76257,7 @@ export const gradeData = [
         "cost": 5,
         "type": 3,
         "img": "/dongshenshitu/zhuanji_huangwuzhishi.jpg",
-        "grade": "[3]",
+        "grade": "[5]",
         "data": [
             {
                 "attack": 0,

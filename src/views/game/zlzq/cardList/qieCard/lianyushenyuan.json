@@ -1,17 +1,17 @@
 [
   {
     "quality": "蓝",
+    "name": "冥河守卫",
+    "cost": 1,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "落雷击",
     "cost": 1,
     "level": 22,
     "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "冥河守卫",
-    "cost": 1,
-    "level": 20,
-    "type": 1
   },
   {
     "quality": "蓝",
@@ -101,7 +101,7 @@
     "quality": "橙",
     "name": "猩红女妖·莉莉丝",
     "cost": 6,
-    "level": 16,
+    "level": 17,
     "type": 1
   }
 ]

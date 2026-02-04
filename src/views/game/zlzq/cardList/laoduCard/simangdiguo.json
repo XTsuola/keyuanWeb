@@ -3,29 +3,36 @@
     "quality": "蓝",
     "name": "圣殿斥候",
     "cost": 1,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "圣殿卫士",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "修女",
     "cost": 2,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "圣殿弩手",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "增援战线",
+    "cost": 3,
+    "level": 22,
+    "type": 2
   },
   {
     "quality": "蓝",
@@ -36,16 +43,9 @@
   },
   {
     "quality": "蓝",
-    "name": "增援战线",
-    "cost": 3,
-    "level": 20,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
     "name": "光明惩戒1",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 2
   },
   {
@@ -59,35 +59,35 @@
     "quality": "紫",
     "name": "传记·钢铁守卫",
     "cost": 1,
-    "level": 18,
+    "level": 20,
     "type": 3
   },
   {
     "quality": "紫",
     "name": "四芒军旗",
     "cost": 1,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "圣殿御卫",
     "cost": 2,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "紫",
-    "name": "圣殿骑士",
-    "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "白袍主教",
     "cost": 3,
-    "level": 20,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "紫",
+    "name": "圣殿骑士",
+    "cost": 3,
+    "level": 22,
     "type": 1
   },
   {
@@ -106,9 +106,16 @@
   },
   {
     "quality": "紫",
-    "name": "夺取阵地",
+    "name": "夺取阵地1",
     "cost": 4,
     "level": 15,
+    "type": 2
+  },
+  {
+    "quality": "紫",
+    "name": "夺取阵地2",
+    "cost": 4,
+    "level": 12,
     "type": 2
   },
   {
@@ -122,7 +129,7 @@
     "quality": "橙",
     "name": "春花使者·卡洛琳",
     "cost": 4,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -136,14 +143,14 @@
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 19,
+    "level": 20,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
