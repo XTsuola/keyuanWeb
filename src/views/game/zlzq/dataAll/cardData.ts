@@ -9970,8 +9970,8 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/shuguang_annabeier.jpg",
-        "grade": "[4]",
-        "tag": "[3,21]",
+        "grade": "[5]",
+        "tag": "[1,3,21]",
         "data": [
             {
                 "attack": 1,
@@ -21656,7 +21656,7 @@ export const gradeData = [
         "type": 1,
         "img": "/yinmizhe/No5_zhourenbuleike.jpg",
         "grade": "[5]",
-        "tag": "[1,15,18]",
+        "tag": "[1,7,15,18,19]",
         "data": [
             {
                 "attack": 1,
@@ -34078,8 +34078,8 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/chanyigu/haoqingchanshi_wuneng.jpg",
-        "grade": "[4]",
-        "tag": "[1,2,4,5,24]",
+        "grade": "[6]",
+        "tag": "[1,2,4,5,11,14,24]",
         "data": [
             {
                 "attack": 7,
@@ -45271,8 +45271,8 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/tiantanggang/mokahuanshushi_meiji.jpg",
-        "grade": "[4]",
-        "tag": "[25,26]",
+        "grade": "[6]",
+        "tag": "[3,23,25,26]",
         "data": [
             {
                 "attack": 1,
@@ -55726,8 +55726,8 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/xueying.jpg",
-        "grade": "[4]",
-        "tag": "[1,26]",
+        "grade": "[6]",
+        "tag": "[1,7,21,26]",
         "data": [
             {
                 "attack": 5,
@@ -63598,7 +63598,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/manshikuangye/feifukuangren.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "tag": "[26]",
         "data": [
             {
@@ -66305,7 +66305,7 @@ export const gradeData = [
         "type": 1,
         "img": "/manshikuangye/xueyinliefu_kai.jpg",
         "grade": "[4]",
-        "tag": "[2,5,26]",
+        "tag": "[2,5,11,26]",
         "data": [
             {
                 "attack": 4,
@@ -77006,7 +77006,7 @@ export const gradeData = [
         "type": 2,
         "img": "/dongshenshitu/hanfengxueren.jpg",
         "grade": "[5]",
-        "tag": "[5,6,11,15]",
+        "tag": "[5,6,11,15,21]",
         "data": [
             {
                 "attack": 0,
@@ -77866,8 +77866,8 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/dongshenshitu/dongshenhuashen.jpg",
-        "grade": "[3]",
-        "tag": "[2,11]",
+        "grade": "[4]",
+        "tag": "[2,11,16,21]",
         "data": [
             {
                 "attack": 4,
