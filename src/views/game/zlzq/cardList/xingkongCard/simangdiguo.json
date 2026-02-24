@@ -3,7 +3,14 @@
     "quality": "蓝",
     "name": "圣殿斥候",
     "cost": 1,
-    "level": 21,
+    "level": 22,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
+    "name": "圣殿卫士",
+    "cost": 2,
+    "level": 22,
     "type": 1
   },
   {
@@ -12,13 +19,6 @@
     "cost": 3,
     "level": 22,
     "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "增援战线",
-    "cost": 3,
-    "level": 22,
-    "type": 2
   },
   {
     "quality": "蓝",
@@ -66,14 +66,14 @@
     "quality": "紫",
     "name": "圣殿骑士",
     "cost": 3,
-    "level": 21,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "召集护卫",
     "cost": 4,
-    "level": 21,
+    "level": 22,
     "type": 2
   },
   {
@@ -92,7 +92,7 @@
   },
   {
     "quality": "橙",
-    "name": "百花长枪·卡洛琳",
+    "name": "春花使者·卡洛琳",
     "cost": 4,
     "level": 22,
     "type": 1
@@ -108,14 +108,14 @@
     "quality": "橙",
     "name": "永恒之王·莱哈特",
     "cost": 5,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "白袍·伊恩",
     "cost": 6,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {

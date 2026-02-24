@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "心灵黑洞1",
     "cost": 1,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
@@ -17,21 +17,21 @@
     "quality": "蓝",
     "name": "狡诈学徒",
     "cost": 2,
-    "level": 21,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "黑夜突袭",
     "cost": 2,
-    "level": 20,
+    "level": 21,
     "type": 2
   },
   {
     "quality": "蓝",
     "name": "黑金勒索者",
     "cost": 2,
-    "level": 17,
+    "level": 15,
     "type": 1
   },
   {
@@ -45,7 +45,7 @@
     "quality": "蓝",
     "name": "酗酒醉汉",
     "cost": 3,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
@@ -66,28 +66,28 @@
     "quality": "紫",
     "name": "海盗船长",
     "cost": 4,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "黑金诈术师",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "蒙面侠客·翔",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "夏日女郎·鲍莉",
     "cost": 3,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
@@ -101,7 +101,7 @@
     "quality": "橙",
     "name": "天雷降临·布瑞恩",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 1
   }
 ]

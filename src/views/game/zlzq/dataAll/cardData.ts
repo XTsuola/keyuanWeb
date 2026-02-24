@@ -24362,7 +24362,7 @@ export const gradeData = [
         "type": 1,
         "img": "/chanyigu/juma.jpg",
         "grade": "[1]",
-        "tag": "",
+        "tag": "[13]",
         "data": [
             {
                 "attack": 1,
