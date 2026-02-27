@@ -70,34 +70,34 @@
                 <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">蓝卡等级：</div><span style="width: 60px;">{{ blueCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">紫卡等级：</div><span style="width: 60px;">{{ purpleCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">橙卡等级：</div><span style="width: 60px;">{{ orangeCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">平均等级：</div><span style="width: 60px;">{{ allCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">蓝卡占比：</div><span style="width: 60px;">{{ ((blueList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ blueList.length }}张）</span>
+                            }}%</span><span>（{{ blueList.length }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">紫卡占比：</div><span style="width: 60px;">{{ ((purpleList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ purpleList.length }}张）</span>
+                            }}%</span><span>（{{ purpleList.length }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">橙卡占比：</div><span style="width: 60px;">{{ ((goldList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ goldList.length }}张）</span>
+                            }}%</span><span>（{{ goldList.length }}张）</span>
                     </div>
                 </div>
             </div>
@@ -152,36 +152,39 @@
                 <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">SS级：</div><span style="width: 50px;">{{ ((ss / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ ss }}张）</span>
+                        }}%</span><span>（{{ ss }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">S级：</div><span style="width: 50px;">{{ ((s / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ s }}张）</span>
+                        }}%</span><span>（{{ s }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">A+级：</div><span style="width: 50px;">{{ ((aa / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ aa }}张）</span>
+                        }}%</span><span>（{{ aa }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">A级：</div><span style="width: 50px;">{{ ((a / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ a }}张）</span>
+                        }}%</span><span>（{{ a }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">B级：</div><span style="width: 50px;">{{ ((b / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ b }}张）</span>
+                        }}%</span><span>（{{ b }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">C级：</div><span style="width: 50px;">{{ ((c / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ c }}张）</span>
+                        }}%</span><span>（{{ c }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">D级：</div><span style="width: 50px;">{{ ((d / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ d }}张）</span>
+                        }}%</span><span>（{{ d }}张）</span>
                     </div>
                 </div>
             </div>
 
         </div>
+        <h3>（最终战力：卡牌战力+187万裸体战力+双橙色神器500w战力+金卡皮肤战力）</h3>
+        <h3>当前战力：{{ 687 + goldList.length * 2 + nowLevel.zhanli / 10000 }}</h3>
+        <h3>最终战力：{{ 687 + goldList.length * 2 + to22Level.zhanli / 10000 }}</h3>
     </div>
 </template>
 

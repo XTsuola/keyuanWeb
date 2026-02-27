@@ -17,7 +17,7 @@
     "quality": "蓝",
     "name": "沉重否定2",
     "cost": 2,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -45,7 +45,7 @@
     "quality": "紫",
     "name": "克隆术1",
     "cost": 2,
-    "level": 15,
+    "level": 16,
     "type": 2
   },
   {
@@ -80,14 +80,14 @@
     "quality": "紫",
     "name": "幻域秘树",
     "cost": 4,
-    "level": 20,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "观星台大预言家",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -99,16 +99,9 @@
   },
   {
     "quality": "橙",
-    "name": "章鱼博士·希尔伯特",
-    "cost": 2,
-    "level": 15,
-    "type": 1
-  },
-  {
-    "quality": "橙",
     "name": "月之神·米拉",
     "cost": 5,
-    "level": 19,
+    "level": 20,
     "type": 1
   }
 ]
