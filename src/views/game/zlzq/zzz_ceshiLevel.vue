@@ -195,6 +195,32 @@ import { gradeData } from "./dataAll/cardData";
 import { heroData } from "./dataAll/heroData";
 import { ceshiData } from "./zzzz_ceshiData";
 
+
+// const list:any = [{
+//     "帝国":10
+// },{
+//     "隐秘":9
+// },{
+//     "禅意":10
+// },{
+//     "港口":11
+// },{
+//     "炼狱":8
+// },{
+//     "蛮石":15
+// },{
+//     "冬神":9
+// }]
+
+// console.log("帝：", ((list[0]["帝国"] / 72) * 100).toFixed(2) + "%");
+// console.log("书：", ((list[1]["隐秘"] / 72) * 100).toFixed(2) + "%");
+// console.log("叶：", ((list[2]["禅意"] / 72) * 100).toFixed(2) + "%");
+// console.log("港：", ((list[3]["港口"] / 72) * 100).toFixed(2) + "%");
+// console.log("火：", ((list[4]["炼狱"] / 72) * 100).toFixed(2) + "%");
+// console.log("蛮：", ((list[5]["蛮石"] / 72) * 100).toFixed(2) + "%");
+// console.log("冰：", ((list[6]["冬神"] / 72) * 100).toFixed(2) + "%");
+
+
 let huang = 0.00213;
 let hong = 0.01093;
 let hei = 0.06453;
