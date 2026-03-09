@@ -1,6 +1,13 @@
 [
   {
     "quality": "蓝",
+    "name": "愚笨鲸头鹅",
+    "cost": 0,
+    "level": 12,
+    "type": 1
+  },
+  {
+    "quality": "蓝",
     "name": "旷野祭师1",
     "cost": 2,
     "level": 22,
@@ -10,7 +17,7 @@
     "quality": "蓝",
     "name": "旷野祭师2",
     "cost": 2,
-    "level": 15,
+    "level": 20,
     "type": 1
   },
   {
@@ -24,15 +31,8 @@
     "quality": "蓝",
     "name": "面包树",
     "cost": 3,
-    "level": 20,
+    "level": 21,
     "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "天降碎石",
-    "cost": 3,
-    "level": 19,
-    "type": 2
   },
   {
     "quality": "蓝",
@@ -45,28 +45,35 @@
     "quality": "紫",
     "name": "暴怒野人",
     "cost": 2,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "无畏猎户",
     "cost": 2,
-    "level": 14,
+    "level": 16,
     "type": 1
   },
   {
     "quality": "紫",
-    "name": "肥鼠晚宴",
+    "name": "肥鼠晚宴1",
     "cost": 3,
     "level": 20,
+    "type": 2
+  },
+   {
+    "quality": "紫",
+    "name": "肥鼠晚宴2",
+    "cost": 3,
+    "level": 12,
     "type": 2
   },
   {
     "quality": "紫",
     "name": "活力仙人掌",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
@@ -85,13 +92,6 @@
   },
   {
     "quality": "紫",
-    "name": "飞斧女豪",
-    "cost": 5,
-    "level": 15,
-    "type": 1
-  },
-  {
-    "quality": "紫",
     "name": "源力苏醒",
     "cost": 6,
     "level": 18,
@@ -101,7 +101,7 @@
     "quality": "紫",
     "name": "贪食白龙",
     "cost": 8,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -122,14 +122,14 @@
     "quality": "橙",
     "name": "白象战歌·鲁玛",
     "cost": 7,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "荒原暴君·血眼",
     "cost": 8,
-    "level": 14,
+    "level": 15,
     "type": 1
   }
 ]

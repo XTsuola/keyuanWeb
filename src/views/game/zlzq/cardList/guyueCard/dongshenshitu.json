@@ -1,30 +1,37 @@
 [
   {
     "quality": "蓝",
-    "name": "骨爆",
+    "name": "骨爆1",
     "cost": 1,
     "level": 16,
     "type": 2
   },
   {
     "quality": "蓝",
-    "name": "站场遗迹",
+    "name": "骨爆2",
     "cost": 1,
-    "level": 13,
-    "type": 1
+    "level": 12,
+    "type": 2
   },
   {
     "quality": "蓝",
     "name": "转化仪式",
     "cost": 1,
-    "level": 13,
+    "level": 14,
     "type": 2
+  },
+  {
+    "quality": "蓝",
+    "name": "阴冷墓穴",
+    "cost": 2,
+    "level": 22,
+    "type": 1
   },
   {
     "quality": "蓝",
     "name": "寒风草人",
     "cost": 2,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {
@@ -38,34 +45,20 @@
     "quality": "蓝",
     "name": "神庙魔像",
     "cost": 3,
-    "level": 20,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "极地狂信者1",
-    "cost": 3,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
-    "name": "极地狂信者2",
-    "cost": 3,
-    "level": 12,
+    "level": 22,
     "type": 1
   },
   {
     "quality": "蓝",
     "name": "绝望之地",
     "cost": 3,
-    "level": 12,
+    "level": 16,
     "type": 2
   },
   {
     "quality": "紫",
-    "name": "寒冰骨墙",
-    "cost": 3,
+    "name": "寒彻骨",
+    "cost": 2,
     "level": 12,
     "type": 2
   },
@@ -77,24 +70,10 @@
     "type": 1
   },
   {
-    "quality": "紫",
-    "name": "咒杀酷吏",
-    "cost": 5,
-    "level": 12,
-    "type": 1
-  },
-  {
     "quality": "橙",
     "name": "无头骑士冰刃",
     "cost": 3,
-    "level": 14,
-    "type": 2
-  },
-  {
-    "quality": "橙",
-    "name": "冰野隐秘行动",
-    "cost": 4,
-    "level": 12,
+    "level": 15,
     "type": 2
   },
   {

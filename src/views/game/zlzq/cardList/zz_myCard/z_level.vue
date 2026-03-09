@@ -11,35 +11,35 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="类型" style="width: 200px">
                 <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
                     <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -50,6 +50,7 @@
             </a-form-item>
         </a-form>
         <span style="margin-right: 30px;">白石头累计消耗：{{ countBaishitou }}</span>
+        <span style="margin-right: 30px;">黑石头累计消耗：{{ countHeishitou }}</span>
         <span style="margin-right: 30px;">钻石累计消耗：{{ countZuanshi }}</span>
         <span style="margin-right: 30px;">蓝卡卡等：{{ blueLevel }}（{{ blueCount }}张）</span>
         <span style="margin-right: 30px;">紫卡卡等：{{ purpleLevel }}（{{ purpleCount }}张）</span>
@@ -275,6 +276,7 @@ const formState = reactive({
     type: undefined
 });
 const countBaishitou = ref(0);
+const countHeishitou = ref(0);
 const countZuanshi = ref(0);
 const blueLevel = ref<any>(1);
 const purpleLevel = ref<any>(1);
@@ -285,7 +287,7 @@ const purpleCount = ref<any>(0);
 const goldCount = ref<any>(0);
 
 async function getList() {
-    countBaishitou.value = countZuanshi.value = 0;
+    countBaishitou.value = countHeishitou.value = countZuanshi.value = 0;
     simangdiguo.forEach((item: any) => item.zhenyin = 1);
     chanyigu.forEach((item: any) => item.zhenyin = 2);
     tiantanggang.forEach((item: any) => item.zhenyin = 3);
@@ -325,8 +327,10 @@ async function getList() {
     for (let i = 0; i < tableData.value.length; i++) {
         tableData.value[i].id = i + 1;
         tableData.value[i].bai = getBai(tableData.value[i].quality, tableData.value[i].level);
+        tableData.value[i].hei = getHei(tableData.value[i].quality, tableData.value[i].level);
         tableData.value[i].zuanshi = getZuan(tableData.value[i].quality, tableData.value[i].level);
         countBaishitou.value += tableData.value[i].bai;
+        countHeishitou.value += tableData.value[i].hei;
         countZuanshi.value += tableData.value[i].zuanshi;
     }
 }
@@ -338,6 +342,18 @@ function getBai(quality: string, level: number) {
         return purpleObj[level - 1].cailiao[3];
     } else if (quality == "橙") {
         return goldObj[level - 1].cailiao[3];
+    } else {
+        return 0;
+    }
+}
+
+function getHei(quality: string, level: number) {
+    if (quality == "蓝") {
+        return blueObj[level - 1].cailiao[2];
+    } else if (quality == "紫") {
+        return purpleObj[level - 1].cailiao[2];
+    } else if (quality == "橙") {
+        return goldObj[level - 1].cailiao[2];
     } else {
         return 0;
     }
