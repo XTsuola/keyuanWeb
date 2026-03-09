@@ -3,7 +3,7 @@
     "quality": "蓝",
     "name": "洞悉之眼",
     "cost": 0,
-    "level": 16,
+    "level": 17,
     "type": 2
   },
   {
@@ -66,7 +66,7 @@
     "quality": "紫",
     "name": "克隆术",
     "cost": 2,
-    "level": 17,
+    "level": 18,
     "type": 2
   },
   {
@@ -115,7 +115,7 @@
     "quality": "橙",
     "name": "月之神·米拉",
     "cost": 5,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {

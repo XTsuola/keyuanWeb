@@ -1,13 +1,6 @@
 [
   {
     "quality": "蓝",
-    "name": "愚笨鲸头鹅",
-    "cost": 0,
-    "level": 16,
-    "type": 1
-  },
-  {
-    "quality": "蓝",
     "name": "旷野祭师",
     "cost": 2,
     "level": 22,
@@ -15,16 +8,9 @@
   },
   {
     "quality": "蓝",
-    "name": "势如破竹1",
+    "name": "势如破竹",
     "cost": 2,
     "level": 22,
-    "type": 2
-  },
-  {
-    "quality": "蓝",
-    "name": "势如破竹2",
-    "cost": 2,
-    "level": 19,
     "type": 2
   },
   {

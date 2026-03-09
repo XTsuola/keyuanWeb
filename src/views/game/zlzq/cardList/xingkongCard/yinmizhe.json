@@ -45,7 +45,7 @@
     "quality": "紫",
     "name": "隐形术",
     "cost": 1,
-    "level": 12,
+    "level": 13,
     "type": 2
   },
   {
@@ -80,7 +80,7 @@
     "quality": "紫",
     "name": "学仆-塑钢型",
     "cost": 4,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
