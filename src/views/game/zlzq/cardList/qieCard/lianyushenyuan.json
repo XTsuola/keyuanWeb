@@ -66,14 +66,14 @@
     "quality": "紫",
     "name": "夺魂死镰",
     "cost": 5,
-    "level": 16,
+    "level": 17,
     "type": 1
   },
   {
     "quality": "紫",
     "name": "恶灵魔焰",
     "cost": 6,
-    "level": 19,
+    "level": 20,
     "type": 2
   },
   {
@@ -87,14 +87,14 @@
     "quality": "橙",
     "name": "岩魔",
     "cost": 3,
-    "level": 18,
+    "level": 19,
     "type": 1
   },
   {
     "quality": "橙",
     "name": "熔金饕餮兽",
     "cost": 5,
-    "level": 20,
+    "level": 21,
     "type": 1
   },
   {

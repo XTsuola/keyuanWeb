@@ -8,7 +8,7 @@
 import simangdiguo from "./simangdiguo.json";
 import tiantanggang from "./tiantanggang.json";
 import lianyushenyuan from "./lianyushenyuan.json";
-import yinmizhe from "./yinmizhe.json";
+// import yinmizhe from "./yinmizhe.json";
 import CardLevel from "@/components/cardLevel.vue";
 
 const data = [{
@@ -23,10 +23,6 @@ const data = [{
     name: "炼狱深渊",
     value: 5,
     data: lianyushenyuan
-}, {
-    name: "隐秘者",
-    value: 7,
-    data: yinmizhe
 }]
 
 </script>
