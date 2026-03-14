@@ -228,7 +228,6 @@ const columns = ref<any>([
         width: 160
     }
 ]);
-
 const tableData = ref<any>([]);
 const qualityList = [{
     label: "全部",

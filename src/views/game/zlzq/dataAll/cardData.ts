@@ -10462,7 +10462,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/simangdiguo/zhengyangdazhujiao_yien.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[2,3,26]",
         "data": [
             {
@@ -10708,8 +10708,8 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/simangdiguo/xuanmutianshi_leina.jpg",
-        "grade": "[3]",
-        "tag": "[2,20,26]",
+        "grade": "[5]",
+        "tag": "[1,2,20,26]",
         "data": [
             {
                 "attack": 6,
@@ -22270,8 +22270,8 @@ export const gradeData = [
         "cost": 9,
         "type": 1,
         "img": "/yinmizhe/No3_yisiduoweier.jpg",
-        "grade": "[3]",
-        "tag": "[2,8,26]",
+        "grade": "[4]",
+        "tag": "[2,5,8,13,15,26]",
         "data": [
             {
                 "attack": 3,
@@ -33218,7 +33218,7 @@ export const gradeData = [
         "type": 1,
         "img": "/chanyigu/shenjixuannv_xuan.jpg",
         "grade": "[5]",
-        "tag": "[3,10,26]",
+        "tag": "[3,4,10,16,26]",
         "data": [
             {
                 "attack": 1,
@@ -45763,8 +45763,8 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/tiantanggang/heijinsandaimu_meisen.jpg",
-        "grade": "[2]",
-        "tag": "[8,26]",
+        "grade": "[4]",
+        "tag": "[8,19,21,22,26]",
         "data": [
             {
                 "attack": 5,
@@ -49090,112 +49090,112 @@ export const gradeData = [
             {
                 "attack": 3,
                 "life": 1,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（1点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（1点伤害）"
             },
             {
                 "attack": 4,
                 "life": 1,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（1点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（1点伤害）"
             },
             {
                 "attack": 5,
                 "life": 1,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（1点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（1点伤害）"
             },
             {
                 "attack": 6,
                 "life": 2,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（1点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（1点伤害）"
             },
             {
                 "attack": 7,
                 "life": 2,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（2点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（2点伤害）"
             },
             {
                 "attack": 8,
                 "life": 3,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（2点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（2点伤害）"
             },
             {
                 "attack": 9,
                 "life": 3,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（3点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（3点伤害）"
             },
             {
                 "attack": 10,
                 "life": 4,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（3点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（3点伤害）"
             },
             {
                 "attack": 12,
                 "life": 4,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（3点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（3点伤害）"
             },
             {
                 "attack": 13,
                 "life": 5,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（4点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（4点伤害）"
             },
             {
                 "attack": 15,
                 "life": 5,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（4点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（4点伤害）"
             },
             {
                 "attack": 16,
                 "life": 6,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（5点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（5点伤害）"
             },
             {
                 "attack": 18,
                 "life": 6,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（5点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（5点伤害）"
             },
             {
                 "attack": 19,
                 "life": 7,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（6点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（6点伤害）"
             },
             {
                 "attack": 21,
                 "life": 7,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（6点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（6点伤害）"
             },
             {
                 "attack": 23,
                 "life": 8,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（7点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（7点伤害）"
             },
             {
                 "attack": 26,
                 "life": 9,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（8点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（8点伤害）"
             },
             {
                 "attack": 29,
                 "life": 10,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（9点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（9点伤害）"
             },
             {
                 "attack": 32,
                 "life": 11,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（10点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（10点伤害）"
             },
             {
                 "attack": 35,
                 "life": 12,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（11点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（11点伤害）"
             },
             {
                 "attack": 40,
                 "life": 13,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（13点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（13点伤害）"
             },
             {
                 "attack": 45,
                 "life": 15,
-                "effect": "【践踏】、登场：毒液攻击前排敌军（15点伤害）"
+                "effect": "【践踏】、登场：毒液攻击横排敌军（15点伤害）"
             }
         ]
     },
@@ -56095,8 +56095,8 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/yuanhuntaotieshou.jpg",
-        "grade": "[5]",
-        "tag": "[2,26]",
+        "grade": "[6]",
+        "tag": "[1,2,5,7,26]",
         "data": [
             {
                 "attack": 4,
@@ -66919,8 +66919,8 @@ export const gradeData = [
         "cost": 9,
         "type": 1,
         "img": "/manshikuangye/yangyanjulong.jpg",
-        "grade": "[2]",
-        "tag": "[1,26]",
+        "grade": "[3]",
+        "tag": "[1,11,19,26]",
         "data": [
             {
                 "attack": 15,
@@ -77989,8 +77989,8 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/dongshenshitu/bingshan_yatelasi.jpg",
-        "grade": "[3]",
-        "tag": "[3,8,10,11,17,24,26]",
+        "grade": "[4]",
+        "tag": "[2,3,5,8,10,11,17,22,24,26]",
         "data": [
             {
                 "attack": 7,
@@ -78104,4 +78104,4 @@ export const gradeData = [
             }
         ]
     }
-]
+];
