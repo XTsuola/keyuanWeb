@@ -11,35 +11,28 @@
                 <a-select v-model:value="formState.zhenyin" mode="multiple" style="width: 120px;" placeholder="请选择阵营">
                     <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">{{
                         item.label
-                    }}</a-select-option>
+                        }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="品质" style="width: 200px">
                 <a-select v-model:value="formState.quality" style="width: 120px;" placeholder="请选择品质">
                     <a-select-option v-for="item in qualityList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="费用" style="width: 200px">
                 <a-select v-model:value="formState.cost" style="width: 120px;" placeholder="请选择费用">
                     <a-select-option v-for="item in costList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
-                </a-select>
-            </a-form-item>
-            <a-form-item label="类型" style="width: 200px">
-                <a-select v-model:value="formState.type" style="width: 120px;" placeholder="请选择类型">
-                    <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
-                        item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="等级" style="width: 200px">
                 <a-select v-model:value="formState.level" style="width: 120px;" placeholder="请选择等级">
                     <a-select-option v-for="item in levelList" :key="item.value" :value="item.value">{{
                         item.label
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>
@@ -120,13 +113,6 @@ const columns = ref<any>([
         }
     },
     {
-        title: "类型",
-        dataIndex: "type",
-        key: "type",
-        width: 80,
-        customRender: (opt: any) => opt.value == 1 ? "战士" : (opt.value == 2 ? "法术" : "传记")
-    },
-    {
         title: "钻石",
         key: "zuanshi",
         dataIndex: "zuanshi",
@@ -150,14 +136,14 @@ const qualityList = [{
     label: "全部",
     value: ""
 }, {
-    label: "蓝",
-    value: "蓝"
+    label: "蓝色",
+    value: 1
 }, {
-    label: "紫",
-    value: "紫"
+    label: "紫色",
+    value: 2
 }, {
-    label: "橙",
-    value: "橙"
+    label: "橙色",
+    value: 3
 }];
 const costList = [{
     label: "全部",
@@ -193,40 +179,13 @@ const costList = [{
     label: "0费",
     value: 0
 }];
-const typeList = [{
-    label: "全部",
-    value: ""
-}, {
-    label: "战士",
-    value: 1
-}, {
-    label: "法术",
-    value: 2
-}, {
-    label: "传记",
-    value: 3
-}];
 const zhenyinList = ref<Type[]>([]);
 zhenyinList.value = prop.cardData.map((e: any) => {
     return {
         label: e.name,
         value: e.value
     }
-})
-/* const zhenyinList = [{
-    label: "四芒帝国",
-    value: 1
-}, {
-    label: "天堂港",
-    value: 3
-}, {
-    label: "蛮石旷野",
-    value: 4
-}, {
-    label: "隐秘者",
-    value: 7
-}]; */
-
+});
 const levelList = [{
     label: "全部",
     value: ""
@@ -263,8 +222,7 @@ const formState = reactive({
     zhenyin: [],
     quality: undefined,
     level: undefined,
-    cost: undefined,
-    type: undefined
+    cost: undefined
 });
 const countBaishitou = ref(0);
 const countHeishitou = ref(0);
@@ -277,36 +235,36 @@ const blueCount = ref<any>(0);
 const purpleCount = ref<any>(0);
 const goldCount = ref<any>(0);
 
-function getHei(quality: string, level: number) {
-    if (quality == "蓝") {
+function getHei(quality: number, level: number) {
+    if (quality == 1) {
         return blueObj[level - 1].cailiao[2];
-    } else if (quality == "紫") {
+    } else if (quality == 2) {
         return purpleObj[level - 1].cailiao[2];
-    } else if (quality == "橙") {
+    } else if (quality == 3) {
         return goldObj[level - 1].cailiao[2];
     } else {
         return 0;
     }
 }
 
-function getBai(quality: string, level: number) {
-    if (quality == "蓝") {
+function getBai(quality: number, level: number) {
+    if (quality == 1) {
         return blueObj[level - 1].cailiao[3];
-    } else if (quality == "紫") {
+    } else if (quality == 2) {
         return purpleObj[level - 1].cailiao[3];
-    } else if (quality == "橙") {
+    } else if (quality == 3) {
         return goldObj[level - 1].cailiao[3];
     } else {
         return 0;
     }
 }
 
-function getZuan(quality: string, level: number) {
-    if (quality == "蓝") {
+function getZuan(quality: number, level: number) {
+    if (quality == 1) {
         return blueObj[level - 1].zuanshi;
-    } else if (quality == "紫") {
+    } else if (quality == 2) {
         return purpleObj[level - 1].zuanshi;
-    } else if (quality == "橙") {
+    } else if (quality == 3) {
         return goldObj[level - 1].zuanshi;
     } else {
         return 0;
@@ -317,8 +275,22 @@ async function getList() {
     countBaishitou.value = countHeishitou.value = countZuanshi.value = 0;
     let allData: any = [];
     for (let i = 0; i < prop.cardData.length; i++) {
-        prop.cardData[i].data.forEach((item: any) => item.zhenyin = prop.cardData[i].value);
-        allData.push(...prop.cardData[i].data);
+        // console.log(prop.cardData[i], "111");
+        const zhenyin = prop.cardData[i].value;
+        for (let j = 0; j < prop.cardData[i].data.length; j++) {
+            for (let k = 0; k < prop.cardData[i].data[j].length; k++) {
+                allData.push({
+                    ...prop.cardData[i].data[j][k],
+                    zhenyin: zhenyin,
+                    quality: j + 1
+                });
+                console.log(allData, "888")
+            }
+        }
+        // prop.cardData[i].data.forEach((item: any) => item.zhenyin = prop.cardData[i].value);
+        // console.log(...prop.cardData[i].data[0], "ppp")
+        // allData = [...allData, ...prop.cardData[i].data[0], ...prop.cardData[i][1], ...prop.cardData[2]];
+        // allData.push(...prop.cardData[i].data[0], ...prop.cardData[i][1], ...prop.cardData[2]);
     }
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
@@ -329,19 +301,16 @@ async function getList() {
     if (formState.quality) {
         allData = allData.filter((item: any) => item.quality == formState.quality);
     }
-    if (formState.cost != undefined && formState.cost != "") {
+    if (formState.cost != undefined && formState.cost !== "") {
         allData = allData.filter((item: any) => item.cost == formState.cost);
-    }
-    if (formState.type) {
-        allData = allData.filter((item: any) => item.type == formState.type);
     }
     if (formState.level) {
         allData = allData.filter((item: any) => item.level == formState.level);
     }
     total.value = allData.length;
-    let leveDataBlue = allData.filter((e: any) => e.quality == "蓝").map((e: any) => e.level);
-    let leveDataPurple = allData.filter((e: any) => e.quality == "紫").map((e: any) => e.level);
-    let leveDataGold = allData.filter((e: any) => e.quality == "橙").map((e: any) => e.level);
+    let leveDataBlue = allData.filter((e: any) => e.quality == 1).map((e: any) => e.level);
+    let leveDataPurple = allData.filter((e: any) => e.quality == 2).map((e: any) => e.level);
+    let leveDataGold = allData.filter((e: any) => e.quality == 3).map((e: any) => e.level);
     let levelDataAll = allData.map((e: any) => e.level);
     blueCount.value = leveDataBlue.length;
     purpleCount.value = leveDataPurple.length;
@@ -364,7 +333,7 @@ async function getList() {
 
 function reset() {
     formState.zhenyin = [];
-    formState.name = formState.quality = formState.cost = formState.type = formState.level = undefined;
+    formState.name = formState.quality = formState.cost = formState.level = undefined;
     getList();
 }
 

@@ -2099,4 +2099,4 @@ export const heroData = [
             }
         ]
     }
-]
+];

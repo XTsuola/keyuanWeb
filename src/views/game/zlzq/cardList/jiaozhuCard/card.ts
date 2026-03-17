@@ -1,0 +1,76 @@
+// 帝国：（15张）、（21.33级）
+export const simangdiguo = [
+    [ // 蓝卡：（6张）、（21.67级）
+        { cost: 1, name: "圣殿斥候", level: 22 },
+        { cost: 2, name: "天使琼浆", level: 22 },
+        { cost: 3, name: "田园守望者1", level: 22 },
+        { cost: 3, name: "田园守望者2", level: 22 },
+        { cost: 3, name: "增援战线", level: 22 },
+        { cost: 5, name: "光明惩戒", level: 20 },
+    ],
+    [ // 紫卡：（4张）、（21.00级）
+        { cost: 2, name: "圣殿御卫", level: 22 },
+        { cost: 4, name: "召集护卫", level: 22 },
+        { cost: 4, name: "夺取阵地", level: 18 },
+        { cost: 6, name: "惩戒天使", level: 22 },
+    ],
+    [ // 橙卡：（5张）、（21.20级）
+        { cost: 3, name: "曙光·安娜贝尔", level: 21 },
+        { cost: 4, name: "圣枪·卡洛琳", level: 22 },
+        { cost: 4, name: "明日之音·露娜", level: 19 },
+        { cost: 5, name: "帝国军魂·莱哈特", level: 22 },
+        { cost: 6, name: "正阳大主教·伊恩", level: 22 }
+    ]
+];
+
+
+// 蛮石：（15张）、（20.93级）
+export const manshikuangye = [
+    [ // 蓝卡：（6张）、（22.00级）
+        { cost: 0, name: "愚笨鲸头鹅", level: 22 },
+        { cost: 2, name: "旷野祭师1", level: 22 },
+        { cost: 2, name: "旷野祭师2", level: 22 },
+        { cost: 2, name: "势如破竹", level: 22 },
+        { cost: 3, name: "机敏雀鹰", level: 22 },
+        { cost: 4, name: "强行捕猎", level: 22 },
+    ],
+    [ // 紫卡：（7张）、（20.86级）
+        { cost: 2, name: "无畏猎户", level: 21 },
+        { cost: 2, name: "诱敌草人", level: 21 },
+        { cost: 3, name: "肥鼠晚宴1", level: 22 },
+        { cost: 3, name: "肥鼠晚宴2", level: 22 },
+        { cost: 3, name: "活力仙人掌", level: 19 },
+        { cost: 4, name: "飞斧狂人", level: 22 },
+        { cost: 8, name: "贪食白龙", level: 19 },
+    ],
+    [ // 橙卡：（2张）、（18.00级）
+        { cost: 3, name: "旷野游侠·大羽", level: 18 },
+        { cost: 5, name: "血饮烈斧·凯", level: 18 },
+    ]
+];
+
+
+// 隐秘：（15张）、（20.47级）
+export const yinmizhe = [
+    [ // 蓝卡：（3张）、（20.67级）
+        { cost: 2, name: "学仆-观测型", level: 22 },
+        { cost: 2, name: "沉重否定", level: 18 },
+        { cost: 3, name: "全数否定", level: 22 },
+    ],
+    [ // 紫卡：（10张）、（20.30级）
+        { cost: 2, name: "破魔系教授", level: 22 },
+        { cost: 2, name: "克隆术1", level: 16 },
+        { cost: 2, name: "克隆术2", level: 14 },
+        { cost: 3, name: "学仆-脉冲型1", level: 22 },
+        { cost: 3, name: "学仆-脉冲型2", level: 22 },
+        { cost: 3, name: "学仆-脉冲型3", level: 22 },
+        { cost: 4, name: "学仆-塑钢型", level: 22 },
+        { cost: 4, name: "幻域秘树", level: 22 },
+        { cost: 5, name: "观星台大预言家", level: 19 },
+        { cost: 7, name: "米拉方舟", level: 22 },
+    ],
+    [ // 橙卡：（2张）、（21.00级）
+        { cost: 4, name: "鬼童-7号", level: 22 },
+        { cost: 5, name: "No.2时光·米拉", level: 20 },
+    ]
+];

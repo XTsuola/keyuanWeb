@@ -1,6 +1,6 @@
 export const friendCardRouterData = [
   { key: "xingkongCard", label: "星空卡等" },
-  { key: "hezhongshanCard", label: "河中山卡等" },
+  { key: "jiaozhuCard", label: "教主卡等" },
   { key: "dahetaoCard", label: "大核桃卡等" },
   { key: "qieCard", label: "企鹅卡等" },
   { key: "akuiCard", label: "阿奎卡等" },
@@ -22,6 +22,6 @@ export function createDynamicChildren(list: any) {
       icon: "UnorderedListOutlined",
     },
     component: () =>
-      import(`@/views/game/zlzq/cardList/${item.key}/z_level.vue`)
+      import(`@/views/game/zlzq/cardList/${item.key}/index.vue`)
   }));
 };

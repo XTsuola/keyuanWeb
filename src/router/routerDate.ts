@@ -270,16 +270,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
             component: BlankLayout,
             children: [
               {
-                path: "zhenlizhiquanCardList",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanCardList",
-                  label: "卡牌列表",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/cardList.vue"),
-              },
-              {
                 path: "zhenlizhiquanCardLevel",
                 meta: {
                   menuType: "menu",
