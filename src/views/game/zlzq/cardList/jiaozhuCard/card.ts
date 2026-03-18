@@ -19,7 +19,7 @@ export const simangdiguo = [
         { cost: 4, name: "圣枪·卡洛琳", level: 22 },
         { cost: 4, name: "明日之音·露娜", level: 19 },
         { cost: 5, name: "帝国军魂·莱哈特", level: 22 },
-        { cost: 6, name: "正阳大主教·伊恩", level: 22 }
+        { cost: 6, name: "正阳大主教·伊恩", level: 22 },
     ]
 ];
 

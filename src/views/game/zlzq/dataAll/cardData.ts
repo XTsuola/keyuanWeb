@@ -6034,7 +6034,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/simangdiguo/liuxingdoushi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[1,9,19]",
         "data": [
             {

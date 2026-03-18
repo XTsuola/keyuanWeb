@@ -55,7 +55,7 @@ export const yinmizhe = [
 export const tiantanggang = [
     [ // 蓝卡：（8张）、（16.25级）
         { cost: 1, name: "心灵黑洞1", level: 15 },
-        { cost: 1, name: "心灵黑洞1", level: 14 },
+        { cost: 1, name: "心灵黑洞2", level: 14 },
         { cost: 1, name: "心灵黑洞3", level: 13 },
         { cost: 2, name: "狡诈学徒", level: 20 },
         { cost: 2, name: "黑夜突袭", level: 20 },

@@ -5,10 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import chanyigu from "./chanyigu.json";
-import manshikuangye from "./manshikuangye.json";
-import lianyushenyuan from "./lianyushenyuan.json";
-import yinmizhe from "./yinmizhe.json";
+import { chanyigu, manshikuangye, lianyushenyuan } from "./card";
 import CardLevel from "@/components/cardLevel.vue";
 
 const data = [{
@@ -23,11 +20,7 @@ const data = [{
     name: "炼狱深渊",
     value: 5,
     data: lianyushenyuan
-}, {
-    name: "隐秘者",
-    value: 7,
-    data: yinmizhe
-}]
+}];
 
 </script>
 
