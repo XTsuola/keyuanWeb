@@ -10,7 +10,7 @@ const data = [{
     name: "四芒帝国",
     value: 1,
     data: simangdiguo
-}]
+}];
 
 </script>
 

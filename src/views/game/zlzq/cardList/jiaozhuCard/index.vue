@@ -18,7 +18,7 @@ const data = [{
     name: "隐秘者",
     value: 7,
     data: yinmizhe
-}]
+}];
 
 </script>
 
