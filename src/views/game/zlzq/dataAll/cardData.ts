@@ -65689,7 +65689,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/manshikuangye/zhuanji_yemanhuayuan.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[24]",
         "data": [
             {
@@ -65812,7 +65812,7 @@ export const gradeData = [
         "cost": 1,
         "type": 3,
         "img": "/manshikuangye/zhuanji_shangtongjiyi.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[5,8]",
         "data": [
             {

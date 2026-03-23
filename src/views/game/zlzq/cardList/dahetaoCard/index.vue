@@ -5,10 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import simangdiguo from "./simangdiguo.json";
-// import chanyigu from "./chanyigu.json";
-import manshikuangye from "./manshikuangye.json";
-import yinmizhe from "./yinmizhe.json";
+import { simangdiguo, manshikuangye, yinmizhe } from "./card";
 import CardLevel from "@/components/cardLevel.vue";
 
 const data = [{
