@@ -5,9 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import chanyigu from "./chanyigu.json";
-import tiantanggang from "./tiantanggang.json";
-import dongshenshitu from "./dongshenshitu.json";
+import { chanyigu, tiantanggang, dongshenshitu } from "./card";
 import CardLevel from "@/components/cardLevel.vue";
 
 const data = [{

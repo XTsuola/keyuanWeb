@@ -11,7 +11,7 @@
             </a-form-item>
             <a-form-item label="兵种" style="width: 200px">
                 <a-select v-model:value="formState.armsType" @change="selectList" placeholder="请选择兵种">
-                    <a-select-option v-for="item in typeList" :key="item.value" :value="item.value">{{
+                    <a-select-option v-for="item in armTypeList" :key="item.value" :value="item.value">{{
                         item.label
                     }}</a-select-option>
                 </a-select>
@@ -41,7 +41,7 @@
 import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
-import type { AddType, Type } from "@/utils/global";
+import { armTypeList, type AddType, type Type } from "@/utils/global";
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams } from "@/api/mhmnz";
 import AddPage from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
@@ -75,40 +75,6 @@ const formState = reactive<any>({
     name: "",
     armsType: undefined
 });
-const typeList = ref<Type[]>([{
-    label: "全部",
-    value: 0
-}, {
-    label: "步兵",
-    value: 1
-}, {
-    label: "枪兵",
-    value: 2
-}, {
-    label: "骑兵",
-    value: 3
-}, {
-    label: "飞兵",
-    value: 4
-}, {
-    label: "水兵",
-    value: 5
-}, {
-    label: "弓兵",
-    value: 6
-}, {
-    label: "刺客",
-    value: 7
-}, {
-    label: "法师",
-    value: 8
-}, {
-    label: "僧侣",
-    value: 9
-}, {
-    label: "魔物",
-    value: 10
-}]);
 const columns = ref<any>([
     {
         title: "序号",
@@ -128,7 +94,7 @@ const columns = ref<any>([
         key: "type",
         width: 80,
         customRender: (opt: any) => {
-            return typeList.value.find(item => item.value == opt.value)?.label
+            return armTypeList.find(item => item.value == opt.value)?.label
         }
     },
     {

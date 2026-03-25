@@ -1,4 +1,4 @@
 export interface PaginationType {
-  pageSize: number;
-  pageNo: number;
+  pageSize?: number;
+  pageNo?: number;
 }

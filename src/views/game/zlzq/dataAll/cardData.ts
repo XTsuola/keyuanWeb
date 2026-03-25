@@ -37153,7 +37153,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/zhuanjixuezhe.jpg",
-        "grade": "[0]",
+        "grade": "[1]",
         "tag": "[3,25]",
         "data": [
             {

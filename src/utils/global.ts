@@ -66,7 +66,39 @@ export const qingshuBase = {
         { "id": 7, "name": "女伯爵" },
         { "id": 8, "name": "公主" }
     ]
-}
+};
+
+export const armTypeList =[{
+    label: "步兵",
+    value: 1
+}, {
+    label: "枪兵",
+    value: 2
+}, {
+    label: "骑兵",
+    value: 3
+}, {
+    label: "飞兵",
+    value: 4
+}, {
+    label: "水兵",
+    value: 5
+}, {
+    label: "弓兵",
+    value: 6
+}, {
+    label: "刺客",
+    value: 7
+}, {
+    label: "法师",
+    value: 8
+}, {
+    label: "僧侣",
+    value: 9
+}, {
+    label: "魔物",
+    value: 10
+}];
 
 export const blueObj = [{
     level: 1,
