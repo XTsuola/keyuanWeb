@@ -55726,7 +55726,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/xueying.jpg",
-        "grade": "[6]",
+        "grade": "[7]",
         "tag": "[1,7,21,26]",
         "data": [
             {
