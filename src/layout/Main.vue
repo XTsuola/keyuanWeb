@@ -125,7 +125,7 @@ function getImg(e: Event) {
         }
         const reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
-        reader.addEventListener("load", async (e) => {
+        reader.addEventListener("load", async (e: any) => {
             if (e.target && typeof e.target.result === "string") {
                 imgValue.value = e.target.result;
                 let data: UpdateImgParams = {

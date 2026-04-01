@@ -39,9 +39,6 @@
 import { ref, onMounted, nextTick } from "vue";
 import { cityList } from "./travel";
 
-declare var window: any;
-declare var document: any;
-
 const flag = ref(true);
 const map = ref<any>(null);
 let Bmap: any = window.BMapGL

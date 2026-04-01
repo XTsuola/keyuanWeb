@@ -8,10 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import router from "@/router";
 import { ref } from "vue";
-
-declare var window: any;
+import router from "@/router";
 
 const imglist: any = ref([]);
 const baseUrl = "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/wedding/twoList/";

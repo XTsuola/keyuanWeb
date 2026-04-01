@@ -21,8 +21,6 @@ import { useCounterStore } from "@/stores/counter";
 import { login, type LoginParams } from "@/api/login";
 import MD5 from "crypto-js/md5";
 
-declare var window: any
-
 interface FormState {
     username: string;
     password: string;

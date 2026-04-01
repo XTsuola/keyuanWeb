@@ -11,10 +11,14 @@ declare module "crypto-js/md5" {
   export default md5;
 }
 
-declare var Window: any;
 declare var document: any;
 declare module "ant-design-vue";
 declare module "cos-js-sdk-v5";
+declare var FileReader: any;
+declare var location: any;
+declare var window: any;
+declare var history: any;
+declare var Window: any;
 
 interface Window {
   BMapGL: any

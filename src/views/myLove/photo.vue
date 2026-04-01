@@ -51,8 +51,6 @@ import { getNowTime } from "@/utils/global";
 import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
 import RenderVnode from "./ceshi";
 
-declare var FileReader: any
-
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 const str = "../../assets/images/game/box/caiwenji.jpg";
 const text = h("img", {

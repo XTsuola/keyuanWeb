@@ -5,8 +5,6 @@
 import * as echarts from "echarts";
 import { nextTick, onMounted } from "vue";
 
-declare var window: any;
-
 interface Prop {
     pie_data: any
 }

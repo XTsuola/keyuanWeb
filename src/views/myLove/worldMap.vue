@@ -41,8 +41,6 @@ import { init } from 'echarts';
 import type { ListType } from "./travel";
 import { travelList, dataList } from "./travel";
 
-declare var window: any;
-
 const flag = ref(true);
 const infoWindow = ref(null);
 const map = ref<any>(null);
