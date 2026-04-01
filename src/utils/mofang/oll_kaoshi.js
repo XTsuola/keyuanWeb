@@ -59,60 +59,60 @@
 
 29.铁山靠左上2点：（×）——（FURU2R'U'RU2R'U'F'）
 
-30.铁山靠右上2点：（×）——（）
+30.铁山靠右上2点：（×）——（F'U'L'U'2LUL'U'2LUF）
 
-31.左大拇指右上连色：y2R'U'FURU'R'F'R
+31.左大拇指右上连色：y2R'U'FURU'R'F'R（√）
 
-32.右大拇指左上连色：SRUR'U'R'FRf'
+32.右大拇指左上连色：SRUR'U'R'FRf'（√）
 
-33.T字型：RUR'U'R'FRF'
+33.T字型：RUR'U'R'FRF'（√）
 
-34.C字型开口下：
+34.C字型开口下：（×）——（RUR2U'R'FRURU'F'）
 
-35.锤子型左上点：
+35.锤子型左上点：（x）——（RUR2U'R'FRURU'F'）
 
-36.W型左边2点：L'U'LU'L'ULULF'L'F
+36.W型左边2点：L'U'LU'L'ULULF'L'F（√）
 
-37.风筝型：FR2U'R'U'RUR'F'
+37.风筝型：FR2U'R'U'RUR'F'（√）
 
-38.W型右边2点：RUR'URU'R'U'R'FRF'
+38.W型右边2点：RUR'URU'R'U'R'FRF'（√）
 
-39.Z型左上2点：LFL'U'LUL'U'F
+39.Z型左上2点：LFL'U'LUL'U'F（√）
 
-40.Z型右上2点：R'FRUR'U'RUF'
+40.Z型右上2点：R'FRUR'U'RUF'（√）
 
 41.铁山靠左腿：（×）——（RUR'URU2R'FRUR'U'F'）
 
 42.铁山靠右腿：（×）——（L'U'LU'L'U'2LF'L'U'LUF）
 
-43.左大拇指右同色：f'L'U'LUf
+43.左大拇指右同色：f'L'U'LUf（√）
 
-44.右大拇指左同色：fRUR'U'f'
+44.右大拇指左同色：fRUR'U'f'（√）
 
-45.蜻蜓型：FRUR'U'F'
+45.蜻蜓型：FRUR'U'F'（√）
 
-46.C字型开口左：
+46.C字型开口左：（×）——（R'U'R'FRF'UR）
 
-47.右拐角下左连色：F'L'U'LUL'U'LUF
+47.右拐角下左连色：F'L'U'LUL'U'LUF（√）
 
-48.左拐角下右连色：FRUR'U'RUR'U'F'
+48.左拐角下右连色：FRUR'U'RUR'U'F'（√）
 
-49.左拐角前同色右上连色：FURU'R'F'R'U'RU'R'U'2R
+49.左拐角前同色右上连色：FURU'R'F'R'U'RU'R'U'2R（√）
 
-50.左拐角前左连色右同色：l'UllU'llU'llUl'
+50.左拐角前左连色右同色：l'UllU'llU'llUl'（√）
 
-51.横线型标准眼睛：FURU'R"URU'R'F'
+51.横线型标准眼睛：FURU'R"URU'R'F'（√）
 
-52.横线型后面同色：
+52.横线型后面同色：（×）——（FUR'FRF'R'FRF'U'F'）
 
-53.右拐角前同色左中间一点：
+53.右拐角前同色左中间一点：（x）——（l'U'2LUL'U'LUL'Ul）
 
-54.左拐角前同色右中间一点：
+54.左拐角前同色右中间一点：（x）——（rU2R'U'RUR'U'RU'r'）
 
-55.横线竖着左右全同色：
+55.横线竖着左右全同色：（x）——（RU2R2U'RU'R'U2FRF'）
 
-56.横线周围分散：
+56.横线周围分散：（×）——（rUr'URU'R'URU'R'rU'r'）
 
-57.H型：RUR'U'M'URU'r'
+57.H型：RUR'U'M'URU'r'（√）
 
 */

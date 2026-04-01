@@ -1852,7 +1852,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/simangdiguo/xuanmushenguang.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[2,26]",
         "data": [
             {
@@ -19318,7 +19318,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/yinmizhe/guanxingtaidayuyanjia.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,21,25]",
         "data": [
             {
@@ -29281,7 +29281,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/xiaoyaoqinshi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
