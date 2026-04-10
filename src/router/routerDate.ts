@@ -111,46 +111,6 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/zlzq/cardList/zz_myCard/index.vue"),
               },
-              {
-                path: "zhenlizhiquanAsitala",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanAsitala",
-                  label: "阿斯塔拉",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_asitala.vue"),
-              },
-              {
-                path: "zhenlizhiquanYiluolian",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanYiluolian",
-                  label: "伊萝莲",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_yiluolian.vue"),
-              },
-              {
-                path: "zhenlizhiquanLuo",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanLuo",
-                  label: "洛",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_luo.vue"),
-              },
-              {
-                path: "zhenlizhiquanGenaluoer",
-                meta: {
-                  menuType: "menu",
-                  key: "zhenlizhiquanGenaluoer",
-                  label: "格纳罗尔",
-                  icon: "UnorderedListOutlined",
-                },
-                component: () => import("@/views/game/zlzq/zz_genaluoer.vue"),
-              },
               ...friendRouter,
               {
                 path: "ceshiCard",
@@ -241,7 +201,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
             },
             component: () => import("@/views/play/chess/index.vue"),
           },
-          {
+          /* {
             path: "qingshu",
             meta: {
               menuType: "menu",
@@ -251,7 +211,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               isLevel: [1, 2],
             },
             component: () => import("@/views/play/qingshu/index.vue"),
-          },
+          }, */
         ],
       },
       {
