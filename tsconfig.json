@@ -2,7 +2,6 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
     "env.d.ts"
   ],
   "compilerOptions": {
@@ -15,7 +14,7 @@
       "@/*": ["./src/*"]
     },
     "verbatimModuleSyntax": false,
-    "moduleResolution": "bundler", // ✅ 替换 node，现代项目标准
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
