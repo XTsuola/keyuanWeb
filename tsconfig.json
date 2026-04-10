@@ -6,24 +6,21 @@
     "env.d.ts"
   ],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "ESNext",
     "target": "ES2022",
-    "lib":["es2022"],
-    "ignoreDeprecations": "5.0",
+    "lib": ["ES2022", "DOM"],
     "strict": true,
-    "baseUrl": ".",
     "jsx": "preserve",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "verbatimModuleSyntax": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler", // ✅ 替换 node，现代项目标准
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
   },
   "references": [
     {
