@@ -249,7 +249,7 @@ for (let i = 0; i < cardList.length; i++) {
     if (qulaity == 4) goldList.push(cardLevel[i]);
     else if (qulaity == 3) purpleList.push(cardLevel[i]);
     else if (qulaity == 2) blueList.push(cardLevel[i]);
-    if (grade == 6) {
+    if (grade >= 6) {
         ss.value++;
     } else if (grade == 5) {
         s.value++;
