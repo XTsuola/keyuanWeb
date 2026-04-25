@@ -2584,6 +2584,129 @@ export const gradeData = [
     },
     {
         "id": 22,
+        "name": "符文·神授权柄",
+        "zhenyin": 1,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_shenshouquanbing.jpg",
+        "grade": "[2]",
+        "tag": "[2]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：若英雄生命高于敌方英雄，随机友军+15/+15，否则随机友军本回合攻击+15，获得【回命】"
+            }
+        ]
+    },
+    {
+        "id": 23,
         "name": "盾甲禁卫",
         "zhenyin": 1,
         "quality": 2,
@@ -2706,7 +2829,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 23,
+        "id": 24,
         "name": "帝国后勤官",
         "zhenyin": 1,
         "quality": 2,
@@ -2829,7 +2952,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 24,
+        "id": 25,
         "name": "圣殿弩手",
         "zhenyin": 1,
         "quality": 2,
@@ -2952,7 +3075,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 25,
+        "id": 26,
         "name": "大型弩车",
         "zhenyin": 1,
         "quality": 2,
@@ -3075,7 +3198,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 26,
+        "id": 27,
         "name": "无畏爆破手",
         "zhenyin": 1,
         "quality": 2,
@@ -3198,7 +3321,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 27,
+        "id": 28,
         "name": "增援战线",
         "zhenyin": 1,
         "quality": 2,
@@ -3321,7 +3444,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 28,
+        "id": 29,
         "name": "信念雕像",
         "zhenyin": 1,
         "quality": 2,
@@ -3444,7 +3567,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 29,
+        "id": 30,
         "name": "塔楼弓手",
         "zhenyin": 1,
         "quality": 2,
@@ -3567,7 +3690,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 30,
+        "id": 31,
         "name": "神圣活化",
         "zhenyin": 1,
         "quality": 2,
@@ -3690,7 +3813,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 31,
+        "id": 32,
         "name": "田园守望者",
         "zhenyin": 1,
         "quality": 2,
@@ -3813,7 +3936,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 32,
+        "id": 33,
+        "name": "符文·生命徽记",
+        "zhenyin": 1,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_shengminghuiji.jpg",
+        "grade": "[5]",
+        "tag": "[2,3]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、洞察时：英雄生命+21"
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "name": "符文·信念为铠",
+        "zhenyin": 1,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_xinnianweikai.jpg",
+        "grade": "[4]",
+        "tag": "[1]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军生命+20，护甲+4"
+            }
+        ]
+    },
+    {
+        "id": 35,
         "name": "圣殿精英",
         "zhenyin": 1,
         "quality": 2,
@@ -3936,7 +4305,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 33,
+        "id": 36,
         "name": "白头狮鹫",
         "zhenyin": 1,
         "quality": 2,
@@ -4059,7 +4428,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 34,
+        "id": 37,
         "name": "箭楼车",
         "zhenyin": 1,
         "quality": 2,
@@ -4182,7 +4551,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 35,
+        "id": 38,
         "name": "帝国老兵",
         "zhenyin": 1,
         "quality": 2,
@@ -4305,7 +4674,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 36,
+        "id": 39,
         "name": "四芒营帐",
         "zhenyin": 1,
         "quality": 2,
@@ -4428,7 +4797,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 37,
+        "id": 40,
         "name": "帝国重炮",
         "zhenyin": 1,
         "quality": 2,
@@ -4551,7 +4920,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 38,
+        "id": 41,
         "name": "谨慎的火枪手",
         "zhenyin": 1,
         "quality": 2,
@@ -4674,7 +5043,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 39,
+        "id": 42,
         "name": "生命之光",
         "zhenyin": 1,
         "quality": 2,
@@ -4797,7 +5166,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 40,
+        "id": 43,
         "name": "四芒牧师",
         "zhenyin": 1,
         "quality": 2,
@@ -4920,7 +5289,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 41,
+        "id": 44,
         "name": "精英射手",
         "zhenyin": 1,
         "quality": 2,
@@ -5043,7 +5412,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 42,
+        "id": 45,
+        "name": "符文·滚石计划",
+        "zhenyin": 1,
+        "quality": 2,
+        "cost": 4,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_gunshijihua.jpg",
+        "grade": "[3]",
+        "tag": "[13]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：前排位置召唤0/84防御工事-lv22，回合开始：随机友军+11/+11，失去【守军】"
+            }
+        ]
+    },
+    {
+        "id": 46,
         "name": "帝国冲锋骑士",
         "zhenyin": 1,
         "quality": 2,
@@ -5166,7 +5658,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 43,
+        "id": 47,
         "name": "战场传教士",
         "zhenyin": 1,
         "quality": 2,
@@ -5289,7 +5781,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 44,
+        "id": 48,
         "name": "光明惩戒",
         "zhenyin": 1,
         "quality": 2,
@@ -5412,7 +5904,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 45,
+        "id": 49,
         "name": "传记·生命序曲",
         "zhenyin": 1,
         "quality": 2,
@@ -5535,7 +6027,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 46,
+        "id": 50,
         "name": "传记·生命赞歌",
         "zhenyin": 1,
         "quality": 2,
@@ -5658,7 +6150,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 47,
+        "id": 51,
         "name": "传记·生命咏叹调",
         "zhenyin": 1,
         "quality": 2,
@@ -5781,7 +6273,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 48,
+        "id": 52,
         "name": "四芒军旗",
         "zhenyin": 1,
         "quality": 3,
@@ -5904,7 +6396,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 49,
+        "id": 53,
         "name": "圣殿御卫",
         "zhenyin": 1,
         "quality": 3,
@@ -6027,7 +6519,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 50,
+        "id": 54,
         "name": "流星斗士",
         "zhenyin": 1,
         "quality": 3,
@@ -6150,7 +6642,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 51,
+        "id": 55,
         "name": "热血冒险家",
         "zhenyin": 1,
         "quality": 3,
@@ -6273,7 +6765,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 52,
+        "id": 56,
         "name": "辉光圣墙",
         "zhenyin": 1,
         "quality": 3,
@@ -6396,7 +6888,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 53,
+        "id": 57,
+        "name": "符文·民兵集结",
+        "zhenyin": 1,
+        "quality": 3,
+        "cost": 2,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_minbingjijie.jpg",
+        "grade": "[5]",
+        "tag": "[24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤16/16小镇民兵-lv21"
+            }
+        ]
+    },
+    {
+        "id": 58,
         "name": "圣殿骑士",
         "zhenyin": 1,
         "quality": 3,
@@ -6519,7 +7134,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 54,
+        "id": 59,
         "name": "白袍主教",
         "zhenyin": 1,
         "quality": 3,
@@ -6642,7 +7257,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 55,
+        "id": 60,
         "name": "边境高墙",
         "zhenyin": 1,
         "quality": 3,
@@ -6765,7 +7380,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 56,
+        "id": 61,
         "name": "冲锋装备",
         "zhenyin": 1,
         "quality": 3,
@@ -6888,7 +7503,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 57,
+        "id": 62,
         "name": "王城酒吧老板",
         "zhenyin": 1,
         "quality": 3,
@@ -7011,7 +7626,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 58,
+        "id": 63,
         "name": "炫光草人",
         "zhenyin": 1,
         "quality": 3,
@@ -7134,7 +7749,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 59,
+        "id": 64,
         "name": "铁甲卫队长",
         "zhenyin": 1,
         "quality": 3,
@@ -7257,7 +7872,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 60,
+        "id": 65,
         "name": "重炮阵地",
         "zhenyin": 1,
         "quality": 3,
@@ -7380,7 +7995,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 61,
+        "id": 66,
+        "name": "符文·圣堂护盾",
+        "zhenyin": 1,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_shengtanghudun.jpg",
+        "grade": "[5]",
+        "tag": "[1,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤2/40圣堂门卫-lv16（上限3次），随机护甲友军攻击+6"
+            }
+        ]
+    },
+    {
+        "id": 67,
         "name": "月光祭司",
         "zhenyin": 1,
         "quality": 3,
@@ -7503,7 +8241,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 62,
+        "id": 68,
         "name": "圣殿卫队长",
         "zhenyin": 1,
         "quality": 3,
@@ -7626,7 +8364,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 63,
+        "id": 69,
         "name": "光之赞歌",
         "zhenyin": 1,
         "quality": 3,
@@ -7749,7 +8487,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 64,
+        "id": 70,
         "name": "夺取阵地",
         "zhenyin": 1,
         "quality": 3,
@@ -7872,7 +8610,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 65,
+        "id": 71,
         "name": "钢铁大师",
         "zhenyin": 1,
         "quality": 3,
@@ -7995,7 +8733,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 66,
+        "id": 72,
         "name": "召集护卫",
         "zhenyin": 1,
         "quality": 3,
@@ -8118,7 +8856,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 67,
+        "id": 73,
         "name": "明光主教",
         "zhenyin": 1,
         "quality": 3,
@@ -8241,7 +8979,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 68,
+        "id": 74,
         "name": "炽阳坠落",
         "zhenyin": 1,
         "quality": 3,
@@ -8364,7 +9102,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 69,
+        "id": 75,
+        "name": "击碎符文",
+        "zhenyin": 1,
+        "quality": 3,
+        "cost": 4,
+        "type": 2,
+        "img": "/simangdiguo/jisuifuwen.jpg",
+        "grade": "[4]",
+        "tag": "[8,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "召唤35/28盾甲禁卫-lv22，随机友方符文获得【磐龙】，消灭敌方随机符文（等级<=26）"
+            }
+        ]
+    },
+    {
+        "id": 76,
+        "name": "符文·天使印记",
+        "zhenyin": 1,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_tianshiyinji.jpg",
+        "grade": "[2]",
+        "tag": "[2,21]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：英雄生命+40、英雄恢复生命时：随机友军+14/+14，魔防+7"
+            }
+        ]
+    },
+    {
+        "id": 77,
         "name": "禁卫百夫长",
         "zhenyin": 1,
         "quality": 3,
@@ -8487,7 +9471,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 70,
+        "id": 78,
         "name": "田园保卫战",
         "zhenyin": 1,
         "quality": 3,
@@ -8610,7 +9594,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 71,
+        "id": 79,
         "name": "圣光主祭",
         "zhenyin": 1,
         "quality": 3,
@@ -8733,7 +9717,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 72,
+        "id": 80,
         "name": "皇家射手",
         "zhenyin": 1,
         "quality": 3,
@@ -8856,7 +9840,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 73,
+        "id": 81,
         "name": "惩戒天使",
         "zhenyin": 1,
         "quality": 3,
@@ -8979,7 +9963,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 74,
+        "id": 82,
         "name": "光明圣骑士",
         "zhenyin": 1,
         "quality": 3,
@@ -9102,7 +10086,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 75,
+        "id": 83,
         "name": "禁卫指挥官",
         "zhenyin": 1,
         "quality": 3,
@@ -9225,7 +10209,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 76,
+        "id": 84,
         "name": "皇家狮鹫",
         "zhenyin": 1,
         "quality": 3,
@@ -9348,7 +10332,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 77,
+        "id": 85,
         "name": "破城者·阿基琉斯",
         "zhenyin": 1,
         "quality": 3,
@@ -9471,7 +10455,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 78,
+        "id": 86,
         "name": "荣光壁垒",
         "zhenyin": 1,
         "quality": 3,
@@ -9594,7 +10578,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 79,
+        "id": 87,
         "name": "传记·钢铁守卫",
         "zhenyin": 1,
         "quality": 3,
@@ -9717,7 +10701,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 80,
+        "id": 88,
         "name": "传记·钢铁赞歌",
         "zhenyin": 1,
         "quality": 3,
@@ -9840,7 +10824,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 81,
+        "id": 89,
         "name": "传记·钢铁意志",
         "zhenyin": 1,
         "quality": 3,
@@ -9963,7 +10947,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 82,
+        "id": 90,
         "name": "曙光·安娜贝尔",
         "zhenyin": 1,
         "quality": 4,
@@ -10086,7 +11070,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 83,
+        "id": 91,
         "name": "圣枪·卡洛琳",
         "zhenyin": 1,
         "quality": 4,
@@ -10209,7 +11193,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 84,
+        "id": 92,
         "name": "明日之音·露娜",
         "zhenyin": 1,
         "quality": 4,
@@ -10332,7 +11316,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 85,
+        "id": 93,
+        "name": "符文·辉煌赞美诗",
+        "zhenyin": 1,
+        "quality": 4,
+        "cost": 4,
+        "type": 4,
+        "img": "/simangdiguo/fuwen_huihuangzanmeishi.jpg",
+        "grade": "[4]",
+        "tag": "[1,21]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+16，护甲+10，魔防+10"
+            }
+        ]
+    },
+    {
+        "id": 94,
         "name": "帝国军魂·莱哈特",
         "zhenyin": 1,
         "quality": 4,
@@ -10455,7 +11562,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 86,
+        "id": 95,
         "name": "正阳大主教·伊恩",
         "zhenyin": 1,
         "quality": 4,
@@ -10578,7 +11685,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 87,
+        "id": 96,
         "name": "司莫斯阵地",
         "zhenyin": 1,
         "quality": 4,
@@ -10701,7 +11808,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 88,
+        "id": 97,
         "name": "炫目天使·蕾娜",
         "zhenyin": 1,
         "quality": 4,
@@ -10824,7 +11931,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 89,
+        "id": 98,
         "name": "钢铁统帅·雷蒙德",
         "zhenyin": 1,
         "quality": 4,
@@ -10947,7 +12054,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 90,
+        "id": 99,
         "name": "司莫斯的光明要塞",
         "zhenyin": 1,
         "quality": 4,
@@ -11070,7 +12177,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 91,
+        "id": 100,
         "name": "学仆-基础型",
         "zhenyin": 2,
         "quality": 1,
@@ -11193,7 +12300,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 92,
+        "id": 101,
         "name": "灵能炸弹",
         "zhenyin": 2,
         "quality": 1,
@@ -11316,7 +12423,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 93,
+        "id": 102,
         "name": "沉默术",
         "zhenyin": 2,
         "quality": 1,
@@ -11439,7 +12546,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 94,
+        "id": 103,
         "name": "幻象巨蛇",
         "zhenyin": 2,
         "quality": 1,
@@ -11562,7 +12669,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 95,
+        "id": 104,
         "name": "机械系学徒",
         "zhenyin": 2,
         "quality": 1,
@@ -11685,7 +12792,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 96,
+        "id": 105,
         "name": "学仆-发条型",
         "zhenyin": 2,
         "quality": 1,
@@ -11808,7 +12915,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 97,
+        "id": 106,
         "name": "扭曲之力",
         "zhenyin": 2,
         "quality": 1,
@@ -11931,7 +13038,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 98,
+        "id": 107,
         "name": "学仆-联能型",
         "zhenyin": 2,
         "quality": 1,
@@ -12054,7 +13161,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 99,
+        "id": 108,
         "name": "学仆-增强型",
         "zhenyin": 2,
         "quality": 1,
@@ -12177,7 +13284,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 100,
+        "id": 109,
         "name": "洞悉之眼",
         "zhenyin": 2,
         "quality": 2,
@@ -12300,7 +13407,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 101,
+        "id": 110,
         "name": "邪月蝙蝠",
         "zhenyin": 2,
         "quality": 2,
@@ -12423,7 +13530,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 102,
+        "id": 111,
         "name": "电流激活",
         "zhenyin": 2,
         "quality": 2,
@@ -12546,7 +13653,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 103,
+        "id": 112,
         "name": "预言系教授",
         "zhenyin": 2,
         "quality": 2,
@@ -12669,7 +13776,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 104,
+        "id": 113,
         "name": "方尖魔碑",
         "zhenyin": 2,
         "quality": 2,
@@ -12792,7 +13899,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 105,
+        "id": 114,
         "name": "雷火工组",
         "zhenyin": 2,
         "quality": 2,
@@ -12915,7 +14022,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 106,
+        "id": 115,
         "name": "邪月妖猫",
         "zhenyin": 2,
         "quality": 2,
@@ -13038,7 +14145,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 107,
+        "id": 116,
         "name": "沉重否定",
         "zhenyin": 2,
         "quality": 2,
@@ -13161,7 +14268,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 108,
+        "id": 117,
         "name": "学仆-观测型",
         "zhenyin": 2,
         "quality": 2,
@@ -13284,7 +14391,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 109,
+        "id": 118,
         "name": "幻象学者",
         "zhenyin": 2,
         "quality": 2,
@@ -13407,7 +14514,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 110,
+        "id": 119,
         "name": "御魔术",
         "zhenyin": 2,
         "quality": 2,
@@ -13530,7 +14637,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 111,
+        "id": 120,
         "name": "粗心的化学家",
         "zhenyin": 2,
         "quality": 2,
@@ -13653,7 +14760,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 112,
+        "id": 121,
         "name": "万圣节草人",
         "zhenyin": 2,
         "quality": 2,
@@ -13776,7 +14883,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 113,
+        "id": 122,
         "name": "灵能布控",
         "zhenyin": 2,
         "quality": 2,
@@ -13899,7 +15006,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 114,
+        "id": 123,
+        "name": "符文·静默进军",
+        "zhenyin": 2,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_jingmojinjun.jpg",
+        "grade": "[4]",
+        "tag": "[20]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：获得沉默术-lv22、回合开始：每使用过一个法术，随机友军+14/+8，若为传记则改为+8/+14"
+            }
+        ]
+    },
+    {
+        "id": 124,
+        "name": "符文·逆转权谋",
+        "zhenyin": 2,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_nizhuanquanmou.jpg",
+        "grade": "[2]",
+        "tag": "[]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌军攻击-10，随机友军生命+15，随机友军受到1点伤害"
+            }
+        ]
+    },
+    {
+        "id": 125,
         "name": "学仆-补给型",
         "zhenyin": 2,
         "quality": 2,
@@ -14022,7 +15375,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 115,
+        "id": 126,
         "name": "魔药系学士",
         "zhenyin": 2,
         "quality": 2,
@@ -14145,7 +15498,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 116,
+        "id": 127,
         "name": "生命工组",
         "zhenyin": 2,
         "quality": 2,
@@ -14268,7 +15621,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 117,
+        "id": 128,
         "name": "学仆-投射型",
         "zhenyin": 2,
         "quality": 2,
@@ -14391,7 +15744,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 118,
+        "id": 129,
         "name": "虚化术",
         "zhenyin": 2,
         "quality": 2,
@@ -14514,7 +15867,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 119,
+        "id": 130,
         "name": "全数否定",
         "zhenyin": 2,
         "quality": 2,
@@ -14637,7 +15990,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 120,
+        "id": 131,
         "name": "隐秘核心",
         "zhenyin": 2,
         "quality": 2,
@@ -14760,7 +16113,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 121,
+        "id": 132,
         "name": "催眠系教授",
         "zhenyin": 2,
         "quality": 2,
@@ -14883,7 +16236,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 122,
+        "id": 133,
         "name": "虚化印记",
         "zhenyin": 2,
         "quality": 2,
@@ -15006,7 +16359,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 123,
+        "id": 134,
         "name": "占卜命运",
         "zhenyin": 2,
         "quality": 2,
@@ -15129,7 +16482,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 124,
+        "id": 135,
+        "name": "符文·预兆天雷",
+        "zhenyin": 2,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_yuzhaotianlei.jpg",
+        "grade": "[2]",
+        "tag": "[3,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、洞察时：敌方随机区域坠落闪电（20点伤害）"
+            }
+        ]
+    },
+    {
+        "id": 136,
         "name": "滋养守卫",
         "zhenyin": 2,
         "quality": 2,
@@ -15252,7 +16728,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 125,
+        "id": 137,
         "name": "幻象熊",
         "zhenyin": 2,
         "quality": 2,
@@ -15375,7 +16851,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 126,
+        "id": 138,
         "name": "学仆-焚化型",
         "zhenyin": 2,
         "quality": 2,
@@ -15498,7 +16974,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 127,
+        "id": 139,
         "name": "学仆-渗透型",
         "zhenyin": 2,
         "quality": 2,
@@ -15621,7 +17097,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 128,
+        "id": 140,
         "name": "学仆-魔蛛型",
         "zhenyin": 2,
         "quality": 2,
@@ -15744,7 +17220,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 129,
+        "id": 141,
+        "name": "落寂无声",
+        "zhenyin": 2,
+        "quality": 3,
+        "cost": 4,
+        "type": 2,
+        "img": "/yinmizhe/luojiwusheng.jpg",
+        "grade": "[4]",
+        "tag": "[20,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "沉默敌方随机符文（等级<=24）、随机敌军攻击-26，受到沉默"
+            }
+        ]
+    },
+    {
+        "id": 142,
         "name": "黑曜石像鬼",
         "zhenyin": 2,
         "quality": 2,
@@ -15867,7 +17466,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 130,
+        "id": 143,
         "name": "学仆-战斗型",
         "zhenyin": 2,
         "quality": 2,
@@ -15990,7 +17589,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 131,
+        "id": 144,
         "name": "学仆-能源型",
         "zhenyin": 2,
         "quality": 2,
@@ -16113,7 +17712,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 132,
+        "id": 145,
         "name": "魔咒老妪",
         "zhenyin": 2,
         "quality": 2,
@@ -16236,7 +17835,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 133,
+        "id": 146,
         "name": "请示隐秘者",
         "zhenyin": 2,
         "quality": 2,
@@ -16359,7 +17958,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 134,
+        "id": 147,
         "name": "隐形术",
         "zhenyin": 2,
         "quality": 3,
@@ -16482,7 +18081,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 135,
+        "id": 148,
         "name": "学仆-冲锋型",
         "zhenyin": 2,
         "quality": 3,
@@ -16605,7 +18204,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 136,
+        "id": 149,
         "name": "咒术系学士",
         "zhenyin": 2,
         "quality": 3,
@@ -16728,7 +18327,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 137,
+        "id": 150,
         "name": "破魔系教授",
         "zhenyin": 2,
         "quality": 3,
@@ -16851,7 +18450,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 138,
+        "id": 151,
         "name": "克隆术",
         "zhenyin": 2,
         "quality": 3,
@@ -16974,7 +18573,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 139,
+        "id": 152,
         "name": "吮魔秘树",
         "zhenyin": 2,
         "quality": 3,
@@ -17097,7 +18696,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 140,
+        "id": 153,
         "name": "神秘学教授",
         "zhenyin": 2,
         "quality": 3,
@@ -17220,7 +18819,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 141,
+        "id": 154,
+        "name": "符文·附魔长枪",
+        "zhenyin": 2,
+        "quality": 3,
+        "cost": 2,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_fumochangqiang.jpg",
+        "grade": "[5]",
+        "tag": "[2,6]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机先攻友军+12/+12，获得【回命】、回合开始：3个先攻友军攻击+10，持续1回合"
+            }
+        ]
+    },
+    {
+        "id": 155,
         "name": "防护系教授",
         "zhenyin": 2,
         "quality": 3,
@@ -17343,7 +19065,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 142,
+        "id": 156,
         "name": "魔像-御咒铁卫",
         "zhenyin": 2,
         "quality": 3,
@@ -17466,7 +19188,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 143,
+        "id": 157,
         "name": "缄言法师",
         "zhenyin": 2,
         "quality": 3,
@@ -17589,7 +19311,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 144,
+        "id": 158,
         "name": "学仆-猛禽型",
         "zhenyin": 2,
         "quality": 3,
@@ -17712,7 +19434,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 145,
+        "id": 159,
         "name": "学仆-脉冲型",
         "zhenyin": 2,
         "quality": 3,
@@ -17835,7 +19557,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 146,
+        "id": 160,
         "name": "夜幕魔宠",
         "zhenyin": 2,
         "quality": 3,
@@ -17958,7 +19680,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 147,
+        "id": 161,
         "name": "学仆-激活型",
         "zhenyin": 2,
         "quality": 3,
@@ -18081,7 +19803,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 148,
+        "id": 162,
         "name": "灵能计划",
         "zhenyin": 2,
         "quality": 3,
@@ -18204,7 +19926,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 149,
+        "id": 163,
+        "name": "符文·雷火核心",
+        "zhenyin": 2,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_leihuohexin.jpg",
+        "grade": "[4]",
+        "tag": "[23]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "法力上限+1、登场：召唤25/45雷火工组-lv22"
+            }
+        ]
+    },
+    {
+        "id": 164,
+        "name": "符文·邪月之夜",
+        "zhenyin": 2,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_xieyuezhiye.jpg",
+        "grade": "[3]",
+        "tag": "[3,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、回合开始：召唤26/8邪月蝙蝠lv-22"
+            }
+        ]
+    },
+    {
+        "id": 165,
         "name": "白首魔根",
         "zhenyin": 2,
         "quality": 3,
@@ -18327,7 +20295,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 150,
+        "id": 166,
         "name": "幻域秘树",
         "zhenyin": 2,
         "quality": 3,
@@ -18450,7 +20418,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 151,
+        "id": 167,
         "name": "改造魔卷",
         "zhenyin": 2,
         "quality": 3,
@@ -18573,7 +20541,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 152,
+        "id": 168,
         "name": "实验室流浆",
         "zhenyin": 2,
         "quality": 3,
@@ -18696,7 +20664,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 153,
+        "id": 169,
         "name": "学仆-塑钢型",
         "zhenyin": 2,
         "quality": 3,
@@ -18819,7 +20787,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 154,
+        "id": 170,
         "name": "幻象系教授",
         "zhenyin": 2,
         "quality": 3,
@@ -18942,7 +20910,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 155,
+        "id": 171,
         "name": "组装学仆",
         "zhenyin": 2,
         "quality": 3,
@@ -19065,7 +21033,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 156,
+        "id": 172,
+        "name": "符文·荒野幻象",
+        "zhenyin": 2,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_huangyehuanxiang.jpg",
+        "grade": "[6]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：荒芜敌方区域，召唤60/60幻象熊-lv22、回合结束：获得32/32幻象蛇-lv22"
+            }
+        ]
+    },
+    {
+        "id": 173,
         "name": "魔像-术法风暴",
         "zhenyin": 2,
         "quality": 3,
@@ -19188,7 +21279,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 157,
+        "id": 174,
         "name": "召熊幻术师",
         "zhenyin": 2,
         "quality": 3,
@@ -19311,7 +21402,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 158,
+        "id": 175,
         "name": "观星台大预言家",
         "zhenyin": 2,
         "quality": 3,
@@ -19434,7 +21525,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 159,
+        "id": 176,
         "name": "御魔史芬斯",
         "zhenyin": 2,
         "quality": 3,
@@ -19557,7 +21648,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 160,
+        "id": 177,
         "name": "格斗系教授",
         "zhenyin": 2,
         "quality": 3,
@@ -19680,7 +21771,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 161,
+        "id": 178,
         "name": "学仆-分裂型",
         "zhenyin": 2,
         "quality": 3,
@@ -19803,7 +21894,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 162,
+        "id": 179,
         "name": "幻象巨龙",
         "zhenyin": 2,
         "quality": 3,
@@ -19926,7 +22017,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 163,
+        "id": 180,
         "name": "巨型石像鬼",
         "zhenyin": 2,
         "quality": 3,
@@ -20049,7 +22140,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 164,
+        "id": 181,
         "name": "睿智史芬斯",
         "zhenyin": 2,
         "quality": 3,
@@ -20172,7 +22263,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 165,
+        "id": 182,
         "name": "心灵操控",
         "zhenyin": 2,
         "quality": 3,
@@ -20295,7 +22386,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 166,
+        "id": 183,
         "name": "米拉方舟",
         "zhenyin": 2,
         "quality": 3,
@@ -20418,7 +22509,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 167,
+        "id": 184,
         "name": "魔钢",
         "zhenyin": 2,
         "quality": 3,
@@ -20541,7 +22632,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 168,
+        "id": 185,
         "name": "魔像-钢翼仲裁者",
         "zhenyin": 2,
         "quality": 3,
@@ -20664,7 +22755,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 169,
+        "id": 186,
         "name": "传记·海市蜃楼·蛇",
         "zhenyin": 2,
         "quality": 3,
@@ -20787,7 +22878,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 170,
+        "id": 187,
         "name": "传记·海市蜃楼·熊",
         "zhenyin": 2,
         "quality": 3,
@@ -20910,7 +23001,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 171,
+        "id": 188,
         "name": "传记·海市蜃楼·龙",
         "zhenyin": 2,
         "quality": 3,
@@ -21033,7 +23124,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 172,
+        "id": 189,
         "name": "No.7鬼童·塞文",
         "zhenyin": 2,
         "quality": 4,
@@ -21156,7 +23247,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 173,
+        "id": 190,
         "name": "饮血圣者",
         "zhenyin": 2,
         "quality": 4,
@@ -21279,7 +23370,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 174,
+        "id": 191,
         "name": "No.8雷鸣·泰拉德",
         "zhenyin": 2,
         "quality": 4,
@@ -21402,7 +23493,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 175,
+        "id": 192,
         "name": "No.4希尔伯特",
         "zhenyin": 2,
         "quality": 4,
@@ -21525,7 +23616,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 176,
+        "id": 193,
         "name": "分裂实验-流浆",
         "zhenyin": 2,
         "quality": 4,
@@ -21648,7 +23739,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 177,
+        "id": 194,
         "name": "No.5咒刃·布雷克",
         "zhenyin": 2,
         "quality": 4,
@@ -21771,7 +23862,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 178,
+        "id": 195,
         "name": "鬼童-7号",
         "zhenyin": 2,
         "quality": 4,
@@ -21894,7 +23985,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 179,
+        "id": 196,
+        "name": "符文·魔能隐者",
+        "zhenyin": 2,
+        "quality": 4,
+        "cost": 4,
+        "type": 4,
+        "img": "/yinmizhe/fuwen_monengyinzhe.jpg",
+        "grade": "[4]",
+        "tag": "[1,21,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+18/+18，护甲+6，魔防+6、回合开始：若本回合友方有充能，则再次触发登场效果"
+            }
+        ]
+    },
+    {
+        "id": 197,
         "name": "No.2时光·米拉",
         "zhenyin": 2,
         "quality": 4,
@@ -22017,7 +24231,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 180,
+        "id": 198,
         "name": "No.9迪宁",
         "zhenyin": 2,
         "quality": 4,
@@ -22140,7 +24354,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 181,
+        "id": 199,
         "name": "No.6沃凡瑞拉",
         "zhenyin": 2,
         "quality": 4,
@@ -22263,7 +24477,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 182,
+        "id": 200,
         "name": "No.3伊斯多维尔",
         "zhenyin": 2,
         "quality": 4,
@@ -22386,7 +24600,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 183,
+        "id": 201,
         "name": "传记·荒芜挽歌·序",
         "zhenyin": 2,
         "quality": 4,
@@ -22509,7 +24723,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 184,
+        "id": 202,
         "name": "传记·荒芜挽歌·破",
         "zhenyin": 2,
         "quality": 4,
@@ -22632,7 +24846,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 185,
+        "id": 203,
         "name": "传记·荒芜挽歌·终",
         "zhenyin": 2,
         "quality": 4,
@@ -22755,7 +24969,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 186,
+        "id": 204,
         "name": "仙桃",
         "zhenyin": 3,
         "quality": 1,
@@ -22878,7 +25092,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 187,
+        "id": 205,
         "name": "鹿行者",
         "zhenyin": 3,
         "quality": 1,
@@ -23001,7 +25215,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 188,
+        "id": 206,
         "name": "鹿剑客",
         "zhenyin": 3,
         "quality": 1,
@@ -23124,7 +25338,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 189,
+        "id": 207,
         "name": "人参果",
         "zhenyin": 3,
         "quality": 1,
@@ -23247,7 +25461,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 190,
+        "id": 208,
         "name": "昆莱云游客",
         "zhenyin": 3,
         "quality": 1,
@@ -23370,7 +25584,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 191,
+        "id": 209,
         "name": "柏松隐者",
         "zhenyin": 3,
         "quality": 1,
@@ -23493,7 +25707,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 192,
+        "id": 210,
         "name": "熊大宝",
         "zhenyin": 3,
         "quality": 2,
@@ -23616,7 +25830,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 193,
+        "id": 211,
         "name": "卜命道长",
         "zhenyin": 3,
         "quality": 2,
@@ -23739,7 +25953,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 194,
+        "id": 212,
         "name": "箭竹守卫",
         "zhenyin": 3,
         "quality": 2,
@@ -23862,7 +26076,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 195,
+        "id": 213,
         "name": "雪庐草人",
         "zhenyin": 3,
         "quality": 2,
@@ -23985,7 +26199,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 196,
+        "id": 214,
         "name": "熊二宝",
         "zhenyin": 3,
         "quality": 2,
@@ -24108,7 +26322,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 197,
+        "id": 215,
         "name": "传家宝",
         "zhenyin": 3,
         "quality": 2,
@@ -24231,7 +26445,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 198,
+        "id": 216,
         "name": "白羊药师",
         "zhenyin": 3,
         "quality": 2,
@@ -24354,7 +26568,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 199,
+        "id": 217,
         "name": "拒马",
         "zhenyin": 3,
         "quality": 2,
@@ -24477,7 +26691,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 200,
+        "id": 218,
         "name": "长耳庄巧姑",
         "zhenyin": 3,
         "quality": 2,
@@ -24600,7 +26814,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 201,
+        "id": 219,
         "name": "黑竹守卫",
         "zhenyin": 3,
         "quality": 2,
@@ -24723,7 +26937,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 202,
+        "id": 220,
         "name": "苦行武僧",
         "zhenyin": 3,
         "quality": 2,
@@ -24846,7 +27060,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 203,
+        "id": 221,
         "name": "树木之怒",
         "zhenyin": 3,
         "quality": 2,
@@ -24969,7 +27183,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 204,
+        "id": 222,
         "name": "飓风术",
         "zhenyin": 3,
         "quality": 2,
@@ -25092,7 +27306,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 205,
+        "id": 223,
         "name": "锁妖塔守卫",
         "zhenyin": 3,
         "quality": 2,
@@ -25215,7 +27429,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 206,
+        "id": 224,
         "name": "熊小宝",
         "zhenyin": 3,
         "quality": 2,
@@ -25338,7 +27552,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 207,
+        "id": 225,
         "name": "明月心",
         "zhenyin": 3,
         "quality": 2,
@@ -25461,7 +27675,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 208,
+        "id": 226,
         "name": "黑松林货郎",
         "zhenyin": 3,
         "quality": 2,
@@ -25584,7 +27798,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 209,
+        "id": 227,
         "name": "龟族炼丹炉",
         "zhenyin": 3,
         "quality": 2,
@@ -25707,7 +27921,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 210,
+        "id": 228,
         "name": "太极剑法",
         "zhenyin": 3,
         "quality": 2,
@@ -25830,7 +28044,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 211,
+        "id": 229,
         "name": "叶幻师",
         "zhenyin": 3,
         "quality": 2,
@@ -25953,7 +28167,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 212,
+        "id": 230,
         "name": "龟族僧人",
         "zhenyin": 3,
         "quality": 2,
@@ -26076,7 +28290,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 213,
+        "id": 231,
         "name": "执剑道者",
         "zhenyin": 3,
         "quality": 2,
@@ -26199,7 +28413,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 214,
+        "id": 232,
         "name": "深山采药人",
         "zhenyin": 3,
         "quality": 2,
@@ -26322,7 +28536,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 215,
+        "id": 233,
         "name": "连击",
         "zhenyin": 3,
         "quality": 2,
@@ -26445,7 +28659,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 216,
+        "id": 234,
         "name": "铁山靠",
         "zhenyin": 3,
         "quality": 2,
@@ -26568,7 +28782,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 217,
+        "id": 235,
         "name": "味仙居小妹",
         "zhenyin": 3,
         "quality": 2,
@@ -26691,7 +28905,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 218,
+        "id": 236,
         "name": "醉道人",
         "zhenyin": 3,
         "quality": 2,
@@ -26814,7 +29028,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 219,
+        "id": 237,
         "name": "明月曲",
         "zhenyin": 3,
         "quality": 2,
@@ -26937,7 +29151,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 220,
+        "id": 238,
         "name": "雪狐剑客",
         "zhenyin": 3,
         "quality": 2,
@@ -27060,7 +29274,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 221,
+        "id": 239,
         "name": "雪隐谷樵夫",
         "zhenyin": 3,
         "quality": 2,
@@ -27183,7 +29397,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 222,
+        "id": 240,
         "name": "疾风猎手",
         "zhenyin": 3,
         "quality": 2,
@@ -27306,7 +29520,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 223,
+        "id": 241,
         "name": "妙音坊乐师",
         "zhenyin": 3,
         "quality": 2,
@@ -27429,7 +29643,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 224,
+        "id": 242,
         "name": "寒窗才子",
         "zhenyin": 3,
         "quality": 2,
@@ -27552,7 +29766,376 @@ export const gradeData = [
         ]
     },
     {
-        "id": 225,
+        "id": 243,
+        "name": "根除魔障",
+        "zhenyin": 3,
+        "quality": 2,
+        "cost": 3,
+        "type": 2,
+        "img": "/chanyigu/pochumozhang.jpg",
+        "grade": "[4]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "目标友军+15/+15、消灭敌方随机符文（等级<=24）"
+            }
+        ]
+    },
+    {
+        "id": 244,
+        "name": "符文·疾风图腾",
+        "zhenyin": 3,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/chanyigu/fuwen_jifengtuteng.jpg",
+        "grade": "[4]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：吹回随机敌军、回合开始：随机友军+11/+11"
+            }
+        ]
+    },
+    {
+        "id": 245,
+        "name": "符文·柏松之舞",
+        "zhenyin": 3,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/chanyigu/fuwen_baisongzhiwu.jpg",
+        "grade": "[3]",
+        "tag": "[2]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤2/45柏松隐者-lv16、英雄恢复生命时：随机友军+4/+4"
+            }
+        ]
+    },
+    {
+        "id": 246,
         "name": "风铃道人",
         "zhenyin": 3,
         "quality": 2,
@@ -27675,7 +30258,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 226,
+        "id": 247,
         "name": "祥云师太",
         "zhenyin": 3,
         "quality": 2,
@@ -27798,7 +30381,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 227,
+        "id": 248,
         "name": "幽谷粮仓",
         "zhenyin": 3,
         "quality": 2,
@@ -27921,7 +30504,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 228,
+        "id": 249,
         "name": "风卷残云",
         "zhenyin": 3,
         "quality": 2,
@@ -28044,7 +30627,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 229,
+        "id": 250,
         "name": "茁壮生长",
         "zhenyin": 3,
         "quality": 2,
@@ -28167,7 +30750,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 230,
+        "id": 251,
+        "name": "符文·雄鹿之道",
+        "zhenyin": 3,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/chanyigu/fuwen_xiongluzhidao.jpg",
+        "grade": "[3]",
+        "tag": "[2,4]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：英雄生命+40、回合结束：获得23/3鹿行者-lv18"
+            }
+        ]
+    },
+    {
+        "id": 252,
         "name": "羊族壮士",
         "zhenyin": 3,
         "quality": 2,
@@ -28290,7 +30996,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 231,
+        "id": 253,
         "name": "勇气师范",
         "zhenyin": 3,
         "quality": 2,
@@ -28413,7 +31119,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 232,
+        "id": 254,
         "name": "传记·前世",
         "zhenyin": 3,
         "quality": 2,
@@ -28536,7 +31242,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 233,
+        "id": 255,
         "name": "传记·今生",
         "zhenyin": 3,
         "quality": 2,
@@ -28659,7 +31365,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 234,
+        "id": 256,
         "name": "蟠桃隐士",
         "zhenyin": 3,
         "quality": 3,
@@ -28782,7 +31488,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 235,
+        "id": 257,
         "name": "仙灵藤蔓",
         "zhenyin": 3,
         "quality": 3,
@@ -28905,7 +31611,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 236,
+        "id": 258,
         "name": "植甲师",
         "zhenyin": 3,
         "quality": 3,
@@ -29028,7 +31734,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 237,
+        "id": 259,
         "name": "宫廷乐师",
         "zhenyin": 3,
         "quality": 3,
@@ -29151,7 +31857,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 238,
+        "id": 260,
+        "name": "符文·生生不息",
+        "zhenyin": 3,
+        "quality": 3,
+        "cost": 2,
+        "type": 4,
+        "img": "/chanyigu/fuwen_shengshengbuxi.jpg",
+        "grade": "[3]",
+        "tag": "[19,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "每当1个友军死亡：另一友军+15/+15"
+            }
+        ]
+    },
+    {
+        "id": 261,
         "name": "扫叶僧",
         "zhenyin": 3,
         "quality": 3,
@@ -29274,7 +32103,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 239,
+        "id": 262,
         "name": "逍遥琴师",
         "zhenyin": 3,
         "quality": 3,
@@ -29397,7 +32226,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 240,
+        "id": 263,
         "name": "驱魔道人",
         "zhenyin": 3,
         "quality": 3,
@@ -29520,7 +32349,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 241,
+        "id": 264,
         "name": "雪山飞狐",
         "zhenyin": 3,
         "quality": 3,
@@ -29643,7 +32472,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 242,
+        "id": 265,
         "name": "御膳房大厨",
         "zhenyin": 3,
         "quality": 3,
@@ -29766,7 +32595,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 243,
+        "id": 266,
         "name": "当铺掌柜",
         "zhenyin": 3,
         "quality": 3,
@@ -29889,7 +32718,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 244,
+        "id": 267,
+        "name": "符文·莲花护佑",
+        "zhenyin": 3,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/chanyigu/fuwen_lianhuahuyou.jpg",
+        "grade": "[5]",
+        "tag": "[4,16]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+13/+13，获得【传承13】、友军受到传承时：随机友军+9/+9，获得【魂歌】"
+            }
+        ]
+    },
+    {
+        "id": 268,
         "name": "白鹿贤士",
         "zhenyin": 3,
         "quality": 3,
@@ -30012,7 +32964,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 245,
+        "id": 269,
         "name": "御风武者",
         "zhenyin": 3,
         "quality": 3,
@@ -30135,7 +33087,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 246,
+        "id": 270,
         "name": "墨轩隐士",
         "zhenyin": 3,
         "quality": 3,
@@ -30258,7 +33210,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 247,
+        "id": 271,
         "name": "黑竹林地",
         "zhenyin": 3,
         "quality": 3,
@@ -30381,7 +33333,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 248,
+        "id": 272,
         "name": "蟠桃会",
         "zhenyin": 3,
         "quality": 3,
@@ -30504,7 +33456,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 249,
+        "id": 273,
         "name": "泰山之力",
         "zhenyin": 3,
         "quality": 3,
@@ -30627,7 +33579,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 250,
+        "id": 274,
         "name": "龙纹尊者",
         "zhenyin": 3,
         "quality": 3,
@@ -30750,7 +33702,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 251,
+        "id": 275,
         "name": "赏金刺客",
         "zhenyin": 3,
         "quality": 3,
@@ -30873,7 +33825,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 252,
+        "id": 276,
         "name": "疾风传说",
         "zhenyin": 3,
         "quality": 3,
@@ -30996,7 +33948,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 253,
+        "id": 277,
         "name": "百刺浪客",
         "zhenyin": 3,
         "quality": 3,
@@ -31119,7 +34071,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 254,
+        "id": 278,
         "name": "萌化术",
         "zhenyin": 3,
         "quality": 3,
@@ -31242,7 +34194,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 255,
+        "id": 279,
+        "name": "符文·箭竹林地",
+        "zhenyin": 3,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/chanyigu/fuwen_jianzhulindi.jpg",
+        "grade": "[2]",
+        "tag": "[24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：获得25/5箭竹守卫-lv22、回合开始：召唤25/5箭竹守卫-lv22"
+            }
+        ]
+    },
+    {
+        "id": 280,
         "name": "渡船隐士",
         "zhenyin": 3,
         "quality": 3,
@@ -31365,7 +34440,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 256,
+        "id": 281,
         "name": "狐剑仙",
         "zhenyin": 3,
         "quality": 3,
@@ -31488,7 +34563,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 257,
+        "id": 282,
         "name": "万物之灵",
         "zhenyin": 3,
         "quality": 3,
@@ -31611,7 +34686,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 258,
+        "id": 283,
         "name": "摇钱尊者",
         "zhenyin": 3,
         "quality": 3,
@@ -31734,7 +34809,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 259,
+        "id": 284,
         "name": "云游武僧",
         "zhenyin": 3,
         "quality": 3,
@@ -31857,7 +34932,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 260,
+        "id": 285,
         "name": "龟族印记",
         "zhenyin": 3,
         "quality": 3,
@@ -31980,7 +35055,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 261,
+        "id": 286,
+        "name": "符文·移花接木",
+        "zhenyin": 3,
+        "quality": 3,
+        "cost": 5,
+        "type": 4,
+        "img": "/chanyigu/fuwen_yihuajiemu.jpg",
+        "grade": "[1]",
+        "tag": "[]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌军-24/-24、回合结束：随机友军+24/+24"
+            }
+        ]
+    },
+    {
+        "id": 287,
         "name": "披甲罗汉",
         "zhenyin": 3,
         "quality": 3,
@@ -32103,7 +35301,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 262,
+        "id": 288,
         "name": "拔地而起",
         "zhenyin": 3,
         "quality": 3,
@@ -32226,7 +35424,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 263,
+        "id": 289,
         "name": "猛虎寨大王",
         "zhenyin": 3,
         "quality": 3,
@@ -32349,7 +35547,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 264,
+        "id": 290,
         "name": "寒霜寺护院僧",
         "zhenyin": 3,
         "quality": 3,
@@ -32472,7 +35670,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 265,
+        "id": 291,
         "name": "酒豪",
         "zhenyin": 3,
         "quality": 3,
@@ -32595,7 +35793,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 266,
+        "id": 292,
         "name": "味仙居掌厨",
         "zhenyin": 3,
         "quality": 3,
@@ -32718,7 +35916,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 267,
+        "id": 293,
         "name": "传记·月落",
         "zhenyin": 3,
         "quality": 3,
@@ -32841,7 +36039,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 268,
+        "id": 294,
         "name": "传记·日升",
         "zhenyin": 3,
         "quality": 3,
@@ -32964,7 +36162,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 269,
+        "id": 295,
         "name": "流岚刃·琳",
         "zhenyin": 3,
         "quality": 4,
@@ -33087,7 +36285,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 270,
+        "id": 296,
         "name": "灵龟神丹",
         "zhenyin": 3,
         "quality": 4,
@@ -33210,7 +36408,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 271,
+        "id": 297,
+        "name": "符文·如来神掌",
+        "zhenyin": 3,
+        "quality": 4,
+        "cost": 3,
+        "type": 4,
+        "img": "/chanyigu/fuwen_rulaishenzhang.jpg",
+        "grade": "[6]",
+        "tag": "[1,2,5]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军本回合攻击+25，并且具有【护甲16】、【回命】、【践踏】"
+            }
+        ]
+    },
+    {
+        "id": 298,
         "name": "神机玄女·轩",
         "zhenyin": 3,
         "quality": 4,
@@ -33333,7 +36654,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 272,
+        "id": 299,
         "name": "悟能禅杖",
         "zhenyin": 3,
         "quality": 4,
@@ -33456,7 +36777,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 273,
+        "id": 300,
         "name": "雪域春光·凛",
         "zhenyin": 3,
         "quality": 4,
@@ -33579,7 +36900,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 274,
+        "id": 301,
         "name": "三熊阵",
         "zhenyin": 3,
         "quality": 4,
@@ -33702,7 +37023,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 275,
+        "id": 302,
         "name": "逍遥居士·铭",
         "zhenyin": 3,
         "quality": 4,
@@ -33825,7 +37146,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 276,
+        "id": 303,
         "name": "长生不老树",
         "zhenyin": 3,
         "quality": 4,
@@ -33948,7 +37269,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 277,
+        "id": 304,
         "name": "神龙传人",
         "zhenyin": 3,
         "quality": 4,
@@ -34071,7 +37392,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 278,
+        "id": 305,
         "name": "豪情禅师·悟能",
         "zhenyin": 3,
         "quality": 4,
@@ -34194,7 +37515,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 279,
+        "id": 306,
         "name": "逸云剑·任大师",
         "zhenyin": 3,
         "quality": 4,
@@ -34317,7 +37638,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 280,
+        "id": 307,
         "name": "凶恶幼犬",
         "zhenyin": 4,
         "quality": 1,
@@ -34440,7 +37761,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 281,
+        "id": 308,
         "name": "蕾拉火弹",
         "zhenyin": 4,
         "quality": 1,
@@ -34563,7 +37884,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 282,
+        "id": 309,
         "name": "田野农夫",
         "zhenyin": 4,
         "quality": 1,
@@ -34686,7 +38007,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 283,
+        "id": 310,
         "name": "水手",
         "zhenyin": 4,
         "quality": 1,
@@ -34809,7 +38130,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 284,
+        "id": 311,
         "name": "排箭攻击",
         "zhenyin": 4,
         "quality": 1,
@@ -34932,7 +38253,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 285,
+        "id": 312,
         "name": "亲切的大妈",
         "zhenyin": 4,
         "quality": 1,
@@ -35055,7 +38376,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 286,
+        "id": 313,
         "name": "强壮工头",
         "zhenyin": 4,
         "quality": 1,
@@ -35178,7 +38499,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 287,
+        "id": 314,
         "name": "走私的珍奇兽",
         "zhenyin": 4,
         "quality": 2,
@@ -35301,7 +38622,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 288,
+        "id": 315,
         "name": "邪月小魔女",
         "zhenyin": 4,
         "quality": 2,
@@ -35424,7 +38745,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 289,
+        "id": 316,
         "name": "心灵黑洞",
         "zhenyin": 4,
         "quality": 2,
@@ -35547,7 +38868,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 290,
+        "id": 317,
         "name": "暗潮涌动",
         "zhenyin": 4,
         "quality": 2,
@@ -35670,7 +38991,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 291,
+        "id": 318,
         "name": "先发制人",
         "zhenyin": 4,
         "quality": 2,
@@ -35793,7 +39114,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 292,
+        "id": 319,
         "name": "愤怒农夫",
         "zhenyin": 4,
         "quality": 2,
@@ -35916,7 +39237,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 293,
+        "id": 320,
         "name": "狡诈学徒",
         "zhenyin": 4,
         "quality": 2,
@@ -36039,7 +39360,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 294,
+        "id": 321,
         "name": "外来隐修者",
         "zhenyin": 4,
         "quality": 2,
@@ -36162,7 +39483,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 295,
+        "id": 322,
         "name": "黑夜射手",
         "zhenyin": 4,
         "quality": 2,
@@ -36285,7 +39606,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 296,
+        "id": 323,
         "name": "黑水快剑手",
         "zhenyin": 4,
         "quality": 2,
@@ -36408,7 +39729,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 297,
+        "id": 324,
         "name": "亡命之徒",
         "zhenyin": 4,
         "quality": 2,
@@ -36531,7 +39852,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 298,
+        "id": 325,
         "name": "黑夜突袭",
         "zhenyin": 4,
         "quality": 2,
@@ -36654,7 +39975,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 299,
+        "id": 326,
         "name": "连锁电光",
         "zhenyin": 4,
         "quality": 2,
@@ -36777,7 +40098,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 300,
+        "id": 327,
         "name": "火祭邪灵",
         "zhenyin": 4,
         "quality": 2,
@@ -36900,7 +40221,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 301,
+        "id": 328,
         "name": "暗潮术士",
         "zhenyin": 4,
         "quality": 2,
@@ -37023,7 +40344,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 302,
+        "id": 329,
         "name": "窃笑雪人",
         "zhenyin": 4,
         "quality": 2,
@@ -37146,7 +40467,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 303,
+        "id": 330,
         "name": "传记学者",
         "zhenyin": 4,
         "quality": 2,
@@ -37269,7 +40590,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 304,
+        "id": 331,
         "name": "海湾强盗",
         "zhenyin": 4,
         "quality": 2,
@@ -37392,7 +40713,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 305,
+        "id": 332,
         "name": "黑金勒索者",
         "zhenyin": 4,
         "quality": 2,
@@ -37515,7 +40836,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 306,
+        "id": 333,
+        "name": "无声窃取",
+        "zhenyin": 4,
+        "quality": 2,
+        "cost": 2,
+        "type": 2,
+        "img": "/tiantanggang/wushengqiequ.jpg",
+        "grade": "[5]",
+        "tag": "[2,3,20,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "【洞察1】、吸取敌方英雄25点生命、沉默敌方随机符文（等级<=24）"
+            }
+        ]
+    },
+    {
+        "id": 334,
+        "name": "符文·黑金索命",
+        "zhenyin": 4,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_heijinsuoming.jpg",
+        "grade": "[3]",
+        "tag": "[3,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、回合结束：随机敌军受到22点伤害"
+            }
+        ]
+    },
+    {
+        "id": 335,
         "name": "热血矿工",
         "zhenyin": 4,
         "quality": 2,
@@ -37638,7 +41205,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 307,
+        "id": 336,
         "name": "酗酒暴徒",
         "zhenyin": 4,
         "quality": 2,
@@ -37761,7 +41328,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 308,
+        "id": 337,
         "name": "教廷学者",
         "zhenyin": 4,
         "quality": 2,
@@ -37884,7 +41451,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 309,
+        "id": 338,
         "name": "黑金刽子手",
         "zhenyin": 4,
         "quality": 2,
@@ -38007,7 +41574,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 310,
+        "id": 339,
         "name": "沙湾骆驼",
         "zhenyin": 4,
         "quality": 2,
@@ -38130,7 +41697,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 311,
+        "id": 340,
         "name": "海燕迫击炮",
         "zhenyin": 4,
         "quality": 2,
@@ -38253,7 +41820,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 312,
+        "id": 341,
         "name": "黑旗舰队水手",
         "zhenyin": 4,
         "quality": 2,
@@ -38376,7 +41943,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 313,
+        "id": 342,
         "name": "魔力风暴",
         "zhenyin": 4,
         "quality": 2,
@@ -38499,7 +42066,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 314,
+        "id": 343,
         "name": "不法交易",
         "zhenyin": 4,
         "quality": 2,
@@ -38622,7 +42189,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 315,
+        "id": 344,
         "name": "黑市商人",
         "zhenyin": 4,
         "quality": 2,
@@ -38745,7 +42312,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 316,
+        "id": 345,
         "name": "掠夺草人",
         "zhenyin": 4,
         "quality": 2,
@@ -38868,7 +42435,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 317,
+        "id": 346,
         "name": "节日南瓜",
         "zhenyin": 4,
         "quality": 2,
@@ -38991,7 +42558,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 318,
+        "id": 347,
         "name": "酗酒醉汉",
         "zhenyin": 4,
         "quality": 2,
@@ -39114,7 +42681,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 319,
+        "id": 348,
         "name": "心灵风暴",
         "zhenyin": 4,
         "quality": 2,
@@ -39237,7 +42804,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 320,
+        "id": 349,
         "name": "黑金土匪",
         "zhenyin": 4,
         "quality": 2,
@@ -39360,7 +42927,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 321,
+        "id": 350,
+        "name": "符文·绝命风暴",
+        "zhenyin": 4,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_juemingfengbao.jpg",
+        "grade": "[5]",
+        "tag": "[2,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：吸取敌方英雄30点生命、回合开始：若生命高于敌军，随机友军+10/+10、回合结束：若生命高于敌军，回手随机敌军（上限1次）"
+            }
+        ]
+    },
+    {
+        "id": 351,
         "name": "南瓜大婶",
         "zhenyin": 4,
         "quality": 2,
@@ -39483,7 +43173,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 322,
+        "id": 352,
         "name": "妖娆女巫",
         "zhenyin": 4,
         "quality": 2,
@@ -39606,7 +43296,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 323,
+        "id": 353,
         "name": "黑旗舰队飞斧手",
         "zhenyin": 4,
         "quality": 2,
@@ -39729,7 +43419,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 324,
+        "id": 354,
         "name": "电光术士",
         "zhenyin": 4,
         "quality": 2,
@@ -39852,7 +43542,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 325,
+        "id": 355,
+        "name": "符文·浪花快剑",
+        "zhenyin": 4,
+        "quality": 2,
+        "cost": 4,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_langhuakuaijian.jpg",
+        "grade": "[2]",
+        "tag": "[2,6]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤29/13黑水快剑手-lv22、回合开始：2个先攻友军+7/+4"
+            }
+        ]
+    },
+    {
+        "id": 356,
         "name": "恶犬屠夫",
         "zhenyin": 4,
         "quality": 2,
@@ -39975,7 +43788,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 326,
+        "id": 357,
         "name": "传记·风暴之夜",
         "zhenyin": 4,
         "quality": 2,
@@ -40098,7 +43911,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 327,
+        "id": 358,
         "name": "传记·抢滩登陆",
         "zhenyin": 4,
         "quality": 2,
@@ -40221,7 +44034,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 328,
+        "id": 359,
         "name": "传记·残酷掠夺",
         "zhenyin": 4,
         "quality": 2,
@@ -40344,7 +44157,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 329,
+        "id": 360,
         "name": "走私狂徒",
         "zhenyin": 4,
         "quality": 3,
@@ -40467,7 +44280,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 330,
+        "id": 361,
         "name": "异域驯兽使",
         "zhenyin": 4,
         "quality": 3,
@@ -40590,7 +44403,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 331,
+        "id": 362,
         "name": "海燕精卫",
         "zhenyin": 4,
         "quality": 3,
@@ -40713,7 +44526,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 332,
+        "id": 363,
         "name": "红海猎魔人",
         "zhenyin": 4,
         "quality": 3,
@@ -40836,7 +44649,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 333,
+        "id": 364,
         "name": "海神赐福",
         "zhenyin": 4,
         "quality": 3,
@@ -40959,7 +44772,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 334,
+        "id": 365,
         "name": "快乐使者",
         "zhenyin": 4,
         "quality": 3,
@@ -41082,7 +44895,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 335,
+        "id": 366,
         "name": "幸福空间",
         "zhenyin": 4,
         "quality": 3,
@@ -41205,7 +45018,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 336,
+        "id": 367,
         "name": "无情夺命客",
         "zhenyin": 4,
         "quality": 3,
@@ -41328,7 +45141,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 337,
+        "id": 368,
         "name": "深山老巫",
         "zhenyin": 4,
         "quality": 3,
@@ -41451,7 +45264,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 338,
+        "id": 369,
         "name": "黑水伏击",
         "zhenyin": 4,
         "quality": 3,
@@ -41574,7 +45387,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 339,
+        "id": 370,
         "name": "寒夜灯灵",
         "zhenyin": 4,
         "quality": 3,
@@ -41697,7 +45510,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 340,
+        "id": 371,
         "name": "封魔幼兽",
         "zhenyin": 4,
         "quality": 3,
@@ -41820,7 +45633,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 341,
+        "id": 372,
         "name": "晨光魔宠",
         "zhenyin": 4,
         "quality": 3,
@@ -41943,7 +45756,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 342,
+        "id": 373,
         "name": "喧哗水手长",
         "zhenyin": 4,
         "quality": 3,
@@ -42066,7 +45879,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 343,
+        "id": 374,
         "name": "偷渡巨人",
         "zhenyin": 4,
         "quality": 3,
@@ -42189,7 +46002,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 344,
+        "id": 375,
+        "name": "符文·洞悉未来",
+        "zhenyin": 4,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_dongxiweilai.jpg",
+        "grade": "[5]",
+        "tag": "[3,4]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、洞察时：随机友军+12/+12、友军获得传承时：随机友军+6/+6，【洞察1】"
+            }
+        ]
+    },
+    {
+        "id": 376,
+        "name": "符文·恶犬领地",
+        "zhenyin": 4,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_equanlingdi.jpg",
+        "grade": "[5]",
+        "tag": "[24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤2个9/9凶恶幼犬-lv17、回合结束：召唤9/9凶恶幼犬-lv17，若友军数量大于敌军，3个友军+4/+4"
+            }
+        ]
+    },
+    {
+        "id": 377,
         "name": "海盗船长",
         "zhenyin": 4,
         "quality": 3,
@@ -42312,7 +46371,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 345,
+        "id": 378,
         "name": "炼金术士",
         "zhenyin": 4,
         "quality": 3,
@@ -42435,7 +46494,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 346,
+        "id": 379,
         "name": "动物学家",
         "zhenyin": 4,
         "quality": 3,
@@ -42558,7 +46617,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 347,
+        "id": 380,
         "name": "黑金诈术师",
         "zhenyin": 4,
         "quality": 3,
@@ -42681,7 +46740,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 348,
+        "id": 381,
         "name": "缴械逆袭",
         "zhenyin": 4,
         "quality": 3,
@@ -42804,7 +46863,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 349,
+        "id": 382,
         "name": "磐龙工匠",
         "zhenyin": 4,
         "quality": 3,
@@ -42927,7 +46986,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 350,
+        "id": 383,
         "name": "奴役黑猿",
         "zhenyin": 4,
         "quality": 3,
@@ -43050,7 +47109,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 351,
+        "id": 384,
         "name": "红海领航员",
         "zhenyin": 4,
         "quality": 3,
@@ -43173,7 +47232,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 352,
+        "id": 385,
         "name": "在逃重犯",
         "zhenyin": 4,
         "quality": 3,
@@ -43296,7 +47355,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 353,
+        "id": 386,
         "name": "地心冒险家",
         "zhenyin": 4,
         "quality": 3,
@@ -43419,7 +47478,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 354,
+        "id": 387,
         "name": "寻宝队长",
         "zhenyin": 4,
         "quality": 3,
@@ -43542,7 +47601,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 355,
+        "id": 388,
+        "name": "符文·杀戮之锚",
+        "zhenyin": 4,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_shaluzhimao.jpg",
+        "grade": "[2]",
+        "tag": "[19]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机敌军受到150点伤害、每当1个敌军死亡：随机友军+7/+7"
+            }
+        ]
+    },
+    {
+        "id": 389,
         "name": "贵族运输象",
         "zhenyin": 4,
         "quality": 3,
@@ -43665,7 +47847,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 356,
+        "id": 390,
         "name": "黑旗舰队双枪客",
         "zhenyin": 4,
         "quality": 3,
@@ -43788,7 +47970,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 357,
+        "id": 391,
         "name": "星辰陨落",
         "zhenyin": 4,
         "quality": 3,
@@ -43911,7 +48093,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 358,
+        "id": 392,
         "name": "万圣节秘树",
         "zhenyin": 4,
         "quality": 3,
@@ -44034,7 +48216,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 359,
+        "id": 393,
         "name": "烈日大祭师",
         "zhenyin": 4,
         "quality": 3,
@@ -44157,7 +48339,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 360,
+        "id": 394,
+        "name": "符文·夜莺晚歌",
+        "zhenyin": 4,
+        "quality": 3,
+        "cost": 5,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_yeyingwange.jpg",
+        "grade": "[4]",
+        "tag": "[22,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "敌方法力-1、回合开始：召唤30/21夜幕魔宠-lv22（上限3次）"
+            }
+        ]
+    },
+    {
+        "id": 395,
         "name": "钢斧开山者",
         "zhenyin": 4,
         "quality": 3,
@@ -44280,7 +48585,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 361,
+        "id": 396,
         "name": "黑旗舰队船长",
         "zhenyin": 4,
         "quality": 3,
@@ -44403,7 +48708,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 362,
+        "id": 397,
         "name": "封魔巨兽",
         "zhenyin": 4,
         "quality": 3,
@@ -44526,7 +48831,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 363,
+        "id": 398,
         "name": "黑金铸造大师",
         "zhenyin": 4,
         "quality": 3,
@@ -44649,7 +48954,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 364,
+        "id": 399,
         "name": "蕾拉密卷",
         "zhenyin": 4,
         "quality": 4,
@@ -44772,7 +49077,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 365,
+        "id": 400,
         "name": "花剑绅士·翔",
         "zhenyin": 4,
         "quality": 4,
@@ -44895,7 +49200,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 366,
+        "id": 401,
         "name": "海燕·鲍莉",
         "zhenyin": 4,
         "quality": 4,
@@ -45018,7 +49323,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 367,
+        "id": 402,
         "name": "欢乐歌唱的戴维",
         "zhenyin": 4,
         "quality": 4,
@@ -45141,7 +49446,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 368,
+        "id": 403,
         "name": "戴维的惊天计谋",
         "zhenyin": 4,
         "quality": 4,
@@ -45264,7 +49569,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 369,
+        "id": 404,
         "name": "魔卡幻术师·梅基",
         "zhenyin": 4,
         "quality": 4,
@@ -45387,7 +49692,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 370,
+        "id": 405,
         "name": "赤影·艾希尔",
         "zhenyin": 4,
         "quality": 4,
@@ -45498,19 +49803,142 @@ export const gradeData = [
                 "effect": "【洞察2】、【连击】、【魔防120】、回合开始：若生命高于对手，获得【隐形】1回合；若人数多于对手，攻击+3"
             },
             {
-                "attack": 36,
+                "attack": 37,
                 "life": 18,
                 "effect": "【洞察2】、【连击】、【魔防130】、回合开始：若生命高于对手，获得【隐形】1回合；若人数多于对手，攻击+3"
             },
             {
-                "attack": 39,
+                "attack": 42,
                 "life": 19,
                 "effect": "【洞察2】、【连击】、【魔防140】、回合开始：若生命高于对手，获得【隐形】1回合；若人数多于对手，攻击+3"
             }
         ]
     },
     {
-        "id": 371,
+        "id": 406,
+        "name": "符文·海王之怒",
+        "zhenyin": 4,
+        "quality": 4,
+        "cost": 4,
+        "type": 4,
+        "img": "/tiantanggang/fuwen_haihuangzhinu.jpg",
+        "grade": "[6]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场、回合开始：敌方3个随机位置坠落闪电（12点伤害），被击中的敌人75%几率眩晕1回合"
+            }
+        ]
+    },
+    {
+        "id": 407,
         "name": "钢之咆哮·布瑞恩",
         "zhenyin": 4,
         "quality": 4,
@@ -45633,7 +50061,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 372,
+        "id": 408,
         "name": "烈火·蕾拉",
         "zhenyin": 4,
         "quality": 4,
@@ -45756,7 +50184,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 373,
+        "id": 409,
         "name": "黑金三代目·梅森",
         "zhenyin": 4,
         "quality": 4,
@@ -45879,7 +50307,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 374,
+        "id": 410,
         "name": "红海使魔",
         "zhenyin": 5,
         "quality": 1,
@@ -46002,7 +50430,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 375,
+        "id": 411,
         "name": "燃烧鬼怪",
         "zhenyin": 5,
         "quality": 1,
@@ -46125,7 +50553,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 376,
+        "id": 412,
         "name": "嗜血卒",
         "zhenyin": 5,
         "quality": 1,
@@ -46248,7 +50676,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 377,
+        "id": 413,
         "name": "猩红仆从",
         "zhenyin": 5,
         "quality": 1,
@@ -46371,7 +50799,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 378,
+        "id": 414,
         "name": "混乱恶鬼",
         "zhenyin": 5,
         "quality": 1,
@@ -46494,7 +50922,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 379,
+        "id": 415,
         "name": "烈火术",
         "zhenyin": 5,
         "quality": 1,
@@ -46617,7 +51045,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 380,
+        "id": 416,
         "name": "焦毒尸嵌",
         "zhenyin": 5,
         "quality": 1,
@@ -46740,7 +51168,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 381,
+        "id": 417,
         "name": "冥河守卫",
         "zhenyin": 5,
         "quality": 2,
@@ -46863,7 +51291,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 382,
+        "id": 418,
         "name": "落雷击",
         "zhenyin": 5,
         "quality": 2,
@@ -46986,7 +51414,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 383,
+        "id": 419,
         "name": "沸腾血刃",
         "zhenyin": 5,
         "quality": 2,
@@ -47109,7 +51537,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 384,
+        "id": 420,
         "name": "炼狱刀吏",
         "zhenyin": 5,
         "quality": 2,
@@ -47232,7 +51660,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 385,
+        "id": 421,
         "name": "邪眼魔",
         "zhenyin": 5,
         "quality": 2,
@@ -47355,7 +51783,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 386,
+        "id": 422,
         "name": "残暴爪钩",
         "zhenyin": 5,
         "quality": 2,
@@ -47478,7 +51906,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 387,
+        "id": 423,
         "name": "炎球",
         "zhenyin": 5,
         "quality": 2,
@@ -47601,7 +52029,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 388,
+        "id": 424,
         "name": "毒液甲虫",
         "zhenyin": 5,
         "quality": 2,
@@ -47724,7 +52152,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 389,
+        "id": 425,
         "name": "热火冲锋",
         "zhenyin": 5,
         "quality": 2,
@@ -47847,7 +52275,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 390,
+        "id": 426,
         "name": "爆燃邪鬼",
         "zhenyin": 5,
         "quality": 2,
@@ -47970,7 +52398,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 391,
+        "id": 427,
         "name": "嗜血妖蛾",
         "zhenyin": 5,
         "quality": 2,
@@ -48093,7 +52521,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 392,
+        "id": 428,
         "name": "狂噬兽",
         "zhenyin": 5,
         "quality": 2,
@@ -48216,7 +52644,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 393,
+        "id": 429,
+        "name": "符文·岩浆坠落",
+        "zhenyin": 5,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_yanjiangzhuiluo.jpg",
+        "grade": "[1]",
+        "tag": "[]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌方区域坠火球(28点伤害)"
+            }
+        ]
+    },
+    {
+        "id": 430,
         "name": "猩红勇士",
         "zhenyin": 5,
         "quality": 2,
@@ -48339,7 +52890,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 394,
+        "id": 431,
         "name": "尖叫邪鬼",
         "zhenyin": 5,
         "quality": 2,
@@ -48462,7 +53013,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 395,
+        "id": 432,
         "name": "凝血之池",
         "zhenyin": 5,
         "quality": 2,
@@ -48585,7 +53136,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 396,
+        "id": 433,
         "name": "血焰焦木",
         "zhenyin": 5,
         "quality": 2,
@@ -48708,7 +53259,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 397,
+        "id": 434,
         "name": "疯狂战意",
         "zhenyin": 5,
         "quality": 2,
@@ -48831,7 +53382,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 398,
+        "id": 435,
         "name": "狂暴炎球",
         "zhenyin": 5,
         "quality": 2,
@@ -48954,7 +53505,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 399,
+        "id": 436,
         "name": "双头毒虫",
         "zhenyin": 5,
         "quality": 2,
@@ -49077,7 +53628,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 400,
+        "id": 437,
         "name": "无面狂奔者",
         "zhenyin": 5,
         "quality": 2,
@@ -49200,7 +53751,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 401,
+        "id": 438,
         "name": "恶毒魔眼",
         "zhenyin": 5,
         "quality": 2,
@@ -49323,7 +53874,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 402,
+        "id": 439,
         "name": "熔炉尸嵌",
         "zhenyin": 5,
         "quality": 2,
@@ -49446,7 +53997,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 403,
+        "id": 440,
         "name": "渴血兽魔",
         "zhenyin": 5,
         "quality": 2,
@@ -49569,7 +54120,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 404,
+        "id": 441,
         "name": "腐化甲蛾",
         "zhenyin": 5,
         "quality": 2,
@@ -49692,7 +54243,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 405,
+        "id": 442,
+        "name": "符文·恶毒侵蚀",
+        "zhenyin": 5,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_eduqinshi.jpg",
+        "grade": "[4]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：敌方玩家弃掉1张牌，随机友军+5/+5、回合开始：若敌方手牌为1或0，则随机友军+20/+10"
+            }
+        ]
+    },
+    {
+        "id": 443,
         "name": "炼狱双头犬",
         "zhenyin": 5,
         "quality": 2,
@@ -49815,7 +54489,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 406,
+        "id": 444,
         "name": "焦炎异魔",
         "zhenyin": 5,
         "quality": 2,
@@ -49938,7 +54612,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 407,
+        "id": 445,
         "name": "贪食之翼",
         "zhenyin": 5,
         "quality": 2,
@@ -50061,7 +54735,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 408,
+        "id": 446,
         "name": "烈焰风暴",
         "zhenyin": 5,
         "quality": 2,
@@ -50184,7 +54858,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 409,
+        "id": 447,
         "name": "恶臭公害",
         "zhenyin": 5,
         "quality": 2,
@@ -50307,7 +54981,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 410,
+        "id": 448,
         "name": "肥胖督军",
         "zhenyin": 5,
         "quality": 2,
@@ -50430,7 +55104,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 411,
+        "id": 449,
         "name": "邪鬼草人",
         "zhenyin": 5,
         "quality": 2,
@@ -50553,7 +55227,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 412,
+        "id": 450,
         "name": "吸魂者",
         "zhenyin": 5,
         "quality": 2,
@@ -50676,7 +55350,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 413,
+        "id": 451,
+        "name": "邪恶献祭",
+        "zhenyin": 5,
+        "quality": 2,
+        "cost": 4,
+        "type": 2,
+        "img": "/lianyushenyuan/xieexianji.jpg",
+        "grade": "[3]",
+        "tag": "[25]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "牺牲目标友军，相邻1个友军+40/+40，抽2张牌"
+            }
+        ]
+    },
+    {
+        "id": 452,
+        "name": "魔域长枪",
+        "zhenyin": 5,
+        "quality": 2,
+        "cost": 4,
+        "type": 2,
+        "img": "/lianyushenyuan/moyuchangqiang.jpg",
+        "grade": "[3]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：消灭敌方随机符文、回合开始：随机友军攻击+30，持续1回合"
+            }
+        ]
+    },
+    {
+        "id": 453,
         "name": "无面屠夫",
         "zhenyin": 5,
         "quality": 2,
@@ -50799,7 +55719,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 414,
+        "id": 454,
         "name": "传记·火弹",
         "zhenyin": 5,
         "quality": 2,
@@ -50922,7 +55842,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 415,
+        "id": 455,
         "name": "传记·炎弹",
         "zhenyin": 5,
         "quality": 2,
@@ -51045,7 +55965,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 416,
+        "id": 456,
         "name": "碎颅魔",
         "zhenyin": 5,
         "quality": 3,
@@ -51168,7 +56088,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 417,
+        "id": 457,
         "name": "觅食大嘴兽",
         "zhenyin": 5,
         "quality": 3,
@@ -51291,7 +56211,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 418,
+        "id": 458,
         "name": "苦痛守望者",
         "zhenyin": 5,
         "quality": 3,
@@ -51414,7 +56334,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 419,
+        "id": 459,
         "name": "渴血毒甲蝎",
         "zhenyin": 5,
         "quality": 3,
@@ -51537,7 +56457,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 420,
+        "id": 460,
         "name": "厌咒食尸犬",
         "zhenyin": 5,
         "quality": 3,
@@ -51660,7 +56580,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 421,
+        "id": 461,
         "name": "狱铠战魂",
         "zhenyin": 5,
         "quality": 3,
@@ -51783,7 +56703,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 422,
+        "id": 462,
         "name": "绝望镰魔",
         "zhenyin": 5,
         "quality": 3,
@@ -51906,7 +56826,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 423,
+        "id": 463,
         "name": "岩浆球",
         "zhenyin": 5,
         "quality": 3,
@@ -52029,7 +56949,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 424,
+        "id": 464,
         "name": "铸甲熔岩魔",
         "zhenyin": 5,
         "quality": 3,
@@ -52152,7 +57072,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 425,
+        "id": 465,
         "name": "爆燃突袭",
         "zhenyin": 5,
         "quality": 3,
@@ -52275,7 +57195,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 426,
+        "id": 466,
         "name": "魔鬼盛宴",
         "zhenyin": 5,
         "quality": 3,
@@ -52398,7 +57318,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 427,
+        "id": 467,
         "name": "破卵而出",
         "zhenyin": 5,
         "quality": 3,
@@ -52521,7 +57441,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 428,
+        "id": 468,
+        "name": "符文·致命甲壳",
+        "zhenyin": 5,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_zhimingjiake.jpg",
+        "grade": "[6]",
+        "tag": "[1,5,19]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤38/18腐化甲蛾-lv22、回合开始：2个护甲友军攻击+6，获得【践踏】1回合"
+            }
+        ]
+    },
+    {
+        "id": 469,
+        "name": "符文·熔岩喷射",
+        "zhenyin": 5,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_rongyanpenshe.jpg",
+        "grade": "[4]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：横排投射火球(33点伤害)，无视神佑h和魔免"
+            }
+        ]
+    },
+    {
+        "id": 470,
         "name": "血炎鬼魅",
         "zhenyin": 5,
         "quality": 3,
@@ -52644,7 +57810,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 429,
+        "id": 471,
         "name": "嗜血破面",
         "zhenyin": 5,
         "quality": 3,
@@ -52767,7 +57933,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 430,
+        "id": 472,
         "name": "夺魂诅咒",
         "zhenyin": 5,
         "quality": 3,
@@ -52890,7 +58056,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 431,
+        "id": 473,
         "name": "鲜血督军",
         "zhenyin": 5,
         "quality": 3,
@@ -53013,7 +58179,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 432,
+        "id": 474,
         "name": "熔岩术士",
         "zhenyin": 5,
         "quality": 3,
@@ -53136,7 +58302,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 433,
+        "id": 475,
         "name": "灼神双炎",
         "zhenyin": 5,
         "quality": 3,
@@ -53259,7 +58425,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 434,
+        "id": 476,
         "name": "凶恶蟹魔",
         "zhenyin": 5,
         "quality": 3,
@@ -53382,7 +58548,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 435,
+        "id": 477,
+        "name": "符文·嗜血恶兽",
+        "zhenyin": 5,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_shixueeshou.jpg",
+        "grade": "[3]",
+        "tag": "[5,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤38/22渴血兽魔-lv20（上限2次）、回合开始：3个践踏友军攻击+12，持续1回合"
+            }
+        ]
+    },
+    {
+        "id": 478,
         "name": "炼狱屠夫",
         "zhenyin": 5,
         "quality": 3,
@@ -53505,7 +58794,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 436,
+        "id": 479,
         "name": "炼狱三头犬",
         "zhenyin": 5,
         "quality": 3,
@@ -53628,7 +58917,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 437,
+        "id": 480,
         "name": "噬心魔虫",
         "zhenyin": 5,
         "quality": 3,
@@ -53751,7 +59040,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 438,
+        "id": 481,
         "name": "雷光炼狱",
         "zhenyin": 5,
         "quality": 3,
@@ -53874,7 +59163,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 439,
+        "id": 482,
         "name": "夺魂死镰",
         "zhenyin": 5,
         "quality": 3,
@@ -53997,7 +59286,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 440,
+        "id": 483,
         "name": "狂暴铁臂",
         "zhenyin": 5,
         "quality": 3,
@@ -54120,7 +59409,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 441,
+        "id": 484,
         "name": "吞魂魔树",
         "zhenyin": 5,
         "quality": 3,
@@ -54243,7 +59532,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 442,
+        "id": 485,
+        "name": "符文·猩红大军",
+        "zhenyin": 5,
+        "quality": 3,
+        "cost": 5,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_xinghongdajun.jpg",
+        "grade": "[4]",
+        "tag": "[19,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场、回合开始：召唤22/22猩红仆从-lv22，敌方英雄生命-13"
+            }
+        ]
+    },
+    {
+        "id": 486,
         "name": "魔岩邪牛",
         "zhenyin": 5,
         "quality": 3,
@@ -54366,7 +59778,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 443,
+        "id": 487,
         "name": "黑岩裂缝",
         "zhenyin": 5,
         "quality": 3,
@@ -54489,7 +59901,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 444,
+        "id": 488,
         "name": "恶灵魔焰",
         "zhenyin": 5,
         "quality": 3,
@@ -54612,7 +60024,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 445,
+        "id": 489,
         "name": "蛮荒魔神",
         "zhenyin": 5,
         "quality": 3,
@@ -54735,7 +60147,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 446,
+        "id": 490,
         "name": "天崩地裂",
         "zhenyin": 5,
         "quality": 3,
@@ -54858,7 +60270,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 447,
+        "id": 491,
         "name": "深渊剧毒兽",
         "zhenyin": 5,
         "quality": 3,
@@ -54981,7 +60393,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 448,
+        "id": 492,
         "name": "炼狱巨口",
         "zhenyin": 5,
         "quality": 3,
@@ -55104,7 +60516,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 449,
+        "id": 493,
         "name": "传记·流星落",
         "zhenyin": 5,
         "quality": 3,
@@ -55227,7 +60639,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 450,
+        "id": 494,
         "name": "传记·火尘落",
         "zhenyin": 5,
         "quality": 3,
@@ -55350,7 +60762,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 451,
+        "id": 495,
         "name": "传记·流星火陨",
         "zhenyin": 5,
         "quality": 3,
@@ -55473,7 +60885,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 452,
+        "id": 496,
         "name": "火寒毒种",
         "zhenyin": 5,
         "quality": 4,
@@ -55596,7 +61008,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 453,
+        "id": 497,
         "name": "痛苦之心",
         "zhenyin": 5,
         "quality": 4,
@@ -55719,7 +61131,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 454,
+        "id": 498,
         "name": "血影",
         "zhenyin": 5,
         "quality": 4,
@@ -55842,7 +61254,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 455,
+        "id": 499,
         "name": "巴克&巴罗",
         "zhenyin": 5,
         "quality": 4,
@@ -55965,7 +61377,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 456,
+        "id": 500,
         "name": "熔岩进击",
         "zhenyin": 5,
         "quality": 4,
@@ -56088,7 +61500,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 457,
+        "id": 501,
         "name": "怨魂饕餮兽",
         "zhenyin": 5,
         "quality": 4,
@@ -56211,7 +61623,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 458,
+        "id": 502,
         "name": "血翼·莉莉丝",
         "zhenyin": 5,
         "quality": 4,
@@ -56334,7 +61746,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 459,
+        "id": 503,
+        "name": "符文·地焚天陨",
+        "zhenyin": 5,
+        "quality": 4,
+        "cost": 5,
+        "type": 4,
+        "img": "/lianyushenyuan/fuwen_difentianyun.jpg",
+        "grade": "[2]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌方区域坠落陨石（69点伤害），无视神佑和魔免"
+            }
+        ]
+    },
+    {
+        "id": 504,
         "name": "熔炉梦魇",
         "zhenyin": 5,
         "quality": 4,
@@ -56457,7 +61992,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 460,
+        "id": 505,
         "name": "烬喉炼狱魔",
         "zhenyin": 5,
         "quality": 4,
@@ -56580,7 +62115,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 461,
+        "id": 506,
         "name": "猩红领主·巴拉克",
         "zhenyin": 5,
         "quality": 4,
@@ -56703,7 +62238,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 462,
+        "id": 507,
         "name": "草原狼",
         "zhenyin": 6,
         "quality": 1,
@@ -56826,7 +62361,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 463,
+        "id": 508,
         "name": "斑毛幼猪",
         "zhenyin": 6,
         "quality": 1,
@@ -56949,7 +62484,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 464,
+        "id": 509,
         "name": "蛮化术",
         "zhenyin": 6,
         "quality": 1,
@@ -57072,7 +62607,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 465,
+        "id": 510,
         "name": "再生食人魔",
         "zhenyin": 6,
         "quality": 1,
@@ -57195,7 +62730,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 466,
+        "id": 511,
         "name": "长毛象",
         "zhenyin": 6,
         "quality": 1,
@@ -57318,7 +62853,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 467,
+        "id": 512,
         "name": "愚笨鲸头鹅",
         "zhenyin": 6,
         "quality": 2,
@@ -57441,7 +62976,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 468,
+        "id": 513,
         "name": "蛮石血蜥",
         "zhenyin": 6,
         "quality": 2,
@@ -57564,7 +63099,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 469,
+        "id": 514,
         "name": "迟来的补给",
         "zhenyin": 6,
         "quality": 2,
@@ -57687,7 +63222,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 470,
+        "id": 515,
         "name": "旷野祭师",
         "zhenyin": 6,
         "quality": 2,
@@ -57810,7 +63345,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 471,
+        "id": 516,
         "name": "蓄力射手",
         "zhenyin": 6,
         "quality": 2,
@@ -57933,7 +63468,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 472,
+        "id": 517,
         "name": "痴蛮野人",
         "zhenyin": 6,
         "quality": 2,
@@ -58056,7 +63591,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 473,
+        "id": 518,
         "name": "贪食肥鼠",
         "zhenyin": 6,
         "quality": 2,
@@ -58179,7 +63714,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 474,
+        "id": 519,
         "name": "蛮石穿山甲",
         "zhenyin": 6,
         "quality": 2,
@@ -58302,7 +63837,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 475,
+        "id": 520,
         "name": "势如破竹",
         "zhenyin": 6,
         "quality": 2,
@@ -58425,7 +63960,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 476,
+        "id": 521,
         "name": "蛮野仙人掌",
         "zhenyin": 6,
         "quality": 2,
@@ -58548,7 +64083,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 477,
+        "id": 522,
         "name": "高原卫士",
         "zhenyin": 6,
         "quality": 2,
@@ -58671,7 +64206,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 478,
+        "id": 523,
         "name": "盘旋秃鹰",
         "zhenyin": 6,
         "quality": 2,
@@ -58794,7 +64329,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 479,
+        "id": 524,
         "name": "沙暴试炼",
         "zhenyin": 6,
         "quality": 2,
@@ -58917,7 +64452,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 480,
+        "id": 525,
         "name": "旷野猎手",
         "zhenyin": 6,
         "quality": 2,
@@ -59040,7 +64575,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 481,
+        "id": 526,
         "name": "沉稳主祭",
         "zhenyin": 6,
         "quality": 2,
@@ -59163,7 +64698,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 482,
+        "id": 527,
         "name": "寻路斥候",
         "zhenyin": 6,
         "quality": 2,
@@ -59286,7 +64821,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 483,
+        "id": 528,
         "name": "喧哗舞者",
         "zhenyin": 6,
         "quality": 2,
@@ -59409,7 +64944,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 484,
+        "id": 529,
         "name": "迅捷长矛手",
         "zhenyin": 6,
         "quality": 2,
@@ -59532,7 +65067,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 485,
+        "id": 530,
         "name": "厚皮河马",
         "zhenyin": 6,
         "quality": 2,
@@ -59655,7 +65190,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 486,
+        "id": 531,
         "name": "面包树",
         "zhenyin": 6,
         "quality": 2,
@@ -59778,7 +65313,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 487,
+        "id": 532,
         "name": "噬人花",
         "zhenyin": 6,
         "quality": 2,
@@ -59901,7 +65436,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 488,
+        "id": 533,
         "name": "天降碎石",
         "zhenyin": 6,
         "quality": 2,
@@ -60024,7 +65559,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 489,
+        "id": 534,
         "name": "机敏雀鹰",
         "zhenyin": 6,
         "quality": 2,
@@ -60147,7 +65682,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 490,
+        "id": 535,
         "name": "雪域牦牛",
         "zhenyin": 6,
         "quality": 2,
@@ -60270,7 +65805,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 491,
+        "id": 536,
+        "name": "蛮古灵气",
+        "zhenyin": 6,
+        "quality": 2,
+        "cost": 3,
+        "type": 2,
+        "img": "/manshikuangye/mangulingqi.jpg",
+        "grade": "[2]",
+        "tag": "[8]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "随机一个符文获得【磐龙】、随机友军+30/+30"
+            }
+        ]
+    },
+    {
+        "id": 537,
+        "name": "符文·原力冲击",
+        "zhenyin": 6,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_yuanlichongji.jpg",
+        "grade": "[1]",
+        "tag": "[]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军+15/+15"
+            }
+        ]
+    },
+    {
+        "id": 538,
         "name": "荒野赞颂人",
         "zhenyin": 6,
         "quality": 2,
@@ -60393,7 +66174,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 492,
+        "id": 539,
         "name": "原野狂战士",
         "zhenyin": 6,
         "quality": 2,
@@ -60516,7 +66297,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 493,
+        "id": 540,
         "name": "巨兽猎户",
         "zhenyin": 6,
         "quality": 2,
@@ -60639,7 +66420,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 494,
+        "id": 541,
         "name": "生命源力",
         "zhenyin": 6,
         "quality": 2,
@@ -60762,7 +66543,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 495,
+        "id": 542,
         "name": "强行捕猎",
         "zhenyin": 6,
         "quality": 2,
@@ -60885,7 +66666,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 496,
+        "id": 543,
         "name": "旷野蛮族",
         "zhenyin": 6,
         "quality": 2,
@@ -61008,7 +66789,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 497,
+        "id": 544,
         "name": "复仇噬人花",
         "zhenyin": 6,
         "quality": 2,
@@ -61131,7 +66912,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 498,
+        "id": 545,
         "name": "雪原野人",
         "zhenyin": 6,
         "quality": 2,
@@ -61254,7 +67035,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 499,
+        "id": 546,
+        "name": "符文·河马足迹",
+        "zhenyin": 6,
+        "quality": 2,
+        "cost": 4,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_hemazuji.jpg",
+        "grade": "[3]",
+        "tag": "[3,12]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤30/80厚皮河马-lv22、回合开始：随机迟缓友军+5/+5，50%几率失去【迟缓】"
+            }
+        ]
+    },
+    {
+        "id": 547,
         "name": "鼓舞图腾",
         "zhenyin": 6,
         "quality": 2,
@@ -61377,7 +67281,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 500,
+        "id": 548,
         "name": "迷茫巨人",
         "zhenyin": 6,
         "quality": 2,
@@ -61500,7 +67404,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 501,
+        "id": 549,
         "name": "迟钝巨汉",
         "zhenyin": 6,
         "quality": 2,
@@ -61623,7 +67527,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 502,
+        "id": 550,
+        "name": "符文·野性守护",
+        "zhenyin": 6,
+        "quality": 2,
+        "cost": 5,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_yexingshouhu.jpg",
+        "grade": "[1]",
+        "tag": "[24,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：消灭敌方随机符文（等级<=25）、回合开始：召唤24/6草原狼-lv22"
+            }
+        ]
+    },
+    {
+        "id": 551,
         "name": "疯狂祭师",
         "zhenyin": 6,
         "quality": 3,
@@ -61746,7 +67773,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 503,
+        "id": 552,
         "name": "无畏猎户",
         "zhenyin": 6,
         "quality": 3,
@@ -61869,7 +67896,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 504,
+        "id": 553,
         "name": "血蜥头领",
         "zhenyin": 6,
         "quality": 3,
@@ -61992,7 +68019,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 505,
+        "id": 554,
         "name": "暴怒野人",
         "zhenyin": 6,
         "quality": 3,
@@ -62115,7 +68142,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 506,
+        "id": 555,
         "name": "诱敌草人",
         "zhenyin": 6,
         "quality": 3,
@@ -62238,7 +68265,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 507,
+        "id": 556,
         "name": "雪原狼女",
         "zhenyin": 6,
         "quality": 3,
@@ -62361,7 +68388,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 508,
+        "id": 557,
         "name": "狼月祭师",
         "zhenyin": 6,
         "quality": 3,
@@ -62484,7 +68511,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 509,
+        "id": 558,
         "name": "荒原智者",
         "zhenyin": 6,
         "quality": 3,
@@ -62607,7 +68634,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 510,
+        "id": 559,
         "name": "地洞巨獾",
         "zhenyin": 6,
         "quality": 3,
@@ -62730,7 +68757,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 511,
+        "id": 560,
         "name": "肥鼠晚宴",
         "zhenyin": 6,
         "quality": 3,
@@ -62853,7 +68880,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 512,
+        "id": 561,
         "name": "活力仙人掌",
         "zhenyin": 6,
         "quality": 3,
@@ -62976,7 +69003,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 513,
+        "id": 562,
         "name": "圣兽祭师",
         "zhenyin": 6,
         "quality": 3,
@@ -63099,7 +69126,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 514,
+        "id": 563,
         "name": "高原保卫战",
         "zhenyin": 6,
         "quality": 3,
@@ -63222,7 +69249,376 @@ export const gradeData = [
         ]
     },
     {
-        "id": 515,
+        "id": 564,
+        "name": "符文·穿山魔灵",
+        "zhenyin": 6,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_chuanshanmoling.jpg",
+        "grade": "[2]",
+        "tag": "[1,2]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤30/30蛮石穿山甲-lv22、英雄获得生命时：随机友军攻击+8，护甲+3"
+            }
+        ]
+    },
+    {
+        "id": 565,
+        "name": "符文·噬人花田",
+        "zhenyin": 6,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_shirenhuatian.jpg",
+        "grade": "[1]",
+        "tag": "[]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤0/100噬人花-lv22、回合开始：随机友军+15/-1"
+            }
+        ]
+    },
+    {
+        "id": 566,
+        "name": "符文·源力之石",
+        "zhenyin": 6,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_yuanlizhishi.jpg",
+        "grade": "[2]",
+        "tag": "[23]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+13/+13"
+            }
+        ]
+    },
+    {
+        "id": 567,
         "name": "象牙少女",
         "zhenyin": 6,
         "quality": 3,
@@ -63345,7 +69741,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 516,
+        "id": 568,
         "name": "源力祭师",
         "zhenyin": 6,
         "quality": 3,
@@ -63468,7 +69864,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 517,
+        "id": 569,
         "name": "饥蛮巨汉",
         "zhenyin": 6,
         "quality": 3,
@@ -63591,7 +69987,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 518,
+        "id": 570,
         "name": "飞斧狂人",
         "zhenyin": 6,
         "quality": 3,
@@ -63714,7 +70110,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 519,
+        "id": 571,
         "name": "霜矛骑士",
         "zhenyin": 6,
         "quality": 3,
@@ -63837,7 +70233,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 520,
+        "id": 572,
         "name": "愤怒狂战士",
         "zhenyin": 6,
         "quality": 3,
@@ -63960,7 +70356,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 521,
+        "id": 573,
         "name": "牛角图腾",
         "zhenyin": 6,
         "quality": 3,
@@ -64083,7 +70479,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 522,
+        "id": 574,
         "name": "贪婪雪怪",
         "zhenyin": 6,
         "quality": 3,
@@ -64206,7 +70602,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 523,
+        "id": 575,
         "name": "石斧头领",
         "zhenyin": 6,
         "quality": 3,
@@ -64329,7 +70725,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 524,
+        "id": 576,
         "name": "飞斧女豪",
         "zhenyin": 6,
         "quality": 3,
@@ -64452,7 +70848,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 525,
+        "id": 577,
         "name": "坚毅大祭司",
         "zhenyin": 6,
         "quality": 3,
@@ -64575,7 +70971,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 526,
+        "id": 578,
         "name": "荒原牛头怪",
         "zhenyin": 6,
         "quality": 3,
@@ -64698,7 +71094,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 527,
+        "id": 579,
         "name": "杂斑野猪王",
         "zhenyin": 6,
         "quality": 3,
@@ -64821,7 +71217,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 528,
+        "id": 580,
         "name": "大嘴酋长",
         "zhenyin": 6,
         "quality": 3,
@@ -64944,7 +71340,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 529,
+        "id": 581,
         "name": "源力苏醒",
         "zhenyin": 6,
         "quality": 3,
@@ -65067,7 +71463,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 530,
+        "id": 582,
         "name": "驼岩长老",
         "zhenyin": 6,
         "quality": 3,
@@ -65190,7 +71586,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 531,
+        "id": 583,
+        "name": "符文·猛犸之歌",
+        "zhenyin": 6,
+        "quality": 3,
+        "cost": 6,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_mengmazhige.jpg",
+        "grade": "[3]",
+        "tag": "[24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤33/55长毛象-lv19"
+            }
+        ]
+    },
+    {
+        "id": 584,
         "name": "蛮石独眼巨人",
         "zhenyin": 6,
         "quality": 3,
@@ -65313,7 +71832,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 532,
+        "id": 585,
         "name": "旷野的呼唤",
         "zhenyin": 6,
         "quality": 3,
@@ -65436,7 +71955,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 533,
+        "id": 586,
         "name": "贪食白龙",
         "zhenyin": 6,
         "quality": 3,
@@ -65559,7 +72078,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 534,
+        "id": 587,
         "name": "呼伴猎食兽",
         "zhenyin": 6,
         "quality": 3,
@@ -65682,7 +72201,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 535,
+        "id": 588,
         "name": "传记·野蛮花园",
         "zhenyin": 6,
         "quality": 3,
@@ -65805,7 +72324,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 536,
+        "id": 589,
         "name": "传记·伤痛记忆",
         "zhenyin": 6,
         "quality": 3,
@@ -65928,7 +72447,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 537,
+        "id": 590,
         "name": "鸵鸟王·霍利",
         "zhenyin": 6,
         "quality": 4,
@@ -66051,7 +72570,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 538,
+        "id": 591,
         "name": "旷野游侠·大羽",
         "zhenyin": 6,
         "quality": 4,
@@ -66174,7 +72693,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 539,
+        "id": 592,
         "name": "比尔&比利",
         "zhenyin": 6,
         "quality": 4,
@@ -66297,7 +72816,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 540,
+        "id": 593,
+        "name": "符文·石破天惊",
+        "zhenyin": 6,
+        "quality": 4,
+        "cost": 4,
+        "type": 4,
+        "img": "/manshikuangye/fuwen_shipotianjing.jpg",
+        "grade": "[7]",
+        "tag": "[3,5,14,21,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤42/42原野狂战士-lv20，它获得【神佑】1回合、回合开始：随机践踏友军+3/+3，获得【磐龙】，然后获得【连击】1回合"
+            }
+        ]
+    },
+    {
+        "id": 594,
         "name": "血饮烈斧·凯",
         "zhenyin": 6,
         "quality": 4,
@@ -66420,7 +73062,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 541,
+        "id": 595,
         "name": "热血战歌！",
         "zhenyin": 6,
         "quality": 4,
@@ -66543,7 +73185,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 542,
+        "id": 596,
         "name": "蛮古撼地兽",
         "zhenyin": 6,
         "quality": 4,
@@ -66666,7 +73308,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 543,
+        "id": 597,
         "name": "原野大祭师·鲁玛",
         "zhenyin": 6,
         "quality": 4,
@@ -66789,7 +73431,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 544,
+        "id": 598,
         "name": "荒原暴君·血眼",
         "zhenyin": 6,
         "quality": 4,
@@ -66912,7 +73554,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 545,
+        "id": 599,
         "name": "炎阳巨龙",
         "zhenyin": 6,
         "quality": 4,
@@ -67035,7 +73677,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 546,
+        "id": 600,
         "name": "骸骨战士",
         "zhenyin": 7,
         "quality": 1,
@@ -67158,7 +73800,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 547,
+        "id": 601,
         "name": "冻尸",
         "zhenyin": 7,
         "quality": 1,
@@ -67281,7 +73923,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 548,
+        "id": 602,
         "name": "荒芜藤蔓",
         "zhenyin": 7,
         "quality": 1,
@@ -67404,7 +74046,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 549,
+        "id": 603,
         "name": "骷髅射手",
         "zhenyin": 7,
         "quality": 1,
@@ -67527,7 +74169,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 550,
+        "id": 604,
         "name": "尸嵌",
         "zhenyin": 7,
         "quality": 1,
@@ -67650,7 +74292,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 551,
+        "id": 605,
         "name": "复生邪骨",
         "zhenyin": 7,
         "quality": 1,
@@ -67773,7 +74415,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 552,
+        "id": 606,
         "name": "骷髅犬",
         "zhenyin": 7,
         "quality": 2,
@@ -67896,7 +74538,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 553,
+        "id": 607,
         "name": "冰原匍尸",
         "zhenyin": 7,
         "quality": 2,
@@ -68019,7 +74661,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 554,
+        "id": 608,
         "name": "战场遗迹",
         "zhenyin": 7,
         "quality": 2,
@@ -68142,7 +74784,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 555,
+        "id": 609,
         "name": "转化仪式",
         "zhenyin": 7,
         "quality": 2,
@@ -68265,7 +74907,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 556,
+        "id": 610,
         "name": "骨爆",
         "zhenyin": 7,
         "quality": 2,
@@ -68388,7 +75030,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 557,
+        "id": 611,
         "name": "复生尸骸",
         "zhenyin": 7,
         "quality": 2,
@@ -68511,7 +75153,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 558,
+        "id": 612,
         "name": "冬神狂信者",
         "zhenyin": 7,
         "quality": 2,
@@ -68634,7 +75276,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 559,
+        "id": 613,
         "name": "噬魂骨妖",
         "zhenyin": 7,
         "quality": 2,
@@ -68757,7 +75399,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 560,
+        "id": 614,
         "name": "寒铁军士",
         "zhenyin": 7,
         "quality": 2,
@@ -68880,7 +75522,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 561,
+        "id": 615,
         "name": "瘟疫冰虫",
         "zhenyin": 7,
         "quality": 2,
@@ -69003,7 +75645,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 562,
+        "id": 616,
         "name": "寒冰魔墙",
         "zhenyin": 7,
         "quality": 2,
@@ -69126,7 +75768,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 563,
+        "id": 617,
         "name": "寒冬将至",
         "zhenyin": 7,
         "quality": 2,
@@ -69249,7 +75891,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 564,
+        "id": 618,
         "name": "骨墙",
         "zhenyin": 7,
         "quality": 2,
@@ -69372,7 +76014,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 565,
+        "id": 619,
         "name": "阴冷墓穴",
         "zhenyin": 7,
         "quality": 2,
@@ -69495,7 +76137,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 566,
+        "id": 620,
         "name": "寒风草人",
         "zhenyin": 7,
         "quality": 2,
@@ -69618,7 +76260,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 567,
+        "id": 621,
         "name": "召唤阵·骷髅犬",
         "zhenyin": 7,
         "quality": 2,
@@ -69741,7 +76383,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 568,
+        "id": 622,
+        "name": "符文·无尽折磨",
+        "zhenyin": 7,
+        "quality": 2,
+        "cost": 2,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_wujinzhemo.jpg",
+        "grade": "[5]",
+        "tag": "[19]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "每当1个友军死亡：随机敌军-11/-11，无敌军则敌方英雄生命-11"
+            }
+        ]
+    },
+    {
+        "id": 623,
         "name": "严冬苦行僧",
         "zhenyin": 7,
         "quality": 2,
@@ -69864,7 +76629,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 569,
+        "id": 624,
         "name": "寒冰祭师",
         "zhenyin": 7,
         "quality": 2,
@@ -69987,7 +76752,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 570,
+        "id": 625,
         "name": "极地狂信者",
         "zhenyin": 7,
         "quality": 2,
@@ -70110,7 +76875,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 571,
+        "id": 626,
         "name": "神庙祭师",
         "zhenyin": 7,
         "quality": 2,
@@ -70233,7 +76998,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 572,
+        "id": 627,
         "name": "使徒征召",
         "zhenyin": 7,
         "quality": 2,
@@ -70356,7 +77121,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 573,
+        "id": 628,
         "name": "灵魂抽取",
         "zhenyin": 7,
         "quality": 2,
@@ -70479,7 +77244,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 574,
+        "id": 629,
         "name": "神庙魔像",
         "zhenyin": 7,
         "quality": 2,
@@ -70602,7 +77367,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 575,
+        "id": 630,
         "name": "盾甲骷髅妖",
         "zhenyin": 7,
         "quality": 2,
@@ -70725,7 +77490,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 576,
+        "id": 631,
         "name": "绝望之地",
         "zhenyin": 7,
         "quality": 2,
@@ -70738,117 +77503,117 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-1并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-2并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-3并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-4并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-5并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-6并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-7并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-9并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-11并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-11"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-13并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-13"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-15并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-15"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-17并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-17"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-19并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-19"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-22并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-22"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-25并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-25"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-28并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-28"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-31并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-31"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-35并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-35"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-40并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-40"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-45并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-45"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-50并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-50"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "荒芜一个敌方区域，随机敌军攻击-55并获得沉默"
+                "effect": "荒芜一个敌方区域，沉默一个未被沉默的敌军，他的攻击-55"
             }
         ]
     },
     {
-        "id": 577,
+        "id": 632,
         "name": "无声变异",
         "zhenyin": 7,
         "quality": 2,
@@ -70971,7 +77736,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 578,
+        "id": 633,
         "name": "白骨咒",
         "zhenyin": 7,
         "quality": 2,
@@ -71094,7 +77859,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 579,
+        "id": 634,
+        "name": "冷酷献祭",
+        "zhenyin": 7,
+        "quality": 2,
+        "cost": 3,
+        "type": 2,
+        "img": "/dongshenshitu/lengkuxianji.jpg",
+        "grade": "[5]",
+        "tag": "[26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "牺牲目标友军：随机敌军-35/-35，消灭敌方随机符文（等级<=25）"
+            }
+        ]
+    },
+    {
+        "id": 635,
+        "name": "符文·冰冷进击",
+        "zhenyin": 7,
+        "quality": 2,
+        "cost": 3,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_binglengjinji.jpg",
+        "grade": "[5]",
+        "tag": "[13]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军+14/+14，失去【守军】"
+            }
+        ]
+    },
+    {
+        "id": 636,
         "name": "死寒猎手",
         "zhenyin": 7,
         "quality": 2,
@@ -71217,7 +78228,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 580,
+        "id": 637,
         "name": "骸骨前线",
         "zhenyin": 7,
         "quality": 2,
@@ -71340,7 +78351,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 581,
+        "id": 638,
         "name": "蛮骨法师",
         "zhenyin": 7,
         "quality": 2,
@@ -71463,7 +78474,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 582,
+        "id": 639,
+        "name": "符文·寒灵禁锢",
+        "zhenyin": 7,
+        "quality": 2,
+        "cost": 4,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_hanlingjingu.jpg",
+        "grade": "[3]",
+        "tag": "[2,11,19,22]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "敌方法力-1、登场：召唤32/32尸嵌-lv20，冰封1个敌方区域"
+            }
+        ]
+    },
+    {
+        "id": 640,
         "name": "冰原咆哮者",
         "zhenyin": 7,
         "quality": 2,
@@ -71586,7 +78720,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 583,
+        "id": 641,
         "name": "不眠雪鸦",
         "zhenyin": 7,
         "quality": 2,
@@ -71709,7 +78843,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 584,
+        "id": 642,
         "name": "雪隐寺秘典",
         "zhenyin": 7,
         "quality": 2,
@@ -71832,7 +78966,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 585,
+        "id": 643,
         "name": "传记·雪域猎踪",
         "zhenyin": 7,
         "quality": 2,
@@ -71955,7 +79089,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 586,
+        "id": 644,
         "name": "传记·猛兽哮谷",
         "zhenyin": 7,
         "quality": 2,
@@ -72078,7 +79212,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 587,
+        "id": 645,
         "name": "凛冬邪咒师",
         "zhenyin": 7,
         "quality": 3,
@@ -72201,7 +79335,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 588,
+        "id": 646,
         "name": "冬夜使者",
         "zhenyin": 7,
         "quality": 3,
@@ -72324,7 +79458,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 589,
+        "id": 647,
         "name": "墓园缝合师",
         "zhenyin": 7,
         "quality": 3,
@@ -72447,7 +79581,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 590,
+        "id": 648,
         "name": "寒彻骨",
         "zhenyin": 7,
         "quality": 3,
@@ -72570,7 +79704,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 591,
+        "id": 649,
+        "name": "符文·天寒地冻",
+        "zhenyin": 7,
+        "quality": 3,
+        "cost": 2,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_tianhandidong.jpg",
+        "grade": "[5]",
+        "tag": "[11,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "冰封效果提升5倍(回合结束-6/-6或+6/+6)、回合开始：随机敌军-11/-11，冰封脚下"
+            }
+        ]
+    },
+    {
+        "id": 650,
         "name": "残破神庙",
         "zhenyin": 7,
         "quality": 3,
@@ -72693,7 +79950,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 592,
+        "id": 651,
         "name": "极地神庙",
         "zhenyin": 7,
         "quality": 3,
@@ -72816,7 +80073,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 593,
+        "id": 652,
         "name": "王座神庙",
         "zhenyin": 7,
         "quality": 3,
@@ -72939,7 +80196,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 594,
+        "id": 653,
         "name": "可怖刺髓者",
         "zhenyin": 7,
         "quality": 3,
@@ -73062,7 +80319,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 595,
+        "id": 654,
         "name": "寒盲刀客",
         "zhenyin": 7,
         "quality": 3,
@@ -73185,7 +80442,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 596,
+        "id": 655,
         "name": "极夜阴魂",
         "zhenyin": 7,
         "quality": 3,
@@ -73308,7 +80565,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 597,
+        "id": 656,
         "name": "寒冰骨墙",
         "zhenyin": 7,
         "quality": 3,
@@ -73431,7 +80688,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 598,
+        "id": 657,
         "name": "冬夜特使",
         "zhenyin": 7,
         "quality": 3,
@@ -73554,7 +80811,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 599,
+        "id": 658,
         "name": "索命幽魂",
         "zhenyin": 7,
         "quality": 3,
@@ -73677,7 +80934,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 600,
+        "id": 659,
         "name": "苦痛双生",
         "zhenyin": 7,
         "quality": 3,
@@ -73800,7 +81057,253 @@ export const gradeData = [
         ]
     },
     {
-        "id": 601,
+        "id": 660,
+        "name": "符文·灵魂收割",
+        "zhenyin": 7,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_linghunshouge.jpg",
+        "grade": "[2]",
+        "tag": "[19,21]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场:召唤30/45噬魂骨妖-lv22、每当1个敌军死亡：随机友军攻击+7，魔防+7"
+            }
+        ]
+    },
+    {
+        "id": 661,
+        "name": "符文·武装大军",
+        "zhenyin": 7,
+        "quality": 3,
+        "cost": 3,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_wuzhuangdajun.jpg",
+        "grade": "[5]",
+        "tag": "[1,24]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤28/1骸骨战士-lv20，全体友军护甲+2"
+            }
+        ]
+    },
+    {
+        "id": 662,
         "name": "冬幕骑士",
         "zhenyin": 7,
         "quality": 3,
@@ -73923,7 +81426,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 602,
+        "id": 663,
         "name": "冷酷冲车",
         "zhenyin": 7,
         "quality": 3,
@@ -74046,7 +81549,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 603,
+        "id": 664,
         "name": "冷血召唤师",
         "zhenyin": 7,
         "quality": 3,
@@ -74169,7 +81672,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 604,
+        "id": 665,
         "name": "极地冰封者",
         "zhenyin": 7,
         "quality": 3,
@@ -74292,7 +81795,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 605,
+        "id": 666,
         "name": "不朽霜剑士",
         "zhenyin": 7,
         "quality": 3,
@@ -74415,7 +81918,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 606,
+        "id": 667,
         "name": "转化使徒",
         "zhenyin": 7,
         "quality": 3,
@@ -74538,7 +82041,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 607,
+        "id": 668,
         "name": "雪隐长老灵",
         "zhenyin": 7,
         "quality": 3,
@@ -74661,7 +82164,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 608,
+        "id": 669,
         "name": "冰峰甲虫",
         "zhenyin": 7,
         "quality": 3,
@@ -74784,7 +82287,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 609,
+        "id": 670,
         "name": "邪恶化身",
         "zhenyin": 7,
         "quality": 3,
@@ -74907,7 +82410,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 610,
+        "id": 671,
         "name": "永夜巫妖",
         "zhenyin": 7,
         "quality": 3,
@@ -75030,7 +82533,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 611,
+        "id": 672,
         "name": "严冬修行",
         "zhenyin": 7,
         "quality": 3,
@@ -75153,7 +82656,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 612,
+        "id": 673,
+        "name": "符文·秘传冰镜",
+        "zhenyin": 7,
+        "quality": 3,
+        "cost": 4,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_michuanbingjing.jpg",
+        "grade": "[5]",
+        "tag": "[4,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+20/+20，获得【传承6】、友军受到传承时：随机敌军-15/-15，无视神佑"
+            }
+        ]
+    },
+    {
+        "id": 674,
         "name": "冬幕斗士",
         "zhenyin": 7,
         "quality": 3,
@@ -75276,7 +82902,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 613,
+        "id": 675,
         "name": "骸骨督军",
         "zhenyin": 7,
         "quality": 3,
@@ -75399,7 +83025,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 614,
+        "id": 676,
         "name": "冬神呼啸",
         "zhenyin": 7,
         "quality": 3,
@@ -75522,7 +83148,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 615,
+        "id": 677,
         "name": "咒杀酷吏",
         "zhenyin": 7,
         "quality": 3,
@@ -75645,7 +83271,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 616,
+        "id": 678,
         "name": "深山雪怪",
         "zhenyin": 7,
         "quality": 3,
@@ -75768,7 +83394,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 617,
+        "id": 679,
         "name": "冰魔像",
         "zhenyin": 7,
         "quality": 3,
@@ -75891,7 +83517,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 618,
+        "id": 680,
         "name": "使徒君王",
         "zhenyin": 7,
         "quality": 3,
@@ -76014,7 +83640,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 619,
+        "id": 681,
         "name": "冰吼兽",
         "zhenyin": 7,
         "quality": 3,
@@ -76137,7 +83763,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 620,
+        "id": 682,
         "name": "冰河世纪",
         "zhenyin": 7,
         "quality": 3,
@@ -76260,7 +83886,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 621,
+        "id": 683,
         "name": "冰疫兽",
         "zhenyin": 7,
         "quality": 3,
@@ -76383,7 +84009,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 622,
+        "id": 684,
         "name": "冬神邪使",
         "zhenyin": 7,
         "quality": 3,
@@ -76506,7 +84132,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 623,
+        "id": 685,
         "name": "冰龙",
         "zhenyin": 7,
         "quality": 3,
@@ -76629,7 +84255,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 624,
+        "id": 686,
         "name": "冰原攻城兽",
         "zhenyin": 7,
         "quality": 3,
@@ -76752,7 +84378,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 625,
+        "id": 687,
         "name": "传记·荒芜之地",
         "zhenyin": 7,
         "quality": 3,
@@ -76875,11 +84501,11 @@ export const gradeData = [
         ]
     },
     {
-        "id": 626,
+        "id": 688,
         "name": "传记·荒芜之师",
         "zhenyin": 7,
         "quality": 3,
-        "cost": 5,
+        "cost": 4,
         "type": 3,
         "img": "/dongshenshitu/zhuanji_huangwuzhishi.jpg",
         "grade": "[5]",
@@ -76998,7 +84624,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 627,
+        "id": 689,
         "name": "寒风血刃",
         "zhenyin": 7,
         "quality": 4,
@@ -77121,7 +84747,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 628,
+        "id": 690,
         "name": "荒芜冰巫·野",
         "zhenyin": 7,
         "quality": 4,
@@ -77244,7 +84870,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 629,
+        "id": 691,
         "name": "不息之灵",
         "zhenyin": 7,
         "quality": 4,
@@ -77367,7 +84993,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 630,
+        "id": 692,
         "name": "冰野荒芜计划",
         "zhenyin": 7,
         "quality": 4,
@@ -77490,7 +85116,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 631,
+        "id": 693,
         "name": "寒风魔将·塞古斯",
         "zhenyin": 7,
         "quality": 4,
@@ -77613,7 +85239,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 632,
+        "id": 694,
         "name": "永夜女王",
         "zhenyin": 7,
         "quality": 4,
@@ -77736,7 +85362,130 @@ export const gradeData = [
         ]
     },
     {
-        "id": 633,
+        "id": 695,
+        "name": "符文·冰原丧钟",
+        "zhenyin": 7,
+        "quality": 4,
+        "cost": 5,
+        "type": 4,
+        "img": "/dongshenshitu/fuwen_bingyuansangzhong.jpg",
+        "grade": "[6]",
+        "tag": "[11,24,26]",
+        "data": [
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "/"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌军攻击-15，它50%几率本回合不能攻击、回合结束：召唤39/39冰原咆哮者-lv19（上限3次）"
+            }
+        ]
+    },
+    {
+        "id": 696,
         "name": "王座巫妖",
         "zhenyin": 7,
         "quality": 4,
@@ -77859,7 +85608,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 634,
+        "id": 697,
         "name": "冬神化身",
         "zhenyin": 7,
         "quality": 4,
@@ -77982,7 +85731,7 @@ export const gradeData = [
         ]
     },
     {
-        "id": 635,
+        "id": 698,
         "name": "冰山·亚特拉斯",
         "zhenyin": 7,
         "quality": 4,
