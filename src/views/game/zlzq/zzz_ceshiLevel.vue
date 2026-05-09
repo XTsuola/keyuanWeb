@@ -70,34 +70,34 @@
                 <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">蓝卡等级：</div><span style="width: 60px;">{{ blueCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">紫卡等级：</div><span style="width: 60px;">{{ purpleCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">橙卡等级：</div><span style="width: 60px;">{{ orangeCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">平均等级：</div><span style="width: 60px;">{{ allCard.toFixed(2)
-                        }} 级</span>
+                            }} 级</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">蓝卡占比：</div><span style="width: 60px;">{{ ((blueList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ blueList.length }}张）</span>
+                            }}%</span><span>（{{ blueList.length }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">紫卡占比：</div><span style="width: 60px;">{{ ((purpleList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ purpleList.length }}张）</span>
+                            }}%</span><span>（{{ purpleList.length }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 80px;">橙卡占比：</div><span style="width: 60px;">{{ ((goldList.length / 30) *
                             100).toFixed(2)
-                        }}%</span><span>（{{ goldList.length }}张）</span>
+                            }}%</span><span>（{{ goldList.length }}张）</span>
                     </div>
                 </div>
             </div>
@@ -152,74 +152,51 @@
                 <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">SS级：</div><span style="width: 50px;">{{ ((ss / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ ss }}张）</span>
+                        }}%</span><span>（{{ ss }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">S级：</div><span style="width: 50px;">{{ ((s / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ s }}张）</span>
+                        }}%</span><span>（{{ s }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">A+级：</div><span style="width: 50px;">{{ ((aa / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ aa }}张）</span>
+                        }}%</span><span>（{{ aa }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">A级：</div><span style="width: 50px;">{{ ((a / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ a }}张）</span>
+                        }}%</span><span>（{{ a }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">B级：</div><span style="width: 50px;">{{ ((b / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ b }}张）</span>
+                        }}%</span><span>（{{ b }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">C级：</div><span style="width: 50px;">{{ ((c / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ c }}张）</span>
+                        }}%</span><span>（{{ c }}张）</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 60px;">D级：</div><span style="width: 50px;">{{ ((d / 30) * 100).toFixed(2)
-                            }}%</span><span>（{{ d }}张）</span>
+                        }}%</span><span>（{{ d }}张）</span>
                     </div>
                 </div>
             </div>
 
         </div>
-        <h3>（最终战力：卡牌战力+187万裸体战力+双橙色神器500w战力+金卡皮肤战力）</h3>
-        <h3>当前战力：{{ (687 + goldList.length * 2 + nowLevel.zhanli / 10000).toFixed(2) }}</h3>
+        <h3>（最终战力：卡牌战力+英雄战力（默认全满）+金神器战力+皮肤（默认5星）战力）</h3>
+        <h3>武器：{{ getShenqiZhanli(ceshiData.shenqiList).wuqi }}</h3>
+        <h3>宝物：{{ getShenqiZhanli(ceshiData.shenqiList).baowu }}</h3>
+        <h3>当前战力：{{ (187 + getShenqiZhanli(ceshiData.shenqiList).zhanli + goldList.length * 2 + nowLevel.zhanli /
+            10000).toFixed(2) }}</h3>
         <h3>最终战力：{{ (687 + goldList.length * 2 + to22Level.zhanli / 10000).toFixed(2) }}</h3>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
-import { blueObj, purpleObj, goldObj } from "@/utils/global";
+import { blueObj, purpleObj, goldObj, blueShenqiList, purpleShenqiList, goldShenqiList } from "@/utils/global";
 import { gradeData } from "./dataAll/cardData";
 import { heroData } from "./dataAll/heroData";
 import { ceshiData } from "./zzzz_ceshiData";
-
-
-// const list:any = [{
-//     "帝国":10
-// },{
-//     "隐秘":9
-// },{
-//     "禅意":10
-// },{
-//     "港口":11
-// },{
-//     "炼狱":8
-// },{
-//     "蛮石":15
-// },{
-//     "冬神":9
-// }]
-
-// console.log("帝：", ((list[0]["帝国"] / 72) * 100).toFixed(2) + "%");
-// console.log("书：", ((list[1]["隐秘"] / 72) * 100).toFixed(2) + "%");
-// console.log("叶：", ((list[2]["禅意"] / 72) * 100).toFixed(2) + "%");
-// console.log("港：", ((list[3]["港口"] / 72) * 100).toFixed(2) + "%");
-// console.log("火：", ((list[4]["炼狱"] / 72) * 100).toFixed(2) + "%");
-// console.log("蛮：", ((list[5]["蛮石"] / 72) * 100).toFixed(2) + "%");
-// console.log("冰：", ((list[6]["冬神"] / 72) * 100).toFixed(2) + "%");
-
 
 let huang = 0.00213;
 let hong = 0.01093;
@@ -333,6 +310,36 @@ async function getList() {
     to22Level.huangshitou = (blueList.length * blueObj[21].cailiao[0]) + (purpleList.length * purpleObj[21].cailiao[0]) + (goldList.length * goldObj[21].cailiao[0]);
     to22Level.zuanshi = (blueList.length * blueObj[21].zuanshi) + (purpleList.length * purpleObj[21].zuanshi) + (goldList.length * goldObj[21].zuanshi);
     to22Level.zhanli = (blueList.length * blueObj[21].zhanli) + (purpleList.length * purpleObj[21].zhanli) + (goldList.length * goldObj[21].zhanli);
+}
+
+function getShenqiZhanli(list: number[]) {
+    let wuqi = 0, baowu = 0;
+    let wuqiInfo = "", baowuInfo = "";
+    if (list[0] == 1) {
+        wuqiInfo = "蓝色";
+        wuqi = blueShenqiList[list[1] - 1].value;
+    } else if (list[0] == 2) {
+        wuqiInfo = "紫色";
+        wuqi = purpleShenqiList[list[1] - 1].value;
+    } else if (list[0] == 3) {
+        wuqiInfo = "橙色";
+        wuqi = goldShenqiList[list[1] - 1].value;
+    }
+    if (list[2] == 1) {
+        baowuInfo = "蓝色";
+        baowu = blueShenqiList[list[3] - 1].value;
+    } else if (list[2] == 2) {
+        baowuInfo = "紫色";
+        baowu = purpleShenqiList[list[3] - 1].value;
+    } else if (list[2] == 3) {
+        baowuInfo = "橙色";
+        baowu = goldShenqiList[list[3] - 1].value;
+    }
+    return {
+        zhanli: Math.floor(((wuqi + baowu) / 10000)),
+        wuqi: wuqiInfo + list[1] + "星",
+        baowu: baowuInfo + list[3] + "星",
+    }
 }
 
 onMounted(() => {
