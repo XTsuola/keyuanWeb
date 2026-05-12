@@ -183,11 +183,13 @@
 
         </div>
         <h3>（最终战力：卡牌战力+英雄战力（默认全满）+金神器战力+皮肤（默认5星）战力）</h3>
-        <h3>武器：{{ getShenqiZhanli(ceshiData.shenqiList).wuqi }}</h3>
-        <h3>宝物：{{ getShenqiZhanli(ceshiData.shenqiList).baowu }}</h3>
-        <h3>当前战力：{{ (187 + getShenqiZhanli(ceshiData.shenqiList).zhanli + goldList.length * 2 + nowLevel.zhanli /
-            10000).toFixed(2) }}</h3>
-        <h3>最终战力：{{ (687 + goldList.length * 2 + to22Level.zhanli / 10000).toFixed(2) }}</h3>
+        <h3>英雄满级战力：187万</h3>
+        <h3>卡牌战力（包含皮肤）：{{ ((nowLevel.zhanli) / 10000 + goldList.length * 2).toFixed(2) }}万</h3>
+        <h3>武器：{{ zhanliObj.wuqi }} （战力：{{ zhanliObj.zhanliWuqi }}万）</h3>
+        <h3>宝物：{{ zhanliObj.baowu }} （战力：{{ zhanliObj.zhanliBaowu }}万）</h3>
+        <h3>当前战力：{{ (187 + zhanliObj.zhanliWuqi + zhanliObj.zhanliBaowu + goldList.length * 2 + nowLevel.zhanli /
+            10000).toFixed(2) }}万</h3>
+        <h3>最终战力：{{ (687 + goldList.length * 2 + to22Level.zhanli / 10000).toFixed(2) }}万</h3>
     </div>
 </template>
 
@@ -267,6 +269,12 @@ const blueCard = ref(0);
 const purpleCard = ref(0);
 const orangeCard = ref(0);
 const allCard = ref(0);
+const zhanliObj = ref<any>({
+    zhanliwuqi: 0,
+    zhanlibaowu: 0,
+    wuqi: "",
+    baowu: ""
+});
 
 async function getList() {
     let blueLevel = 0, purpleLevel = 0, goldLevel = 0;
@@ -336,11 +344,15 @@ function getShenqiZhanli(list: number[]) {
         baowu = goldShenqiList[list[3] - 1].value;
     }
     return {
-        zhanli: Math.floor(((wuqi + baowu) / 10000)),
+        zhanliWuqi: Math.floor((wuqi / 10000)),
+        zhanliBaowu: Math.floor((baowu / 10000)),
         wuqi: wuqiInfo + list[1] + "星",
         baowu: baowuInfo + list[3] + "星",
     }
 }
+
+zhanliObj.value = getShenqiZhanli(ceshiData.shenqiList);
+console.log(zhanliObj.value, "ppp")
 
 onMounted(() => {
     getList();

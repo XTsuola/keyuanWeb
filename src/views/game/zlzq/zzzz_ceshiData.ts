@@ -31,7 +31,7 @@ interface CeshiDataType {
 //     ]
 // }
 
-/* export const ceshiData: CeshiDataType = {
+export const ceshiData: CeshiDataType = {
     name: "企鹅",
     hero: {
         id: 38,
@@ -51,9 +51,9 @@ interface CeshiDataType {
         22, 22, 22, 22, 16, 15, 20, 21, 21, 18,
         20, 18, 18, 20, 22, 18, 22, 22, 13, 21,
     ]
-} */
+}
 
-export const ceshiData: CeshiDataType = {
+/* export const ceshiData: CeshiDataType = {
     name: "焦点",
     hero: {
         id: 6,
@@ -73,7 +73,7 @@ export const ceshiData: CeshiDataType = {
         16, 22, 18, 18, 19, 16, 20, 15, 18, 17,
         17, 20, 18, 18, 19, 17, 16, 19, 16, 20,
     ]
-}
+} */
 
 // export const ceshiData: CeshiDataType = {
 //     name: "大核桃",
