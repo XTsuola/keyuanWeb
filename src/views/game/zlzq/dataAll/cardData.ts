@@ -1,4 +1,4 @@
-export const gradeData = [
+[
     {
         "id": 1,
         "name": "小镇民兵",
@@ -8002,7 +8002,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/simangdiguo/fuwen_shengtanghudun.jpg",
-        "grade": "[5]",
+        "grade": "[3]",
         "tag": "[1,24]",
         "data": [
             {
@@ -79219,7 +79219,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/dongyeshizhe.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,3,22]",
         "data": [
             {
@@ -85853,4 +85853,4 @@ export const gradeData = [
             }
         ]
     }
-];
+]
