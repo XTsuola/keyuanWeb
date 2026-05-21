@@ -1,4 +1,4 @@
-[
+export const gradeData = [
     {
         "id": 1,
         "name": "小镇民兵",
