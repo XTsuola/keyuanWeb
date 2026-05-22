@@ -3328,7 +3328,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/simangdiguo/zengyuanzhanxian.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,24]",
         "data": [
             {
@@ -52775,7 +52775,7 @@ export const gradeData = [
         "type": 1,
         "img": "/lianyushenyuan/xinghongyongshi.jpg",
         "grade": "[3]",
-        "tag": "[3]",
+        "tag": "[3,19]",
         "data": [
             {
                 "attack": 4,
@@ -57202,7 +57202,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/lianyushenyuan/poluanerchu.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,19,24]",
         "data": [
             {
@@ -57325,7 +57325,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_zhimingjiake.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,5,19]",
         "data": [
             {
@@ -69256,7 +69256,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/manshikuangye/fuwen_shirenhuatian.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[]",
         "data": [
             {
@@ -72824,7 +72824,7 @@ export const gradeData = [
         "type": 4,
         "img": "/manshikuangye/fuwen_shipotianjing.jpg",
         "grade": "[5]",
-        "tag": "[3,5,14,21,26]",
+        "tag": "[3,5,21,26]",
         "data": [
             {
                 "attack": 0,
@@ -79588,7 +79588,7 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/dongshenshitu/fuwen_tianhandidong.jpg",
-        "grade": "[5]",
+        "grade": "[6]",
         "tag": "[11,26]",
         "data": [
             {
