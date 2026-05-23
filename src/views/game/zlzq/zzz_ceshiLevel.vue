@@ -350,9 +350,7 @@ function getShenqiZhanli(list: number[]) {
         baowu: baowuInfo + list[3] + "星",
     }
 }
-
 zhanliObj.value = getShenqiZhanli(ceshiData.shenqiList);
-console.log(zhanliObj.value, "ppp")
 
 onMounted(() => {
     getList();

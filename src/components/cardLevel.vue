@@ -275,7 +275,6 @@ async function getList() {
     countBaishitou.value = countHeishitou.value = countZuanshi.value = 0;
     let allData: any = [];
     for (let i = 0; i < prop.cardData.length; i++) {
-        // console.log(prop.cardData[i], "111");
         const zhenyin = prop.cardData[i].value;
         for (let j = 0; j < prop.cardData[i].data.length; j++) {
             for (let k = 0; k < prop.cardData[i].data[j].length; k++) {
@@ -284,13 +283,8 @@ async function getList() {
                     zhenyin: zhenyin,
                     quality: j + 1
                 });
-                console.log(allData, "888")
             }
         }
-        // prop.cardData[i].data.forEach((item: any) => item.zhenyin = prop.cardData[i].value);
-        // console.log(...prop.cardData[i].data[0], "ppp")
-        // allData = [...allData, ...prop.cardData[i].data[0], ...prop.cardData[i][1], ...prop.cardData[2]];
-        // allData.push(...prop.cardData[i].data[0], ...prop.cardData[i][1], ...prop.cardData[2]);
     }
     if (formState.name) {
         allData = allData.filter((item: any) => item.name.includes(formState.name));
