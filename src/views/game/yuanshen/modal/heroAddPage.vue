@@ -37,6 +37,15 @@
                     <a-select-option value="冰">冰</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="武器" name="weaponType" :rules="[{ required: true, message: '请输选择武器类型!' }]">
+                <a-select v-model:value="addData.weaponType">
+                    <a-select-option value="单手剑">单手剑</a-select-option>
+                    <a-select-option value="双手剑">双手剑</a-select-option>
+                    <a-select-option value="弓">弓</a-select-option>
+                    <a-select-option value="长柄武器">长柄武器</a-select-option>
+                    <a-select-option value="法器">法器</a-select-option>
+                </a-select>
+            </a-form-item>
             <a-form-item label="属地" name="country" :rules="[{ required: true, message: '请输选择属地!' }]">
                 <a-select v-model:value="addData.country">
                     <a-select-option value="蒙德">蒙德</a-select-option>
@@ -49,15 +58,6 @@
                     <a-select-option value="至冬">至冬</a-select-option>
                     <a-select-option value="魔女会">魔女会</a-select-option>
                     <a-select-option value="异世界">异世界</a-select-option>
-                </a-select>
-            </a-form-item>
-            <a-form-item label="武器" name="weaponType" :rules="[{ required: true, message: '请输选择武器类型!' }]">
-                <a-select v-model:value="addData.weaponType">
-                    <a-select-option value="单手剑">单手剑</a-select-option>
-                    <a-select-option value="双手剑">双手剑</a-select-option>
-                    <a-select-option value="弓">弓</a-select-option>
-                    <a-select-option value="长柄武器">长柄武器</a-select-option>
-                    <a-select-option value="法器">法器</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item label="命座" name="constellation" :rules="[{ required: true, message: '请输入命之座!' }]">

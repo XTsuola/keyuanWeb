@@ -76,6 +76,13 @@ const columns = ref<any>([
         width: 60
     },
     {
+        title: "头像",
+        dataIndex: "headImg",
+        key: "headImg",
+        width: 50,
+        scopedSlots: { customRender: "pic" }
+    },
+    {
         title: "名称",
         dataIndex: "name",
         key: "name",
@@ -190,6 +197,7 @@ async function getList() {
             const birthday = getBirthday(data[i].birthday);
             data[i].birthdayName = birthday.name;
             data[i].starConstellation = birthday.star;
+            data[i].headImg = import.meta.env.VITE_APP_BASE_URL + "yuanshen/touxiang/" + data[i].name + ".png";
         }
         tableData.value = data;
         total.value = res.data.total;
