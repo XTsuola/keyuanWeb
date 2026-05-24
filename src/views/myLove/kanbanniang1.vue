@@ -56,7 +56,7 @@ const loadFBXModel = () => {
       scene.add(directionalLight)
     },
     (xhr) => {
-      console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+      // console.log((xhr.loaded / xhr.total * 100) + '% loaded')
     },
     (error) => {
       console.error('An error happened', error)

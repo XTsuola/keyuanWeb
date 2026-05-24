@@ -109,7 +109,8 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   label: "我的卡等",
                   icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/zlzq/cardList/zz_myCard/index.vue"),
+                component: () =>
+                  import("@/views/game/zlzq/cardList/zz_myCard/index.vue"),
               },
               ...friendRouter,
               {
@@ -130,7 +131,30 @@ const newRouterDate: Array<RouteRecordRaw> = [
                   label: "提升曲线",
                   icon: "UnorderedListOutlined",
                 },
-                component: () => import("@/views/game/zlzq/zzz_xy_bikebiao.vue"),
+                component: () =>
+                  import("@/views/game/zlzq/zzz_xy_bikebiao.vue"),
+              },
+            ],
+          },
+          {
+            path: "yuanshen",
+            meta: {
+              menuType: "folder",
+              key: "yuanshen",
+              icon: "UnorderedListOutlined",
+              label: "原神",
+            },
+            component: BlankLayout,
+            children: [
+              {
+                path: "yuanshenHeroList",
+                meta: {
+                  menuType: "menu",
+                  key: "yuanshenHeroList",
+                  label: "英雄列表",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/yuanshen/heroList.vue"),
               },
             ],
           },
@@ -369,7 +393,7 @@ const newRouterDate: Array<RouteRecordRaw> = [
               isLevel: [1, 3],
             },
             component: () => import("@/views/myLove/myCanvas.vue"),
-          }
+          },
         ],
       },
     ],
