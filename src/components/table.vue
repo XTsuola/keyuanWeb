@@ -9,7 +9,7 @@
                     <span v-else>{{ record.id }}</span>
                 </template>
                 <span v-if="column.key === 'headImg'" slot="pic">
-                    <img style="width: 50px;height: 50px;" :src="record.headImg" />
+                    <img style="width: 40px;height: 40px;" :src="record.headImg" />
                 </span>
                 <template v-if="column.key === 'name'">
                     <a>{{ record.name }}</a>
