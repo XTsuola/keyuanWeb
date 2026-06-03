@@ -10,7 +10,7 @@
                 <a-input v-model:value="formState.name" placeholder="请输入名称" />
             </a-form-item>
             <a-form-item label="性别" style="width: 200px">
-                <a-select v-model:value="formState.genter" placeholder="请选择性别">
+                <a-select v-model:value="formState.gender" placeholder="请选择性别">
                     <a-select-option :value="1">男</a-select-option>
                     <a-select-option :value="0">女</a-select-option>
                 </a-select>
@@ -97,7 +97,7 @@ import MyTabel from "@/components/table.vue";
 const addParams = reactive<AddHeroParams>({
     id: undefined,
     name: "",
-    genter: undefined,
+    gender: undefined,
     figure: undefined,
     star: undefined,
     country: undefined,
@@ -122,7 +122,7 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 const visible = ref<boolean>(false);
 const formState = reactive<any>({
     name: undefined,
-    genter: undefined,
+    gender: undefined,
     star: undefined,
     element: undefined,
     weaponType: undefined,
@@ -151,8 +151,8 @@ const columns = ref<any>([
     },
     {
         title: "性别",
-        dataIndex: "genter",
-        key: "genter",
+        dataIndex: "gender",
+        key: "gender",
         width: 60,
         customRender: (opt: any) => opt.value == 1 ? "男" : "女",
     },
@@ -222,6 +222,7 @@ const columns = ref<any>([
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
 const type = ref<AddType>("add");
+
 function getBirthday(birthday: string) {
     const [left, right] = birthday.split('-')
     const month = parseInt(left);
@@ -258,7 +259,7 @@ async function getList() {
             const birthday = getBirthday(data[i].birthday);
             data[i].birthdayName = birthday.name;
             data[i].starConstellation = birthday.star;
-            data[i].headImg = import.meta.env.VITE_APP_BASE_URL + "yuanshen/touxiang/" + data[i].name + ".png";
+            data[i].headImg = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + data[i].name + ".png";
         }
         tableData.value = data;
         total.value = res.data.total;
@@ -290,7 +291,7 @@ function changePage(page: number, size: number) {
 }
 
 function reset() {
-    formState.name = formState.genter = formState.star = formState.element = formState.weaponType = formState.country = formState.figure = undefined;
+    formState.name = formState.gender = formState.star = formState.element = formState.weaponType = formState.country = formState.figure = undefined;
     selectList();
 }
 
@@ -298,38 +299,14 @@ function showModal(showType: AddType, item?: AddHeroParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改英雄";
-        if (item) {
-            addParams.name = item.name;
-            addParams.genter = item.genter;
-            addParams.figure = item.figure;
-            addParams.star = item.star;
-            addParams.country = item.country;
-            addParams.element = item.element;
-            addParams.weaponType = item.weaponType;
-            addParams.constellation = item.constellation;
-            addParams.birthday = item.birthday;
-            addParams.remark = item.remark;
-            addParams.id = item.id;
-        }
+        if (item) Object.assign(addParams, item);
     } else if (showType === "add") {
         title.value = "添加英雄";
-        addParams.id = addParams.genter = addParams.figure = addParams.star = addParams.country = addParams.element = addParams.weaponType = undefined;
+        addParams.id = addParams.gender = addParams.figure = addParams.star = addParams.country = addParams.element = addParams.weaponType = undefined;
         addParams.name = addParams.constellation = addParams.birthday = addParams.remark = "";
     } else if (showType == "detail") {
         title.value = "查看详情";
-        if (item) {
-            addParams.name = item.name;
-            addParams.genter = item.genter;
-            addParams.figure = item.figure;
-            addParams.star = item.star;
-            addParams.country = item.country;
-            addParams.element = item.element;
-            addParams.weaponType = item.weaponType;
-            addParams.constellation = item.constellation;
-            addParams.birthday = item.birthday;
-            addParams.remark = item.remark;
-            addParams.remark = item.remark;
-        }
+        if (item) Object.assign(addParams, item);
     }
     visible.value = true;
 }
