@@ -14,12 +14,6 @@
                     <a-select-option :value="1">一星</a-select-option>
                 </a-select>
             </a-form-item>
-            <a-form-item label="攻击" name="attack" :rules="[{ required: true, message: '请输入武器攻击!' }]">
-                <a-input v-model:value="addData.attack" :disabled="prop.type === 'detail'"></a-input>
-            </a-form-item>
-            <a-form-item label="加成" name="buff" :rules="[{ required: true, message: '请输入武器加成!' }]">
-                <a-input v-model:value="addData.buff" :disabled="prop.type === 'detail'"></a-input>
-            </a-form-item>
             <a-form-item label="类型" name="weaponType" :rules="[{ required: true, message: '请输选择武器类型!' }]">
                 <a-select v-model:value="addData.weaponType" :disabled="prop.type === 'detail'">
                     <a-select-option value="单手剑">单手剑</a-select-option>
@@ -29,12 +23,19 @@
                     <a-select-option value="法器">法器</a-select-option>
                 </a-select>
             </a-form-item>
+            <a-form-item label="攻击" name="attack" :rules="[{ required: true, message: '请输入武器攻击!' }]">
+                <a-input v-model:value="addData.attack" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
+            <a-form-item label="加成" name="buff" :rules="[{ required: true, message: '请输入武器加成!' }]">
+                <a-input v-model:value="addData.buff" :disabled="prop.type === 'detail'"></a-input>
+            </a-form-item>
             <a-form-item label="标签">
                 <a-checkbox-group v-model:value="addData.tag" name="checkboxgroup" :options="tabList"
                     :disabled="prop.type === 'detail'" />
             </a-form-item>
             <a-form-item label="技能" name="info" :rules="[{ required: true, message: '请输入技能!' }]">
-                <a-textarea v-model:value="addData.info" :disabled="prop.type === 'detail'"></a-textarea>
+                <a-textarea style="height: 100px;" v-model:value="addData.info"
+                    :disabled="prop.type === 'detail'"></a-textarea>
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>

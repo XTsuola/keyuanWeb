@@ -140,12 +140,12 @@ const columns = ref<any>([
         key: "buff",
         width: 120
     },
-    {
+    /* {
         title: "技能",
         dataIndex: "info",
         key: "info",
         width: 180
-    },
+    }, */
     {
         title: "标签",
         dataIndex: "tag",
