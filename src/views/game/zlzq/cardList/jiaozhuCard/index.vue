@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { simangdiguo, manshikuangye, yinmizhe } from "./card";
+import { simangdiguo, manshikuangye, dongshenshitu, yinmizhe } from "./card";
 import CardLevel from "@/components/cardLevel.vue";
 
 const data = [{
@@ -14,6 +14,10 @@ const data = [{
     name: "蛮石旷野",
     value: 4,
     data: manshikuangye
+}, {
+    name: "冬神使徒",
+    value: 6,
+    data: dongshenshitu
 }, {
     name: "隐秘者",
     value: 7,

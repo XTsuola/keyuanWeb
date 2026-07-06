@@ -8,7 +8,7 @@
 import { simangdiguo, chanyigu, manshikuangye, yinmizhe } from "./card";
 import CardLevel from "@/components/cardLevel.vue";
 
-const data = [{
+/* const data = [{
     name: "四芒帝国",
     value: 1,
     data: simangdiguo
@@ -24,7 +24,21 @@ const data = [{
     name: "隐秘者",
     value: 7,
     data: yinmizhe
-}]
+}]; */
+
+const data = [{
+    name: "四芒帝国",
+    value: 1,
+    data: simangdiguo
+}, {
+    name: "蛮石旷野",
+    value: 4,
+    data: manshikuangye
+}, {
+    name: "隐秘者",
+    value: 7,
+    data: yinmizhe
+}];
 
 </script>
 
