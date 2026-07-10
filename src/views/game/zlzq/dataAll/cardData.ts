@@ -1852,7 +1852,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/simangdiguo/xuanmushenguang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,26]",
         "data": [
             {
@@ -2959,7 +2959,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/shengdiannushou.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[9,26]",
         "data": [
             {
@@ -3328,7 +3328,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/simangdiguo/zengyuanzhanxian.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,24]",
         "data": [
             {
@@ -3574,7 +3574,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/talougongshou.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,6]",
         "data": [
             {
@@ -3820,7 +3820,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/tianyuanshouwangzhe.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,3]",
         "data": [
             {
@@ -6157,7 +6157,7 @@ export const gradeData = [
         "cost": 1,
         "type": 1,
         "img": "/simangdiguo/simangjunqi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[13,15,21]",
         "data": [
             {
@@ -6280,7 +6280,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/simangdiguo/shengdianyuwei.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,24]",
         "data": [
             {
@@ -6772,14 +6772,9 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/simangdiguo/fuwen_minbingjijie.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[24]",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：召唤1/1小镇民兵-lv1（3费）"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -6804,11 +6799,6 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "回合开始：召唤3/3小镇民兵-lv5"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：召唤3/4小镇民兵-lv6"
             },
             {
                 "attack": 0,
@@ -6884,6 +6874,16 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "回合开始：召唤18/18小镇民兵-lv21"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤19/19小镇民兵-lv22"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤20/20小镇民兵-lv23"
             }
         ]
     },
@@ -6895,7 +6895,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/simangdiguo/fuwen_xinnianweikai.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1]",
         "data": [
             {
@@ -6946,17 +6946,7 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机友军生命+9，护甲+2"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "回合开始：随机友军生命+10，护甲+2"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：随机友军生命+11，护甲+2"
             },
             {
                 "attack": 0,
@@ -7001,12 +6991,22 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机友军生命+24，护甲+4"
+                "effect": "回合开始：随机友军生命+24，护甲+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机友军生命+25，护甲+5"
+                "effect": "回合开始：随机友军生命+26，护甲+5"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军生命+28，护甲+5"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机友军生命+30，护甲+6"
             }
         ]
     },
@@ -7018,7 +7018,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/shengdianqishi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,2,9]",
         "data": [
             {
@@ -7141,7 +7141,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/baipaozhujiao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "",
         "data": [
             {
@@ -8008,16 +8008,6 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/4圣堂门卫-lv1（上限3次）"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：召唤1/5圣堂门卫-lv2（上限3次）"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "回合开始：召唤1/5圣堂门卫-lv2（上限3次），随机护甲友军攻击+1"
             },
             {
@@ -8038,12 +8028,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/10圣堂门卫-lv5（上限3次），随机护甲友军攻击+2"
+                "effect": "回合开始：召唤1/12圣堂门卫-lv6（上限3次），随机护甲友军攻击+1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/12圣堂门卫-lv6（上限3次），随机护甲友军攻击+2"
+                "effect": "回合开始：召唤1/14圣堂门卫-lv7（上限3次），随机护甲友军攻击+1"
             },
             {
                 "attack": 0,
@@ -8053,12 +8043,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/14圣堂门卫-lv7（上限3次），随机护甲友军攻击+3"
+                "effect": "回合开始：召唤1/16圣堂门卫-lv8（上限3次），随机护甲友军攻击+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/16圣堂门卫-lv8（上限3次），随机护甲友军攻击+3"
+                "effect": "回合开始：召唤1/18圣堂门卫-lv9（上限3次），随机护甲友军攻击+2"
             },
             {
                 "attack": 0,
@@ -8073,12 +8063,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/20圣堂门卫-lv10（上限3次），随机护甲友军攻击+4"
+                "effect": "回合开始：召唤1/21圣堂门卫-lv11（上限3次），随机护甲友军攻击+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/21圣堂门卫-lv11（上限3次），随机护甲友军攻击+4"
+                "effect": "回合开始：召唤1/25圣堂门卫-lv12（上限3次），随机护甲友军攻击+3"
             },
             {
                 "attack": 0,
@@ -8093,12 +8083,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/30圣堂门卫-lv13（上限3次），随机护甲友军攻击+5"
+                "effect": "回合开始：召唤1/35圣堂门卫-lv14（上限3次），随机护甲友军攻击+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤1/35圣堂门卫-lv14（上限3次），随机护甲友军攻击+5"
+                "effect": "回合开始：召唤1/40圣堂门卫-lv15（上限3次），随机护甲友军攻击+4"
             },
             {
                 "attack": 0,
@@ -8113,7 +8103,17 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤2/40圣堂门卫-lv16（上限3次），随机护甲友军攻击+6"
+                "effect": "回合开始：召唤1/45圣堂门卫-lv17（上限3次），随机护甲友军攻击+5"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤2/50圣堂门卫-lv18（上限3次），随机护甲友军攻击+5"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤2/56圣堂门卫-lv19（上限3次），随机护甲友军攻击+6"
             }
         ]
     },
@@ -8740,7 +8740,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/simangdiguo/zhaojihuwei.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,3,8,24]",
         "data": [
             {
@@ -9109,7 +9109,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/simangdiguo/fuwen_tianshiyinji.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[2,21]",
         "data": [
             {
@@ -9160,67 +9160,67 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+16、英雄恢复生命时：随机友军+5/+6，魔防+3"
+                "effect": "登场：英雄生命+16、英雄恢复生命时：随机友军+6/+6，魔防+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+18、英雄恢复生命时：随机友军+6/+6，魔防+3"
+                "effect": "登场：英雄生命+18、英雄恢复生命时：随机友军+7/+7，魔防+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+20、英雄恢复生命时：随机友军+6/+7，魔防+4"
+                "effect": "登场：英雄生命+20、英雄恢复生命时：随机友军+8/+8，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+22、英雄恢复生命时：随机友军+7/+7，魔防+4"
+                "effect": "登场：英雄生命+22、英雄恢复生命时：随机友军+9/+9，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+24、英雄恢复生命时：随机友军+7/+8，魔防+4"
+                "effect": "登场：英雄生命+24、英雄恢复生命时：随机友军+10/+10，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+26、英雄恢复生命时：随机友军+8/+8，魔防+4"
+                "effect": "登场：英雄生命+26、英雄恢复生命时：随机友军+11/+11，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+28、英雄恢复生命时：随机友军+8/+9，魔防+5"
+                "effect": "登场：英雄生命+28、英雄恢复生命时：随机友军+12/+12，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+30、英雄恢复生命时：随机友军+9/+9，魔防+5"
+                "effect": "登场：英雄生命+30、英雄恢复生命时：随机友军+13/+13，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+32、英雄恢复生命时：随机友军+10/+10，魔防+5"
+                "effect": "登场：英雄生命+32、英雄恢复生命时：随机友军+14/+14，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+34、英雄恢复生命时：随机友军+11/+11，魔防+6"
+                "effect": "登场：英雄生命+34、英雄恢复生命时：随机友军+15/+15，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+36、英雄恢复生命时：随机友军+12/+12，魔防+6"
+                "effect": "登场：英雄生命+36、英雄恢复生命时：随机友军+16/+16，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+38、英雄恢复生命时：随机友军+13/+13，魔防+6"
+                "effect": "登场：英雄生命+38、英雄恢复生命时：随机友军+17/+17，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：英雄生命+40、英雄恢复生命时：随机友军+14/+14，魔防+7"
+                "effect": "登场：英雄生命+40、英雄恢复生命时：随机友军+18/+18，魔防+8"
             }
         ]
     },
@@ -9478,7 +9478,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/simangdiguo/shengguangzhujiao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2]",
         "data": [
             {
@@ -10585,7 +10585,7 @@ export const gradeData = [
         "cost": 1,
         "type": 3,
         "img": "/simangdiguo/zhuanji_gangtieshouwei.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,24]",
         "data": [
             {
@@ -10708,7 +10708,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/simangdiguo/zhuanji_gangtiezange.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,16,24]",
         "data": [
             {
@@ -10831,7 +10831,7 @@ export const gradeData = [
         "cost": 4,
         "type": 3,
         "img": "/simangdiguo/zhuanji_gangtieyizhi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,14]",
         "data": [
             {
@@ -10954,7 +10954,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/shuguang_annabeier.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,3,21]",
         "data": [
             {
@@ -11077,7 +11077,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/shengqiang_kaluolin.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,2,3,14,21]",
         "data": [
             {
@@ -11200,7 +11200,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/mingrizhiyin_luna.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,3,21,26]",
         "data": [
             {
@@ -11323,7 +11323,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/simangdiguo/fuwen_huihuangzanmeishi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,21]",
         "data": [
             {
@@ -11369,72 +11369,72 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+30、回合开始：全体友军本回合攻击+8，护甲+3，魔防+3"
+                "effect": "登场：全体友军本回合魔防+30、回合开始：全体友军本回合攻击+8，护甲+4，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+30、回合开始：全体友军本回合攻击+9，护甲+3，魔防+3"
+                "effect": "登场：全体友军本回合魔防+30、回合开始：全体友军本回合攻击+9，护甲+5，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+40、回合开始：全体友军本回合攻击+9，护甲+4，魔防+4"
+                "effect": "登场：全体友军本回合魔防+40、回合开始：全体友军本回合攻击+9，护甲+5，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+40、回合开始：全体友军本回合攻击+10，护甲+4，魔防+4"
+                "effect": "登场：全体友军本回合魔防+40、回合开始：全体友军本回合攻击+10，护甲+6，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+55、回合开始：全体友军本回合攻击+10，护甲+5，魔防+5"
+                "effect": "登场：全体友军本回合魔防+55、回合开始：全体友军本回合攻击+11，护甲+6，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+55、回合开始：全体友军本回合攻击+11，护甲+5，魔防+5"
+                "effect": "登场：全体友军本回合魔防+55、回合开始：全体友军本回合攻击+12，护甲+7，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+70、回合开始：全体友军本回合攻击+11，护甲+6，魔防+6"
+                "effect": "登场：全体友军本回合魔防+70、回合开始：全体友军本回合攻击+13，护甲+7，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+70、回合开始：全体友军本回合攻击+12，护甲+6，魔防+6"
+                "effect": "登场：全体友军本回合魔防+70、回合开始：全体友军本回合攻击+14，护甲+8，魔防+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+85、回合开始：全体友军本回合攻击+12，护甲+7，魔防+7"
+                "effect": "登场：全体友军本回合魔防+85、回合开始：全体友军本回合攻击+15，护甲+8，魔防+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+85、回合开始：全体友军本回合攻击+13，护甲+7，魔防+7"
+                "effect": "登场：全体友军本回合魔防+85、回合开始：全体友军本回合攻击+16，护甲+9，魔防+9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+13，护甲+8，魔防+8"
+                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+17，护甲+9，魔防+9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+14，护甲+8，魔防+8"
+                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+18，护甲+10，魔防+10"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+15，护甲+9，魔防+9"
+                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+19，护甲+11，魔防+11"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+16，护甲+10，魔防+10"
+                "effect": "登场：全体友军本回合魔防+100、回合开始：全体友军本回合攻击+20，护甲+12，魔防+12"
             }
         ]
     },
@@ -11446,7 +11446,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/simangdiguo/diguojunhun_laihate.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,5,8,9,14]",
         "data": [
             {
@@ -11569,8 +11569,8 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/simangdiguo/zhengyangdazhujiao_yien.jpg",
-        "grade": "[5]",
-        "tag": "[2,3,26]",
+        "grade": "[4]",
+        "tag": "[2,3,20,26]",
         "data": [
             {
                 "attack": 2,
@@ -11815,7 +11815,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/simangdiguo/xuanmutianshi_leina.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,2,20,26]",
         "data": [
             {
@@ -11938,7 +11938,7 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/simangdiguo/gangtietongshuai_leimengde.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,8,18]",
         "data": [
             {
@@ -14152,7 +14152,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/yinmizhe/chenzhongfouding.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[20]",
         "data": [
             {
@@ -15013,7 +15013,7 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/yinmizhe/fuwen_jingmojinjun.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[20]",
         "data": [
             {
@@ -18211,7 +18211,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/yinmizhe/pomoxijiaoshou.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,20]",
         "data": [
             {
@@ -18334,7 +18334,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/yinmizhe/kelongshu.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,3,26]",
         "data": [
             {
@@ -18703,23 +18703,13 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/yinmizhe/fuwen_fumochangqiang.jpg",
-        "grade": "[5]",
+        "grade": "[3]",
         "tag": "[2,6]",
         "data": [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+1/+1，获得【回命】、回合开始：3个先攻友军攻击+1，持续1回合"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：随机先攻友军+1/+2，获得【回命】、回合开始：3个先攻友军攻击+1，持续1回合"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：随机先攻友军+2/+2，获得【回命】、回合开始：3个先攻友军攻击+1，持续1回合"
+                "effect": "登场：随机先攻友军+1/+1，获得【回命】、回合开始：3个先攻友军攻击+2，持续1回合"
             },
             {
                 "attack": 0,
@@ -18729,92 +18719,102 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+3/+3，获得【回命】、回合开始：3个先攻友军攻击+2，持续1回合"
+                "effect": "登场：随机先攻友军+2/+2，获得【回命】、回合开始：3个先攻友军攻击+3，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+4/+4，获得【回命】、回合开始：3个先攻友军攻击+2，持续1回合"
+                "effect": "登场：随机先攻友军+3/+3，获得【回命】、回合开始：3个先攻友军攻击+3，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+4/+4，获得【回命】、回合开始：3个先攻友军攻击+3，持续1回合"
+                "effect": "登场：随机先攻友军+3/+3，获得【回命】、回合开始：3个先攻友军攻击+4，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+5/+5，获得【回命】、回合开始：3个先攻友军攻击+3，持续1回合"
+                "effect": "登场：随机先攻友军+4/+4，获得【回命】、回合开始：3个先攻友军攻击+4，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+6/+6，获得【回命】、回合开始：3个先攻友军攻击+3，持续1回合"
+                "effect": "登场：随机先攻友军+4/+4，获得【回命】、回合开始：3个先攻友军攻击+5，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+6/+6，获得【回命】、回合开始：3个先攻友军攻击+4，持续1回合"
+                "effect": "登场：随机先攻友军+5/+5，获得【回命】、回合开始：3个先攻友军攻击+5，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+7/+7，获得【回命】、回合开始：3个先攻友军攻击+4，持续1回合"
+                "effect": "登场：随机先攻友军+6/+6，获得【回命】、回合开始：3个先攻友军攻击+5，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+7/+7，获得【回命】、回合开始：3个先攻友军攻击+5，持续1回合"
+                "effect": "登场：随机先攻友军+6/+6，获得【回命】、回合开始：3个先攻友军攻击+6，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+8/+8，获得【回命】、回合开始：3个先攻友军攻击+5，持续1回合"
+                "effect": "登场：随机先攻友军+7/+7，获得【回命】、回合开始：3个先攻友军攻击+6，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+8/+8，获得【回命】、回合开始：3个先攻友军攻击+6，持续1回合"
+                "effect": "登场：随机先攻友军+7/+7，获得【回命】、回合开始：3个先攻友军攻击+7，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+9/+9，获得【回命】、回合开始：3个先攻友军攻击+6，持续1回合"
+                "effect": "登场：随机先攻友军+8/+8，获得【回命】、回合开始：3个先攻友军攻击+7，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+9/+9，获得【回命】、回合开始：3个先攻友军攻击+7，持续1回合"
+                "effect": "登场：随机先攻友军+8/+8，获得【回命】、回合开始：3个先攻友军攻击+8，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+10/+10，获得【回命】、回合开始：3个先攻友军攻击+7，持续1回合"
+                "effect": "登场：随机先攻友军+9/+9，获得【回命】、回合开始：3个先攻友军攻击+8，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+10/+10，获得【回命】、回合开始：3个先攻友军攻击+8，持续1回合"
+                "effect": "登场：随机先攻友军+9/+9，获得【回命】、回合开始：3个先攻友军攻击+9，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+11/+11，获得【回命】、回合开始：3个先攻友军攻击+8，持续1回合"
+                "effect": "登场：随机先攻友军+10/+10，获得【回命】、回合开始：3个先攻友军攻击+9，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+11/+11，获得【回命】、回合开始：3个先攻友军攻击+9，持续1回合"
+                "effect": "登场：随机先攻友军+10/+10，获得【回命】、回合开始：3个先攻友军攻击+10，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+12/+12，获得【回命】、回合开始：3个先攻友军攻击+9，持续1回合"
+                "effect": "登场：随机先攻友军+11/+11，获得【回命】、回合开始：3个先攻友军攻击+10，持续1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机先攻友军+12/+12，获得【回命】、回合开始：3个先攻友军攻击+10，持续1回合"
+                "effect": "登场：随机先攻友军+11/+11，获得【回命】、回合开始：3个先攻友军攻击+11，持续1回合"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机先攻友军+12/+12，获得【回命】、回合开始：3个先攻友军攻击+12，持续1回合"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机先攻友军+13/+13，获得【回命】、回合开始：3个先攻友军攻击+13，持续1回合"
             }
         ]
     },
@@ -19318,7 +19318,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/yinmizhe/xuepu_maichongxing.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,26]",
         "data": [
             {
@@ -19687,7 +19687,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/yinmizhe/lingnengjihua.jpg",
-        "grade": "[3,22]",
+        "grade": "[3]",
         "tag": "[24,26]",
         "data": [
             {
@@ -19810,118 +19810,118 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/yinmizhe/fuwen_leihuohexin.jpg",
-        "grade": "[4]",
-        "tag": "[23]",
+        "grade": "[3]",
+        "tag": "[3,23]",
         "data": [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤1/3雷火工组-lv1"
+                "effect": "【洞察1】、法力上限+1、登场：召唤1/3雷火工组-lv1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤2/3雷火工组-lv2"
+                "effect": "【洞察1】、法力上限+1、登场：召唤2/3雷火工组-lv2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤2/4雷火工组-lv3"
+                "effect": "【洞察1】、法力上限+1、登场：召唤2/4雷火工组-lv3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤3/4雷火工组-lv4"
+                "effect": "【洞察1】、法力上限+1、登场：召唤3/4雷火工组-lv4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤3/6雷火工组-lv5"
+                "effect": "【洞察1】、法力上限+1、登场：召唤3/6雷火工组-lv5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤4/7雷火工组-lv6"
+                "effect": "【洞察1】、法力上限+1、登场：召唤4/7雷火工组-lv6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤4/9雷火工组-lv7"
+                "effect": "【洞察1】、法力上限+1、登场：召唤4/9雷火工组-lv7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤5/10雷火工组-lv8"
+                "effect": "【洞察1】、法力上限+1、登场：召唤5/10雷火工组-lv8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤5/12雷火工组-lv9"
+                "effect": "【洞察1】、法力上限+1、登场：召唤5/12雷火工组-lv9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤6/14雷火工组-lv10"
+                "effect": "【洞察1】、法力上限+1、登场：召唤6/14雷火工组-lv10"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤7/16雷火工组-lv11"
+                "effect": "【洞察1】、法力上限+1、登场：召唤7/16雷火工组-lv11"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤8/18雷火工组-lv12"
+                "effect": "【洞察1】、法力上限+1、登场：召唤8/18雷火工组-lv12"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤9/21雷火工组-lv13"
+                "effect": "【洞察1】、法力上限+1、登场：召唤9/21雷火工组-lv13"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤10/22雷火工组-lv14"
+                "effect": "【洞察1】、法力上限+1、登场：召唤10/22雷火工组-lv14"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤11/25雷火工组-lv15"
+                "effect": "【洞察1】、法力上限+1、登场：召唤11/25雷火工组-lv15"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤13/26雷火工组-lv16"
+                "effect": "【洞察1】、法力上限+1、登场：召唤13/26雷火工组-lv16"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤15/28雷火工组-lv17"
+                "effect": "【洞察1】、法力上限+1、登场：召唤15/28雷火工组-lv17"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤16/30雷火工组-lv18"
+                "effect": "【洞察1】、法力上限+1、登场：召唤16/30雷火工组-lv18"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤18/34雷火工组-lv19"
+                "effect": "【洞察1】、法力上限+1、登场：召唤18/34雷火工组-lv19"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤20/38雷火工组-lv20"
+                "effect": "【洞察1】、法力上限+1、登场：召唤20/38雷火工组-lv20"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤22/40雷火工组-lv21"
+                "effect": "【洞察1】、法力上限+1、登场：召唤22/40雷火工组-lv21"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、登场：召唤25/45雷火工组-lv22"
+                "effect": "【洞察1】、法力上限+1、登场：召唤25/45雷火工组-lv22"
             }
         ]
     },
@@ -19933,118 +19933,118 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/yinmizhe/fuwen_xieyuezhiye.jpg",
-        "grade": "[3]",
-        "tag": "[3,24]",
+        "grade": "[4]",
+        "tag": "[2,3,24]",
         "data": [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤1/1邪月蝙蝠-lv1"
+                "effect": "登场：获得《洞悉之眼》-lv1、回合开始：召唤1/1邪月蝙蝠-lv1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤2/1邪月蝙蝠-lv2"
+                "effect": "登场：获得《洞悉之眼》-lv2、回合开始：召唤2/1邪月蝙蝠-lv2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤3/1邪月蝙蝠-lv3"
+                "effect": "登场：获得《洞悉之眼》-lv3、回合开始：召唤3/1邪月蝙蝠-lv3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤4/2邪月蝙蝠-lv4"
+                "effect": "登场：获得《洞悉之眼》-lv4、回合开始：召唤4/2邪月蝙蝠-lv4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤5/2邪月蝙蝠-lv5"
+                "effect": "登场：获得《洞悉之眼》-lv5、回合开始：召唤5/2邪月蝙蝠-lv5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤6/2邪月蝙蝠-lv6"
+                "effect": "登场：获得《洞悉之眼》-lv6、回合开始：召唤6/2邪月蝙蝠-lv6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤7/3邪月蝙蝠-lv7"
+                "effect": "登场：获得《洞悉之眼》-lv7、回合开始：召唤7/3邪月蝙蝠-lv7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召8/3邪月蝙蝠-lv8"
+                "effect": "登场：获得《洞悉之眼》-lv8、回合开始：召8/3邪月蝙蝠-lv8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤9/3邪月蝙蝠-lv9"
+                "effect": "登场：获得《洞悉之眼》-lv9、回合开始：召唤9/3邪月蝙蝠-lv9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤10/4邪月蝙蝠-lv10"
+                "effect": "登场：获得《洞悉之眼》-lv10、回合开始：召唤10/4邪月蝙蝠-lv10"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤11/4邪月蝙蝠-lv11"
+                "effect": "登场：获得《洞悉之眼》-lv11、回合开始：召唤11/4邪月蝙蝠-lv11"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤12/4邪月蝙蝠-lv12"
+                "effect": "登场：获得《洞悉之眼》-lv12、回合开始：召唤12/4邪月蝙蝠-lv12"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤13/4邪月蝙蝠-lv13"
+                "effect": "登场：获得《洞悉之眼》-lv13、回合开始：召唤13/4邪月蝙蝠-lv13"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤14/4邪月蝙蝠-lv14"
+                "effect": "登场：获得《洞悉之眼》-lv14、回合开始：召唤14/4邪月蝙蝠-lv14"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤16/5邪月蝙蝠-lv15"
+                "effect": "登场：获得《洞悉之眼》-lv15、回合开始：召唤16/5邪月蝙蝠-lv15"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤18/6邪月蝙蝠-lv16"
+                "effect": "登场：获得《洞悉之眼》-lv16、回合开始：召唤18/6邪月蝙蝠-lv16"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤20/7邪月蝙蝠-lv17"
+                "effect": "登场：获得《洞悉之眼》-lv17、回合开始：召唤20/7邪月蝙蝠-lv17"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤22/8邪月蝙蝠-lv18"
+                "effect": "登场：获得《洞悉之眼》-lv18、回合开始：召唤22/8邪月蝙蝠-lv18"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤24/9邪月蝙蝠-lv19"
+                "effect": "登场：获得《洞悉之眼》-lv19、回合开始：召唤24/9邪月蝙蝠-lv19"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤26/10邪月蝙蝠-lv20"
+                "effect": "登场：获得《洞悉之眼》-lv20、回合开始：召唤26/10邪月蝙蝠-lv20"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤28/11邪月蝙蝠-lv21"
+                "effect": "登场：获得《洞悉之眼》-lv21、回合开始：召唤28/11邪月蝙蝠-lv21"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、回合开始：召唤30/12邪月蝙蝠-lv22"
+                "effect": "登场：获得《洞悉之眼》-lv22、回合开始：召唤30/12邪月蝙蝠-lv22"
             }
         ]
     },
@@ -20917,7 +20917,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/yinmizhe/luojiwusheng.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[20,26]",
         "data": [
             {
@@ -21040,7 +21040,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/yinmizhe/fuwen_huangyehuanxiang.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -21409,7 +21409,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/yinmizhe/guanxingtaidayuyanjia.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,21,25]",
         "data": [
             {
@@ -22393,7 +22393,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/yinmizhe/milafangzhou.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,3,8,10,21,26]",
         "data": [
             {
@@ -22468,7 +22468,7 @@ export const gradeData = [
             },
             {
                 "attack": 40,
-                "life": 70,
+                "life": 75,
                 "effect": "【洞察1】、【磐龙】、【穿透】、【护甲10】、【魔防10】、洞察时：获得学仆-渗透型-lv15、护甲友军死亡：自身+6/+15"
             },
             {
@@ -23254,7 +23254,7 @@ export const gradeData = [
         "cost": 0,
         "type": 1,
         "img": "/yinmizhe/yinxueshengzhe.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[15,17,18]",
         "data": [
             {
@@ -23377,7 +23377,7 @@ export const gradeData = [
         "cost": 1,
         "type": 1,
         "img": "/yinmizhe/No8_leimingtaidela.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "",
         "data": [
             {
@@ -23500,7 +23500,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/yinmizhe/No4_xierbote.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,2,21,26]",
         "data": [
             {
@@ -23746,7 +23746,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/yinmizhe/No5_zhourenbuleike.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,7,15,18,19]",
         "data": [
             {
@@ -23869,8 +23869,8 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/yinmizhe/guitongqihao.jpg",
-        "grade": "[5]",
-        "tag": "[26]",
+        "grade": "[4]",
+        "tag": "[5,6,20,26]",
         "data": [
             {
                 "attack": 2,
@@ -23998,16 +23998,6 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+2/+2，护甲+1，魔防+1、回合开始：若本回合友方有充能，则再次触发登场效果"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：随机友军+3/+3，护甲+1，魔防+1、回合开始：若本回合友方有充能，则再次触发登场效果"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "登场：随机友军+4/+4，护甲+1，魔防+1、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
@@ -24018,12 +24008,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+5/+5，护甲+2，魔防+2、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+6/+6，护甲+1，魔防+1、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+6/+6，护甲+2，魔防+2、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+7/+7，护甲+1，魔防+1、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
@@ -24043,12 +24033,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+9/+9，护甲+3，魔防+3、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+10/+10，护甲+2，魔防+2、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+10/+10，护甲+3，魔防+3、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+11/+11，护甲+2，魔防+2、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
@@ -24063,12 +24053,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+12/+12，护甲+4，魔防+4、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+13/+13，护甲+3，魔防+3、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+13/+13，护甲+4，魔防+4、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+14/+14，护甲+3，魔防+3、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
@@ -24083,12 +24073,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+15/+15，护甲+5，魔防+5、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+16/+16，护甲+4，魔防+4、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+16/+16，护甲+5，魔防+5、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+17/+17，护甲+4，魔防+4、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
@@ -24098,12 +24088,22 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机友军+17/+17，护甲+6，魔防+6、回合开始：若本回合友方有充能，则再次触发登场效果"
+                "effect": "登场：随机友军+18/+18，护甲+5，魔防+5、回合开始：若本回合友方有充能，则再次触发登场效果"
             },
             {
                 "attack": 0,
                 "life": 0,
                 "effect": "登场：随机友军+18/+18，护甲+6，魔防+6、回合开始：若本回合友方有充能，则再次触发登场效果"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+19/+19，护甲+6，魔防+6、回合开始：若本回合友方有充能，则再次触发登场效果"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+20/+20，护甲+7，魔防+7、回合开始：若本回合友方有充能，则再次触发登场效果"
             }
         ]
     },
@@ -24115,7 +24115,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/yinmizhe/No2_shiguangmila.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[2,3,4,16,19,20,23,26]",
         "data": [
             {
@@ -24238,7 +24238,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/yinmizhe/No9_dining.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,6,14,17,18,21]",
         "data": [
             {
@@ -24361,7 +24361,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/yinmizhe/No6_wofanruila.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[24,26]",
         "data": [
             {
@@ -24484,7 +24484,7 @@ export const gradeData = [
         "cost": 9,
         "type": 1,
         "img": "/yinmizhe/No3_yisiduoweier.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,5,8,13,15,26]",
         "data": [
             {
@@ -24607,7 +24607,7 @@ export const gradeData = [
         "cost": 1,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangexu.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -24730,7 +24730,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangepo.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[24]",
         "data": [
             {
@@ -24853,7 +24853,7 @@ export const gradeData = [
         "cost": 4,
         "type": 3,
         "img": "/yinmizhe/zhuanji_huangwuwangezhong.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "",
         "data": [
             {
@@ -25714,7 +25714,7 @@ export const gradeData = [
         "cost": 0,
         "type": 1,
         "img": "/chanyigu/xiongdabao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[4,8]",
         "data": [
             {
@@ -26083,7 +26083,7 @@ export const gradeData = [
         "cost": 1,
         "type": 1,
         "img": "/chanyigu/xuelucaoren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,11,19,25]",
         "data": [
             {
@@ -26329,7 +26329,7 @@ export const gradeData = [
         "cost": 1,
         "type": 2,
         "img": "/chanyigu/chuanjiabao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[4]",
         "data": [
             {
@@ -29773,7 +29773,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/chanyigu/genchumozhang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -29896,7 +29896,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/chanyigu/fuwen_jifengtuteng.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -31249,7 +31249,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/chanyigu/pantaoyinshi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,26]",
         "data": [
             {
@@ -31797,17 +31797,7 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "每当1个友军死亡：另一友军+5/+6"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "每当1个友军死亡：另一友军+6/+6"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "每当1个友军死亡：另一友军+6/+7"
             },
             {
                 "attack": 0,
@@ -31853,6 +31843,16 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "每当1个友军死亡：另一友军+15/+15"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "每当1个友军死亡：另一友军+16/+16"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "每当1个友军死亡：另一友军+17/+17"
             }
         ]
     },
@@ -32110,7 +32110,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/qumodaoren.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,14]",
         "data": [
             {
@@ -32233,7 +32233,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/xueshanfeihu.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[6,11,16,18]",
         "data": [
             {
@@ -32608,27 +32608,22 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/6柏松隐者-lv1、英雄恢复生命时：随机友军攻击+1"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "登场：召唤1/6柏松隐者-lv1、英雄恢复生命时：随机友军+1/+1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/8柏松隐者-lv2、英雄恢复生命时：随机友军+1/+1"
+                "effect": "登场：召唤1/6柏松隐者-lv1、英雄恢复生命时：随机友军+1/+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/10柏松隐者-lv3、英雄恢复生命时：随机友军+1/+1"
+                "effect": "登场：召唤1/8柏松隐者-lv2、英雄恢复生命时：随机友军+1/+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/11柏松隐者-lv4、英雄恢复生命时：随机友军+1/+1"
+                "effect": "登场：召唤1/10柏松隐者-lv3、英雄恢复生命时：随机友军+1/+2"
             },
             {
                 "attack": 0,
@@ -32638,82 +32633,87 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/13柏松隐者-lv5、英雄恢复生命时：随机友军+1/+2"
+                "effect": "登场：召唤1/11柏松隐者-lv4、英雄恢复生命时：随机友军+2/+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/15柏松隐者-lv6、英雄恢复生命时：随机友军+1/+2"
+                "effect": "登场：召唤1/13柏松隐者-lv5、英雄恢复生命时：随机友军+2/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/16柏松隐者-lv7、英雄恢复生命时：随机友军+1/+2"
+                "effect": "登场：召唤1/15柏松隐者-lv6、英雄恢复生命时：随机友军+2/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/16柏松隐者-lv7、英雄恢复生命时：随机友军+2/+2"
+                "effect": "登场：召唤1/16柏松隐者-lv7、英雄恢复生命时：随机友军+3/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/19柏松隐者-lv8、英雄恢复生命时：随机友军+2/+2"
+                "effect": "登场：召唤1/19柏松隐者-lv8、英雄恢复生命时：随机友军+3/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/22柏松隐者-lv9、英雄恢复生命时：随机友军+2/+3"
+                "effect": "登场：召唤1/22柏松隐者-lv9、英雄恢复生命时：随机友军+3/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/24柏松隐者-lv10、英雄恢复生命时：随机友军+2/+3"
+                "effect": "登场：召唤1/24柏松隐者-lv10、英雄恢复生命时：随机友军+3/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/24柏松隐者-lv10、英雄恢复生命时：随机友军+3/+3"
+                "effect": "登场：召唤1/27柏松隐者-lv11、英雄恢复生命时：随机友军+4/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/27柏松隐者-lv11、英雄恢复生命时：随机友军+3/+3"
+                "effect": "登场：召唤1/30柏松隐者-lv12、英雄恢复生命时：随机友军+4/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/30柏松隐者-lv12、英雄恢复生命时：随机友军+3/+4"
+                "effect": "登场：召唤1/33柏松隐者-lv13、英雄恢复生命时：随机友军+4/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/33柏松隐者-lv13、英雄恢复生命时：随机友军+3/+4"
+                "effect": "登场：召唤1/36柏松隐者-lv14、英雄恢复生命时：随机友军+4/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/33柏松隐者-lv13、英雄恢复生命时：随机友军+4/+4"
+                "effect": "登场：召唤1/40柏松隐者-lv15、英雄恢复生命时：随机友军+5/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/36柏松隐者-lv14、英雄恢复生命时：随机友军+4/+4"
+                "effect": "登场：召唤2/45柏松隐者-lv16、英雄恢复生命时：随机友军+5/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤1/40柏松隐者-lv15、英雄恢复生命时：随机友军+4/+5"
+                "effect": "登场：召唤2/50柏松隐者-lv17、英雄恢复生命时：随机友军+5/+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2/45柏松隐者-lv16、英雄恢复生命时：随机友军+4/+5"
+                "effect": "登场：召唤2/55柏松隐者-lv18、英雄恢复生命时：随机友军+6/+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2/50柏松隐者-lv17、英雄恢复生命时：随机友军+5/+5"
+                "effect": "登场：召唤2/60柏松隐者-lv19、英雄恢复生命时：随机友军+6/+7"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤3/63柏松隐者-lv20、英雄恢复生命时：随机友军+7/+7"
             }
         ]
     },
@@ -32725,14 +32725,9 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/chanyigu/fuwen_lianhuahuyou.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[4,16]",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：随机友军获得【传承1】、友军受到传承时：随机友军+1/+1，魔防+1，获得【魂歌】"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -32837,6 +32832,11 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "登场：随机友军+13/+13，获得【传承13】、友军受到传承时：随机友军+9/+9，魔防+9，获得【魂歌】"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机友军+14/+14，获得【传承14】、友军受到传承时：随机友军+10/+10，魔防+10，获得【魂歌】"
             }
         ]
     },
@@ -32848,7 +32848,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/bailuxianshi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[]",
         "data": [
             {
@@ -32971,7 +32971,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/yufengwuzhe.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[6,26]",
         "data": [
             {
@@ -33094,7 +33094,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/moxuanyinshi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,23,26]",
         "data": [
             {
@@ -33586,7 +33586,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/longwenzunzhe.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,4,8]",
         "data": [
             {
@@ -33955,7 +33955,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/baicilangke.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -34324,7 +34324,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/duchuanyinshi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,4,25,26]",
         "data": [
             {
@@ -34570,7 +34570,7 @@ export const gradeData = [
         "cost": 5,
         "type": 2,
         "img": "/chanyigu/wanwuzhiling.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[14]",
         "data": [
             {
@@ -35554,7 +35554,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/chanyigu/hanshuangsihuyuanseng.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,11,12,21]",
         "data": [
             {
@@ -36169,7 +36169,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/liulanren_lin.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[14,16,26]",
         "data": [
             {
@@ -36292,7 +36292,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/chanyigu/lingguishendan.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,2,14,26]",
         "data": [
             {
@@ -36415,7 +36415,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/chanyigu/fuwen_rulaishenzhang.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,2,5]",
         "data": [
             {
@@ -36538,7 +36538,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/shenjixuannv_xuan.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,4,10,16,26]",
         "data": [
             {
@@ -36661,7 +36661,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/chanyigu/wunengchanzhang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,2,4,5,21]",
         "data": [
             {
@@ -36784,7 +36784,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/xueyuchunguang_lin.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[4,11,14,21,26]",
         "data": [
             {
@@ -36907,7 +36907,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/sanxiongzhen.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,5,8,16,19,24]",
         "data": [
             {
@@ -37030,7 +37030,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/xiaoyaojushi_ming.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[11,15,26]",
         "data": [
             {
@@ -37153,8 +37153,8 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/changshengbulaoshu.jpg",
-        "grade": "[4]",
-        "tag": "[2,8,21,26]",
+        "grade": "[3]",
+        "tag": "[2,4,5,8,14,16,21,26]",
         "data": [
             {
                 "attack": 0,
@@ -37276,7 +37276,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/shenlongchuanren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,4,6,11,14,18]",
         "data": [
             {
@@ -37399,7 +37399,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/chanyigu/haoqingchanshi_wuneng.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,2,4,5,11,14,24]",
         "data": [
             {
@@ -37522,7 +37522,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/chanyigu/yiyunjian_rendashi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[4,19,26]",
         "data": [
             {
@@ -38752,7 +38752,7 @@ export const gradeData = [
         "cost": 1,
         "type": 2,
         "img": "/tiantanggang/xinlingheidong.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "",
         "data": [
             {
@@ -39244,7 +39244,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/jiaozhaxuetu.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,26]",
         "data": [
             {
@@ -40720,7 +40720,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/heijinlesuozhe.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[7]",
         "data": [
             {
@@ -40843,7 +40843,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/tiantanggang/wushengjuequ.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,3,20,26]",
         "data": [
             {
@@ -42565,7 +42565,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/tiantanggang/xujiuzuihan.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -44287,7 +44287,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/haiyanjingwei.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -44410,7 +44410,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/honghailiemoren.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,6]",
         "data": [
             {
@@ -45025,7 +45025,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/tiantanggang/shenshanlaowu.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,17,26]",
         "data": [
             {
@@ -45148,7 +45148,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/tiantanggang/heishuifuji.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,6,24]",
         "data": [
             {
@@ -45640,7 +45640,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/tiantanggang/xuanhuashuishouzhang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[6]",
         "data": [
             {
@@ -45886,7 +45886,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/tiantanggang/fuwen_juemingfengbao.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,26]",
         "data": [
             {
@@ -46009,19 +46009,9 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/tiantanggang/fuwen_dongxiweilai.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,4]",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：【洞察1】、洞察时：随机友军+1/+1、友军获得传承时：随机友军+2/+2，【洞察1】"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场：【洞察1】、洞察时：随机友军+1/+2、友军获得传承时：随机友军+2/+2，【洞察1】"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -46065,12 +46055,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、洞察时：随机友军+5/+6、友军获得传承时：随机友军+3/+3，【洞察1】"
+                "effect": "登场：【洞察1】、洞察时：随机友军+6/+6、友军获得传承时：随机友军+3/+3，【洞察1】"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：【洞察1】、洞察时：随机友军+6/+6、友军获得传承时：随机友军+3/+3，【洞察1】"
+                "effect": "登场：【洞察1】、洞察时：随机友军+5/+6、友军获得传承时：随机友军+3/+3，【洞察1】"
             },
             {
                 "attack": 0,
@@ -46121,6 +46111,16 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "登场：【洞察1】、洞察时：随机友军+12/+12、友军获得传承时：随机友军+6/+6，【洞察1】"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、洞察时：随机友军+13/+13、友军获得传承时：随机友军+7/+7，【洞察1】"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：【洞察1】、洞察时：随机友军+14/+14、友军获得传承时：随机友军+8/+8，【洞察1】"
             }
         ]
     },
@@ -46132,7 +46132,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/tiantanggang/fuwen_equanlingdi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[24]",
         "data": [
             {
@@ -46173,11 +46173,6 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2个2/2凶恶幼犬-lv4、回合结束：召唤1/2凶恶幼犬-lv3，若友军数量大于敌军，3个友军+2/+2"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "登场：召唤2个2/2凶恶幼犬-lv4、回合结束：召唤2/2凶恶幼犬-lv4，若友军数量大于敌军，3个友军+2/+2"
             },
             {
@@ -46208,7 +46203,7 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2个3/3凶恶幼犬-lv10、回合结束：召唤3/3凶恶幼犬-lv10，若友军数量大于敌军，3个友军+3/+3"
+                "effect": "登场：召唤2个3/3凶恶幼犬-lv10、回合结束：召唤3/3凶恶幼犬-lv10，若友军数量大于敌军，3个友军+2/+2"
             },
             {
                 "attack": 0,
@@ -46228,7 +46223,7 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2个6/6凶恶幼犬-lv14、回合结束：召唤6/6凶恶幼犬-lv14，若友军数量大于敌军，3个友军+3/+3"
+                "effect": "登场：召唤2个6/6凶恶幼犬-lv14、回合结束：召唤6/6凶恶幼犬-lv14，若友军数量大于敌军，3个友军+4/+4"
             },
             {
                 "attack": 0,
@@ -46243,7 +46238,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤2个9/9凶恶幼犬-lv17、回合结束：召唤9/9凶恶幼犬-lv17，若友军数量大于敌军，3个友军+4/+4"
+                "effect": "登场：召唤2个9/9凶恶幼犬-lv17、回合结束：召唤9/9凶恶幼犬-lv17，若友军数量大于敌军，3个友军+5/+5"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：召唤2个10/10凶恶幼犬-lv18、回合结束：召唤10/10凶恶幼犬-lv18，若友军数量大于敌军，3个友军+5/+5"
             }
         ]
     },
@@ -47614,112 +47614,112 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到12点伤害、每当1个敌军死亡：随机友军+1/+2"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "登场：随机敌军受到12点伤害、每当1个敌军死亡：随机友军+2/+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到20点伤害、每当1个敌军死亡：随机友军+2/+2"
+                "effect": "登场：随机敌军受到12点伤害、每当1个敌军死亡：随机友军+3/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到20点伤害、每当1个敌军死亡：随机友军+2/+3"
+                "effect": "登场：随机敌军受到20点伤害、每当1个敌军死亡：随机友军+3/+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到30点伤害、每当1个敌军死亡：随机友军+2/+3"
+                "effect": "登场：随机敌军受到20点伤害、每当1个敌军死亡：随机友军+3/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到30点伤害、每当1个敌军死亡：随机友军+3/+3"
+                "effect": "登场：随机敌军受到30点伤害、每当1个敌军死亡：随机友军+3/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到40点伤害、每当1个敌军死亡：随机友军+3/+3"
+                "effect": "登场：随机敌军受到30点伤害、每当1个敌军死亡：随机友军+4/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到40点伤害、每当1个敌军死亡：随机友军+3/+4"
+                "effect": "登场：随机敌军受到40点伤害、每当1个敌军死亡：随机友军+4/+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到55点伤害、每当1个敌军死亡：随机友军+3/+4"
+                "effect": "登场：随机敌军受到40点伤害、每当1个敌军死亡：随机友军+4/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到55点伤害、每当1个敌军死亡：随机友军+4/+4"
+                "effect": "登场：随机敌军受到55点伤害、每当1个敌军死亡：随机友军+4/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到70点伤害、每当1个敌军死亡：随机友军+4/+4"
+                "effect": "登场：随机敌军受到55点伤害、每当1个敌军死亡：随机友军+5/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到70点伤害、每当1个敌军死亡：随机友军+4/+5"
+                "effect": "登场：随机敌军受到70点伤害、每当1个敌军死亡：随机友军+5/+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到85点伤害、每当1个敌军死亡：随机友军+4/+5"
+                "effect": "登场：随机敌军受到70点伤害、每当1个敌军死亡：随机友军+6/+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到85点伤害、每当1个敌军死亡：随机友军+5/+5"
+                "effect": "登场：随机敌军受到85点伤害、每当1个敌军死亡：随机友军+6/+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到100点伤害、每当1个敌军死亡：随机友军+5/+5"
+                "effect": "登场：随机敌军受到85点伤害、每当1个敌军死亡：随机友军+7/+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到100点伤害、每当1个敌军死亡：随机友军+5/+6"
+                "effect": "登场：随机敌军受到100点伤害、每当1个敌军死亡：随机友军+7/+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到115点伤害、每当1个敌军死亡：随机友军+5/+6"
+                "effect": "登场：随机敌军受到100点伤害、每当1个敌军死亡：随机友军+8/+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到115点伤害、每当1个敌军死亡：随机友军+6/+6"
+                "effect": "登场：随机敌军受到115点伤害、每当1个敌军死亡：随机友军+8/+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到130点伤害、每当1个敌军死亡：随机友军+6/+6"
+                "effect": "登场：随机敌军受到115点伤害、每当1个敌军死亡：随机友军+9/+9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到130点伤害、每当1个敌军死亡：随机友军+6/+7"
+                "effect": "登场：随机敌军受到130点伤害、每当1个敌军死亡：随机友军+9/+9"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到150点伤害、每当1个敌军死亡：随机友军+6/+7"
+                "effect": "登场：随机敌军受到130点伤害、每当1个敌军死亡：随机友军+10/+10"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：随机敌军受到150点伤害、每当1个敌军死亡：随机友军+7/+7"
+                "effect": "登场：随机敌军受到150点伤害、每当1个敌军死亡：随机友军+10/+10"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场：随机敌军受到150点伤害、每当1个敌军死亡：随机友军+11/+11"
             }
         ]
     },
@@ -48346,7 +48346,7 @@ export const gradeData = [
         "cost": 5,
         "type": 4,
         "img": "/tiantanggang/fuwen_yeyingwange.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[22,24]",
         "data": [
             {
@@ -49084,7 +49084,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/huajianshenshi_xiang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,6,9,20]",
         "data": [
             {
@@ -49207,7 +49207,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/tiantanggang/haiyan_baoli.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[2,5,12,16,24,26]",
         "data": [
             {
@@ -49330,7 +49330,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/tiantanggang/huanlegechangdedaiwei.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[16,19,23,26]",
         "data": [
             {
@@ -49453,7 +49453,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/tiantanggang/daiweidejingtianjimou.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[23,25]",
         "data": [
             {
@@ -49576,7 +49576,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/tiantanggang/mokahuanshushi_meiji.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[3,23,25,26]",
         "data": [
             {
@@ -49699,7 +49699,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/tiantanggang/chiying_aixier.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,18,21]",
         "data": [
             {
@@ -49822,7 +49822,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/tiantanggang/fuwen_haihuangzhinu.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[26]",
         "data": [
             {
@@ -49923,17 +49923,17 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场、回合开始：敌方3个随机位置坠落闪电（11点伤害），被击中的敌人70%几率眩晕1回合"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "登场、回合开始：敌方3个随机位置坠落闪电（11、11、12点伤害），被击中的敌人75%几率眩晕1回合"
+                "effect": "登场、回合开始：敌方3个随机位置坠落闪电（11点伤害），被击中的敌人75%几率眩晕1回合"
             },
             {
                 "attack": 0,
                 "life": 0,
                 "effect": "登场、回合开始：敌方3个随机位置坠落闪电（12点伤害），被击中的敌人75%几率眩晕1回合"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "登场、回合开始：敌方3个随机位置坠落闪电（13点伤害），被击中的敌人75%几率眩晕1回合"
             }
         ]
     },
@@ -49946,7 +49946,7 @@ export const gradeData = [
         "type": 1,
         "img": "/tiantanggang/gangzhipaoxiao_buruien.jpg",
         "grade": "[3]",
-        "tag": "[1,5,26]",
+        "tag": "[1,5,6,19,26]",
         "data": [
             {
                 "attack": 5,
@@ -50191,7 +50191,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/tiantanggang/heijinsandaimu_meisen.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[8,19,21,22,26]",
         "data": [
             {
@@ -54127,7 +54127,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/fuhuajiae.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,19]",
         "data": [
             {
@@ -54250,7 +54250,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_eduqinshi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -56341,7 +56341,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/yanzhoushishiquan.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[21]",
         "data": [
             {
@@ -56587,7 +56587,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/juewanglianmo.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[7]",
         "data": [
             {
@@ -56833,7 +56833,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/zhujiarongyanmo.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,5]",
         "data": [
             {
@@ -57202,7 +57202,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/lianyushenyuan/poluanerchu.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,19,24]",
         "data": [
             {
@@ -57325,7 +57325,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_zhimingjiake.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,5,19]",
         "data": [
             {
@@ -57448,7 +57448,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_rongyanpenshe.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -58186,7 +58186,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/lianyushenyuan/zhuoshenshuangyan.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -59170,7 +59170,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/duohunsilian.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[18,26]",
         "data": [
             {
@@ -59539,7 +59539,7 @@ export const gradeData = [
         "cost": 5,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_xinghongdajun.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[19,24]",
         "data": [
             {
@@ -59635,22 +59635,22 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场、回合开始：召唤18/17猩红仆从-lv19，敌方英雄生命-11"
+                "effect": "登场、回合开始：召唤18/17猩红仆从-lv19，敌方英雄生命-12"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场、回合开始：召唤19/19猩红仆从-lv20，敌方英雄生命-12"
+                "effect": "登场、回合开始：召唤19/19猩红仆从-lv20，敌方英雄生命-13"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场、回合开始：召唤20/21猩红仆从-lv21，敌方英雄生命-12"
+                "effect": "登场、回合开始：召唤20/21猩红仆从-lv21，敌方英雄生命-14"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场、回合开始：召唤22/22猩红仆从-lv22，敌方英雄生命-13"
+                "effect": "登场、回合开始：召唤22/22猩红仆从-lv22，敌方英雄生命-15"
             }
         ]
     },
@@ -61015,7 +61015,7 @@ export const gradeData = [
         "cost": 2,
         "type": 2,
         "img": "/lianyushenyuan/tongkuzhixin.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[24,26]",
         "data": [
             {
@@ -61138,7 +61138,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/xueying.jpg",
-        "grade": "[7]",
+        "grade": "[5]",
         "tag": "[1,7,21,26]",
         "data": [
             {
@@ -61261,7 +61261,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/lianyushenyuan/bakebaluo.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,5,18]",
         "data": [
             {
@@ -61384,7 +61384,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/lianyushenyuan/rongyanjinji.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,5,24]",
         "data": [
             {
@@ -61507,7 +61507,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/yuanhuntaotieshou.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[1,2,5,7,26]",
         "data": [
             {
@@ -61630,7 +61630,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/lianyushenyuan/xueyi_lilisi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,5,6,26]",
         "data": [
             {
@@ -61859,12 +61859,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌方区域坠落陨石（63点伤害），无视神佑和魔免"
+                "effect": "回合开始：随机敌方区域坠落陨石（64点伤害），无视神佑和魔免"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌方区域坠落陨石（66点伤害），无视神佑和魔免"
+                "effect": "回合开始：随机敌方区域坠落陨石（68点伤害），无视神佑和魔免"
             }
         ]
     },
@@ -61876,7 +61876,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/lianyushenyuan/ronglumengyan.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[24,26]",
         "data": [
             {
@@ -62000,7 +62000,7 @@ export const gradeData = [
         "type": 1,
         "img": "/lianyushenyuan/jinhoudiyumo.jpg",
         "grade": "[3]",
-        "tag": "[15]",
+        "tag": "[1,5,8,15]",
         "data": [
             {
                 "attack": 9,
@@ -63229,7 +63229,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/kuangyejishi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,3,23]",
         "data": [
             {
@@ -63352,7 +63352,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/xulisheshou.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -65689,7 +65689,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/xueyumaoniu.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[11,12,21]",
         "data": [
             {
@@ -67657,7 +67657,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/wuweiliehu.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,26]",
         "data": [
             {
@@ -68026,7 +68026,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/youdicaoren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,3,25]",
         "data": [
             {
@@ -68641,7 +68641,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/manshikuangye/feishuwanyan.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,21,24]",
         "data": [
             {
@@ -68764,7 +68764,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/huolixianrenzhang.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,13,19]",
         "data": [
             {
@@ -69010,7 +69010,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/manshikuangye/gaoyuanbaoweizhan.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,12,24]",
         "data": [
             {
@@ -69133,7 +69133,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/manshikuangye/fuwen_chuanshanmoling.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[1,2]",
         "data": [
             {
@@ -69174,77 +69174,77 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召7/9蛮石穿山甲-lv8、英雄获得生命时：随机友军攻击+2，护甲+1"
+                "effect": "登场：召7/9蛮石穿山甲-lv8、英雄获得生命时：随机友军攻击+3，护甲+1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤8/11蛮石穿山甲-lv9、英雄获得生命时：随机友军攻击+2，护甲+1"
+                "effect": "登场：召唤8/11蛮石穿山甲-lv9、英雄获得生命时：随机友军攻击+4，护甲+1"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤9/13蛮石穿山甲-lv10、英雄获得生命时：随机友军攻击+3，护甲+1"
+                "effect": "登场：召唤9/13蛮石穿山甲-lv10、英雄获得生命时：随机友军攻击+5，护甲+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤10/14蛮石穿山甲-lv11、英雄获得生命时：随机友军攻击+3，护甲+1"
+                "effect": "登场：召唤10/14蛮石穿山甲-lv11、英雄获得生命时：随机友军攻击+6，护甲+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤11/15蛮石穿山甲-lv12、英雄获得生命时：随机友军攻击+3，护甲+1"
+                "effect": "登场：召唤11/15蛮石穿山甲-lv12、英雄获得生命时：随机友军攻击+7，护甲+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤12/16蛮石穿山甲-lv13、英雄获得生命时：随机友军攻击+4，护甲+1"
+                "effect": "登场：召唤12/16蛮石穿山甲-lv13、英雄获得生命时：随机友军攻击+8，护甲+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤13/17蛮石穿山甲-lv14、英雄获得生命时：随机友军攻击+4，护甲+1"
+                "effect": "登场：召唤13/17蛮石穿山甲-lv14、英雄获得生命时：随机友军攻击+8，护甲+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤14/18蛮石穿山甲-lv15、英雄获得生命时：随机友军攻击+5，护甲+1"
+                "effect": "登场：召唤14/18蛮石穿山甲-lv15、英雄获得生命时：随机友军攻击+9，护甲+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤15/20蛮石穿山甲-lv16、英雄获得生命时：随机友军攻击+5，护甲+1"
+                "effect": "登场：召唤15/20蛮石穿山甲-lv16、英雄获得生命时：随机友军攻击+10，护甲+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤16/22蛮石穿山甲-lv17、英雄获得生命时：随机友军攻击+5，护甲+2"
+                "effect": "登场：召唤16/22蛮石穿山甲-lv17、英雄获得生命时：随机友军攻击+10，护甲+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤18/24蛮石穿山甲-lv18、英雄获得生命时：随机友军攻击+6，护甲+2"
+                "effect": "登场：召唤18/24蛮石穿山甲-lv18、英雄获得生命时：随机友军攻击+11，护甲+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤21/25石穿山甲-lv19、英雄获得生命时：随机友军攻击+6，护甲+3"
+                "effect": "登场：召唤21/25石穿山甲-lv19、英雄获得生命时：随机友军攻击+12，护甲+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤24/27蛮石穿山甲-lv20、英雄获得生命时：随机友军攻击+7，护甲+3"
+                "effect": "登场：召唤24/27蛮石穿山甲-lv20、英雄获得生命时：随机友军攻击+12，护甲+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤27/29蛮石穿山甲-lv21、英雄获得生命时：随机友军攻击+7，护甲+3"
+                "effect": "登场：召唤27/29蛮石穿山甲-lv21、英雄获得生命时：随机友军攻击+13，护甲+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场：召唤30/30蛮石穿山甲-lv22、英雄获得生命时：随机友军攻击+8，护甲+3"
+                "effect": "登场：召唤30/30蛮石穿山甲-lv22、英雄获得生命时：随机友军攻击+13，护甲+6"
             }
         ]
     },
@@ -69256,7 +69256,7 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/manshikuangye/fuwen_shirenhuatian.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[]",
         "data": [
             {
@@ -69435,27 +69435,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+5/+6"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+6/+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+6/+7"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+7/+7"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+7/+8"
             },
             {
                 "attack": 0,
@@ -69491,6 +69476,21 @@ export const gradeData = [
                 "attack": 0,
                 "life": 0,
                 "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+13/+13"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+14/+14"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+15/+15"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "法力上限+1、回合开始：消耗1点法力，随机友军+16/+16"
             }
         ]
     },
@@ -69871,7 +69871,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/manshikuangye/feifukuangren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -69994,7 +69994,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/manshikuangye/shuangmaoqishi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[11,12,26]",
         "data": [
             {
@@ -70732,7 +70732,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/manshikuangye/feifunvhao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[19,26]",
         "data": [
             {
@@ -71962,7 +71962,7 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/manshikuangye/tanshibailong.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,26]",
         "data": [
             {
@@ -72454,7 +72454,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/tuoniaowang_huoli.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,12,21,25]",
         "data": [
             {
@@ -72577,7 +72577,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/kuangyeyouxia_dayu.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,5,16,21,26]",
         "data": [
             {
@@ -72700,8 +72700,8 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/manshikuangye/bierbili.jpg",
-        "grade": "[5]",
-        "tag": "[5,8,12,21,26]",
+        "grade": "[4]",
+        "tag": "[2,5,8,12,21,26]",
         "data": [
             {
                 "attack": 8,
@@ -72823,7 +72823,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/manshikuangye/fuwen_shipotianjing.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,5,21,26]",
         "data": [
             {
@@ -72946,7 +72946,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/manshikuangye/xueyinliefu_kai.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,5,11,26]",
         "data": [
             {
@@ -73192,7 +73192,7 @@ export const gradeData = [
         "cost": 6,
         "type": 1,
         "img": "/manshikuangye/manguhandishou.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[5,8,11,12,21,26]",
         "data": [
             {
@@ -73315,7 +73315,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/manshikuangye/yuanyedajishi_luma.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,5,8,26]",
         "data": [
             {
@@ -73438,7 +73438,7 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/manshikuangye/huangyuanbaojun_xueyan.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,5,8,11,16,18]",
         "data": [
             {
@@ -73930,7 +73930,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/huangwutengwan.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[13,17,21,26]",
         "data": [
             {
@@ -74914,7 +74914,7 @@ export const gradeData = [
         "cost": 1,
         "type": 2,
         "img": "/dongshenshitu/gubao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[19,25]",
         "data": [
             {
@@ -76021,7 +76021,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/yinlengmuxue.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,11,19,24]",
         "data": [
             {
@@ -76144,7 +76144,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/hanfengcaoren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[3,4,11]",
         "data": [
             {
@@ -76390,7 +76390,7 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/dongshenshitu/fuwen_wujinzhemo.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[19]",
         "data": [
             {
@@ -76759,7 +76759,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/dongshenshitu/jidikuangxinzhe.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[19]",
         "data": [
             {
@@ -77251,7 +77251,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/dongshenshitu/shenmiaomoxiang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[4,11,13]",
         "data": [
             {
@@ -79096,7 +79096,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/lindongxiezhoushi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[11]",
         "data": [
             {
@@ -79219,7 +79219,7 @@ export const gradeData = [
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/dongyeshizhe.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,3,22]",
         "data": [
             {
@@ -79588,7 +79588,7 @@ export const gradeData = [
         "cost": 2,
         "type": 4,
         "img": "/dongshenshitu/fuwen_tianhandidong.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[11,26]",
         "data": [
             {
@@ -79834,7 +79834,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/dongshenshitu/jidishenmiao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,11,13,19,26]",
         "data": [
             {
@@ -79957,7 +79957,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/dongshenshitu/wangzuoshenmiao.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,13,19,26]",
         "data": [
             {
@@ -80449,7 +80449,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/dongshenshitu/hanbingguqiang.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[8,24]",
         "data": [
             {
@@ -80941,7 +80941,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/dongshenshitu/lengkuxianji.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[26]",
         "data": [
             {
@@ -81070,112 +81070,112 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤2/3噬魂骨妖-lv1、每当1个敌军死亡：随机友军攻击+1，魔防+1"
+                "effect": "登场:召唤2/3噬魂骨妖-lv1、每当1个敌军死亡：随机友军攻击+2，魔防+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤2/4噬魂骨妖-lv2、每当1个敌军死亡：随机友军攻击+1，魔防+1"
+                "effect": "登场:召唤2/4噬魂骨妖-lv2、每当1个敌军死亡：随机友军攻击+2，魔防+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤3/4噬魂骨妖-lv3、每当1个敌军死亡：随机友军攻击+1，魔防+1"
+                "effect": "登场:召唤3/4噬魂骨妖-lv3、每当1个敌军死亡：随机友军攻击+2，魔防+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤3/5噬魂骨妖-lv4、每当1个敌军死亡：随机友军攻击+1，魔防+1"
+                "effect": "登场:召唤3/5噬魂骨妖-lv4、每当1个敌军死亡：随机友军攻击+2，魔防+2"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤4/6噬魂骨妖-lv5、每当1个敌军死亡：随机友军攻击+2，魔防+2"
+                "effect": "登场:召唤4/6噬魂骨妖-lv5、每当1个敌军死亡：随机友军攻击+3，魔防+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤5/8噬魂骨妖-lv6、每当1个敌军死亡：随机友军攻击+2，魔防+2"
+                "effect": "登场:召唤5/8噬魂骨妖-lv6、每当1个敌军死亡：随机友军攻击+3，魔防+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤5/10噬魂骨妖-lv7、每当1个敌军死亡：随机友军攻击+2，魔防+2"
+                "effect": "登场:召唤5/10噬魂骨妖-lv7、每当1个敌军死亡：随机友军攻击+3，魔防+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤6/11噬魂骨妖-lv8、每当1个敌军死亡：随机友军攻击+2，魔防+2"
+                "effect": "登场:召唤6/11噬魂骨妖-lv8、每当1个敌军死亡：随机友军攻击+4，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤7/13噬魂骨妖-lv9、每当1个敌军死亡：随机友军攻击+3，魔防+3"
+                "effect": "登场:召唤7/13噬魂骨妖-lv9、每当1个敌军死亡：随机友军攻击+4，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤8/15噬魂骨妖-lv10、每当1个敌军死亡：随机友军攻击+3，魔防+3"
+                "effect": "登场:召唤8/15噬魂骨妖-lv10、每当1个敌军死亡：随机友军攻击+4，魔防+4"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤10/15噬魂骨妖-lv11、每当1个敌军死亡：随机友军攻击+3，魔防+3"
+                "effect": "登场:召唤10/15噬魂骨妖-lv11、每当1个敌军死亡：随机友军攻击+5，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤12/16噬魂骨妖-lv12、每当1个敌军死亡：随机友军攻击+3，魔防+3"
+                "effect": "登场:召唤12/16噬魂骨妖-lv12、每当1个敌军死亡：随机友军攻击+5，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤13/19噬魂骨妖-lv13、每当1个敌军死亡：随机友军攻击+4，魔防+4"
+                "effect": "登场:召唤13/19噬魂骨妖-lv13、每当1个敌军死亡：随机友军攻击+5，魔防+5"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤14/21噬魂骨妖-lv14、每当1个敌军死亡：随机友军攻击+4，魔防+4"
+                "effect": "登场:召唤14/21噬魂骨妖-lv14、每当1个敌军死亡：随机友军攻击+6，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤16/22噬魂骨妖-lv15、每当1个敌军死亡：随机友军攻击+4，魔防+4"
+                "effect": "登场:召唤16/22噬魂骨妖-lv15、每当1个敌军死亡：随机友军攻击+6，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤17/24噬魂骨妖-lv16、每当1个敌军死亡：随机友军攻击+5，魔防+5"
+                "effect": "登场:召唤17/24噬魂骨妖-lv16、每当1个敌军死亡：随机友军攻击+6，魔防+6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤19/27噬魂骨妖-lv17、每当1个敌军死亡：随机友军攻击+5，魔防+5"
+                "effect": "登场:召唤19/27噬魂骨妖-lv17、每当1个敌军死亡：随机友军攻击+7，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤22/28噬魂骨妖-lv18、每当1个敌军死亡：随机友军攻击+5，魔防+5"
+                "effect": "登场:召唤22/28噬魂骨妖-lv18、每当1个敌军死亡：随机友军攻击+7，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤24/32噬魂骨妖-lv19、每当1个敌军死亡：随机友军攻击+6，魔防+6"
+                "effect": "登场:召唤24/32噬魂骨妖-lv19、每当1个敌军死亡：随机友军攻击+7，魔防+7"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤26/35噬魂骨妖-lv20、每当1个敌军死亡：随机友军攻击+6，魔防+6"
+                "effect": "登场:召唤26/35噬魂骨妖-lv20、每当1个敌军死亡：随机友军攻击+8，魔防+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤28/40噬魂骨妖-lv21、每当1个敌军死亡：随机友军攻击+6，魔防+6"
+                "effect": "登场:召唤28/40噬魂骨妖-lv21、每当1个敌军死亡：随机友军攻击+8，魔防+8"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "登场:召唤30/45噬魂骨妖-lv22、每当1个敌军死亡：随机友军攻击+7，魔防+7"
+                "effect": "登场:召唤30/45噬魂骨妖-lv22、每当1个敌军死亡：随机友军攻击+9，魔防+9"
             }
         ]
     },
@@ -81187,19 +81187,9 @@ export const gradeData = [
         "cost": 3,
         "type": 4,
         "img": "/dongshenshitu/fuwen_wuzhuangdajun.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,24]",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：召唤2/1骸骨战士-lv1"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "回合开始：召唤3/1骸骨战士-lv2"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -81218,12 +81208,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤6/1骸骨战士-lv5，全体友军护甲+1"
+                "effect": "回合开始：召唤7/1骸骨战士-lv6"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤7/1骸骨战士-lv6，全体友军护甲+1"
+                "effect": "回合开始：召唤8/1骸骨战士-lv7"
             },
             {
                 "attack": 0,
@@ -81288,17 +81278,27 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤26/1骸骨战士-lv18，全体友军护甲+2"
+                "effect": "回合开始：召唤24/1骸骨战士-lv17，全体友军护甲+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤28/1骸骨战士-lv19，全体友军护甲+2"
+                "effect": "回合开始：召唤26/1骸骨战士-lv18，全体友军护甲+3"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：召唤30/1骸骨战士-lv20，全体友军护甲+2"
+                "effect": "回合开始：召唤28/1骸骨战士-lv19，全体友军护甲+3"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤30/1骸骨战士-lv20，全体友军护甲+3"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：召唤32/1骸骨战士-lv21，全体友军护甲+3"
             }
         ]
     },
@@ -81310,7 +81310,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/dongshenshitu/dongmuqishi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[1,26]",
         "data": [
             {
@@ -82417,7 +82417,7 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/dongshenshitu/yongyewuyao.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -82663,7 +82663,7 @@ export const gradeData = [
         "cost": 4,
         "type": 4,
         "img": "/dongshenshitu/fuwen_michuanbingjing.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[4,26]",
         "data": [
             {
@@ -83893,7 +83893,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/dongshenshitu/bingyishou.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,8]",
         "data": [
             {
@@ -84139,7 +84139,7 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/dongshenshitu/binglong.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[5,11,15]",
         "data": [
             {
@@ -84385,7 +84385,7 @@ export const gradeData = [
         "cost": 2,
         "type": 3,
         "img": "/dongshenshitu/zhuanji_huangwuzhidi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,11,24]",
         "data": [
             {
@@ -84508,7 +84508,7 @@ export const gradeData = [
         "cost": 4,
         "type": 3,
         "img": "/dongshenshitu/zhuanji_huangwuzhishi.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[15,24]",
         "data": [
             {
@@ -84631,7 +84631,7 @@ export const gradeData = [
         "cost": 3,
         "type": 2,
         "img": "/dongshenshitu/hanfengxueren.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[5,6,11,15,21]",
         "data": [
             {
@@ -84754,7 +84754,7 @@ export const gradeData = [
         "cost": 3,
         "type": 1,
         "img": "/dongshenshitu/huangwubingwu_ye.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[26]",
         "data": [
             {
@@ -84877,8 +84877,8 @@ export const gradeData = [
         "cost": 4,
         "type": 1,
         "img": "/dongshenshitu/buxizhiling.jpg",
-        "grade": "[4]",
-        "tag": "[11,26]",
+        "grade": "[3]",
+        "tag": "[2,11,19,26]",
         "data": [
             {
                 "attack": 2,
@@ -85000,7 +85000,7 @@ export const gradeData = [
         "cost": 4,
         "type": 2,
         "img": "/dongshenshitu/bingyehuangwujihua.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[2,17,18,22,24]",
         "data": [
             {
@@ -85123,7 +85123,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/dongshenshitu/hanfengmojiang_saigusi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[1,5,6,11,15]",
         "data": [
             {
@@ -85246,7 +85246,7 @@ export const gradeData = [
         "cost": 5,
         "type": 1,
         "img": "/dongshenshitu/yongyenvwang.jpg",
-        "grade": "[6]",
+        "grade": "[5]",
         "tag": "[4,11,15,17,22,26]",
         "data": [
             {
@@ -85369,7 +85369,7 @@ export const gradeData = [
         "cost": 5,
         "type": 4,
         "img": "/dongshenshitu/fuwen_bingyuansangzhong.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[11,24,26]",
         "data": [
             {
@@ -85425,17 +85425,12 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-4，它50%几率本回合不能攻击、回合结束：召唤20/20冰原咆哮者-lv10（上限3次）"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "回合开始：随机敌军攻击-5，它50%几率本回合不能攻击、回合结束：召唤20/20冰原咆哮者-lv10（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-5，它50%几率本回合不能攻击、回合结束：召唤22/22冰原咆哮者-lv11（上限3次）"
+                "effect": "回合开始：随机敌军攻击-6，它50%几率本回合不能攻击、回合结束：召唤20/20冰原咆哮者-lv10（上限3次）"
             },
             {
                 "attack": 0,
@@ -85445,42 +85440,47 @@ export const gradeData = [
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-8，它50%几率本回合不能攻击、回合结束：召唤24/24冰原咆哮者-lv12（上限3次）"
+                "effect": "回合开始：随机敌军攻击-9，它50%几率本回合不能攻击、回合结束：召唤22/22冰原咆哮者-lv11（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-9，它50%几率本回合不能攻击、回合结束：召唤26/26冰原咆哮者-lv13（上限3次）"
+                "effect": "回合开始：随机敌军攻击-10，它50%几率本回合不能攻击、回合结束：召唤24/24冰原咆哮者-lv12（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-10，它50%几率本回合不能攻击、回合结束：召唤29/29冰原咆哮者-lv14（上限3次）"
+                "effect": "回合开始：随机敌军攻击-11，它50%几率本回合不能攻击、回合结束：召唤26/26冰原咆哮者-lv13（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-11，它50%几率本回合不能攻击、回合结束：召唤32/32冰原咆哮者-lv15（上限3次）"
+                "effect": "回合开始：随机敌军攻击-12，它50%几率本回合不能攻击、回合结束：召唤29/29冰原咆哮者-lv14（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-12，它50%几率本回合不能攻击、回合结束：召唤35/35冰原咆哮者-lv16（上限3次）"
+                "effect": "回合开始：随机敌军攻击-13，它55%几率本回合不能攻击、回合结束：召唤32/32冰原咆哮者-lv15（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-13，它50%几率本回合不能攻击、回合结束：召唤39/39冰原咆哮者-lv17（上限3次）"
+                "effect": "回合开始：随机敌军攻击-15，它55%几率本回合不能攻击、回合结束：召唤35/35冰原咆哮者-lv16（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-14，它50%几率本回合不能攻击、回合结束：召唤43/43冰原咆哮者-lv18（上限3次）"
+                "effect": "回合开始：随机敌军攻击-17，它55%几率本回合不能攻击、回合结束：召唤39/39冰原咆哮者-lv17（上限3次）"
             },
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "回合开始：随机敌军攻击-15，它50%几率本回合不能攻击、回合结束：召唤47/47冰原咆哮者-lv19（上限3次）"
+                "effect": "回合开始：随机敌军攻击-18，它60%几率本回合不能攻击、回合结束：召唤43/43冰原咆哮者-lv18（上限3次）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "回合开始：随机敌军攻击-20，它60%几率本回合不能攻击、回合结束：召唤47/47冰原咆哮者-lv19（上限3次）"
             }
         ]
     },
@@ -85615,7 +85615,7 @@ export const gradeData = [
         "cost": 7,
         "type": 1,
         "img": "/dongshenshitu/dongshenhuashen.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,11,16,21]",
         "data": [
             {
@@ -85738,7 +85738,7 @@ export const gradeData = [
         "cost": 8,
         "type": 1,
         "img": "/dongshenshitu/bingshan_yatelasi.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[2,3,5,8,10,11,17,22,24,26]",
         "data": [
             {

@@ -63,8 +63,9 @@
             <a-form-item label="命座" name="constellation" :rules="[{ required: true, message: '请输入命之座!' }]">
                 <a-input v-model:value="addData.constellation" :disabled="prop.type === 'detail'"></a-input>
             </a-form-item>
-            <a-form-item label="生日" name="birthday" :rules="[{ required: true, message: '请输入生日!' }]">
-                <a-input v-model:value="addData.birthday" :disabled="prop.type === 'detail'"></a-input>
+            <a-form-item label="生日" name="birthday" :rules="[{ required: true, message: '请选择生日!' }]">
+                <a-date-picker style="width: 100%;" v-model:value="addData.birthday" format="MM-DD" value-format="MM-DD"
+                    :show-year="false" :disabled="prop.type === 'detail'" />
             </a-form-item>
             <a-form-item label="备注">
                 <a-textarea v-model:value="addData.remark" :disabled="prop.type === 'detail'"></a-textarea>
