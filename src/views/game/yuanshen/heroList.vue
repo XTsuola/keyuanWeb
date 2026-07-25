@@ -5,9 +5,64 @@
             <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增英雄
             </a-button>
         </div>
-        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
+        <a-form class="searchHead" :wrapperCol="{ span: 17 }" :model="formState" name="basic" autocomplete="off">
             <a-form-item label="名称" style="width: 200px">
                 <a-input v-model:value="formState.name" placeholder="请输入名称" />
+            </a-form-item>
+            <a-form-item label="性别" style="width: 200px">
+                <a-select v-model:value="formState.gender" placeholder="请选择性别">
+                    <a-select-option :value="1">男</a-select-option>
+                    <a-select-option :value="0">女</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="星级" style="width: 200px">
+                <a-select v-model:value="formState.star" placeholder="请选择星级">
+                    <a-select-option :value="5">五星</a-select-option>
+                    <a-select-option :value="4">四星</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="元素" style="width: 200px">
+                <a-select v-model:value="formState.element" placeholder="请选择元素">
+                    <a-select-option value="风">风</a-select-option>
+                    <a-select-option value="岩">岩</a-select-option>
+                    <a-select-option value="雷">雷</a-select-option>
+                    <a-select-option value="草">草</a-select-option>
+                    <a-select-option value="水">水</a-select-option>
+                    <a-select-option value="火">火</a-select-option>
+                    <a-select-option value="冰">冰</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="武器" style="width: 200px">
+                <a-select v-model:value="formState.weaponType" placeholder="请选择武器">
+                    <a-select-option value="单手剑">单手剑</a-select-option>
+                    <a-select-option value="双手剑">双手剑</a-select-option>
+                    <a-select-option value="弓">弓</a-select-option>
+                    <a-select-option value="长柄武器">长柄武器</a-select-option>
+                    <a-select-option value="法器">法器</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="属地" style="width: 200px">
+                <a-select v-model:value="formState.country" placeholder="请选择属地">
+                    <a-select-option value="蒙德">蒙德</a-select-option>
+                    <a-select-option value="璃月">璃月</a-select-option>
+                    <a-select-option value="稻妻">稻妻</a-select-option>
+                    <a-select-option value="须弥">须弥</a-select-option>
+                    <a-select-option value="枫丹">枫丹</a-select-option>
+                    <a-select-option value="纳塔">纳塔</a-select-option>
+                    <a-select-option value="挪德卡莱">挪德卡莱</a-select-option>
+                    <a-select-option value="至冬">至冬</a-select-option>
+                    <a-select-option value="魔女会">魔女会</a-select-option>
+                    <a-select-option value="异世界">异世界</a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item label="体型" style="width: 200px">
+                <a-select v-model:value="formState.figure" placeholder="请选择体型">
+                    <a-select-option value="成女">成女</a-select-option>
+                    <a-select-option value="少女">少女</a-select-option>
+                    <a-select-option value="幼女">幼女</a-select-option>
+                    <a-select-option value="成男">成男</a-select-option>
+                    <a-select-option value="少年">少年</a-select-option>
+                </a-select>
             </a-form-item>
             <a-form-item>
                 <div style="display: flex;justify-content: flex-start;">
@@ -42,7 +97,7 @@ import MyTabel from "@/components/table.vue";
 const addParams = reactive<AddHeroParams>({
     id: undefined,
     name: "",
-    genter: undefined,
+    gender: undefined,
     figure: undefined,
     star: undefined,
     country: undefined,
@@ -66,7 +121,13 @@ if (userInfo.value && JSON.parse(userInfo.value).level) {
 }
 const visible = ref<boolean>(false);
 const formState = reactive<any>({
-    name: ""
+    name: undefined,
+    gender: undefined,
+    star: undefined,
+    element: undefined,
+    weaponType: undefined,
+    country: undefined,
+    figure: undefined,
 });
 const columns = ref<any>([
     {
@@ -90,8 +151,8 @@ const columns = ref<any>([
     },
     {
         title: "性别",
-        dataIndex: "genter",
-        key: "genter",
+        dataIndex: "gender",
+        key: "gender",
         width: 60,
         customRender: (opt: any) => opt.value == 1 ? "男" : "女",
     },
@@ -161,6 +222,7 @@ const columns = ref<any>([
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
 const type = ref<AddType>("add");
+
 function getBirthday(birthday: string) {
     const [left, right] = birthday.split('-')
     const month = parseInt(left);
@@ -188,7 +250,7 @@ async function getList() {
     const params: GetHeroListParams = {
         pageSize: pageSize.value,
         pageNo: currentPage.value,
-        name: formState.name
+        ...formState
     };
     const res = await getHeroList(params);
     if (res.data.code === 200) {
@@ -197,7 +259,7 @@ async function getList() {
             const birthday = getBirthday(data[i].birthday);
             data[i].birthdayName = birthday.name;
             data[i].starConstellation = birthday.star;
-            data[i].headImg = import.meta.env.VITE_APP_BASE_URL + "yuanshen/touxiang/" + data[i].name + ".png";
+            data[i].headImg = import.meta.env.VITE_APP_BASE_URL + "yuanshen/hero/" + data[i].name + ".png";
         }
         tableData.value = data;
         total.value = res.data.total;
@@ -229,7 +291,7 @@ function changePage(page: number, size: number) {
 }
 
 function reset() {
-    formState.name = "";
+    formState.name = formState.gender = formState.star = formState.element = formState.weaponType = formState.country = formState.figure = undefined;
     selectList();
 }
 
@@ -237,38 +299,14 @@ function showModal(showType: AddType, item?: AddHeroParams) {
     type.value = showType;
     if (showType === "edit") {
         title.value = "修改英雄";
-        if (item) {
-            addParams.name = item.name;
-            addParams.genter = item.genter;
-            addParams.figure = item.figure;
-            addParams.star = item.star;
-            addParams.country = item.country;
-            addParams.element = item.element;
-            addParams.weaponType = item.weaponType;
-            addParams.constellation = item.constellation;
-            addParams.birthday = item.birthday;
-            addParams.remark = item.remark;
-            addParams.id = item.id;
-        }
+        if (item) Object.assign(addParams, item);
     } else if (showType === "add") {
         title.value = "添加英雄";
-        addParams.id = addParams.genter = addParams.figure = addParams.star = addParams.country = addParams.element = addParams.weaponType = undefined;
+        addParams.id = addParams.gender = addParams.figure = addParams.star = addParams.country = addParams.element = addParams.weaponType = undefined;
         addParams.name = addParams.constellation = addParams.birthday = addParams.remark = "";
     } else if (showType == "detail") {
         title.value = "查看详情";
-        if (item) {
-            addParams.name = item.name;
-            addParams.genter = item.genter;
-            addParams.figure = item.figure;
-            addParams.star = item.star;
-            addParams.country = item.country;
-            addParams.element = item.element;
-            addParams.weaponType = item.weaponType;
-            addParams.constellation = item.constellation;
-            addParams.birthday = item.birthday;
-            addParams.remark = item.remark;
-            addParams.remark = item.remark;
-        }
+        if (item) Object.assign(addParams, item);
     }
     visible.value = true;
 }

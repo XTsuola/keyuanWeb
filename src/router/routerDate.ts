@@ -156,6 +156,16 @@ const newRouterDate: Array<RouteRecordRaw> = [
                 },
                 component: () => import("@/views/game/yuanshen/heroList.vue"),
               },
+              {
+                path: "yuanshenWeaponList",
+                meta: {
+                  menuType: "menu",
+                  key: "yuanshenWeaponList",
+                  label: "武器列表",
+                  icon: "UnorderedListOutlined",
+                },
+                component: () => import("@/views/game/yuanshen/weaponList.vue"),
+              },
             ],
           },
           {
