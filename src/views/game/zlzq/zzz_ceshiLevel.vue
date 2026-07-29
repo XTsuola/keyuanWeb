@@ -13,14 +13,14 @@
             </div>
         </div> -->
         <!-- <div>
-            <span>22级满级所需资源：</span>
+            <span>24级满级所需资源：</span>
             <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ to22Level.baishitou }}</span>
-                <span style="width: 130px;">黑石头：{{ to22Level.heishitou }}</span>
-                <span style="width: 130px;">红石头：{{ to22Level.hongshitou }}</span>
-                <span style="width: 130px;">黄石头：{{ to22Level.huangshitou }}</span>
-                <span style="width: 130px;">钻石：{{ (to22Level.zuanshi / 10000).toFixed(2) }}万</span>
-                <span style="width: 130px;">战力：{{ (to22Level.zhanli / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">白石头：{{ to24Level.baishitou }}</span>
+                <span style="width: 130px;">黑石头：{{ to24Level.heishitou }}</span>
+                <span style="width: 130px;">红石头：{{ to24Level.hongshitou }}</span>
+                <span style="width: 130px;">黄石头：{{ to24Level.huangshitou }}</span>
+                <span style="width: 130px;">钻石：{{ (to24Level.zuanshi / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">战力：{{ (to24Level.zhanli / 10000).toFixed(2) }}万</span>
             </div>
         </div>
         <div>
@@ -37,30 +37,30 @@
         <div>
             <span>目前到满级的差值：</span>
             <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ to22Level.baishitou - nowLevel.baishitou }}</span>
-                <span style="width: 130px;">黑石头：{{ to22Level.heishitou - nowLevel.heishitou }}</span>
-                <span style="width: 130px;">红石头：{{ to22Level.hongshitou - nowLevel.hongshitou }}</span>
-                <span style="width: 130px;">黄石头：{{ to22Level.huangshitou - nowLevel.huangshitou }}</span>
-                <span style="width: 130px;">钻石：{{ ((to22Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) }}万</span>
-                <span style="width: 130px;">战力：{{ ((to22Level.zhanli - nowLevel.zhanli) / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">白石头：{{ to24Level.baishitou - nowLevel.baishitou }}</span>
+                <span style="width: 130px;">黑石头：{{ to24Level.heishitou - nowLevel.heishitou }}</span>
+                <span style="width: 130px;">红石头：{{ to24Level.hongshitou - nowLevel.hongshitou }}</span>
+                <span style="width: 130px;">黄石头：{{ to24Level.huangshitou - nowLevel.huangshitou }}</span>
+                <span style="width: 130px;">钻石：{{ ((to24Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) }}万</span>
+                <span style="width: 130px;">战力：{{ ((to24Level.zhanli - nowLevel.zhanli) / 10000).toFixed(2) }}万</span>
             </div>
         </div> -->
         <!-- <div>
             <span>还需资源折算人民币：</span>
             <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ ((to22Level.baishitou - nowLevel.baishitou) * bai).toFixed(2)
+                <span style="width: 130px;">白石头：{{ ((to24Level.baishitou - nowLevel.baishitou) * bai).toFixed(2)
                     }}元</span>
-                <span style="width: 130px;">黑石头：{{ ((to22Level.heishitou - nowLevel.heishitou) * hei).toFixed(2)
+                <span style="width: 130px;">黑石头：{{ ((to24Level.heishitou - nowLevel.heishitou) * hei).toFixed(2)
                     }}元</span>
-                <span style="width: 130px;">红石头：{{ ((to22Level.hongshitou - nowLevel.hongshitou) * hong).toFixed(2)
+                <span style="width: 130px;">红石头：{{ ((to24Level.hongshitou - nowLevel.hongshitou) * hong).toFixed(2)
                     }}元</span>
-                <span style="width: 130px;">黄石头：{{ ((to22Level.huangshitou - nowLevel.huangshitou) * huang).toFixed(2)
+                <span style="width: 130px;">黄石头：{{ ((to24Level.huangshitou - nowLevel.huangshitou) * huang).toFixed(2)
                     }}元</span>
-                <span style="width: 130px;">钻石：{{ ((to22Level.zuanshi - nowLevel.zuanshi) * zuan).toFixed(2) }}元</span>
-                <span style="width: 130px;">累计：{{ (((to22Level.baishitou - nowLevel.baishitou) * bai) +
-                    ((to22Level.heishitou - nowLevel.heishitou) * hei) + ((to22Level.hongshitou -
-                        nowLevel.hongshitou) * hong) + ((to22Level.huangshitou - nowLevel.huangshitou) *
-                            huang) + ((to22Level.zuanshi - nowLevel.zuanshi) * zuan) + nowLevel.blue * 0.05 + nowLevel.purple *
+                <span style="width: 130px;">钻石：{{ ((to24Level.zuanshi - nowLevel.zuanshi) * zuan).toFixed(2) }}元</span>
+                <span style="width: 130px;">累计：{{ (((to24Level.baishitou - nowLevel.baishitou) * bai) +
+                    ((to24Level.heishitou - nowLevel.heishitou) * hei) + ((to24Level.hongshitou -
+                        nowLevel.hongshitou) * hong) + ((to24Level.huangshitou - nowLevel.huangshitou) *
+                            huang) + ((to24Level.zuanshi - nowLevel.zuanshi) * zuan) + nowLevel.blue * 0.05 + nowLevel.purple *
                     0.15 + nowLevel.gold).toFixed(2) }}元 </span>
             </div>
         </div> -->
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="bold">到22级还需要的资源：</div>
+                <div class="bold">到24级还需要的资源：</div>
                 <div style="display: flex;justify-content: flex-start;flex-direction: column;">
                     <div style="display: flex;justify-self: flex-start;">
                         <div style="width: 70px;">蓝卡：</div><span style="width: 60px;">{{ nowLevel.blue }} 张</span>
@@ -114,35 +114,35 @@
                         <div style="width: 70px;">橙卡：</div><span style="width: 60px;">{{ nowLevel.gold }} 张</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">黄石头：</div><span style="width: 60px;">{{ to22Level.huangshitou -
+                        <div style="width: 70px;">黄石头：</div><span style="width: 60px;">{{ to24Level.huangshitou -
                             nowLevel.huangshitou > 10000 ?
-                            ((to22Level.huangshitou - nowLevel.huangshitou) / 10000).toFixed(2) + " 万" :
-                            to22Level.huangshitou
+                            ((to24Level.huangshitou - nowLevel.huangshitou) / 10000).toFixed(2) + " 万" :
+                            to24Level.huangshitou
                             - nowLevel.huangshitou }}</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">红石头：</div><span style="width: 60px;">{{ to22Level.hongshitou -
+                        <div style="width: 70px;">红石头：</div><span style="width: 60px;">{{ to24Level.hongshitou -
                             nowLevel.hongshitou > 10000 ?
-                            ((to22Level.hongshitou - nowLevel.hongshitou) / 10000).toFixed(2) + " 万" :
-                            to22Level.hongshitou
+                            ((to24Level.hongshitou - nowLevel.hongshitou) / 10000).toFixed(2) + " 万" :
+                            to24Level.hongshitou
                             - nowLevel.hongshitou }}</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">黑石头：</div><span style="width: 60px;">{{ to22Level.heishitou -
+                        <div style="width: 70px;">黑石头：</div><span style="width: 60px;">{{ to24Level.heishitou -
                             nowLevel.heishitou > 10000 ?
-                            ((to22Level.heishitou - nowLevel.heishitou) / 10000).toFixed(2) + " 万" : to22Level.heishitou
+                            ((to24Level.heishitou - nowLevel.heishitou) / 10000).toFixed(2) + " 万" : to24Level.heishitou
                             - nowLevel.heishitou }}</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">白石头：</div><span style="width: 60px;">{{ to22Level.baishitou -
+                        <div style="width: 70px;">白石头：</div><span style="width: 60px;">{{ to24Level.baishitou -
                             nowLevel.baishitou > 10000 ?
-                            ((to22Level.baishitou - nowLevel.baishitou) / 10000).toFixed(2) + " 万" : to22Level.baishitou
+                            ((to24Level.baishitou - nowLevel.baishitou) / 10000).toFixed(2) + " 万" : to24Level.baishitou
                             - nowLevel.baishitou }}</span>
                     </div>
                     <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">钻石：</div><span style="width: 60px;">{{ to22Level.zuanshi -
+                        <div style="width: 70px;">钻石：</div><span style="width: 60px;">{{ to24Level.zuanshi -
                             nowLevel.zuanshi > 10000 ?
-                            ((to22Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) + " 万" : to22Level.zuanshi
+                            ((to24Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) + " 万" : to24Level.zuanshi
                             - nowLevel.zuanshi }}</span>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
         <h3>宝物：{{ zhanliObj.baowu }} （战力：{{ zhanliObj.zhanliBaowu }}万）</h3>
         <h3>当前战力：{{ (187 + zhanliObj.zhanliWuqi + zhanliObj.zhanliBaowu + goldList.length * 2 + nowLevel.zhanli /
             10000).toFixed(2) }}万</h3>
-        <h3>最终战力：{{ (687 + goldList.length * 2 + to22Level.zhanli / 10000).toFixed(2) }}万</h3>
+        <h3>最终战力：{{ (687 + goldList.length * 2 + to24Level.zhanli / 10000).toFixed(2) }}万</h3>
     </div>
 </template>
 
@@ -205,7 +205,7 @@ let hong = 0.01093;
 let hei = 0.06453;
 let bai = 0.054;
 let zuan = 0.0026666
-let maxLfie = 319;
+let maxLfie = 349;
 const name = ref<any>("测试");
 const heroImg = ref<any>("");
 const nowLife = ref<any>(0);
@@ -246,7 +246,7 @@ name.value = ceshiData.name + "-" + ceshiData.hero.name;
 const nowImg: any = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
 heroImg.value = nowImg;
 nowLife.value = ceshiData.hero.life;
-const to22Level = reactive<any>({
+const to24Level = reactive<any>({
     baishitou: 0,
     heishitou: 0,
     hongshitou: 0,
@@ -286,7 +286,7 @@ async function getList() {
         nowLevel.huangshitou += blueObj[blueList[i] - 1].cailiao[0];
         nowLevel.zuanshi += blueObj[blueList[i] - 1].zuanshi;
         nowLevel.zhanli += blueObj[blueList[i] - 1].zhanli;
-        nowLevel.blue += (4864 - blueObj[blueList[i] - 1].count);
+        nowLevel.blue += (6528 - blueObj[blueList[i] - 1].count);
     }
     for (let i = 0; i < purpleList.length; i++) {
         purpleLevel += purpleList[i];
@@ -296,7 +296,7 @@ async function getList() {
         nowLevel.huangshitou += purpleObj[purpleList[i] - 1].cailiao[0];
         nowLevel.zuanshi += purpleObj[purpleList[i] - 1].zuanshi;
         nowLevel.zhanli += purpleObj[purpleList[i] - 1].zhanli;
-        nowLevel.purple += (3200 - purpleObj[purpleList[i] - 1].count);
+        nowLevel.purple += (4352 - purpleObj[purpleList[i] - 1].count);
     }
     for (let i = 0; i < goldList.length; i++) {
         goldLevel += goldList[i];
@@ -306,18 +306,18 @@ async function getList() {
         nowLevel.huangshitou += goldObj[goldList[i] - 1].cailiao[0];
         nowLevel.zuanshi += goldObj[goldList[i] - 1].zuanshi;
         nowLevel.zhanli += goldObj[goldList[i] - 1].zhanli;
-        nowLevel.gold += (2112 - goldObj[goldList[i] - 1].count);
+        nowLevel.gold += (2720 - goldObj[goldList[i] - 1].count);
     }
     blueCard.value = blueLevel / blueList.length;
     purpleCard.value = purpleLevel / purpleList.length;
     orangeCard.value = goldLevel / goldList.length;
     allCard.value = (blueLevel + purpleLevel + goldLevel) / (blueList.length + purpleList.length + goldList.length);
-    to22Level.baishitou = (blueList.length * blueObj[21].cailiao[3]) + (purpleList.length * purpleObj[21].cailiao[3]) + (goldList.length * goldObj[21].cailiao[3]);
-    to22Level.heishitou = (blueList.length * blueObj[21].cailiao[2]) + (purpleList.length * purpleObj[21].cailiao[2]) + (goldList.length * goldObj[21].cailiao[2]);
-    to22Level.hongshitou = (blueList.length * blueObj[21].cailiao[1]) + (purpleList.length * purpleObj[21].cailiao[1]) + (goldList.length * goldObj[21].cailiao[1]);
-    to22Level.huangshitou = (blueList.length * blueObj[21].cailiao[0]) + (purpleList.length * purpleObj[21].cailiao[0]) + (goldList.length * goldObj[21].cailiao[0]);
-    to22Level.zuanshi = (blueList.length * blueObj[21].zuanshi) + (purpleList.length * purpleObj[21].zuanshi) + (goldList.length * goldObj[21].zuanshi);
-    to22Level.zhanli = (blueList.length * blueObj[21].zhanli) + (purpleList.length * purpleObj[21].zhanli) + (goldList.length * goldObj[21].zhanli);
+    to24Level.baishitou = (blueList.length * blueObj[23].cailiao[3]) + (purpleList.length * purpleObj[23].cailiao[3]) + (goldList.length * goldObj[23].cailiao[3]);
+    to24Level.heishitou = (blueList.length * blueObj[23].cailiao[2]) + (purpleList.length * purpleObj[23].cailiao[2]) + (goldList.length * goldObj[23].cailiao[2]);
+    to24Level.hongshitou = (blueList.length * blueObj[23].cailiao[1]) + (purpleList.length * purpleObj[23].cailiao[1]) + (goldList.length * goldObj[23].cailiao[1]);
+    to24Level.huangshitou = (blueList.length * blueObj[23].cailiao[0]) + (purpleList.length * purpleObj[23].cailiao[0]) + (goldList.length * goldObj[23].cailiao[0]);
+    to24Level.zuanshi = (blueList.length * blueObj[23].zuanshi) + (purpleList.length * purpleObj[23].zuanshi) + (goldList.length * goldObj[23].zuanshi);
+    to24Level.zhanli = (blueList.length * blueObj[23].zhanli) + (purpleList.length * purpleObj[23].zhanli) + (goldList.length * goldObj[23].zhanli);
 }
 
 function getShenqiZhanli(list: number[]) {

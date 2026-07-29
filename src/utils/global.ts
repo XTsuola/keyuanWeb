@@ -232,6 +232,18 @@ export const blueObj = [{
     zuanshi: 40150,
     cailiao: [43200, 8020, 3930, 1145],
     count: 4864,
+}, {
+    level: 23,
+    zhanli: 180000,
+    zuanshi: 47950,
+    cailiao: [51300, 10670, 5020, 1345],
+    count: 5696,
+}, {
+    level: 24,
+    zhanli: 206000,
+    zuanshi: 56310,
+    cailiao: [60500, 13770, 6190, 1605],
+    count: 6528,
 }]
 
 export const purpleObj = [{
@@ -366,6 +378,18 @@ export const purpleObj = [{
     zuanshi: 73010,
     cailiao: [47420, 21800, 5550, 1455],
     count: 3200,
+}, {
+    level: 23,
+    zhanli: 487000,
+    zuanshi: 87510,
+    cailiao: [58120, 25900, 6930, 1670],
+    count: 3776,
+}, {
+    level: 24,
+    zhanli: 559000,
+    zuanshi: 102810,
+    cailiao: [69820, 30500, 8430, 2450],
+    count: 4352,
 }]
 
 export const goldObj = [{
@@ -500,6 +524,18 @@ export const goldObj = [{
     zuanshi: 217400,
     cailiao: [106620, 38840, 9180, 2800],
     count: 2112
+}, {
+    level: 23,
+    zhanli: 1418000,
+    zuanshi: 247800,
+    cailiao: [120520, 45500, 11040, 3230],
+    count: 2368,
+}, {
+    level: 24,
+    zhanli: 1638000,
+    zuanshi: 290900,
+    cailiao: [138720, 53330, 13300, 3790],
+    count: 2720
 }];
 
 export const blueShenqiList = [{
