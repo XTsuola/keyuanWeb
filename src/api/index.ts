@@ -1,66 +1,63 @@
 import { message } from "ant-design-vue";
-import axios, { type AxiosRequestConfig } from "axios";
+import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios";
 
-// 创建axios实例
 const service = axios.create({
-    // axios中请求配置有baseURL选项，表示请求URL公共部分
-    baseURL: import.meta.env.VITE_APP_BASE_URL,
-    // 超时
-    timeout: 20000
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
+  timeout: 20000,
 });
 
-// request拦截器
-service.interceptors.request.use(config => {
+service.interceptors.request.use(
+  (config) => {
     const token = sessionStorage.getItem("token");
-    if (token && config.headers) {
-        config.headers.token = token;
+    if (token) {
+      config.headers = config.headers ?? {};
+      config.headers.token = token;
     }
     return config;
-}, error => {
-    return Promise.reject(error);
-});
+  },
+  (error) => Promise.reject(error)
+);
 
-// 响应拦截器
-let isShowMsg = true;
-service.interceptors.response.use((res: any) => {
-    if (res.data.code == 401) {
-        if (isShowMsg) {
-            message.error(res.data.msg);
-            sessionStorage.clear();
-        }
-        isShowMsg = false;
-        setTimeout(() => {
-            isShowMsg = true;
-        }, 1500);
-        setTimeout(() => {
-            location.reload()
-        }, 500);
-        return false;
-    } else {
-        return res;
-    }
-}, error => {
-    if (error.response.status == 401) {
-        if (isShowMsg) {
-            message.error(error.response.data.msg);
-            sessionStorage.clear();
-        }
-        isShowMsg = false;
-        setTimeout(() => {
-            isShowMsg = true;
-        }, 1500)
-        setTimeout(() => {
-            location.reload()
-        }, 500)
-    } else {
-        message.error(error.response.data.msg);
-    }
-    return Promise.reject(error);
-});
+let canShowAuthMsg = true;
 
-export default (config: AxiosRequestConfig<any>) => {
-    if (!config.headers) {
-        config.headers = {};
+function handleUnauthorized(msg?: string) {
+  if (canShowAuthMsg) {
+    message.error(msg || "登录已过期，请重新登录");
+    sessionStorage.clear();
+  }
+  canShowAuthMsg = false;
+  setTimeout(() => {
+    canShowAuthMsg = true;
+  }, 1500);
+  setTimeout(() => {
+    location.reload();
+  }, 500);
+}
+
+service.interceptors.response.use(
+  (res: AxiosResponse) => {
+    if (res.data?.code == 401) {
+      handleUnauthorized(res.data.msg);
+      return false as unknown as AxiosResponse;
     }
-    return service(config);
+    return res;
+  },
+  (error) => {
+    const status = error.response?.status;
+    const msg = error.response?.data?.msg;
+
+    if (status == 401) {
+      handleUnauthorized(msg);
+    } else if (msg) {
+      message.error(msg);
+    } else {
+      message.error("网络异常，请稍后重试");
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+export default function request<T = any>(config: AxiosRequestConfig<T>) {
+  return service(config);
 }

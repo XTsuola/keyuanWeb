@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from "vue-router";
 import routerDate from "./routerDate";
 import Login from "../views/login/login.vue";
 
-const routeList = [
+const routeList: RouteRecordRaw[] = [
   {
     path: "/login",
     name: "login",
@@ -49,41 +49,31 @@ const routeList = [
     component: () => import("@/views/myLove/wedding/shiyanPage.vue"),
   },
 ];
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: routeList.concat(routerDate as any),
+  routes: [...routeList, ...routerDate],
 });
 
-// 路由拦截
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const token = sessionStorage.getItem("token");
   if (to.fullPath === "/") {
-    if (token) {
-      next({
-        path: "/team/memberList",
-      });
-    } else {
-      next({
-        path: "/login",
-      });
-    }
-  } else if (to.fullPath === "/login") {
-    if (token) {
-      next({
-        path: "/",
-      });
-    } else {
-      next();
-    }
-  } else {
-    if (token) {
-      next();
-    } else {
-      next({
-        path: "/login",
-      });
-    }
+    next(token ? { path: "/team/memberList" } : { path: "/login" });
+    return;
   }
+  if (to.fullPath === "/login") {
+    if (token) {
+      next({ path: "/" });
+    } else {
+      next();
+    }
+    return;
+  }
+  if (!token) {
+    next({ path: "/login" });
+    return;
+  }
+  next();
 });
 
 export default router;

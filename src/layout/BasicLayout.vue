@@ -4,31 +4,30 @@
     </div>
     <div class="BasicLayout" v-show="!flag">
         <sidebarVue ref="sider" />
-        <mainVue style="width: 100%;" @showMenu="showMenu" />
+        <mainVue class="main-area" @showMenu="showMenu" />
     </div>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onBeforeUnmount } from "vue";
 import { useCounterStore } from "@/stores/counter";
 import sidebarVue from "./Sidebar.vue";
 import mainVue from "./Main.vue";
 
-const sider = ref();
+const sider = ref<InstanceType<typeof sidebarVue>>();
 const counterStore = useCounterStore();
-const flag = ref(false);
-
-if (counterStore.guochangFlag) {
-    flag.value = counterStore.guochangFlag;
-}
-setTimeout(() => {
+const flag = ref(!!counterStore.guochangFlag);
+const timer = setTimeout(() => {
     flag.value = false;
     counterStore.updateFlag(false);
 }, 1000);
 
 function showMenu() {
-    sider.value.showMenu();
+    sider.value?.showMenu();
 }
 
+onBeforeUnmount(() => {
+    clearTimeout(timer);
+});
 </script>
 <style lang="less" scoped>
 .BasicLayout {
@@ -36,6 +35,10 @@ function showMenu() {
     display: flex;
     height: 100%;
     overflow-y: hidden;
+}
+
+.main-area {
+    width: 100%;
 }
 
 .donghua {

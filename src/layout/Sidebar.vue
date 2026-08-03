@@ -1,30 +1,31 @@
 <template>
     <a-layout-sider width="200" v-if="flag">
-        <menuList></menuList>
+        <menuList />
     </a-layout-sider>
     <a-drawer class="siderDrawer" placement="left" width="200" :closable="false" :visible="visible"
         @close="visible = false">
-        <menuList></menuList>
+        <menuList />
     </a-drawer>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import menuList from "../layout/menuList.vue";
+import { ref, onBeforeUnmount } from "vue";
+import menuList from "./menuList.vue";
 
-const visible = ref<boolean>(false);
-const flag = ref<boolean>(true);
+const visible = ref(false);
+const flag = ref(true);
 const mql = window.matchMedia("(max-width: 768px)");
 
 function mediaMatchs() {
     if (mql.matches) {
         flag.value = false;
-        visible.value = true;
+        visible.value = false;
     } else {
         flag.value = true;
         visible.value = false;
     }
 }
+
 mediaMatchs();
 mql.addEventListener("change", mediaMatchs);
 
@@ -32,10 +33,13 @@ function showMenu() {
     visible.value = true;
 }
 
+onBeforeUnmount(() => {
+    mql.removeEventListener("change", mediaMatchs);
+});
+
 defineExpose({
     showMenu
-})
-
+});
 </script>
 
 <style lang="less" scoped>
@@ -43,14 +47,6 @@ aside {
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #fff;
-}
-
-.closeMenu {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    cursor: pointer;
-    display: none;
 }
 
 ::-webkit-scrollbar {
@@ -63,13 +59,10 @@ aside {
 
 ::-webkit-scrollbar-thumb {
     background-color: #aaa;
-}
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
-}
-
-::-webkit-scrollbar-thumb:active {
-    background-color: #aaa;
+    &:hover,
+    &:active {
+        background-color: #aaa;
+    }
 }
 </style>

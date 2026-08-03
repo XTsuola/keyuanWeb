@@ -1,705 +1,208 @@
 export type AsldeMenuType = "group" | "folder" | "menu";
 
 export interface Breadcrumb {
-    url: string;
-    type: AsldeMenuType;
-    label: string;
+  url: string;
+  type: AsldeMenuType;
+  label: string;
 }
 
 export interface Type {
-    label: string
-    value: number | string | undefined
+  label: string;
+  value: number | string | undefined;
 }
 
-export type AddType = "add" | "edit" | "detail"
+export type AddType = "add" | "edit" | "detail";
+
+export interface CardLevelConfig {
+  level: number;
+  zhanli: number;
+  zuanshi: number;
+  cailiao: [number, number, number, number];
+  count: number;
+}
+
+export interface ShenqiConfig {
+  level: number;
+  value: number;
+}
+
+/** [zhanli, zuanshi, cailiao0, cailiao1, cailiao2, cailiao3, count] */
+type LevelRow = [number, number, number, number, number, number, number];
+
+function createLevelTable(rows: LevelRow[]): CardLevelConfig[] {
+  return rows.map(([zhanli, zuanshi, c0, c1, c2, c3, count], index) => ({
+    level: index + 1,
+    zhanli,
+    zuanshi,
+    cailiao: [c0, c1, c2, c3],
+    count,
+  }));
+}
+
+function createShenqiTable(values: number[]): ShenqiConfig[] {
+  return values.map((value, index) => ({
+    level: index + 1,
+    value,
+  }));
+}
 
 export const levelName = {
-    1: "超级管理员",
-    2: "管理员",
-    3: "普通成员",
-}
+  1: "超级管理员",
+  2: "管理员",
+  3: "普通成员",
+} as const;
 
-export const groupList: any = [{
-    label: "暂无分组",
-    value: "暂无分组"
-}, {
-    label: "一队",
-    value: "一队"
-}, {
-    label: "二队",
-    value: "二队"
-}, {
-    label: "三队",
-    value: "三队"
-}, {
-    label: "四队",
-    value: "四队"
-}, {
-    label: "五队",
-    value: "五队"
-}, {
-    label: "六队",
-    value: "六队"
-}]
+export const groupList: Type[] = [
+  { label: "暂无分组", value: "暂无分组" },
+  { label: "一队", value: "一队" },
+  { label: "二队", value: "二队" },
+  { label: "三队", value: "三队" },
+  { label: "四队", value: "四队" },
+  { label: "五队", value: "五队" },
+  { label: "六队", value: "六队" },
+];
 
 export const qingshuBase = {
-    "backgroundTitle": "(1)游戏背景：",
-    "background": "每位玩家都将扮演公主的追求者，游戏目的是成为最后一个被淘汰者，这样便可以将自己的情书送给公主，从而获得一颗公主的爱心。 当爱心达到一定数量时，你便可以迎娶公主，走向人生巅峰。",
-    "roleTitle": "(2)游戏角色：",
-    "roleIntroduce": [
-        "1.（侍卫）：共5张。指定一名玩家猜出其一张名字不是侍卫的卡，如果该名玩家持有这张卡，则他淘汰出局。",
-        "2.（牧师）：共2张。查看另一名玩家的手牌。",
-        "3.（男爵）：共2张。选择另一名玩家，与其比较手牌点数大小，较小者淘汰出局。",
-        "4.（侍女）：共2张。直到你的下一个回合，忽略其他玩家的卡牌对你的影响。",
-        "5.（王子）：共2张。选择场上一名还在游戏中的玩家，被指定的玩家弃掉手牌，然后摸一张新的牌。",
-        "6.（国王）：共1张。将你手上的卡与你选择的另一名玩家交换。",
-        "7.（女伯爵）：共1张。如果你手上有女伯爵并且有着国王或者王子的时候，你必须弃置女伯爵。",
-        "8.（公主）：共1张。如果你弃置或者打出这张牌，你将直接淘汰出局。"
-    ],
-    "role": [
-        { "id": 1, "name": "侍卫" },
-        { "id": 2, "name": "牧师" },
-        { "id": 3, "name": "男爵" },
-        { "id": 4, "name": "侍女" },
-        { "id": 5, "name": "王子" },
-        { "id": 6, "name": "国王" },
-        { "id": 7, "name": "女伯爵" },
-        { "id": 8, "name": "公主" }
-    ]
+  backgroundTitle: "(1)游戏背景：",
+  background:
+    "每位玩家都将扮演公主的追求者，游戏目的是成为最后一个被淘汰者，这样便可以将自己的情书送给公主，从而获得一颗公主的爱心。 当爱心达到一定数量时，你便可以迎娶公主，走向人生巅峰。",
+  roleTitle: "(2)游戏角色：",
+  roleIntroduce: [
+    "1.（侍卫）：共5张。指定一名玩家猜出其一张名字不是侍卫的卡，如果该名玩家持有这张卡，则他淘汰出局。",
+    "2.（牧师）：共2张。查看另一名玩家的手牌。",
+    "3.（男爵）：共2张。选择另一名玩家，与其比较手牌点数大小，较小者淘汰出局。",
+    "4.（侍女）：共2张。直到你的下一个回合，忽略其他玩家的卡牌对你的影响。",
+    "5.（王子）：共2张。选择场上一名还在游戏中的玩家，被指定的玩家弃掉手牌，然后摸一张新的牌。",
+    "6.（国王）：共1张。将你手上的卡与你选择的另一名玩家交换。",
+    "7.（女伯爵）：共1张。如果你手上有女伯爵并且有着国王或者王子的时候，你必须弃置女伯爵。",
+    "8.（公主）：共1张。如果你弃置或者打出这张牌，你将直接淘汰出局。",
+  ],
+  role: [
+    { id: 1, name: "侍卫" },
+    { id: 2, name: "牧师" },
+    { id: 3, name: "男爵" },
+    { id: 4, name: "侍女" },
+    { id: 5, name: "王子" },
+    { id: 6, name: "国王" },
+    { id: 7, name: "女伯爵" },
+    { id: 8, name: "公主" },
+  ],
 };
 
-export const armTypeList =[{
-    label: "步兵",
-    value: 1
-}, {
-    label: "枪兵",
-    value: 2
-}, {
-    label: "骑兵",
-    value: 3
-}, {
-    label: "飞兵",
-    value: 4
-}, {
-    label: "水兵",
-    value: 5
-}, {
-    label: "弓兵",
-    value: 6
-}, {
-    label: "刺客",
-    value: 7
-}, {
-    label: "法师",
-    value: 8
-}, {
-    label: "僧侣",
-    value: 9
-}, {
-    label: "魔物",
-    value: 10
-}];
+export const armTypeList: Type[] = [
+  { label: "步兵", value: 1 },
+  { label: "枪兵", value: 2 },
+  { label: "骑兵", value: 3 },
+  { label: "飞兵", value: 4 },
+  { label: "水兵", value: 5 },
+  { label: "弓兵", value: 6 },
+  { label: "刺客", value: 7 },
+  { label: "法师", value: 8 },
+  { label: "僧侣", value: 9 },
+  { label: "魔物", value: 10 },
+];
 
-export const blueObj = [{
-    level: 1,
-    zhanli: 10,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 1,
-}, {
-    level: 2,
-    zhanli: 22,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 2,
-}, {
-    level: 3,
-    zhanli: 48,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 4,
-}, {
-    level: 4,
-    zhanli: 100,
-    zuanshi: 10,
-    cailiao: [0, 0, 0, 0],
-    count: 8,
-}, {
-    level: 5,
-    zhanli: 220,
-    zuanshi: 35,
-    cailiao: [10, 0, 0, 0],
-    count: 16,
-}, {
-    level: 6,
-    zhanli: 480,
-    zuanshi: 90,
-    cailiao: [50, 0, 0, 0],
-    count: 32,
-}, {
-    level: 7,
-    zhanli: 1000,
-    zuanshi: 220,
-    cailiao: [200, 0, 0, 0],
-    count: 64,
-}, {
-    level: 8,
-    zhanli: 2200,
-    zuanshi: 500,
-    cailiao: [400, 20, 0, 0],
-    count: 128,
-}, {
-    level: 9,
-    zhanli: 4800,
-    zuanshi: 820,
-    cailiao: [600, 70, 0, 0],
-    count: 192,
-}, {
-    level: 10,
-    zhanli: 10000,
-    zuanshi: 1570,
-    cailiao: [1000, 290, 0, 0],
-    count: 320,
-}, {
-    level: 11,
-    zhanli: 13500,
-    zuanshi: 2470,
-    cailiao: [1400, 310, 20, 0],
-    count: 448,
-}, {
-    level: 12,
-    zhanli: 20000,
-    zuanshi: 3940,
-    cailiao: [2000, 380, 90, 0],
-    count: 640,
-}, {
-    level: 13,
-    zhanli: 26000,
-    zuanshi: 5460,
-    cailiao: [2600, 450, 290, 0],
-    count: 832,
-}, {
-    level: 14,
-    zhanli: 38000,
-    zuanshi: 7780,
-    cailiao: [3600, 740, 290, 35],
-    count: 1152,
-}, {
-    level: 15,
-    zhanli: 50000,
-    zuanshi: 10150,
-    cailiao: [4600, 1030, 290, 185],
-    count: 1472,
-}, {
-    level: 16,
-    zhanli: 60000,
-    zuanshi: 12670,
-    cailiao: [5600, 1320, 290, 385],
-    count: 1792,
-}, {
-    level: 17,
-    zhanli: 73500,
-    zuanshi: 16190,
-    cailiao: [11000, 1630, 310, 465],
-    count: 2240,
-}, {
-    level: 18,
-    zhanli: 87000,
-    zuanshi: 19810,
-    cailiao: [12400, 3440, 330, 625],
-    count: 2688,
-}, {
-    level: 19,
-    zhanli: 100500,
-    zuanshi: 23780,
-    cailiao: [28800, 3750, 350, 725],
-    count: 3136,
-}, {
-    level: 20,
-    zhanli: 114000,
-    zuanshi: 28050,
-    cailiao: [30200, 4060, 1970, 845],
-    count: 3584,
-}, {
-    level: 21,
-    zhanli: 134000,
-    zuanshi: 33950,
-    cailiao: [36200, 5640, 2860, 995],
-    count: 4224,
-}, {
-    level: 22,
-    zhanli: 154000,
-    zuanshi: 40150,
-    cailiao: [43200, 8020, 3930, 1145],
-    count: 4864,
-}, {
-    level: 23,
-    zhanli: 180000,
-    zuanshi: 47950,
-    cailiao: [51300, 10670, 5020, 1345],
-    count: 5696,
-}, {
-    level: 24,
-    zhanli: 206000,
-    zuanshi: 56310,
-    cailiao: [60500, 13770, 6190, 1605],
-    count: 6528,
-}]
+export const blueObj = createLevelTable([
+  [10, 0, 0, 0, 0, 0, 1],
+  [22, 0, 0, 0, 0, 0, 2],
+  [48, 0, 0, 0, 0, 0, 4],
+  [100, 10, 0, 0, 0, 0, 8],
+  [220, 35, 10, 0, 0, 0, 16],
+  [480, 90, 50, 0, 0, 0, 32],
+  [1000, 220, 200, 0, 0, 0, 64],
+  [2200, 500, 400, 20, 0, 0, 128],
+  [4800, 820, 600, 70, 0, 0, 192],
+  [10000, 1570, 1000, 290, 0, 0, 320],
+  [13500, 2470, 1400, 310, 20, 0, 448],
+  [20000, 3940, 2000, 380, 90, 0, 640],
+  [26000, 5460, 2600, 450, 290, 0, 832],
+  [38000, 7780, 3600, 740, 290, 35, 1152],
+  [50000, 10150, 4600, 1030, 290, 185, 1472],
+  [60000, 12670, 5600, 1320, 290, 385, 1792],
+  [73500, 16190, 11000, 1630, 310, 465, 2240],
+  [87000, 19810, 12400, 3440, 330, 625, 2688],
+  [100500, 23780, 28800, 3750, 350, 725, 3136],
+  [114000, 28050, 30200, 4060, 1970, 845, 3584],
+  [134000, 33950, 36200, 5640, 2860, 995, 4224],
+  [154000, 40150, 43200, 8020, 3930, 1145, 4864],
+  [180000, 47950, 51300, 10670, 5020, 1345, 5696],
+  [206000, 56310, 60500, 13770, 6190, 1605, 6528],
+]);
 
-export const purpleObj = [{
-    level: 1,
-    zhanli: 30,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 1,
-}, {
-    level: 2,
-    zhanli: 65,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 2,
-}, {
-    level: 3,
-    zhanli: 150,
-    zuanshi: 10,
-    cailiao: [0, 0, 0, 0],
-    count: 4,
-}, {
-    level: 4,
-    zhanli: 300,
-    zuanshi: 40,
-    cailiao: [20, 0, 0, 0],
-    count: 8,
-}, {
-    level: 5,
-    zhanli: 660,
-    zuanshi: 110,
-    cailiao: [90, 0, 0, 0],
-    count: 16,
-}, {
-    level: 6,
-    zhanli: 1440,
-    zuanshi: 270,
-    cailiao: [330, 0, 0, 0],
-    count: 32,
-}, {
-    level: 7,
-    zhanli: 3000,
-    zuanshi: 620,
-    cailiao: [660, 30, 0, 0],
-    count: 64,
-}, {
-    level: 8,
-    zhanli: 6600,
-    zuanshi: 1010,
-    cailiao: [990, 100, 0, 0],
-    count: 96,
-}, {
-    level: 9,
-    zhanli: 14400,
-    zuanshi: 1930,
-    cailiao: [1650, 400, 0, 0],
-    count: 160,
-}, {
-    level: 10,
-    zhanli: 30000,
-    zuanshi: 3150,
-    cailiao: [2310, 1100, 0, 0],
-    count: 224,
-}, {
-    level: 11,
-    zhanli: 40000,
-    zuanshi: 5060,
-    cailiao: [3300, 1200, 30, 0],
-    count: 320,
-}, {
-    level: 12,
-    zhanli: 55000,
-    zuanshi: 7320,
-    cailiao: [4290, 1300, 120, 0],
-    count: 416,
-}, {
-    level: 13,
-    zhanli: 72000,
-    zuanshi: 10500,
-    cailiao: [5940, 1700, 420, 0],
-    count: 576,
-}, {
-    level: 14,
-    zhanli: 90000,
-    zuanshi: 13930,
-    cailiao: [7590, 2100, 420, 50],
-    count: 736,
-}, {
-    level: 15,
-    zhanli: 125000,
-    zuanshi: 18580,
-    cailiao: [9900, 3200, 420, 250],
-    count: 960,
-}, {
-    level: 16,
-    zhanli: 155000,
-    zuanshi: 23530,
-    cailiao: [12210, 4300, 420, 550],
-    count: 1184,
-}, {
-    level: 17,
-    zhanli: 185000,
-    zuanshi: 28630,
-    cailiao: [20520, 5400, 420, 670],
-    count: 1408,
-}, {
-    level: 18,
-    zhanli: 225000,
-    zuanshi: 35790,
-    cailiao: [23820, 6600, 1050, 870],
-    count: 1728,
-}, {
-    level: 19,
-    zhanli: 265000,
-    zuanshi: 43350,
-    cailiao: [27120, 13800, 1080, 990],
-    count: 2048,
-}, {
-    level: 20,
-    zhanli: 305000,
-    zuanshi: 51410,
-    cailiao: [30420, 15000, 3110, 1140],
-    count: 2368,
-}, {
-    level: 21,
-    zhanli: 360000,
-    zuanshi: 62010,
-    cailiao: [38720, 18300, 4230, 1290],
-    count: 2784,
-}, {
-    level: 22,
-    zhanli: 415000,
-    zuanshi: 73010,
-    cailiao: [47420, 21800, 5550, 1455],
-    count: 3200,
-}, {
-    level: 23,
-    zhanli: 487000,
-    zuanshi: 87510,
-    cailiao: [58120, 25900, 6930, 1670],
-    count: 3776,
-}, {
-    level: 24,
-    zhanli: 559000,
-    zuanshi: 102810,
-    cailiao: [69820, 30500, 8430, 2450],
-    count: 4352,
-}]
+export const purpleObj = createLevelTable([
+  [30, 0, 0, 0, 0, 0, 1],
+  [65, 0, 0, 0, 0, 0, 2],
+  [150, 10, 0, 0, 0, 0, 4],
+  [300, 40, 20, 0, 0, 0, 8],
+  [660, 110, 90, 0, 0, 0, 16],
+  [1440, 270, 330, 0, 0, 0, 32],
+  [3000, 620, 660, 30, 0, 0, 64],
+  [6600, 1010, 990, 100, 0, 0, 96],
+  [14400, 1930, 1650, 400, 0, 0, 160],
+  [30000, 3150, 2310, 1100, 0, 0, 224],
+  [40000, 5060, 3300, 1200, 30, 0, 320],
+  [55000, 7320, 4290, 1300, 120, 0, 416],
+  [72000, 10500, 5940, 1700, 420, 0, 576],
+  [90000, 13930, 7590, 2100, 420, 50, 736],
+  [125000, 18580, 9900, 3200, 420, 250, 960],
+  [155000, 23530, 12210, 4300, 420, 550, 1184],
+  [185000, 28630, 20520, 5400, 420, 670, 1408],
+  [225000, 35790, 23820, 6600, 1050, 870, 1728],
+  [265000, 43350, 27120, 13800, 1080, 990, 2048],
+  [305000, 51410, 30420, 15000, 3110, 1140, 2368],
+  [360000, 62010, 38720, 18300, 4230, 1290, 2784],
+  [415000, 73010, 47420, 21800, 5550, 1455, 3200],
+  [487000, 87510, 58120, 25900, 6930, 1670, 3776],
+  [559000, 102810, 69820, 30500, 8430, 2450, 4352],
+]);
 
-export const goldObj = [{
-    level: 1,
-    zhanli: 120,
-    zuanshi: 0,
-    cailiao: [0, 0, 0, 0],
-    count: 1,
-}, {
-    level: 2,
-    zhanli: 280,
-    zuanshi: 20,
-    cailiao: [0, 0, 0, 0],
-    count: 2,
-}, {
-    level: 3,
-    zhanli: 600,
-    zuanshi: 80,
-    cailiao: [30, 0, 0, 0],
-    count: 4,
-}, {
-    level: 4,
-    zhanli: 1300,
-    zuanshi: 220,
-    cailiao: [150, 0, 0, 0],
-    count: 8,
-}, {
-    level: 5,
-    zhanli: 2700,
-    zuanshi: 540,
-    cailiao: [500, 0, 0, 0],
-    count: 16,
-}, {
-    level: 6,
-    zhanli: 5800,
-    zuanshi: 1280,
-    cailiao: [1000, 50, 0, 0],
-    count: 32,
-}, {
-    level: 7,
-    zhanli: 12000,
-    zuanshi: 2880,
-    cailiao: [2000, 220, 0, 0],
-    count: 64,
-}, {
-    level: 8,
-    zhanli: 26500,
-    zuanshi: 4560,
-    cailiao: [3000, 570, 0, 0],
-    count: 96,
-}, {
-    level: 9,
-    zhanli: 58000,
-    zuanshi: 6840,
-    cailiao: [4000, 1420, 0, 0],
-    count: 128,
-}, {
-    level: 10,
-    zhanli: 120000,
-    zuanshi: 11720,
-    cailiao: [6000, 3440, 0, 0],
-    count: 192,
-}, {
-    level: 11,
-    zhanli: 160000,
-    zuanshi: 17600,
-    cailiao: [8000, 3660, 60, 0],
-    count: 256,
-}, {
-    level: 12,
-    zhanli: 220000,
-    zuanshi: 27160,
-    cailiao: [11000, 4230, 260, 0],
-    count: 352,
-}, {
-    level: 13,
-    zhanli: 255000,
-    zuanshi: 36720,
-    cailiao: [14000, 4800, 860, 0],
-    count: 448,
-}, {
-    level: 14,
-    zhanli: 325000,
-    zuanshi: 49580,
-    cailiao: [18000, 6220, 860, 100],
-    count: 576,
-}, {
-    level: 15,
-    zhanli: 400000,
-    zuanshi: 62440,
-    cailiao: [22000, 7640, 860, 450],
-    count: 704,
-}, {
-    level: 16,
-    zhanli: 458000,
-    zuanshi: 76440,
-    cailiao: [26000, 9060, 860, 1050],
-    count: 832,
-}, {
-    level: 17,
-    zhanli: 578000,
-    zuanshi: 96040,
-    cailiao: [32000, 16000, 860, 1270],
-    count: 1024,
-}, {
-    level: 18,
-    zhanli: 698000,
-    zuanshi: 116340,
-    cailiao: [38000, 19440, 1760, 1670],
-    count: 1216,
-}, {
-    level: 19,
-    zhanli: 818000,
-    zuanshi: 137040,
-    cailiao: [74000, 22880, 1760, 1870],
-    count: 1408,
-}, {
-    level: 20,
-    zhanli: 938000,
-    zuanshi: 158700,
-    cailiao: [80000, 26320, 4760, 2170],
-    count: 1600
-}, {
-    level: 21,
-    zhanli: 1098000,
-    zuanshi: 187800,
-    cailiao: [93120, 32440, 6820, 2470],
-    count: 1856,
-}, {
-    level: 22,
-    zhanli: 1258000,
-    zuanshi: 217400,
-    cailiao: [106620, 38840, 9180, 2800],
-    count: 2112
-}, {
-    level: 23,
-    zhanli: 1418000,
-    zuanshi: 247800,
-    cailiao: [120520, 45500, 11040, 3230],
-    count: 2368,
-}, {
-    level: 24,
-    zhanli: 1638000,
-    zuanshi: 290900,
-    cailiao: [138720, 53330, 13300, 3790],
-    count: 2720
-}];
+export const goldObj = createLevelTable([
+  [120, 0, 0, 0, 0, 0, 1],
+  [280, 20, 0, 0, 0, 0, 2],
+  [600, 80, 30, 0, 0, 0, 4],
+  [1300, 220, 150, 0, 0, 0, 8],
+  [2700, 540, 500, 0, 0, 0, 16],
+  [5800, 1280, 1000, 50, 0, 0, 32],
+  [12000, 2880, 2000, 220, 0, 0, 64],
+  [26500, 4560, 3000, 570, 0, 0, 96],
+  [58000, 6840, 4000, 1420, 0, 0, 128],
+  [120000, 11720, 6000, 3440, 0, 0, 192],
+  [160000, 17600, 8000, 3660, 60, 0, 256],
+  [220000, 27160, 11000, 4230, 260, 0, 352],
+  [255000, 36720, 14000, 4800, 860, 0, 448],
+  [325000, 49580, 18000, 6220, 860, 100, 576],
+  [400000, 62440, 22000, 7640, 860, 450, 704],
+  [458000, 76440, 26000, 9060, 860, 1050, 832],
+  [578000, 96040, 32000, 16000, 860, 1270, 1024],
+  [698000, 116340, 38000, 19440, 1760, 1670, 1216],
+  [818000, 137040, 74000, 22880, 1760, 1870, 1408],
+  [938000, 158700, 80000, 26320, 4760, 2170, 1600],
+  [1098000, 187800, 93120, 32440, 6820, 2470, 1856],
+  [1258000, 217400, 106620, 38840, 9180, 2800, 2112],
+  [1418000, 247800, 120520, 45500, 11040, 3230, 2368],
+  [1638000, 290900, 138720, 53330, 13300, 3790, 2720],
+]);
 
-export const blueShenqiList = [{
-    level: 1,
-    value: 1500
-}, {
-    level: 2,
-    value: 3000
-}, {
-    level: 3,
-    value: 6000
-}, {
-    level: 4,
-    value: 12000
-}, {
-    level: 5,
-    value: 24000
-}, {
-    level: 6,
-    value: 40000
-}, {
-    level: 7,
-    value: 60000
-}, {
-    level: 8,
-    value: 100000
-}, {
-    level: 9,
-    value: 180000
-}, {
-    level: 10,
-    value: 300000
-}, {
-    level: 11,
-    value: 450000
-}, {
-    level: 12,
-    value: 600000
-}, {
-    level: 13,
-    value: 750000
-}];
+export const blueShenqiList = createShenqiTable([
+  1500, 3000, 6000, 12000, 24000, 40000, 60000, 100000, 180000, 300000, 450000, 600000, 750000,
+]);
 
-export const purpleShenqiList = [{
-    level: 1,
-    value: 2250
-},{
-    level: 2,
-    value: 4500
-},{
-    level: 3,
-    value: 9000
-},{
-    level: 4,
-    value: 18000
-},{
-    level: 5,
-    value: 36000
-}, {
-    level: 6,
-    value: 60000
-}, {
-    level: 7,
-    value: 100000
-}, {
-    level: 8,
-    value: 180000
-}, {
-    level: 9,
-    value: 350000
-}, {
-    level: 10,
-    value: 600000
-}, {
-    level: 11,
-    value: 900000
-}, {
-    level: 12,
-    value: 1200000
-}, {
-    level: 13,
-    value: 1500000
-}];
+export const purpleShenqiList = createShenqiTable([
+  2250, 4500, 9000, 18000, 36000, 60000, 100000, 180000, 350000, 600000, 900000, 1200000, 1500000,
+]);
 
-export const goldShenqiList = [{
-    level: 1,
-    value: 3000
-},{
-    level: 2,
-    value: 6000
-},{
-    level: 3,
-    value: 12000
-},{
-    level: 4,
-    value: 24000
-},{
-    level: 5,
-    value: 48000
-}, {
-    level: 6,
-    value: 90000
-}, {
-    level: 7,
-    value: 160000
-}, {
-    level: 8,
-    value: 300000
-}, {
-    level: 9,
-    value: 600000
-}, {
-    level: 10,
-    value: 1000000
-}, {
-    level: 11,
-    value: 1500000
-}, {
-    level: 12,
-    value: 2000000
-}, {
-    level: 13,
-    value: 2500000
-}];
-
-export async function getImg(str: string, callback: (e: any) => void) {
-    const url = new URL(str, import.meta.url);
-    // const url = (await import(str)).default
-}
+export const goldShenqiList = createShenqiTable([
+  3000, 6000, 12000, 24000, 48000, 90000, 160000, 300000, 600000, 1000000, 1500000, 2000000, 2500000,
+]);
 
 export function getNowTime(): string {
-    const date = new Date();
-    const Y = date.getFullYear();
-    const M =
-        date.getMonth() + 1 < 10
-            ? "0" + (date.getMonth() + 1)
-            : date.getMonth() + 1;
-    const D = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-    const h = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-    const m =
-        date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    const s =
-        date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-    return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+  const date = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
 }
 
-export function getMyCard(allData: any, myCardList: any) {
-    const list = [];
-    for (let i = 0; i < myCardList.length; i++) {
-        let ind = allData.findIndex((e: any) => e.name == myCardList[i]);
-        list.push(allData[ind]);
-    }
-    return list;
+export function getMyCard<T extends { name: string }>(allData: T[], myCardList: string[]) {
+  return myCardList
+    .map((name) => allData.find((item) => item.name === name))
+    .filter((item): item is T => item !== undefined);
 }
-
-/* async function getImg(str: string[], callback: (e: any) => void) {
-    let crr = []
-    for(let i = 0;i<str.length;i++) {
-        crr.push((await import(str[i])).default)
-    }
-    callback(crr)
-}
-const xxx = ref<any>("")
-let kk = ["../../assets/img/eda1.png", "../../assets/img/eda2.png", "../../assets/img/eda3.png"]
-getImg(kk, (res) => { 
-    xxx.value = res
-}) */

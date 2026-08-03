@@ -1,35 +1,7 @@
 {
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "env.d.ts"
-  ],
-  "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES2022",
-    "lib": [
-      "ES2022",
-      "DOM"
-    ],
-    "strict": true,
-    "jsx": "preserve",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "verbatimModuleSyntax": false,
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
-  },
+  "files": [],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }

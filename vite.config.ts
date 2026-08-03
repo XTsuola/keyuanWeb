@@ -1,17 +1,26 @@
-import { fileURLToPath, URL } from 'url';
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from "node:url";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+
+const srcDir = fileURLToPath(new URL("./src", import.meta.url));
 
 export default defineConfig({
   base: "./",
   plugins: [vue()],
-  server: {
-    port: 3000,
-    host: "::"
-  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+      "@": srcDir,
+    },
+  },
+  server: {
+    host: "::",
+    port: 3000,
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+});

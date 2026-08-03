@@ -1,252 +1,241 @@
 <template>
     <div class="main">
-        <div class="title">
-            <img style="height: 50px;width: 50px;border: 1px solid #cccccc;padding: 1px;" :src="heroImg">
-            {{ name }}-卡组分析图 （当前生命：{{ nowLife }} / 距离满命：{{ maxLfie - nowLife }}）
+        <div class="toolbar">
+            <a-button type="primary" size="small" :loading="exporting" @click="exportImage">导出图片</a-button>
         </div>
-        <!-- <div>
-            <span>还需卡折算人民币：</span>
-            <div class="cardLevel">
-                <span style="width: 130px;">蓝卡：{{ (nowLevel.blue * 0.01).toFixed(2) }}元</span>
-                <span style="width: 130px;">紫卡：{{ (nowLevel.purple * 0.15).toFixed(2) }}元</span>
-                <span style="width: 130px;">橙卡：{{ (nowLevel.gold).toFixed(2) }}元</span>
-            </div>
-        </div> -->
-        <!-- <div>
-            <span>24级满级所需资源：</span>
-            <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ to24Level.baishitou }}</span>
-                <span style="width: 130px;">黑石头：{{ to24Level.heishitou }}</span>
-                <span style="width: 130px;">红石头：{{ to24Level.hongshitou }}</span>
-                <span style="width: 130px;">黄石头：{{ to24Level.huangshitou }}</span>
-                <span style="width: 130px;">钻石：{{ (to24Level.zuanshi / 10000).toFixed(2) }}万</span>
-                <span style="width: 130px;">战力：{{ (to24Level.zhanli / 10000).toFixed(2) }}万</span>
-            </div>
-        </div>
-        <div>
-            <span>当前等级已用资源：</span>
-            <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ nowLevel.baishitou }}</span>
-                <span style="width: 130px;">黑石头：{{ nowLevel.heishitou }}</span>
-                <span style="width: 130px;">红石头：{{ nowLevel.hongshitou }}</span>
-                <span style="width: 130px;">黄石头：{{ nowLevel.huangshitou }}</span>
-                <span style="width: 130px;">钻石：{{ (nowLevel.zuanshi / 10000).toFixed(2) }}万</span>
-                <span style="width: 130px;">战力：{{ (nowLevel.zhanli / 10000).toFixed(2) }}万</span>
-            </div>
-        </div>
-        <div>
-            <span>目前到满级的差值：</span>
-            <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ to24Level.baishitou - nowLevel.baishitou }}</span>
-                <span style="width: 130px;">黑石头：{{ to24Level.heishitou - nowLevel.heishitou }}</span>
-                <span style="width: 130px;">红石头：{{ to24Level.hongshitou - nowLevel.hongshitou }}</span>
-                <span style="width: 130px;">黄石头：{{ to24Level.huangshitou - nowLevel.huangshitou }}</span>
-                <span style="width: 130px;">钻石：{{ ((to24Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) }}万</span>
-                <span style="width: 130px;">战力：{{ ((to24Level.zhanli - nowLevel.zhanli) / 10000).toFixed(2) }}万</span>
-            </div>
-        </div> -->
-        <!-- <div>
-            <span>还需资源折算人民币：</span>
-            <div class="cardLevel">
-                <span style="width: 130px;">白石头：{{ ((to24Level.baishitou - nowLevel.baishitou) * bai).toFixed(2)
-                    }}元</span>
-                <span style="width: 130px;">黑石头：{{ ((to24Level.heishitou - nowLevel.heishitou) * hei).toFixed(2)
-                    }}元</span>
-                <span style="width: 130px;">红石头：{{ ((to24Level.hongshitou - nowLevel.hongshitou) * hong).toFixed(2)
-                    }}元</span>
-                <span style="width: 130px;">黄石头：{{ ((to24Level.huangshitou - nowLevel.huangshitou) * huang).toFixed(2)
-                    }}元</span>
-                <span style="width: 130px;">钻石：{{ ((to24Level.zuanshi - nowLevel.zuanshi) * zuan).toFixed(2) }}元</span>
-                <span style="width: 130px;">累计：{{ (((to24Level.baishitou - nowLevel.baishitou) * bai) +
-                    ((to24Level.heishitou - nowLevel.heishitou) * hei) + ((to24Level.hongshitou -
-                        nowLevel.hongshitou) * hong) + ((to24Level.huangshitou - nowLevel.huangshitou) *
-                            huang) + ((to24Level.zuanshi - nowLevel.zuanshi) * zuan) + nowLevel.blue * 0.05 + nowLevel.purple *
-                    0.15 + nowLevel.gold).toFixed(2) }}元 </span>
-            </div>
-        </div> -->
-        <div style="display: flex;justify-content: flex-start;flex-wrap: wrap;">
-            <div class="card">
-                <div class="bold">卡等分析：</div>
-                <div style="display: flex;justify-content: flex-start;flex-direction: column;">
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">蓝卡等级：</div><span style="width: 60px;">{{ blueCard.toFixed(2)
-                            }} 级</span>
+        <div ref="exportRef" class="export-area">
+            <header class="page-header">
+                <img class="hero-img" :src="heroImg" alt="hero">
+                <div class="header-text">
+                    <div class="title-row">
+                        <h1 class="page-title">{{ name }}</h1>
+                        <span class="page-sub">卡组分析图</span>
+                        <div class="quality-legend">
+                            <span v-for="item in qualityLegend" :key="item.key" class="legend-item"
+                                :class="`quality-${item.key}`">
+                                {{ item.label }} {{ item.count }}
+                            </span>
+                        </div>
                     </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">紫卡等级：</div><span style="width: 60px;">{{ purpleCard.toFixed(2)
-                            }} 级</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">橙卡等级：</div><span style="width: 60px;">{{ orangeCard.toFixed(2)
-                            }} 级</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">平均等级：</div><span style="width: 60px;">{{ allCard.toFixed(2)
-                            }} 级</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">蓝卡占比：</div><span style="width: 60px;">{{ ((blueList.length / 30) *
-                            100).toFixed(2)
-                            }}%</span><span>（{{ blueList.length }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">紫卡占比：</div><span style="width: 60px;">{{ ((purpleList.length / 30) *
-                            100).toFixed(2)
-                            }}%</span><span>（{{ purpleList.length }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 80px;">橙卡占比：</div><span style="width: 60px;">{{ ((goldList.length / 30) *
-                            100).toFixed(2)
-                            }}%</span><span>（{{ goldList.length }}张）</span>
+                    <div class="life-bar">
+                        <span>当前生命 <b>{{ nowLife }}</b></span>
+                        <span class="divider">|</span>
+                        <span>满命 <b>{{ maxLife }}</b></span>
+                        <span class="divider">|</span>
+                        <span>还差 <b class="accent">{{ maxLife - nowLife }}</b></span>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="bold">到24级还需要的资源：</div>
-                <div style="display: flex;justify-content: flex-start;flex-direction: column;">
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">蓝卡：</div><span style="width: 60px;">{{ nowLevel.blue }} 张</span>
+                <div class="header-power">
+                    <div class="power-chip">
+                        <span class="chip-label">当前战力</span>
+                        <span class="chip-value">{{ currentPowerWan.toFixed(2) }}万</span>
                     </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">紫卡：</div><span style="width: 60px;">{{ nowLevel.purple }} 张</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">橙卡：</div><span style="width: 60px;">{{ nowLevel.gold }} 张</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">黄石头：</div><span style="width: 60px;">{{ to24Level.huangshitou -
-                            nowLevel.huangshitou > 10000 ?
-                            ((to24Level.huangshitou - nowLevel.huangshitou) / 10000).toFixed(2) + " 万" :
-                            to24Level.huangshitou
-                            - nowLevel.huangshitou }}</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">红石头：</div><span style="width: 60px;">{{ to24Level.hongshitou -
-                            nowLevel.hongshitou > 10000 ?
-                            ((to24Level.hongshitou - nowLevel.hongshitou) / 10000).toFixed(2) + " 万" :
-                            to24Level.hongshitou
-                            - nowLevel.hongshitou }}</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">黑石头：</div><span style="width: 60px;">{{ to24Level.heishitou -
-                            nowLevel.heishitou > 10000 ?
-                            ((to24Level.heishitou - nowLevel.heishitou) / 10000).toFixed(2) + " 万" : to24Level.heishitou
-                            - nowLevel.heishitou }}</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">白石头：</div><span style="width: 60px;">{{ to24Level.baishitou -
-                            nowLevel.baishitou > 10000 ?
-                            ((to24Level.baishitou - nowLevel.baishitou) / 10000).toFixed(2) + " 万" : to24Level.baishitou
-                            - nowLevel.baishitou }}</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 70px;">钻石：</div><span style="width: 60px;">{{ to24Level.zuanshi -
-                            nowLevel.zuanshi > 10000 ?
-                            ((to24Level.zuanshi - nowLevel.zuanshi) / 10000).toFixed(2) + " 万" : to24Level.zuanshi
-                            - nowLevel.zuanshi }}</span>
+                    <div class="power-chip highlight">
+                        <span class="chip-label">最终战力</span>
+                        <span class="chip-value">{{ finalPowerWan.toFixed(2) }}万</span>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="bold">强卡占比：</div>
-                <div style="display: flex;justify-content: flex-start;flex-direction: column;">
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">SS级：</div><span style="width: 50px;">{{ ((ss / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ ss }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">S级：</div><span style="width: 50px;">{{ ((s / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ s }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">A+级：</div><span style="width: 50px;">{{ ((aa / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ aa }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">A级：</div><span style="width: 50px;">{{ ((a / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ a }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">B级：</div><span style="width: 50px;">{{ ((b / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ b }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">C级：</div><span style="width: 50px;">{{ ((c / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ c }}张）</span>
-                    </div>
-                    <div style="display: flex;justify-self: flex-start;">
-                        <div style="width: 60px;">D级：</div><span style="width: 50px;">{{ ((d / 30) * 100).toFixed(2)
-                        }}%</span><span>（{{ d }}张）</span>
+            </header>
+            <section class="power-section">
+                <div class="power-head">
+                    <h2 class="section-title">战力构成</h2>
+                    <p class="section-note">卡牌 + 英雄满级 + 金神器 + 皮肤 5 星</p>
+                </div>
+                <div class="power-grid">
+                    <div class="power-item" v-for="item in powerRows" :key="item.label">
+                        <span class="power-label">{{ item.label }}</span>
+                        <span class="power-value" :class="{ emphasis: item.emphasis }">{{ item.value }}</span>
                     </div>
                 </div>
+            </section>
+            <div class="bottom-block">
+                <section class="panel-grid">
+                    <article class="card">
+                        <h2 class="card-title">卡等分析</h2>
+                        <div class="stat-pair-grid">
+                            <ul class="stat-list">
+                                <li class="stat-row" v-for="item in cardAvgRows" :key="item.label"
+                                    :class="item.qualityClass">
+                                    <span class="stat-label">{{ item.label }}</span>
+                                    <span class="stat-value">{{ item.value }}</span>
+                                </li>
+                            </ul>
+                            <ul class="stat-list">
+                                <li class="stat-row" v-for="item in cardRatioRows" :key="item.label"
+                                    :class="item.qualityClass">
+                                    <span class="stat-label">{{ item.label }}</span>
+                                    <span class="stat-value">
+                                        {{ item.ratio }}
+                                        <em>（{{ item.count }}）</em>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <h2 class="card-title">资源消耗</h2>
+                        <ul class="stat-list need-list">
+                            <li class="stat-row" v-for="item in needCardRows" :key="item.label"
+                                :class="item.qualityClass">
+                                <span class="stat-label">{{ item.label }}</span>
+                                <span class="stat-value">{{ item.value }}</span>
+                            </li>
+                        </ul>
+                        <div class="resource-cols">
+                            <div class="resource-block">
+                                <h3 class="resource-subtitle">当前消耗</h3>
+                                <ul class="stat-list resource-grid">
+                                    <li class="stat-row" v-for="item in currentResourceRows" :key="item.label">
+                                        <span class="stat-label">{{ item.label }}</span>
+                                        <span class="stat-value">{{ item.value }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resource-block">
+                                <h3 class="resource-subtitle">到 24 级还需</h3>
+                                <ul class="stat-list resource-grid">
+                                    <li class="stat-row" v-for="item in remainResourceRows" :key="item.label">
+                                        <span class="stat-label">{{ item.label }}</span>
+                                        <span class="stat-value">{{ item.value }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <h2 class="card-title">评级分析</h2>
+                        <ul class="stat-list grade-grid">
+                            <li class="stat-row grade-row" v-for="item in gradeRows" :key="item.label"
+                                :style="{ color: item.color }">
+                                <span class="stat-label">
+                                    <i class="grade-dot"></i>
+                                    {{ item.label }}
+                                </span>
+                                <span class="stat-value">
+                                    {{ item.ratio }}
+                                    <em>（{{ item.count }}）</em>
+                                </span>
+                            </li>
+                        </ul>
+                    </article>
+                </section>
+                <section class="deck-section">
+                    <h2 class="section-title">当前卡组</h2>
+                    <div class="deck-grid">
+                        <div v-for="(item, index) in deckCards" :key="`${item.name}-${index}`" class="deck-chip"
+                            :class="item.qualityClass">
+                            <span class="deck-grade-tag" :style="{
+                                background: item.gradeColor,
+                                color: item.gradeColor === '#d4a017' ? '#4a3500' : '#fff',
+                            }">{{ item.gradeLabel }}</span>
+                            <span class="deck-name">{{ item.name }}</span>
+                            <span class="deck-level">{{ item.level }}级</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-
         </div>
-        <h3>（最终战力：卡牌战力+英雄战力（默认全满）+金神器战力+皮肤（默认5星）战力）</h3>
-        <h3>英雄满级战力：187万</h3>
-        <h3>卡牌战力（包含皮肤）：{{ ((nowLevel.zhanli) / 10000 + goldList.length * 2).toFixed(2) }}万</h3>
-        <h3>武器：{{ zhanliObj.wuqi }} （战力：{{ zhanliObj.zhanliWuqi }}万）</h3>
-        <h3>宝物：{{ zhanliObj.baowu }} （战力：{{ zhanliObj.zhanliBaowu }}万）</h3>
-        <h3>当前战力：{{ (187 + zhanliObj.zhanliWuqi + zhanliObj.zhanliBaowu + goldList.length * 2 + nowLevel.zhanli /
-            10000).toFixed(2) }}万</h3>
-        <h3>最终战力：{{ (687 + goldList.length * 2 + to24Level.zhanli / 10000).toFixed(2) }}万</h3>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from "vue";
-import { blueObj, purpleObj, goldObj, blueShenqiList, purpleShenqiList, goldShenqiList } from "@/utils/global";
+import { ref, reactive, computed, onMounted } from "vue";
+import { message } from "ant-design-vue";
+import html2canvas from "html2canvas";
+import { blueObj, purpleObj, goldObj, blueShenqiList, purpleShenqiList, goldShenqiList, type CardLevelConfig } from "@/utils/global";
 import { gradeData } from "./dataAll/cardData";
 import { heroData } from "./dataAll/heroData";
 import { ceshiData } from "./zzzz_ceshiData";
 
-let huang = 0.00213;
-let hong = 0.01093;
-let hei = 0.06453;
-let bai = 0.054;
-let zuan = 0.0026666
-let maxLfie = 349;
-const name = ref<any>("测试");
-const heroImg = ref<any>("");
-const nowLife = ref<any>(0);
-const ss = ref(0);
-const s = ref(0);
-const aa = ref(0);
-const a = ref(0);
-const b = ref(0);
-const c = ref(0);
-const d = ref(0);
-const cardList: string[] = ceshiData.cardList;
-const cardLevel: number[] = ceshiData.cardLevel;
+const DECK_SIZE = 30;
+const MAX_COUNT = { blue: 6528, purple: 4352, gold: 2720 } as const;
+const qualityClassMap: Record<number, string> = {
+    1: "quality-white",
+    2: "quality-blue",
+    3: "quality-purple",
+    4: "quality-orange",
+};
+const shenqiMap: Record<number, { label: string; list: typeof blueShenqiList }> = {
+    1: { label: "蓝色", list: blueShenqiList },
+    2: { label: "紫色", list: purpleShenqiList },
+    3: { label: "橙色", list: goldShenqiList },
+};
+const gradeList = [
+    { label: "SSS真神", short: "SSS", key: "sss", value: 6, color: "#d4a017" },
+    { label: "SS神话", short: "SS", key: "ss", value: 5, color: "#000000" },
+    { label: "S顶级", short: "S", key: "s", value: 4, color: "#ff0000" },
+    { label: "A高级", short: "A", key: "a", value: 3, color: "#ff6633" },
+    { label: "B能带", short: "B", key: "b", value: 2, color: "#8e488e" },
+    { label: "C普通", short: "C", key: "c", value: 1, color: "#2db7f5" },
+    { label: "D垃圾", short: "D", key: "d", value: 0, color: "#87d068" },
+] as const;
+const gradeCounterKeys = ["d", "c", "b", "a", "s", "ss", "sss"] as const;
+const gradeMetaByValue = Object.fromEntries(
+    gradeList.map((item) => [item.value, item])
+) as Record<number, (typeof gradeList)[number]>;
+
+function resolveGradeMeta(grade: number) {
+    if (grade >= 6) return gradeMetaByValue[6];
+    return gradeMetaByValue[grade] ?? gradeMetaByValue[0];
+}
+
+const exportRef = ref<HTMLElement | null>(null);
+const exporting = ref(false);
+const maxLife = 349;
+const name = ref("");
+const heroImg = ref("");
+const nowLife = ref(0);
+const gradeCount = reactive({
+    sss: 0,
+    ss: 0,
+    s: 0,
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+});
+const whiteList: number[] = [];
 const blueList: number[] = [];
 const purpleList: number[] = [];
 const goldList: number[] = [];
-for (let i = 0; i < cardList.length; i++) {
-    const obj: any = gradeData.find((e: any) => e.name == cardList[i]);
-    const grade = JSON.parse(obj.grade)[0];
-    const qulaity = obj.quality;
-    if (qulaity == 4) goldList.push(cardLevel[i]);
-    else if (qulaity == 3) purpleList.push(cardLevel[i]);
-    else if (qulaity == 2) blueList.push(cardLevel[i]);
-    if (grade >= 6) {
-        ss.value++;
-    } else if (grade == 5) {
-        s.value++;
-    } else if (grade == 4) {
-        aa.value++;
-    } else if (grade == 3) {
-        a.value++;
-    } else if (grade == 2) {
-        b.value++;
+const deckCards: Array<{
+    name: string;
+    level: number;
+    qualityClass: string;
+    gradeLabel: string;
+    gradeColor: string;
+}> = [];
+for (let i = 0; i < ceshiData.cardList.length; i++) {
+    const cardName = ceshiData.cardList[i];
+    const card = gradeData.find((e: any) => e.name === cardName);
+    const level = ceshiData.cardLevel[i];
+    const quality = (card?.quality ?? 1) as number;
+    const grade = card ? (JSON.parse(card.grade)[0] as number) : -1;
+    const gradeMeta = resolveGradeMeta(grade);
+    deckCards.push({
+        name: cardName,
+        level,
+        qualityClass: qualityClassMap[quality] ?? "quality-white",
+        gradeLabel: gradeMeta.short,
+        gradeColor: gradeMeta.color,
+    });
+    if (!card) continue;
+    if (quality === 4) goldList.push(level);
+    else if (quality === 3) purpleList.push(level);
+    else if (quality === 2) blueList.push(level);
+    else whiteList.push(level);
+    if (grade >= 6) gradeCount.sss++;
+    else if (grade >= 0 && grade <= 5) {
+        gradeCount[gradeCounterKeys[grade]]++;
     }
-    else if (grade == 1) c.value++;
-    else if (grade == 0) d.value++;
 }
-name.value = ceshiData.name + "-" + ceshiData.hero.name;
-const nowImg: any = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
-heroImg.value = nowImg;
+
+name.value = `${ceshiData.name}-${ceshiData.hero.name}`;
+const img = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
+heroImg.value = img ? String(img) : "";
 nowLife.value = ceshiData.hero.life;
-const to24Level = reactive<any>({
+
+const to24Level = reactive({
     baishitou: 0,
     heishitou: 0,
     hongshitou: 0,
@@ -254,7 +243,7 @@ const to24Level = reactive<any>({
     zuanshi: 0,
     zhanli: 0,
 });
-const nowLevel = reactive<any>({
+const nowLevel = reactive({
     baishitou: 0,
     heishitou: 0,
     hongshitou: 0,
@@ -263,140 +252,726 @@ const nowLevel = reactive<any>({
     zhanli: 0,
     blue: 0,
     purple: 0,
-    gold: 0
+    gold: 0,
 });
+const whiteCard = ref(0);
 const blueCard = ref(0);
 const purpleCard = ref(0);
 const orangeCard = ref(0);
 const allCard = ref(0);
-const zhanliObj = ref<any>({
-    zhanliwuqi: 0,
-    zhanlibaowu: 0,
-    wuqi: "",
-    baowu: ""
-});
 
-async function getList() {
-    let blueLevel = 0, purpleLevel = 0, goldLevel = 0;
-    for (let i = 0; i < blueList.length; i++) {
-        blueLevel += blueList[i];
-        nowLevel.baishitou += blueObj[blueList[i] - 1].cailiao[3];
-        nowLevel.heishitou += blueObj[blueList[i] - 1].cailiao[2];
-        nowLevel.hongshitou += blueObj[blueList[i] - 1].cailiao[1];
-        nowLevel.huangshitou += blueObj[blueList[i] - 1].cailiao[0];
-        nowLevel.zuanshi += blueObj[blueList[i] - 1].zuanshi;
-        nowLevel.zhanli += blueObj[blueList[i] - 1].zhanli;
-        nowLevel.blue += (6528 - blueObj[blueList[i] - 1].count);
+function avg(levels: number[]) {
+    if (!levels.length) return 0;
+    return levels.reduce((sum, cur) => sum + cur, 0) / levels.length;
+}
+
+function formatAmount(value: number) {
+    return value > 10000 ? `${(value / 10000).toFixed(2)} 万` : String(value);
+}
+
+function accumulateLevels(levels: number[], config: CardLevelConfig[], maxCount: number, key: "blue" | "purple" | "gold") {
+    for (const level of levels) {
+        const row = config[level - 1];
+        if (!row) continue;
+        nowLevel.huangshitou += row.cailiao[0];
+        nowLevel.hongshitou += row.cailiao[1];
+        nowLevel.heishitou += row.cailiao[2];
+        nowLevel.baishitou += row.cailiao[3];
+        nowLevel.zuanshi += row.zuanshi;
+        nowLevel.zhanli += row.zhanli;
+        nowLevel[key] += maxCount - row.count;
     }
-    for (let i = 0; i < purpleList.length; i++) {
-        purpleLevel += purpleList[i];
-        nowLevel.baishitou += purpleObj[purpleList[i] - 1].cailiao[3];
-        nowLevel.heishitou += purpleObj[purpleList[i] - 1].cailiao[2];
-        nowLevel.hongshitou += purpleObj[purpleList[i] - 1].cailiao[1];
-        nowLevel.huangshitou += purpleObj[purpleList[i] - 1].cailiao[0];
-        nowLevel.zuanshi += purpleObj[purpleList[i] - 1].zuanshi;
-        nowLevel.zhanli += purpleObj[purpleList[i] - 1].zhanli;
-        nowLevel.purple += (4352 - purpleObj[purpleList[i] - 1].count);
+}
+
+function calcTo24() {
+    const tables = [
+        { list: blueList, table: blueObj },
+        { list: purpleList, table: purpleObj },
+        { list: goldList, table: goldObj },
+    ];
+    for (const { list, table } of tables) {
+        const full = table[23];
+        to24Level.baishitou += list.length * full.cailiao[3];
+        to24Level.heishitou += list.length * full.cailiao[2];
+        to24Level.hongshitou += list.length * full.cailiao[1];
+        to24Level.huangshitou += list.length * full.cailiao[0];
+        to24Level.zuanshi += list.length * full.zuanshi;
+        to24Level.zhanli += list.length * full.zhanli;
     }
-    for (let i = 0; i < goldList.length; i++) {
-        goldLevel += goldList[i];
-        nowLevel.baishitou += goldObj[goldList[i] - 1].cailiao[3];
-        nowLevel.heishitou += goldObj[goldList[i] - 1].cailiao[2];
-        nowLevel.hongshitou += goldObj[goldList[i] - 1].cailiao[1];
-        nowLevel.huangshitou += goldObj[goldList[i] - 1].cailiao[0];
-        nowLevel.zuanshi += goldObj[goldList[i] - 1].zuanshi;
-        nowLevel.zhanli += goldObj[goldList[i] - 1].zhanli;
-        nowLevel.gold += (2720 - goldObj[goldList[i] - 1].count);
-    }
-    blueCard.value = blueLevel / blueList.length;
-    purpleCard.value = purpleLevel / purpleList.length;
-    orangeCard.value = goldLevel / goldList.length;
-    allCard.value = (blueLevel + purpleLevel + goldLevel) / (blueList.length + purpleList.length + goldList.length);
-    to24Level.baishitou = (blueList.length * blueObj[23].cailiao[3]) + (purpleList.length * purpleObj[23].cailiao[3]) + (goldList.length * goldObj[23].cailiao[3]);
-    to24Level.heishitou = (blueList.length * blueObj[23].cailiao[2]) + (purpleList.length * purpleObj[23].cailiao[2]) + (goldList.length * goldObj[23].cailiao[2]);
-    to24Level.hongshitou = (blueList.length * blueObj[23].cailiao[1]) + (purpleList.length * purpleObj[23].cailiao[1]) + (goldList.length * goldObj[23].cailiao[1]);
-    to24Level.huangshitou = (blueList.length * blueObj[23].cailiao[0]) + (purpleList.length * purpleObj[23].cailiao[0]) + (goldList.length * goldObj[23].cailiao[0]);
-    to24Level.zuanshi = (blueList.length * blueObj[23].zuanshi) + (purpleList.length * purpleObj[23].zuanshi) + (goldList.length * goldObj[23].zuanshi);
-    to24Level.zhanli = (blueList.length * blueObj[23].zhanli) + (purpleList.length * purpleObj[23].zhanli) + (goldList.length * goldObj[23].zhanli);
+}
+
+function getList() {
+    accumulateLevels(blueList, blueObj, MAX_COUNT.blue, "blue");
+    accumulateLevels(purpleList, purpleObj, MAX_COUNT.purple, "purple");
+    accumulateLevels(goldList, goldObj, MAX_COUNT.gold, "gold");
+    whiteCard.value = avg(whiteList);
+    blueCard.value = avg(blueList);
+    purpleCard.value = avg(purpleList);
+    orangeCard.value = avg(goldList);
+    allCard.value = avg([...whiteList, ...blueList, ...purpleList, ...goldList]);
+    calcTo24();
 }
 
 function getShenqiZhanli(list: number[]) {
-    let wuqi = 0, baowu = 0;
-    let wuqiInfo = "", baowuInfo = "";
-    if (list[0] == 1) {
-        wuqiInfo = "蓝色";
-        wuqi = blueShenqiList[list[1] - 1].value;
-    } else if (list[0] == 2) {
-        wuqiInfo = "紫色";
-        wuqi = purpleShenqiList[list[1] - 1].value;
-    } else if (list[0] == 3) {
-        wuqiInfo = "橙色";
-        wuqi = goldShenqiList[list[1] - 1].value;
-    }
-    if (list[2] == 1) {
-        baowuInfo = "蓝色";
-        baowu = blueShenqiList[list[3] - 1].value;
-    } else if (list[2] == 2) {
-        baowuInfo = "紫色";
-        baowu = purpleShenqiList[list[3] - 1].value;
-    } else if (list[2] == 3) {
-        baowuInfo = "橙色";
-        baowu = goldShenqiList[list[3] - 1].value;
-    }
+    const wuqiCfg = shenqiMap[list[0]];
+    const baowuCfg = shenqiMap[list[2]];
+    const wuqi = wuqiCfg?.list[list[1] - 1]?.value ?? 0;
+    const baowu = baowuCfg?.list[list[3] - 1]?.value ?? 0;
     return {
-        zhanliWuqi: Math.floor((wuqi / 10000)),
-        zhanliBaowu: Math.floor((baowu / 10000)),
-        wuqi: wuqiInfo + list[1] + "星",
-        baowu: baowuInfo + list[3] + "星",
+        zhanliWuqi: Math.floor(wuqi / 10000),
+        zhanliBaowu: Math.floor(baowu / 10000),
+        wuqi: `${wuqiCfg?.label ?? ""}${list[1]}星`,
+        baowu: `${baowuCfg?.label ?? ""}${list[3]}星`,
+    };
+}
+
+const zhanliObj = ref(getShenqiZhanli(ceshiData.shenqiList));
+const qualityLegend = computed(() => [
+    { key: "white", label: "白", count: whiteList.length },
+    { key: "blue", label: "蓝", count: blueList.length },
+    { key: "purple", label: "紫", count: purpleList.length },
+    { key: "orange", label: "橙", count: goldList.length },
+]);
+const cardAvgRows = computed(() => [
+    { label: "白卡等级", value: `${whiteCard.value.toFixed(2)} 级`, qualityClass: "quality-white" },
+    { label: "蓝卡等级", value: `${blueCard.value.toFixed(2)} 级`, qualityClass: "quality-blue" },
+    { label: "紫卡等级", value: `${purpleCard.value.toFixed(2)} 级`, qualityClass: "quality-purple" },
+    { label: "橙卡等级", value: `${orangeCard.value.toFixed(2)} 级`, qualityClass: "quality-orange" },
+    { label: "平均等级", value: `${allCard.value.toFixed(2)} 级`, qualityClass: "" },
+]);
+const cardRatioRows = computed(() => [
+    { label: "白卡占比", ratio: `${((whiteList.length / DECK_SIZE) * 100).toFixed(2)}%`, count: whiteList.length, qualityClass: "quality-white" },
+    { label: "蓝卡占比", ratio: `${((blueList.length / DECK_SIZE) * 100).toFixed(2)}%`, count: blueList.length, qualityClass: "quality-blue" },
+    { label: "紫卡占比", ratio: `${((purpleList.length / DECK_SIZE) * 100).toFixed(2)}%`, count: purpleList.length, qualityClass: "quality-purple" },
+    { label: "橙卡占比", ratio: `${((goldList.length / DECK_SIZE) * 100).toFixed(2)}%`, count: goldList.length, qualityClass: "quality-orange" },
+]);
+const needCardRows = computed(() => [
+    { label: "蓝卡", value: `${nowLevel.blue} 张`, qualityClass: "quality-blue" },
+    { label: "紫卡", value: `${nowLevel.purple} 张`, qualityClass: "quality-purple" },
+    { label: "橙卡", value: `${nowLevel.gold} 张`, qualityClass: "quality-orange" },
+]);
+const currentResourceRows = computed(() => [
+    { label: "黄石头", value: formatAmount(nowLevel.huangshitou) },
+    { label: "红石头", value: formatAmount(nowLevel.hongshitou) },
+    { label: "黑石头", value: formatAmount(nowLevel.heishitou) },
+    { label: "白石头", value: formatAmount(nowLevel.baishitou) },
+    { label: "钻石", value: formatAmount(nowLevel.zuanshi) },
+]);
+const remainResourceRows = computed(() => [
+    { label: "黄石头", value: formatAmount(to24Level.huangshitou - nowLevel.huangshitou) },
+    { label: "红石头", value: formatAmount(to24Level.hongshitou - nowLevel.hongshitou) },
+    { label: "黑石头", value: formatAmount(to24Level.heishitou - nowLevel.heishitou) },
+    { label: "白石头", value: formatAmount(to24Level.baishitou - nowLevel.baishitou) },
+    { label: "钻石", value: formatAmount(to24Level.zuanshi - nowLevel.zuanshi) },
+]);
+const gradeRows = computed(() =>
+    gradeList.map((item) => {
+        const count = gradeCount[item.key];
+        return {
+            label: item.label,
+            count,
+            color: item.color,
+            ratio: `${((count / DECK_SIZE) * 100).toFixed(2)}%`,
+        };
+    })
+);
+const cardPowerWan = computed(() => nowLevel.zhanli / 10000 + goldList.length * 2);
+const currentPowerWan = computed(() => 187 + zhanliObj.value.zhanliWuqi + zhanliObj.value.zhanliBaowu + goldList.length * 2 + nowLevel.zhanli / 10000);
+const finalPowerWan = computed(() => 687 + goldList.length * 2 + to24Level.zhanli / 10000);
+const powerRows = computed(() => [
+    { label: "英雄满级战力", value: "187万" },
+    { label: "卡牌战力（含皮肤）", value: `${cardPowerWan.value.toFixed(2)}万` },
+    { label: "武器", value: `${zhanliObj.value.wuqi}（${zhanliObj.value.zhanliWuqi}万）` },
+    { label: "宝物", value: `${zhanliObj.value.baowu}（${zhanliObj.value.zhanliBaowu}万）` },
+    { label: "当前战力", value: `${currentPowerWan.value.toFixed(2)}万`, emphasis: true },
+    { label: "最终战力", value: `${finalPowerWan.value.toFixed(2)}万`, emphasis: true },
+]);
+
+async function exportImage() {
+    if (!exportRef.value) return;
+    exporting.value = true;
+    try {
+        const canvas = await html2canvas(exportRef.value, {
+            backgroundColor: "#f7f8fa",
+            scale: 2,
+            useCORS: true,
+        });
+        const link = document.createElement("a");
+        link.download = `${name.value || "卡组分析"}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        message.success("导出成功");
+    } catch (error) {
+        console.error(error);
+        message.error("导出失败，请重试");
+    } finally {
+        exporting.value = false;
     }
 }
-zhanliObj.value = getShenqiZhanli(ceshiData.shenqiList);
 
 onMounted(() => {
     getList();
-})
-
+});
 </script>
 
 <style lang="less" scoped>
 .main {
-    padding: 20px;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+    --line: #e8e8e8;
+    --text: #1f1f1f;
+    --muted: #8c8c8c;
+    --accent: #3860f4;
+    --panel: #f7f8fa;
+    --white: #8c8c8c;
+    --white-bg: #f5f5f5;
+    --blue: #1677ff;
+    --blue-bg: #e6f4ff;
+    --purple: #722ed1;
+    --purple-bg: #f9f0ff;
+    --orange: #d46b08;
+    --orange-bg: #fff7e6;
 
-    .title {
-        font-size: 18px;
+    height: calc(100vh - 88px);
+    padding: 8px 12px 10px;
+    overflow: hidden;
+    color: var(--text);
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.export-area {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 2px;
+    background: var(--panel);
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.hero-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.header-text {
+    min-width: 0;
+    flex: 1;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-bottom: 4px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+.page-sub {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.life-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    font-size: 12px;
+    color: #595959;
+
+    b {
         font-weight: 600;
-        margin: 0 15px 15px 0;
+        color: var(--text);
     }
 
-    .searchHead {
-        display: flex;
-        justify-content: flex-start;
+    .accent {
+        color: var(--accent);
+    }
+
+    .divider {
+        color: #d0d0d0;
+    }
+}
+
+.header-power {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.power-chip {
+    min-width: 96px;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    text-align: right;
+
+    &.highlight {
+        border-color: #ffd591;
+        background: var(--orange-bg);
+
+        .chip-value {
+            color: var(--orange);
+        }
+    }
+}
+
+.chip-label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 2px;
+}
+
+.chip-value {
+    font-size: 15px;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+}
+
+.quality-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.legend-item {
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.bottom-block {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    flex: 0.85 1 0;
+    min-height: 0;
+    align-items: stretch;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.card-title {
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 650;
+    flex-shrink: 0;
+}
+
+.stat-pair-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+.stat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-pair-grid .stat-list {
+    height: 100%;
+    min-height: 0;
+}
+
+.stat-pair-grid .stat-row {
+    flex: 1;
+}
+
+.need-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.resource-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+.resource-block {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.resource-subtitle {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 4px;
+    flex: 1;
+    min-height: 0;
+}
+
+.grade-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 4px;
+    flex: 1;
+    min-height: 0;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 1.25;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: var(--panel);
+}
+
+.stat-label {
+    color: #595959;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 550;
+
+    em {
+        margin-left: 2px;
+        font-style: normal;
+        font-weight: 400;
+        color: var(--muted);
+        font-size: 12px;
+    }
+}
+
+.stat-divider {
+    display: none;
+}
+
+.quality-white {
+    color: var(--white);
+    background: var(--white-bg);
+}
+
+.quality-blue {
+    color: var(--blue);
+    background: var(--blue-bg);
+}
+
+.quality-purple {
+    color: var(--purple);
+    background: var(--purple-bg);
+}
+
+.quality-orange {
+    color: var(--orange);
+    background: var(--orange-bg);
+}
+
+.stat-row.quality-white,
+.stat-row.quality-blue,
+.stat-row.quality-purple,
+.stat-row.quality-orange {
+
+    .stat-label,
+    .stat-value {
+        color: inherit;
+    }
+
+    .stat-value em {
+        color: inherit;
+        opacity: 0.75;
+    }
+}
+
+.grade-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.grade-row {
+
+    .stat-label,
+    .stat-value {
+        color: inherit;
+    }
+
+    .stat-value em {
+        color: inherit;
+        opacity: 0.75;
+    }
+}
+
+.power-section {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.power-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.section-note {
+    margin: 0;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.3;
+}
+
+.power-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.power-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    background: var(--panel);
+    border-radius: 4px;
+    min-width: 0;
+}
+
+.power-label {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.power-value {
+    font-size: 13px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.emphasis {
+        color: var(--orange);
+        font-size: 14px;
+    }
+}
+
+.deck-section {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 12px;
+    background: #fff;
+    flex: 1.35 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.deck-section .section-title {
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.deck-grid {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+.deck-chip {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    padding: 10px 8px 6px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.deck-grade-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 14px;
+    padding: 0 4px;
+    border-radius: 6px 0 6px 0;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    box-sizing: border-box;
+}
+
+.deck-name {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.deck-level {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.72;
+    color: inherit;
+}
+
+@media screen and (max-width: 1100px) {
+    .power-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .deck-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        height: auto;
+        min-height: calc(100vh - 88px);
+        overflow-y: auto;
+    }
+
+    .page-header {
         flex-wrap: wrap;
     }
 
-    .cardLevel {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 8px;
-
-        span {
-            margin-right: 50px;
-        }
+    .header-power {
+        width: 100%;
     }
 
-    .card {
-        border: 2px solid #cccccc;
-        padding: 8px;
-        border-radius: 5px;
-        margin-right: 10px;
+    .power-chip {
+        flex: 1;
     }
 
-    .bold {
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 8px;
+    .panel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .power-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .deck-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 </style>

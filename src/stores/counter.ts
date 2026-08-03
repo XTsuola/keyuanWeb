@@ -1,12 +1,16 @@
+import { ref } from "vue";
 import { defineStore } from "pinia";
 
-export const useCounterStore = defineStore('counter', {
-    state: () => ({
-        guochangFlag: false,
-    }),
-    actions: {
-        updateFlag(flag: boolean) {
-            this.guochangFlag = flag;
-        },
+/** 登录过场动画状态 */
+export const useCounterStore = defineStore("counter", () => {
+    const guochangFlag = ref(false);
+
+    function updateFlag(flag: boolean) {
+        guochangFlag.value = flag;
     }
-})
+
+    return {
+        guochangFlag,
+        updateFlag,
+    };
+});
