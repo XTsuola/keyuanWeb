@@ -1,75 +1,76 @@
-// 帝国：（16张）、（21.38级）
+// 帝国：（17张）、（21.94级）
 export const simangdiguo = [
     [ // 蓝卡：（4张）、（21.50级）
         { cost: 1, name: "圣殿斥候", level: 22 },
-        { cost: 3, name: "圣殿弩手", level: 22 },
         { cost: 3, name: "田园守望者", level: 22 },
+        { cost: 3, name: "塔楼弓手", level: 22 },
         { cost: 5, name: "光明惩戒", level: 20 },
     ],
-    [ // 紫卡：（6张）、（21.67级）
+    [ // 紫卡：（7张）、（22.29级）
         { cost: 1, name: "四芒军旗", level: 22 },
-        { cost: 2, name: "圣殿御卫", level: 22 },
-        { cost: 3, name: "白袍主教", level: 22 },
+        { cost: 1, name: "传记·钢铁守卫", level: 22 },
+        { cost: 2, name: "圣殿御卫", level: 24 },
+        { cost: 3, name: "白袍主教", level: 24 },
         { cost: 3, name: "圣殿骑士", level: 22 },
         { cost: 4, name: "召集护卫", level: 22 },
         { cost: 4, name: "炽阳坠落", level: 20 },
     ],
-    [ // 橙卡：（6张）、（21.00级）
+    [ // 橙卡：（6张）、（21.83级）
         { cost: 3, name: "曙光·安娜贝尔", level: 22 },
-        { cost: 4, name: "圣枪·卡洛琳", level: 22 },
+        { cost: 4, name: "圣枪·卡洛琳", level: 23 },
         { cost: 4, name: "明日之音·露娜", level: 18 },
-        { cost: 5, name: "帝国军魂·莱哈特", level: 22 },
-        { cost: 6, name: "正阳大主教·伊恩", level: 22 },
-        { cost: 8, name: "钢铁统帅·雷蒙德", level: 20 },
+        { cost: 5, name: "帝国军魂·莱哈特", level: 23 },
+        { cost: 6, name: "正阳大主教·伊恩", level: 24 },
+        { cost: 8, name: "钢铁统帅·雷蒙德", level: 21 },
     ],
 ];
 
-// 港口：（15张）、（19.80）
+// 港口：（15张）、（20.20）
 export const tiantanggang = [
-    [ // 蓝卡：（8张）、（20.63级）
-        { cost: 1, name: "心灵黑洞1", level: 18 },
+    [ // 蓝卡：（8张）、（21.13级）
+        { cost: 1, name: "心灵黑洞1", level: 19 },
         { cost: 1, name: "心灵黑洞2", level: 18 },
         { cost: 2, name: "狡诈学徒", level: 22 },
         { cost: 2, name: "黑金勒索者", level: 22 },
         { cost: 2, name: "黑夜突袭", level: 22 },
-        { cost: 3, name: "热血矿工", level: 22 },
+        { cost: 3, name: "热血矿工", level: 24 },
         { cost: 3, name: "酗酒醉汉", level: 22 },
-        { cost: 3, name: "不法交易", level: 19 },
+        { cost: 3, name: "不法交易", level: 20 },
     ],
-    [ // 紫卡：（2张）、（20.00级）
+    [ // 紫卡：（2张）、（20.50级）
         { cost: 2, name: "海燕精卫", level: 22 },
-        { cost: 4, name: "黑金诈术师", level: 18 },
+        { cost: 4, name: "黑金诈术师", level: 19 },
     ],
-    [ // 橙卡：（5张）、（18.40级）
+    [ // 橙卡：（5张）、（18.60级）
         { cost: 3, name: "花剑绅士·翔", level: 20 },
         { cost: 3, name: "海燕·鲍莉", level: 20 },
         { cost: 4, name: "赤影·艾希尔", level: 18 },
-        { cost: 4, name: "魔卡幻术师·梅基", level: 14 },
+        { cost: 4, name: "魔卡幻术师·梅基", level: 15 },
         { cost: 5, name: "钢之咆哮·布瑞恩", level: 20 },
     ],
 ];
 
-// 隐秘：（15张）、（17.53级）
+// 隐秘：（15张）、（17.33级）
 export const yinmizhe = [
-    [ // 蓝卡：（5张）、（18.20级）
-        { cost: 2, name: "学仆-观测型1", level: 22 },
-        { cost: 2, name: "学仆-观测型2", level: 18 },
+    [ // 蓝卡：（4张）、（18.50级）
+        { cost: 2, name: "学仆-观测型", level: 22 },
         { cost: 2, name: "沉重否定1", level: 15 },
-        { cost: 2, name: "沉重否定2", level: 14 },
+        { cost: 2, name: "沉重否定2", level: 15 },
         { cost: 3, name: "全数否定", level: 22 },
     ],
-    [ // 紫卡：（9张）、（17.22级）
-        { cost: 1, name: "隐形术", level: 14 },
-        { cost: 2, name: "破魔系教授", level: 18 },
-        { cost: 2, name: "克隆术", level: 15 },
+    [ // 紫卡：（10张）、（17.40级）
+        { cost: 1, name: "隐形术", level: 15 },
+        { cost: 2, name: "破魔系教授", level: 19 },
+        { cost: 2, name: "克隆术1", level: 16 },
+        { cost: 2, name: "克隆术2", level: 12 },
         { cost: 3, name: "学仆-脉冲型1", level: 22 },
-        { cost: 3, name: "学仆-脉冲型2", level: 14 },
-        { cost: 4, name: "幻域秘树", level: 18 },
+        { cost: 3, name: "学仆-脉冲型2", level: 16 },
+        { cost: 4, name: "幻域秘树", level: 19 },
         { cost: 4, name: "学仆-塑钢型", level: 18 },
-        { cost: 5, name: "观星台大预言家", level: 17 },
+        { cost: 5, name: "观星台大预言家", level: 18 },
         { cost: 7, name: "米拉方舟", level: 19 },
     ],
-    [ // 橙卡：（1张）、（17.00级）
-        { cost: 5, name: "No.2时光·米拉", level: 17 },
+    [ // 橙卡：（1张）、（12.00级）
+        { cost: 5, name: "No.2时光·米拉", level: 12 },
     ],
 ];

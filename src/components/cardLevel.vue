@@ -13,7 +13,8 @@
                     <a-input v-model:value="formState.name" class="form-control" placeholder="输入名称" allow-clear />
                 </a-form-item>
                 <a-form-item label="阵营" class="search-item">
-                    <a-select v-model:value="formState.zhenyin" mode="multiple" class="form-control" placeholder="请选择阵营" allow-clear>
+                    <a-select v-model:value="formState.zhenyin" mode="multiple" class="form-control" placeholder="请选择阵营"
+                        allow-clear>
                         <a-select-option v-for="item in zhenyinList" :key="item.value" :value="item.value">
                             {{ item.label }}
                         </a-select-option>
@@ -43,11 +44,12 @@
                 <a-form-item class="search-item search-actions">
                     <a-button type="primary" size="small" @click="getList">查询</a-button>
                     <a-button size="small" @click="reset">重置</a-button>
+                    <a-button size="small" :loading="exporting" @click="exportImage">导出图片</a-button>
                 </a-form-item>
             </a-form>
         </section>
 
-        <section class="summary-bar">
+        <section ref="exportRef" class="summary-bar">
             <div class="summary-item" v-for="item in summaryRows" :key="item.label">
                 <span class="summary-label">{{ item.label }}</span>
                 <span class="summary-value">
@@ -58,18 +60,16 @@
         </section>
 
         <section class="table-wrap">
-            <MyTabel
-                :columnsData="columns"
-                :dataSource="tableData"
-                :pagination="false"
-                :rowClassName="(record) => `quality-row-${record.quality}`"
-            />
+            <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"
+                :rowClassName="(record) => `quality-row-${record.quality}`" />
         </section>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, h, onMounted, reactive, ref } from "vue";
+import { message } from "ant-design-vue";
+import html2canvas from "html2canvas";
 import { blueObj, purpleObj, goldObj, type Type } from "@/utils/global";
 import MyTabel from "@/components/table.vue";
 
@@ -92,6 +92,8 @@ const qualityConfigMap: Record<number, typeof blueObj> = {
 };
 
 const prop = defineProps<Prop>();
+const exportRef = ref<HTMLElement | null>(null);
+const exporting = ref(false);
 const numSorter = (key: string) => (a: any, b: any) => Number(a[key]) - Number(b[key]);
 
 function renderQualityTag(quality: number) {
@@ -139,8 +141,22 @@ const columns = ref([
     },
     { title: "等级", dataIndex: "level", key: "level", width: 80, sorter: numSorter("level") },
     { title: "费用", dataIndex: "cost", key: "cost", width: 60, sorter: numSorter("cost") },
-    { title: "钻石", key: "zuanshi", dataIndex: "zuanshi", width: 100, sorter: numSorter("zuanshi") },
-    { title: "白石头消耗", key: "bai", dataIndex: "bai", width: 160, sorter: numSorter("bai") },
+    {
+        title: "钻石",
+        key: "zuanshi",
+        dataIndex: "zuanshi",
+        width: 100,
+        sorter: numSorter("zuanshi"),
+        customRender: (opt: any) => formatAmount(Number(opt.value) || 0),
+    },
+    {
+        title: "白石头消耗",
+        key: "bai",
+        dataIndex: "bai",
+        width: 160,
+        sorter: numSorter("bai"),
+        customRender: (opt: any) => formatAmount(Number(opt.value) || 0),
+    },
 ]);
 
 const tableData = ref<any[]>([]);
@@ -203,6 +219,12 @@ function avgLevel(levels: number[]) {
     if (!levels.length) return "0.00";
     const sum = levels.reduce((acc, cur) => acc + cur, 0);
     return (sum / levels.length).toFixed(2);
+}
+
+/** 大于 10000 用 w 作单位，保留 2 位小数 */
+function formatAmount(value: number) {
+    if (value > 10000) return `${(value / 10000).toFixed(2)}w`;
+    return String(value);
 }
 
 function getList() {
@@ -270,10 +292,33 @@ function reset() {
     getList();
 }
 
+async function exportImage() {
+    if (!exportRef.value || !tableData.value.length) {
+        message.warning("暂无数据可导出");
+        return;
+    }
+    exporting.value = true;
+    try {
+        const canvas = await html2canvas(exportRef.value, {
+            backgroundColor: "#ffffff",
+            scale: 2,
+        });
+        const link = document.createElement("a");
+        link.download = `卡牌统计_${tableData.value.length}张.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        message.success("导出成功");
+    } catch {
+        message.error("导出失败，请重试");
+    } finally {
+        exporting.value = false;
+    }
+}
+
 const summaryRows = computed(() => [
-    { label: "白石头", value: countBaishitou.value },
-    { label: "黑石头", value: countHeishitou.value },
-    { label: "钻石", value: countZuanshi.value },
+    { label: "白石头", value: formatAmount(countBaishitou.value) },
+    { label: "黑石头", value: formatAmount(countHeishitou.value) },
+    { label: "钻石", value: formatAmount(countZuanshi.value) },
     { label: "蓝卡卡等", value: blueLevel.value, count: blueCount.value },
     { label: "紫卡卡等", value: purpleLevel.value, count: purpleCount.value },
     { label: "金卡卡等", value: goldLevel.value, count: goldCount.value },

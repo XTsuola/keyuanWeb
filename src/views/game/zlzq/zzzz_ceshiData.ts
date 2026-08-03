@@ -7,7 +7,7 @@ interface HeroType {
 interface CeshiDataType {
     name: string
     hero: HeroType
-    shenqiList: number[]
+    shenqiList: any
     cardList: string[]
     cardLevel: number[]
 }
@@ -149,7 +149,7 @@ export const ceshiData: CeshiDataType = {
         life: 328
     },
     shenqiList: [
-        2, 13, 2, 10
+        2, 13, 2, 10, "寻宝短杖", "纯净紫钻"
     ],
     cardList: [
         "旷野猎手", "学仆-观测型", "势如破竹", "沉重否定", "全数否定", "强行捕猎",

@@ -13,14 +13,6 @@ const data = [{
     value: 1,
     data: simangdiguo
 }, {
-    name: "禅意谷",
-    value: 2,
-    data: chanyigu
-}, {
-    name: "天堂港",
-    value: 3,
-    data: tiantanggang
-}, {
     name: "隐秘者",
     value: 7,
     data: yinmizhe

@@ -42,9 +42,17 @@
                     <p class="section-note">卡牌 + 英雄满级 + 金神器 + 皮肤 5 星</p>
                 </div>
                 <div class="power-grid">
-                    <div class="power-item" v-for="item in powerRows" :key="item.label">
+                    <div
+                        class="power-item"
+                        v-for="item in powerRows"
+                        :key="item.label"
+                        :class="[item.qualityClass, { emphasis: item.emphasis }]"
+                    >
                         <span class="power-label">{{ item.label }}</span>
-                        <span class="power-value" :class="{ emphasis: item.emphasis }">{{ item.value }}</span>
+                        <span class="power-value">
+                            <em v-if="item.qualityTag" class="shenqi-tag">{{ item.qualityTag }}</em>
+                            {{ item.value }}
+                        </span>
                     </div>
                 </div>
             </section>
@@ -121,17 +129,18 @@
                 </section>
                 <section class="deck-section">
                     <h2 class="section-title">当前卡组</h2>
-                    <div class="deck-grid">
-                        <div v-for="(item, index) in deckCards" :key="`${item.name}-${index}`" class="deck-chip"
+                    <ul class="deck-list">
+                        <li v-for="(item, index) in deckCards" :key="`${item.name}-${index}`" class="deck-row"
                             :class="item.qualityClass">
+                            <span class="deck-index">{{ index + 1 }}</span>
                             <span class="deck-grade-tag" :style="{
                                 background: item.gradeColor,
                                 color: item.gradeColor === '#d4a017' ? '#4a3500' : '#fff',
                             }">{{ item.gradeLabel }}</span>
                             <span class="deck-name">{{ item.name }}</span>
                             <span class="deck-level">{{ item.level }}级</span>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </section>
             </div>
         </div>
@@ -155,10 +164,10 @@ const qualityClassMap: Record<number, string> = {
     3: "quality-purple",
     4: "quality-orange",
 };
-const shenqiMap: Record<number, { label: string; list: typeof blueShenqiList }> = {
-    1: { label: "蓝色", list: blueShenqiList },
-    2: { label: "紫色", list: purpleShenqiList },
-    3: { label: "橙色", list: goldShenqiList },
+const shenqiMap: Record<number, { label: string; qualityClass: string; list: typeof blueShenqiList }> = {
+    1: { label: "蓝色", qualityClass: "quality-blue", list: blueShenqiList },
+    2: { label: "紫色", qualityClass: "quality-purple", list: purpleShenqiList },
+    3: { label: "橙色", qualityClass: "quality-orange", list: goldShenqiList },
 };
 const gradeList = [
     { label: "SSS真神", short: "SSS", key: "sss", value: 6, color: "#d4a017" },
@@ -320,6 +329,12 @@ function getShenqiZhanli(list: number[]) {
     return {
         zhanliWuqi: Math.floor(wuqi / 10000),
         zhanliBaowu: Math.floor(baowu / 10000),
+        wuqiLabel: wuqiCfg?.label ?? "",
+        baowuLabel: baowuCfg?.label ?? "",
+        wuqiStar: list[1],
+        baowuStar: list[3],
+        wuqiQualityClass: wuqiCfg?.qualityClass ?? "",
+        baowuQualityClass: baowuCfg?.qualityClass ?? "",
         wuqi: `${wuqiCfg?.label ?? ""}${list[1]}星`,
         baowu: `${baowuCfg?.label ?? ""}${list[3]}星`,
     };
@@ -378,14 +393,29 @@ const gradeRows = computed(() =>
 const cardPowerWan = computed(() => nowLevel.zhanli / 10000 + goldList.length * 2);
 const currentPowerWan = computed(() => 187 + zhanliObj.value.zhanliWuqi + zhanliObj.value.zhanliBaowu + goldList.length * 2 + nowLevel.zhanli / 10000);
 const finalPowerWan = computed(() => 687 + goldList.length * 2 + to24Level.zhanli / 10000);
-const powerRows = computed(() => [
-    { label: "英雄满级战力", value: "187万" },
-    { label: "卡牌战力（含皮肤）", value: `${cardPowerWan.value.toFixed(2)}万` },
-    { label: "武器", value: `${zhanliObj.value.wuqi}（${zhanliObj.value.zhanliWuqi}万）` },
-    { label: "宝物", value: `${zhanliObj.value.baowu}（${zhanliObj.value.zhanliBaowu}万）` },
-    { label: "当前战力", value: `${currentPowerWan.value.toFixed(2)}万`, emphasis: true },
-    { label: "最终战力", value: `${finalPowerWan.value.toFixed(2)}万`, emphasis: true },
-]);
+const powerRows = computed(() => {
+    const shenqi = zhanliObj.value;
+    const wuqiName = ceshiData.shenqiList[4] ? `${ceshiData.shenqiList[4]} · ` : "";
+    const baowuName = ceshiData.shenqiList[5] ? `${ceshiData.shenqiList[5]} · ` : "";
+    return [
+        { label: "英雄满级战力", value: "187万" },
+        { label: "卡牌战力（含皮肤）", value: `${cardPowerWan.value.toFixed(2)}万` },
+        {
+            label: "武器",
+            qualityTag: `${shenqi.wuqiLabel}${shenqi.wuqiStar}星`,
+            qualityClass: shenqi.wuqiQualityClass,
+            value: `${wuqiName}${shenqi.zhanliWuqi}万`,
+        },
+        {
+            label: "宝物",
+            qualityTag: `${shenqi.baowuLabel}${shenqi.baowuStar}星`,
+            qualityClass: shenqi.baowuQualityClass,
+            value: `${baowuName}${shenqi.zhanliBaowu}万`,
+        },
+        { label: "当前战力", value: `${currentPowerWan.value.toFixed(2)}万`, emphasis: true },
+        { label: "最终战力", value: `${finalPowerWan.value.toFixed(2)}万`, emphasis: true },
+    ];
+});
 
 async function exportImage() {
     if (!exportRef.value) return;
@@ -829,6 +859,22 @@ onMounted(() => {
     background: var(--panel);
     border-radius: 4px;
     min-width: 0;
+
+    &.quality-blue,
+    &.quality-purple,
+    &.quality-orange {
+        .power-label,
+        .power-value {
+            color: inherit;
+        }
+    }
+
+    &.emphasis {
+        .power-value {
+            color: var(--orange);
+            font-size: 14px;
+        }
+    }
 }
 
 .power-label {
@@ -840,17 +886,38 @@ onMounted(() => {
 }
 
 .power-value {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
     font-size: 13px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 0;
+}
 
-    &.emphasis {
-        color: var(--orange);
-        font-size: 14px;
-    }
+.shenqi-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    color: #fff !important;
+}
+
+.power-item.quality-blue .shenqi-tag {
+    background: var(--blue);
+}
+
+.power-item.quality-purple .shenqi-tag {
+    background: var(--purple);
+}
+
+.power-item.quality-orange .shenqi-tag {
+    background: var(--orange);
 }
 
 .deck-section {
@@ -869,46 +936,50 @@ onMounted(() => {
     flex-shrink: 0;
 }
 
-.deck-grid {
+.deck-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
-    grid-template-columns: repeat(10, minmax(0, 1fr));
-    grid-template-rows: repeat(3, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 4px 10px;
     flex: 1;
     min-height: 0;
+    overflow: hidden;
 }
 
-.deck-chip {
-    position: relative;
+.deck-row {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
     min-width: 0;
-    min-height: 0;
-    height: 100%;
-    padding: 10px 8px 6px;
-    border-radius: 6px;
+    padding: 4px 8px;
+    border-radius: 4px;
     box-sizing: border-box;
 }
 
+.deck-index {
+    flex-shrink: 0;
+    width: 18px;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    text-align: right;
+}
+
 .deck-grade-tag {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 22px;
-    height: 14px;
-    padding: 0 4px;
-    border-radius: 6px 0 6px 0;
-    font-size: 9px;
+    min-width: 28px;
+    height: 16px;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 10px;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: 0.02em;
     box-sizing: border-box;
 }
 
@@ -919,17 +990,17 @@ onMounted(() => {
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 12px;
-    font-weight: 650;
+    font-weight: 600;
     line-height: 1.2;
     color: inherit;
 }
 
 .deck-level {
     flex-shrink: 0;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    opacity: 0.72;
+    opacity: 0.75;
     color: inherit;
 }
 
@@ -938,8 +1009,8 @@ onMounted(() => {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .deck-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+    .deck-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -970,8 +1041,9 @@ onMounted(() => {
         grid-template-columns: 1fr 1fr;
     }
 
-    .deck-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .deck-list {
+        grid-template-columns: 1fr;
+        overflow: auto;
     }
 }
 </style>
