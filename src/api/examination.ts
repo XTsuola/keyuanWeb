@@ -1,23 +1,15 @@
-import request from "./index";
-import type { PaginationType } from "./common";
+import { get, post, del, delBody } from "./index";
+import type { PaginationType, RequiredPagination } from "./common";
 
 export interface StemArrType {
   key: string | number;
   score: string | number;
 }
 
-export type GetQuestionListType = Required<PaginationType>;
-export type GetPaperListType = Required<PaginationType>;
-export type GetUserListType = Required<PaginationType>;
-export type GetStudentsPaperListType = Required<PaginationType>;
-
-export function getQuestionList(data: GetQuestionListType) {
-  return request({
-    url: "/getQuestionList",
-    method: "get",
-    params: data,
-  });
-}
+export type GetQuestionListType = RequiredPagination;
+export type GetPaperListType = RequiredPagination;
+export type GetUserListType = RequiredPagination;
+export type GetStudentsPaperListType = RequiredPagination;
 
 export interface AddQuestionType {
   id?: number;
@@ -31,38 +23,6 @@ export interface AddQuestionType {
   remark: string;
 }
 
-export function addQuestion(data: AddQuestionType) {
-  return request({
-    url: "/addQuestion",
-    method: "post",
-    data,
-  });
-}
-
-export function updateQuestion(data: AddQuestionType) {
-  return request({
-    url: "/updateQuestion",
-    method: "post",
-    data,
-  });
-}
-
-export function deleteQuestion(id: number) {
-  return request({
-    url: "/deleteQuestion",
-    method: "delete",
-    params: { id },
-  });
-}
-
-export function getPaperList(data: GetPaperListType) {
-  return request({
-    url: "/getPaperList",
-    method: "get",
-    params: data,
-  });
-}
-
 export interface AddPaperType {
   id?: number;
   paperName: string;
@@ -72,86 +32,14 @@ export interface AddPaperType {
   remark: string;
 }
 
-export function addPaper(data: AddPaperType) {
-  return request({
-    url: "/addPaper",
-    method: "post",
-    data,
-  });
-}
-
-export function updatePaper(data: AddPaperType) {
-  return request({
-    url: "/updatePaper",
-    method: "post",
-    data,
-  });
-}
-
-export function deletePaper(id: number) {
-  return request({
-    url: "/deletePaper",
-    method: "delete",
-    params: { id },
-  });
-}
-
-export function getStemArrList(id: number) {
-  return request({
-    url: "/getStemArrList",
-    method: "get",
-    params: { paperId: id },
-  });
-}
-
-export function getUserList(data: GetUserListType) {
-  return request({
-    url: "/getUserList",
-    method: "get",
-    params: data,
-  });
-}
-
 export interface AddUserType {
   id?: number;
   userName: string;
   account: string;
   password: string;
   age: string;
-  level: number | undefined;
+  level?: number;
   remark: string;
-}
-
-export function addUser(data: AddUserType) {
-  return request({
-    url: "/addUser",
-    method: "post",
-    data,
-  });
-}
-
-export function updateUser(data: AddUserType) {
-  return request({
-    url: "/updateUser",
-    method: "post",
-    data,
-  });
-}
-
-export function deleteUser(id: number, level: number) {
-  return request({
-    url: "/deleteUser",
-    method: "delete",
-    data: { id, level },
-  });
-}
-
-export function getStudentsPaper(data: GetStudentsPaperListType) {
-  return request({
-    url: "/getStudentsPaper",
-    method: "get",
-    params: data,
-  });
 }
 
 export interface PaperDataType {
@@ -159,33 +47,9 @@ export interface PaperDataType {
   paperList: number[];
 }
 
-export function getUserPaperList(data: PaperDataType) {
-  return request({
-    url: "/getUserPaperList",
-    method: "post",
-    data,
-  });
-}
-
-export function getOthersPaperSelectList(data: number[]) {
-  return request({
-    url: "/getOthersPaperSelectList",
-    method: "post",
-    data,
-  });
-}
-
 export interface AddReportType {
   userId: number;
   paperId: number;
-}
-
-export function addReport(data: AddReportType) {
-  return request({
-    url: "/addReport",
-    method: "post",
-    data,
-  });
 }
 
 export interface DeleteReportType {
@@ -194,32 +58,8 @@ export interface DeleteReportType {
   paperId: number;
 }
 
-export function deleteReport(data: DeleteReportType) {
-  return request({
-    url: "/deleteReport",
-    method: "post",
-    data,
-  });
-}
-
 export interface GetMyPaperListType extends PaginationType {
   id: number;
-}
-
-export function getMyPaperList(data: GetMyPaperListType) {
-  return request({
-    url: "/getMyPaperList",
-    method: "get",
-    params: data,
-  });
-}
-
-export function getNowPaper(id: number) {
-  return request({
-    url: "/getNowPaper",
-    method: "get",
-    params: { id },
-  });
 }
 
 export interface AutoUpdatePaperParams {
@@ -228,26 +68,48 @@ export interface AutoUpdatePaperParams {
   userId: number;
 }
 
-export function autoUpdatePaper(data: AutoUpdatePaperParams) {
-  return request({
-    url: "/autoUpdatePaper",
-    method: "post",
-    data,
-  });
-}
+export const getQuestionList = (params: GetQuestionListType) => get("/getQuestionList", params);
 
-export function resetNowPaper(id: number) {
-  return request({
-    url: "/resetReport",
-    method: "get",
-    params: { id },
-  });
-}
+export const addQuestion = (data: AddQuestionType) => post("/addQuestion", data);
 
-export function getResult(id: number) {
-  return request({
-    url: "/getResult",
-    method: "get",
-    params: { id },
-  });
-}
+export const updateQuestion = (data: AddQuestionType) => post("/updateQuestion", data);
+
+export const deleteQuestion = (id: number) => del("/deleteQuestion", { id });
+
+export const getPaperList = (params: GetPaperListType) => get("/getPaperList", params);
+
+export const addPaper = (data: AddPaperType) => post("/addPaper", data);
+
+export const updatePaper = (data: AddPaperType) => post("/updatePaper", data);
+
+export const deletePaper = (id: number) => del("/deletePaper", { id });
+
+export const getStemArrList = (id: number) => get("/getStemArrList", { paperId: id });
+
+export const getUserList = (params: GetUserListType) => get("/getUserList", params);
+
+export const addUser = (data: AddUserType) => post("/addUser", data);
+
+export const updateUser = (data: AddUserType) => post("/updateUser", data);
+
+export const deleteUser = (id: number, level: number) => delBody("/deleteUser", { id, level });
+
+export const getStudentsPaper = (params: GetStudentsPaperListType) => get("/getStudentsPaper", params);
+
+export const getUserPaperList = (data: PaperDataType) => post("/getUserPaperList", data);
+
+export const getOthersPaperSelectList = (data: number[]) => post("/getOthersPaperSelectList", data);
+
+export const addReport = (data: AddReportType) => post("/addReport", data);
+
+export const deleteReport = (data: DeleteReportType) => post("/deleteReport", data);
+
+export const getMyPaperList = (params: GetMyPaperListType) => get("/getMyPaperList", params);
+
+export const getNowPaper = (id: number) => get("/getNowPaper", { id });
+
+export const autoUpdatePaper = (data: AutoUpdatePaperParams) => post("/autoUpdatePaper", data);
+
+export const resetNowPaper = (id: number) => get("/resetReport", { id });
+
+export const getResult = (id: number) => get("/getResult", { id });

@@ -1,23 +1,7 @@
-import request from "./index";
+import { get, post } from "./index";
 
-export function getChessMap() {
-  return request({
-    url: "/chess/getMap",
-    method: "get",
-  });
-}
+export const getChessMap = () => get("/chess/getMap");
 
-export function resetChessMap() {
-  return request({
-    url: "/chess/reset",
-    method: "get",
-  });
-}
+export const resetChessMap = () => get("/chess/reset");
 
-export function updateChessMap(data: unknown) {
-  return request({
-    url: "/chess/update",
-    method: "post",
-    data,
-  });
-}
+export const updateChessMap = (data: unknown) => post("/chess/update", data);

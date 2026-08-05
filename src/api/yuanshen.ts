@@ -1,4 +1,4 @@
-import request from "./index";
+import { get, post, del } from "./index";
 import type { PaginationType } from "./common";
 
 export interface GetHeroListParams extends PaginationType {
@@ -11,69 +11,29 @@ export interface GetHeroListParams extends PaginationType {
   figure?: string;
 }
 
-export function getHeroList(data: GetHeroListParams) {
-  return request({
-    url: "/yuanshen/getHeroList",
-    method: "get",
-    params: data,
-  });
-}
-
 export interface AddHeroParams {
   id?: number;
   name: string;
-  figure: string | undefined;
-  gender: number | undefined;
-  star: number | undefined;
-  country: string | undefined;
-  element: string | undefined;
-  weaponType: string | undefined;
+  figure?: string;
+  gender?: number;
+  star?: number;
+  country?: string;
+  element?: string;
+  weaponType?: string;
   constellation: string;
   birthday: string;
   remark?: string;
-}
-
-export function addHero(data: AddHeroParams) {
-  return request({
-    url: "/yuanshen/addHero",
-    method: "post",
-    data,
-  });
-}
-
-export function updateHero(data: AddHeroParams) {
-  return request({
-    url: "/yuanshen/updateHero",
-    method: "post",
-    data,
-  });
-}
-
-export function deleteHero(id: number) {
-  return request({
-    url: "/yuanshen/deleteHero",
-    method: "delete",
-    params: { id },
-  });
 }
 
 export interface GetWeaponListParams extends PaginationType {
   name?: string;
 }
 
-export function getWeaponList(data: GetWeaponListParams) {
-  return request({
-    url: "/yuanshen/getWeaponList",
-    method: "get",
-    params: data,
-  });
-}
-
 export interface AddWeaponParams {
   id?: number;
   name: string;
-  star: number | undefined;
-  weaponType: string | undefined;
+  star?: number;
+  weaponType?: string;
   attack: string;
   buff: string;
   tag: number[];
@@ -81,26 +41,18 @@ export interface AddWeaponParams {
   remark?: string;
 }
 
-export function addWeapon(data: AddWeaponParams) {
-  return request({
-    url: "/yuanshen/addWeapon",
-    method: "post",
-    data,
-  });
-}
+export const getHeroList = (params: GetHeroListParams) => get("/yuanshen/getHeroList", params);
 
-export function updateWeapon(data: AddWeaponParams) {
-  return request({
-    url: "/yuanshen/updateWeapon",
-    method: "post",
-    data,
-  });
-}
+export const addHero = (data: AddHeroParams) => post("/yuanshen/addHero", data);
 
-export function deleteWeapon(id: number) {
-  return request({
-    url: "/yuanshen/deleteWeapon",
-    method: "delete",
-    params: { id },
-  });
-}
+export const updateHero = (data: AddHeroParams) => post("/yuanshen/updateHero", data);
+
+export const deleteHero = (id: number) => del("/yuanshen/deleteHero", { id });
+
+export const getWeaponList = (params: GetWeaponListParams) => get("/yuanshen/getWeaponList", params);
+
+export const addWeapon = (data: AddWeaponParams) => post("/yuanshen/addWeapon", data);
+
+export const updateWeapon = (data: AddWeaponParams) => post("/yuanshen/updateWeapon", data);
+
+export const deleteWeapon = (id: number) => del("/yuanshen/deleteWeapon", { id });

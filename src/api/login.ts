@@ -1,14 +1,8 @@
-import request from "./index";
+import { post } from "./index";
 
 export interface LoginParams {
   account: string;
   password: string;
 }
 
-export function login(data: LoginParams) {
-  return request({
-    url: "/login",
-    method: "post",
-    data,
-  });
-}
+export const login = (data: LoginParams) => post("/login", data);

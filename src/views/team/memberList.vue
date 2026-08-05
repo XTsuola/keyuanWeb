@@ -1,235 +1,247 @@
 <template>
-    <div class="memberList">
-        <div class="title">
-            成员列表
-            <a-button size="small" style="margin-left: 15px;" @click="showModal('add')" v-if="levelId === 1">新增成员
+    <div class="member-list">
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">成员列表</h1>
+                <p class="page-sub">共 {{ total }} 人</p>
+            </div>
+            <a-button v-if="isAdmin" type="primary" size="small" @click="openModal('add')">
+                新增成员
             </a-button>
-        </div>
-        <a-form class="searchHead" :wrapperCol="{ span: 16 }" :model="formState" name="basic" autocomplete="off">
-            <a-form-item label="分组" style="width: 200px">
-                <a-select v-model:value="formState.groupName" style="width: 120px;" @change="groupChange"
-                    placeholder="请选择分组">
-                    <a-select-option v-for="item in groupList" :key="item.groupId" :value="item.value">{{
-                        item.label
-                    }}</a-select-option>
-                </a-select>
-            </a-form-item>
-            <a-form-item>
-                <div style="display: flex;justify-content: flex-start;">
-                    <a-button size="small" style="margin: 0 12px 0 12px" @click="selectList">查询</a-button>
-                    <a-button size="small" @click="reset">重置</a-button>
-                </div>
-            </a-form-item>
-        </a-form>
-        <MyTabel :columnsData="columns" :dataSource="tableData"
-            :pagination="{ pageSize: pageSize, currentPage: currentPage, total: total }" @edit="showModal"
-            @delete="deleteOk" @change-page="changePage"></MyTabel>
-        <a-modal v-model:open="visible" destroyOnClose :title="title" :maskClosable="false">
-            <AddPage :addParams="addParams" :type="type" ref="addPage"></AddPage>
+        </header>
+        <section class="search-panel">
+            <a-form class="search-form" layout="inline" :model="filters" autocomplete="off">
+                <a-form-item label="分组">
+                    <a-select v-model:value="filters.groupName" class="group-select" placeholder="请选择分组" allow-clear
+                        @change="onSearch">
+                        <a-select-option v-for="item in groupList" :key="String(item.value)" :value="item.value">
+                            {{ item.label }}
+                        </a-select-option>
+                    </a-select>
+                </a-form-item>
+                <a-form-item>
+                    <a-space>
+                        <a-button type="primary" size="small" @click="onSearch">查询</a-button>
+                        <a-button size="small" @click="onReset">重置</a-button>
+                    </a-space>
+                </a-form-item>
+            </a-form>
+        </section>
+        <section class="table-wrap">
+            <MyTabel :columnsData="columns" :dataSource="tableData" :loading="listLoading"
+                :pagination="{ pageSize, currentPage, total }" @edit="openModal" @delete="onDelete"
+                @change-page="onPageChange" />
+        </section>
+        <a-modal v-model:open="visible" :title="modalType === 'edit' ? '修改成员' : '添加成员'" destroy-on-close
+            :mask-closable="false" @cancel="closeModal">
+            <AddPage ref="addPageRef" :addParams="editParams" :type="modalType" />
             <template #footer>
-                <a-button key="back" @click="visible = false">取消</a-button>
-                <a-button key="submit" type="primary" :loading="loading" @click="handleOk">确定</a-button>
+                <a-button @click="closeModal">取消</a-button>
+                <a-button type="primary" :loading="submitLoading" @click="submit">确定</a-button>
             </template>
         </a-modal>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import { message } from "ant-design-vue";
-import type { AxiosPromise } from "axios";
 import { groupList, type AddType } from "@/utils/global";
-import { getMemberList, addMember, updateMember, deleteMember, type GetMemberListParams, type AddMemberParams } from "@/api/team";
+import { addMember, deleteMember, getMemberList, updateMember, type AddMemberParams } from "@/api/team";
 import MyTabel from "@/components/table.vue";
 import AddPage from "./modal/memberAddPage.vue";
 
-const addParams = reactive<AddMemberParams>({
+function getLevelId() {
+    try {
+        const raw = sessionStorage.getItem("userInfo");
+        if (!raw) return null;
+        return JSON.parse(raw).level ?? null;
+    } catch {
+        return null;
+    }
+}
+
+const isAdmin = computed(() => getLevelId() === 1);
+const columns = [
+    { title: "序号", key: "index", align: "center", width: 60 },
+    { title: "成员名称", dataIndex: "name", key: "name", width: 140 },
+    { title: "QQ号", dataIndex: "qq", key: "qq", width: 140 },
+    { title: "所属分队", dataIndex: "groupName", key: "groupName", width: 140 },
+    { title: "擅长位置", dataIndex: "position", key: "position", width: 140 },
+    { title: "备注", dataIndex: "remark", key: "remark", width: 200 },
+    {
+        title: "操作",
+        key: "action",
+        align: "center",
+        list: isAdmin.value ? ["edit", "delete"] : [],
+        width: 180,
+    },
+];
+const listLoading = ref(false);
+const submitLoading = ref(false);
+const tableData = ref<AddMemberParams[]>([]);
+const currentPage = ref(1);
+const pageSize = ref(10);
+const total = ref(0);
+const filters = reactive<{ groupName?: string | number }>({
+    groupName: undefined,
+});
+const visible = ref(false);
+const modalType = ref<AddType>("add");
+const addPageRef = ref<InstanceType<typeof AddPage>>();
+const editParams = reactive<AddMemberParams>({
     id: undefined,
     name: "",
     qq: "",
     groupName: "",
     position: "",
-    remark: ""
+    remark: "",
 });
-const currentPage = ref<number>(1);
-const pageSize = ref<number>(10);
-const total = ref<number>(0);
-const title = ref<string>("添加成员");
-const addPage = ref<any>();
-const userInfo = ref<string | null>(sessionStorage.getItem("userInfo"));
-const levelId = ref<number | null>(null);
-if (userInfo.value && JSON.parse(userInfo.value).level) {
-    levelId.value = JSON.parse(userInfo.value).level;
-} else {
-    levelId.value = null;
-}
-const visible = ref<boolean>(false);
-const formState = reactive<any>({
-    groupName: undefined
-});
-const columns = ref<any>([
-    {
-        title: "序号",
-        key: "index",
-        align: "center",
-        width: 60
-    },
-    {
-        title: "成员名称",
-        dataIndex: "name",
-        key: "name",
-        width: 140
-    },
-    {
-        title: "QQ号",
-        dataIndex: "qq",
-        key: "qq",
-        width: 140
-    },
-    {
-        title: "所属分队",
-        dataIndex: "groupName",
-        key: "groupName",
-        width: 140
-    },
-    {
-        title: "擅长位置",
-        dataIndex: "position",
-        key: "position",
-        width: 140
-    },
-    {
-        title: "备注",
-        key: "remark",
-        dataIndex: "remark",
-        width: 200
-    },
-    {
-        title: "操作",
-        key: "action",
-        align: "center",
-        list: ["edit", "delete"],
-        width: 180
-    }
-]);
-const loading = ref<boolean>(false);
-const tableData = ref<any>([]);
-const type = ref<AddType>("add");
 
-async function getList() {
-    const params: GetMemberListParams = {
-        pageSize: pageSize.value,
-        pageNo: currentPage.value,
-        groupName: formState.groupName
-    };
-    const res = await getMemberList(params);
-    if (res.data.code === 200) {
-        tableData.value = res.data.rows;
-        total.value = res.data.total;
-    }
+function resetEditParams() {
+    editParams.id = undefined;
+    editParams.name = editParams.qq = editParams.groupName = editParams.position = editParams.remark = "";
 }
 
-async function deleteOk(id: number) {
-    const res = await deleteMember(id);
-    if (res.data.code === 200) {
-        message.success(res.data.msg);
-    } else {
-        message.error("删除失败");
-    }
-    if (tableData.value.length == 1) {
-        currentPage.value--;
-    }
-    getList();
-}
-
-function groupChange() {
-    currentPage.value = 1;
-    getList();
-}
-
-function selectList() {
-    currentPage.value = 1;
-    getList();
-}
-
-function changePage(page: number, size: number) {
-    pageSize.value = size;
-    currentPage.value = page;
-    getList();
-}
-
-function reset() {
-    formState.groupName = undefined;
-    selectList();
-}
-
-function showModal(showType: AddType, item?: AddMemberParams) {
-    type.value = showType;
-    if (showType === "edit") {
-        title.value = "修改成员";
-        if (item) {
-            addParams.id = item.id;
-            addParams.name = item.name;
-            addParams.qq = item.qq;
-            addParams.groupName = item.groupName;
-            addParams.position = item.position;
-            addParams.remark = item.remark;
+async function fetchList() {
+    listLoading.value = true;
+    try {
+        const res = await getMemberList({
+            pageSize: pageSize.value,
+            pageNo: currentPage.value,
+            groupName: filters.groupName,
+        });
+        if (res.data?.code === 200) {
+            tableData.value = res.data.rows || [];
+            total.value = res.data.total || 0;
         }
+    } finally {
+        listLoading.value = false;
+    }
+}
+
+function onSearch() {
+    currentPage.value = 1;
+    fetchList();
+}
+
+function onReset() {
+    filters.groupName = undefined;
+    onSearch();
+}
+
+function onPageChange(page: number, size: number) {
+    currentPage.value = page;
+    pageSize.value = size;
+    fetchList();
+}
+
+function openModal(type: AddType, item?: AddMemberParams) {
+    modalType.value = type;
+    if (type === "edit" && item) {
+        Object.assign(editParams, item);
     } else {
-        title.value = "添加成员";
-        addParams.id = 0;
-        addParams.name = addParams.qq = addParams.groupName = addParams.position = addParams.remark = "";
+        resetEditParams();
     }
     visible.value = true;
 }
 
-async function handleOk() {
-    loading.value = true;
-    interface AType {
-        axios: ((data: AddMemberParams) => AxiosPromise<any>)
-    }
-    let a: AType = {
-        axios: addMember
-    };
-    if (type.value === "edit") {
-        a.axios = updateMember;
-    }
-    const result: any = await addPage.value?.getAddData();
-    if (result && a.axios) {
-        const res = await a.axios(result);
-        if (res.data.code === 200) {
-            getList();
-            message.success(res.data.msg);
-            visible.value = false;
-        } else {
-            message.error(res.data.msg);
-        }
-    }
-    loading.value = false;
+function closeModal() {
+    visible.value = false;
+    resetEditParams();
 }
 
-onMounted(() => {
-    getList();
-})
+async function submit() {
+    submitLoading.value = true;
+    try {
+        const result = await addPageRef.value?.getAddData();
+        if (!result) return;
 
+        const request = modalType.value === "edit" ? updateMember : addMember;
+        const res = await request(result);
+        if (res.data?.code !== 200) {
+            message.error(res.data?.msg || "操作失败");
+            return;
+        }
+        message.success(res.data.msg || "操作成功");
+        closeModal();
+        await fetchList();
+    } finally {
+        submitLoading.value = false;
+    }
+}
+
+async function onDelete(id: number) {
+    const res = await deleteMember(id);
+    if (res.data?.code !== 200) {
+        message.error(res.data?.msg || "删除失败");
+        return;
+    }
+    message.success(res.data.msg || "删除成功");
+    if (tableData.value.length <= 1 && currentPage.value > 1) {
+        currentPage.value -= 1;
+    }
+    await fetchList();
+}
+
+onMounted(fetchList);
 </script>
 
 <style lang="less" scoped>
-.memberList {
-    padding: 20px;
+.member-list {
+    --line: #e8e8e8;
+    --text: #1f1f1f;
+    --muted: #8c8c8c;
+    --panel: #fafafa;
+
+    padding: 24px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
+    color: var(--text);
+}
 
-    .title {
-        font-size: 18px;
-        font-weight: 600;
-        margin: 0 15px 15px 0;
-    }
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
 
-    .searchHead {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
+.page-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.page-sub {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.search-panel {
+    margin-bottom: 16px;
+    padding: 14px 16px 6px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+}
+
+.group-select {
+    width: 160px;
+}
+
+.table-wrap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
 }
 </style>

@@ -1,358 +1,358 @@
 <template>
-    <div class="main" v-if="flag">
-        <div class="title">
-            第{{ level + 1 }}关：
-            <a-button size="small" @click="reset">重置关卡</a-button>
-        </div>
-        <div class="box">
-            <div class="list" v-for="(list, y) in mapList" :key="y">
-                <div class="boxItem" v-for="(item, x) in list" :key="x">
-                    <div v-if="item === 0">
-                        <div></div>
+    <div class="sokoban">
+        <template v-if="playing">
+            <header class="page-header">
+                <div>
+                    <h1 class="page-title">推箱子</h1>
+                    <p class="page-sub">第 {{ level + 1 }} 关 · 方向键移动 · 把箱子推到 ❤️</p>
+                </div>
+                <a-button size="small" @click="resetLevel">重置关卡</a-button>
+            </header>
+            <div class="game-body">
+                <div class="board">
+                    <div v-for="(row, y) in mapList" :key="y" class="row">
+                        <div v-for="(cell, x) in row" :key="`${x}-${y}`" class="cell">
+                            <div v-if="cell === Cell.Wall" class="wall" />
+                            <div v-else-if="cell === Cell.Target" class="target">❤️</div>
+                            <div v-else-if="cell === Cell.Box" class="box">📦</div>
+                            <div v-if="player.x === x && player.y === y" class="player"
+                                :style="{ transform: playerTransform }" />
+                        </div>
                     </div>
-                    <div v-if="item === 1">
-                        <div class="obstacle"></div>
-                    </div>
-                    <div v-if="item === 8">
-                        <div style="font-size: 24px;">❤️</div>
-                    </div>
-                    <div v-if="item === 2">
-                        <div style="font-size: 36px;">📦</div>
-                    </div>
-                    <div v-if="x === people.x && y === people.y">
-                        <div class="people"></div>
+                </div>
+                <div class="controls">
+                    <div class="dpad" aria-label="方向键">
+                        <a-button class="key key-up" @click="handleMove('up')">↑</a-button>
+                        <a-button class="key key-left" @click="handleMove('left')">←</a-button>
+                        <a-button class="key key-down" @click="handleMove('down')">↓</a-button>
+                        <a-button class="key key-right" @click="handleMove('right')">→</a-button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="action">
-            <div>
-                <a-button style="transform: translateX(100%);" @click="moveIt('ArrowUp')">上</a-button>
-            </div>
-            <div>
-                <a-button @click="moveIt('ArrowLeft')">左</a-button>
-                <a-button @click="moveIt('ArrowDown')">下</a-button>
-                <a-button @click="moveIt('ArrowRight')">右</a-button>
-            </div>
+        </template>
+        <div v-else class="win-panel">
+            <h2>恭喜通关！</h2>
+            <a-button type="primary" @click="restartGame">再来一次</a-button>
         </div>
     </div>
-    <div v-if="!flag">恭喜通关！！！</div>
 </template>
 
-<script lang="tsx" setup>
-import { ref, reactive, watch } from "vue";
+<script lang="ts" setup>
+import { ref, reactive, computed, onBeforeUnmount, onMounted } from "vue";
 import { message } from "ant-design-vue";
-import jsonData from "./data.json";
+import { levels } from "./levels";
 
-interface PositionType {
-    x: number
-    y: number
-}
+const Cell = {
+    Empty: 0,
+    Wall: 1,
+    Box: 2,
+    Target: 8,
+} as const;
 
-const renwuDir = ref("translate(-50%,-50%) rotateY(0)");
-const flag = ref<boolean>(true);
-const level = ref<number>(0);
+type Direction = "up" | "down" | "left" | "right";
+type Pos = { x: number; y: number };
+
+const MAP_SIZE = 9;
+const DIR_DELTA: Record<Direction, Pos> = {
+    up: { x: 0, y: -1 },
+    down: { x: 0, y: 1 },
+    left: { x: -1, y: 0 },
+    right: { x: 1, y: 0 },
+};
+const KEY_MAP: Record<string, Direction> = {
+    ArrowUp: "up",
+    ArrowDown: "down",
+    ArrowLeft: "left",
+    ArrowRight: "right",
+};
+const playing = ref(true);
+const level = ref(0);
 const mapList = ref<number[][]>([]);
-mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data));
-const people = reactive<PositionType>({
-    x: jsonData[level.value].peopleX,
-    y: jsonData[level.value].peopleY
+const player = reactive<Pos>({ x: 0, y: 0 });
+const faceLeft = ref(false);
+const targets = ref<Pos[]>([]);
+const playerTransform = computed(() =>
+    faceLeft.value ? "translate(-50%, -50%) rotateY(180deg)" : "translate(-50%, -50%) rotateY(0deg)"
+);
+
+function cloneMap(data: number[][]) {
+    return data.map((row) => [...row]);
+}
+
+function collectTargets(data: number[][]) {
+    const list: Pos[] = [];
+    data.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            if (cell === Cell.Target) list.push({ x, y });
+        });
+    });
+    return list;
+}
+
+function inBounds(x: number, y: number) {
+    return x >= 0 && x < MAP_SIZE && y >= 0 && y < MAP_SIZE;
+}
+
+function isTarget(x: number, y: number) {
+    return targets.value.some((t) => t.x === x && t.y === y);
+}
+
+function floorAt(x: number, y: number) {
+    return isTarget(x, y) ? Cell.Target : Cell.Empty;
+}
+
+function matchedCount() {
+    return targets.value.filter((t) => mapList.value[t.y][t.x] === Cell.Box).length;
+}
+
+function loadLevel(index: number) {
+    const cfg = levels[index];
+    mapList.value = cloneMap(cfg.data);
+    targets.value = collectTargets(cfg.data);
+    player.x = cfg.peopleX;
+    player.y = cfg.peopleY;
+    faceLeft.value = false;
+}
+
+function checkClear() {
+    if (matchedCount() < levels[level.value].score) return;
+    if (level.value < levels.length - 1) {
+        level.value += 1;
+        loadLevel(level.value);
+        message.success(`进入第${level.value + 1}关`);
+        return;
+    }
+    message.success("恭喜通关");
+    playing.value = false;
+}
+
+function handleMove(dir: Direction) {
+    if (!playing.value) return;
+    if (dir === "left") faceLeft.value = true;
+    if (dir === "right") faceLeft.value = false;
+    const { x: dx, y: dy } = DIR_DELTA[dir];
+    const nx = player.x + dx;
+    const ny = player.y + dy;
+    if (!inBounds(nx, ny)) return;
+    const next = mapList.value[ny][nx];
+    if (next === Cell.Wall) return;
+    if (next === Cell.Box) {
+        const bx = nx + dx;
+        const by = ny + dy;
+        if (!inBounds(bx, by)) return;
+        const beyond = mapList.value[by][bx];
+        if (beyond === Cell.Wall || beyond === Cell.Box) return;
+        mapList.value[by][bx] = Cell.Box;
+        mapList.value[ny][nx] = floorAt(nx, ny);
+    }
+    player.x = nx;
+    player.y = ny;
+    checkClear();
+}
+
+function onKeydown(e: KeyboardEvent) {
+    const dir = KEY_MAP[e.key];
+    if (!dir) return;
+    e.preventDefault();
+    handleMove(dir);
+}
+
+function resetLevel() {
+    loadLevel(level.value);
+}
+
+function restartGame() {
+    level.value = 0;
+    playing.value = true;
+    loadLevel(0);
+}
+
+loadLevel(0);
+
+onMounted(() => {
+    window.addEventListener("keydown", onKeydown);
 });
-let heartList: PositionType[] = [];
-const count = ref<number>(0);
 
-function xuanran(x: number, y: number, direction: string) {
-    if (direction === "ArrowUp") {
-        for (var i = 0; i < heartList.length; i++) {
-            if (heartList[i].x === x && heartList[i].y === y) {
-                if (mapList.value[y - 1][x] === 1) {
-                    continue;
-                } else if (mapList.value[y - 1][x] === 8) {
-                    mapList.value[y][x] = 8;
-                    heartList.push({ x: x, y: y - 1 });
-                    mapList.value[y - 1][x] = 2;
-                    heartList.splice(i, 1);
-                } else {
-                    mapList.value[y][x] = 8;
-                    mapList.value[y - 1][x] = 2;
-                    count.value--;
-                    heartList.splice(i, 1);
-                }
-            }
-        }
-        if (mapList.value[y] && mapList.value[y][x] === 2) {
-            if (mapList.value[y - 1]) {
-                if (!(mapList.value[y - 1][x] === 2 || mapList.value[y - 1][x] === 1)) {
-                    if (mapList.value[y - 1][x] === 8) {
-                        heartList.push({ x: x, y: y - 1 });
-                        count.value++;
-                    }
-                    people.y--;
-                    mapList.value[y][x] = 0;
-                    mapList.value[y - 1][x] = 2;
-                }
-            }
-        } else {
-            people.y--;
-        }
-    } else if (direction === "ArrowLeft") {
-        for (var i = 0; i < heartList.length; i++) {
-            if (heartList[i].x === x && heartList[i].y === y) {
-                if (mapList.value[y][x] === 1) {
-                    continue;
-                } else if (mapList.value[y][x - 1] === 8) {
-                    mapList.value[y][x] = 8;
-                    heartList.push({ x: x - 1, y: y });
-                    mapList.value[y][x - 1] = 2;
-                    heartList.splice(i, 1);
-                } else {
-                    mapList.value[y][x] = 8;
-                    mapList.value[y][x - 1] = 2;
-                    count.value--;
-                    heartList.splice(i, 1);
-                }
-            }
-        }
-        if (mapList.value[y][x] === 2) {
-            if (mapList.value[y][x - 1] !== undefined) {
-                if (!(mapList.value[y][x - 1] === 2 || mapList.value[y][x - 1] === 1)) {
-                    if (mapList.value[y][x - 1] === 8) {
-                        heartList.push({ x: x - 1, y: y });
-                        count.value++;
-                    }
-                    people.x--;
-                    mapList.value[y][x] = 0;
-                    mapList.value[y][x - 1] = 2;
-                }
-            }
-        } else {
-            people.x--;
-        }
-    } else if (direction === "ArrowDown") {
-        for (var i = 0; i < heartList.length; i++) {
-            if (heartList[i].x === x && heartList[i].y === y) {
-                if (mapList.value[y + 1][x] === 1) {
-                    continue;
-                } else if (mapList.value[y + 1][x] === 8) {
-                    mapList.value[y][x] = 8;
-                    heartList.push({ x: x, y: y + 1 });
-                    mapList.value[y + 1][x] = 2;
-                    heartList.splice(i, 1);
-                } else {
-                    mapList.value[y][x] = 8;
-                    mapList.value[y + 1][x] = 2;
-                    count.value--;
-                    heartList.splice(i, 1);
-                }
-            }
-        }
-        if (mapList.value[y] && mapList.value[y][x] === 2) {
-            if (mapList.value[y + 1]) {
-                if (!(mapList.value[y + 1][x] === 2 || mapList.value[y + 1][x] === 1)) {
-                    if (mapList.value[y + 1][x] === 8) {
-                        heartList.push({ x: x, y: y + 1 });
-                        count.value++;
-                    }
-                    people.y++;
-                    mapList.value[y][x] = 0;
-                    mapList.value[y + 1][x] = 2;
-                }
-            }
-        } else {
-            people.y++;
-        }
-    } else if (direction === "ArrowRight") {
-        for (var i = 0; i < heartList.length; i++) {
-            if (heartList[i].x === x && heartList[i].y === y) {
-                if (mapList.value[y][x] === 1) {
-                    continue;
-                } else if (mapList.value[y][x + 1] === 8) {
-                    mapList.value[y][x] = 8;
-                    heartList.push({ x: x + 1, y: y });
-                    mapList.value[y][x + 1] = 2;
-                    heartList.splice(i, 1);
-                } else {
-                    mapList.value[y][x] = 8;
-                    mapList.value[y][x + 1] = 2;
-                    count.value--;
-                    heartList.splice(i, 1);
-                }
-            }
-        }
-        if (mapList.value[y][x] === 2) {
-            if (mapList.value[y][x + 1] !== undefined) {
-                if (!(mapList.value[y][x + 1] === 2 || mapList.value[y][x + 1] === 1)) {
-                    if (mapList.value[y][x + 1] === 8) {
-                        heartList.push({ x: x + 1, y: y });
-                        count.value++;
-                    }
-                    people.x++;
-                    mapList.value[y][x] = 0;
-                    mapList.value[y][x + 1] = 2;
-                }
-            }
-        } else {
-            people.x++;
-        }
-    }
-}
-
-function moveIt(direction: string) {
-    if (direction === "ArrowUp") {
-        if (people.y > 0 && mapList.value[people.y - 1][people.x] !== 1 && !(mapList.value[people.y - 1][people.x] === 2 && mapList.value[people.y - 2] && mapList.value[people.y - 2][people.x] === 2)) {
-            xuanran(people.x, people.y - 1, direction);
-        }
-    } else if (direction === "ArrowLeft") {
-        renwuDir.value = "translate(-50%,-50%) rotateY(180deg)";
-        if (people.x > 0 && mapList.value[people.y][people.x - 1] !== 1 && !(mapList.value[people.y][people.x - 1] === 2 && mapList.value[people.y][people.x - 2] === 2)) {
-            xuanran(people.x - 1, people.y, direction);
-        }
-    } else if (direction === "ArrowDown") {
-        if (people.y < 8 && mapList.value[people.y + 1][people.x] !== 1 && !(mapList.value[people.y + 1][people.x] === 2 && mapList.value[people.y + 2] && mapList.value[people.y + 2][people.x] === 2)) {
-            xuanran(people.x, people.y + 1, direction);
-        }
-    } else if (direction === "ArrowRight") {
-        renwuDir.value = "translate(-50%,-50%) rotateY(0)";
-        if (people.x < 8 && mapList.value[people.y][people.x + 1] !== 1 && !(mapList.value[people.y][people.x + 1] === 2 && mapList.value[people.y][people.x + 2] === 2)) {
-            xuanran(people.x + 1, people.y, direction);
-        }
-    }
-}
-
-document.onkeydown = function (event: any) {
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-    if (e && e.key === "ArrowUp") {
-        if (people.y > 0 && mapList.value[people.y - 1][people.x] !== 1 && !(mapList.value[people.y - 1][people.x] === 2 && mapList.value[people.y - 2] && mapList.value[people.y - 2][people.x] === 2)) {
-            xuanran(people.x, people.y - 1, e.key);
-        }
-    } else if (e && e.key === "ArrowLeft") {
-        renwuDir.value = "translate(-50%,-50%) rotateY(180deg)";
-        if (people.x > 0 && mapList.value[people.y][people.x - 1] !== 1 && !(mapList.value[people.y][people.x - 1] === 2 && mapList.value[people.y][people.x - 2] === 2)) {
-            xuanran(people.x - 1, people.y, e.key);
-        }
-    } else if (e && e.key === "ArrowDown") {
-        if (people.y < 8 && mapList.value[people.y + 1][people.x] !== 1 && !(mapList.value[people.y + 1][people.x] === 2 && mapList.value[people.y + 2] && mapList.value[people.y + 2][people.x] === 2)) {
-            xuanran(people.x, people.y + 1, e.key);
-        }
-    } else if (e && e.key === "ArrowRight") {
-        renwuDir.value = "translate(-50%,-50%) rotateY(0)";
-        if (people.x < 8 && mapList.value[people.y][people.x + 1] !== 1 && !(mapList.value[people.y][people.x + 1] === 2 && mapList.value[people.y][people.x + 2] === 2)) {
-            xuanran(people.x + 1, people.y, e.key);
-        }
-    }
-}
-
-function reset() {
-    heartList = [];
-    count.value = 0;
-    mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data));
-    people.x = jsonData[level.value].peopleX;
-    people.y = jsonData[level.value].peopleY;
-}
-
-watch(count, (newValue) => {
-    if (newValue === jsonData[level.value].score) {
-        heartList = [];
-        count.value = 0;
-        if (level.value < jsonData.length - 1) {
-            level.value++;
-            message.success(`进入第${level.value + 1}关`);
-            mapList.value = JSON.parse(JSON.stringify(jsonData[level.value].data));
-            people.x = jsonData[level.value].peopleX;
-            people.y = jsonData[level.value].peopleY;
-        } else {
-            message.success("恭喜通关");
-            flag.value = false;
-        }
-    }
-})
-
+onBeforeUnmount(() => {
+    window.removeEventListener("keydown", onKeydown);
+});
 </script>
 
 <style lang="less" scoped>
-@media screen and (max-width: 768px) {
-    .box {
-        width: 81vw !important;
-        height: 81vw !important;
+.sokoban {
+    --text: #1f1f1f;
+    --muted: #8c8c8c;
+    --cell: min(56px, calc((100vh - 280px) / 9));
 
-        .list {
-            width: 81vw !important;
-            height: 9vw !important;
-
-            .boxItem {
-                width: 9vw !important;
-                height: 9vw !important;
-
-                .people {
-                    width: 8vw !important;
-                    height: 8vw !important;
-                }
-
-                .obstacle {
-                    width: 8vw !important;
-                    height: 8vw !important;
-                }
-            }
-        }
-    }
+    box-sizing: border-box;
+    height: calc(100vh - 120px);
+    padding: 8px 12px 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
 }
 
-.main {
-    padding: 0 10px 10px;
+.page-header {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
 
-    .title {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 15px;
-        margin-top: 10px;
-    }
+.page-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 650;
+    line-height: 1.2;
+}
 
-    .action {
-        margin-top: 15px;
-        margin-left: 15px;
-    }
+.page-sub {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.game-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.board {
+    flex: none;
+    width: calc(var(--cell) * 9);
+    border: 1px solid #ff7875;
+    background: #fff;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    position: relative;
+    width: var(--cell);
+    height: var(--cell);
+    border: 1px solid #ffa39e;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wall {
+    width: 86%;
+    height: 86%;
+    background: url("@/assets/images/game/box/qiang.png") center / cover no-repeat;
+}
+
+.target {
+    font-size: calc(var(--cell) * 0.4);
+    line-height: 1;
 }
 
 .box {
-    width: 630px;
-    height: 630px;
-    border: 1px solid red;
+    font-size: calc(var(--cell) * 0.55);
+    line-height: 1;
+}
 
-    .list {
-        width: 630px;
-        height: 70px;
-        display: flex;
-        justify-content: center;
+.player {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 78%;
+    height: 78%;
+    background: url("@/assets/images/game/box/caiwenji.jpg") center / 110% no-repeat;
+    z-index: 1;
+}
 
-        .boxItem {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            border: 1px solid rgb(235, 90, 90);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+.controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
 
-            .people {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: v-bind(renwuDir);
-                background: orange;
-                width: 50px;
-                height: 50px;
-                background: url("@/assets/images/game/box/caiwenji.jpg");
-                background-size: 110%;
-                background-position: 50% 50%;
-            }
+.dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(2, 44px);
+    gap: 6px;
+}
 
-            .obstacle {
-                background: orange;
-                width: 60px;
-                height: 60px;
-                background: url("@/assets/images/game/box/qiang.png");
-            }
-        }
+.key {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.key-up {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.key-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.key-down {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.key-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.win-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    h2 {
+        margin: 0;
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sokoban {
+        --cell: min(9vw, calc((100vh - 280px) / 9));
+        height: calc(100vh - 100px);
+        padding: 8px;
+    }
+
+    .game-body {
+        gap: 12px;
+    }
+
+    .dpad {
+        grid-template-columns: repeat(3, 40px);
+        grid-template-rows: repeat(2, 40px);
+        gap: 5px;
+    }
+
+    .key {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
     }
 }
 </style>

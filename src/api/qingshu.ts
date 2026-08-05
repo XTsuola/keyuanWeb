@@ -1,8 +1,3 @@
-import request from "./index";
+import { get } from "./index";
 
-export function getGameMap() {
-  return request({
-    url: "/qingshu/getMap",
-    method: "get",
-  });
-}
+export const getGameMap = () => get("/qingshu/getMap");

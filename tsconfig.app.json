@@ -5,9 +5,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "types": [],
     "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -18,5 +17,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
+  ],
+  "exclude": [
+    "src/**/__tests__/*"
   ]
 }

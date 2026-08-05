@@ -62,10 +62,10 @@
             <a-button @click="showRule = true">规则</a-button>
         </div>
         <a-modal v-model:open="showRule" destroyOnClose title="游戏规则" :maskClosable="false">
-            <div class="rule_title">{{ qingshuBase.backgroundTitle }}</div>
+            <div class="rule_title">游戏背景：</div>
             <div>{{ qingshuBase.background }}</div>
-            <div class="rule_title">{{ qingshuBase.roleTitle }}</div>
-            <div v-for="value in qingshuBase.roleIntroduce">{{ value }}</div>
+            <div class="rule_title">游戏角色：</div>
+            <div v-for="item in qingshuBase.role">{{ `${item.id}.（${item.name}）：${item.introduce}` }}</div>
             <template #footer>
                 <a-button key="back" @click="showRule = false">关闭</a-button>
             </template>

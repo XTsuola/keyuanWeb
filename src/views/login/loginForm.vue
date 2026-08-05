@@ -1,75 +1,143 @@
 <template>
-    <a-form :rules="rules" :model="formState" name="basic" :label-col="{ span: 0 }" :wrapper-col="{ span: 24 }"
-        autocomplete="off" @finish="onFinish">
-        <a-form-item label name="username">
-            <a-input :disabled="flag" v-model:value="formState.username" placeholder="账号" />
+    <a-form
+        class="login-form"
+        :rules="rules"
+        :model="formState"
+        name="login"
+        layout="vertical"
+        autocomplete="off"
+        @finish="onFinish"
+    >
+        <a-form-item name="username">
+            <a-input
+                v-model:value="formState.username"
+                size="large"
+                placeholder="账号"
+                :disabled="loading"
+                allow-clear
+            />
         </a-form-item>
-        <a-form-item label name="password">
-            <a-input-password :disabled="flag" v-model:value="formState.password" placeholder="密码" />
+        <a-form-item name="password">
+            <a-input-password
+                v-model:value="formState.password"
+                size="large"
+                placeholder="密码"
+                :disabled="loading"
+            />
         </a-form-item>
-        <a-form-item :wrapper-col="{ offset: 0, span: 24 }">
-            <a-button :loading="flag" type="primary" size="large" html-type="submit" block>登录</a-button>
+        <a-form-item class="submit-item">
+            <a-button type="primary" size="large" html-type="submit" block :loading="loading">
+                登录
+            </a-button>
         </a-form-item>
     </a-form>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
-import { useCounterStore } from "@/stores/counter";
-import { login, type LoginParams } from "@/api/login";
 import MD5 from "crypto-js/md5";
+import { login } from "@/api/login";
+import { useLoginTransitionStore } from "@/stores/loginTransition";
 
 interface FormState {
     username: string;
     password: string;
 }
 
-const counterStore = useCounterStore();
-const flag = ref(false);
+/** 与后端登录 rows 对齐 */
+interface LoginUser {
+    id: number;
+    img?: string;
+    level: number;
+    paperList?: number[];
+    userName?: string;
+    remark?: string;
+    token: string;
+}
+
+const router = useRouter();
+const loginTransition = useLoginTransitionStore();
+const loading = ref(false);
 const formState = reactive<FormState>({
     username: "admin",
     password: "123",
 });
 const rules = {
     username: [{ required: true, message: "请输入账号！" }],
-    password: [{ required: true, message: "请输入密码！" }]
+    password: [{ required: true, message: "请输入密码！" }],
 };
-const router = useRouter();
 
-async function onFinish(values: FormState) {
-    flag.value = true;
-    const data: LoginParams = {
-        account: values.username,
-        password: MD5(values.password).toString()
-    };
-    try {
-        const res = await login(data);
-        if (res.data && res.data.code == 200) {
-            flag.value = false;
-            const userInfo = {
-                userId: res.data.rows.id,
-                level: res.data.rows.level,
-            };
-            window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
-            window.sessionStorage.setItem("token", res.data.rows.token);
-            if (res.data.rows.img) {
-                window.sessionStorage.setItem("nowTouxiang", res.data.rows.img);
-            } else {
-                window.sessionStorage.setItem("nowTouxiang", "xxx");
-            }
-            router.push({ path: "/" });
-            message.success(res.data.msg);
-            counterStore.updateFlag(true);
-        } else {
-            flag.value = false;
-            message.error(res.data.msg);
+function pickUser(payload: any): LoginUser | null {
+    // 兼容：{ code, rows } / { code, data } / 直接返回用户对象
+    const candidates = [payload?.rows, payload?.data, payload];
+    for (const user of candidates) {
+        if (user && typeof user === "object" && user.id != null && typeof user.token === "string" && user.token) {
+            return user as LoginUser;
         }
-    } catch (_) { }
-    flag.value = false;
+    }
+    return null;
 }
 
+function saveSession(user: LoginUser) {
+    // 按后端字段落库：id / level / userName / remark / paperList / img / token
+    sessionStorage.setItem(
+        "userInfo",
+        JSON.stringify({
+            userId: user.id,
+            level: user.level,
+            userName: user.userName ?? "",
+            remark: user.remark ?? "",
+            paperList: user.paperList ?? [],
+        })
+    );
+    sessionStorage.setItem("token", user.token);
+    sessionStorage.setItem("nowTouxiang", user.img || "xxx");
+}
+
+async function onFinish(values: FormState) {
+    loading.value = true;
+    try {
+        const res = await login({
+            account: values.username,
+            password: MD5(values.password).toString(),
+        });
+        const payload = res?.data;
+
+        // 有 code 时才校验；后端若直接返回用户对象则跳过
+        if (payload?.code != null && Number(payload.code) !== 200) {
+            message.error(payload.msg || "登录失败");
+            return;
+        }
+
+        const user = pickUser(payload);
+        if (!user) {
+            message.error("登录失败：未返回用户信息或 token");
+            return;
+        }
+
+        saveSession(user);
+        loginTransition.show();
+        message.success(payload?.msg || "登录成功");
+        await router.push("/");
+    } catch {
+        // 网络错误由 axios 拦截器提示
+    } finally {
+        loading.value = false;
+    }
+}
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.login-form {
+    :deep(.ant-form-item) {
+        margin-bottom: 18px;
+    }
+
+    .submit-item {
+        margin-bottom: 0;
+        margin-top: 8px;
+    }
+}
+</style>

@@ -1,13 +1,5 @@
-import request from "./index";
+import { get, post, del } from "./index";
 import type { PaginationType } from "./common";
-
-export function getHeroList(data: PaginationType) {
-  return request({
-    url: "/xingta/getHeroList",
-    method: "get",
-    params: data,
-  });
-}
 
 export interface AddHeroParams {
   id?: number;
@@ -21,26 +13,10 @@ export interface AddHeroParams {
   remark: string;
 }
 
-export function addHero(data: AddHeroParams) {
-  return request({
-    url: "/xingta/addHero",
-    method: "post",
-    data,
-  });
-}
+export const getHeroList = (params: PaginationType) => get("/xingta/getHeroList", params);
 
-export function updateHero(data: AddHeroParams) {
-  return request({
-    url: "/xingta/updateHero",
-    method: "post",
-    data,
-  });
-}
+export const addHero = (data: AddHeroParams) => post("/xingta/addHero", data);
 
-export function deleteHero(id: number) {
-  return request({
-    url: "/xingta/deleteHero",
-    method: "delete",
-    params: { id },
-  });
-}
+export const updateHero = (data: AddHeroParams) => post("/xingta/updateHero", data);
+
+export const deleteHero = (id: number) => del("/xingta/deleteHero", { id });

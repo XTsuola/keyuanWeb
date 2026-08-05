@@ -9,16 +9,16 @@
 </template>
 <script setup lang="ts">
 import { ref, onBeforeUnmount } from "vue";
-import { useCounterStore } from "@/stores/counter";
+import { useLoginTransitionStore } from "@/stores/loginTransition";
 import sidebarVue from "./Sidebar.vue";
 import mainVue from "./Main.vue";
 
 const sider = ref<InstanceType<typeof sidebarVue>>();
-const counterStore = useCounterStore();
-const flag = ref(!!counterStore.guochangFlag);
+const loginTransition = useLoginTransitionStore();
+const flag = ref(loginTransition.showWelcome);
 const timer = setTimeout(() => {
     flag.value = false;
-    counterStore.updateFlag(false);
+    loginTransition.hide();
 }, 1000);
 
 function showMenu() {
@@ -34,11 +34,16 @@ onBeforeUnmount(() => {
     flex: 1;
     display: flex;
     height: 100%;
-    overflow-y: hidden;
+    min-height: 0;
+    overflow: hidden;
+    background: #f5f6f8;
 }
 
 .main-area {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
 }
 
 .donghua {

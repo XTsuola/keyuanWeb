@@ -1,22 +1,14 @@
-import request from "./index";
+import { get, post, del } from "./index";
 import type { PaginationType } from "./common";
 
 export interface GetArmsListParams extends PaginationType {
-  name: string;
-}
-
-export function getArmsList(data: GetArmsListParams) {
-  return request({
-    url: "/hywz/getArmsList",
-    method: "get",
-    params: data,
-  });
+  name?: string;
 }
 
 export interface AddArmsParams {
   id?: number;
   name: string;
-  type: string | undefined;
+  type?: string;
   life: string;
   att: string;
   magic: string;
@@ -30,26 +22,10 @@ export interface AddArmsParams {
   remark: string;
 }
 
-export function addArms(data: AddArmsParams) {
-  return request({
-    url: "/hywz/addArms",
-    method: "post",
-    data,
-  });
-}
+export const getArmsList = (params: GetArmsListParams) => get("/hywz/getArmsList", params);
 
-export function updateArms(data: AddArmsParams) {
-  return request({
-    url: "/hywz/updateArms",
-    method: "post",
-    data,
-  });
-}
+export const addArms = (data: AddArmsParams) => post("/hywz/addArms", data);
 
-export function deleteArms(id: number) {
-  return request({
-    url: "/hywz/deleteArms",
-    method: "delete",
-    params: { id },
-  });
-}
+export const updateArms = (data: AddArmsParams) => post("/hywz/updateArms", data);
+
+export const deleteArms = (id: number) => del("/hywz/deleteArms", { id });

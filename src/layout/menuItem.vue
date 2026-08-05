@@ -28,10 +28,10 @@ interface Prop {
 
 const router = useRouter();
 const prop = defineProps<Prop>();
-const userId = (() => {
+const userLevel = (() => {
     try {
         const info = JSON.parse(sessionStorage.getItem("userInfo") || "null");
-        return info?.userId as number | undefined;
+        return info?.level as number | undefined;
     } catch {
         return undefined;
     }
@@ -39,7 +39,8 @@ const userId = (() => {
 
 function getShow(meta: RouteMeta) {
     const level = (meta as any).isLevel;
-    return level && userId ? level.includes(userId) : true;
+    // isLevel 校验的是权限等级 level，不是用户 id
+    return level ? level.includes(userLevel) : true;
 }
 
 function goView() {

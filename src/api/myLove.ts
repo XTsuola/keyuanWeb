@@ -1,11 +1,4 @@
-import request from "./index";
-
-export function getPhotoList() {
-  return request({
-    url: "/myLove/photoList",
-    method: "get",
-  });
-}
+import { get, post, del } from "./index";
 
 export interface AddPhotoParams {
   name: string;
@@ -15,23 +8,25 @@ export interface AddPhotoParams {
   imgType: string;
 }
 
-export function addPhoto(data: AddPhotoParams) {
-  return request({
-    url: "/myLove/addPhoto",
-    method: "post",
-    data,
-  });
-}
-
 export interface DeletePhotoParams {
   id: number;
   url: string;
 }
 
-export function deletePhoto(data: DeletePhotoParams) {
-  return request({
-    url: "/myLove/deletePhoto",
-    method: "delete",
-    params: data,
-  });
+export interface AddCookParams {
+  id?: number;
+  name: string;
+  cookType?: number;
+  hunsu?: number;
+  mastery?: number;
+  foodMaterials: string;
+  practice: string;
+  count: string;
+  remark: string;
 }
+
+export const getPhotoList = () => get("/myLove/photoList");
+
+export const addPhoto = (data: AddPhotoParams) => post("/myLove/addPhoto", data);
+
+export const deletePhoto = (data: DeletePhotoParams) => del("/myLove/deletePhoto", data);

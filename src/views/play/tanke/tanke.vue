@@ -1,35 +1,31 @@
 <template>
-    <div class="tanke">
+    <div class="enemy-tank" aria-hidden="true">
         <div></div>
-        <div class="tanke_tou"></div>
+        <div class="barrel"></div>
         <div></div>
     </div>
 </template>
 
-<script lang="ts" setup>
-</script>
-
 <style lang="less" scoped>
-.tanke {
+.enemy-tank {
     position: absolute;
-    width: 90%;
-    height: 90%;
-    background: #fff;
+    inset: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 2%;
-    transform: translate(-50%, -50%);
+    gap: 2%;
+    background: #fff;
+    border-radius: 2px;
 
     div {
         width: 20%;
         height: 20%;
-        background: orange;
+        background: #fa8c16;
         transform: translateX(-50%);
     }
 
-    .tanke_tou {
+    .barrel {
         transform: translateX(50%);
     }
 }
