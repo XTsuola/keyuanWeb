@@ -283,7 +283,7 @@ export const cityList = [{
     lat: 30.322401,
     status: 0
 }, {
-    name: "合肥验室",
+    name: "合肥实验室",
     lng: 117.246888,
     lat: 31.862401,
     status: 1
@@ -359,7 +359,7 @@ export const cityList = [{
     status: 1
 }, {
     name: "武汉实验室",
-    lng: 114.3100888,
+    lng: 114.310888,
     lat: 30.620401,
     status: 1
 }, {

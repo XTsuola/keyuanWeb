@@ -1,204 +1,261 @@
 <template>
-    <div @contextmenu="handleContextMenu">
-        <canvas width="1400" height="700" class="myCanvas" id="canvas"></canvas>
+    <div class="canvas-page" @contextmenu.prevent>
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">绘画天地</h1>
+                <p class="page-sub">双击选中 · 拖拽移动 · 右击另一物体连线</p>
+            </div>
+            <a-button type="primary" @click="addCube">添加物体</a-button>
+        </header>
+        <div class="canvas-wrap">
+            <canvas
+                ref="canvasRef"
+                class="board"
+                width="1400"
+                height="700"
+            />
+        </div>
     </div>
-    <a-button @click="addCube">添加物体</a-button>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
-const isDragging = ref(false);
-let prevMouseX = 0;
-let prevMouseY = 0;
-const objects: any = [];
-let nowObj: any = null;
-let context: any = null;
-
-function handleContextMenu(event: any) { // 阻止右击默认行为
-    event.preventDefault();
+interface Cube {
+    id: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    color: string;
+    type: "cube";
 }
 
-function addCube() { // 随机生成矩形物体
-    const idList = objects.filter((item: any) => item.type == "cube").map((item: any) => item.id);
-    let id = 0;
-    let maxId = 0;
-    for (let i = 0; i < idList.length; i++) {
-        maxId = Math.max(maxId, idList[i]);
+interface Line {
+    id: number;
+    id1: number;
+    id2: number;
+    color: string;
+    type: "line";
+}
+
+type CanvasObj = Cube | Line;
+
+const canvasRef = ref<HTMLCanvasElement | null>(null);
+const objects: CanvasObj[] = [];
+let ctx: CanvasRenderingContext2D | null = null;
+let nowObj: Cube | null = null;
+let dragging = false;
+let prevX = 0;
+let prevY = 0;
+
+const handlers: Array<[keyof HTMLElementEventMap, EventListener]> = [];
+
+function bind(el: HTMLCanvasElement, type: keyof HTMLElementEventMap, fn: EventListener) {
+    el.addEventListener(type, fn);
+    handlers.push([type, fn]);
+}
+
+function nextCubeId() {
+    const ids = objects.filter((o): o is Cube => o.type === "cube").map((o) => o.id);
+    return (ids.length ? Math.max(...ids) : 0) + 1;
+}
+
+function addObject(id: number, x: number, y: number, width: number, height: number, color: string) {
+    objects.push({ id, x, y, width, height, color, type: "cube" });
+}
+
+function addLine(id: number, id1: number, id2: number, color: string) {
+    objects.push({ id, id1, id2, color, type: "line" });
+}
+
+function clearCanvas() {
+    const canvas = canvasRef.value;
+    if (!canvas || !ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawCube(object: Cube) {
+    if (!ctx) return;
+    ctx.fillStyle = object.color;
+    ctx.fillRect(object.x, object.y, object.width, object.height);
+}
+
+function drawLine(object: Line) {
+    if (!ctx) return;
+    const a = objects.find((o): o is Cube => o.type === "cube" && o.id === object.id1);
+    const b = objects.find((o): o is Cube => o.type === "cube" && o.id === object.id2);
+    if (!a || !b) return;
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = object.color;
+    ctx.moveTo(a.x + a.width / 2, a.y + a.height / 2);
+    ctx.lineTo(b.x + b.width / 2, b.y + b.height / 2);
+    ctx.stroke();
+}
+
+function drawAll() {
+    clearCanvas();
+    objects.filter((o): o is Line => o.type === "line").forEach(drawLine);
+    objects.filter((o): o is Cube => o.type === "cube").forEach(drawCube);
+}
+
+function drawSelect() {
+    if (!ctx || !nowObj) return;
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#000";
+    ctx.strokeRect(nowObj.x - 2, nowObj.y - 2, nowObj.width + 4, nowObj.height + 4);
+}
+
+function getObjectAt(x: number, y: number) {
+    for (let i = objects.length - 1; i >= 0; i--) {
+        const o = objects[i];
+        if (o.type !== "cube") continue;
+        if (x >= o.x && x <= o.x + o.width && y >= o.y && y <= o.y + o.height) return o;
     }
-    id = maxId + 1;
-    let width = Math.random() * 100 + 50;
-    let height = Math.random() * 100 + 50;
-    let color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
-    addObject(id, 300, 300, width, height, color);
-    objects.forEach(function (object: any) {
-        drawObject(context, object);
-    });
+    return null;
 }
 
-function addObject(id: number, x: any, y: any, width: any, height: any, color: any) { // 添加一个物体到数组中
-    const object = {
-        id: id,
-        x: x,
-        y: y,
-        width: width,
-        height: height,
-        color: color,
-        type: "cube"
-    };;
-    objects.push(object);
-}
-
-function addLine(id: number, id1: number, id2: number, color: string) { // 添加一条线到数组中
-    const object = {
-        id: id,
-        id1: id1,
-        id2: id2,
-        color: color,
-        type: "line"
-    };
-    objects.push(object);
-}
-
-function drawObject(context: any, object: any) { // 绘制矩形物体
-    context.fillStyle = object.color;
-    context.fillRect(object.x, object.y, object.width, object.height);
-}
-
-function drawLine(context: any, object: any) { // 绘制连线
-    const obj1 = objects.find((item: any) => item.id == object.id1);
-    const obj2 = objects.find((item: any) => item.id == object.id2);
-    context.lineWidth = 2;
-    context.strokeStyle = object.color;
-    context.moveTo(obj1.x + obj1.width / 2, obj1.y + obj1.height / 2);
-    context.lineTo(obj2.x + obj2.width / 2, obj2.y + obj2.height / 2);
-    context.stroke();
+function addCube() {
+    const width = Math.random() * 100 + 50;
+    const height = Math.random() * 100 + 50;
+    const color = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
+    addObject(nextCubeId(), 300, 300, width, height, color);
+    drawAll();
+    if (nowObj) drawSelect();
 }
 
 onMounted(() => {
-    const canvas: any = document.getElementById("canvas");
-    context = canvas.getContext("2d");
-    // 添加一些示例物体
+    const canvas = canvasRef.value;
+    if (!canvas) return;
+    ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
     addObject(1, 50, 50, 100, 100, "red");
     addObject(2, 200, 200, 150, 80, "blue");
     addObject(3, 300, 300, 80, 150, "green");
     drawAll();
 
-    function getObjectAtPosition(x: any, y: any) { // 获取鼠标点击的物体
-        for (let i = objects.length - 1; i >= 0; i--) {
-            const object = objects[i];
-            if (
-                x >= object.x && x <= object.x + object.width &&
-                y >= object.y && y <= object.y + object.height
-            ) {
-                return object;
-            }
-        }
-        return null;
-    }
-
-    function clearhb() { // 清空画布
-        canvas.width = 1400;
-        canvas.height = 700;
-    }
-
-    function handleMouseDown(event: any) { // 鼠标按下
+    bind(canvas, "mousedown", ((event: MouseEvent) => {
+        if (!nowObj) return;
         const { offsetX, offsetY } = event;
-        if (nowObj && offsetX >= nowObj.x && offsetX <= nowObj.x + nowObj.width && offsetY >= nowObj.y && offsetY <= nowObj.y + nowObj.height) {
-            isDragging.value = true;
-            prevMouseX = offsetX;
-            prevMouseY = offsetY;
+        if (
+            offsetX >= nowObj.x &&
+            offsetX <= nowObj.x + nowObj.width &&
+            offsetY >= nowObj.y &&
+            offsetY <= nowObj.y + nowObj.height
+        ) {
+            dragging = true;
+            prevX = offsetX;
+            prevY = offsetY;
         }
-    }
+    }) as EventListener);
 
-    function handleMouseMove(event: any) { // 鼠标移动
-        if (isDragging.value) {
-            const { offsetX, offsetY } = event;
-            const deltaX = offsetX - prevMouseX; // 计算当前鼠标位置和上一次位置的差值
-            const deltaY = offsetY - prevMouseY;
-            nowObj.x += deltaX; // 更新矩形位置
-            nowObj.y += deltaY;
-            prevMouseX = offsetX; // 更新上一次鼠标位置
-            prevMouseY = offsetY;
-            clearhb();
-            drawAll();
-        }
-    }
+    bind(canvas, "mousemove", ((event: MouseEvent) => {
+        if (!dragging || !nowObj) return;
+        const { offsetX, offsetY } = event;
+        nowObj.x += offsetX - prevX;
+        nowObj.y += offsetY - prevY;
+        prevX = offsetX;
+        prevY = offsetY;
+        drawAll();
+        drawSelect();
+    }) as EventListener);
 
-    function handleMouseUp() { // 鼠标松开
-        isDragging.value = false;
+    bind(canvas, "mouseup", (() => {
+        dragging = false;
         if (nowObj) {
             drawAll();
             drawSelect();
         }
-    }
+    }) as EventListener);
 
-    function drawAll() { // 绘制所有
-        const objects1 = objects.filter((item: any) => item.type == "cube");
-        const objects2 = objects.filter((item: any) => item.type == "line");
-        objects2.forEach(function (object: any) {
-            drawLine(context, object);
-        });
-        objects1.forEach(function (object: any) {
-            drawObject(context, object);
-        });
-    }
-
-    function drawSelect() { // 绘制被选中的物体边框
-        context.lineWidth = 4;
-        context.stroleStyle = "#000";
-        context.strokeRect(nowObj.x - 2, nowObj.y - 2, nowObj.width + 4, nowObj.height + 4);
-    }
-
-    canvas.addEventListener("mousedown", handleMouseDown);
-    canvas.addEventListener("mousemove", handleMouseMove);;
-    canvas.addEventListener("mouseup", handleMouseUp);
-    canvas.addEventListener("contextmenu", function (event: any) { // 右击事件
-        if (nowObj != null) {
-            const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;;
-            const y = event.clientY - rect.top;
-            const clickedObject = getObjectAtPosition(x, y);
-            if (clickedObject) {
-                const ind = objects.findIndex((item: any) => item.id == clickedObject.id);
-                if (nowObj && nowObj.id != objects[ind].id) {
-                    if (objects.findIndex((e: any) => e.id1 == nowObj.id && e.id2 == clickedObject.id) == -1 && objects.findIndex((e: any) => e.id2 == nowObj.id && e.id1 == clickedObject.id) == -1) {
-                        addLine(Date.now(), nowObj.id, objects[ind].id, "#000");
-                        clearhb();
-                        drawAll();
-                        nowObj = null;
-                    } else {
-                        return false;
-                    }
-                }
-            }
-        }
-    })
-    canvas.addEventListener("dblclick", function (event: any) { // 双击事件
+    bind(canvas, "contextmenu", ((event: MouseEvent) => {
+        if (!nowObj) return;
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        const clickedObject = getObjectAtPosition(x, y);
-        if (clickedObject) {
-            clearhb();
-            const ind = objects.findIndex((item: any) => item.id == clickedObject.id);
-            nowObj = objects[ind];
+        const clicked = getObjectAt(x, y);
+        if (!clicked || clicked.id === nowObj.id) return;
+        const exists = objects.some(
+            (o) =>
+                o.type === "line" &&
+                ((o.id1 === nowObj!.id && o.id2 === clicked.id) ||
+                    (o.id2 === nowObj!.id && o.id1 === clicked.id))
+        );
+        if (exists) return;
+        addLine(Date.now(), nowObj.id, clicked.id, "#000");
+        nowObj = null;
+        drawAll();
+    }) as EventListener);
+
+    bind(canvas, "dblclick", ((event: MouseEvent) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const clicked = getObjectAt(x, y);
+        if (clicked) {
+            const ind = objects.findIndex((o) => o.type === "cube" && o.id === clicked.id);
+            nowObj = objects[ind] as Cube;
             objects.splice(ind, 1);
             objects.push(nowObj);
             drawAll();
             drawSelect();
         } else {
             nowObj = null;
-            clearhb();
             drawAll();
         }
-    })
-})
+    }) as EventListener);
+});
 
+onBeforeUnmount(() => {
+    const canvas = canvasRef.value;
+    if (!canvas) return;
+    handlers.forEach(([type, fn]) => canvas.removeEventListener(type, fn));
+    handlers.length = 0;
+    ctx = null;
+    nowObj = null;
+});
 </script>
 
 <style lang="less" scoped>
-.myCanvas {
-    border: 1px solid red;
+.canvas-page {
+    box-sizing: border-box;
+    padding: 12px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: calc(100vh - 140px);
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 650;
+}
+
+.page-sub {
+    margin: 2px 0 0;
+    color: #8c8c8c;
+    font-size: 12px;
+}
+
+.canvas-wrap {
+    overflow: auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.board {
+    display: block;
+    background: #fafafa;
 }
 </style>

@@ -1,26 +1,32 @@
 <template>
-    <div class="main">
-        <div v-for="i in text">{{ i }}</div>
-        <img v-show="show3" style="width: 500px;right: 10px;top: 1200px;"
-            src="@/assets/images/love/wedding/shiyan/wh1.jpg" />
-        <img v-show="show1" style="width: 560px;right: 10px;top: 20px;"
-            src="@/assets/images/love/wedding/shiyan/wh2.jpg" />
-        <img v-show="show2" style="width: 300px;right: 10px;top: 580px;"
-            src="@/assets/images/love/wedding/shiyan/zjs1.jpg" />
-        <img v-show="show4" style="right: 10px;top: 1990px;" src="@/assets/images/love/wedding/icon/goBack.png"
-            @click="goBack()">
+    <div class="letter-page">
+        <div class="text-col">
+            <p v-for="(line, index) in text" :key="index" class="line">{{ line }}</p>
+        </div>
+        <aside class="gallery">
+            <img v-show="show1" src="@/assets/images/love/wedding/shiyan/wh2.jpg" alt="" />
+            <img v-show="show2" src="@/assets/images/love/wedding/shiyan/zjs1.jpg" alt="" />
+            <img v-show="show3" src="@/assets/images/love/wedding/shiyan/wh1.jpg" alt="" />
+            <button v-show="show4" type="button" class="back-btn" @click="goBack">
+                <img src="@/assets/images/love/wedding/icon/goBack.png" alt="返回" />
+            </button>
+        </aside>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { onBeforeUnmount, ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const text = ref<string[]>([""]);
 const show1 = ref(false);
 const show2 = ref(false);
 const show3 = ref(false);
 const show4 = ref(false);
-const strList: string[] = [
+const timers = new Set<ReturnType<typeof setTimeout>>();
+
+const strList = [
     "晓看天色暮看云",
     "行也思君",
     "坐也思君",
@@ -56,73 +62,132 @@ const strList: string[] = [
     "落花人独立",
     "微雨燕双飞",
     "醉后不知天在水",
-    "满船星梦压星河"
+    "满船星梦压星河",
 ];
 
-function reset(num: number) {
-    if (num == 1) {
-        show1.value = true;
-    } else if (num == 11) {
-        show2.value = true;
-    } else if (num == 22) {
-        show3.value = true;
-    } else if (num == 36) {
-        show4.value = true;
-    }
-    if (num >= strList.length) {
-        return false;
-    } else {
-        if (text.value.length <= strList.length) {
-            if (text.value[num].length < strList[num].length) {
-                text.value[num] += strList[num].substring(text.value[num].length, text.value[num].length + 1);
-                setTimeout(() => {
-                    reset(num);
-                }, Math.random() * 160);
-            } else {
-                num++;
-                text.value[num] = "";
-                setTimeout(() => {
-                    reset(num);
-                }, Math.random() * 160);
-            }
-        } else {
-            return false;
-        }
-    }
+function schedule(fn: () => void, delay: number) {
+    const id = setTimeout(() => {
+        timers.delete(id);
+        fn();
+    }, delay);
+    timers.add(id);
 }
+
+function reveal(num: number) {
+    if (num === 1) show1.value = true;
+    if (num === 11) show2.value = true;
+    if (num === 22) show3.value = true;
+    if (num === 36) show4.value = true;
+}
+
+function reset(num: number) {
+    reveal(num);
+    if (num >= strList.length) return;
+
+    const current = text.value[num] ?? "";
+    if (current.length < strList[num].length) {
+        text.value[num] = strList[num].slice(0, current.length + 1);
+        schedule(() => reset(num), Math.random() * 160);
+        return;
+    }
+
+    const next = num + 1;
+    if (next >= strList.length) {
+        reveal(next);
+        return;
+    }
+    text.value[next] = "";
+    schedule(() => reset(next), Math.random() * 160);
+}
+
 reset(0);
 
 function goBack() {
-    history.back();
+    router.back();
 }
 
+onBeforeUnmount(() => {
+    timers.forEach((id) => clearTimeout(id));
+    timers.clear();
+});
 </script>
 
 <style lang="less" scoped>
-.main {
-    padding-top: 20px;
-    padding-left: 30px;
-    font-size: 36px;
-    position: relative;
+.letter-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.9fr);
+    gap: 24px;
+    padding: 24px 20px 40px;
+    background: #f7f3ea;
+    color: #3d3a32;
+}
 
-    div {
-        letter-spacing: 8px;
-        text-shadow: 0px 2px 0px #fff, 0px -1px 0px #9da181, 1px 0px 0px #fff, -2px 0px 0px #9da181;
-    }
+.text-col {
+    font-size: clamp(20px, 2.6vw, 34px);
+}
+
+.line {
+    margin: 0 0 10px;
+    letter-spacing: 0.2em;
+    text-shadow: 0 2px 0 #fff, 0 -1px 0 #9da181, 1px 0 0 #fff, -2px 0 0 #9da181;
+    min-height: 1.2em;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    position: sticky;
+    top: 24px;
+    align-self: start;
 
     img {
-        position: absolute;
-        animation: rTol 1s;
+        width: min(100%, 460px);
+        height: auto;
+        border-radius: 8px;
+        animation: pop 0.8s ease;
     }
 }
 
-@keyframes rTol {
+.back-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+
+    img {
+        width: 64px;
+    }
+}
+
+@keyframes pop {
     from {
-        transform: scale(0);
+        transform: scale(0.2);
+        opacity: 0;
     }
 
     to {
         transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .letter-page {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        position: static;
+        align-items: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery img {
+        animation: none;
     }
 }
 </style>
