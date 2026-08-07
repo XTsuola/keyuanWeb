@@ -1,29 +1,11 @@
 <template>
-    <a-form
-        class="login-form"
-        :rules="rules"
-        :model="formState"
-        name="login"
-        layout="vertical"
-        autocomplete="off"
-        @finish="onFinish"
-    >
+    <a-form class="login-form" :rules="rules" :model="formState" name="login" layout="vertical" autocomplete="off"
+        @finish="onFinish">
         <a-form-item name="username">
-            <a-input
-                v-model:value="formState.username"
-                size="large"
-                placeholder="账号"
-                :disabled="loading"
-                allow-clear
-            />
+            <a-input v-model:value="formState.username" size="large" placeholder="账号" :disabled="loading" allow-clear />
         </a-form-item>
         <a-form-item name="password">
-            <a-input-password
-                v-model:value="formState.password"
-                size="large"
-                placeholder="密码"
-                :disabled="loading"
-            />
+            <a-input-password v-model:value="formState.password" size="large" placeholder="密码" :disabled="loading" />
         </a-form-item>
         <a-form-item class="submit-item">
             <a-button type="primary" size="large" html-type="submit" block :loading="loading">
@@ -70,7 +52,6 @@ const rules = {
 };
 
 function pickUser(payload: any): LoginUser | null {
-    // 兼容：{ code, rows } / { code, data } / 直接返回用户对象
     const candidates = [payload?.rows, payload?.data, payload];
     for (const user of candidates) {
         if (user && typeof user === "object" && user.id != null && typeof user.token === "string" && user.token) {
@@ -81,7 +62,6 @@ function pickUser(payload: any): LoginUser | null {
 }
 
 function saveSession(user: LoginUser) {
-    // 按后端字段落库：id / level / userName / remark / paperList / img / token
     sessionStorage.setItem(
         "userInfo",
         JSON.stringify({
@@ -104,25 +84,19 @@ async function onFinish(values: FormState) {
             password: MD5(values.password).toString(),
         });
         const payload = res?.data;
-
-        // 有 code 时才校验；后端若直接返回用户对象则跳过
         if (payload?.code != null && Number(payload.code) !== 200) {
             message.error(payload.msg || "登录失败");
             return;
         }
-
         const user = pickUser(payload);
         if (!user) {
             message.error("登录失败：未返回用户信息或 token");
             return;
         }
-
         saveSession(user);
         loginTransition.show();
         message.success(payload?.msg || "登录成功");
         await router.push("/");
-    } catch {
-        // 网络错误由 axios 拦截器提示
     } finally {
         loading.value = false;
     }

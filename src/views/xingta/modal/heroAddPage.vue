@@ -51,9 +51,7 @@ const addData = ref<AddHeroParams>({
     introduce: "",
     remark: ""
 });
-if (prop.type === "edit" || prop.type === "detail") {
-    addData.value = JSON.parse(JSON.stringify(prop.addParams));
-}
+if (prop.type === "edit" || prop.type === "detail") addData.value = JSON.parse(JSON.stringify(prop.addParams));
 
 async function getAddData() {
     try {
