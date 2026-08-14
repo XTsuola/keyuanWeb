@@ -1,15 +1,7 @@
 <template>
     <div class="myTable">
-        <a-table
-            class="data-table"
-            size="middle"
-            :columns="prop.columnsData"
-            :loading="prop.loading"
-            :data-source="prop.dataSource"
-            :pagination="tablePagination"
-            :row-class-name="prop.rowClassName"
-            bordered
-        >
+        <a-table class="data-table" size="middle" :columns="prop.columnsData" :loading="prop.loading"
+            :data-source="prop.dataSource" :pagination="tablePagination" :row-class-name="prop.rowClassName" bordered>
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     <span class="cell-index" v-if="hasCustomPagination">
@@ -31,30 +23,13 @@
                 <template v-else-if="column.key === 'action'">
                     <div class="action">
                         <template v-for="(item, actionIndex) in column.list" :key="actionIndex">
-                            <a-button
-                                v-if="item === 'look'"
-                                size="small"
-                                @click="emits('look', record)"
-                            >查看</a-button>
-                            <a-button
-                                v-else-if="item === 'detail'"
-                                size="small"
-                                @click="emits('detail', 'detail', record)"
-                            >查看详情</a-button>
-                            <a-button
-                                v-else-if="item === 'edit'"
-                                size="small"
-                                type="primary"
-                                ghost
-                                @click="emits('edit', 'edit', record)"
-                            >修改</a-button>
-                            <a-popconfirm
-                                v-else-if="item === 'delete'"
-                                title="确定删除该数据吗?"
-                                ok-text="确定"
-                                cancel-text="取消"
-                                @confirm="emits('delete', record.id)"
-                            >
+                            <a-button v-if="item === 'look'" size="small" @click="emits('look', record)">查看</a-button>
+                            <a-button v-else-if="item === 'detail'" size="small"
+                                @click="emits('detail', 'detail', record)">查看详情</a-button>
+                            <a-button v-else-if="item === 'edit'" size="small" type="primary" ghost
+                                @click="emits('edit', 'edit', record)">修改</a-button>
+                            <a-popconfirm v-else-if="item === 'delete'" title="确定删除该数据吗?" ok-text="确定" cancel-text="取消"
+                                @confirm="emits('delete', record.id)">
                                 <a-button size="small" danger ghost>删除</a-button>
                             </a-popconfirm>
                         </template>
@@ -63,15 +38,10 @@
             </template>
         </a-table>
         <div v-if="hasCustomPagination" class="pagination-bar">
-            <a-pagination
-                v-model:current="prop.pagination.currentPage"
-                v-model:page-size="prop.pagination.pageSize"
-                :pageSizeOptions="['10', '15', '20', '50', '100']"
-                :total="prop.pagination.total"
-                show-size-changer
+            <a-pagination v-model:current="prop.pagination.currentPage" v-model:page-size="prop.pagination.pageSize"
+                :pageSizeOptions="pageSizeOptions" :total="prop.pagination.total" show-size-changer
                 :show-total="(total: number) => `共 ${total} 条`"
-                @change="emits('changePage', prop.pagination.currentPage, prop.pagination.pageSize)"
-            />
+                @change="emits('changePage', prop.pagination.currentPage, prop.pagination.pageSize)" />
         </div>
     </div>
 </template>
@@ -90,6 +60,7 @@ interface Prop {
     columnsData: any
     loading?: boolean
     pagination: Pagination | boolean | any
+    pageSizeOptions?: string[]
     isAdmin?: string | null
     rowClassName?: (record: any, index: number) => string
 }
@@ -97,11 +68,14 @@ interface Prop {
 const prop = defineProps<Prop>();
 const emits = defineEmits(["detail", "edit", "delete", "changePage", "download", "resetPassword", "changeAdmin", "look", "showVideo"]);
 
+const pageSizeOptions = computed(
+    () => prop.pageSizeOptions ?? ["10", "15", "20", "50", "100"]
+);
+
 const hasCustomPagination = computed(
     () => !!prop.pagination && typeof prop.pagination === "object"
 );
 
-/** false=全部展示；对象=外部自定义分页；其他=表格内置分页 */
 const tablePagination = computed(() => {
     if (prop.pagination === false) return false;
     if (hasCustomPagination.value) return false;

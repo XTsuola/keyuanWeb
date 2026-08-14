@@ -75,6 +75,9 @@ const newRouterDate: RouteRecordRaw[] = [
         folder("huoyanwenzhang", "火焰纹章", "UnorderedListOutlined", [
           menu("huoyanwenzhangArmsList", "兵种列表", () => import("@/views/game/hywz/armsList.vue")),
         ]),
+        folder("mhmnz", "梦幻模拟战", "UnorderedListOutlined", [
+          menu("mhmnzSoldier", "兵种列表", () => import("@/views/game/mhmnz/soldier.vue")),
+        ]),
       ]),
       folder("/play", "游戏试玩", "RocketOutlined", [
         menu("newGame", "坦克大战", () => import("@/views/play/tanke/index.vue"), { isLevel: [1] }),
