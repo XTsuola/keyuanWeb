@@ -77,6 +77,7 @@ const newRouterDate: RouteRecordRaw[] = [
         ]),
         folder("mhmnz", "梦幻模拟战", "UnorderedListOutlined", [
           menu("mhmnzSoldier", "兵种列表", () => import("@/views/game/mhmnz/soldier.vue")),
+          menu("mhmnzHero", "英雄列表", () => import("@/views/game/mhmnz/hero.vue")),
         ]),
       ]),
       folder("/play", "游戏试玩", "RocketOutlined", [
