@@ -42,12 +42,8 @@
                     <p class="section-note">卡牌 + 英雄满级 + 金神器 + 皮肤 5 星</p>
                 </div>
                 <div class="power-grid">
-                    <div
-                        class="power-item"
-                        v-for="item in powerRows"
-                        :key="item.label"
-                        :class="[item.qualityClass, { emphasis: item.emphasis }]"
-                    >
+                    <div class="power-item" v-for="item in powerRows" :key="item.label"
+                        :class="[item.qualityClass, { emphasis: item.emphasis }]">
                         <span class="power-label">{{ item.label }}</span>
                         <span class="power-value">
                             <em v-if="item.qualityTag" class="shenqi-tag">{{ item.qualityTag }}</em>
@@ -194,15 +190,7 @@ const maxLife = 349;
 const name = ref("");
 const heroImg = ref("");
 const nowLife = ref(0);
-const gradeCount = reactive({
-    sss: 0,
-    ss: 0,
-    s: 0,
-    a: 0,
-    b: 0,
-    c: 0,
-    d: 0,
-});
+const gradeCount = reactive({ sss: 0, ss: 0, s: 0, a: 0, b: 0, c: 0, d: 0 });
 const whiteList: number[] = [];
 const blueList: number[] = [];
 const purpleList: number[] = [];
@@ -757,10 +745,6 @@ onMounted(() => {
     }
 }
 
-.stat-divider {
-    display: none;
-}
-
 .quality-white {
     color: var(--white);
     background: var(--white-bg);
@@ -863,6 +847,7 @@ onMounted(() => {
     &.quality-blue,
     &.quality-purple,
     &.quality-orange {
+
         .power-label,
         .power-value {
             color: inherit;

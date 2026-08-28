@@ -5,4 +5,5 @@ export interface LoginParams {
   password: string;
 }
 
+// 登录
 export const login = (data: LoginParams) => post("/login", data);

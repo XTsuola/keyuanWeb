@@ -1,7 +1,6 @@
 export interface Test1 {
   index: number;
   stem: string;
-  selectArr: string[];
   answer: string;
   score: number | string;
   a: number | string;

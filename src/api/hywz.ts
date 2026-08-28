@@ -22,10 +22,14 @@ export interface AddArmsParams {
   remark: string;
 }
 
+// 火焰纹章兵种列表
 export const getArmsList = (params: GetArmsListParams) => get("/hywz/getArmsList", params);
 
+// 新增火焰纹章兵种
 export const addArms = (data: AddArmsParams) => post("/hywz/addArms", data);
 
+// 修改火焰纹章兵种
 export const updateArms = (data: AddArmsParams) => post("/hywz/updateArms", data);
 
+// 删除火焰纹章兵种
 export const deleteArms = (id: number) => del("/hywz/deleteArms", { id });

@@ -41,18 +41,26 @@ export interface AddWeaponParams {
   remark?: string;
 }
 
+// 原神英雄列表
 export const getHeroList = (params: GetHeroListParams) => get("/yuanshen/getHeroList", params);
 
+// 新增原神英雄
 export const addHero = (data: AddHeroParams) => post("/yuanshen/addHero", data);
 
+// 修改原神英雄
 export const updateHero = (data: AddHeroParams) => post("/yuanshen/updateHero", data);
 
+// 删除原神英雄
 export const deleteHero = (id: number) => del("/yuanshen/deleteHero", { id });
 
+// 原神武器列表
 export const getWeaponList = (params: GetWeaponListParams) => get("/yuanshen/getWeaponList", params);
 
+// 新增原神武器
 export const addWeapon = (data: AddWeaponParams) => post("/yuanshen/addWeapon", data);
 
+// 修改原神武器
 export const updateWeapon = (data: AddWeaponParams) => post("/yuanshen/updateWeapon", data);
 
+// 删除原神武器
 export const deleteWeapon = (id: number) => del("/yuanshen/deleteWeapon", { id });

@@ -23,8 +23,7 @@
                 <template v-else-if="column.key === 'action'">
                     <div class="action">
                         <template v-for="(item, actionIndex) in column.list" :key="actionIndex">
-                            <a-button v-if="item === 'look'" size="small" @click="emits('look', record)">查看</a-button>
-                            <a-button v-else-if="item === 'detail'" size="small"
+                            <a-button v-if="item === 'detail'" size="small"
                                 @click="emits('detail', 'detail', record)">查看详情</a-button>
                             <a-button v-else-if="item === 'edit'" size="small" type="primary" ghost
                                 @click="emits('edit', 'edit', record)">修改</a-button>
@@ -61,12 +60,11 @@ interface Prop {
     loading?: boolean
     pagination: Pagination | boolean | any
     pageSizeOptions?: string[]
-    isAdmin?: string | null
     rowClassName?: (record: any, index: number) => string
 }
 
 const prop = defineProps<Prop>();
-const emits = defineEmits(["detail", "edit", "delete", "changePage", "download", "resetPassword", "changeAdmin", "look", "showVideo"]);
+const emits = defineEmits(["detail", "edit", "delete", "changePage", "showVideo"]);
 
 const pageSizeOptions = computed(
     () => prop.pageSizeOptions ?? ["10", "15", "20", "50", "100"]

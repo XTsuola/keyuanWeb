@@ -272,7 +272,6 @@ function getList() {
             ...item,
             id: index + 1,
             bai: cost.bai,
-            hei: cost.hei,
             zuanshi: cost.zuanshi,
         };
     });

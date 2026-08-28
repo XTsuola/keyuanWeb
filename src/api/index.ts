@@ -26,7 +26,6 @@ service.interceptors.request.use(
       if (!config.headers) {
         config.headers = new AxiosHeaders();
       }
-      // 后端鉴权读取 header.token
       config.headers.set("token", token);
     }
     return config;

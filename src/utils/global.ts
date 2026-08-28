@@ -62,33 +62,6 @@ export const groupList: Type[] = [
   { label: "六队", value: "六队" },
 ];
 
-export const qingshuBase = {
-  background: "每位玩家都将扮演公主的追求者，游戏目的是成为最后一个被淘汰者，这样便可以将自己的情书送给公主，从而获得一颗公主的爱心。 当爱心达到一定数量时，你便可以迎娶公主，走向人生巅峰。",
-  role: [
-    { id: 1, name: "侍卫", introduce: "共5张。指定一名玩家猜出其一张名字不是侍卫的卡，如果该名玩家持有这张卡，则他淘汰出局。" },
-    { id: 2, name: "牧师", introduce: "共2张。查看另一名玩家的手牌。" },
-    { id: 3, name: "男爵", introduce: "共2张。选择另一名玩家，与其比较手牌点数大小，较小者淘汰出局。" },
-    { id: 4, name: "侍女", introduce: "共2张。直到你的下一个回合，忽略其他玩家的卡牌对你的影响。" },
-    { id: 5, name: "王子", introduce: "共2张。选择场上一名还在游戏中的玩家，被指定的玩家弃掉手牌，然后摸一张新的牌。" },
-    { id: 6, name: "国王", introduce: "共1张。将你手上的卡与你选择的另一名玩家交换。" },
-    { id: 7, name: "女伯爵", introduce: "共1张。如果你手上有女伯爵并且有着国王或者王子的时候，你必须弃置女伯爵。" },
-    { id: 8, name: "公主", introduce: "共1张。如果你弃置或者打出这张牌，你将直接淘汰出局。" },
-  ],
-};
-
-export const armTypeList: Type[] = [
-  { label: "步兵", value: 1 },
-  { label: "枪兵", value: 2 },
-  { label: "骑兵", value: 3 },
-  { label: "飞兵", value: 4 },
-  { label: "水兵", value: 5 },
-  { label: "弓兵", value: 6 },
-  { label: "刺客", value: 7 },
-  { label: "法师", value: 8 },
-  { label: "僧侣", value: 9 },
-  { label: "魔物", value: 10 },
-];
-
 export const blueObj = createLevelTable([
   [10, 0, 0, 0, 0, 0, 1],
   [22, 0, 0, 0, 0, 0, 2],
@@ -186,10 +159,4 @@ export function getNowTime(): string {
   const date = new Date();
   const pad = (n: number) => String(n).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
-}
-
-export function getMyCard<T extends { name: string }>(allData: T[], myCardList: string[]) {
-  return myCardList
-    .map((name) => allData.find((item) => item.name === name))
-    .filter((item): item is T => item !== undefined);
 }

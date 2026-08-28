@@ -7,46 +7,20 @@
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" :model="formState" autocomplete="off">
                 <a-form-item label="名称">
-                    <a-input
-                        v-model:value="formState.name"
-                        allow-clear
-                        placeholder="请输入名称"
-                        class="search-control"
-                        @pressEnter="selectList"
-                    />
+                    <a-input v-model:value="formState.name" allow-clear placeholder="请输入名称" class="search-control"
+                        @pressEnter="selectList" />
                 </a-form-item>
                 <a-form-item label="品质">
-                    <a-select
-                        v-model:value="formState.quality"
-                        mode="multiple"
-                        allow-clear
-                        placeholder="全部品质"
-                        class="search-control"
-                        :options="qualityOptions"
-                        :max-tag-count="2"
-                    />
+                    <a-select v-model:value="formState.quality" mode="multiple" allow-clear placeholder="全部品质"
+                        class="search-control" :options="qualityOptions" :max-tag-count="2" />
                 </a-form-item>
                 <a-form-item label="阵营">
-                    <a-select
-                        v-model:value="formState.zhenyin"
-                        mode="multiple"
-                        allow-clear
-                        placeholder="全部阵营"
-                        class="search-control"
-                        :options="zhenyinOptions"
-                        :max-tag-count="2"
-                    />
+                    <a-select v-model:value="formState.zhenyin" mode="multiple" allow-clear placeholder="全部阵营"
+                        class="search-control" :options="zhenyinOptions" :max-tag-count="2" />
                 </a-form-item>
                 <a-form-item label="职业">
-                    <a-select
-                        v-model:value="formState.job"
-                        mode="multiple"
-                        allow-clear
-                        placeholder="全部职业"
-                        class="search-control"
-                        :options="jobOptions"
-                        :max-tag-count="2"
-                    />
+                    <a-select v-model:value="formState.job" mode="multiple" allow-clear placeholder="全部职业"
+                        class="search-control" :options="jobOptions" :max-tag-count="2" />
                 </a-form-item>
                 <a-form-item class="search-actions-item">
                     <a-space>
@@ -58,137 +32,74 @@
             <div class="filter-btns">
                 <div class="filter-btn-group">
                     <span class="filter-btn-label">SP：</span>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.sp == null }"
-                        @click="setSp(undefined)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.sp == null }"
+                        @click="setSp(undefined)">
                         全部
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.sp === 1 }"
-                        @click="setSp(1)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.sp === 1 }" @click="setSp(1)">
                         有SP
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.sp === 0 }"
-                        @click="setSp(0)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.sp === 0 }" @click="setSp(0)">
                         无SP
                     </button>
                 </div>
                 <div class="filter-btn-group">
                     <span class="filter-btn-label">联动：</span>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.liandong == null }"
-                        @click="setLiandong(undefined)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.liandong == null }"
+                        @click="setLiandong(undefined)">
                         全部
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.liandong === 1 }"
-                        @click="setLiandong(1)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.liandong === 1 }"
+                        @click="setLiandong(1)">
                         仅联动
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.liandong === 0 }"
-                        @click="setLiandong(0)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.liandong === 0 }"
+                        @click="setLiandong(0)">
                         非联动
                     </button>
                 </div>
                 <div class="filter-btn-group">
                     <span class="filter-btn-label">专武：</span>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.shenqi == null }"
-                        @click="setShenqi(undefined)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi == null }"
+                        @click="setShenqi(undefined)">
                         全部
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.shenqi === 1 }"
-                        @click="setShenqi(1)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi === 1 }"
+                        @click="setShenqi(1)">
                         有专武
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.shenqi === 0 }"
-                        @click="setShenqi(0)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi === 0 }"
+                        @click="setShenqi(0)">
                         无专武
                     </button>
                 </div>
                 <div class="filter-btn-group">
                     <span class="filter-btn-label">铸纹：</span>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.zhuwen == null }"
-                        @click="setZhuwen(undefined)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen == null }"
+                        @click="setZhuwen(undefined)">
                         全部
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.zhuwen === 1 }"
-                        @click="setZhuwen(1)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen === 1 }"
+                        @click="setZhuwen(1)">
                         有铸纹
                     </button>
-                    <button
-                        type="button"
-                        class="filter-btn"
-                        :class="{ active: formState.zhuwen === 0 }"
-                        @click="setZhuwen(0)"
-                    >
+                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen === 0 }"
+                        @click="setZhuwen(0)">
                         无铸纹
                     </button>
                 </div>
             </div>
         </div>
-
-        <a-table
-            class="data-table"
-            size="middle"
-            bordered
-            row-key="key"
-            :columns="columns"
-            :data-source="tableData"
-            :pagination="false"
-        >
+        <a-table class="data-table" size="middle" bordered row-key="key" :columns="columns" :data-source="tableData"
+            :pagination="false">
             <template #bodyCell="{ column, index, record }">
                 <template v-if="column.key === 'index'">
                     {{ (currentPage - 1) * pageSize + index + 1 }}
                 </template>
                 <template v-else-if="column.key === 'formSwitch'">
-                    <a-switch
-                        v-if="record.hasAlt"
-                        size="small"
-                        :checked="record.showingAlt"
-                        :checked-children="record.altLabel"
-                        un-checked-children="原版"
-                        @change="(checked: boolean) => setShowAlt(record.id, checked)"
-                    />
+                    <a-switch v-if="record.hasAlt" size="small" :checked="record.showingAlt"
+                        :checked-children="record.altLabel" un-checked-children="原版"
+                        @change="(checked: boolean) => setShowAlt(record.id, checked)" />
                     <span v-else class="muted">—</span>
                 </template>
                 <template v-else-if="column.key === 'action'">
@@ -197,36 +108,19 @@
             </template>
         </a-table>
         <div class="pagination-bar">
-            <a-pagination
-                v-model:current="currentPage"
-                v-model:page-size="pageSize"
-                :pageSizeOptions="['15', '50', '100', '200', '500']"
-                :total="total"
-                show-size-changer
-                :show-total="(n: number) => `共 ${n} 条`"
-            />
+            <a-pagination v-model:current="currentPage" v-model:page-size="pageSize"
+                :pageSizeOptions="['15', '50', '100', '200', '500']" :total="total" show-size-changer
+                :show-total="(n: number) => `共 ${n} 条`" />
         </div>
-
-        <a-modal
-            v-model:open="visible"
-            title="英雄详情"
-            :footer="null"
-            destroyOnClose
-            centered
-            width="720px"
-            wrap-class-name="mhmnz-hero-detail-modal"
-        >
+        <a-modal v-model:open="visible" title="英雄详情" :footer="null" destroyOnClose centered width="720px"
+            wrap-class-name="mhmnz-hero-detail-modal">
             <template v-if="current">
                 <div v-if="current.hasAlt" class="detail-switch">
                     <span>形态</span>
-                    <a-segmented
-                        :value="current.showingAlt ? 'alt' : 'base'"
-                        :options="[
-                            { label: '原版', value: 'base' },
-                            { label: current.altLabel, value: 'alt' },
-                        ]"
-                        @change="(val: string | number) => setShowAlt(current!.id, val === 'alt')"
-                    />
+                    <a-segmented :value="current.showingAlt ? 'alt' : 'base'" :options="[
+                        { label: '原版', value: 'base' },
+                        { label: current.altLabel, value: 'alt' },
+                    ]" @change="(val: string | number) => setShowAlt(current!.id, val === 'alt')" />
                 </div>
                 <div class="detail-head">
                     <div class="detail-name-row">
@@ -278,7 +172,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, ref, watch } from "vue";
+import { ref, reactive, computed, watch } from "vue";
 import { job, quality, zhenyin } from "@/utils/mhmnz/func";
 import { heroData, type Hero } from "@/utils/mhmnz/hero";
 
@@ -293,7 +187,6 @@ interface Row extends Hero {
     hasAlt: boolean;
     showingAlt: boolean;
     altLabel: string;
-    hasSpForm: boolean;
     isLiandong: boolean;
     liandongText: string;
     hasShenqi: boolean;
@@ -327,19 +220,14 @@ const formState = reactive<{
     shenqi: undefined,
     zhuwen: undefined,
 });
-
-/** id -> 是否显示升格/SP 形态 */
 const showAltMap = reactive<Record<number, boolean>>({});
-
 const currentPage = ref(1);
 const pageSize = ref(15);
 const visible = ref(false);
 const currentId = ref<number | null>(null);
-
 const qualityOptions = quality.map((label, index) => ({ label, value: index + 1 }));
 const zhenyinOptions = zhenyin.map((label, index) => ({ label, value: index + 1 }));
 const jobOptions = job.map((label, index) => ({ label, value: index + 1 }));
-
 const LIANDONG_EXCLUDE = new Set(["安杰丽卡", "冰渊凌御者", "醒觉者"]);
 const qualityName = (q: number) => quality[q - 1] ?? String(q);
 const jobNames = (jobs: number[]) => jobs.map((j) => job[j - 1] ?? String(j)).join("、");
@@ -352,11 +240,7 @@ const checkHasZhuwen = (item: Hero) => Array.isArray(item.zhuwen) && item.zhuwen
 
 function toRow(item: Hero, group: HeroGroup, showingAlt: boolean): Row {
     const hasAlt = !!group.alt;
-    const altLabel = group.alt
-        ? isSpHero(group.alt)
-            ? "SP"
-            : qualityName(group.alt.quality)
-        : "升格";
+    const altLabel = group.alt ? isSpHero(group.alt) ? "SP" : qualityName(group.alt.quality) : "升格";
     return {
         ...item,
         key: String(group.id),
@@ -369,7 +253,6 @@ function toRow(item: Hero, group: HeroGroup, showingAlt: boolean): Row {
         hasAlt,
         showingAlt: hasAlt && showingAlt,
         altLabel,
-        hasSpForm: !!group.alt && isSpHero(group.alt),
         isLiandong: isLiandongHero(item),
         liandongText: isLiandongHero(item) ? "是" : "否",
         hasShenqi: checkHasShenqi(item),
@@ -437,10 +320,8 @@ const filteredRows = computed(() => {
     for (const group of heroGroups.value) {
         if (formState.sp === 1 && !(group.alt && isSpHero(group.alt))) continue;
         if (formState.sp === 0 && group.alt && isSpHero(group.alt)) continue;
-
         const useAlt = preferAltForm(group);
         const active = useAlt && group.alt ? group.alt : group.base;
-
         if (!matchHero(active, group)) {
             if (group.alt && active === group.base && matchHero(group.alt, group)) {
                 rows.push(toRow(group.alt, group, true));
@@ -525,10 +406,7 @@ function reset() {
     formState.quality = [];
     formState.zhenyin = [];
     formState.job = [];
-    formState.sp = undefined;
-    formState.liandong = undefined;
-    formState.shenqi = undefined;
-    formState.zhuwen = undefined;
+    formState.sp = formState.liandong = formState.shenqi = formState.zhuwen = undefined;
     selectList();
 }
 

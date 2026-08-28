@@ -1,5 +1,5 @@
 <template>
-    <div class="main ook">
+    <div class="main">
         <div class="main_top">
             <div>考试时长：{{ paperInfo.time }}分钟</div>
             <div>试卷名称：{{ paperInfo.paperName }} (总分：{{ paperInfo.score }})</div>
@@ -12,7 +12,7 @@
                 </a-popconfirm>
             </div>
         </div>
-        <div class="center main_center">
+        <div class="main_center">
             <div class="main_center_left">
                 <a-button size="small" @click="reduce">上一题</a-button>
             </div>

@@ -13,20 +13,11 @@ export interface DeletePhotoParams {
   url: string;
 }
 
-export interface AddCookParams {
-  id?: number;
-  name: string;
-  cookType?: number;
-  hunsu?: number;
-  mastery?: number;
-  foodMaterials: string;
-  practice: string;
-  count: string;
-  remark: string;
-}
-
+// 照片列表
 export const getPhotoList = () => get("/myLove/photoList");
 
+// 新增照片
 export const addPhoto = (data: AddPhotoParams) => post("/myLove/addPhoto", data);
 
+// 删除照片
 export const deletePhoto = (data: DeletePhotoParams) => del("/myLove/deletePhoto", data);

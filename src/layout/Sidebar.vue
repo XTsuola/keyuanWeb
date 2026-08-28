@@ -43,7 +43,7 @@ defineExpose({
 </script>
 
 <style lang="less" scoped>
-aside {
+:deep(.ant-layout-sider) {
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #fff;
