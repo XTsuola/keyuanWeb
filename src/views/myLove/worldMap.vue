@@ -55,6 +55,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
 import { init, type ECharts } from "echarts";
 import type { ListType } from "./travel";
 import { travelList, dataList } from "./travel";
+import { loadBMapGL } from "@/utils/loadBMapGL";
 
 interface TableRow extends ListType {
     no: number;
@@ -127,7 +128,8 @@ const NARROW_COLUMNS: ColumnDef[] = [
     { title: "操作", key: "action", width: 90 },
 ];
 
-const BMapGL = window.BMapGL as BMapGLInstance;
+let BMapGL: BMapGLInstance;
+let cancelled = false;
 
 const flag = ref(true);
 const level = ref<number>(DEFAULT_ZOOM);
@@ -354,20 +356,23 @@ function destroyMap() {
     map.value = null;
 }
 
-onMounted(() => {
+onMounted(async () => {
+    cancelled = false;
     tableData.value = getTableData();
     initCharts();
-
-    nextTick(() => {
-        initMap();
-        setPoint();
-        bindZoomSync();
-    });
-
     window.addEventListener("resize", handleResize);
+
+    BMapGL = await loadBMapGL() as BMapGLInstance;
+    if (cancelled) return;
+    await nextTick();
+    if (cancelled) return;
+    initMap();
+    setPoint();
+    bindZoomSync();
 });
 
 onUnmounted(() => {
+    cancelled = true;
     window.removeEventListener("resize", handleResize);
     disposeCharts();
     destroyMap();

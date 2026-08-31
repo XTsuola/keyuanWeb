@@ -55,25 +55,17 @@ const router = createRouter({
   routes: [...routeList, ...routerDate],
 });
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to) => {
   const token = sessionStorage.getItem("token");
   if (to.fullPath === "/") {
-    next(token ? { path: "/team/memberList" } : { path: "/login" });
-    return;
+    return token ? { path: "/team/memberList" } : { path: "/login" };
   }
   if (to.fullPath === "/login") {
-    if (token) {
-      next({ path: "/" });
-    } else {
-      next();
-    }
-    return;
+    return token ? { path: "/" } : true;
   }
   if (!token) {
-    next({ path: "/login" });
-    return;
+    return { path: "/login" };
   }
-  next();
 });
 
 export default router;

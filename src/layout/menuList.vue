@@ -39,7 +39,7 @@ watch(route, (val) => {
 
 <style lang="less" scoped>
 .side-menu {
-    height: 100%;
+    min-height: 100%;
     border-right: 0;
 }
 

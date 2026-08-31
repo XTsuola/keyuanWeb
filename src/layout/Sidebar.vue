@@ -1,5 +1,5 @@
 <template>
-    <a-layout-sider width="200" v-if="flag">
+    <a-layout-sider class="sidebar-sider" width="200" v-if="flag">
         <menuList />
     </a-layout-sider>
     <a-drawer class="siderDrawer" placement="left" width="200" :closable="false" :visible="visible"
@@ -43,26 +43,33 @@ defineExpose({
 </script>
 
 <style lang="less" scoped>
-:deep(.ant-layout-sider) {
-    overflow-y: auto;
-    overflow-x: hidden;
+.sidebar-sider {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
     background-color: #fff;
 }
 
-::-webkit-scrollbar {
-    width: 6px;
-}
+:deep(.ant-layout-sider-children) {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-::-webkit-scrollbar-track {
-    background-color: #f3f3f3;
-}
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 
-::-webkit-scrollbar-thumb {
-    background-color: #aaa;
+    &::-webkit-scrollbar-track {
+        background-color: #f3f3f3;
+    }
 
-    &:hover,
-    &:active {
+    &::-webkit-scrollbar-thumb {
         background-color: #aaa;
+
+        &:hover,
+        &:active {
+            background-color: #aaa;
+        }
     }
 }
 </style>
