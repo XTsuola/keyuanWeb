@@ -14,6 +14,7 @@ export const friendCardRouterData: FriendCardRoute[] = [
   { key: "taotailangCard", label: "淘汰郎卡等" },
   { key: "yiersansiwuCard", label: "12345卡等" },
   { key: "jiaoshouCard", label: "教授卡等" },
+  { key: "guyueCard", label: "古月卡等" },
 ];
 
 export function createDynamicChildren(list: FriendCardRoute[]): RouteRecordRaw[] {
