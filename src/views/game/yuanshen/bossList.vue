@@ -52,18 +52,18 @@
                     <span class="region-count">{{ group.bosses.length }} 只</span>
                 </div>
                 <div class="spot-grid">
-                    <article v-for="boss in group.bosses" :key="boss.id" class="spot-card"
+                    <article v-for="boss in group.bosses" :key="`${boss.area}-${boss.name}`" class="spot-card"
                         :style="{ borderLeftColor: kindColor(boss.kind) }">
                         <div class="spot-top">
-                            <span class="spot-index">{{ String(boss.index).padStart(2, "0") }}</span>
-                            <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ boss.kindName }}</span>
+                            <span class="spot-index">{{ String(bossIndex(group.bosses, boss)).padStart(2, "0") }}</span>
+                            <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ kindNameOf(boss.kind) }}</span>
                         </div>
                         <h3 class="spot-name">{{ boss.name }}</h3>
                         <div class="mat-list">
-                            <button v-for="mat in boss.materials" :key="mat.id" type="button" class="mat-item"
+                            <button v-for="mat in boss.materials" :key="mat[0]" type="button" class="mat-item"
                                 @click="showDetail(boss, mat)">
-                                <div class="mat-name">{{ mat.name }}</div>
-                                <p class="mat-info">{{ mat.info }}</p>
+                                <div class="mat-name">{{ mat[0] }}</div>
+                                <p class="mat-info">{{ mat[1] }}</p>
                             </button>
                         </div>
                     </article>
@@ -72,14 +72,14 @@
         </div>
         <a-empty v-else class="empty" description="没有匹配的 Boss" />
 
-        <a-modal v-model:open="visible" :title="currentMat?.name" :footer="null" destroyOnClose centered width="640px"
+        <a-modal v-model:open="visible" :title="currentMat?.[0]" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="boss-detail-modal">
             <template v-if="currentBoss && currentMat">
                 <div class="detail-meta">
                     <span class="detail-dot" :style="{ background: kindColor(currentBoss.kind) }"></span>
-                    {{ currentBoss.areaName }} · {{ currentBoss.kindName }} · {{ currentBoss.name }}
+                    {{ areaNameOf(currentBoss.area) }} · {{ kindNameOf(currentBoss.kind) }} · {{ currentBoss.name }}
                 </div>
-                <p class="detail-info">{{ currentMat.info }}</p>
+                <p class="detail-info">{{ currentMat[1] }}</p>
             </template>
         </a-modal>
     </div>
@@ -88,9 +88,11 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
 import {
+    areaNameOf,
     bossAreas,
     bossKinds,
     bossList,
+    kindNameOf,
     type BossItem,
     type BossKind,
     type BossMaterial,
@@ -126,9 +128,7 @@ const filteredList = computed(() => {
         if (!q) return true;
         return (
             boss.name.toLowerCase().includes(q) ||
-            boss.materials.some(
-                (mat) => mat.name.toLowerCase().includes(q) || mat.info.toLowerCase().includes(q)
-            )
+            boss.materials.some((mat) => mat[0].toLowerCase().includes(q) || mat[1].toLowerCase().includes(q))
         );
     });
 });
@@ -144,6 +144,10 @@ const grouped = computed(() => {
 
 function kindColor(kind: BossKind) {
     return kindColorMap[kind] ?? "#1677ff";
+}
+
+function bossIndex(list: BossItem[], boss: BossItem) {
+    return list.filter((item) => item.kind === boss.kind).indexOf(boss) + 1;
 }
 
 function showDetail(boss: BossItem, mat: BossMaterial) {

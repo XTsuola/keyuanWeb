@@ -2,7 +2,7 @@
     <div class="cailiao-page">
         <div class="page-header">
             <div class="title">材料列表</div>
-            <div class="result-tip">共 {{ filteredMaterials.length }} / {{ cailiaoList.length }} 种</div>
+            <div class="result-tip">共 {{ filteredCount }} / {{ totalCount }} 种</div>
         </div>
 
         <div class="search-panel">
@@ -45,42 +45,42 @@
         </div>
 
         <div v-if="grouped.length" class="enemy-list">
-            <section v-for="group in grouped" :key="group.enemy.id" class="enemy-block">
+            <section v-for="group in grouped" :key="`${group.enemy.type}-${group.enemy.name}`" class="enemy-block">
                 <div class="enemy-head">
                     <span class="enemy-dot" :style="{ background: typeColor(group.enemy.type) }"></span>
                     <h2 class="enemy-title">{{ group.enemy.name }}</h2>
-                    <span class="enemy-type" :style="{ color: typeColor(group.enemy.type) }">{{ group.enemy.typeName }}</span>
+                    <span class="enemy-type" :style="{ color: typeColor(group.enemy.type) }">{{ typeNameOf(group.enemy.type) }}</span>
                     <span class="enemy-count">{{ group.materials.length }} 种</span>
                 </div>
                 <div class="unit-row">
                     <span v-for="unit in group.enemy.units" :key="unit" class="unit-tag">{{ unit }}</span>
                 </div>
                 <div class="spot-grid">
-                    <article v-for="item in group.materials" :key="item.id" class="spot-card"
-                        :style="{ borderLeftColor: qualityColor(item.quality) }" @click="showDetail(item)">
+                    <article v-for="item in group.materials" :key="item[0]" class="spot-card"
+                        :style="{ borderLeftColor: qualityColor(item[1]) }" @click="showDetail(group.enemy, item)">
                         <div class="spot-top">
-                            <span class="spot-quality" :style="{ color: qualityColor(item.quality) }">{{ item.qualityName }}</span>
-                            <span class="spot-enemy">{{ item.enemyName }}</span>
+                            <span class="spot-quality" :style="{ color: qualityColor(item[1]) }">{{ qualityNameOf(item[1]) }}</span>
+                            <span class="spot-enemy">{{ group.enemy.name }}</span>
                         </div>
-                        <h3 class="spot-name">{{ item.name }}</h3>
-                        <p class="spot-info">{{ item.info }}</p>
+                        <h3 class="spot-name">{{ item[0] }}</h3>
+                        <p class="spot-info">{{ item[2] }}</p>
                     </article>
                 </div>
             </section>
         </div>
         <a-empty v-else class="empty" description="没有匹配的材料" />
 
-        <a-modal v-model:open="visible" :title="current?.name" :footer="null" destroyOnClose centered width="640px"
+        <a-modal v-model:open="visible" :title="currentMat?.[0]" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="cailiao-detail-modal">
-            <template v-if="current">
+            <template v-if="currentEnemy && currentMat">
                 <div class="detail-meta">
-                    <span class="detail-dot" :style="{ background: qualityColor(current.quality) }"></span>
-                    {{ current.qualityName }} · {{ current.typeName }} · {{ current.enemyName }}
+                    <span class="detail-dot" :style="{ background: qualityColor(currentMat[1]) }"></span>
+                    {{ qualityNameOf(currentMat[1]) }} · {{ typeNameOf(currentEnemy.type) }} · {{ currentEnemy.name }}
                 </div>
-                <p class="detail-info">{{ current.info }}</p>
+                <p class="detail-info">{{ currentMat[2] }}</p>
                 <div class="detail-units">
                     <span class="detail-units-label">掉落来源</span>
-                    <span v-for="unit in currentUnits" :key="unit" class="unit-tag">{{ unit }}</span>
+                    <span v-for="unit in currentEnemy.units" :key="unit" class="unit-tag">{{ unit }}</span>
                 </div>
             </template>
         </a-modal>
@@ -91,10 +91,12 @@
 import { computed, ref } from "vue";
 import {
     cailiaoEnemies,
-    cailiaoList,
     cailiaoQualities,
     cailiaoTypes,
-    type CailiaoItem,
+    qualityNameOf,
+    typeNameOf,
+    type CailiaoEnemy,
+    type CailiaoMaterial,
     type CailiaoQuality,
     type CailiaoType,
 } from "@/utils/sxsyyuanshen/cailiaoData";
@@ -103,58 +105,47 @@ const keyword = ref("");
 const activeType = ref<0 | CailiaoType>(0);
 const activeQuality = ref<"" | CailiaoQuality>("");
 const visible = ref(false);
-const current = ref<CailiaoItem | null>(null);
+const currentEnemy = ref<CailiaoEnemy | null>(null);
+const currentMat = ref<CailiaoMaterial | null>(null);
 
 const typeColorMap = Object.fromEntries(cailiaoTypes.map((item) => [item.id, item.color]));
 const qualityColorMap = Object.fromEntries(cailiaoQualities.map((item) => [item.id, item.color]));
 
+const totalCount = cailiaoEnemies.reduce((n, enemy) => n + enemy.materials.length, 0);
+
 const typeCounts = computed(() => {
     const counts: Record<number, number> = { 1: 0, 2: 0 };
-    for (const item of cailiaoList) counts[item.type] += 1;
+    for (const enemy of cailiaoEnemies) counts[enemy.type] += enemy.materials.length;
     return counts;
 });
 
 const qualityCounts = computed(() => {
     const counts: Record<string, number> = { white: 0, green: 0, blue: 0, purple: 0 };
-    for (const item of cailiaoList) counts[item.quality] += 1;
+    for (const enemy of cailiaoEnemies) {
+        for (const mat of enemy.materials) counts[mat[1]] += 1;
+    }
     return counts;
 });
 
-const filteredMaterials = computed(() => {
+const grouped = computed(() => {
     const q = keyword.value.trim().toLowerCase();
-    return cailiaoList.filter((item) => {
-        if (activeType.value && item.type !== activeType.value) return false;
-        if (activeQuality.value && item.quality !== activeQuality.value) return false;
-        if (!q) return true;
-        const enemy = cailiaoEnemies.find((e) => e.id === item.enemyId);
-        return (
-            item.name.toLowerCase().includes(q) ||
-            item.info.toLowerCase().includes(q) ||
-            item.enemyName.toLowerCase().includes(q) ||
-            !!enemy?.units.some((unit) => unit.toLowerCase().includes(q))
-        );
+    return cailiaoEnemies.flatMap((enemy) => {
+        if (activeType.value && enemy.type !== activeType.value) return [];
+        const materials = enemy.materials.filter((mat) => {
+            if (activeQuality.value && mat[1] !== activeQuality.value) return false;
+            if (!q) return true;
+            return (
+                mat[0].toLowerCase().includes(q) ||
+                mat[2].toLowerCase().includes(q) ||
+                enemy.name.toLowerCase().includes(q) ||
+                enemy.units.some((unit) => unit.toLowerCase().includes(q))
+            );
+        });
+        return materials.length ? [{ enemy, materials }] : [];
     });
 });
 
-const grouped = computed(() => {
-    const byEnemy = new Map<number, CailiaoItem[]>();
-    for (const item of filteredMaterials.value) {
-        const list = byEnemy.get(item.enemyId) ?? [];
-        list.push(item);
-        byEnemy.set(item.enemyId, list);
-    }
-    return cailiaoEnemies
-        .filter((enemy) => byEnemy.has(enemy.id))
-        .map((enemy) => ({
-            enemy,
-            materials: byEnemy.get(enemy.id) ?? [],
-        }));
-});
-
-const currentUnits = computed(() => {
-    if (!current.value) return [];
-    return cailiaoEnemies.find((enemy) => enemy.id === current.value!.enemyId)?.units ?? [];
-});
+const filteredCount = computed(() => grouped.value.reduce((n, group) => n + group.materials.length, 0));
 
 function typeColor(type: CailiaoType) {
     return typeColorMap[type] ?? "#1677ff";
@@ -164,8 +155,9 @@ function qualityColor(quality: CailiaoQuality) {
     return qualityColorMap[quality] ?? "#1677ff";
 }
 
-function showDetail(item: CailiaoItem) {
-    current.value = item;
+function showDetail(enemy: CailiaoEnemy, mat: CailiaoMaterial) {
+    currentEnemy.value = enemy;
+    currentMat.value = mat;
     visible.value = true;
 }
 </script>
