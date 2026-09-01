@@ -32,7 +32,7 @@ const homeList = [
         friend: ["月色、江南、爸爸、妈妈、奶奶"]
     }
 ]
-// 118.79,32.05   118.79,32.05
+
 export const travelList = [{
     name: "毛子的剧本社",
     lng: 118.790000,
@@ -402,6 +402,6 @@ export const cityList = [{
     lng: 113.500888,
     lat: 34.509901,
     status: 0
-},]
+}]
 
 export const dataList = [...homeList, ...travelList]

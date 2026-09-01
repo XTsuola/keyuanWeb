@@ -135,9 +135,7 @@ async function fetchBoard() {
     mapData.value = row.map;
     nowPlay.value = row.nowPlay;
     status.value = row.status;
-    if (row.status === 2) {
-        message.success(`${nowPlay.value === 1 ? "黑方" : "红方"}获胜`);
-    }
+    if (row.status === 2) message.success(`${nowPlay.value === 1 ? "黑方" : "红方"}获胜`);
 }
 
 async function reset() {

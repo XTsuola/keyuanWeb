@@ -1,15 +1,5 @@
-import {
-  type Board,
-  COLS,
-  ROWS,
-  canCapture,
-  emptyHints,
-  isEmpty,
-  isRed,
-  posKey,
-} from "./board";
+import { type Board, COLS, ROWS, canCapture, emptyHints, isEmpty, isRed, posKey } from "./board";
 
-/** 红方九宫 / 黑方九宫 */
 const RED_PALACE = new Set([73, 74, 75, 83, 84, 85, 93, 94, 95]);
 const BLACK_PALACE = new Set([3, 4, 5, 13, 14, 15, 23, 24, 25]);
 
@@ -171,7 +161,6 @@ function markKing(
     if (!palace.has(posKey(r, c))) continue;
     mark(hints, r, c, piece, board);
   }
-
   for (let r = row + flyDir; r >= 0 && r < ROWS; r += flyDir) {
     const cell = board[r][col];
     if (isEmpty(cell)) continue;
@@ -185,7 +174,6 @@ function markPawn(hints: number[][], row: number, col: number, piece: number, bo
   const red = isRed(piece);
   const forward = red ? -1 : 1;
   mark(hints, row + forward, col, piece, board);
-
   const crossed = red ? row <= 4 : row >= 5;
   if (!crossed) return;
   mark(hints, row, col - 1, piece, board);
@@ -197,7 +185,6 @@ export function getMoves(row: number, col: number, board: Board): number[][] {
   const hints = emptyHints();
   const piece = board[row]?.[col] ?? 0;
   if (!piece) return hints;
-
   switch (piece) {
     case 1:
     case 11:
@@ -234,6 +221,5 @@ export function getMoves(row: number, col: number, board: Board): number[][] {
       markKing(hints, row, col, piece, board, BLACK_PALACE, 7, 1);
       break;
   }
-
   return hints;
 }

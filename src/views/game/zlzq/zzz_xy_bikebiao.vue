@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from "vue";
+import { ref, computed, onMounted, nextTick, onBeforeUnmount, shallowRef } from "vue";
 import * as echarts from "echarts";
 import type { ECharts, EChartsOption } from "echarts";
 

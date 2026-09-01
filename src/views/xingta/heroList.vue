@@ -139,9 +139,7 @@ async function deleteOk(id: number) {
     } else {
         message.error("删除失败");
     }
-    if (tableData.value.length == 1) {
-        currentPage.value--;
-    }
+    if (tableData.value.length == 1) currentPage.value--;
     getList();
 }
 

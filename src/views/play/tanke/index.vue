@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed, onBeforeUnmount, onMounted } from "vue";
+import { ref, reactive, computed, onMounted, onBeforeUnmount } from "vue";
 import { levels } from "./levels";
 import EnemyTank from "./tanke.vue";
 
@@ -87,7 +87,6 @@ const mapList = ref<number[][]>([]);
 const playerDeg = ref(DIR_DEG.up);
 const player = reactive({ x: 0, y: 0 });
 const bulletTimers = new Set<ReturnType<typeof setInterval>>();
-
 const boardStyle = computed(() => ({
     "--size": `${MAP_SIZE}`,
 }));

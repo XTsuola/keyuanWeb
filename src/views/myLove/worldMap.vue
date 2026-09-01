@@ -40,11 +40,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted, computed, nextTick, } from "vue";
+import { ref, onMounted, onUnmounted, computed, nextTick } from "vue";
 import { init, type ECharts } from "echarts";
-import type { ListType } from "./travel";
+import { travelList, dataList, type ListType } from "./travel";
 import { loadBMapGL } from "@/utils/loadBMapGL";
-import { travelList, dataList } from "./travel";
 
 interface TableRow extends ListType {
     no: number;
@@ -100,10 +99,7 @@ const MAP_CENTER = { lng: 118.868589, lat: 32.347434 };
 const DEFAULT_ZOOM = 12;
 const DISTRICT_CITIES = ["南京", "威海", "淄博"];
 const DISTRICT_KIND = 1;
-const BAR_COLORS = [
-    "#5470C6", "#91CC75", "#FAC858", "#EE6666", "#73C0DE",
-    "#3BA272", "#FC8452", "#9A60B4", "#EA7CCC", "#5470C6",
-];
+const BAR_COLORS = ["#5470C6", "#91CC75", "#FAC858", "#EE6666", "#73C0DE", "#3BA272", "#FC8452", "#9A60B4", "#EA7CCC", "#5470C6",];
 const WIDE_COLUMNS: ColumnDef[] = [
     { title: "序号", dataIndex: "no", key: "no", width: 90 },
     { title: "地点", dataIndex: "name", key: "name", width: 180 },
@@ -126,7 +122,6 @@ const tableData = ref<TableRow[]>([]);
 let chartCity: ECharts | null = null;
 let chartFriend: ECharts | null = null;
 let zoomEndHandler: (() => void) | null = null;
-
 const columns = computed(() => (isWideScreen.value ? WIDE_COLUMNS : NARROW_COLUMNS));
 
 function getTableData(): TableRow[] {

@@ -93,7 +93,6 @@ const visible = ref(false);
 const currentBoss = ref<BossItem | null>(null);
 const currentMat = ref<BossMaterial | null>(null);
 const kindColorMap = Object.fromEntries(bossKinds.map((item) => [item.id, item.color]));
-
 const areaCounts = computed(() => {
     const counts: Record<number, number> = {};
     for (const area of bossAreas) counts[area.id] = 0;

@@ -158,9 +158,7 @@ async function onDelete(id: number) {
         return;
     }
     message.success(res.data.msg || "删除成功");
-    if (tableData.value.length <= 1 && currentPage.value > 1) {
-        currentPage.value -= 1;
-    }
+    if (tableData.value.length <= 1 && currentPage.value > 1) currentPage.value -= 1;
     await fetchList();
 }
 
@@ -198,9 +196,7 @@ function onFileChange(e: Event) {
             }
             form.url = data.Location;
             form.time = getNowTime();
-            if (!form.name) {
-                form.name = file.name.replace(/\.[^.]+$/, "");
-            }
+            if (!form.name) form.name = file.name.replace(/\.[^.]+$/, "");
             message.success("上传成功");
         }
     );

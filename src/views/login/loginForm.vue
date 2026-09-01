@@ -19,16 +19,15 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
-import MD5 from "crypto-js/md5";
 import { login } from "@/api/login";
 import { useLoginTransitionStore } from "@/stores/loginTransition";
+import MD5 from "crypto-js/md5";
 
 interface FormState {
     username: string;
     password: string;
 }
 
-/** 与后端登录 rows 对齐 */
 interface LoginUser {
     id: number;
     img?: string;

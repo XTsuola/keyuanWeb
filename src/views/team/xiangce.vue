@@ -124,9 +124,7 @@ function onFileChange(e: Event) {
         if (typeof reader.result === "string") {
             addData.url = reader.result;
             addData.createTime = getNowTime();
-            if (!addData.name) {
-                addData.name = file.name.replace(/\.[^.]+$/, "");
-            }
+            if (!addData.name) addData.name = file.name.replace(/\.[^.]+$/, "");
         }
     });
     reader.readAsDataURL(file);

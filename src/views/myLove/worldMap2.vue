@@ -54,10 +54,7 @@ type BMapOverlay = object;
 
 const MAP_CENTER = { lng: 118.868589, lat: 32.347434 };
 const DEFAULT_ZOOM = 12;
-const DISTRICT_CITIES = [
-    "北京", "成都", "广州", "杭州", "合肥", "济南", "南昌", "南京", "南宁",
-    "上海", "沈阳", "石家庄", "武汉", "西安", "新乡", "长沙", "绍兴", "郑州",
-];
+const DISTRICT_CITIES = ["北京", "成都", "广州", "杭州", "合肥", "济南", "南昌", "南京", "南宁", "上海", "沈阳", "石家庄", "武汉", "西安", "新乡", "长沙", "绍兴", "郑州"];
 const DISTRICT_KIND = 0;
 let BMapGL: BMapGLInstance;
 let cancelled = false;

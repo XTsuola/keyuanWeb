@@ -101,17 +101,14 @@ const currentPage = ref(1);
 const pageSize = ref(15);
 const visible = ref(false);
 const current = ref<Row | null>(null);
-
 const jobOptions = job.map((label, index) => ({
     label,
     value: index + 1,
 }));
-
 const spOptions = [
     { label: "仅SP", value: 1 },
     { label: "仅非SP", value: 0 },
 ];
-
 const isSp = (id: number) => id % 10 === 1;
 const jobName = (type: number) => job[type - 1] ?? String(type);
 
@@ -196,8 +193,7 @@ function selectList() {
 
 function reset() {
     formState.name = "";
-    formState.type = undefined;
-    formState.sp = undefined;
+    formState.type = formState.sp = undefined;
     selectList();
 }
 

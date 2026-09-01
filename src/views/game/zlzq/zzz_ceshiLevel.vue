@@ -226,12 +226,10 @@ for (let i = 0; i < ceshiData.cardList.length; i++) {
         gradeCount[gradeCounterKeys[grade]]++;
     }
 }
-
 name.value = `${ceshiData.name}-${ceshiData.hero.name}`;
 const img = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
 heroImg.value = img ? String(img) : "";
 nowLife.value = ceshiData.hero.life;
-
 const to24Level = reactive({
     baishitou: 0,
     heishitou: 0,

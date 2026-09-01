@@ -233,8 +233,7 @@ const qualityName = (q: number) => quality[q - 1] ?? String(q);
 const jobNames = (jobs: number[]) => jobs.map((j) => job[j - 1] ?? String(j)).join("、");
 const zhenyinNamesFn = (zys: number[]) => zys.map((z) => zhenyin[z - 1] ?? String(z));
 const isSpHero = (item: Hero) => item.quality === 4 || /^SP/i.test(item.name);
-const isLiandongHero = (item: Hero) =>
-    item.zhenyin.includes(10) && !LIANDONG_EXCLUDE.has(item.name.replace(/^SP/, ""));
+const isLiandongHero = (item: Hero) => item.zhenyin.includes(10) && !LIANDONG_EXCLUDE.has(item.name.replace(/^SP/, ""));
 const checkHasShenqi = (item: Hero) => Array.isArray(item.shenqi) && item.shenqi.length > 0;
 const checkHasZhuwen = (item: Hero) => Array.isArray(item.zhuwen) && item.zhuwen.length > 0;
 
@@ -271,12 +270,8 @@ const heroGroups = computed<HeroGroup[]>(() => {
     const groups: HeroGroup[] = [];
     for (const [id, list] of map) {
         const sorted = [...list].sort((a, b) => a.quality - b.quality);
-        // 最高品质为默认展示形态（SP / 升格 SSR 等）
         const best = sorted[sorted.length - 1];
-        const base =
-            sorted.find((h) => !isSpHero(h) && h !== best) ??
-            sorted.find((h) => h !== best) ??
-            sorted[0];
+        const base = sorted.find((h) => !isSpHero(h) && h !== best) ?? sorted.find((h) => h !== best) ?? sorted[0];
         const alt = best !== base ? best : undefined;
         groups.push({ id, base, alt });
     }
@@ -305,11 +300,7 @@ function preferAltForm(group: HeroGroup) {
     if (!group.alt) return false;
     if (showAltMap[group.id] !== undefined) return !!showAltMap[group.id];
     const nameQ = formState.name.trim().toLowerCase();
-    if (
-        nameQ &&
-        group.base.name.toLowerCase().includes(nameQ) &&
-        !group.alt.name.toLowerCase().includes(nameQ)
-    ) {
+    if (nameQ && group.base.name.toLowerCase().includes(nameQ) && !group.alt.name.toLowerCase().includes(nameQ)) {
         return false;
     }
     return true;
