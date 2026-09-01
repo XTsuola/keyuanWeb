@@ -54,9 +54,9 @@
 import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { FormInstance } from "ant-design-vue";
-import COS from "cos-js-sdk-v5";
 import { getNowTime } from "@/utils/global";
 import { addWrc, deleteWrc, getWrcList, type AddWrcParams } from "@/api/team";
+import COS from "cos-js-sdk-v5";
 import MyTabel from "@/components/table.vue";
 
 type PreviewKind = "video" | "image" | "unknown";

@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 interface Cube {
     id: number;

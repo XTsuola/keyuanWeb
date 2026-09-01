@@ -1,6 +1,6 @@
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
-import BlankLayout from "@/layout/BlankLayout.vue";
 import { createDynamicChildren, friendCardRouterData } from "./friend";
+import BlankLayout from "@/layout/BlankLayout.vue";
 
 function folder(
   path: string,
