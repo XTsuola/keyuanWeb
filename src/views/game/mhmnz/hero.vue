@@ -300,9 +300,7 @@ function preferAltForm(group: HeroGroup) {
     if (!group.alt) return false;
     if (showAltMap[group.id] !== undefined) return !!showAltMap[group.id];
     const nameQ = formState.name.trim().toLowerCase();
-    if (nameQ && group.base.name.toLowerCase().includes(nameQ) && !group.alt.name.toLowerCase().includes(nameQ)) {
-        return false;
-    }
+    if (nameQ && group.base.name.toLowerCase().includes(nameQ) && !group.alt.name.toLowerCase().includes(nameQ)) return false;
     return true;
 }
 

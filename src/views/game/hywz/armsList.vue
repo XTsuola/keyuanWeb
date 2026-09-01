@@ -34,9 +34,9 @@
 import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import { getArmsList, addArms, updateArms, deleteArms, type GetArmsListParams, type AddArmsParams } from "@/api/hywz";
-import AddPage from "./modal/armsAddPage.vue";
 import type { AxiosPromise } from "axios";
 import type { AddType } from "@/utils/global";
+import AddPage from "./modal/armsAddPage.vue";
 import MyTabel from "@/components/table.vue";
 
 const addParams = reactive<AddArmsParams>({
@@ -209,9 +209,7 @@ async function deleteOk(id: number) {
     } else {
         message.error("删除失败");
     }
-    if (tableData.value.length == 1) {
-        currentPage.value--;
-    }
+    if (tableData.value.length == 1) currentPage.value--;
     getList();
 }
 

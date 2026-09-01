@@ -2,9 +2,7 @@
     <div class="main">
         <header class="page-header">
             <h1 class="page-title">卡牌列表</h1>
-            <p class="page-sub">
-                共 {{ tableData.length }} 张 · 平均卡等 {{ allLevel }}
-            </p>
+            <p class="page-sub"> 共 {{ tableData.length }} 张 · 平均卡等 {{ allLevel }}</p>
         </header>
         <section class="search-panel">
             <a-form class="searchHead" :model="formState" autocomplete="off" layout="inline">
@@ -88,6 +86,7 @@ const qualityConfigMap: Record<number, typeof blueObj> = {
 const prop = defineProps<Prop>();
 const exportRef = ref<HTMLElement | null>(null);
 const exporting = ref(false);
+
 const numSorter = (key: string) => (a: any, b: any) => Number(a[key]) - Number(b[key]);
 
 function renderQualityTag(quality: number) {
