@@ -1,7 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 
-/** 登录成功后的欢迎过场 */
 export const useLoginTransitionStore = defineStore("loginTransition", () => {
     const showWelcome = ref(false);
 

@@ -4,12 +4,10 @@
             <h1 class="page-title">战队介绍</h1>
             <p class="page-sub">客缘战队 · QQ群 630350845</p>
         </header>
-
         <section class="panel">
             <h2 class="section-title">战队简介</h2>
             <p class="intro-text">客缘战队：区级战队，半养老，不摆烂。</p>
         </section>
-
         <section class="panel">
             <h2 class="section-title">成员展示</h2>
             <div class="carousel-wrap">
@@ -20,14 +18,12 @@
                 </a-carousel>
             </div>
         </section>
-
         <section class="panel">
             <h2 class="section-title">宣传视频</h2>
             <div class="video-wrap">
                 <video class="promo-video" :src="promoVideo" controls preload="metadata" />
             </div>
         </section>
-
         <section class="panel">
             <h2 class="section-title">收人标准</h2>
             <ul class="rule-list">
@@ -46,10 +42,8 @@ const memberImages = [
     new URL("../../assets/images/manage/luming.jpg", import.meta.url).href,
     new URL("../../assets/images/manage/yutu.jpg", import.meta.url).href,
 ];
-
 const promoVideo =
     "https://suola-1300285550.cos.ap-nanjing.myqcloud.com/Thu%20May%2026%202022%2009%3A06%3A40%20GMT%2B0800%20%28%E4%B8%AD%E5%9B%BD%E6%A0%87%E5%87%86%E6%97%B6%E9%97%B4%29%E6%88%98%E9%98%9F%E9%9B%86%E9%94%A6.mp4";
-
 const rules = [
     "男要求分路 25 段 / 巅峰分 1400 / 三个英雄战力 4500 以上",
     "女要求分路 15 段 / 巅峰赛 1200 / 两个英雄战力 4000 以上",

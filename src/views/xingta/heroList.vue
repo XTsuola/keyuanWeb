@@ -24,10 +24,10 @@ import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import type { AxiosPromise } from "axios";
 import type { AddType } from "@/utils/global";
+import type { PaginationType } from "@/api/common";
 import { getHeroList, addHero, updateHero, deleteHero, type AddHeroParams } from "@/api/xingta";
 import AddPage from "./modal/heroAddPage.vue";
 import MyTabel from "@/components/table.vue";
-import type { PaginationType } from "@/api/common";
 
 const addParams = reactive<AddHeroParams>({
     id: undefined,

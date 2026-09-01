@@ -1,10 +1,5 @@
 import { message } from "ant-design-vue";
-import axios, {
-  AxiosHeaders,
-  type AxiosRequestConfig,
-  type AxiosResponse,
-  type InternalAxiosRequestConfig,
-} from "axios";
+import axios, { AxiosHeaders, type AxiosRequestConfig, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
@@ -52,10 +47,7 @@ function handleUnauthorized(msg?: string) {
   sessionStorage.removeItem("userInfo");
   sessionStorage.removeItem("nowTouxiang");
 
-  // hash 路由下避免整页 reload 造成循环闪烁
-  if (!location.hash.includes("/login")) {
-    location.hash = "#/login";
-  }
+  if (!location.hash.includes("/login")) location.hash = "#/login";
 
   setTimeout(() => {
     redirecting = false;

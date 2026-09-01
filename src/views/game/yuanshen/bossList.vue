@@ -4,12 +4,10 @@
             <div class="title">Boss 列表</div>
             <div class="result-tip">共 {{ filteredList.length }} / {{ bossList.length }} 只</div>
         </div>
-
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" autocomplete="off">
                 <a-form-item label="名称">
-                    <a-input v-model:value="keyword" allow-clear placeholder="搜索 Boss、材料或描述"
-                        class="search-control" />
+                    <a-input v-model:value="keyword" allow-clear placeholder="搜索 Boss、材料或描述" class="search-control" />
                 </a-form-item>
             </a-form>
             <div class="filter-btns">
@@ -43,7 +41,6 @@
                 </div>
             </div>
         </div>
-
         <div v-if="grouped.length" class="region-list">
             <section v-for="group in grouped" :key="group.id" class="region-block">
                 <div class="region-head">
@@ -56,7 +53,8 @@
                         :style="{ borderLeftColor: kindColor(boss.kind) }">
                         <div class="spot-top">
                             <span class="spot-index">{{ String(bossIndex(group.bosses, boss)).padStart(2, "0") }}</span>
-                            <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ kindNameOf(boss.kind) }}</span>
+                            <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ kindNameOf(boss.kind)
+                                }}</span>
                         </div>
                         <h3 class="spot-name">{{ boss.name }}</h3>
                         <div class="mat-list">
@@ -71,7 +69,6 @@
             </section>
         </div>
         <a-empty v-else class="empty" description="没有匹配的 Boss" />
-
         <a-modal v-model:open="visible" :title="currentMat?.[0]" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="boss-detail-modal">
             <template v-if="currentBoss && currentMat">
@@ -86,17 +83,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import {
-    areaNameOf,
-    bossAreas,
-    bossKinds,
-    bossList,
-    kindNameOf,
-    type BossItem,
-    type BossKind,
-    type BossMaterial,
-} from "@/utils/sxsyyuanshen/bossData";
+import { ref, computed } from "vue";
+import { areaNameOf, bossAreas, bossKinds, bossList, kindNameOf, type BossItem, type BossKind, type BossMaterial } from "@/utils/sxsyyuanshen/bossData";
 
 const keyword = ref("");
 const activeArea = ref(0);
@@ -104,7 +92,6 @@ const activeKind = ref<0 | BossKind>(0);
 const visible = ref(false);
 const currentBoss = ref<BossItem | null>(null);
 const currentMat = ref<BossMaterial | null>(null);
-
 const kindColorMap = Object.fromEntries(bossKinds.map((item) => [item.id, item.color]));
 
 const areaCounts = computed(() => {

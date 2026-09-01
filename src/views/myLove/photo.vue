@@ -7,7 +7,6 @@
             </div>
             <a-button type="primary" @click="showAdd">添加回忆</a-button>
         </header>
-
         <ul class="photo-grid">
             <li v-for="item in photoList" :key="item.id">
                 <button type="button" class="thumb" @click="showDetail(item)">
@@ -15,16 +14,10 @@
                 </button>
             </li>
         </ul>
-
         <a-modal v-model:open="visible" destroy-on-close title="添加回忆" :mask-closable="false">
-            <input class="file-input" type="file" accept="image/png,image/jpeg,image/bmp,image/jpg" @change="getPhoto" />
-            <a-form
-                ref="photoAdd"
-                :model="addData"
-                name="photo-add"
-                :label-col="{ span: 4 }"
-                autocomplete="off"
-            >
+            <input class="file-input" type="file" accept="image/png,image/jpeg,image/bmp,image/jpg"
+                @change="getPhoto" />
+            <a-form ref="photoAdd" :model="addData" name="photo-add" :label-col="{ span: 4 }" autocomplete="off">
                 <a-form-item label="图片名称" name="name" :rules="[{ required: true, message: '请输入名称!' }]">
                     <a-input v-model:value="addData.name" allow-clear />
                 </a-form-item>
@@ -43,14 +36,8 @@
                 <a-button type="primary" :loading="loading" @click="handleOk">确定</a-button>
             </template>
         </a-modal>
-
-        <a-modal
-            v-model:open="visible2"
-            width="50%"
-            destroy-on-close
-            :title="'图片名称：' + detailTitle"
-            :mask-closable="false"
-        >
+        <a-modal v-model:open="visible2" width="50%" destroy-on-close :title="'图片名称：' + detailTitle"
+            :mask-closable="false">
             <img class="detail-img" :src="detailUrl" :alt="detailTitle" />
             <template #footer>
                 <a-popconfirm title="确定删除该图片吗?" ok-text="确定" cancel-text="取消" @confirm="deleteImg">
@@ -63,16 +50,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import { getNowTime } from "@/utils/global";
-import {
-    addPhoto,
-    deletePhoto,
-    getPhotoList,
-    type AddPhotoParams,
-    type DeletePhotoParams,
-} from "@/api/myLove";
+import { addPhoto, deletePhoto, getPhotoList, type AddPhotoParams, type DeletePhotoParams } from "@/api/myLove";
 
 interface PhotoItem {
     id: number;
@@ -84,7 +65,6 @@ interface PhotoItem {
 const ALLOWED_TYPES = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
 const MAX_SIZE = 1024 * 1024 * 5;
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-
 const photoAdd = ref();
 const photoList = ref<PhotoItem[]>([]);
 const visible = ref(false);
@@ -104,11 +84,7 @@ const nowUrl = ref("");
 
 function showAdd() {
     visible.value = true;
-    addData.name = "";
-    addData.url = "";
-    addData.createTime = "";
-    addData.remark = "";
-    addData.imgType = "";
+    addData.name = addData.url = addData.createTime = addData.remark = addData.imgType = "";
 }
 
 async function handleOk() {
@@ -121,8 +97,6 @@ async function handleOk() {
             message.success("新增成功");
             await getList();
         }
-    } catch {
-        // 表单校验失败
     } finally {
         loading.value = false;
     }
@@ -179,9 +153,7 @@ async function deleteImg() {
 
 async function getList() {
     const res = await getPhotoList();
-    if (Number(res.data.code) === 200) {
-        photoList.value = res.data.rows || [];
-    }
+    if (Number(res.data.code) === 200) photoList.value = res.data.rows || [];
 }
 
 onMounted(() => {

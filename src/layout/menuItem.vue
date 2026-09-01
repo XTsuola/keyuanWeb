@@ -39,7 +39,6 @@ const userLevel = (() => {
 
 function getShow(meta: RouteMeta) {
     const level = (meta as any).isLevel;
-    // isLevel 校验的是权限等级 level，不是用户 id
     return level ? level.includes(userLevel) : true;
 }
 

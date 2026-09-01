@@ -11,7 +11,6 @@
                 <span>公园外景</span>
             </button>
         </section>
-
         <section class="row">
             <button type="button" class="card" @click="goPhotos('chineseStyle')">
                 <img src="@/assets/images/love/wedding/home/3.jpg" alt="国风中式" />
@@ -23,7 +22,6 @@
                 <span>欢喜花嫁</span>
             </button>
         </section>
-
         <section class="letter">
             <button type="button" class="letter-btn" @click="goLetter">
                 <img class="qingshu" src="@/assets/images/love/wedding/icon/qingshu.png" alt="" />

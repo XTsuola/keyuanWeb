@@ -6,7 +6,6 @@
                 共 {{ tableData.length }} 张 · 平均卡等 {{ allLevel }}
             </p>
         </header>
-
         <section class="search-panel">
             <a-form class="searchHead" :model="formState" autocomplete="off" layout="inline">
                 <a-form-item label="名称" class="search-item">
@@ -48,7 +47,6 @@
                 </a-form-item>
             </a-form>
         </section>
-
         <section ref="exportRef" class="summary-bar">
             <div class="summary-item" v-for="item in summaryRows" :key="item.label">
                 <span class="summary-label">{{ item.label }}</span>
@@ -58,7 +56,6 @@
                 </span>
             </div>
         </section>
-
         <section class="table-wrap">
             <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"
                 :rowClassName="(record) => `quality-row-${record.quality}`" />
@@ -67,30 +64,27 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, h, onMounted, reactive, ref } from "vue";
+import { ref, reactive, onMounted, computed, h } from "vue";
 import { message } from "ant-design-vue";
-import html2canvas from "html2canvas";
 import { blueObj, purpleObj, goldObj, type Type } from "@/utils/global";
+import html2canvas from "html2canvas";
 import MyTabel from "@/components/table.vue";
 
 interface Prop {
     cardData: any
 }
 
-/** 品质：cardData.data 下标 0/1/2 → 1蓝 2紫 3橙；预留 0 白 */
 const qualityMetaMap: Record<number, { label: string; color: string; bg: string }> = {
     0: { label: "白色", color: "#595959", bg: "#f5f5f5" },
     1: { label: "蓝色", color: "#1677ff", bg: "#e6f4ff" },
     2: { label: "紫色", color: "#722ed1", bg: "#f9f0ff" },
     3: { label: "橙色", color: "#d46b08", bg: "#fff7e6" },
 };
-
 const qualityConfigMap: Record<number, typeof blueObj> = {
     1: blueObj,
     2: purpleObj,
     3: goldObj,
 };
-
 const prop = defineProps<Prop>();
 const exportRef = ref<HTMLElement | null>(null);
 const exporting = ref(false);
@@ -158,9 +152,7 @@ const columns = ref([
         customRender: (opt: any) => formatAmount(Number(opt.value) || 0),
     },
 ]);
-
 const tableData = ref<any[]>([]);
-
 const qualityList = [
     { label: "全部", value: "" },
     { label: "白色", value: 0 },
@@ -168,24 +160,20 @@ const qualityList = [
     { label: "紫色", value: 2 },
     { label: "橙色", value: 3 },
 ];
-
 const costList = [
     { label: "全部", value: "" },
     ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((v) => ({ label: `${v}费`, value: v })),
 ];
-
 const levelList = [
     { label: "全部", value: "" },
     ...Array.from({ length: 13 }, (_, i) => 24 - i).map((v) => ({ label: `${v}级`, value: v })),
 ];
-
 const zhenyinList = ref<Type[]>(
     prop.cardData.map((e: any) => ({
         label: e.name,
         value: e.value,
     }))
 );
-
 const formState = reactive({
     name: undefined as string | undefined,
     zhenyin: [] as any[],
@@ -193,7 +181,6 @@ const formState = reactive({
     level: undefined as number | undefined,
     cost: undefined as number | string | undefined,
 });
-
 const countBaishitou = ref(0);
 const countHeishitou = ref(0);
 const countZuanshi = ref(0);
@@ -221,17 +208,13 @@ function avgLevel(levels: number[]) {
     return (sum / levels.length).toFixed(2);
 }
 
-/** 大于 10000 用 w 作单位，保留 2 位小数 */
 function formatAmount(value: number) {
     if (value > 10000) return `${(value / 10000).toFixed(2)}w`;
     return String(value);
 }
 
 function getList() {
-    countBaishitou.value = 0;
-    countHeishitou.value = 0;
-    countZuanshi.value = 0;
-
+    countBaishitou.value = countHeishitou.value = countZuanshi.value = 0;
     const zhenyinSet = new Set(formState.zhenyin);
     const allData = prop.cardData
         .flatMap((faction: any) =>
@@ -251,23 +234,19 @@ function getList() {
             if (formState.level && item.level != formState.level) return false;
             return true;
         });
-
     const blueLevels: number[] = [];
     const purpleLevels: number[] = [];
     const goldLevels: number[] = [];
     const allLevels: number[] = [];
-
     tableData.value = allData.map((item: any, index: number) => {
         const cost = getCostByQuality(item.quality, item.level);
         countBaishitou.value += cost.bai;
         countHeishitou.value += cost.hei;
         countZuanshi.value += cost.zuanshi;
-
         if (item.quality === 1) blueLevels.push(item.level);
         else if (item.quality === 2) purpleLevels.push(item.level);
         else if (item.quality === 3) goldLevels.push(item.level);
         allLevels.push(item.level);
-
         return {
             ...item,
             id: index + 1,
@@ -275,7 +254,6 @@ function getList() {
             zuanshi: cost.zuanshi,
         };
     });
-
     blueCount.value = blueLevels.length;
     purpleCount.value = purpleLevels.length;
     goldCount.value = goldLevels.length;

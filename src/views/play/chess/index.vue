@@ -7,48 +7,29 @@
             </div>
             <a-button size="small" @click="reset">重新开始</a-button>
         </header>
-
         <div class="game-body">
             <div class="board-wrap">
                 <div class="board">
                     <div v-for="(row, y) in mapData" :key="y" class="row" :class="rowClass(y)">
-                        <div
-                            v-for="(cell, x) in row"
-                            :key="`${y}-${x}`"
-                            class="cell"
-                            @click="onCellClick(y, x)"
-                        >
+                        <div v-for="(cell, x) in row" :key="`${y}-${x}`" class="cell" @click="onCellClick(y, x)">
                             <div v-if="isPalaceDiagA(y, x)" class="diag diag-a" />
                             <div v-if="isPalaceDiagB(y, x)" class="diag diag-b" />
 
-                            <button
-                                v-if="cell > 0"
-                                type="button"
-                                class="piece"
-                                :class="[
-                                    isRed(cell) ? 'piece-red' : 'piece-black',
-                                    selectedKey === posKey(y, x) ? 'is-selected' : '',
-                                ]"
-                            >
+                            <button v-if="cell > 0" type="button" class="piece" :class="[
+                                isRed(cell) ? 'piece-red' : 'piece-black',
+                                selectedKey === posKey(y, x) ? 'is-selected' : '',
+                            ]">
                                 {{ PieceName[cell] }}
                             </button>
-                            <span
-                                v-else-if="canMap[y]?.[x] === 1"
-                                class="hint"
-                            />
-                            <span
-                                v-if="cell > 0 && canMap[y]?.[x] === 1"
-                                class="hint hint-capture"
-                            />
+                            <span v-else-if="canMap[y]?.[x] === 1" class="hint" />
+                            <span v-if="cell > 0 && canMap[y]?.[x] === 1" class="hint hint-capture" />
                         </div>
                     </div>
-
                     <div class="river">
                         <span>楚河</span>
                         <span>汉界</span>
                     </div>
                 </div>
-
                 <aside class="status">
                     <template v-if="status === 1">
                         当前：
@@ -69,18 +50,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import { getChessMap, resetChessMap, updateChessMap } from "@/api/chess";
-import {
-    INITIAL_BOARD,
-    PieceName,
-    cloneBoard,
-    emptyHints,
-    isRed,
-    posKey,
-    type Board,
-} from "./board";
+import { INITIAL_BOARD, PieceName, cloneBoard, emptyHints, isRed, posKey, type Board } from "./board";
 import { getMoves } from "./rules";
 
 const mapData = ref<Board>(cloneBoard(INITIAL_BOARD));
@@ -128,7 +101,6 @@ function selectPiece(y: number, x: number) {
 
 async function applyMove(toY: number, toX: number) {
     if (selectedKey.value == null || selectedPiece.value == null) return;
-
     const res = await updateChessMap({
         nowPlay: nowPlay.value,
         nowIndex: selectedKey.value,
@@ -137,7 +109,6 @@ async function applyMove(toY: number, toX: number) {
         qizi: selectedPiece.value,
     });
     if (res.data.code !== 200) return;
-
     clearSelection();
     await fetchBoard();
 }
@@ -147,30 +118,23 @@ async function onCellClick(y: number, x: number) {
         message.warning(`对局已结束，${nowPlay.value === 1 ? "黑方" : "红方"}获胜`);
         return;
     }
-
     const cell = mapData.value[y][x];
     const myTurnRed = nowPlay.value === 1;
     const isMine = myTurnRed ? isRed(cell) : cell > 10;
-
     if (isMine) {
         selectPiece(y, x);
         return;
     }
-
-    if (canMap.value[y]?.[x] === 1) {
-        await applyMove(y, x);
-    }
+    if (canMap.value[y]?.[x] === 1) await applyMove(y, x);
 }
 
 async function fetchBoard() {
     const res = await getChessMap();
     if (res.data.code !== 200) return;
-
     const row = res.data.rows;
     mapData.value = row.map;
     nowPlay.value = row.nowPlay;
     status.value = row.status;
-
     if (row.status === 2) {
         message.success(`${nowPlay.value === 1 ? "黑方" : "红方"}获胜`);
     }

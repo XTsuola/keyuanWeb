@@ -4,12 +4,10 @@
             <div class="title">材料列表</div>
             <div class="result-tip">共 {{ filteredCount }} / {{ totalCount }} 种</div>
         </div>
-
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" autocomplete="off">
                 <a-form-item label="名称">
-                    <a-input v-model:value="keyword" allow-clear placeholder="搜索怪物、材料或描述"
-                        class="search-control" />
+                    <a-input v-model:value="keyword" allow-clear placeholder="搜索怪物、材料或描述" class="search-control" />
                 </a-form-item>
             </a-form>
             <div class="filter-btns">
@@ -43,13 +41,13 @@
                 </div>
             </div>
         </div>
-
         <div v-if="grouped.length" class="enemy-list">
             <section v-for="group in grouped" :key="`${group.enemy.type}-${group.enemy.name}`" class="enemy-block">
                 <div class="enemy-head">
                     <span class="enemy-dot" :style="{ background: typeColor(group.enemy.type) }"></span>
                     <h2 class="enemy-title">{{ group.enemy.name }}</h2>
-                    <span class="enemy-type" :style="{ color: typeColor(group.enemy.type) }">{{ typeNameOf(group.enemy.type) }}</span>
+                    <span class="enemy-type" :style="{ color: typeColor(group.enemy.type) }">{{
+                        typeNameOf(group.enemy.type) }}</span>
                     <span class="enemy-count">{{ group.materials.length }} 种</span>
                 </div>
                 <div class="unit-row">
@@ -59,7 +57,8 @@
                     <article v-for="item in group.materials" :key="item[0]" class="spot-card"
                         :style="{ borderLeftColor: qualityColor(item[1]) }" @click="showDetail(group.enemy, item)">
                         <div class="spot-top">
-                            <span class="spot-quality" :style="{ color: qualityColor(item[1]) }">{{ qualityNameOf(item[1]) }}</span>
+                            <span class="spot-quality" :style="{ color: qualityColor(item[1]) }">{{
+                                qualityNameOf(item[1]) }}</span>
                             <span class="spot-enemy">{{ group.enemy.name }}</span>
                         </div>
                         <h3 class="spot-name">{{ item[0] }}</h3>
@@ -69,7 +68,6 @@
             </section>
         </div>
         <a-empty v-else class="empty" description="没有匹配的材料" />
-
         <a-modal v-model:open="visible" :title="currentMat?.[0]" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="cailiao-detail-modal">
             <template v-if="currentEnemy && currentMat">
@@ -88,18 +86,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import {
-    cailiaoEnemies,
-    cailiaoQualities,
-    cailiaoTypes,
-    qualityNameOf,
-    typeNameOf,
-    type CailiaoEnemy,
-    type CailiaoMaterial,
-    type CailiaoQuality,
-    type CailiaoType,
-} from "@/utils/sxsyyuanshen/cailiaoData";
+import { ref, computed } from "vue";
+import { cailiaoEnemies, cailiaoQualities, cailiaoTypes, qualityNameOf, typeNameOf, type CailiaoEnemy, type CailiaoMaterial, type CailiaoQuality, type CailiaoType } from "@/utils/sxsyyuanshen/cailiaoData";
 
 const keyword = ref("");
 const activeType = ref<0 | CailiaoType>(0);
@@ -107,10 +95,8 @@ const activeQuality = ref<"" | CailiaoQuality>("");
 const visible = ref(false);
 const currentEnemy = ref<CailiaoEnemy | null>(null);
 const currentMat = ref<CailiaoMaterial | null>(null);
-
 const typeColorMap = Object.fromEntries(cailiaoTypes.map((item) => [item.id, item.color]));
 const qualityColorMap = Object.fromEntries(cailiaoQualities.map((item) => [item.id, item.color]));
-
 const totalCount = cailiaoEnemies.reduce((n, enemy) => n + enemy.materials.length, 0);
 
 const typeCounts = computed(() => {

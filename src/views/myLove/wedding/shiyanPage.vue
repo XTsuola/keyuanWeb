@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, ref } from "vue";
+import { ref, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -83,14 +83,12 @@ function reveal(num: number) {
 function reset(num: number) {
     reveal(num);
     if (num >= strList.length) return;
-
     const current = text.value[num] ?? "";
     if (current.length < strList[num].length) {
         text.value[num] = strList[num].slice(0, current.length + 1);
         schedule(() => reset(num), Math.random() * 160);
         return;
     }
-
     const next = num + 1;
     if (next >= strList.length) {
         reveal(next);

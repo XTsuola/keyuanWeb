@@ -59,11 +59,7 @@ const newRouterDate: RouteRecordRaw[] = [
       ]),
       folder("/game", "游戏管理", "RocketOutlined", [
         folder("zhenlizhiquan", "真理之拳", "UnorderedListOutlined", [
-          menu(
-            "zhenlizhiquanCardLevel",
-            "我的卡等",
-            () => import("@/views/game/zlzq/cardList/zz_myCard/index.vue")
-          ),
+          menu("zhenlizhiquanCardLevel", "我的卡等", () => import("@/views/game/zlzq/cardList/zz_myCard/index.vue")),
           ...friendRouter,
           menu("ceshiCard", "测试卡等", () => import("@/views/game/zlzq/zzz_ceshiLevel.vue")),
           menu("bikebiao", "提升曲线", () => import("@/views/game/zlzq/zzz_xy_bikebiao.vue")),

@@ -8,12 +8,7 @@
             <a-button type="primary" @click="addCube">添加物体</a-button>
         </header>
         <div class="canvas-wrap">
-            <canvas
-                ref="canvasRef"
-                class="board"
-                width="1400"
-                height="700"
-            />
+            <canvas ref="canvasRef" class="board" width="1400" height="700" />
         </div>
     </div>
 </template>
@@ -48,7 +43,6 @@ let nowObj: Cube | null = null;
 let dragging = false;
 let prevX = 0;
 let prevY = 0;
-
 const handlers: Array<[keyof HTMLElementEventMap, EventListener]> = [];
 
 function bind(el: HTMLCanvasElement, type: keyof HTMLElementEventMap, fn: EventListener) {
@@ -130,12 +124,10 @@ onMounted(() => {
     if (!canvas) return;
     ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     addObject(1, 50, 50, 100, 100, "red");
     addObject(2, 200, 200, 150, 80, "blue");
     addObject(3, 300, 300, 80, 150, "green");
     drawAll();
-
     bind(canvas, "mousedown", ((event: MouseEvent) => {
         if (!nowObj) return;
         const { offsetX, offsetY } = event;
@@ -150,7 +142,6 @@ onMounted(() => {
             prevY = offsetY;
         }
     }) as EventListener);
-
     bind(canvas, "mousemove", ((event: MouseEvent) => {
         if (!dragging || !nowObj) return;
         const { offsetX, offsetY } = event;
@@ -161,7 +152,6 @@ onMounted(() => {
         drawAll();
         drawSelect();
     }) as EventListener);
-
     bind(canvas, "mouseup", (() => {
         dragging = false;
         if (nowObj) {
@@ -169,7 +159,6 @@ onMounted(() => {
             drawSelect();
         }
     }) as EventListener);
-
     bind(canvas, "contextmenu", ((event: MouseEvent) => {
         if (!nowObj) return;
         const rect = canvas.getBoundingClientRect();

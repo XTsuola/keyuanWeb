@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import { SettingFilled } from "@ant-design/icons-vue";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";

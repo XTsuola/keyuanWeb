@@ -7,14 +7,8 @@
             <div class="map-panel">
                 <div id="allmap"></div>
                 <div class="map-tools">
-                    <a-slider
-                        v-model:value="level"
-                        :min="3"
-                        :max="21"
-                        :step="0.5"
-                        @change="changeSize"
-                        @afterChange="afterChangeSize"
-                    />
+                    <a-slider v-model:value="level" :min="3" :max="21" :step="0.5" @change="changeSize"
+                        @afterChange="afterChangeSize" />
                 </div>
             </div>
         </div>
@@ -22,9 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, onUnmounted, ref } from "vue";
-import { cityList } from "./travel";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import { loadBMapGL } from "@/utils/loadBMapGL";
+import { cityList } from "./travel";
 
 type BMapGLInstance = {
     Map: new (container: string | HTMLElement) => BMapMap;
@@ -65,14 +59,11 @@ const DISTRICT_CITIES = [
     "上海", "沈阳", "石家庄", "武汉", "西安", "新乡", "长沙", "绍兴", "郑州",
 ];
 const DISTRICT_KIND = 0;
-
 let BMapGL: BMapGLInstance;
 let cancelled = false;
-
 const flag = ref(true);
 const level = ref<number>(DEFAULT_ZOOM);
 const map = ref<BMapMap | null>(null);
-
 let activeIcon: unknown = null;
 let inactiveIcon: unknown = null;
 let zoomEndHandler: (() => void) | null = null;
@@ -83,7 +74,6 @@ function createDownTriangle(size = 12, color = "#ff0000") {
     canvas.height = size;
     const ctx = canvas.getContext("2d");
     if (!ctx) return "";
-
     const half = size / 2;
     ctx.beginPath();
     ctx.moveTo(0, 0);
@@ -95,7 +85,6 @@ function createDownTriangle(size = 12, color = "#ff0000") {
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.stroke();
-
     return canvas.toDataURL();
 }
 
@@ -118,7 +107,6 @@ function initMap() {
     map.value.enableScrollWheelZoom();
     map.value.setHeading(0);
     map.value.setTilt(50);
-
     for (const city of DISTRICT_CITIES) {
         map.value.addDistrictLayer(
             new BMapGL.DistrictLayer({
@@ -134,7 +122,6 @@ function initMap() {
 
 function setPoint() {
     if (!map.value || !activeIcon || !inactiveIcon) return;
-
     for (const item of cityList) {
         const point = new BMapGL.Point(item.lng, item.lat);
         const icon = item.status === 1 ? activeIcon : inactiveIcon;
@@ -145,7 +132,6 @@ function setPoint() {
 
 function bindZoomSync() {
     if (!map.value) return;
-
     zoomEndHandler = () => {
         if (!flag.value || !map.value) return;
         window.setTimeout(() => {
@@ -166,7 +152,6 @@ function afterChangeSize() {
 
 function destroyMap() {
     if (!map.value) return;
-
     if (zoomEndHandler) {
         map.value.removeEventListener("zoomend", zoomEndHandler);
         zoomEndHandler = null;
@@ -175,9 +160,7 @@ function destroyMap() {
     try {
         map.value.clearOverlays();
         map.value.destroy?.();
-    } catch {
-        // BMapGL cleanup may throw if the container is already gone.
-    }
+    } catch { }
     map.value = null;
 }
 
@@ -186,7 +169,6 @@ onMounted(async () => {
     BMapGL = await loadBMapGL() as BMapGLInstance;
     if (cancelled) return;
     createMarkerIcons();
-
     await nextTick();
     if (cancelled) return;
     initMap();

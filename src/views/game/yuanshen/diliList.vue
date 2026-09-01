@@ -4,7 +4,6 @@
             <div class="title">地理志</div>
             <div class="result-tip">共 {{ filteredList.length }} / {{ diliList.length }} 处</div>
         </div>
-
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" autocomplete="off">
                 <a-form-item label="名称">
@@ -28,7 +27,6 @@
                 </div>
             </div>
         </div>
-
         <div v-if="grouped.length" class="region-list">
             <section v-for="group in grouped" :key="group.id" class="region-block">
                 <div class="region-head">
@@ -50,7 +48,6 @@
             </section>
         </div>
         <a-empty v-else class="empty" description="没有匹配的地点" />
-
         <a-modal v-model:open="visible" :title="current?.name" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="dili-detail-modal">
             <template v-if="current">
@@ -65,7 +62,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { ref, computed } from "vue";
 import { diliAreas, diliList, type DiliSpot } from "@/utils/sxsyyuanshen/diliData";
 
 const keyword = ref("");

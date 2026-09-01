@@ -7,26 +7,15 @@
             <div class="map-panel">
                 <div id="allmap"></div>
                 <div class="map-tools">
-                    <a-slider
-                        v-model:value="level"
-                        :min="3"
-                        :max="21"
-                        :step="0.5"
-                        @change="changeSize"
-                        @afterChange="afterChangeSize"
-                    />
+                    <a-slider v-model:value="level" :min="3" :max="21" :step="0.5" @change="changeSize"
+                        @afterChange="afterChangeSize" />
                 </div>
             </div>
             <aside class="side-panel">
                 <section class="panel-card">
                     <div class="panel-card__head">游玩地点统计</div>
-                    <a-table
-                        :columns="columns"
-                        :data-source="tableData"
-                        :pagination="{ pageSize: 3 }"
-                        size="small"
-                        row-key="no"
-                    >
+                    <a-table :columns="columns" :data-source="tableData" :pagination="{ pageSize: 3 }" size="small"
+                        row-key="no">
                         <template #bodyCell="{ column, record }">
                             <template v-if="column.key === 'name'">
                                 <a>{{ record.name }}</a>
@@ -51,11 +40,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
+import { ref, onMounted, onUnmounted, computed, nextTick, } from "vue";
 import { init, type ECharts } from "echarts";
 import type { ListType } from "./travel";
-import { travelList, dataList } from "./travel";
 import { loadBMapGL } from "@/utils/loadBMapGL";
+import { travelList, dataList } from "./travel";
 
 interface TableRow extends ListType {
     no: number;
@@ -115,22 +104,18 @@ const BAR_COLORS = [
     "#5470C6", "#91CC75", "#FAC858", "#EE6666", "#73C0DE",
     "#3BA272", "#FC8452", "#9A60B4", "#EA7CCC", "#5470C6",
 ];
-
 const WIDE_COLUMNS: ColumnDef[] = [
     { title: "序号", dataIndex: "no", key: "no", width: 90 },
     { title: "地点", dataIndex: "name", key: "name", width: 180 },
     { title: "城市", dataIndex: "city", key: "city", width: 120 },
     { title: "操作", key: "action", width: 120 },
 ];
-
 const NARROW_COLUMNS: ColumnDef[] = [
     { title: "地点", dataIndex: "name", key: "name", width: 270 },
     { title: "操作", key: "action", width: 90 },
 ];
-
 let BMapGL: BMapGLInstance;
 let cancelled = false;
-
 const flag = ref(true);
 const level = ref<number>(DEFAULT_ZOOM);
 const isWideScreen = ref(window.innerWidth >= 1500);
@@ -138,7 +123,6 @@ const map = ref<BMapMap | null>(null);
 const chartCityRef = ref<HTMLElement | null>(null);
 const chartFriendRef = ref<HTMLElement | null>(null);
 const tableData = ref<TableRow[]>([]);
-
 let chartCity: ECharts | null = null;
 let chartFriend: ECharts | null = null;
 let zoomEndHandler: (() => void) | null = null;
@@ -268,7 +252,6 @@ function initMap() {
     map.value.enableScrollWheelZoom();
     map.value.setHeading(0);
     map.value.setTilt(50);
-
     for (const city of DISTRICT_CITIES) {
         map.value.addDistrictLayer(
             new BMapGL.DistrictLayer({
@@ -292,7 +275,6 @@ function buildInfoContent(item: ListType) {
 
 function setPoint() {
     if (!map.value) return;
-
     for (const item of dataList) {
         const point = new BMapGL.Point(item.lng, item.lat);
         const marker = new BMapGL.Marker(point);
@@ -309,7 +291,6 @@ function setPoint() {
 
 function bindZoomSync() {
     if (!map.value) return;
-
     zoomEndHandler = () => {
         if (!flag.value || !map.value) return;
         window.setTimeout(() => {
@@ -341,18 +322,14 @@ function handleResize() {
 
 function destroyMap() {
     if (!map.value) return;
-
     if (zoomEndHandler) {
         map.value.removeEventListener("zoomend", zoomEndHandler);
         zoomEndHandler = null;
     }
-
     try {
         map.value.clearOverlays();
         map.value.destroy?.();
-    } catch {
-        // BMapGL cleanup may throw if the container is already gone.
-    }
+    } catch { }
     map.value = null;
 }
 
@@ -361,7 +338,6 @@ onMounted(async () => {
     tableData.value = getTableData();
     initCharts();
     window.addEventListener("resize", handleResize);
-
     BMapGL = await loadBMapGL() as BMapGLInstance;
     if (cancelled) return;
     await nextTick();

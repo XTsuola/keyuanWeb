@@ -41,7 +41,6 @@
                 </a-button>
             </template>
         </a-modal>
-
         <a-modal v-model:open="previewVisible" title="查看锦集" width="720px" destroy-on-close :mask-closable="false"
             :footer="null">
             <video v-if="previewKind === 'video'" class="preview-media" :src="previewUrl" controls autoplay />

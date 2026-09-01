@@ -4,7 +4,6 @@
             <h1 class="page-title">战队高管</h1>
             <p class="page-sub">共 {{ peopleList.length }} 位</p>
         </header>
-
         <div class="card-grid">
             <article v-for="item in peopleList" :key="item.qq" class="manager-card">
                 <header class="card-head">

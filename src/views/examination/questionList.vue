@@ -17,7 +17,7 @@
                 <template v-if="column.key === 'type'">{{ typeArr[record.type - 1] }}</template>
                 <template v-if="column.key === 'selectArr'">
                     <span v-if="record.type == '1'">A.{{ record.a }}. B.{{ record.b }}. C.{{ record.c }}. D.{{ record.d
-                    }}</span>
+                        }}</span>
                     <span v-else>/</span>
                 </template>
                 <template v-if="column.key === 'answer'">

@@ -137,12 +137,10 @@ function movePlayer(dir: Direction) {
         playerDeg.value = DIR_DEG[dir];
         return;
     }
-
     const { dx, dy } = DIR_DELTA[dir];
     const nextX = player.x + dx;
     const nextY = player.y + dy;
     if (!canEnter(nextX, nextY)) return;
-
     mapList.value[nextY][nextX] = Cell.Empty;
     player.x = nextX;
     player.y = nextY;
@@ -151,31 +149,25 @@ function movePlayer(dir: Direction) {
 function fireBullet() {
     const dir = (Object.keys(DIR_DEG) as Direction[]).find((key) => DIR_DEG[key] === playerDeg.value);
     if (!dir) return;
-
     const { dx, dy } = DIR_DELTA[dir];
     let x = player.x + dx;
     let y = player.y + dy;
     if (!inBounds(x, y) || mapList.value[y][x] === Cell.Wall) return;
-
     mapList.value[y][x] = Cell.Bullet;
-
     const timer = setInterval(() => {
         const nextX = x + dx;
         const nextY = y + dy;
-
         if (!inBounds(nextX, nextY) || mapList.value[nextY][nextX] === Cell.Wall) {
             mapList.value[y][x] = Cell.Empty;
             clearInterval(timer);
             bulletTimers.delete(timer);
             return;
         }
-
         mapList.value[y][x] = Cell.Empty;
         mapList.value[nextY][nextX] = Cell.Bullet;
         x = nextX;
         y = nextY;
     }, 50);
-
     bulletTimers.add(timer);
 }
 
@@ -210,7 +202,6 @@ onBeforeUnmount(() => {
 .tank-game {
     --text: #1f1f1f;
     --muted: #8c8c8c;
-    /* 预留顶栏/面包屑/页头/操作区，格子随视口缩放，避免出现滚动条 */
     --cell: min(56px, calc((100vh - 280px) / 9));
 
     box-sizing: border-box;
