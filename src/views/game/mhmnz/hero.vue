@@ -5,88 +5,78 @@
             <div class="result-tip">共 {{ total }} 条</div>
         </div>
         <div class="search-panel">
-            <a-form class="searchHead" layout="inline" :model="formState" autocomplete="off">
-                <a-form-item label="名称">
-                    <a-input v-model:value="formState.name" allow-clear placeholder="请输入名称" class="search-control"
-                        @pressEnter="selectList" />
-                </a-form-item>
-                <a-form-item label="品质">
-                    <a-select v-model:value="formState.quality" mode="multiple" allow-clear placeholder="全部品质"
-                        class="search-control" :options="qualityOptions" :max-tag-count="2" />
-                </a-form-item>
-                <a-form-item label="阵营">
-                    <a-select v-model:value="formState.zhenyin" mode="multiple" allow-clear placeholder="全部阵营"
-                        class="search-control" :options="zhenyinOptions" :max-tag-count="2" />
-                </a-form-item>
-                <a-form-item label="职业">
-                    <a-select v-model:value="formState.job" mode="multiple" allow-clear placeholder="全部职业"
-                        class="search-control" :options="jobOptions" :max-tag-count="2" />
-                </a-form-item>
-                <a-form-item class="search-actions-item">
-                    <a-space>
-                        <a-button type="primary" @click="selectList">查询</a-button>
-                        <a-button @click="reset">重置</a-button>
-                    </a-space>
-                </a-form-item>
-            </a-form>
-            <div class="filter-btns">
-                <div class="filter-btn-group">
-                    <span class="filter-btn-label">SP：</span>
-                    <button type="button" class="filter-btn" :class="{ active: formState.sp == null }"
-                        @click="setSp(undefined)">
-                        全部
+            <div class="filter-bar">
+                <span class="filter-group-label">名称</span>
+                <a-input v-model:value="formState.name" size="small" allow-clear placeholder="请输入名称"
+                    class="search-control" @pressEnter="selectList" />
+                <a-button type="primary" size="small" @click="selectList">查询</a-button>
+                <a-button size="small" @click="reset">重置</a-button>
+                <span class="filter-group-label quality-label">品质</span>
+                <button type="button" class="opt-chip" :class="{ active: formState.quality == null }"
+                    @click="setQuality(undefined)">全部</button>
+                <button v-for="item in qualityFilters" :key="item.id" type="button" class="opt-chip"
+                    :class="{ active: formState.quality === item.id }" @click="setQuality(item.id)">
+                    {{ item.label }}
+                </button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">阵营</span>
+                <div class="filter-group-opts">
+                    <button type="button" class="opt-chip" :class="{ active: !formState.zhenyin.length }"
+                        @click="clearZhenyin">全部</button>
+                    <button v-for="(label, index) in zhenyin" :key="label" type="button" class="opt-tile"
+                        :class="{ active: formState.zhenyin.includes(index + 1) }" :title="label"
+                        @click="toggleZhenyin(index + 1)">
+                        <img class="faction-icon" :src="zhenyinIconMap[label]" :alt="label" />
                     </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.sp === 1 }" @click="setSp(1)">
-                        有SP
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.sp === 0 }" @click="setSp(0)">
-                        无SP
+                    <span class="filter-group-label job-label">职业</span>
+                    <button type="button" class="opt-chip" :class="{ active: !formState.job.length }"
+                        @click="clearJob">全部</button>
+                    <button v-for="(label, index) in job" :key="label" type="button" class="opt-chip"
+                        :class="{ active: formState.job.includes(index + 1) }" @click="toggleJob(index + 1)">
+                        {{ label }}
                     </button>
                 </div>
-                <div class="filter-btn-group">
-                    <span class="filter-btn-label">联动：</span>
-                    <button type="button" class="filter-btn" :class="{ active: formState.liandong == null }"
-                        @click="setLiandong(undefined)">
-                        全部
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.liandong === 1 }"
-                        @click="setLiandong(1)">
-                        仅联动
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.liandong === 0 }"
-                        @click="setLiandong(0)">
-                        非联动
-                    </button>
-                </div>
-                <div class="filter-btn-group">
-                    <span class="filter-btn-label">专武：</span>
-                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi == null }"
-                        @click="setShenqi(undefined)">
-                        全部
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi === 1 }"
-                        @click="setShenqi(1)">
-                        有专武
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.shenqi === 0 }"
-                        @click="setShenqi(0)">
-                        无专武
-                    </button>
-                </div>
-                <div class="filter-btn-group">
-                    <span class="filter-btn-label">铸纹：</span>
-                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen == null }"
-                        @click="setZhuwen(undefined)">
-                        全部
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen === 1 }"
-                        @click="setZhuwen(1)">
-                        有铸纹
-                    </button>
-                    <button type="button" class="filter-btn" :class="{ active: formState.zhuwen === 0 }"
-                        @click="setZhuwen(0)">
-                        无铸纹
-                    </button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">条件</span>
+                <div class="filter-flags">
+                    <div class="flag-item">
+                        <span class="flag-name">SP</span>
+                        <button type="button" class="opt-chip" :class="{ active: formState.sp == null }"
+                            @click="setSp(undefined)">全部</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.sp === 1 }"
+                            @click="setSp(1)">有</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.sp === 0 }"
+                            @click="setSp(0)">无</button>
+                    </div>
+                    <div class="flag-item">
+                        <span class="flag-name">联动</span>
+                        <button type="button" class="opt-chip" :class="{ active: formState.liandong == null }"
+                            @click="setLiandong(undefined)">全部</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.liandong === 1 }"
+                            @click="setLiandong(1)">是</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.liandong === 0 }"
+                            @click="setLiandong(0)">否</button>
+                    </div>
+                    <div class="flag-item">
+                        <span class="flag-name">专武</span>
+                        <button type="button" class="opt-chip" :class="{ active: formState.shenqi == null }"
+                            @click="setShenqi(undefined)">全部</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.shenqi === 1 }"
+                            @click="setShenqi(1)">有</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.shenqi === 0 }"
+                            @click="setShenqi(0)">无</button>
+                    </div>
+                    <div class="flag-item">
+                        <span class="flag-name">铸纹</span>
+                        <button type="button" class="opt-chip" :class="{ active: formState.zhuwen == null }"
+                            @click="setZhuwen(undefined)">全部</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.zhuwen === 1 }"
+                            @click="setZhuwen(1)">有</button>
+                        <button type="button" class="opt-chip" :class="{ active: formState.zhuwen === 0 }"
+                            @click="setZhuwen(0)">无</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,11 +86,13 @@
                 <template v-if="column.key === 'index'">
                     {{ (currentPage - 1) * pageSize + index + 1 }}
                 </template>
-                <template v-else-if="column.key === 'formSwitch'">
-                    <a-switch v-if="record.hasAlt" size="small" :checked="record.showingAlt"
-                        :checked-children="record.altLabel" un-checked-children="原版"
-                        @change="(checked: boolean) => setShowAlt(record.id, checked)" />
-                    <span v-else class="muted">—</span>
+                <template v-else-if="column.key === 'zhenyinText'">
+                    <span class="zy-cell">
+                        <span v-for="name in record.zhenyinNames" :key="name" class="zy-item" :title="name">
+                            <img class="zy-mini" :src="zhenyinIconMap[name]" :alt="name" />
+                            <span>{{ name }}</span>
+                        </span>
+                    </span>
                 </template>
                 <template v-else-if="column.key === 'action'">
                     <a-button size="small" @click="showDetail(record)">查看详情</a-button>
@@ -125,12 +117,15 @@
                 <div class="detail-head">
                     <div class="detail-name-row">
                         <span class="detail-name">{{ current.name }}</span>
-                        <a-tag color="purple">{{ current.qualityName }}</a-tag>
-                        <a-tag v-if="current.isSp" color="gold">SP</a-tag>
-                        <a-tag v-if="current.isLiandong" color="magenta">联动</a-tag>
-                        <a-tag v-if="current.hasShenqi" color="cyan">专武</a-tag>
-                        <a-tag v-if="current.hasZhuwen" color="geekblue">铸纹</a-tag>
-                        <a-tag v-for="zy in current.zhenyinNames" :key="zy" color="blue">{{ zy }}</a-tag>
+                        <a-tag>{{ current.qualityName }}</a-tag>
+                        <a-tag v-if="current.isSp">SP</a-tag>
+                        <a-tag v-if="current.isLiandong">联动</a-tag>
+                        <a-tag v-if="current.hasShenqi">专武</a-tag>
+                        <a-tag v-if="current.hasZhuwen">铸纹</a-tag>
+                        <span v-for="zy in current.zhenyinNames" :key="zy" class="zy-tag">
+                            <img class="zy-mini" :src="zhenyinIconMap[zy]" :alt="zy" />
+                            {{ zy }}
+                        </span>
                     </div>
                     <div class="detail-meta">ID {{ current.id }} · 职业 {{ current.jobName }}</div>
                 </div>
@@ -173,7 +168,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, computed, watch } from "vue";
-import { job, quality, zhenyin } from "@/utils/mhmnz/func";
+import { job, quality, zhenyin, zhenyinIconMap } from "@/utils/mhmnz/func";
 import { heroData, type Hero } from "@/utils/mhmnz/hero";
 
 interface Row extends Hero {
@@ -203,7 +198,7 @@ interface HeroGroup {
 
 const formState = reactive<{
     name: string;
-    quality: number[];
+    quality: number | undefined;
     zhenyin: number[];
     job: number[];
     sp: number | undefined;
@@ -212,7 +207,7 @@ const formState = reactive<{
     zhuwen: number | undefined;
 }>({
     name: "",
-    quality: [],
+    quality: undefined,
     zhenyin: [],
     job: [],
     sp: undefined,
@@ -225,9 +220,13 @@ const currentPage = ref(1);
 const pageSize = ref(15);
 const visible = ref(false);
 const currentId = ref<number | null>(null);
-const qualityOptions = quality.map((label, index) => ({ label, value: index + 1 }));
-const zhenyinOptions = zhenyin.map((label, index) => ({ label, value: index + 1 }));
-const jobOptions = job.map((label, index) => ({ label, value: index + 1 }));
+const qualityFilters = [
+    { id: 5, label: "LLR" },
+    { id: 3, label: "SSR" },
+    { id: 4, label: "SP" },
+    { id: 2, label: "SR" },
+    { id: 1, label: "R" },
+];
 const LIANDONG_EXCLUDE = new Set(["安杰丽卡", "冰渊凌御者", "醒觉者"]);
 const qualityName = (q: number) => quality[q - 1] ?? String(q);
 const jobNames = (jobs: number[]) => jobs.map((j) => job[j - 1] ?? String(j)).join("、");
@@ -284,7 +283,7 @@ function matchHero(item: Hero, group: HeroGroup) {
         const names = [group.base.name, group.alt?.name].filter(Boolean) as string[];
         if (!names.some((n) => n.toLowerCase().includes(name))) return false;
     }
-    if (formState.quality.length && !formState.quality.includes(item.quality)) return false;
+    if (formState.quality != null && item.quality !== formState.quality) return false;
     if (formState.zhenyin.length && !item.zhenyin.some((z) => formState.zhenyin.includes(z))) return false;
     if (formState.job.length && !item.job.some((j) => formState.job.includes(j))) return false;
     if (formState.liandong === 1 && !isLiandongHero(item)) return false;
@@ -351,19 +350,42 @@ watch(total, () => {
 const columns = [
     { title: "序号", key: "index", align: "center" as const, width: 60 },
     { title: "名称", dataIndex: "name", key: "name", width: 140 },
-    { title: "形态", key: "formSwitch", align: "center" as const, width: 110 },
-    { title: "品质", dataIndex: "qualityName", key: "qualityName", width: 70 },
-    { title: "联动", dataIndex: "liandongText", key: "liandongText", width: 60 },
-    { title: "专武", dataIndex: "shenqiText", key: "shenqiText", width: 120 },
-    { title: "铸纹", dataIndex: "zhuwenText", key: "zhuwenText", width: 60 },
-    { title: "阵营", dataIndex: "zhenyinText", key: "zhenyinText", width: 160 },
+    { title: "阵营", dataIndex: "zhenyinText", key: "zhenyinText", width: 220 },
     { title: "职业", dataIndex: "jobName", key: "jobName", width: 140 },
-    { title: "天赋", dataIndex: "talentName", key: "talentName", width: 140 },
     { title: "操作", key: "action", align: "center" as const, width: 110 },
 ];
 
 function setShowAlt(id: number, checked: boolean) {
     showAltMap[id] = checked;
+}
+
+function setQuality(val: number | undefined) {
+    formState.quality = formState.quality === val ? undefined : val;
+    selectList();
+}
+
+function toggleZhenyin(val: number) {
+    const i = formState.zhenyin.indexOf(val);
+    if (i >= 0) formState.zhenyin.splice(i, 1);
+    else formState.zhenyin.push(val);
+    selectList();
+}
+
+function clearZhenyin() {
+    formState.zhenyin = [];
+    selectList();
+}
+
+function toggleJob(val: number) {
+    const i = formState.job.indexOf(val);
+    if (i >= 0) formState.job.splice(i, 1);
+    else formState.job.push(val);
+    selectList();
+}
+
+function clearJob() {
+    formState.job = [];
+    selectList();
 }
 
 function setSp(val: number | undefined) {
@@ -392,7 +414,7 @@ function selectList() {
 
 function reset() {
     formState.name = "";
-    formState.quality = [];
+    formState.quality = undefined;
     formState.zhenyin = [];
     formState.job = [];
     formState.sp = formState.liandong = formState.shenqi = formState.zhuwen = undefined;
@@ -433,78 +455,156 @@ function showDetail(record: Row) {
 
     .search-panel {
         margin-bottom: 16px;
-        padding: 14px 16px 12px;
+        padding: 12px 16px 8px;
         background: #fafafa;
         border: 1px solid #f0f0f0;
         border-radius: 8px;
+        font-size: 13px;
     }
 
-    .searchHead {
-        row-gap: 8px;
-
-        :deep(.ant-form-item) {
-            margin-bottom: 10px;
-            margin-inline-end: 16px;
-        }
-
-        :deep(.ant-form-item-label > label) {
-            color: rgba(0, 0, 0, 0.65);
-        }
-
-        .search-control {
-            width: 180px;
-        }
-
-        .search-actions-item {
-            margin-inline-end: 0;
-        }
-    }
-
-    .filter-btns {
+    .filter-bar {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px 28px;
-        margin-top: 4px;
-        padding-top: 12px;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 10px;
+
+        .filter-group-label {
+            padding-top: 0;
+        }
+
+        .quality-label {
+            margin-left: 12px;
+        }
+    }
+
+    .filter-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 8px 0;
         border-top: 1px dashed #e8e8e8;
     }
 
-    .filter-btn-group {
+    .filter-group-label {
+        width: 36px;
+        flex: none;
+        padding-top: 4px;
+        color: rgba(0, 0, 0, 0.45);
+        line-height: 24px;
+    }
+
+    .job-label {
+        margin-left: 8px;
+        padding-top: 4px;
+    }
+
+    .filter-group-opts,
+    .filter-flags {
+        flex: 1;
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
+        align-items: center;
         gap: 8px;
     }
 
-    .filter-btn-label {
-        font-size: 13px;
-        color: rgba(0, 0, 0, 0.65);
+    .filter-flags {
+        gap: 8px 20px;
+    }
+
+    .flag-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .flag-name {
+        color: rgba(0, 0, 0, 0.45);
         margin-right: 2px;
     }
 
-    .filter-btn {
+    .search-control {
+        width: 180px;
+    }
+
+    .opt-chip,
+    .opt-tile {
         appearance: none;
         border: 1px solid #e5e7eb;
         background: #fff;
-        color: rgba(0, 0, 0, 0.65);
-        font-size: 13px;
-        line-height: 1;
-        padding: 7px 14px;
-        border-radius: 6px;
         cursor: pointer;
+        color: rgba(0, 0, 0, 0.65);
         transition: border-color 0.15s, color 0.15s, background 0.15s;
 
         &:hover {
-            border-color: #cbd5e1;
-            color: rgba(0, 0, 0, 0.85);
+            border-color: #d9d9d9;
+            color: rgba(0, 0, 0, 0.88);
         }
 
         &.active {
             border-color: #1677ff;
             color: #1677ff;
-            background: #e6f4ff;
-            font-weight: 600;
+            background: #f0f7ff;
         }
+    }
+
+    .opt-chip {
+        height: 28px;
+        padding: 0 10px;
+        border-radius: 6px;
+        font-size: 13px;
+        line-height: 1;
+    }
+
+    .opt-tile {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faction-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        display: block;
+        pointer-events: none;
+    }
+
+    .zy-cell {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+
+    .zy-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .zy-mini {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        flex: none;
+    }
+
+    .zy-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 8px 2px 4px;
+        border-radius: 4px;
+        background: #f5f5f5;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.65);
     }
 
     .data-table {
@@ -517,10 +617,6 @@ function showDetail(record: Row) {
         display: flex;
         justify-content: flex-end;
         margin-top: 16px;
-    }
-
-    .muted {
-        color: rgba(0, 0, 0, 0.25);
     }
 }
 

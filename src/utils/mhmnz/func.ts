@@ -4,6 +4,17 @@
 */
 export const zhenyin = ["主角光环", "光辉军团", "光之起源", "帝国之辉", "黑暗轮回", "公主联盟", "战略大师", "流星直击", "传说彼端", "时空枢纽", "超凡领域", "梦幻转生"];
 
+const zhenyinIconModules = import.meta.glob("@/assets/images/game/mhmnz/zhenyin/*.png", {
+    eager: true,
+    import: "default",
+}) as Record<string, string>;
+
+export const zhenyinIconMap: Record<string, string> = {};
+for (const [path, url] of Object.entries(zhenyinIconModules)) {
+    const name = path.replace(/\\/g, "/").split("/").pop()?.replace(/\.png$/i, "") ?? "";
+    if (name) zhenyinIconMap[name] = url;
+}
+
 /**
 职业
 1.步兵、2.枪兵、3.骑兵、4.飞兵、5.水兵、6.弓兵、7.刺客、8.法师、9.僧侣、10.魔物、11.龙
