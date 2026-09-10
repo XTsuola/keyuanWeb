@@ -141,7 +141,7 @@ interface CeshiDataType {
     ]
 } */
 
-export const ceshiData: CeshiDataType = {
+/* export const ceshiData: CeshiDataType = {
     name: "大核桃",
     hero: {
         id: 37,
@@ -161,7 +161,7 @@ export const ceshiData: CeshiDataType = {
         24, 23, 23, 24, 24, 20, 24, 24, 22, 16, 19, 24, 24, 24, 19,
         22, 22, 23, 24, 21, 23, 22, 22, 24,
     ]
-}
+} */
 
 /* export const ceshiData: CeshiDataType = {
     name: "焦点",
