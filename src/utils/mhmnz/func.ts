@@ -17,12 +17,25 @@ for (const [path, url] of Object.entries(zhenyinIconModules)) {
 
 /**
 职业
-1.步兵、2.枪兵、3.骑兵、4.飞兵、5.水兵、6.弓兵、7.刺客、8.法师、9.僧侣、10.魔物、11.龙
+1.步兵、2.枪兵、3.骑兵、4.飞兵、5.水兵、6.弓兵、7.刺客、8.法师、9.僧侣、10.魔物、11.龙、12.无限制
 */
 export const job = ["步兵", "枪兵", "骑兵", "飞兵", "水兵", "弓兵", "刺客", "法师", "僧侣", "魔物", "龙"];
+export const weaponJob = [...job, "无限制"];
 
 /**
 品质
 1.R、2.SR、3.SSR、4.SP、5.LLR
 */
 export const quality = ["R", "SR", "SSR", "SP", "LLR"];
+
+/**
+神器类型
+1.武器、2.防具、3.头饰、4.饰品、5.专属
+*/
+export const weaponType = ["武器", "防具", "头饰", "饰品", "专属"];
+
+/**
+神器品质
+1.N、2.R、3.SR、4.SSR、5.SP
+*/
+export const weaponQuality = ["N", "R", "SR", "SSR", "SP"];

@@ -113,7 +113,7 @@ const isSp = (id: number) => id % 10 === 1;
 const jobName = (type: number) => job[type - 1] ?? String(type);
 
 const allRows = computed<Row[]>(() =>
-    soldierData.map((item) => ({
+    [...soldierData].reverse().map((item) => ({
         ...item,
         key: item.id,
         jobName: jobName(item.type),

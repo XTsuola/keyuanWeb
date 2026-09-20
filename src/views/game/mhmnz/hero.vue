@@ -94,6 +94,11 @@
                         </span>
                     </span>
                 </template>
+                <template v-else-if="column.key === 'jobName'">
+                    <span class="tag-list">
+                        <a-tag v-for="j in record.job" :key="j" :color="jobColor(j)">{{ jobLabel(j) }}</a-tag>
+                    </span>
+                </template>
                 <template v-else-if="column.key === 'action'">
                     <a-button size="small" @click="showDetail(record)">查看详情</a-button>
                 </template>
@@ -127,7 +132,10 @@
                             {{ zy }}
                         </span>
                     </div>
-                    <div class="detail-meta">ID {{ current.id }} · 职业 {{ current.jobName }}</div>
+                    <div class="detail-meta">ID {{ current.id }}</div>
+                    <div class="tag-list detail-jobs">
+                        <a-tag v-for="j in current.job" :key="j" :color="jobColor(j)">{{ jobLabel(j) }}</a-tag>
+                    </div>
                 </div>
 
                 <div class="detail-block">
@@ -228,8 +236,11 @@ const qualityFilters = [
     { id: 1, label: "R" },
 ];
 const LIANDONG_EXCLUDE = new Set(["安杰丽卡", "冰渊凌御者", "醒觉者"]);
+const jobColors = ["blue", "cyan", "green", "geekblue", "orange", "gold", "volcano", "purple", "magenta", "red", "lime"];
 const qualityName = (q: number) => quality[q - 1] ?? String(q);
-const jobNames = (jobs: number[]) => jobs.map((j) => job[j - 1] ?? String(j)).join("、");
+const jobLabel = (j: number) => job[j - 1] ?? String(j);
+const jobColor = (j: number) => jobColors[j - 1] ?? "default";
+const jobNames = (jobs: number[]) => jobs.map((j) => jobLabel(j)).join("、");
 const zhenyinNamesFn = (zys: number[]) => zys.map((z) => zhenyin[z - 1] ?? String(z));
 const isSpHero = (item: Hero) => item.quality === 4 || /^SP/i.test(item.name);
 const isLiandongHero = (item: Hero) => item.zhenyin.includes(10) && !LIANDONG_EXCLUDE.has(item.name.replace(/^SP/, ""));
@@ -351,7 +362,7 @@ const columns = [
     { title: "序号", key: "index", align: "center" as const, width: 60 },
     { title: "名称", dataIndex: "name", key: "name", width: 140 },
     { title: "阵营", dataIndex: "zhenyinText", key: "zhenyinText", width: 220 },
-    { title: "职业", dataIndex: "jobName", key: "jobName", width: 140 },
+    { title: "职业", dataIndex: "jobName", key: "jobName", width: 220 },
     { title: "操作", key: "action", align: "center" as const, width: 110 },
 ];
 
@@ -613,6 +624,16 @@ function showDetail(record: Row) {
         }
     }
 
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+
+        :deep(.ant-tag) {
+            margin: 0;
+        }
+    }
+
     .pagination-bar {
         display: flex;
         justify-content: flex-end;
@@ -653,6 +674,20 @@ function showDetail(record: Row) {
         font-size: 12px;
         color: rgba(0, 0, 0, 0.45);
     }
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    :deep(.ant-tag) {
+        margin: 0;
+    }
+}
+
+.detail-jobs {
+    margin-top: 10px;
 }
 
 .detail-block {
