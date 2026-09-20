@@ -227,9 +227,7 @@ const filteredRows = computed(() => {
     const qualityGroups = new Set<string>();
     if (formState.quality != null) {
         for (const item of rows) {
-            if (item.displayQuality === formState.quality || item.quality === formState.quality) {
-                qualityGroups.add(groupKey(item));
-            }
+            if (item.displayQuality === formState.quality || item.quality === formState.quality) qualityGroups.add(groupKey(item));
         }
     }
     return rows.filter((item) => {

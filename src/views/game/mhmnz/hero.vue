@@ -137,7 +137,6 @@
                         <a-tag v-for="j in current.job" :key="j" :color="jobColor(j)">{{ jobLabel(j) }}</a-tag>
                     </div>
                 </div>
-
                 <div class="detail-block">
                     <div class="block-title">天赋 · {{ current.talent[0] || "—" }}</div>
                     <div class="block-body">{{ current.talent[1] || "—" }}</div>
