@@ -43,7 +43,7 @@ export const simangdiguo = [
     ],
     [ // 橙卡：（5张）、（21.40级）
         { cost: 3, name: "曙光·安娜贝尔", level: 22 },
-        { cost: 4, name: "圣枪·卡洛琳", level: 22 },
+        { cost: 4, name: "圣枪·卡罗琳", level: 22 },
         { cost: 4, name: "明日之音·露娜", level: 20 },
         { cost: 6, name: "正阳大主教·伊恩", level: 23 },
         { cost: 8, name: "钢铁统帅·雷蒙德", level: 20 },

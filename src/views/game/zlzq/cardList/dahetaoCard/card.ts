@@ -1,28 +1,3 @@
-// 帝国：（15张）、（21.00级）
-export const simangdiguo = [
-    [ // 蓝卡：（8张）、（20.88级）
-        { cost: 2, name: "圣殿卫士", level: 24 },
-        { cost: 2, name: "天使琼浆", level: 19 },
-        { cost: 2, name: "炫目神光", level: 19 },
-        { cost: 3, name: "田园守望者1", level: 21 },
-        { cost: 3, name: "田园守望者2", level: 21 },
-        { cost: 3, name: "增援战线", level: 24 },
-        { cost: 5, name: "光明惩戒1", level: 20 },
-        { cost: 5, name: "光明惩戒2", level: 19 },
-    ],
-    [ // 紫卡：（3张）、（22.67级）
-        { cost: 1, name: "四芒军旗", level: 22 },
-        { cost: 2, name: "圣殿御卫", level: 24 },
-        { cost: 4, name: "召集护卫", level: 22 },
-    ],
-    [ // 橙卡：（4张）、（20.00级）
-        { cost: 3, name: "曙光·安娜贝尔", level: 22 },
-        { cost: 4, name: "明日之音·露娜", level: 18 },
-        { cost: 6, name: "正阳大主教·伊恩", level: 21 },
-        { cost: 8, name: "钢铁统帅·雷蒙德", level: 19 },
-    ],
-];
-
 // 蛮石：（16张）、（22.69级）
 export const manshikuangye = [
     [ // 蓝卡：（4张）、（21.50级）
@@ -46,6 +21,31 @@ export const manshikuangye = [
         { cost: 5, name: "血饮烈斧·凯", level: 24 },
         { cost: 6, name: "蛮古撼地兽", level: 22 },
         { cost: 7, name: "原野大祭师·鲁玛", level: 24 },
+    ],
+];
+
+// 帝国：（15张）、（21.00级）
+export const simangdiguo = [
+    [ // 蓝卡：（8张）、（20.88级）
+        { cost: 2, name: "圣殿卫士", level: 24 },
+        { cost: 2, name: "天使琼浆", level: 19 },
+        { cost: 2, name: "炫目神光", level: 19 },
+        { cost: 3, name: "田园守望者1", level: 21 },
+        { cost: 3, name: "田园守望者2", level: 21 },
+        { cost: 3, name: "增援战线", level: 24 },
+        { cost: 5, name: "光明惩戒1", level: 20 },
+        { cost: 5, name: "光明惩戒2", level: 19 },
+    ],
+    [ // 紫卡：（3张）、（22.67级）
+        { cost: 1, name: "四芒军旗", level: 22 },
+        { cost: 2, name: "圣殿御卫", level: 24 },
+        { cost: 4, name: "召集护卫", level: 22 },
+    ],
+    [ // 橙卡：（4张）、（20.00级）
+        { cost: 3, name: "曙光·安娜贝尔", level: 22 },
+        { cost: 4, name: "明日之音·露娜", level: 18 },
+        { cost: 6, name: "正阳大主教·伊恩", level: 21 },
+        { cost: 8, name: "钢铁统帅·雷蒙德", level: 19 },
     ],
 ];
 

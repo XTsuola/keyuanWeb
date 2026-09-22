@@ -1296,7 +1296,7 @@ export const cardData: CardData[] = [
     },
     {
         "id": 91,
-        "name": "圣枪·卡洛琳",
+        "name": "圣枪·卡罗琳",
         "zhenyin": 1,
         "quality": 4,
         "cost": 4,

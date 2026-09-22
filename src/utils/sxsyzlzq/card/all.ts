@@ -2534,7 +2534,7 @@
         "cost": 2,
         "type": 1,
         "img": "/simangdiguo/yingdidachu.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[2]",
         "data": [
             {
@@ -4263,7 +4263,7 @@
         "cost": 3,
         "type": 4,
         "img": "/simangdiguo/fuwen_shengminghuiji.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[2,3]",
         "data": [
             {
@@ -4529,7 +4529,7 @@
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/baitoushijiu.jpg",
-        "grade": "[1]",
+        "grade": "[0]",
         "tag": "[2,26]",
         "data": [
             {
@@ -5593,7 +5593,7 @@
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/jingyingsheshou.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[3,6,9]",
         "data": [
             {
@@ -5726,7 +5726,7 @@
         "cost": 4,
         "type": 4,
         "img": "/simangdiguo/fuwen_juchengfanji.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[13]",
         "data": [
             {
@@ -6125,7 +6125,7 @@
         "cost": 5,
         "type": 2,
         "img": "/simangdiguo/guangmingchenjie.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[3]",
         "data": [
             {
@@ -7448,14 +7448,14 @@
         ]
     },
     {
-        "id": 58,
+        "id": 57,
         "name": "圣殿骑士",
         "zhenyin": 1,
         "quality": 3,
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/shengdianqishi.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[1,2,9]",
         "data": [
             {
@@ -7581,14 +7581,14 @@
         ]
     },
     {
-        "id": 59,
+        "id": 58,
         "name": "白袍主教",
         "zhenyin": 1,
         "quality": 3,
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/baipaozhujiao.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "",
         "data": [
             {
@@ -7714,7 +7714,7 @@
         ]
     },
     {
-        "id": 60,
+        "id": 59,
         "name": "边境高墙",
         "zhenyin": 1,
         "quality": 3,
@@ -7847,7 +7847,7 @@
         ]
     },
     {
-        "id": 61,
+        "id": 60,
         "name": "冲锋装备",
         "zhenyin": 1,
         "quality": 3,
@@ -7980,7 +7980,7 @@
         ]
     },
     {
-        "id": 62,
+        "id": 61,
         "name": "王城酒吧老板",
         "zhenyin": 1,
         "quality": 3,
@@ -8113,7 +8113,7 @@
         ]
     },
     {
-        "id": 63,
+        "id": 62,
         "name": "炫光草人",
         "zhenyin": 1,
         "quality": 3,
@@ -8246,14 +8246,14 @@
         ]
     },
     {
-        "id": 64,
+        "id": 63,
         "name": "铁甲卫队长",
         "zhenyin": 1,
         "quality": 3,
         "cost": 3,
         "type": 1,
         "img": "/simangdiguo/tiejiaweiduizhang.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[1,21]",
         "data": [
             {
@@ -8379,7 +8379,7 @@
         ]
     },
     {
-        "id": 65,
+        "id": 64,
         "name": "重炮阵地",
         "zhenyin": 1,
         "quality": 3,
@@ -8512,7 +8512,7 @@
         ]
     },
     {
-        "id": 66,
+        "id": 65,
         "name": "符文·圣堂护盾",
         "zhenyin": 1,
         "quality": 3,
@@ -8645,7 +8645,7 @@
         ]
     },
     {
-        "id": 57,
+        "id": 66,
         "name": "符文·信念为铠",
         "zhenyin": 1,
         "quality": 3,
@@ -8785,7 +8785,7 @@
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/yueguangjisi.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[2]",
         "data": [
             {
@@ -8918,7 +8918,7 @@
         "cost": 4,
         "type": 1,
         "img": "/simangdiguo/shengdianweiduizhang.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[2,3,24]",
         "data": [
             {
@@ -10248,7 +10248,7 @@
         "cost": 5,
         "type": 1,
         "img": "/simangdiguo/shengguangzhujiao.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[2]",
         "data": [
             {
@@ -11971,7 +11971,7 @@
     },
     {
         "id": 91,
-        "name": "圣枪·卡洛琳",
+        "name": "圣枪·卡罗琳",
         "zhenyin": 1,
         "quality": 4,
         "cost": 4,
@@ -12244,7 +12244,7 @@
         "type": 4,
         "img": "/simangdiguo/fuwen_huihuangzanmeishi.jpg",
         "grade": "[4]",
-        "tag": "[1,21]",
+        "tag": "[1,8,21]",
         "data": [
             {
                 "attack": 0,
@@ -14504,7 +14504,7 @@
         "cost": 1,
         "type": 1,
         "img": "/yinmizhe/xieyuebianfu.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[17]",
         "data": [
             {
@@ -17164,7 +17164,7 @@
         "cost": 3,
         "type": 2,
         "img": "/yinmizhe/quanshufouding.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[3]",
         "data": [
             {
@@ -17430,7 +17430,7 @@
         "cost": 3,
         "type": 1,
         "img": "/yinmizhe/cuimianxijiaoshou.jpg",
-        "grade": "[1]",
+        "grade": "[0]",
         "tag": "[26]",
         "data": [
             {
@@ -17829,7 +17829,7 @@
         "cost": 3,
         "type": 4,
         "img": "/yinmizhe/fuwen_yuzhaotianlei.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[3,26]",
         "data": [
             {
@@ -18185,7 +18185,7 @@
             },
             {
                 "attack": 44,
-                "life": 40,
+                "life": 44,
                 "effect": "【践踏】、【幻象】"
             },
             {
@@ -18228,7 +18228,7 @@
         "cost": 4,
         "type": 1,
         "img": "/yinmizhe/xuepu_fenhuaxing.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "",
         "data": [
             {
@@ -18361,7 +18361,7 @@
         "cost": 4,
         "type": 1,
         "img": "/yinmizhe/xuepu_shentouxing.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[1,3,10]",
         "data": [
             {
@@ -19292,7 +19292,7 @@
         "cost": 1,
         "type": 2,
         "img": "/yinmizhe/yinxingshu.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[3,17]",
         "data": [
             {
@@ -20489,7 +20489,7 @@
         "cost": 3,
         "type": 1,
         "img": "/yinmizhe/moxiang_yuzhoutiewei.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[1]",
         "data": [
             {
@@ -21287,7 +21287,7 @@
         "cost": 3,
         "type": 2,
         "img": "/yinmizhe/lingnengjihua.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[24,26]",
         "data": [
             {
@@ -21420,7 +21420,7 @@
         "cost": 3,
         "type": 4,
         "img": "/yinmizhe/fuwen_leihuohexin.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[3,23]",
         "data": [
             {
@@ -22064,8 +22064,7 @@
                 "attack": 0,
                 "life": 0,
                 "effect": "消灭敌方单位，获得17/17学仆-基础型-lv22、15/15学仆-基础型-lv20"
-            }
-            ,
+            },
             {
                 "attack": 0,
                 "life": 0,
@@ -22485,7 +22484,7 @@
         "cost": 4,
         "type": 2,
         "img": "/yinmizhe/zuzhuangxuepu.jpg",
-        "grade": "[0]",
+        "grade": "[1]",
         "tag": "[19,24]",
         "data": [
             {
@@ -26209,7 +26208,7 @@
         "cost": 6,
         "type": 1,
         "img": "/yinmizhe/No9_dining.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[3,6,14,17,18,21]",
         "data": [
             {
@@ -26659,16 +26658,6 @@
             {
                 "attack": 0,
                 "life": 0,
-                "effect": "暂无"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "暂无"
-            },
-            {
-                "attack": 0,
-                "life": 0,
                 "effect": "随机敌军攻击-3，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】（无视神佑）（1星）"
             },
             {
@@ -26730,6 +26719,16 @@
                 "attack": 0,
                 "life": 0,
                 "effect": "随机敌军攻击-36，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】（无视神佑）（13星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "随机敌军攻击-40，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】（无视神佑）（14星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "随机敌军攻击-44，荒芜随机敌方区域，获得【传记·荒芜挽歌·破】（无视神佑）（15星）"
             }
         ]
     },
@@ -26744,16 +26743,6 @@
         "grade": "[4]",
         "tag": "[24]",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "暂无"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "暂无"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -26863,6 +26852,16 @@
                 "attack": 0,
                 "life": 0,
                 "effect": "在目标区域和随机区域召唤2个28/28幻想蛇-lv20，获得【传记·荒芜挽歌·终】（13星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "在目标区域和随机区域召唤2个30/30幻想蛇-lv21，获得【传记·荒芜挽歌·终】（14星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "在目标区域和随机区域召唤2个32/32幻想蛇-lv22，获得【传记·荒芜挽歌·终】（15星）"
             }
         ]
     },
@@ -26877,16 +26876,6 @@
         "grade": "[4]",
         "tag": "",
         "data": [
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "暂无"
-            },
-            {
-                "attack": 0,
-                "life": 0,
-                "effect": "暂无"
-            },
             {
                 "attack": 0,
                 "life": 0,
@@ -26996,6 +26985,16 @@
                 "attack": 0,
                 "life": 0,
                 "effect": "所有幻象生物+30/+30(无视魔免)（13星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "所有幻象生物+34/+34(无视魔免)（14星）"
+            },
+            {
+                "attack": 0,
+                "life": 0,
+                "effect": "所有幻象生物+38/+38(无视魔免)（15星）"
             }
         ]
     },
@@ -28869,7 +28868,7 @@
         "cost": 2,
         "type": 1,
         "img": "/chanyigu/changerzhuangqiaogu.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[3,4,23]",
         "data": [
             {
@@ -29534,7 +29533,7 @@
         "cost": 2,
         "type": 1,
         "img": "/chanyigu/suoyaotashouwei.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[3]",
         "data": [
             {
@@ -29667,7 +29666,7 @@
         "cost": 2,
         "type": 1,
         "img": "/chanyigu/xiongxiaobao.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[4,18]",
         "data": [
             {
@@ -30997,7 +30996,7 @@
         "cost": 3,
         "type": 2,
         "img": "/chanyigu/tieshankao.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[3,25,26]",
         "data": [
             {
@@ -31130,7 +31129,7 @@
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/weixianjuxiaomei.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[]",
         "data": [
             {
@@ -31263,7 +31262,7 @@
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/zuidaoren.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[19]",
         "data": [
             {
@@ -32859,7 +32858,7 @@
         "cost": 4,
         "type": 2,
         "img": "/chanyigu/fengjuancanyun.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[2]",
         "data": [
             {
@@ -32992,7 +32991,7 @@
         "cost": 4,
         "type": 2,
         "img": "/chanyigu/zhuozhuangshengzhang.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[2]",
         "data": [
             {
@@ -33923,7 +33922,7 @@
         "cost": 2,
         "type": 1,
         "img": "/chanyigu/xianlingtengwan.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[8]",
         "data": [
             {
@@ -34322,7 +34321,7 @@
         "cost": 2,
         "type": 4,
         "img": "/chanyigu/fuwen_shengshengbuxi.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[19,26]",
         "data": [
             {
@@ -34721,7 +34720,7 @@
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/qumodaoren.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[3,14]",
         "data": [
             {
@@ -34987,7 +34986,7 @@
         "cost": 3,
         "type": 1,
         "img": "/chanyigu/yushanfangdachu.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[]",
         "data": [
             {
@@ -35652,7 +35651,7 @@
         "cost": 4,
         "type": 1,
         "img": "/chanyigu/yufengwuzhe.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[6,26]",
         "data": [
             {
@@ -36184,7 +36183,7 @@
         "cost": 4,
         "type": 2,
         "img": "/chanyigu/taishanzhili.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[1,21,26]",
         "data": [
             {
@@ -37647,7 +37646,7 @@
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/yunyouwuseng.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[6,18]",
         "data": [
             {
@@ -38844,7 +38843,7 @@
         "cost": 2,
         "type": 3,
         "img": "/chanyigu/zhuanji_yueluo.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[]",
         "data": [
             {
@@ -38977,7 +38976,7 @@
         "cost": 3,
         "type": 3,
         "img": "/chanyigu/zhuanji_risheng.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[14]",
         "data": [
             {
@@ -39376,8 +39375,8 @@
         "cost": 3,
         "type": 4,
         "img": "/chanyigu/fuwen_rulaishenzhang.jpg",
-        "grade": "[5]",
-        "tag": "[1,2,5]",
+        "grade": "[4]",
+        "tag": "[1,2,5,8,14]",
         "data": [
             {
                 "attack": 0,
@@ -39642,7 +39641,7 @@
         "cost": 4,
         "type": 2,
         "img": "/chanyigu/wunengchanzhang.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[1,2,4,5,21]",
         "data": [
             {
@@ -40174,7 +40173,7 @@
         "cost": 5,
         "type": 1,
         "img": "/chanyigu/changshengbulaoshu.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[2,4,5,8,14,16,21,26]",
         "data": [
             {
@@ -53065,7 +53064,7 @@
         "cost": 2,
         "type": 1,
         "img": "/tiantanggang/huajianshenshi_xiang.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[2,6,9,20]",
         "data": [
             {
@@ -53996,7 +53995,7 @@
         "cost": 5,
         "type": 1,
         "img": "/tiantanggang/gangzhipaoxiao_buruien.jpg",
-        "grade": "[3]",
+        "grade": "[5]",
         "tag": "[1,5,6,19,26]",
         "data": [
             {
@@ -55858,7 +55857,7 @@
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/xieyanmo.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -56390,7 +56389,7 @@
         "cost": 2,
         "type": 2,
         "img": "/lianyushenyuan/rehuochongfeng.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "",
         "data": [
             {
@@ -56523,7 +56522,7 @@
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/baoranxiegui.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[5,23]",
         "data": [
             {
@@ -59981,7 +59980,7 @@
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/wumiantufu.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "",
         "data": [
             {
@@ -60380,7 +60379,7 @@
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/suilumo.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[5]",
         "data": [
             {
@@ -60646,7 +60645,7 @@
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/kutongshouwangzhe.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "",
         "data": [
             {
@@ -60779,7 +60778,7 @@
         "cost": 2,
         "type": 1,
         "img": "/lianyushenyuan/kexuedujiaxie.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[1]",
         "data": [
             {
@@ -61178,7 +61177,7 @@
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/juewanglianmo.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[7]",
         "data": [
             {
@@ -61444,7 +61443,7 @@
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/zhujiarongyanmo.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[1,5]",
         "data": [
             {
@@ -61843,7 +61842,7 @@
         "cost": 3,
         "type": 2,
         "img": "/lianyushenyuan/poluanerchu.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "tag": "[1,19,24]",
         "data": [
             {
@@ -61976,7 +61975,7 @@
         "cost": 3,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_zhimingjiake.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "tag": "[1,5,19]",
         "data": [
             {
@@ -62774,7 +62773,7 @@
         "cost": 4,
         "type": 1,
         "img": "/lianyushenyuan/rongyanshushi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
@@ -63838,7 +63837,7 @@
         "cost": 5,
         "type": 2,
         "img": "/lianyushenyuan/leiguanglianyu.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "",
         "data": [
             {
@@ -64104,7 +64103,7 @@
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/kuangbaotiebi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[1,8,16]",
         "data": [
             {
@@ -64370,7 +64369,7 @@
         "cost": 5,
         "type": 4,
         "img": "/lianyushenyuan/fuwen_xinghongdajun.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[19,24]",
         "data": [
             {
@@ -64902,7 +64901,7 @@
         "cost": 6,
         "type": 1,
         "img": "/lianyushenyuan/manhuangmoshen.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[5,8]",
         "data": [
             {
@@ -66099,7 +66098,7 @@
         "cost": 3,
         "type": 1,
         "img": "/lianyushenyuan/xueying.jpg",
-        "grade": "[5]",
+        "grade": "[6]",
         "tag": "[1,7,21,26]",
         "data": [
             {
@@ -66232,7 +66231,7 @@
         "cost": 4,
         "type": 1,
         "img": "/lianyushenyuan/bakebaluo.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[1,5,18]",
         "data": [
             {
@@ -66498,7 +66497,7 @@
         "cost": 5,
         "type": 1,
         "img": "/lianyushenyuan/yuanhuntaotieshou.jpg",
-        "grade": "[5]",
+        "grade": "[6]",
         "tag": "[1,2,5,7,26]",
         "data": [
             {
@@ -66632,7 +66631,7 @@
         "type": 4,
         "img": "/lianyushenyuan/fuwen_difentianyun.jpg",
         "grade": "[2]",
-        "tag": "[26]",
+        "tag": "[5,26]",
         "data": [
             {
                 "attack": 0,
@@ -66764,7 +66763,7 @@
         "cost": 6,
         "type": 1,
         "img": "/lianyushenyuan/xueyi_lilisi.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "tag": "[2,5,6,26]",
         "data": [
             {
@@ -68360,7 +68359,7 @@
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/kuangyejishi.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[2,3,23]",
         "data": [
             {
@@ -69424,7 +69423,7 @@
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/panxuantuying.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[3]",
         "data": [
             {
@@ -70488,7 +70487,7 @@
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/mianbaoshu.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[8,13,23]",
         "data": [
             {
@@ -70754,7 +70753,7 @@
         "cost": 3,
         "type": 2,
         "img": "/manshikuangye/tianjiangsuishi.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "",
         "data": [
             {
@@ -71020,7 +71019,7 @@
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/xueyumaoniu.jpg",
-        "grade": "[3]",
+        "grade": "[2]",
         "tag": "[11,12,21]",
         "data": [
             {
@@ -72616,7 +72615,7 @@
         "cost": 5,
         "type": 1,
         "img": "/manshikuangye/mimangjuren.jpg",
-        "grade": "[1]",
+        "grade": "[0]",
         "tag": "[3,12,21]",
         "data": [
             {
@@ -73263,7 +73262,7 @@
             },
             {
                 "attack": 30,
-                "life": 41,
+                "life": 51,
                 "effect": "【洞察1】、命中英雄时:再攻击一次"
             },
             {
@@ -73680,7 +73679,7 @@
         "cost": 2,
         "type": 1,
         "img": "/manshikuangye/xueyuanlangnv.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[11,24]",
         "data": [
             {
@@ -73813,7 +73812,7 @@
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/langyuejishi.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "[24]",
         "data": [
             {
@@ -74478,7 +74477,7 @@
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/shengshoujishi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[5]",
         "data": [
             {
@@ -75010,7 +75009,7 @@
         "cost": 3,
         "type": 4,
         "img": "/manshikuangye/fuwen_yuanlizhishi.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[23]",
         "data": [
             {
@@ -75257,7 +75256,7 @@
                 "effect": "【洞察1】、回合结束:召唤42/70长毛象-lv22"
             },
             {
-                "attack": 30,
+                "attack": 13,
                 "life": 21,
                 "effect": "【洞察1】、回合结束:召唤46/75长毛象-lv23"
             },
@@ -75276,7 +75275,7 @@
         "cost": 4,
         "type": 1,
         "img": "/manshikuangye/yuanlijishi.jpg",
-        "grade": "[1]",
+        "grade": "[2]",
         "tag": "",
         "data": [
             {
@@ -76207,7 +76206,7 @@
         "cost": 4,
         "type": 4,
         "img": "/manshikuangye/fuwen_hemazuji.jpg",
-        "grade": "[2]",
+        "grade": "[1]",
         "tag": "[3,12]",
         "data": [
             {
@@ -76340,7 +76339,7 @@
         "cost": 5,
         "type": 1,
         "img": "/manshikuangye/shifutouling.jpg",
-        "grade": "[2]",
+        "grade": "[3]",
         "tag": "[5]",
         "data": [
             {
@@ -78468,7 +78467,7 @@
         "cost": 3,
         "type": 1,
         "img": "/manshikuangye/kuangyeyouxia_dayu.jpg",
-        "grade": "[4]",
+        "grade": "[5]",
         "tag": "[2,5,16,21,26]",
         "data": [
             {
@@ -78735,7 +78734,7 @@
         "type": 4,
         "img": "/manshikuangye/fuwen_shipotianjing.jpg",
         "grade": "[4]",
-        "tag": "[3,5,21,26]",
+        "tag": "[2,3,5,21,26]",
         "data": [
             {
                 "attack": 0,
@@ -78867,7 +78866,7 @@
         "cost": 5,
         "type": 1,
         "img": "/manshikuangye/xueyinliefu_kai.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[2,5,11,26]",
         "data": [
             {
@@ -79266,7 +79265,7 @@
         "cost": 7,
         "type": 1,
         "img": "/manshikuangye/yuanyedajishi_luma.jpg",
-        "grade": "[3]",
+        "grade": "[4]",
         "tag": "[2,5,8,26]",
         "data": [
             {
@@ -79819,107 +79818,107 @@
             {
                 "attack": 3,
                 "life": 3,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 3,
                 "life": 4,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 4,
                 "life": 4,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 5,
                 "life": 5,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 6,
                 "life": 6,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 7,
                 "life": 7,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 8,
                 "life": 8,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 9,
                 "life": 9,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 10,
                 "life": 10,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 11,
                 "life": 12,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 13,
                 "life": 13,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 14,
                 "life": 15,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 16,
                 "life": 16,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 17,
                 "life": 18,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 19,
                 "life": 19,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 21,
                 "life": 21,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 23,
                 "life": 23,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 25,
                 "life": 25,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 27,
                 "life": 27,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 30,
                 "life": 30,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             },
             {
                 "attack": 33,
                 "life": 33,
-                "effect": "死亡:冰封自身位置，英雄生命+1"
+                "effect": "死亡:冰封自身位置"
             }
         ]
     },
@@ -82325,7 +82324,7 @@
         "cost": 2,
         "type": 1,
         "img": "/dongshenshitu/hanfengcaoren.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[3,4,11]",
         "data": [
             {
@@ -86049,7 +86048,7 @@
         "cost": 2,
         "type": 4,
         "img": "/dongshenshitu/fuwen_tianhandidong.jpg",
-        "grade": "[5]",
+        "grade": "[4]",
         "tag": "[11,26]",
         "data": [
             {
@@ -87512,7 +87511,7 @@
         "cost": 3,
         "type": 2,
         "img": "/dongshenshitu/lengkuxianji.jpg",
-        "grade": "[4]",
+        "grade": "[3]",
         "tag": "[26]",
         "data": [
             {
