@@ -50,18 +50,17 @@
                 </div>
                 <div class="spot-grid">
                     <article v-for="boss in group.bosses" :key="`${boss.area}-${boss.name}`" class="spot-card"
-                        :style="{ borderLeftColor: kindColor(boss.kind) }">
+                        :class="{ super: boss.kind === 2 }" :style="{ borderLeftColor: kindColor(boss.kind) }"
+                        @click="showDetail(boss, boss.materials[0])">
                         <div class="spot-top">
-                            <span class="spot-index">{{ String(bossIndex(group.bosses, boss)).padStart(2, "0") }}</span>
+                            <h3 class="spot-name">{{ boss.name }}</h3>
                             <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ kindNameOf(boss.kind)
-                                }}</span>
+                            }}</span>
                         </div>
-                        <h3 class="spot-name">{{ boss.name }}</h3>
-                        <div class="mat-list">
-                            <button v-for="mat in boss.materials" :key="mat[0]" type="button" class="mat-item"
-                                @click="showDetail(boss, mat)">
-                                <div class="mat-name">{{ mat[0] }}</div>
-                                <p class="mat-info">{{ mat[1] }}</p>
+                        <div class="mat-chips">
+                            <button v-for="mat in boss.materials" :key="mat[0]" type="button" class="mat-chip"
+                                @click.stop="showDetail(boss, mat)">
+                                {{ mat[0] }}
                             </button>
                         </div>
                     </article>
@@ -69,14 +68,20 @@
             </section>
         </div>
         <a-empty v-else class="empty" description="没有匹配的 Boss" />
-        <a-modal v-model:open="visible" :title="currentMat?.[0]" :footer="null" destroyOnClose centered width="640px"
+        <a-modal v-model:open="visible" :title="currentBoss?.name" :footer="null" destroyOnClose centered width="640px"
             wrap-class-name="boss-detail-modal">
-            <template v-if="currentBoss && currentMat">
+            <template v-if="currentBoss">
                 <div class="detail-meta">
                     <span class="detail-dot" :style="{ background: kindColor(currentBoss.kind) }"></span>
-                    {{ areaNameOf(currentBoss.area) }} · {{ kindNameOf(currentBoss.kind) }} · {{ currentBoss.name }}
+                    {{ areaNameOf(currentBoss.area) }} · {{ kindNameOf(currentBoss.kind) }}
                 </div>
-                <p class="detail-info">{{ currentMat[1] }}</p>
+                <div class="detail-mats">
+                    <section v-for="mat in currentBoss.materials" :key="mat[0]" class="detail-mat"
+                        :class="{ active: currentMat?.[0] === mat[0] }">
+                        <div class="detail-mat-name">{{ mat[0] }}</div>
+                        <p class="detail-info">{{ mat[1] }}</p>
+                    </section>
+                </div>
             </template>
         </a-modal>
     </div>
@@ -132,13 +137,9 @@ function kindColor(kind: BossKind) {
     return kindColorMap[kind] ?? "#1677ff";
 }
 
-function bossIndex(list: BossItem[], boss: BossItem) {
-    return list.filter((item) => item.kind === boss.kind).indexOf(boss) + 1;
-}
-
-function showDetail(boss: BossItem, mat: BossMaterial) {
+function showDetail(boss: BossItem, mat?: BossMaterial) {
     currentBoss.value = boss;
-    currentMat.value = mat;
+    currentMat.value = mat ?? boss.materials[0] ?? null;
     visible.value = true;
 }
 </script>
@@ -275,85 +276,83 @@ function showDetail(boss: BossItem, mat: BossMaterial) {
 
 .spot-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 8px;
 }
 
 .spot-card {
-    padding: 14px 16px 12px;
+    padding: 10px 12px;
     background: #fff;
     border: 1px solid #f0f0f0;
     border-left: 3px solid #1677ff;
     border-radius: 8px;
-}
-
-.spot-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
-}
-
-.spot-index {
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.35);
-    font-variant-numeric: tabular-nums;
-}
-
-.spot-kind {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.spot-name {
-    margin: 0 0 10px;
-    font-size: 15px;
-    font-weight: 650;
-    color: rgba(0, 0, 0, 0.88);
-    line-height: 1.4;
-}
-
-.mat-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.mat-item {
-    appearance: none;
-    width: 100%;
-    text-align: left;
-    padding: 8px 10px;
-    border: 1px solid #f0f0f0;
-    border-radius: 6px;
-    background: #fafafa;
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s;
 
     &:hover {
-        background: #f5f8ff;
-        border-color: #d6e4ff;
+        background: #fafbff;
+        border-color: #e6e8eb;
+    }
+
+    &.super {
+        background: #fffaf0;
     }
 }
 
-.mat-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.85);
-    margin-bottom: 4px;
+.spot-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
 }
 
-.mat-info {
+.spot-kind {
+    flex: none;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.spot-name {
     margin: 0;
+    font-size: 14px;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 1.35;
+}
+
+.mat-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.mat-chip {
+    appearance: none;
+    max-width: 100%;
+    padding: 2px 8px;
+    border: 1px solid #ececec;
+    border-radius: 999px;
+    background: #fff;
     font-size: 12px;
-    line-height: 1.65;
-    color: rgba(0, 0, 0, 0.55);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+
+    &:hover {
+        background: #f5f8ff;
+        border-color: #91caff;
+        color: #1677ff;
+    }
+
+    .super & {
+        background: #fff7e6;
+        border-color: #ffe7ba;
+    }
 }
 
 .empty {
@@ -375,11 +374,36 @@ function showDetail(boss: BossItem, mat: BossMaterial) {
     border-radius: 50%;
 }
 
+.detail-mats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail-mat {
+    padding: 10px 12px;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+
+    &.active {
+        background: #f5f8ff;
+        border-color: #d6e4ff;
+    }
+}
+
+.detail-mat-name {
+    font-size: 14px;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.88);
+    margin-bottom: 6px;
+}
+
 .detail-info {
     margin: 0;
-    font-size: 15px;
-    line-height: 1.85;
-    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(0, 0, 0, 0.75);
 }
 </style>
 
