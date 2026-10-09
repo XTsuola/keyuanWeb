@@ -1,7 +1,8 @@
 export type BMapGLApi = {
-    Map: new (container: string | HTMLElement) => unknown;
+    Map: new (container: string | HTMLElement, opts?: object) => unknown;
     Point: new (lng: number, lat: number) => unknown;
     Marker: new (point: unknown, opts?: object) => unknown;
+    Label: new (content: string, opts?: object) => unknown;
     Icon: new (url: string, size: unknown, opts?: object) => unknown;
     Size: new (width: number, height: number) => unknown;
     InfoWindow: new (content: string, opts?: object) => unknown;

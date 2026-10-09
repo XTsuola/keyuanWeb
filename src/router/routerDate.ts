@@ -100,7 +100,6 @@ const newRouterDate: RouteRecordRaw[] = [
       folder("myLove", "爱的见证", "VideoCameraAddOutlined", [
         menu("travel", "时光回忆", () => import("@/views/myLove/photo.vue"), { isLevel: [1, 3] }),
         menu("worldMap", "世界地图", () => import("@/views/myLove/worldMap.vue"), { isLevel: [1, 3] }),
-        menu("worldMap2", "世界地图2", () => import("@/views/myLove/worldMap2.vue"), { isLevel: [1, 3] }),
         menu("wedding", "结婚纪念", () => import("@/views/myLove/wedding/home.vue"), { isLevel: [1, 3] }),
         menu("myCanvas", "绘画天地", () => import("@/views/myLove/myCanvas.vue"), { isLevel: [1, 3] }),
       ], { isLevel: [1, 3] }),
