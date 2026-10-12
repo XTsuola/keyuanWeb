@@ -81,6 +81,11 @@ const newRouterDate: RouteRecordRaw[] = [
           menu("mhmnzHero", "英雄列表", () => import("@/views/game/mhmnz/hero.vue")),
           menu("mhmnzWeapon", "神器列表", () => import("@/views/game/mhmnz/weapon.vue")),
         ]),
+        folder("diguoshidai", "帝国时代", "UnorderedListOutlined", [
+          menu("dgsdBubing", "步兵列表", () => import("@/views/game/dgsd/bubing.vue")),
+          menu("dgsdSheshou", "射手列表", () => import("@/views/game/dgsd/sheshou.vue")),
+          menu("dgsdQibing", "骑兵列表", () => import("@/views/game/dgsd/qibing.vue")),
+        ]),
       ]),
       folder("/play", "游戏试玩", "RocketOutlined", [
         menu("newGame", "坦克大战", () => import("@/views/play/tanke/index.vue"), { isLevel: [1] }),
