@@ -35,7 +35,7 @@
                 <template v-else-if="column.key === 'tags'">
                     <span class="tag-list">
                         <a-tag v-for="tag in record.tags" :key="tag" :color="tagColor(tag)"
-                            :class="{ 'dgsd-tag-unique': isUniqueTag(tag) }">{{ tagName(tag) }}</a-tag>
+                            :class="tagClass(tag)">{{ tagName(tag) }}</a-tag>
                     </span>
                 </template>
                 <template v-else-if="column.key === 'action'">
@@ -57,7 +57,7 @@
                     <div class="detail-name-row">
                         <span class="detail-name">{{ detail.name }}</span>
                         <a-tag v-for="tag in detail.tags" :key="tag" :color="tagColor(tag)"
-                            :class="{ 'dgsd-tag-unique': isUniqueTag(tag) }">{{ tagName(tag) }}</a-tag>
+                            :class="tagClass(tag)">{{ tagName(tag) }}</a-tag>
                     </div>
                     <div class="detail-meta">{{ detail.line }}</div>
                 </div>
@@ -118,7 +118,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "vue";
-import { formatCost, isUniqueTag, lastOf, tagColor, tagName, usedTags, type UnitLine } from "@/utils/dgsd/func";
+import { formatCost, lastOf, tagClass, tagColor, tagName, usedTags, type UnitLine } from "@/utils/dgsd/func";
 
 interface Row {
     id: number;
@@ -317,12 +317,6 @@ function showDetail(record: Row) {
     gap: 4px;
 }
 
-.dgsd-tag-unique.ant-tag {
-    color: #531dab;
-    background: #f9f0ff;
-    border-color: #d3adf7;
-}
-
 .data-table {
     background: #fff;
 }
@@ -427,11 +421,83 @@ function showDetail(record: Row) {
         top: 16px;
         inset-inline-end: 16px;
     }
+}
 
-    .dgsd-tag-unique.ant-tag {
-        color: #531dab;
-        background: #f9f0ff;
-        border-color: #d3adf7;
-    }
+.dgsd-tag-10.ant-tag {
+    color: #531dab;
+    background: #f9f0ff;
+    border-color: #d3adf7;
+}
+
+.dgsd-tag-13.ant-tag {
+    color: #9d174d;
+    background: #fce7f3;
+    border-color: #f9a8d4;
+}
+
+.dgsd-tag-14.ant-tag {
+    color: #8c5a2b;
+    background: #f3e6cc;
+    border-color: #d4b483;
+}
+
+.dgsd-tag-15.ant-tag {
+    color: #3f5b73;
+    background: #eef3f7;
+    border-color: #9bb0c1;
+}
+
+.dgsd-tag-16.ant-tag {
+    color: #5b6b2f;
+    background: #f4f7e8;
+    border-color: #b7c47a;
+}
+
+.dgsd-tag-17.ant-tag {
+    color: #0f766e;
+    background: #e6fffb;
+    border-color: #87e8de;
+}
+
+.dgsd-tag-18.ant-tag {
+    color: #087990;
+    background: #e0f7fa;
+    border-color: #80deea;
+}
+
+.dgsd-tag-19.ant-tag {
+    color: #3730a3;
+    background: #eef2ff;
+    border-color: #a5b4fc;
+}
+
+.dgsd-tag-20.ant-tag {
+    color: #c2410c;
+    background: #fff1e6;
+    border-color: #ffbb96;
+}
+
+.dgsd-tag-21.ant-tag {
+    color: #a16207;
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+.dgsd-tag-22.ant-tag {
+    color: #595959;
+    background: #f5f5f5;
+    border-color: #d9d9d9;
+}
+
+.dgsd-tag-23.ant-tag {
+    color: #78716c;
+    background: #f5f5f4;
+    border-color: #d6d3d1;
+}
+
+.dgsd-tag-24.ant-tag {
+    color: #475569;
+    background: #f1f5f9;
+    border-color: #94a3b8;
 }
 </style>
