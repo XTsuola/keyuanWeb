@@ -23,7 +23,6 @@ export const unitTags = [
     "英雄", "建筑", "石制建筑", "石墙和门",
 ];
 
-const UNIQUE_TAG_ID = 10;
 const COST_LABELS = ["木材", "食物", "黄金", "石料"];
 
 const TAG_TONES: Record<number, { color?: string; className?: string }> = {
@@ -55,10 +54,6 @@ const TAG_TONES: Record<number, { color?: string; className?: string }> = {
 
 export function tagName(id: number) {
     return unitTags[id - 1] ?? String(id);
-}
-
-export function isUniqueTag(id: number) {
-    return id === UNIQUE_TAG_ID;
 }
 
 export function tagColor(id: number) {
