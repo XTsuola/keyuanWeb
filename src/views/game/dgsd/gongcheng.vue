@@ -1,5 +1,5 @@
 <template>
-    <UnitList title="攻城武器" :list="gongchengList" />
+    <UnitList title="攻城列表" :list="gongchengList" />
 </template>
 
 <script lang="ts" setup>

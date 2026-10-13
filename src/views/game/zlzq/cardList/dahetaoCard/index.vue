@@ -13,6 +13,10 @@ const data = [{
     value: 1,
     data: simangdiguo
 }, {
+    name: "禅意谷",
+    value: 2,
+    data: chanyigu
+}, {
     name: "蛮石旷野",
     value: 4,
     data: manshikuangye
@@ -21,20 +25,6 @@ const data = [{
     value: 7,
     data: yinmizhe
 }];
-
-/* const data = [{
-    name: "四芒帝国",
-    value: 1,
-    data: simangdiguo
-}, {
-    name: "蛮石旷野",
-    value: 4,
-    data: manshikuangye
-}, {
-    name: "隐秘者",
-    value: 7,
-    data: yinmizhe
-}]; */
 
 </script>
 

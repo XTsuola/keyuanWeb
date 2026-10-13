@@ -23,49 +23,48 @@ export const manshikuangye = [
     ],
 ];
 
-// 帝国：（15张）、（21.20级）
+// 帝国：（15张）、（21.93级）
 export const simangdiguo = [
-    [ // 蓝卡：（8张）、（21.50级）
+    [ // 蓝卡：（9张）、（21.67级）
         { cost: 2, name: "圣殿卫士", level: 24 },
         { cost: 2, name: "天使琼浆", level: 19 },
-        { cost: 2, name: "炫目神光", level: 19 },
+        { cost: 2, name: "炫目神光1", level: 19 },
+        { cost: 2, name: "炫目神光2", level: 19 },
         { cost: 3, name: "塔楼弓手", level: 24 },
-        { cost: 3, name: "田园守望者1", level: 21 },
+        { cost: 3, name: "田园守望者1", level: 22 },
         { cost: 3, name: "田园守望者2", level: 21 },
         { cost: 3, name: "增援战线", level: 24 },
-        { cost: 5, name: "光明惩戒", level: 20 },
+        { cost: 5, name: "光明惩戒", level: 23 },
     ],
-    [ // 紫卡：（3张）、（22.67级）
+    [ // 紫卡：（3张）、（23.00）
         { cost: 1, name: "四芒军旗", level: 22 },
         { cost: 2, name: "圣殿御卫", level: 24 },
-        { cost: 4, name: "召集护卫", level: 22 },
+        { cost: 4, name: "召集护卫", level: 23 },
     ],
-    [ // 橙卡：（4张）、（19.50级）
-        { cost: 3, name: "曙光·安娜贝尔", level: 22 },
-        { cost: 4, name: "明日之音·露娜", level: 18 },
-        { cost: 6, name: "正阳大主教·伊恩", level: 22 },
-        { cost: 8, name: "钢铁统帅·雷蒙德", level: 16 },
+    [ // 橙卡：（3张）、（21.67级）
+        { cost: 3, name: "曙光·安娜贝尔", level: 23 },
+        { cost: 4, name: "明日之音·露娜", level: 19 },
+        { cost: 6, name: "正阳大主教·伊恩", level: 23 },
     ],
 ];
 
-// 隐秘：（17张）、（22.35级）
+// 隐秘：（16张）、（23.00级）
 export const yinmizhe = [
-    [ // 蓝卡：（4张）、（23.50级）
+    [ // 蓝卡：（3张）、（23.33级）
         { cost: 2, name: "学仆-观测型", level: 24 },
-        { cost: 2, name: "方尖魔碑", level: 24 },
         { cost: 2, name: "沉重否定", level: 22 },
         { cost: 3, name: "全数否定", level: 24 },
     ],
-    [ // 紫卡：（10张）、（21.70级）
+    [ // 紫卡：（10张）、（22.90级）
         { cost: 1, name: "隐形术", level: 24 },
         { cost: 2, name: "破魔系教授", level: 24 },
-        { cost: 2, name: "克隆术1", level: 16 },
-        { cost: 2, name: "克隆术2", level: 14 },
+        { cost: 2, name: "克隆术", level: 17 },
         { cost: 3, name: "学仆-脉冲型", level: 24 },
         { cost: 3, name: "符文·邪月之夜1", level: 24 },
-        { cost: 3, name: "符文·邪月之夜2", level: 24 },
+        { cost: 3, name: "符文·邪月之夜2", level: 22 },
+        { cost: 3, name: "符文·邪月之夜3", level: 22 },
         { cost: 4, name: "幻域秘树", level: 24 },
-        { cost: 5, name: "观星台大预言家", level: 19 },
+        { cost: 4, name: "学仆-塑钢型", level: 24 },
         { cost: 7, name: "米拉方舟", level: 24 },
     ],
     [ // 橙卡：（3张）、（23.00级）
@@ -75,27 +74,27 @@ export const yinmizhe = [
     ],
 ];
 
-// 禅意：（15张）、（18.13级）
+// 禅意：（15张）、（18.07级）
 export const chanyigu = [
-    [ // 蓝卡：（9张）、（18.11级）
-        { cost: 1, name: "雪庐草人", level: 19 },
-        { cost: 2, name: "苦行武僧", level: 24 },
+    [ // 蓝卡：（8张）、（18.38级）
         { cost: 2, name: "飓风术", level: 19 },
         { cost: 2, name: "太极剑法", level: 18 },
         { cost: 3, name: "连击1", level: 19 },
         { cost: 3, name: "连击2", level: 19 },
-        { cost: 3, name: "符文·疾风图腾", level: 14 },
-        { cost: 3, name: "铁山靠", level: 12 },
+        { cost: 3, name: "连击3", level: 19 },
+        { cost: 3, name: "铁山靠", level: 19 },
+        { cost: 3, name: "符文·疾风图腾", level: 15 },
         { cost: 4, name: "风卷残云", level: 19 },
     ],
-    [ // 紫卡：（3张）、（20.00级）
+    [ // 紫卡：（4张）、（18.25级）
         { cost: 4, name: "御风武者", level: 22 },
-        { cost: 4, name: "墨轩隐士", level: 19 },
+        { cost: 4, name: "墨轩隐士", level: 20 },
+        { cost: 4, name: "萌化术", level: 12 },
         { cost: 5, name: "万物之灵", level: 19 },
     ],
-    [ // 橙卡：（3张）、（16.33级）
-        { cost: 3, name: "符文·如来神掌", level: 12 },
+    [ // 橙卡：（3张）、（17.00级）
+        { cost: 3, name: "符文·如来神掌", level: 13 },
         { cost: 4, name: "神机玄女·轩", level: 20 },
-        { cost: 4, name: "悟能禅杖", level: 17 },
+        { cost: 4, name: "悟能禅杖", level: 18 },
     ],
 ];

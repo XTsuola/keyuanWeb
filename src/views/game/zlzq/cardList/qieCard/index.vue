@@ -20,6 +20,10 @@ const data = [{
     name: "炼狱深渊",
     value: 5,
     data: lianyushenyuan
+}, {
+    name: "隐秘者",
+    value: 7,
+    data: yinmizhe
 }];
 
 </script>

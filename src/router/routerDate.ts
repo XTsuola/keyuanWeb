@@ -85,7 +85,9 @@ const newRouterDate: RouteRecordRaw[] = [
           menu("dgsdBubing", "步兵列表", () => import("@/views/game/dgsd/bubing.vue")),
           menu("dgsdSheshou", "射手列表", () => import("@/views/game/dgsd/sheshou.vue")),
           menu("dgsdQibing", "骑兵列表", () => import("@/views/game/dgsd/qibing.vue")),
-          menu("dgsdGongcheng", "攻城武器", () => import("@/views/game/dgsd/gongcheng.vue")),
+          menu("dgsdGongcheng", "攻城列表", () => import("@/views/game/dgsd/gongcheng.vue")),
+          menu("dgsdJianchuan", "舰船列表", () => import("@/views/game/dgsd/jianchuan.vue")),
+          menu("dgsdQita", "其他列表", () => import("@/views/game/dgsd/qita.vue")),
         ]),
       ]),
       folder("/play", "游戏试玩", "RocketOutlined", [
