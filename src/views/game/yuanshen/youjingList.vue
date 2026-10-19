@@ -39,10 +39,13 @@
                 </div>
                 <p class="period-date">{{ item.start }} ～ {{ item.end }}</p>
                 <div class="boss-grid">
-                    <div v-for="boss in bossesOf(item)" :key="boss.index" class="boss-cell">
-                        <div class="boss-index">首领 {{ boss.index }}</div>
+                    <div v-for="boss in bossesMerged(item)" :key="boss.index" class="boss-cell">
+                        <div class="boss-index">{{ roomName(boss.index) }}</div>
                         <div class="boss-name">{{ boss.name }}</div>
-                        <div v-if="boss.title" class="boss-title">{{ boss.title }}</div>
+                        <div class="boss-affixes">
+                            <span v-if="boss.title4">n4 {{ boss.title4 }}</span>
+                            <span v-if="boss.title5">n5 {{ boss.title5 }}</span>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -55,11 +58,14 @@
                 <div class="detail-meta">
                     {{ current.version }} 版本 · {{ current.start }} ～ {{ current.end }}
                 </div>
-                <div class="boss-grid">
-                    <div v-for="boss in bossesOf(current)" :key="boss.index" class="boss-cell">
-                        <div class="boss-index">首领 {{ boss.index }}</div>
-                        <div class="boss-name">{{ boss.name }}</div>
-                        <div v-if="boss.title" class="boss-title">{{ boss.title }}</div>
+                <div v-for="tier in tiers" :key="tier" class="tier-block">
+                    <div class="tier-label">n{{ tier }}</div>
+                    <div class="boss-grid">
+                        <div v-for="boss in bossesOf(current, tier)" :key="boss.index" class="boss-cell">
+                            <div class="boss-index">{{ roomName(boss.index) }}</div>
+                            <div class="boss-name">{{ boss.name }}</div>
+                            <div v-if="boss.title" class="boss-title">{{ boss.title }}</div>
+                        </div>
                     </div>
                 </div>
             </template>
@@ -69,8 +75,14 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "vue";
-import { bossesOf, youjingList, youjingVersions, type YoujingPeriod } from "@/utils/sxsyyuanshen/youjingData";
+import { bossesMerged, bossesOf, youjingList, youjingVersions, type YoujingPeriod } from "@/utils/sxsyyuanshen/youjingData";
 
+const tiers = [4, 5] as const;
+const roomNames = ["第一间", "第二间", "第三间"];
+
+function roomName(index: number) {
+    return roomNames[index - 1] ?? `第${index}间`;
+}
 const keyword = ref("");
 const activeVersion = ref("");
 const visible = ref(false);
@@ -102,7 +114,7 @@ const filteredList = computed(() => {
         .filter((item) => {
             if (activeVersion.value && majorOf(item.version) !== activeVersion.value) return false;
             if (!q) return true;
-            const blob = [item.period, item.version, item.name, item.start, item.end, ...item.bosses]
+            const blob = [item.period, item.version, item.name, item.start, item.end, ...item.bosses4, ...item.bosses5]
                 .join(" ")
                 .toLowerCase();
             return blob.includes(q);
@@ -258,6 +270,17 @@ function showDetail(item: YoujingPeriod) {
     color: rgba(0, 0, 0, 0.45);
 }
 
+.tier-block + .tier-block {
+    margin-top: 10px;
+}
+
+.tier-label {
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.45);
+}
+
 .boss-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -287,6 +310,15 @@ function showDetail(item: YoujingPeriod) {
 }
 
 .boss-title {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.boss-affixes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
     margin-top: 4px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.55);

@@ -1,6 +1,7 @@
 /**
  * 原神幽境危战
- * bosses: 三名首领，名称·词缀
+ * bosses4: 三名首领，名称·词缀（n4）
+ * bosses5: 三名首领，名称·词缀（n5）
  */
 export interface YoujingPeriod {
     period: number;
@@ -8,7 +9,8 @@ export interface YoujingPeriod {
     name: string;
     start: string;
     end: string;
-    bosses: [string, string, string];
+    bosses4: [string, string, string];
+    bosses5: [string, string, string];
 }
 
 export const youjingVersions = [
@@ -24,8 +26,19 @@ export function parseBoss(raw: string) {
     return { name: raw.slice(0, index), title: raw.slice(index + sep.length) };
 }
 
-export function bossesOf(item: YoujingPeriod) {
-    return item.bosses.map((raw, index) => ({ index: index + 1, raw, ...parseBoss(raw) }));
+export function bossesOf(item: YoujingPeriod, tier: 4 | 5) {
+    const list = tier === 4 ? item.bosses4 : item.bosses5;
+    return list.map((raw, index) => ({ index: index + 1, raw, ...parseBoss(raw) }));
+}
+
+export function bossesMerged(item: YoujingPeriod) {
+    const harder = bossesOf(item, 5);
+    return bossesOf(item, 4).map((boss, index) => ({
+        index: boss.index,
+        name: boss.name,
+        title4: boss.title,
+        title5: harder[index]?.title ?? "",
+    }));
 }
 
 export const youjingList: YoujingPeriod[] = [
@@ -35,7 +48,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "驱侵之役",
         start: "2025.06.25",
         end: "2025.07.29",
-        bosses: ["水形幻人·极旋湍流", "熔岩辉龙像·炽烈流焰", "秘源机兵·统御械·毁灭武装"],
+        bosses4: ["水形幻人·强浪", "熔岩辉龙像·锐火", "秘源机兵统御械·疾攻"],
+        bosses5: ["水形幻人·极旋湍流", "熔岩辉龙像·炽烈流焰", "秘源机兵统御械·毁灭武装"]
     },
     {
         period: 2,
@@ -43,7 +57,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "劲烈之役",
         start: "2025.08.06",
         end: "2025.09.09",
-        bosses: ["深邃摹结株·Ⅱ型·虚暗幻变", "历经百战的玳龟·坚盾轰雷", "历经百战的皮皮潘偶像·百诈瞬变"],
+        bosses4: ["深邃摹结株·诡速", "历经百战的玳龟·迸雷", "历经百战的皮皮潘偶像·闪幻"],
+        bosses5: ["深邃摹结株·虚暗幻变", "历经百战的玳龟·坚盾轰雷", "历经百战的皮皮潘偶像·百诈瞬变"]
     },
     {
         period: 3,
@@ -51,7 +66,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "骇轰之役",
         start: "2025.09.17",
         end: "2025.10.21",
-        bosses: ["兆载永劫龙兽·歼灭构型", "历经百战的岩居蟹·百万爆轰", "历经百战的火刃突击队员·决死武装"],
+        bosses4: ["兆载永劫龙兽·骇擎", "历经百战的岩居蟹·钢甲", "历经百战的火刃突击队员·狂热"],
+        bosses5: ["兆载永劫龙兽·歼灭构型", "历经百战的岩居蟹·百万爆轰", "历经百战的火刃突击队员·决死武装"]
     },
     {
         period: 4,
@@ -59,7 +75,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "迅悍之役",
         start: "2025.10.29",
         end: "2025.12.02",
-        bosses: ["霜夜巡天灵主·晦蚀", "历经百战的执灯人·哀恸回响", "历经百战的霜役人·涉血芒锋"],
+        bosses4: ["霜夜巡天灵主·晦蚀", "历经百战的执灯人·烈悲", "历经百战的霜役人·疾刺"],
+        bosses5: ["霜夜巡天灵主·惊恨憎愤", "历经百战的执灯人·哀恸回响", "历经百战的霜役人·涉血芒锋"]
     },
     {
         period: 5,
@@ -67,7 +84,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "坠震之役",
         start: "2025.12.10",
         end: "2026.01.13",
-        bosses: ["深罪浸礼者·肃烈狂音", "历经百战的暝视龙·霜雪苛念", "实验性场力发生装置·布雷阁原型"],
+        bosses4: ["深罪浸礼者·锐言", "历经百战的暝视龙·苦寒", "实验性场力发生装置·增幅"],
+        bosses5: ["深罪浸礼者·肃烈狂音", "历经百战的暝视龙·霜雪苛念", "实验性场力发生装置·极端势能"]
     },
     {
         period: 6,
@@ -75,7 +93,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "除晦之役",
         start: "2026.01.21",
         end: "2026.02.24",
-        bosses: ["深黯魇语之主·袭掠锋刃", "历经百战的火刃突击队员·决死武装", "铁甲熔火帝皇·敕命远征"],
+        bosses4: ["深黯魇语之主·利爪", "历经百战的火刃突击队员·狂热", "铁甲熔火帝皇·急袭"],
+        bosses5: ["深黯魇语之主·袭掠锋刃", "历经百战的火刃突击队员·决死武装", "铁甲熔火帝皇·敕命远征"]
     },
     {
         period: 7,
@@ -83,7 +102,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "摧枯之役",
         start: "2026.03.04",
         end: "2026.04.07",
-        bosses: ["历经百战的十六倍曼陀草·风滚狂蔓", "重拳出击鸭·重甲武库", "秘源机兵·统御械·毁灭武装"],
+        bosses4: ["历经百战的十六倍曼陀草·绿灾", "重拳出击鸭·领舰", "秘源机兵统御械·疾攻"],
+        bosses5: ["历经百战的十六倍曼陀草·风滚狂蔓", "重拳出击鸭·重甲武库", "秘源机兵统御械·毁灭武装"]
     },
     {
         period: 8,
@@ -91,7 +111,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "断玉之役",
         start: "2026.04.15",
         end: "2026.05.19",
-        bosses: ["蕴光月守宫·根牙磐错", "深邃摹结株·虚暗幻变", "霜夜巡天灵主·惊恨憎愤"],
+        bosses4: ["蕴光月守宫·冥顽", "深邃摹结株·诡速", "霜夜巡天灵主·晦蚀"],
+        bosses5: ["蕴光月守宫·根牙磐错", "深邃摹结株·虚暗幻变", "霜夜巡天灵主·惊恨憎愤"]
     },
     {
         period: 9,
@@ -99,7 +120,8 @@ export const youjingList: YoujingPeriod[] = [
         name: "啸卷之役",
         start: "2026.05.27",
         end: "2026.06.30",
-        bosses: ["历经百战的凛狼·极寒冰魄", "水形幻人·极旋湍流", "开眼者·傲然睥睨"],
+        bosses4: ["历经百战的凛狼·韧魂", "水形幻人·强浪", "开眼者·蔑视"],
+        bosses5: ["历经百战的凛狼·极寒冰魄", "水形幻人·极旋湍流", "开眼者·傲然睥睨"]
     },
     {
         period: 10,
@@ -107,14 +129,25 @@ export const youjingList: YoujingPeriod[] = [
         name: "栗烈之役",
         start: "2026.07.08",
         end: "2026.08.11",
-        bosses: ["历经百战的先驱秘源统辖阵列・蜂巢意志", "深黯魇语之主·袭掠锋刃", "秘源机兵·构型械·裂解剪钳"],
+        bosses4: ["先驱秘源统辖阵列之影・集群", "深黯魇语之主·利爪", "秘源机兵构型械·利爪"],
+        bosses5: ["先驱秘源统辖阵列之影・蜂巢意志", "深黯魇语之主·袭掠锋刃", "秘源机兵构型械·裂解剪钳"]
     },
     {
         period: 11,
         version: "7.0",
-        name: "至冬第1期",
+        name: "星芒之役",
         start: "2026.08.19",
         end: "2026.09.22",
-        bosses: ["嵌合翼骏狮·雷殛", "历经百战的风役人·风影", "重拳出击鸭·重甲武库"],
+        bosses4: ["嵌合翼骏狮·激荡", "历经百战的风役人·迅斩", "重拳出击鸭·领舰"],
+        bosses5: ["嵌合翼骏狮·催枯伟力", "历经百战的风役人·诡谲芒锋", "重拳出击鸭·重甲武库"]
+    },
+    {
+        period: 12,
+        version: "7.1",
+        name: "烁煌之役",
+        start: "2026.09.30",
+        end: "2026.11.03",
+        bosses4: ["历经百战的矮灵雕刻师・斧凿", "秘源机兵统御械・疾攻", "游雪的护刃・复奏"],
+        bosses5: ["历经百战的矮灵雕刻师・运风成斤", "秘源机兵统御械・毁灭武装", "游雪的护刃・不绝余音"]
     },
 ];

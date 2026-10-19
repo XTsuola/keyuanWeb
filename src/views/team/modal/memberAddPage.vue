@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, toRaw, watch } from "vue";
 import type { FormInstance } from "ant-design-vue";
 import { groupList, type AddType } from "@/utils/global";
 import type { AddMemberParams } from "@/api/team";
@@ -34,18 +34,47 @@ const props = defineProps<{
 }>();
 
 const formRef = ref<FormInstance>();
-const form = ref<AddMemberParams>({
-    id: undefined,
-    name: "",
-    qq: "",
-    groupName: "",
-    position: "",
-    remark: "",
-});
+const form = ref<AddMemberParams>(emptyForm());
 
-if (props.type === "edit") {
-    form.value = structuredClone(props.addParams);
+function emptyForm(): AddMemberParams {
+    return {
+        id: undefined,
+        name: "",
+        qq: "",
+        groupName: "",
+        position: "",
+        remark: "",
+    };
 }
+
+function fillForm(source?: AddMemberParams) {
+    const raw = source ? toRaw(source) : undefined;
+    form.value = {
+        id: raw?.id,
+        name: raw?.name ?? "",
+        qq: raw?.qq ?? "",
+        groupName: raw?.groupName ?? "",
+        position: raw?.position ?? "",
+        remark: raw?.remark ?? "",
+    };
+}
+
+watch(
+    () => [
+        props.type,
+        props.addParams.id,
+        props.addParams.name,
+        props.addParams.qq,
+        props.addParams.groupName,
+        props.addParams.position,
+        props.addParams.remark,
+    ],
+    () => {
+        if (props.type === "edit") fillForm(props.addParams);
+        else form.value = emptyForm();
+    },
+    { immediate: true }
+);
 
 async function getAddData() {
     try {
