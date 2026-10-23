@@ -88,6 +88,8 @@ const newRouterDate: RouteRecordRaw[] = [
           menu("dgsdGongcheng", "攻城列表", () => import("@/views/game/dgsd/gongcheng.vue")),
           menu("dgsdJianchuan", "舰船列表", () => import("@/views/game/dgsd/jianchuan.vue")),
           menu("dgsdQita", "其他列表", () => import("@/views/game/dgsd/qita.vue")),
+          menu("dgsdXila", "希腊列表", () => import("@/views/game/dgsd/xila.vue")),
+          menu("dgsdLuoma", "罗马列表", () => import("@/views/game/dgsd/luoma.vue")),
         ]),
       ]),
       folder("/play", "游戏试玩", "RocketOutlined", [
