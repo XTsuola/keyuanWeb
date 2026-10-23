@@ -83,7 +83,7 @@ export const gongchengList: UnitLine[] = [{
     att_interval: [0],
     shecheng: [0],
     time: [25],
-    bonus: ["对墙壁+900、建筑500、城堡+100、攻城武器+60"],
+    bonus: ["对墙壁+900、建筑+500、城堡+100、攻城武器+60"],
     level: ["/"]
 }, {
     id: 4106,
