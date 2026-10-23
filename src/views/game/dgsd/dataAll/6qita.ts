@@ -1,4 +1,4 @@
-import type { UnitLine } from "@/utils/dgsd/func";
+import type { UnitLine } from "../func";
 
 export const qitaList: UnitLine[] = [{
     id: 6101,

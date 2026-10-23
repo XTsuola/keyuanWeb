@@ -25,43 +25,16 @@ export const unitTags = [
 
 const COST_LABELS = ["木材", "食物", "黄金", "石料"];
 
-const TAG_TONES: Record<number, { color?: string; className?: string }> = {
-    1: { color: "blue" },
-    2: { color: "gold" },
-    3: { color: "green" },
-    4: { color: "geekblue" },
-    5: { color: "cyan" },
-    6: { color: "orange" },
-    7: { color: "magenta" },
-    8: { color: "red" },
-    9: { color: "yellow" },
-    10: { className: "dgsd-tag-10" },
-    11: { color: "lime" },
-    12: { color: "volcano" },
-    13: { className: "dgsd-tag-13" },
-    14: { className: "dgsd-tag-14" },
-    15: { className: "dgsd-tag-15" },
-    16: { className: "dgsd-tag-16" },
-    17: { className: "dgsd-tag-17" },
-    18: { className: "dgsd-tag-18" },
-    19: { className: "dgsd-tag-19" },
-    20: { className: "dgsd-tag-20" },
-    21: { className: "dgsd-tag-21" },
-    22: { className: "dgsd-tag-22" },
-    23: { className: "dgsd-tag-23" },
-    24: { className: "dgsd-tag-24" },
-};
-
 export function tagName(id: number) {
     return unitTags[id - 1] ?? String(id);
 }
 
-export function tagColor(id: number) {
-    return TAG_TONES[id]?.color;
+export function tagColor(_id: number) {
+    return undefined;
 }
 
 export function tagClass(id: number) {
-    return TAG_TONES[id]?.className;
+    return unitTags[id - 1] ? `dgsd-tag-${id}` : undefined;
 }
 
 export function lastOf<T>(list: T[]): T {

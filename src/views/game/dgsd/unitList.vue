@@ -118,7 +118,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "vue";
-import { formatCost, lastOf, tagClass, tagColor, tagName, usedTags, type UnitLine } from "@/utils/dgsd/func";
+import { formatCost, lastOf, tagClass, tagColor, tagName, usedTags, type UnitLine } from "./func";
 
 interface Row {
     id: number;
@@ -423,81 +423,28 @@ function showDetail(record: Row) {
     }
 }
 
-.dgsd-tag-10.ant-tag {
-    color: #531dab;
-    background: #f9f0ff;
-    border-color: #d3adf7;
-}
-
-.dgsd-tag-13.ant-tag {
-    color: #9d174d;
-    background: #fce7f3;
-    border-color: #f9a8d4;
-}
-
-.dgsd-tag-14.ant-tag {
-    color: #8c5a2b;
-    background: #f3e6cc;
-    border-color: #d4b483;
-}
-
-.dgsd-tag-15.ant-tag {
-    color: #3f5b73;
-    background: #eef3f7;
-    border-color: #9bb0c1;
-}
-
-.dgsd-tag-16.ant-tag {
-    color: #5b6b2f;
-    background: #f4f7e8;
-    border-color: #b7c47a;
-}
-
-.dgsd-tag-17.ant-tag {
-    color: #0f766e;
-    background: #e6fffb;
-    border-color: #87e8de;
-}
-
-.dgsd-tag-18.ant-tag {
-    color: #087990;
-    background: #e0f7fa;
-    border-color: #80deea;
-}
-
-.dgsd-tag-19.ant-tag {
-    color: #3730a3;
-    background: #eef2ff;
-    border-color: #a5b4fc;
-}
-
-.dgsd-tag-20.ant-tag {
-    color: #c2410c;
-    background: #fff1e6;
-    border-color: #ffbb96;
-}
-
-.dgsd-tag-21.ant-tag {
-    color: #a16207;
-    background: #fffbeb;
-    border-color: #fde68a;
-}
-
-.dgsd-tag-22.ant-tag {
-    color: #595959;
-    background: #f5f5f5;
-    border-color: #d9d9d9;
-}
-
-.dgsd-tag-23.ant-tag {
-    color: #78716c;
-    background: #f5f5f4;
-    border-color: #d6d3d1;
-}
-
-.dgsd-tag-24.ant-tag {
-    color: #475569;
-    background: #f1f5f9;
-    border-color: #94a3b8;
-}
+.dgsd-tag-1.ant-tag { color: #1d4ed8; background: #eff6ff; border-color: #93c5fd; }
+.dgsd-tag-2.ant-tag { color: #c2410c; background: #fff7ed; border-color: #fdba74; }
+.dgsd-tag-3.ant-tag { color: #15803d; background: #f0fdf4; border-color: #86efac; }
+.dgsd-tag-4.ant-tag { color: #6d28d9; background: #f5f3ff; border-color: #ddd6fe; }
+.dgsd-tag-5.ant-tag { color: #7c2d12; background: #faf5f0; border-color: #e7c8a8; }
+.dgsd-tag-6.ant-tag { color: #059669; background: #ecfdf5; border-color: #6ee7b7; }
+.dgsd-tag-7.ant-tag { color: #7f1d1d; background: #fef2f2; border-color: #fca5a5; }
+.dgsd-tag-8.ant-tag { color: #115e59; background: #f0fdfa; border-color: #5eead4; }
+.dgsd-tag-9.ant-tag { color: #0369a1; background: #f0f9ff; border-color: #7dd3fc; }
+.dgsd-tag-10.ant-tag { color: #e11d48; background: #fff1f2; border-color: #fecdd3; }
+.dgsd-tag-11.ant-tag { color: #c026d3; background: #fdf4ff; border-color: #f0abfc; }
+.dgsd-tag-12.ant-tag { color: #9d174d; background: #fdf2f8; border-color: #f9a8d4; }
+.dgsd-tag-13.ant-tag { color: #155e75; background: #ecfeff; border-color: #67e8f9; }
+.dgsd-tag-14.ant-tag { color: #78350f; background: #faf5f0; border-color: #d6b48a; }
+.dgsd-tag-15.ant-tag { color: #4d7c0f; background: #f7fee7; border-color: #bef264; }
+.dgsd-tag-16.ant-tag { color: #b45309; background: #fffbeb; border-color: #fcd34d; }
+.dgsd-tag-17.ant-tag { color: #172554; background: #e0e7ff; border-color: #a5b4fc; }
+.dgsd-tag-18.ant-tag { color: #0891b2; background: #ecfeff; border-color: #67e8f9; }
+.dgsd-tag-19.ant-tag { color: #f5222d; background: #fff1f0; border-color: #ffa39e; }
+.dgsd-tag-20.ant-tag { color: #ca8a04; background: #fefce8; border-color: #fde047; }
+.dgsd-tag-21.ant-tag { color: #18181b; background: #fafafa; border-color: #a1a1aa; }
+.dgsd-tag-22.ant-tag { color: #52525b; background: #f4f4f5; border-color: #d4d4d8; }
+.dgsd-tag-23.ant-tag { color: #92400e; background: #fff7ed; border-color: #fdba74; }
+.dgsd-tag-24.ant-tag { color: #312e81; background: #eef2ff; border-color: #a5b4fc; }
 </style>

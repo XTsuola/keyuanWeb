@@ -1,4 +1,4 @@
-import type { UnitLine } from "@/utils/dgsd/func";
+import type { UnitLine } from "../func";
 
 export const jianchuanList: UnitLine[] = [{
     id: 5101,
