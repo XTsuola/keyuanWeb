@@ -29,11 +29,13 @@
                     </template>
                 </a-dropdown>
                 <label class="avatar" title="更换头像">
-                    <img :src="imgValue" alt="头像" />
+                    <span v-show="!avatarLoaded" class="avatar-fallback">{{ avatarText }}</span>
+                    <img v-if="imgValue" v-show="avatarLoaded" :src="imgValue" alt="头像" @load="avatarLoaded = true"
+                        @error="onAvatarError" />
                     <input type="file" accept="image/png,image/jpg,image/jpeg,image/bmp" @change="getImg" />
                 </label>
             </div>
-            <div v-else class="user-area">
+            <div v-else-if="!hasSession" class="user-area">
                 <a-button type="primary" danger ghost size="small" @click="logout">重新登录</a-button>
             </div>
         </header>
@@ -44,14 +46,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 import { SettingFilled } from "@ant-design/icons-vue";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";
 import type { Breadcrumb as GlobeBreadcrumbType } from "@/utils/global";
 import { getUserInfo, updateImg, type UpdateImgParams } from "@/api/team";
 import router from "@/router";
-import imgBase from "@/assets/images/lanlingwang.jpg";
 
 interface UserInfo {
     id: number;
@@ -63,12 +64,6 @@ interface UserInfo {
 const ALLOWED_IMAGE_TYPES = ["image/png", "image/jpg", "image/bmp", "image/jpeg"];
 const MAX_IMAGE_SIZE = 1024 * 1024 * 2;
 const emits = defineEmits(["showMenu"]);
-const userInfo = ref<UserInfo>({
-    id: 0,
-    userName: "",
-    img: "",
-    remark: "",
-});
 const localInfo = (() => {
     try {
         return JSON.parse(sessionStorage.getItem("userInfo") || "null");
@@ -76,8 +71,18 @@ const localInfo = (() => {
         return null;
     }
 })();
+const hasSession = !!sessionStorage.getItem("token");
+const cachedAvatar = sessionStorage.getItem("nowTouxiang") || "";
+const userInfo = ref<UserInfo>({
+    id: Number(localInfo?.userId) || 0,
+    userName: localInfo?.userName || "",
+    img: cachedAvatar,
+    remark: localInfo?.remark || "",
+});
 const route = useRoute();
-const imgValue = ref(imgBase);
+const imgValue = ref(avatarUrl(cachedAvatar));
+const avatarLoaded = ref(false);
+const avatarText = computed(() => userInfo.value.userName.trim().slice(0, 1) || "用");
 const breadCrumbs = ref<any[]>([]);
 const extraBreadCrumbs = ref<GlobeBreadcrumbType[]>([]);
 
@@ -92,6 +97,17 @@ function logout() {
     router.replace({ path: "/login" });
 }
 
+function avatarUrl(img?: string) {
+    if (!img) return "";
+    if (/^(data:|blob:|https?:)/.test(img)) return img;
+    return `${import.meta.env.VITE_APP_BASE_URL}headImg/${img}`;
+}
+
+function onAvatarError() {
+    avatarLoaded.value = false;
+    imgValue.value = "";
+}
+
 async function getUserList() {
     if (!localInfo?.userId) return;
     try {
@@ -104,10 +120,13 @@ async function getUserList() {
             img: row.img,
             remark: row.remark,
         };
-        sessionStorage.setItem("nowTouxiang", row.img);
-        imgValue.value = row.img
-            ? import.meta.env.VITE_APP_BASE_URL + "headImg/" + row.img
-            : imgBase;
+        const nextAvatar = row.img || "";
+        sessionStorage.setItem("nowTouxiang", nextAvatar);
+        const nextUrl = avatarUrl(nextAvatar);
+        if (nextUrl !== imgValue.value) {
+            avatarLoaded.value = false;
+            imgValue.value = nextUrl;
+        }
     } catch { }
 }
 
@@ -129,6 +148,7 @@ function getImg(e: Event) {
         const result = event.target?.result;
         if (typeof result !== "string") return;
 
+        avatarLoaded.value = false;
         imgValue.value = result;
         const data: UpdateImgParams = {
             id: localInfo?.userId,
@@ -289,11 +309,27 @@ onMounted(() => {
     background: #fff;
     flex: none;
 
-    img {
+    img,
+    .avatar-fallback {
         width: 100%;
         height: 100%;
+    }
+
+    img {
         object-fit: cover;
         display: block;
+    }
+
+    .avatar-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--brand);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        user-select: none;
     }
 
     input {

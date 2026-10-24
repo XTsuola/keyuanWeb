@@ -20,7 +20,6 @@ import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
 import { login } from "@/api/login";
-import { useLoginTransitionStore } from "@/stores/loginTransition";
 import MD5 from "crypto-js/md5";
 
 interface FormState {
@@ -39,7 +38,6 @@ interface LoginUser {
 }
 
 const router = useRouter();
-const loginTransition = useLoginTransitionStore();
 const loading = ref(false);
 const formState = reactive<FormState>({
     username: "admin",
@@ -93,7 +91,6 @@ async function onFinish(values: FormState) {
             return;
         }
         saveSession(user);
-        loginTransition.show();
         message.success(payload?.msg || "登录成功");
         await router.push("/");
     } finally {
