@@ -106,7 +106,7 @@ const typeCounts = computed(() => {
 });
 
 const qualityCounts = computed(() => {
-    const counts: Record<string, number> = { white: 0, green: 0, blue: 0, purple: 0 };
+    const counts: Record<string, number> = { 白: 0, 绿: 0, 蓝: 0, 紫: 0 };
     for (const enemy of cailiaoEnemies) {
         for (const mat of enemy.materials) counts[mat[1]] += 1;
     }
