@@ -293,7 +293,7 @@ export const qibingList: UnitLine[] = [{
     id: 3309,
     name: ["马穆鲁克", "精锐马穆鲁克"],
     cost: [0, 55, 85, 0],
-    tag: [4, 5, 6, 20],
+    tag: [5, 6, 20],
     skill: ["/", "/"],
     life: [80, 80],
     att: [8, 10],

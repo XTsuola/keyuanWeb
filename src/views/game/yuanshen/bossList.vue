@@ -55,7 +55,7 @@
                         <div class="spot-top">
                             <h3 class="spot-name">{{ boss.name }}</h3>
                             <span class="spot-kind" :style="{ color: kindColor(boss.kind) }">{{ kindNameOf(boss.kind)
-                            }}</span>
+                                }}</span>
                         </div>
                         <div class="mat-chips">
                             <button v-for="mat in boss.materials" :key="mat[0]" type="button" class="mat-chip"

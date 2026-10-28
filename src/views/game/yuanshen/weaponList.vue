@@ -31,7 +31,7 @@
                 <a-select v-model:value="formState.tag" style="width: 100%" mode="multiple" placeholder="请选择标签">
                     <a-select-option v-for="item in tabList" :key="item" :value="item">{{
                         item
-                        }}</a-select-option>
+                    }}</a-select-option>
                 </a-select>
             </a-form-item>
             <a-form-item>

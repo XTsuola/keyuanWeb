@@ -4,12 +4,10 @@
             <div class="title">幽境危战</div>
             <div class="result-tip">共 {{ filteredList.length }} / {{ youjingList.length }} 期</div>
         </div>
-
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" autocomplete="off">
                 <a-form-item label="名称">
-                    <a-input v-model:value="keyword" allow-clear placeholder="搜索期次、版本、战役或首领"
-                        class="search-control" />
+                    <a-input v-model:value="keyword" allow-clear placeholder="搜索期次、版本、战役或首领" class="search-control" />
                 </a-form-item>
             </a-form>
             <div class="filter-btns">
@@ -29,7 +27,6 @@
                 </div>
             </div>
         </div>
-
         <div v-if="filteredList.length" class="period-list">
             <article v-for="item in filteredList" :key="item.period" class="period-card"
                 :style="{ borderLeftColor: versionColor(item.version) }" @click="showDetail(item)">
@@ -51,9 +48,8 @@
             </article>
         </div>
         <a-empty v-else class="empty" description="没有匹配的幽境危战期次" />
-
-        <a-modal v-model:open="visible" :title="current ? `第 ${current.period} 期 · ${current.name}` : ''"
-            :footer="null" destroyOnClose centered width="560px" wrap-class-name="youjing-detail-modal">
+        <a-modal v-model:open="visible" :title="current ? `第 ${current.period} 期 · ${current.name}` : ''" :footer="null"
+            destroyOnClose centered width="560px" wrap-class-name="youjing-detail-modal">
             <template v-if="current">
                 <div class="detail-meta">
                     {{ current.version }} 版本 · {{ current.start }} ～ {{ current.end }}
@@ -74,7 +70,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { ref, computed } from "vue";
 import { bossesMerged, bossesOf, youjingList, youjingVersions, type YoujingPeriod } from "@/utils/sxsyyuanshen/youjingData";
 
 const tiers = [4, 5] as const;
@@ -270,7 +266,7 @@ function showDetail(item: YoujingPeriod) {
     color: rgba(0, 0, 0, 0.45);
 }
 
-.tier-block + .tier-block {
+.tier-block+.tier-block {
     margin-top: 10px;
 }
 

@@ -4,12 +4,10 @@
             <div class="title">深渊列表</div>
             <div class="result-tip">共 {{ filteredList.length }} / {{ shenyuanList.length }} 期</div>
         </div>
-
         <div class="search-panel">
             <a-form class="searchHead" layout="inline" autocomplete="off">
                 <a-form-item label="名称">
-                    <a-input v-model:value="keyword" allow-clear placeholder="搜索期次、版本、怪物或地脉"
-                        class="search-control" />
+                    <a-input v-model:value="keyword" allow-clear placeholder="搜索期次、版本、怪物或地脉" class="search-control" />
                 </a-form-item>
             </a-form>
             <div class="filter-btns">
@@ -29,7 +27,6 @@
                 </div>
             </div>
         </div>
-
         <div v-if="filteredList.length" class="period-list">
             <article v-for="item in filteredList" :key="item.period" class="period-card"
                 :style="{ borderLeftColor: versionColor(item.version) }" @click="showDetail(item)">
@@ -53,7 +50,6 @@
             </article>
         </div>
         <a-empty v-else class="empty" description="没有匹配的深渊期次" />
-
         <a-modal v-model:open="visible" :title="current ? `第 ${current.period} 期 · ${current.version}` : ''"
             :footer="null" destroyOnClose centered width="720px" wrap-class-name="shenyuan-detail-modal">
             <template v-if="current">
@@ -69,7 +65,8 @@
                         <div v-for="half in halves" :key="half" class="chamber-cell">
                             <div class="chamber-label">{{ roomName(room) }}{{ half === "up" ? "上半" : "下半" }}</div>
                             <div class="enemy-tags">
-                                <span v-for="(enemy, idx) in enemiesOf(current, room, half)" :key="idx" class="enemy-tag">
+                                <span v-for="(enemy, idx) in enemiesOf(current, room, half)" :key="idx"
+                                    class="enemy-tag">
                                     {{ formatEnemy(enemy) }}
                                 </span>
                             </div>
@@ -82,15 +79,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import {
-    buffText,
-    enemiesOf,
-    formatEnemy,
-    shenyuanList,
-    shenyuanVersions,
-    type ShenyuanPeriod,
-} from "@/utils/sxsyyuanshen/shenyuanData";
+import { ref, computed } from "vue";
+import { buffText, enemiesOf, formatEnemy, shenyuanList, shenyuanVersions, type ShenyuanPeriod } from "@/utils/sxsyyuanshen/shenyuanData";
 
 const rooms = [1, 2, 3] as const;
 const halves = ["up", "down"] as const;
@@ -343,7 +333,7 @@ function showDetail(item: ShenyuanPeriod) {
     p {
         margin: 0;
 
-        & + p {
+        &+p {
             margin-top: 6px;
         }
     }

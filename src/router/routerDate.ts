@@ -72,6 +72,8 @@ const newRouterDate: RouteRecordRaw[] = [
           menu("yuanshenBossList", "Boss列表", () => import("@/views/game/yuanshen/bossList.vue")),
           menu("yuanshenShenyuanList", "深渊列表", () => import("@/views/game/yuanshen/shenyuanList.vue")),
           menu("yuanshenYoujingList", "幽境危战", () => import("@/views/game/yuanshen/youjingList.vue")),
+          menu("yuanshenShengyiwuList", "圣遗物", () => import("@/views/game/yuanshen/shengyiwuList.vue")),
+          menu("yuanshenJushiList", "幻想剧诗", () => import("@/views/game/yuanshen/jushiList.vue")),
         ]),
         folder("huoyanwenzhang", "火焰纹章", "UnorderedListOutlined", [
           menu("huoyanwenzhangArmsList", "兵种列表", () => import("@/views/game/hywz/armsList.vue")),
