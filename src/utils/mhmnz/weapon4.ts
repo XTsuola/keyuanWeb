@@ -1,4 +1,4 @@
-export const weaponData = [
+export const weaponData4 = [
     {
         "id": 1,
         "name": "皮靴",

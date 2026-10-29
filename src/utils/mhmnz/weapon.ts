@@ -1,7 +1,7 @@
 import { weaponData1 } from "./weapon1";
 import { weaponData2 } from "./weapon2";
 import { weaponData3 } from "./weapon3";
-import { weaponData as weaponData4 } from "./weapon4";
+import { weaponData4 } from "./weapon4";
 import { weaponData5 } from "./weapon5";
 
 /**

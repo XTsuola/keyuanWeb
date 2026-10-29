@@ -113,7 +113,7 @@ const columns = ref<any>([
         key: "action",
         align: "center",
         list: ["detail", "edit", "delete"],
-        width: 120
+        width: 220
     },
 ]);
 const loading = ref<boolean>(false);
