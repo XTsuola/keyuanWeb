@@ -1,17 +1,17 @@
-// 帝国：（16张）、（22.31级）
+// 帝国：（16张）、（22.69级）
 export const simangdiguo = [
-    [ // 蓝卡：（3张）、（21.67级）
+    [ // 蓝卡：（3张）、（22.67级）
         { cost: 3, name: "田园守望者", level: 23 },
         { cost: 3, name: "塔楼弓手", level: 22 },
-        { cost: 5, name: "光明惩戒", level: 20 },
+        { cost: 5, name: "光明惩戒", level: 23 },
     ],
-    [ // 紫卡：（7张）、（22.43级）
+    [ // 紫卡：（7张）、（22.86级）
         { cost: 1, name: "四芒军旗", level: 22 },
         { cost: 1, name: "传记·钢铁守卫", level: 22 },
         { cost: 2, name: "圣殿御卫", level: 24 },
-        { cost: 2, name: "符文·民兵集结", level: 19 },
+        { cost: 2, name: "符文·民兵集结", level: 21 },
         { cost: 3, name: "白袍主教", level: 24 },
-        { cost: 3, name: "圣殿骑士", level: 23 },
+        { cost: 3, name: "圣殿骑士", level: 24 },
         { cost: 4, name: "召集护卫", level: 23 },
     ],
     [ // 橙卡：（6张）、（22.50级）
@@ -24,7 +24,7 @@ export const simangdiguo = [
     ],
 ];
 
-// 港口：（15张）、（21.27）
+// 港口：（15张）、（21.47）
 export const tiantanggang = [
     [ // 蓝卡：（8张）、（21.75级）
         { cost: 1, name: "心灵黑洞1", level: 19 },
@@ -40,20 +40,20 @@ export const tiantanggang = [
         { cost: 2, name: "海燕精卫", level: 24 },
         { cost: 4, name: "黑金诈术师", level: 20 },
     ],
-    [ // 橙卡：（5张）、（20.20级）
+    [ // 橙卡：（5张）、（20.80级）
         { cost: 3, name: "花剑绅士·翔", level: 22 },
-        { cost: 3, name: "海燕·鲍莉", level: 22 },
-        { cost: 4, name: "赤影·艾希尔", level: 19 },
-        { cost: 4, name: "魔卡幻术师·梅基", level: 16 },
+        { cost: 3, name: "海燕·鲍莉", level: 23 },
+        { cost: 4, name: "赤影·艾希尔", level: 20 },
+        { cost: 4, name: "魔卡幻术师·梅基", level: 17 },
         { cost: 5, name: "钢之咆哮·布瑞恩", level: 22 },
     ],
 ];
 
-// 隐秘：（15张）、（17.27级）
+// 隐秘：（15张）、（17.33级）
 export const yinmizhe = [
-    [ // 蓝卡：（4张）、（18.25级）
+    [ // 蓝卡：（4张）、（18.50级）
         { cost: 2, name: "学仆-观测型", level: 24 },
-        { cost: 2, name: "沉重否定1", level: 15 },
+        { cost: 2, name: "沉重否定1", level: 16 },
         { cost: 2, name: "沉重否定2", level: 15 },
         { cost: 3, name: "全数否定", level: 19 },
     ],

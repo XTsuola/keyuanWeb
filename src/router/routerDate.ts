@@ -63,6 +63,7 @@ const newRouterDate: RouteRecordRaw[] = [
           ...friendRouter,
           menu("ceshiCard", "测试卡等", () => import("@/views/game/zlzq/zzz_ceshiLevel.vue")),
           menu("bikebiao", "提升曲线", () => import("@/views/game/zlzq/zzz_xy_bikebiao.vue")),
+          menu("qunchengyuanList", "群成员", () => import("@/views/game/zlzq/qunchengyuanList.vue")),
         ]),
         folder("yuanshen", "原神", "UnorderedListOutlined", [
           menu("yuanshenHeroList", "英雄列表", () => import("@/views/game/yuanshen/heroList.vue")),

@@ -45,19 +45,21 @@
                 </a-form-item>
             </a-form>
         </section>
-        <section ref="exportRef" class="summary-bar">
-            <div class="summary-item" v-for="item in summaryRows" :key="item.label">
-                <span class="summary-label">{{ item.label }}</span>
-                <span class="summary-value">
-                    {{ item.value }}
-                    <em v-if="item.count != null">（{{ item.count }}张）</em>
-                </span>
-            </div>
-        </section>
-        <section class="table-wrap">
-            <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"
-                :rowClassName="(record) => `quality-row-${record.quality}`" />
-        </section>
+        <div ref="exportRef" class="export-sheet">
+            <section class="summary-bar">
+                <div class="summary-item" v-for="item in summaryRows" :key="item.label">
+                    <span class="summary-label">{{ item.label }}</span>
+                    <span class="summary-value">
+                        {{ item.value }}
+                        <em v-if="item.count != null">（{{ item.count }}张）</em>
+                    </span>
+                </div>
+            </section>
+            <section class="table-wrap">
+                <MyTabel :columnsData="columns" :dataSource="tableData" :pagination="false"
+                    :rowClassName="(record) => `quality-row-${record.quality}`" />
+            </section>
+        </div>
     </div>
 </template>
 
@@ -275,12 +277,28 @@ async function exportImage() {
     }
     exporting.value = true;
     try {
+        const countText = `共 ${tableData.value.length} 张 · 平均卡等 ${allLevel.value}`;
         const canvas = await html2canvas(exportRef.value, {
             backgroundColor: "#ffffff",
             scale: 2,
+            useCORS: true,
+            onclone(doc) {
+                const sheet = doc.querySelector(".export-sheet") as HTMLElement | null;
+                if (!sheet) return;
+                sheet.style.padding = "20px";
+                sheet.style.background = "#ffffff";
+                const caption = doc.createElement("div");
+                caption.textContent = `卡牌列表  ${countText}`;
+                caption.style.cssText = "margin:0 0 16px;font-size:18px;font-weight:650;color:#1f1f1f;line-height:1.4;";
+                sheet.prepend(caption);
+                sheet.querySelectorAll<HTMLElement>(".ant-table-content, .ant-table-body, .data-table, .ant-table-wrapper").forEach((node) => {
+                    node.style.overflow = "visible";
+                    node.style.maxHeight = "none";
+                });
+            },
         });
         const link = document.createElement("a");
-        link.download = `卡牌统计_${tableData.value.length}张.png`;
+        link.download = `卡牌列表_${tableData.value.length}张.png`;
         link.href = canvas.toDataURL("image/png");
         link.click();
         message.success("导出成功");
@@ -363,6 +381,10 @@ onMounted(() => {
         display: flex;
         gap: 8px;
     }
+}
+
+.export-sheet {
+    background: transparent;
 }
 
 .summary-bar {
