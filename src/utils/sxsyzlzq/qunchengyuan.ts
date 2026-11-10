@@ -567,10 +567,6 @@ export const member = [{
     time: "20261107",
     remark: ""
 }, {
-    name: "1服苏奥然",
-    time: "20261107",
-    remark: ""
-}, {
     name: "鹅米豆锅盔",
     time: "20261107",
     remark: "美尊"
