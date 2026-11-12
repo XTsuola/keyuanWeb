@@ -100,7 +100,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "vue";
-import { jushiBosses, jushiElements, jushiList, type JushiElement, type JushiPeriod } from "@/utils/sxsyyuanshen/huanxiangjushi";
+import { jushiBosses, jushiElements, jushiList, type JushiElement, type JushiPeriod } from "@/utils/sxsyyuanshen/2_huanxiangjushiData";
 
 const keyword = ref("");
 const activeElement = ref<"" | JushiElement>("");

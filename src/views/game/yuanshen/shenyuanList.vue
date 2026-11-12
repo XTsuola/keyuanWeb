@@ -80,7 +80,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
-import { buffText, enemiesOf, formatEnemy, shenyuanList, shenyuanVersions, type ShenyuanPeriod } from "@/utils/sxsyyuanshen/shenyuanData";
+import { buffText, enemiesOf, formatEnemy, shenyuanList, shenyuanVersions, type ShenyuanPeriod } from "@/utils/sxsyyuanshen/1_shenyuanData";
 
 const rooms = [1, 2, 3] as const;
 const halves = ["up", "down"] as const;

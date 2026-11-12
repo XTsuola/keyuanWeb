@@ -71,7 +71,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
-import { bossesMerged, bossesOf, youjingList, youjingVersions, type YoujingPeriod } from "@/utils/sxsyyuanshen/youjingData";
+import { bossesMerged, bossesOf, youjingList, youjingVersions, type YoujingPeriod } from "@/utils/sxsyyuanshen/3_youjingData";
 
 const tiers = [4, 5] as const;
 const roomNames = ["第一间", "第二间", "第三间"];
