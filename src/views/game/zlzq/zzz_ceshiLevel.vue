@@ -228,7 +228,10 @@ for (let i = 0; i < ceshiData.cardList.length; i++) {
 }
 name.value = `${ceshiData.name}-${ceshiData.hero.name}`;
 const img = heroData.find((e: any) => e.id == ceshiData.hero.id)?.img;
-heroImg.value = img ? String(img) : "";
+const nowImg = img ? ("../../../assets/images/heroImg" + String(img)) : "";
+console.log(nowImg)
+heroImg.value = new URL(nowImg, import.meta.url).href;
+console.log(heroImg.value)
 nowLife.value = ceshiData.hero.life;
 const to24Level = reactive({
     baishitou: 0,

@@ -1,12 +1,37 @@
-// 隐秘：（15张）、（22.60级）
+// 帝国：（15张）、（23.00级）
+export const simangdiguo = [
+    [ // 蓝卡：（9张）、（23.78级）
+        { cost: 1, name: "圣殿斥候", level: 24 },
+        { cost: 2, name: "圣殿卫士", level: 24 },
+        { cost: 2, name: "天使琼浆", level: 24 },
+        { cost: 2, name: "炫目神光", level: 24 },
+        { cost: 3, name: "田园守望者1", level: 24 },
+        { cost: 3, name: "田园守望者2", level: 23 },
+        { cost: 3, name: "增援战线", level: 24 },
+        { cost: 5, name: "光明惩戒1", level: 24 },
+        { cost: 5, name: "光明惩戒2", level: 23 },
+    ],
+    [ // 紫卡：（3张）、（21.33级）
+        { cost: 1, name: "四芒军旗", level: 20 },
+        { cost: 4, name: "召集护卫", level: 21 },
+        { cost: 6, name: "惩戒天使", level: 23 },
+    ],
+    [ // 橙卡：（3张）、（22.33级）
+        { cost: 3, name: "曙光·安娜贝尔", level: 23 },
+        { cost: 4, name: "明日之音·露娜", level: 20 },
+        { cost: 6, name: "正阳大主教·伊恩", level: 24 },
+    ],
+];
+
+// 隐秘：（15张）、（22.73级）
 export const yinmizhe = [
     [ // 蓝卡：（3张）、（24.00级）
         { cost: 2, name: "学仆-观测型1", level: 24 },
         { cost: 2, name: "学仆-观测型2", level: 24 },
         { cost: 2, name: "沉重否定", level: 24 },
     ],
-    [ // 紫卡：（9张）、（22.00级）
-        { cost: 1, name: "隐形术", level: 21 },
+    [ // 紫卡：（9张）、（22.11级）
+        { cost: 1, name: "隐形术", level: 22 },
         { cost: 2, name: "破魔系教授", level: 24 },
         { cost: 2, name: "克隆术1", level: 18 },
         { cost: 2, name: "克隆术2", level: 17 },
@@ -16,35 +41,10 @@ export const yinmizhe = [
         { cost: 3, name: "符文·邪月之夜", level: 23 },
         { cost: 7, name: "米拉方舟", level: 23 },
     ],
-    [ // 橙卡：（3张）、（23.00级）
+    [ // 橙卡：（3张）、（23.33级）
         { cost: 3, name: "No.5咒刃·布雷克", level: 24 },
-        { cost: 4, name: "鬼童-7号", level: 23 },
+        { cost: 4, name: "鬼童-7号", level: 24 },
         { cost: 5, name: "No.2时光·米拉", level: 22 },
-    ],
-];
-
-// 帝国：（15张）、（21.40级）
-export const simangdiguo = [
-    [ // 蓝卡：（9张）、（23.67级）
-        { cost: 1, name: "圣殿斥候", level: 24 },
-        { cost: 2, name: "圣殿卫士", level: 24 },
-        { cost: 2, name: "天使琼浆", level: 24 },
-        { cost: 2, name: "炫目神光", level: 24 },
-        { cost: 3, name: "田园守望者1", level: 24 },
-        { cost: 3, name: "田园守望者2", level: 23 },
-        { cost: 3, name: "增援战线", level: 24 },
-        { cost: 5, name: "光明惩戒1", level: 24 },
-        { cost: 5, name: "光明惩戒2", level: 22 },
-    ],
-    [ // 紫卡：（3张）、（22.00级）
-        { cost: 1, name: "四芒军旗", level: 20 },
-        { cost: 2, name: "圣殿御卫", level: 24 },
-        { cost: 6, name: "惩戒天使", level: 22 },
-    ],
-    [ // 橙卡：（3张）、（22.00级）
-        { cost: 3, name: "曙光·安娜贝尔", level: 22 },
-        { cost: 4, name: "明日之音·露娜", level: 20 },
-        { cost: 6, name: "正阳大主教·伊恩", level: 24 },
     ],
 ];
 
